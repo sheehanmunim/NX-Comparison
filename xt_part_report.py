@@ -8,6 +8,10 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+from xt_engine.topology import build_topology_from_kernel_body
+from xt_kernel import build_kernel_body
+from xt_parser_foundation import infer_entity_hints, parse_xt_structure
+
 
 NUMBER_PATTERN = r"[+-]?(?:\d+\.\d*|\.\d+|\d+)(?:e[+-]?\d+)?"
 PRINTABLE_ASCII = set(range(32, 127))
@@ -205,7 +209,9 @@ def extract_geometry_points(normalized_text: str) -> list[tuple[float, float, fl
         point = tuple(float(value) for value in raw_values)
         if not all(abs(value) <= 2 for value in point):
             continue
-        if not any("." in value or "e" in value.lower() for value in raw_values):
+        # Keep the origin even when XT encodes it as plain integers; several
+        # simple round-part files pair that origin with a decimal end-center.
+        if not any("." in value or "e" in value.lower() for value in raw_values) and any(abs(value) > 1e-12 for value in point):
             continue
         points.append(point)
 
@@ -509,6 +515,10 @@ def analyze_xt_text(
     bounds = summarize_bounds(geometry_points)
     decoded_names = extract_unames(normalized_text)
     model_analysis = infer_model_analysis(geometry_points, bounds, decoded_names, notable_scalars)
+    structured_parse = parse_xt_structure(normalized_text)
+    entity_hints = infer_entity_hints(structured_parse, decoded_names)
+    kernel_body = build_kernel_body(geometry_points, bounds, decoded_names, structured_parse, notable_scalars, entity_hints)
+    kernel_topology = build_topology_from_kernel_body(kernel_body.to_dict() if kernel_body else None)
 
     result: dict[str, Any] = {
         "file": source_path or display_name,
@@ -522,6 +532,10 @@ def analyze_xt_text(
         "colors": colors,
         "has_scale_factor_attribute": "SDL/TYSA_SCALE_FACTOR" in normalized_text,
         "object_state_ids": extract_object_state_ids(normalized_text),
+        "structured_parse": structured_parse,
+        "entity_hints": entity_hints,
+        "kernel_body": kernel_body.to_dict() if kernel_body else None,
+        "kernel_topology": kernel_topology,
         "geometry_hints": {
             "point_count": len(geometry_points),
             "point_samples": [format_triplet(point) for point in geometry_points[:12]],
@@ -622,12 +636,16 @@ def print_text_report(report: dict[str, Any]) -> None:
 
     geometry_hints = report["geometry_hints"]
     model_analysis = report.get("model_analysis", {})
+    kernel_body = report.get("kernel_body")
     if geometry_hints["bounds"]:
         bounds = geometry_hints["bounds"]
         print(
             "  Bounds Hint: "
             f"min={tuple(bounds['min'])} max={tuple(bounds['max'])} size={tuple(bounds['size'])}"
         )
+
+    if kernel_body:
+        print(f"  Kernel Body: {kernel_body['name']} ({kernel_body['kind']})")
 
     if model_analysis.get("summary"):
         print("  Model Analysis:")

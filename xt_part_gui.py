@@ -467,6 +467,10 @@ HTML = """<!doctype html>
       return `${topology.face_count} faces / ${topology.edge_count} edges`;
     }
 
+    function kernelLabel(report) {
+      return report?.kernel_body?.name || "Not reconstructed";
+    }
+
     function compareDiffInfo(left, right) {
       const info = {
         changedAxes: [],
@@ -664,6 +668,7 @@ HTML = """<!doctype html>
         ["Source App", report.header?.PART1?.APPL || "Unknown"],
         ["Date", report.header?.PART1?.DATE || "Unknown"],
         ["Schema", report.header?.PART2?.SCH || "Unknown"],
+        ["Kernel Body", kernelLabel(report)],
         ["Inferred Shape", topologyLabel(report)],
         ["Faces / Edges", topologyCounts(report)],
         ["Density", formatDensity(report)],
@@ -693,6 +698,7 @@ HTML = """<!doctype html>
         ["Path", report.file],
         ["Date", report.header?.PART1?.DATE || "Unknown"],
         ["Decoded Names", report.decoded_names?.join(", ") || "None"],
+        ["Kernel Body", kernelLabel(report)],
         ["Inferred Shape", topologyLabel(report)],
         ["Faces / Edges", topologyCounts(report)],
         ["Density", formatDensity(report)],
@@ -722,6 +728,7 @@ HTML = """<!doctype html>
         "Part Summary",
         "",
         `Decoded entity names: ${report.decoded_names?.join(", ") || "None"}`,
+        `Kernel body: ${kernelLabel(report)}`,
         `Inferred shape: ${topologyLabel(report)}`,
         `Faces / edges: ${topologyCounts(report)}`,
         `Material density: ${formatDensity(report)}`,
@@ -821,6 +828,8 @@ HTML = """<!doctype html>
 
       const analysis = report.model_analysis || {};
       const topology = analysis.topology;
+      const kernelBody = report.kernel_body || null;
+      const kernelTopology = report.kernel_topology || null;
       const levels = analysis.unique_axis_levels || {};
       const lines = [
         "Model Analysis",
@@ -837,6 +846,16 @@ HTML = """<!doctype html>
 
       lines.push(
         "",
+        "Kernel Body",
+        "-----------",
+        `Name : ${kernelBody?.name || "None"}`,
+        `Kind : ${kernelBody?.kind || "None"}`,
+        `Primitive : ${kernelBody?.metadata?.primitive || "None"}`,
+        `Topology vertices : ${kernelTopology?.vertices?.length || 0}`,
+        `Topology edges : ${kernelTopology?.edges?.length || 0}`,
+        `Topology loops : ${kernelTopology?.loops?.length || 0}`,
+        `Topology faces : ${kernelTopology?.faces?.length || 0}`,
+        "",
         "Axis Levels",
         "-----------",
         `X : ${(levels.x || []).join(", ") || "None"}`,
@@ -849,6 +868,12 @@ HTML = """<!doctype html>
           lines.push("", "Curve / Entity Hints", "--------------------");
           for (const hint of analysis.curve_hints) {
             lines.push(`- ${hint}`);
+          }
+        }
+        if (kernelTopology) {
+          lines.push("", "Kernel Topology", "---------------");
+          for (const face of kernelTopology.faces || []) {
+            lines.push(`${face.id} | ${face.name} | ${face.surface_kind} | loops ${face.loop_ids.join(", ")}`);
           }
         }
         panel.textContent = lines.join("\\n");
@@ -878,6 +903,16 @@ HTML = """<!doctype html>
         lines.push(
           `Length ${edge.length.model_units} (${edge.length.millimeters} mm, ${edge.length.inches} in) | count ${edge.count}`
         );
+      }
+
+      if (kernelTopology) {
+        lines.push("", "Kernel Topology", "---------------");
+        for (const edge of kernelTopology.edges || []) {
+          lines.push(`${edge.id} | ${edge.kind} | vertices ${edge.vertex_ids.join(" -> ")}`);
+        }
+        for (const face of kernelTopology.faces || []) {
+          lines.push(`${face.id} | ${face.name} | ${face.surface_kind} | loops ${face.loop_ids.join(", ")}`);
+        }
       }
 
       if (analysis.curve_hints?.length) {
@@ -1043,18 +1078,200 @@ HTML = """<!doctype html>
       ctx2d.fill();
     }
 
+    function axisVector(axis) {
+      if (axis === "x") return [1, 0, 0];
+      if (axis === "y") return [0, 1, 0];
+      return [0, 0, 1];
+    }
+
+    function orthogonalBasis(axis) {
+      if (axis === "x") return [[0, 1, 0], [0, 0, 1]];
+      if (axis === "y") return [[1, 0, 0], [0, 0, 1]];
+      return [[1, 0, 0], [0, 1, 0]];
+    }
+
+    function addVec(a, b) {
+      return [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
+    }
+
+    function scaleVec(v, factor) {
+      return [v[0] * factor, v[1] * factor, v[2] * factor];
+    }
+
+    function circlePoints(center, axis, radius, segmentCount, offsetAlongAxis = 0) {
+      const axisVec = axisVector(axis);
+      const [u, v] = orthogonalBasis(axis);
+      const shiftedCenter = addVec(center, scaleVec(axisVec, offsetAlongAxis));
+      const points = [];
+      for (let i = 0; i < segmentCount; i++) {
+        const angle = (i / segmentCount) * Math.PI * 2;
+        const radial = addVec(scaleVec(u, Math.cos(angle) * radius), scaleVec(v, Math.sin(angle) * radius));
+        points.push(addVec(shiftedCenter, radial));
+      }
+      return points;
+    }
+
+    function boundsFromPoints(points) {
+      if (!points.length) return null;
+      const xs = points.map((point) => point[0]);
+      const ys = points.map((point) => point[1]);
+      const zs = points.map((point) => point[2]);
+      const min = [Math.min(...xs), Math.min(...ys), Math.min(...zs)];
+      const max = [Math.max(...xs), Math.max(...ys), Math.max(...zs)];
+      return {
+        min,
+        max,
+        size: [max[0] - min[0], max[1] - min[1], max[2] - min[2]]
+      };
+    }
+
+    function previewGeometryFromKernelBody(body) {
+      if (!body) return { faces: [], points: [], edges: [] };
+
+      if (body.faces?.some((face) => face.vertices?.length)) {
+        const faces = body.faces
+          .filter((face) => face.vertices?.length)
+          .map((face) => ({
+            name: face.name,
+            axis: face.metadata?.axis || null,
+            normal: face.normal || null,
+            vertices: face.vertices.map((vertex) => vertex.map(Number))
+          }));
+        const points = faces.flatMap((face) => face.vertices);
+        return { faces, points, edges: [] };
+      }
+
+      if (body.metadata?.primitive === "cylinder") {
+        const axis = body.metadata.axis;
+        const radius = Number(body.metadata.radius);
+        const height = Number(body.metadata.height);
+        const center = body.metadata.center.map(Number);
+        const segmentCount = 28;
+        const axisVec = axisVector(axis);
+        const startCenter = addVec(center, scaleVec(axisVec, -height / 2));
+        const endCenter = addVec(center, scaleVec(axisVec, height / 2));
+        const startRing = circlePoints(startCenter, axis, radius, segmentCount, 0);
+        const endRing = circlePoints(endCenter, axis, radius, segmentCount, 0);
+        const faces = [];
+
+        for (let i = 0; i < segmentCount; i++) {
+          const next = (i + 1) % segmentCount;
+          faces.push({
+            name: `Cylinder side ${i}`,
+            axis,
+            normal: null,
+            vertices: [startRing[i], startRing[next], endRing[next], endRing[i]]
+          });
+        }
+
+        faces.push({
+          name: "Start cap",
+          axis,
+          normal: scaleVec(axisVec, -1),
+          vertices: [...startRing].reverse()
+        });
+        faces.push({
+          name: "End cap",
+          axis,
+          normal: axisVec,
+          vertices: endRing
+        });
+
+        return {
+          faces,
+          points: [...startRing, ...endRing],
+          edges: []
+        };
+      }
+
+      if (body.metadata?.primitive === "sphere") {
+        const center = body.metadata.center.map(Number);
+        const radius = Number(body.metadata.radius);
+        const latSegments = 10;
+        const lonSegments = 20;
+        const faces = [];
+        const points = [];
+
+        function spherePoint(phi, theta) {
+          return [
+            center[0] + radius * Math.sin(phi) * Math.cos(theta),
+            center[1] + radius * Math.sin(phi) * Math.sin(theta),
+            center[2] + radius * Math.cos(phi)
+          ];
+        }
+
+        for (let lat = 0; lat < latSegments; lat++) {
+          const phi1 = (lat / latSegments) * Math.PI;
+          const phi2 = ((lat + 1) / latSegments) * Math.PI;
+          for (let lon = 0; lon < lonSegments; lon++) {
+            const theta1 = (lon / lonSegments) * Math.PI * 2;
+            const theta2 = ((lon + 1) / lonSegments) * Math.PI * 2;
+            const quad = [
+              spherePoint(phi1, theta1),
+              spherePoint(phi1, theta2),
+              spherePoint(phi2, theta2),
+              spherePoint(phi2, theta1)
+            ];
+            faces.push({
+              name: `Sphere patch ${lat}-${lon}`,
+              axis: null,
+              normal: null,
+              vertices: quad
+            });
+            points.push(...quad);
+          }
+        }
+
+        return { faces, points, edges: [] };
+      }
+
+      if (body.metadata?.primitive === "arc_or_circle") {
+        const edge = body.edges?.[0];
+        if (!edge) return { faces: [], points: [], edges: [] };
+        const center = edge.center.map(Number);
+        const radius = Number(edge.radius);
+        const normal = edge.normal?.map(Number) || [0, 0, 1];
+        const segmentCount = 48;
+        const axis = Math.abs(normal[2]) >= Math.abs(normal[0]) && Math.abs(normal[2]) >= Math.abs(normal[1])
+          ? "z"
+          : (Math.abs(normal[1]) > Math.abs(normal[0]) ? "y" : "x");
+        const points = circlePoints(center, axis, radius, segmentCount, 0);
+        const edges = [];
+        for (let i = 0; i < points.length; i++) {
+          edges.push({
+            kind: "arc_segment",
+            axis,
+            points: [points[i], points[(i + 1) % points.length]]
+          });
+        }
+        return { faces: [], points, edges };
+      }
+
+      return { faces: [], points: [], edges: [] };
+    }
+
     function getPreviewData(report) {
       if (!report) return null;
       const points = (report.geometry_hints?.preview_points || []).map((point) => point.map(Number));
-      const bounds = report.geometry_hints?.bounds;
-      const topology = report.model_analysis?.topology || null;
-      if (!points.length && !bounds && !topology) return null;
+      const kernelBody = report.kernel_body || null;
+      const kernelGeometry = previewGeometryFromKernelBody(kernelBody);
+      const cloud = [...points, ...kernelGeometry.points];
+      let bounds = report.geometry_hints?.bounds
+        ? {
+            min: report.geometry_hints.bounds.min.map(Number),
+            max: report.geometry_hints.bounds.max.map(Number),
+            size: report.geometry_hints.bounds.size.map(Number)
+          }
+        : null;
 
-      const cloud = [...points];
+      if (!bounds && kernelGeometry.points.length) {
+        bounds = boundsFromPoints(kernelGeometry.points);
+      }
+
       if (bounds) {
-        const min = bounds.min.map(Number);
-        const max = bounds.max.map(Number);
-        const corners = [
+        const min = bounds.min;
+        const max = bounds.max;
+        cloud.push(
           [min[0], min[1], min[2]],
           [max[0], min[1], min[2]],
           [max[0], max[1], min[2]],
@@ -1063,10 +1280,7 @@ HTML = """<!doctype html>
           [max[0], min[1], max[2]],
           [max[0], max[1], max[2]],
           [min[0], max[1], max[2]]
-        ];
-        for (const corner of corners) {
-          cloud.push(corner);
-        }
+        );
       }
 
       if (!cloud.length) return null;
@@ -1089,7 +1303,8 @@ HTML = """<!doctype html>
       return {
         points,
         bounds,
-        topology,
+        kernelBody,
+        kernelGeometry,
         center,
         span
       };
@@ -1138,29 +1353,40 @@ HTML = """<!doctype html>
         projectPoint(rotatePoint(point, viewer.yaw, viewer.pitch), scale, canvasEl, viewer)
       );
 
-      const projectedFaces = (preview.topology?.faces || []).map((face) => {
+      const projectedFaces = (preview.kernelGeometry?.faces || []).map((face) => {
         const rotatedVertices = face.vertices.map((point) => {
-          const numeric = point.map(Number);
           return rotatePoint([
-            numeric[0] - preview.center[0],
-            numeric[1] - preview.center[1],
-            numeric[2] - preview.center[2]
+            point[0] - preview.center[0],
+            point[1] - preview.center[1],
+            point[2] - preview.center[2]
           ], viewer.yaw, viewer.pitch);
         });
         const projectedVertices = rotatedVertices.map((point) => projectPoint(point, scale, canvasEl, viewer));
-        const rotatedNormal = rotatePoint(face.normal.map(Number), viewer.yaw, viewer.pitch);
+        const rotatedNormal = face.normal ? rotatePoint(face.normal.map(Number), viewer.yaw, viewer.pitch) : null;
         const averageDepth = rotatedVertices.reduce((sum, point) => sum + point[2], 0) / rotatedVertices.length;
+        let inferredAxis = face.axis;
+        if (!inferredAxis && face.vertices.length >= 2) {
+          const xs = face.vertices.map((vertex) => vertex[0]);
+          const ys = face.vertices.map((vertex) => vertex[1]);
+          const zs = face.vertices.map((vertex) => vertex[2]);
+          if (Math.max(...xs) - Math.min(...xs) < 1e-6) inferredAxis = "x";
+          else if (Math.max(...ys) - Math.min(...ys) < 1e-6) inferredAxis = "y";
+          else if (Math.max(...zs) - Math.min(...zs) < 1e-6) inferredAxis = "z";
+        }
         return {
           ...face,
+          axis: inferredAxis,
           rotatedNormal,
           averageDepth,
           projectedVertices
         };
-      }).sort((a, b) => a.averageDepth - b.averageDepth);
+      // Painter's algorithm: draw farther faces first so nearer caps/walls
+      // remain visible instead of being painted over by back faces.
+      }).sort((a, b) => b.averageDepth - a.averageDepth);
 
       if (forceMode === "solid" && projectedFaces.length) {
         for (const face of projectedFaces) {
-          if (face.rotatedNormal[2] >= 0.15) {
+          if (face.rotatedNormal && face.rotatedNormal[2] >= 0.15) {
             continue;
           }
           ctx2d.beginPath();
@@ -1169,7 +1395,10 @@ HTML = """<!doctype html>
             ctx2d.lineTo(vertex[0], vertex[1]);
           }
           ctx2d.closePath();
-          ctx2d.fillStyle = highlightAxes.includes(face.axis) ? "#ffcc80" : shadeForNormal(face.rotatedNormal);
+          const fillColor = highlightAxes.includes(face.axis)
+            ? "#ffcc80"
+            : (face.rotatedNormal ? shadeForNormal(face.rotatedNormal) : "#d9d9d9");
+          ctx2d.fillStyle = fillColor;
           ctx2d.fill();
           ctx2d.strokeStyle = highlightAxes.includes(face.axis) ? "#ef6c00" : "#5f5f5f";
           ctx2d.lineWidth = highlightAxes.includes(face.axis) ? 2 : 1;
@@ -1213,6 +1442,33 @@ HTML = """<!doctype html>
           ctx2d.beginPath();
           ctx2d.moveTo(projectedCorners[a][0], projectedCorners[a][1]);
           ctx2d.lineTo(projectedCorners[b][0], projectedCorners[b][1]);
+          ctx2d.stroke();
+        }
+      }
+
+      if (preview.kernelGeometry?.edges?.length && forceMode !== "points") {
+        for (const edge of preview.kernelGeometry.edges) {
+          const projectedEdge = edge.points.map((point) =>
+            projectPoint(
+              rotatePoint(
+                [
+                  point[0] - preview.center[0],
+                  point[1] - preview.center[1],
+                  point[2] - preview.center[2]
+                ],
+                viewer.yaw,
+                viewer.pitch
+              ),
+              scale,
+              canvasEl,
+              viewer
+            )
+          );
+          ctx2d.strokeStyle = highlightAxes.includes(edge.axis) ? "#ef6c00" : "#2f2f2f";
+          ctx2d.lineWidth = highlightAxes.includes(edge.axis) ? 2 : 1.5;
+          ctx2d.beginPath();
+          ctx2d.moveTo(projectedEdge[0][0], projectedEdge[0][1]);
+          ctx2d.lineTo(projectedEdge[1][0], projectedEdge[1][1]);
           ctx2d.stroke();
         }
       }
