@@ -274,6 +274,24 @@ HTML = """<!doctype html>
       display: grid;
       gap: 10px;
     }
+    .compare-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 10px 12px;
+      border: 1px solid #d8d8d8;
+      background: #fafafa;
+      font-size: 13px;
+      color: #444;
+    }
+    .compare-controls label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
     .compare-preview-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -383,7 +401,12 @@ HTML = """<!doctype html>
       reports: [],
       selected: [],
       activeTab: "overview",
-      viewer: defaultViewerState()
+      viewer: defaultViewerState(),
+      compareSync: false,
+      compareViewers: {
+        left: defaultViewerState(),
+        right: defaultViewerState()
+      }
     };
 
     const tabs = [
@@ -461,6 +484,57 @@ HTML = """<!doctype html>
       return bounds.size.map((value) => Number(value).toFixed(6)).join(" x ");
     }
 
+    function formatLength(value) {
+      const numeric = Number(value || 0);
+      return `${(numeric * 1000).toFixed(3)} mm (${(numeric * 39.37007874015748).toFixed(3)} in)`;
+    }
+
+    function formatSignedInches(value) {
+      const inches = Number(value || 0) * 39.37007874015748;
+      return `${inches >= 0 ? "+" : ""}${inches.toFixed(3)} in`;
+    }
+
+    function compareAxisDimensions(left, right) {
+      const axes = ["x", "y", "z"];
+      const leftBounds = left?.geometry_hints?.bounds;
+      const rightBounds = right?.geometry_hints?.bounds;
+      if (!leftBounds || !rightBounds) return [];
+
+      return axes.map((axis, index) => {
+        const leftValue = Number(leftBounds.size?.[index] || 0);
+        const rightValue = Number(rightBounds.size?.[index] || 0);
+        const delta = rightValue - leftValue;
+        return {
+          axis,
+          leftValue,
+          rightValue,
+          delta,
+          changed: Math.abs(delta) > 1e-6
+        };
+      });
+    }
+
+    function compareChangedFaces(left, right) {
+      const axes = ["x", "y", "z"];
+      const leftBounds = left?.geometry_hints?.bounds;
+      const rightBounds = right?.geometry_hints?.bounds;
+      const result = { left: [], right: [] };
+      if (!leftBounds || !rightBounds) return result;
+
+      axes.forEach((axis, index) => {
+        if (Math.abs(Number(leftBounds.min?.[index] || 0) - Number(rightBounds.min?.[index] || 0)) > 1e-6) {
+          result.left.push({ axis, side: "min" });
+          result.right.push({ axis, side: "min" });
+        }
+        if (Math.abs(Number(leftBounds.max?.[index] || 0) - Number(rightBounds.max?.[index] || 0)) > 1e-6) {
+          result.left.push({ axis, side: "max" });
+          result.right.push({ axis, side: "max" });
+        }
+      });
+
+      return result;
+    }
+
     function topologyLabel(report) {
       const topology = report?.model_analysis?.topology;
       if (topology?.shape_label) return topology.shape_label;
@@ -501,25 +575,16 @@ HTML = """<!doctype html>
       const info = {
         changedAxes: [],
         changedShape: false,
-        summary: []
+        summary: [],
+        dimensions: compareAxisDimensions(left, right),
+        faceChanges: compareChangedFaces(left, right)
       };
 
       if (!left || !right) {
         return info;
       }
 
-      const leftBounds = left.geometry_hints?.bounds;
-      const rightBounds = right.geometry_hints?.bounds;
-      const axes = ["x", "y", "z"];
-
-      if (leftBounds && rightBounds) {
-        leftBounds.size.forEach((value, index) => {
-          const other = Number(rightBounds.size[index] || 0);
-          if (Math.abs(Number(value) - other) > 1e-6) {
-            info.changedAxes.push(axes[index]);
-          }
-        });
-      }
+      info.changedAxes = info.dimensions.filter((item) => item.changed).map((item) => item.axis);
 
       const leftShape = topologyLabel(left);
       const rightShape = topologyLabel(right);
@@ -531,6 +596,14 @@ HTML = """<!doctype html>
 
       if (info.changedAxes.length) {
         info.summary.push(`Changed axes: ${info.changedAxes.map((axis) => axis.toUpperCase()).join(", ")}`);
+        for (const item of info.dimensions.filter((dimension) => dimension.changed)) {
+          const minMoved = info.faceChanges.left.some((face) => face.axis === item.axis && face.side === "min");
+          const maxMoved = info.faceChanges.left.some((face) => face.axis === item.axis && face.side === "max");
+          const movedSide = minMoved && maxMoved ? "both faces" : (maxMoved ? "max face" : (minMoved ? "min face" : "face"));
+          info.summary.push(
+            `${item.axis.toUpperCase()} ${movedSide} changed from ${formatLength(item.leftValue)} to ${formatLength(item.rightValue)} (${formatSignedInches(item.delta)})`
+          );
+        }
       } else {
         info.summary.push("No axis-size difference was inferred from the available bounds.");
       }
@@ -540,6 +613,194 @@ HTML = """<!doctype html>
       }
 
       return info;
+    }
+
+    function projectModelPoint(point, preview, viewer, scale, canvasEl) {
+      return projectPoint(
+        rotatePoint(
+          [
+            point[0] - preview.center[0],
+            point[1] - preview.center[1],
+            point[2] - preview.center[2]
+          ],
+          viewer.yaw,
+          viewer.pitch
+        ),
+        scale,
+        canvasEl,
+        viewer
+      );
+    }
+
+    function axisDimensionEndpoints(bounds, axis) {
+      const min = bounds.min.map(Number);
+      const max = bounds.max.map(Number);
+      if (axis === "x") return [[min[0], max[1], max[2]], [max[0], max[1], max[2]]];
+      if (axis === "y") return [[max[0], min[1], max[2]], [max[0], max[1], max[2]]];
+      return [[max[0], min[1], min[2]], [max[0], min[1], max[2]]];
+    }
+
+    function inferFaceSide(face) {
+      const name = String(face?.name || "").toLowerCase();
+      if (name.includes("-min face") || name.includes("start cap")) return "min";
+      if (name.includes("-max face") || name.includes("end cap")) return "max";
+      return face?.side || null;
+    }
+
+    function faceMatchesHighlight(face, highlightFaces) {
+      if (!highlightFaces?.length) return false;
+      return highlightFaces.some((item) => item.axis === face.axis && item.side === face.side);
+    }
+
+    function drawArrow(ctx2d, start, end, color) {
+      const dx = end[0] - start[0];
+      const dy = end[1] - start[1];
+      const length = Math.hypot(dx, dy);
+      if (length < 1e-6) return;
+
+      const ux = dx / length;
+      const uy = dy / length;
+      const head = Math.max(8, Math.min(14, length * 0.12));
+      const wing = head * 0.55;
+
+      ctx2d.strokeStyle = color;
+      ctx2d.lineWidth = 2;
+      ctx2d.beginPath();
+      ctx2d.moveTo(start[0], start[1]);
+      ctx2d.lineTo(end[0], end[1]);
+      ctx2d.stroke();
+
+      ctx2d.fillStyle = color;
+      for (const tip of [start, end]) {
+        const direction = tip === start ? -1 : 1;
+        const backX = tip[0] - ux * head * direction;
+        const backY = tip[1] - uy * head * direction;
+        ctx2d.beginPath();
+        ctx2d.moveTo(tip[0], tip[1]);
+        ctx2d.lineTo(backX - uy * wing, backY + ux * wing);
+        ctx2d.lineTo(backX + uy * wing, backY - ux * wing);
+        ctx2d.closePath();
+        ctx2d.fill();
+      }
+    }
+
+    function drawCompareAnnotations(ctx2d, canvasEl, preview, viewer, scale, compareAnnotation) {
+      if (!compareAnnotation?.dimensions?.length || !preview?.bounds) return;
+
+      const changed = compareAnnotation.dimensions.filter((item) => item.changed);
+      if (!changed.length) return;
+
+      const color = "#ef6c00";
+      const shadow = "rgba(255,255,255,0.95)";
+      const roleKey = compareAnnotation.role === "right" ? "rightValue" : "leftValue";
+      const deltaSuffix = compareAnnotation.role === "right" ? " vs left" : "";
+      const labelStack = [];
+
+      for (const item of changed) {
+        const [start3d, end3d] = axisDimensionEndpoints(preview.bounds, item.axis);
+        const start = projectModelPoint(start3d, preview, viewer, scale, canvasEl);
+        const end = projectModelPoint(end3d, preview, viewer, scale, canvasEl);
+        const dx = end[0] - start[0];
+        const dy = end[1] - start[1];
+        const length = Math.hypot(dx, dy);
+        if (length < 18) {
+          continue;
+        }
+
+        const nx = -dy / length;
+        const ny = dx / length;
+        const offset = 18;
+        const arrowStart = [start[0] + nx * offset, start[1] + ny * offset];
+        const arrowEnd = [end[0] + nx * offset, end[1] + ny * offset];
+        drawArrow(ctx2d, arrowStart, arrowEnd, color);
+
+        ctx2d.strokeStyle = color;
+        ctx2d.lineWidth = 1.5;
+        ctx2d.beginPath();
+        ctx2d.moveTo(start[0], start[1]);
+        ctx2d.lineTo(arrowStart[0], arrowStart[1]);
+        ctx2d.moveTo(end[0], end[1]);
+        ctx2d.lineTo(arrowEnd[0], arrowEnd[1]);
+        ctx2d.stroke();
+
+        const label = `${item.axis.toUpperCase()}: ${(item[roleKey] * 39.37007874015748).toFixed(3)} in${compareAnnotation.role === "right" ? ` (${formatSignedInches(item.delta)}${deltaSuffix})` : ""}`;
+        labelStack.push(label);
+      }
+
+      if (!labelStack.length) return;
+
+      ctx2d.font = "bold 12px Arial";
+      ctx2d.textBaseline = "top";
+      const width = Math.max(...labelStack.map((line) => ctx2d.measureText(line).width)) + 18;
+      const height = labelStack.length * 16 + 14;
+      const x = canvasEl.width - width - 14;
+      const y = 14;
+
+      ctx2d.fillStyle = shadow;
+      ctx2d.fillRect(x, y, width, height);
+      ctx2d.strokeStyle = color;
+      ctx2d.lineWidth = 1;
+      ctx2d.strokeRect(x, y, width, height);
+
+      ctx2d.fillStyle = color;
+      labelStack.forEach((line, index) => {
+        ctx2d.fillText(line, x + 9, y + 7 + index * 16);
+      });
+    }
+
+    function cloneViewerState(viewer) {
+      return {
+        yaw: viewer.yaw,
+        pitch: viewer.pitch,
+        zoom: viewer.zoom,
+        panX: viewer.panX,
+        panY: viewer.panY,
+        mode: viewer.mode || "solid"
+      };
+    }
+
+    function compareInteractionViewers(side) {
+      if (!state.compareSync) {
+        return [state.compareViewers[side]];
+      }
+      return side === "left"
+        ? [state.compareViewers.left, state.compareViewers.right]
+        : [state.compareViewers.right, state.compareViewers.left];
+    }
+
+    function normalizeViewerList(viewers) {
+      return Array.isArray(viewers) ? viewers : [viewers];
+    }
+
+    function bindCanvasInteractions(canvasEl, viewerAccessor, redraw, reset, label) {
+      if (!canvasEl) return;
+
+      canvasEl.addEventListener("mousedown", (event) => {
+        dragState = {
+          x: event.clientX,
+          y: event.clientY,
+          pan: event.shiftKey,
+          viewers: normalizeViewerList(viewerAccessor()),
+          redraw
+        };
+        setStatus(`${label}: drag to rotate, Shift + drag to pan.`);
+      });
+
+      canvasEl.addEventListener("wheel", (event) => {
+        event.preventDefault();
+        const viewers = normalizeViewerList(viewerAccessor());
+        const factor = event.deltaY > 0 ? 0.9 : 1.1;
+        viewers.forEach((viewer) => {
+          viewer.zoom = Math.min(10, Math.max(0.2, viewer.zoom * factor));
+        });
+        redraw();
+      }, { passive: false });
+
+      canvasEl.addEventListener("dblclick", () => {
+        reset();
+        redraw();
+        setStatus(`${label} reset.`);
+      });
     }
 
     function formatKeyValues(values) {
@@ -575,6 +836,16 @@ HTML = """<!doctype html>
       state.viewer = {
         ...defaultViewerState(),
         mode: state.viewer?.mode || "solid"
+      };
+      state.compareViewers = {
+        left: {
+          ...defaultViewerState(),
+          mode: "solid"
+        },
+        right: {
+          ...defaultViewerState(),
+          mode: "solid"
+        }
       };
     }
 
@@ -975,16 +1246,22 @@ HTML = """<!doctype html>
       root.innerHTML = `
         <div class="compare-layout">
           <div class="empty">${escapeHtml(diff.summary.join(" | "))}</div>
+          <div class="compare-controls">
+            <label>
+              <input type="checkbox" id="compare-sync-toggle" ${state.compareSync ? "checked" : ""}>
+              Move both models together
+            </label>
+          </div>
           <div class="compare-preview-grid">
             <div class="compare-preview-card">
               <h3>${escapeHtml(left.file_name)}</h3>
               <canvas id="compare-left-canvas" class="compare-canvas"></canvas>
-              <div class="compare-note">Changed dimensions/faces are highlighted in orange.</div>
+              <div class="compare-note">Drag to rotate. Shift + drag to pan. Wheel to zoom. Double-click to reset. Orange arrows show changed dimensions on this model.</div>
             </div>
             <div class="compare-preview-card">
               <h3>${escapeHtml(right.file_name)}</h3>
               <canvas id="compare-right-canvas" class="compare-canvas"></canvas>
-              <div class="compare-note">Changed dimensions/faces are highlighted in orange.</div>
+              <div class="compare-note">Drag to rotate. Shift + drag to pan. Wheel to zoom. Double-click to reset. Orange arrows show changed dimensions; labels include the delta versus the left model.</div>
             </div>
           </div>
           <table>
@@ -1000,17 +1277,75 @@ HTML = """<!doctype html>
         </div>
       `;
 
-      const compareViewer = {
-        ...defaultViewerState(),
-        mode: "solid"
-      };
-      drawModelPreview(byId("compare-left-canvas"), left, compareViewer, {
-        mode: "solid",
-        highlightAxes: diff.changedAxes
+      byId("compare-sync-toggle").addEventListener("change", (event) => {
+        state.compareSync = event.target.checked;
+        if (state.compareSync) {
+          state.compareViewers.right = cloneViewerState(state.compareViewers.left);
+          setStatus("Comparison sync enabled. Moving either model now moves both.");
+        } else {
+          setStatus("Comparison sync disabled. Each model moves independently.");
+        }
+        drawComparePreviews();
       });
-      drawModelPreview(byId("compare-right-canvas"), right, compareViewer, {
+
+      bindCanvasInteractions(
+        byId("compare-left-canvas"),
+        () => compareInteractionViewers("left"),
+        drawComparePreviews,
+        () => {
+          if (state.compareSync) {
+            state.compareViewers.left = { ...defaultViewerState(), mode: "solid" };
+            state.compareViewers.right = cloneViewerState(state.compareViewers.left);
+          } else {
+            state.compareViewers.left = { ...defaultViewerState(), mode: "solid" };
+          }
+        },
+        "Left comparison preview"
+      );
+      bindCanvasInteractions(
+        byId("compare-right-canvas"),
+        () => compareInteractionViewers("right"),
+        drawComparePreviews,
+        () => {
+          if (state.compareSync) {
+            state.compareViewers.right = { ...defaultViewerState(), mode: "solid" };
+            state.compareViewers.left = cloneViewerState(state.compareViewers.right);
+          } else {
+            state.compareViewers.right = { ...defaultViewerState(), mode: "solid" };
+          }
+        },
+        "Right comparison preview"
+      );
+      drawComparePreviews();
+    }
+
+    function drawComparePreviews() {
+      const reports = comparisonReports();
+      if (reports.length !== 2) return;
+
+      const leftCanvas = byId("compare-left-canvas");
+      const rightCanvas = byId("compare-right-canvas");
+      if (!leftCanvas || !rightCanvas) return;
+
+      const [left, right] = reports;
+      const diff = compareDiffInfo(left, right);
+      drawModelPreview(leftCanvas, left, state.compareViewers.left, {
         mode: "solid",
-        highlightAxes: diff.changedAxes
+        highlightAxes: diff.changedAxes,
+        highlightFaces: diff.faceChanges.left,
+        compareAnnotation: {
+          role: "left",
+          dimensions: diff.dimensions
+        }
+      });
+      drawModelPreview(rightCanvas, right, state.compareViewers.right, {
+        mode: "solid",
+        highlightAxes: diff.changedAxes,
+        highlightFaces: diff.faceChanges.right,
+        compareAnnotation: {
+          role: "right",
+          dimensions: diff.dimensions
+        }
       });
     }
 
@@ -1160,6 +1495,7 @@ HTML = """<!doctype html>
           .map((face) => ({
             name: face.name,
             axis: face.metadata?.axis || null,
+            side: inferFaceSide(face),
             normal: face.normal || null,
             vertices: face.vertices.map((vertex) => vertex.map(Number))
           }));
@@ -1193,12 +1529,14 @@ HTML = """<!doctype html>
         faces.push({
           name: "Start cap",
           axis,
+          side: "min",
           normal: scaleVec(axisVec, -1),
           vertices: [...startRing].reverse()
         });
         faces.push({
           name: "End cap",
           axis,
+          side: "max",
           normal: axisVec,
           vertices: endRing
         });
@@ -1348,6 +1686,8 @@ HTML = """<!doctype html>
     function drawModelPreview(canvasEl, report, viewer, options = {}) {
       const ctx2d = canvasEl.getContext("2d");
       const highlightAxes = options.highlightAxes || [];
+      const highlightFaces = options.highlightFaces || [];
+      const compareAnnotation = options.compareAnnotation || null;
       const forceMode = options.mode || viewer.mode || "solid";
 
       resizeCanvasElement(canvasEl);
@@ -1402,6 +1742,7 @@ HTML = """<!doctype html>
         return {
           ...face,
           axis: inferredAxis,
+          side: face.side || inferFaceSide(face),
           rotatedNormal,
           averageDepth,
           projectedVertices
@@ -1421,13 +1762,14 @@ HTML = """<!doctype html>
             ctx2d.lineTo(vertex[0], vertex[1]);
           }
           ctx2d.closePath();
-          const fillColor = highlightAxes.includes(face.axis)
+          const faceHighlighted = faceMatchesHighlight(face, highlightFaces) || (!highlightFaces.length && highlightAxes.includes(face.axis));
+          const fillColor = faceHighlighted
             ? "#ffcc80"
             : (face.rotatedNormal ? shadeForNormal(face.rotatedNormal) : "#d9d9d9");
           ctx2d.fillStyle = fillColor;
           ctx2d.fill();
-          ctx2d.strokeStyle = highlightAxes.includes(face.axis) ? "#ef6c00" : "#5f5f5f";
-          ctx2d.lineWidth = highlightAxes.includes(face.axis) ? 2 : 1;
+          ctx2d.strokeStyle = faceHighlighted ? "#ef6c00" : "#5f5f5f";
+          ctx2d.lineWidth = faceHighlighted ? 2 : 1;
           ctx2d.stroke();
         }
       }
@@ -1520,6 +1862,7 @@ HTML = """<!doctype html>
         ctx2d.fillText("Only one geometric point was decoded from this file.", 16, 24);
       }
 
+      drawCompareAnnotations(ctx2d, canvasEl, preview, viewer, scale, compareAnnotation);
       drawCornerTriad(canvasEl, ctx2d, viewer);
     }
 
@@ -1610,13 +1953,18 @@ HTML = """<!doctype html>
       setStatus(`Exported ${report.file_name} as JSON.`);
     }
 
-    canvas.addEventListener("mousedown", (event) => {
-      dragState = {
-        x: event.clientX,
-        y: event.clientY,
-        pan: event.shiftKey
-      };
-    });
+    bindCanvasInteractions(
+      canvas,
+      () => state.viewer,
+      drawPreview,
+      () => {
+        state.viewer = {
+          ...defaultViewerState(),
+          mode: state.viewer?.mode || "solid"
+        };
+      },
+      "Preview"
+    );
 
     window.addEventListener("mousemove", (event) => {
       if (!dragState) return;
@@ -1624,37 +1972,28 @@ HTML = """<!doctype html>
       const dy = event.clientY - dragState.y;
       dragState.x = event.clientX;
       dragState.y = event.clientY;
+      const viewers = dragState.viewers || [];
 
-      if (dragState.pan) {
-        state.viewer.panX += dx;
-        state.viewer.panY += dy;
-      } else {
-        state.viewer.yaw += dx * 0.01;
-        state.viewer.pitch += dy * 0.01;
-      }
-      drawPreview();
+      viewers.forEach((viewer) => {
+        if (dragState.pan) {
+          viewer.panX += dx;
+          viewer.panY += dy;
+        } else {
+          viewer.yaw += dx * 0.01;
+          viewer.pitch += dy * 0.01;
+        }
+      });
+      dragState.redraw();
     });
 
     window.addEventListener("mouseup", () => {
       dragState = null;
     });
 
-    canvas.addEventListener("wheel", (event) => {
-      event.preventDefault();
-      const factor = event.deltaY > 0 ? 0.9 : 1.1;
-      state.viewer.zoom = Math.min(10, Math.max(0.2, state.viewer.zoom * factor));
-      drawPreview();
-    }, { passive: false });
-
-    canvas.addEventListener("dblclick", () => {
-      resetPreviewIfNeeded();
-      drawPreview();
-    });
-
     window.addEventListener("resize", () => {
       drawPreview();
       if (state.activeTab === "compare") {
-        renderCompare();
+        drawComparePreviews();
       }
     });
 
