@@ -425,8 +425,12 @@ HTML = """<!doctype html>
       return state.reports.find((report) => reportKey(report) === state.selected[0]) || null;
     }
 
+    function inferredTopology(report) {
+      return report?.model_analysis?.topology || report?.kernel_topology || null;
+    }
+
     function reportPreviewScore(report) {
-      return (report.geometry_hints?.point_count || 0) + ((report.model_analysis?.topology ? 1 : 0) * 1000);
+      return (report.geometry_hints?.point_count || 0) + ((inferredTopology(report) ? 1 : 0) * 1000);
     }
 
     function bestReportKey(reports) {
@@ -458,13 +462,35 @@ HTML = """<!doctype html>
     }
 
     function topologyLabel(report) {
-      return report?.model_analysis?.topology?.shape_label || "Not inferred";
+      const topology = report?.model_analysis?.topology;
+      if (topology?.shape_label) return topology.shape_label;
+
+      const primitive = report?.kernel_body?.metadata?.primitive;
+      if (primitive === "box") return report?.kernel_body?.name || "box";
+      if (primitive === "cylinder") return "cylinder";
+      if (primitive === "sphere") return "sphere";
+      if (primitive === "arc_or_circle") return "arc / circle";
+
+      return report?.kernel_body?.name || "Not inferred";
     }
 
     function topologyCounts(report) {
       const topology = report?.model_analysis?.topology;
-      if (!topology) return "Not inferred";
-      return `${topology.face_count} faces / ${topology.edge_count} edges`;
+      if (topology) {
+        return `${topology.face_count} faces / ${topology.edge_count} edges`;
+      }
+
+      const kernelTopology = report?.kernel_topology;
+      if (kernelTopology) {
+        return `${kernelTopology.faces?.length || 0} faces / ${kernelTopology.edges?.length || 0} edges`;
+      }
+
+      const kernelBody = report?.kernel_body;
+      if (kernelBody) {
+        return `${kernelBody.faces?.length || 0} faces / ${kernelBody.edges?.length || 0} edges`;
+      }
+
+      return "Not inferred";
     }
 
     function kernelLabel(report) {
@@ -495,8 +521,8 @@ HTML = """<!doctype html>
         });
       }
 
-      const leftShape = left.model_analysis?.topology?.shape_label || null;
-      const rightShape = right.model_analysis?.topology?.shape_label || null;
+      const leftShape = topologyLabel(left);
+      const rightShape = topologyLabel(right);
       info.changedShape = leftShape !== rightShape;
 
       if (info.changedShape && !info.changedAxes.length) {
