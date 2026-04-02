@@ -8,7 +8,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
 
-from xt_part_report import analyze_xt_file, analyze_xt_text, metric_and_imperial
+from xt_part_report import analyze_input_file, analyze_input_text, analyze_xt_file, metric_and_imperial
 
 
 HOST = "127.0.0.1"
@@ -25,7 +25,7 @@ def analyze_paths(paths: list[str]) -> list[dict]:
         path = Path(raw_path).expanduser()
         if not path.is_absolute():
             path = (Path.cwd() / path).resolve()
-        reports.append(analyze_xt_file(path))
+        reports.extend(analyze_input_file(path))
     return reports
 
 
@@ -331,12 +331,12 @@ HTML = """<!doctype html>
   <div class="app">
     <div class="header">
       <h1>Parasolid XT Part Inspector</h1>
-      <p>Load `.x_t` files, inspect extracted metadata, and view an interactive point-based preview from the geometry records found in the file.</p>
+      <p>Load `.x_t` files or compatible JSON reports, inspect extracted metadata, and view an interactive point-based preview from the geometry records found in the file.</p>
     </div>
 
     <div class="toolbar">
       <button id="load-samples">Load Workspace Samples</button>
-      <label class="file-upload">Upload .x_t Files<input id="file-input" type="file" accept=".x_t" multiple></label>
+      <label class="file-upload">Upload .x_t or .json Files<input id="file-input" type="file" accept=".x_t,.json,application/json" multiple></label>
       <input id="path-input" type="text" placeholder="Enter one or more file paths separated by commas">
       <button id="load-paths">Analyze Paths</button>
       <button id="export-json">Export Current JSON</button>
@@ -448,6 +448,14 @@ HTML = """<!doctype html>
       return state.reports.find((report) => reportKey(report) === state.selected[0]) || null;
     }
 
+    function kernelBodies(report) {
+      if (!report) return [];
+      if (Array.isArray(report.kernel_bodies) && report.kernel_bodies.length) {
+        return report.kernel_bodies.filter(Boolean);
+      }
+      return report.kernel_body ? [report.kernel_body] : [];
+    }
+
     function inferredTopology(report) {
       return report?.model_analysis?.topology || report?.kernel_topology || null;
     }
@@ -539,13 +547,17 @@ HTML = """<!doctype html>
       const topology = report?.model_analysis?.topology;
       if (topology?.shape_label) return topology.shape_label;
 
-      const primitive = report?.kernel_body?.metadata?.primitive;
-      if (primitive === "box") return report?.kernel_body?.name || "box";
+      const bodies = kernelBodies(report);
+      if (bodies.length > 1) return `${bodies.length}-body import`;
+
+      const primaryBody = bodies[0];
+      const primitive = primaryBody?.metadata?.primitive;
+      if (primitive === "box") return primaryBody?.name || "box";
       if (primitive === "cylinder") return "cylinder";
       if (primitive === "sphere") return "sphere";
       if (primitive === "arc_or_circle") return "arc / circle";
 
-      return report?.kernel_body?.name || "Not inferred";
+      return primaryBody?.name || "Not inferred";
     }
 
     function topologyCounts(report) {
@@ -564,11 +576,21 @@ HTML = """<!doctype html>
         return `${kernelBody.faces?.length || 0} faces / ${kernelBody.edges?.length || 0} edges`;
       }
 
+      const bodies = kernelBodies(report);
+      if (bodies.length) {
+        const faceCount = bodies.reduce((sum, body) => sum + (body.faces?.length || 0), 0);
+        const edgeCount = bodies.reduce((sum, body) => sum + (body.edges?.length || 0), 0);
+        return `${faceCount} faces / ${edgeCount} edges across ${bodies.length} bodies`;
+      }
+
       return "Not inferred";
     }
 
     function kernelLabel(report) {
-      return report?.kernel_body?.name || "Not reconstructed";
+      const bodies = kernelBodies(report);
+      if (!bodies.length) return "Not reconstructed";
+      if (bodies.length === 1) return bodies[0]?.name || "Not reconstructed";
+      return `multiple bodies (${bodies.length})`;
     }
 
     function compareDiffInfo(left, right) {
@@ -1125,8 +1147,10 @@ HTML = """<!doctype html>
 
       const analysis = report.model_analysis || {};
       const topology = analysis.topology;
-      const kernelBody = report.kernel_body || null;
+      const kernelBodiesList = kernelBodies(report);
+      const kernelBody = kernelBodiesList.length === 1 ? kernelBodiesList[0] : null;
       const kernelTopology = report.kernel_topology || null;
+      const importedBodies = report.nx_import?.body_summaries || [];
       const levels = analysis.unique_axis_levels || {};
       const lines = [
         "Model Analysis",
@@ -1152,6 +1176,7 @@ HTML = """<!doctype html>
         `Topology edges : ${kernelTopology?.edges?.length || 0}`,
         `Topology loops : ${kernelTopology?.loops?.length || 0}`,
         `Topology faces : ${kernelTopology?.faces?.length || 0}`,
+        `Imported bodies : ${kernelBodiesList.length || 0}`,
         "",
         "Axis Levels",
         "-----------",
@@ -1159,6 +1184,13 @@ HTML = """<!doctype html>
         `Y : ${(levels.y || []).join(", ") || "None"}`,
         `Z : ${(levels.z || []).join(", ") || "None"}`
       );
+
+      if (importedBodies.length) {
+        lines.push("", "Imported Body Summary", "---------------------");
+        for (const body of importedBodies) {
+          lines.push(`Body ${body.index} | ${body.shape_summary} | ${body.face_count} faces | ${body.edge_count} edges`);
+        }
+      }
 
       if (!topology) {
         if (analysis.curve_hints?.length) {
@@ -1617,9 +1649,19 @@ HTML = """<!doctype html>
     function getPreviewData(report) {
       if (!report) return null;
       const points = (report.geometry_hints?.preview_points || []).map((point) => point.map(Number));
-      const kernelBody = report.kernel_body || null;
-      const kernelGeometry = previewGeometryFromKernelBody(kernelBody);
+      const bodies = kernelBodies(report);
+      const kernelGeometry = bodies
+        .map((body) => previewGeometryFromKernelBody(body))
+        .reduce(
+          (combined, geometry) => ({
+            faces: combined.faces.concat(geometry.faces || []),
+            points: combined.points.concat(geometry.points || []),
+            edges: combined.edges.concat(geometry.edges || []),
+          }),
+          { faces: [], points: [], edges: [] }
+        );
       const cloud = [...points, ...kernelGeometry.points];
+      const kernelBody = bodies.length === 1 ? bodies[0] : null;
       let bounds = report.geometry_hints?.bounds
         ? {
             min: report.geometry_hints.bounds.min.map(Number),
@@ -2081,13 +2123,13 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
             if parsed.path == "/api/analyze-text":
                 reports = []
                 for file_payload in payload.get("files", []):
-                    report = analyze_xt_text(
+                    imported_reports = analyze_input_text(
                         file_payload.get("text", ""),
                         display_name=file_payload.get("name", "<upload>"),
                         source_path=f"uploaded:{file_payload.get('name', '<upload>')}",
                         file_size_bytes=file_payload.get("size"),
                     )
-                    reports.append(enrich_report(report))
+                    reports.extend(enrich_report(report) for report in imported_reports)
                 self._send_json({"reports": reports})
                 return
         except FileNotFoundError as exc:

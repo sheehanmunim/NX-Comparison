@@ -578,6 +578,566 @@ def analyze_xt_file(path: Path) -> dict[str, Any]:
     )
 
 
+def unit_scale_to_meters(unit_label: str | None) -> float:
+    normalized = (unit_label or "").strip().lower()
+    if normalized in {"inch", "inches", "in"}:
+        return 0.0254
+    if normalized in {"millimeter", "millimeters", "mm"}:
+        return 0.001
+    if normalized in {"centimeter", "centimeters", "cm"}:
+        return 0.01
+    if normalized in {"meter", "meters", "m"}:
+        return 1.0
+    return 1.0
+
+
+def _round_triplet(values: tuple[float, float, float] | list[float]) -> list[float]:
+    return [round(float(value), 12) for value in values]
+
+
+def _merge_bounds(bounds_list: list[dict[str, Any]]) -> dict[str, Any] | None:
+    if not bounds_list:
+        return None
+
+    minimum = [
+        min(float(bounds["min"][index]) for bounds in bounds_list)
+        for index in range(3)
+    ]
+    maximum = [
+        max(float(bounds["max"][index]) for bounds in bounds_list)
+        for index in range(3)
+    ]
+    return {
+        "min": _round_triplet(minimum),
+        "max": _round_triplet(maximum),
+        "size": _round_triplet([maximum[index] - minimum[index] for index in range(3)]),
+    }
+
+
+def _box_face_specs(minimum: list[float], maximum: list[float]) -> list[dict[str, Any]]:
+    corners = {
+        "000": [minimum[0], minimum[1], minimum[2]],
+        "100": [maximum[0], minimum[1], minimum[2]],
+        "110": [maximum[0], maximum[1], minimum[2]],
+        "010": [minimum[0], maximum[1], minimum[2]],
+        "001": [minimum[0], minimum[1], maximum[2]],
+        "101": [maximum[0], minimum[1], maximum[2]],
+        "111": [maximum[0], maximum[1], maximum[2]],
+        "011": [minimum[0], maximum[1], maximum[2]],
+    }
+    size = [maximum[index] - minimum[index] for index in range(3)]
+    return [
+        {
+            "name": "X-min face",
+            "surface": {"kind": "plane", "dimensions": {"width": round(size[1], 12), "height": round(size[2], 12)}},
+            "vertices": [corners[key] for key in ("000", "010", "011", "001")],
+            "normal": [-1, 0, 0],
+            "metadata": {"kind": "rectangular", "axis": "x", "side": "min"},
+        },
+        {
+            "name": "X-max face",
+            "surface": {"kind": "plane", "dimensions": {"width": round(size[1], 12), "height": round(size[2], 12)}},
+            "vertices": [corners[key] for key in ("100", "101", "111", "110")],
+            "normal": [1, 0, 0],
+            "metadata": {"kind": "rectangular", "axis": "x", "side": "max"},
+        },
+        {
+            "name": "Y-min face",
+            "surface": {"kind": "plane", "dimensions": {"width": round(size[0], 12), "height": round(size[2], 12)}},
+            "vertices": [corners[key] for key in ("000", "001", "101", "100")],
+            "normal": [0, -1, 0],
+            "metadata": {"kind": "rectangular", "axis": "y", "side": "min"},
+        },
+        {
+            "name": "Y-max face",
+            "surface": {"kind": "plane", "dimensions": {"width": round(size[0], 12), "height": round(size[2], 12)}},
+            "vertices": [corners[key] for key in ("010", "110", "111", "011")],
+            "normal": [0, 1, 0],
+            "metadata": {"kind": "rectangular", "axis": "y", "side": "max"},
+        },
+        {
+            "name": "Z-min face",
+            "surface": {"kind": "plane", "dimensions": {"width": round(size[0], 12), "height": round(size[1], 12)}},
+            "vertices": [corners[key] for key in ("000", "100", "110", "010")],
+            "normal": [0, 0, -1],
+            "metadata": {"kind": "rectangular", "axis": "z", "side": "min"},
+        },
+        {
+            "name": "Z-max face",
+            "surface": {"kind": "plane", "dimensions": {"width": round(size[0], 12), "height": round(size[1], 12)}},
+            "vertices": [corners[key] for key in ("001", "011", "111", "101")],
+            "normal": [0, 0, 1],
+            "metadata": {"kind": "rectangular", "axis": "z", "side": "max"},
+        },
+    ]
+
+
+def _infer_box_dimensions_from_edges(body_payload: dict[str, Any], scale: float) -> list[float] | None:
+    counts: Counter[float] = Counter()
+    for edge in body_payload.get("edges", []):
+        if edge.get("type") != "Linear":
+            continue
+        counts[round(float(edge.get("length", 0.0)), 6)] += 1
+
+    dimensions: list[float] = []
+    for length, count in sorted(counts.items(), key=lambda item: item[0], reverse=True):
+        repeat = max(1, round(count / 4))
+        dimensions.extend([float(length) * scale] * repeat)
+
+    if len(dimensions) >= 3:
+        return dimensions[:3]
+    if len(dimensions) == 1:
+        return [dimensions[0], dimensions[0], dimensions[0]]
+    return None
+
+
+def _build_nx_box_body(
+    body_payload: dict[str, Any],
+    *,
+    scale: float,
+    body_index: int,
+) -> tuple[dict[str, Any], dict[str, Any], list[list[float]], str] | None:
+    dimensions = _infer_box_dimensions_from_edges(body_payload, scale)
+    centroid_payload = body_payload.get("measurement", {}).get("centroid") or {}
+    if not dimensions or not {"x", "y", "z"} <= centroid_payload.keys():
+        return None
+
+    centroid = [
+        float(centroid_payload["x"]) * scale,
+        float(centroid_payload["y"]) * scale,
+        float(centroid_payload["z"]) * scale,
+    ]
+    minimum = [centroid[index] - dimensions[index] / 2 for index in range(3)]
+    maximum = [centroid[index] + dimensions[index] / 2 for index in range(3)]
+    bounds = {
+        "min": _round_triplet(minimum),
+        "max": _round_triplet(maximum),
+        "size": _round_triplet(dimensions),
+    }
+    faces = _box_face_specs(minimum, maximum)
+    points = [vertex for face in faces for vertex in face["vertices"]]
+    label = body_payload.get("metadata", {}).get("shape_summary") or "Likely a rectangular prism / block."
+    kernel_body = {
+        "kind": "solid",
+        "name": "rectangular prism",
+        "faces": faces,
+        "edges": [
+            {
+                "kind": "line",
+                "name": f"{axis.upper()}-aligned edges",
+                "axis": axis,
+                "length": round(length, 12),
+            }
+            for axis, length in zip(("x", "y", "z"), dimensions)
+        ],
+        "vertices": [],
+        "metadata": {
+            "primitive": "box",
+            "dimensions": {
+                "x": round(dimensions[0], 12),
+                "y": round(dimensions[1], 12),
+                "z": round(dimensions[2], 12),
+            },
+            "source": "nx_json_import",
+            "nx_body_index": body_index,
+        },
+    }
+    return kernel_body, bounds, points, label
+
+
+def _build_nx_cylinder_body(
+    body_payload: dict[str, Any],
+    *,
+    scale: float,
+    body_index: int,
+) -> tuple[dict[str, Any], dict[str, Any], list[list[float]], str] | None:
+    circular_edges = [
+        float(edge.get("length", 0.0)) * scale
+        for edge in body_payload.get("edges", [])
+        if edge.get("type") == "Circular" and edge.get("length") is not None
+    ]
+    if not circular_edges:
+        return None
+
+    radius = sum(circular_edges) / len(circular_edges) / (2 * math.pi)
+    if radius <= 0:
+        return None
+
+    measurement = body_payload.get("measurement", {})
+    centroid_payload = measurement.get("centroid") or {}
+    if not {"x", "y", "z"} <= centroid_payload.keys():
+        return None
+
+    volume = measurement.get("volume")
+    surface_area = measurement.get("surface_area")
+    volume_m3 = float(volume) * (scale ** 3) if volume is not None else None
+    area_m2 = float(surface_area) * (scale ** 2) if surface_area is not None else None
+
+    height = None
+    if volume_m3 is not None and radius > 0:
+        height = volume_m3 / (math.pi * radius * radius)
+    if (height is None or height <= 0) and area_m2 is not None and radius > 0:
+        height = max(area_m2 / (2 * math.pi * radius) - radius, 0.0)
+    if height is None or height <= 0:
+        return None
+
+    center = [
+        float(centroid_payload["x"]) * scale,
+        float(centroid_payload["y"]) * scale,
+        float(centroid_payload["z"]) * scale,
+    ]
+    minimum = [center[0] - radius, center[1] - radius, center[2] - height / 2]
+    maximum = [center[0] + radius, center[1] + radius, center[2] + height / 2]
+    bounds = {
+        "min": _round_triplet(minimum),
+        "max": _round_triplet(maximum),
+        "size": _round_triplet([radius * 2, radius * 2, height]),
+    }
+
+    point_count = 24
+    start_z = center[2] - height / 2
+    end_z = center[2] + height / 2
+    points = []
+    for index in range(point_count):
+        angle = (index / point_count) * math.pi * 2
+        x = center[0] + math.cos(angle) * radius
+        y = center[1] + math.sin(angle) * radius
+        points.append(_round_triplet([x, y, start_z]))
+        points.append(_round_triplet([x, y, end_z]))
+
+    label = body_payload.get("metadata", {}).get("shape_summary") or "Likely a right circular cylinder."
+    kernel_body = {
+        "kind": "solid",
+        "name": "cylinder",
+        "faces": [],
+        "edges": [
+            {"kind": "circle", "name": "Start rim", "axis": "z", "radius": round(radius, 12)},
+            {"kind": "circle", "name": "End rim", "axis": "z", "radius": round(radius, 12)},
+        ],
+        "vertices": [],
+        "metadata": {
+            "primitive": "cylinder",
+            "axis": "z",
+            "radius": round(radius, 12),
+            "height": round(height, 12),
+            "center": _round_triplet(center),
+            "source": "nx_json_import",
+            "nx_body_index": body_index,
+        },
+    }
+    return kernel_body, bounds, points, label
+
+
+def _build_nx_body(
+    body_payload: dict[str, Any],
+    *,
+    scale: float,
+    body_index: int,
+) -> tuple[dict[str, Any], dict[str, Any], list[list[float]], str] | None:
+    shape_summary = str(body_payload.get("metadata", {}).get("shape_summary") or "").lower()
+    face_types = {str(name).lower() for name in (body_payload.get("face_type_breakdown") or {})}
+    edge_types = {str(name).lower() for name in (body_payload.get("edge_type_breakdown") or {})}
+
+    if "cylinder" in shape_summary or "cylindrical" in face_types or "circular" in edge_types:
+        built = _build_nx_cylinder_body(body_payload, scale=scale, body_index=body_index)
+        if built:
+            return built
+
+    if "rectangular prism" in shape_summary or ("planar" in face_types and "linear" in edge_types):
+        built = _build_nx_box_body(body_payload, scale=scale, body_index=body_index)
+        if built:
+            return built
+
+    return None
+
+
+def normalize_existing_report(
+    payload: dict[str, Any],
+    *,
+    display_name: str,
+    source_path: str | None,
+    file_size_bytes: int | None,
+    raw_text: str,
+) -> dict[str, Any]:
+    report = dict(payload)
+    report.setdefault("file", source_path or display_name)
+    report.setdefault("file_name", display_name)
+    report.setdefault("file_size_bytes", file_size_bytes if file_size_bytes is not None else len(raw_text.encode()))
+    report.setdefault("line_count", raw_text.count("\n") + (1 if raw_text else 0))
+    report.setdefault("header", {})
+    report.setdefault("transmit_info", {})
+    report.setdefault("decoded_names", [])
+    report.setdefault("density", None)
+    report.setdefault("colors", [])
+    report.setdefault("has_scale_factor_attribute", False)
+    report.setdefault("object_state_ids", [])
+    report.setdefault("structured_parse", None)
+    report.setdefault("entity_hints", {})
+    report.setdefault("kernel_body", None)
+    report.setdefault("kernel_topology", None)
+    report.setdefault(
+        "geometry_hints",
+        {
+            "point_count": 0,
+            "point_samples": [],
+            "preview_points": [],
+            "bounds": None,
+            "notable_scalar_values": [],
+            "unit_inference": None,
+        },
+    )
+    report.setdefault(
+        "model_analysis",
+        {
+            "unique_axis_levels": {"x": [], "y": [], "z": []},
+            "curve_hints": [],
+            "topology": None,
+            "summary": [],
+        },
+    )
+    return report
+
+
+def convert_nx_json_report(
+    payload: dict[str, Any],
+    *,
+    display_name: str,
+    source_path: str | None,
+    file_size_bytes: int | None,
+    raw_text: str,
+) -> dict[str, Any]:
+    part_summary = payload.get("part_summary") or {}
+    part_name = part_summary.get("part_name") or part_summary.get("leaf") or display_name
+    units = part_summary.get("units") or "Unknown"
+    scale = unit_scale_to_meters(units)
+
+    kernel_bodies: list[dict[str, Any]] = []
+    imported_body_summaries: list[dict[str, Any]] = []
+    bounds_list: list[dict[str, Any]] = []
+    preview_points: list[list[float]] = []
+    edge_lengths: list[float] = []
+
+    for body_payload in payload.get("bodies", []):
+        body_index = int(body_payload.get("index", len(kernel_bodies) + 1))
+        built = _build_nx_body(body_payload, scale=scale, body_index=body_index)
+        if not built:
+            continue
+        kernel_body, bounds, body_points, label = built
+        kernel_bodies.append(kernel_body)
+        bounds_list.append(bounds)
+        preview_points.extend(body_points)
+        edge_lengths.extend(
+            [
+                float(edge.get("length", 0.0)) * scale
+                for edge in body_payload.get("edges", [])
+                if edge.get("length") is not None
+            ]
+        )
+        imported_body_summaries.append(
+            {
+                "index": body_index,
+                "name": body_payload.get("metadata", {}).get("name") or f"Body {body_index}",
+                "shape_summary": label,
+                "face_count": sum(int(value) for value in (body_payload.get("face_type_breakdown") or {}).values()),
+                "edge_count": sum(int(value) for value in (body_payload.get("edge_type_breakdown") or {}).values()),
+            }
+        )
+
+    merged_bounds = _merge_bounds(bounds_list)
+    notable_scalars: list[dict[str, Any]] = []
+    scalar_counts: Counter[float] = Counter(round(length, 12) for length in edge_lengths if length > 0)
+    for value, frequency in scalar_counts.most_common(10):
+        notable_scalars.append(
+            {
+                "value": value,
+                "frequency": frequency,
+                "assuming_meters": {
+                    "millimeters": round(value * 1000.0, 6),
+                    "inches": round(value * 39.37007874015748, 6),
+                },
+            }
+        )
+
+    density_value = None
+    if payload.get("bodies"):
+        density_value = payload["bodies"][0].get("metadata", {}).get("density")
+
+    header = {
+        "PART1": {
+            "APPL": "Siemens NX JSON Import",
+            "DATE": "",
+            "UNITS": str(units),
+            "PART": str(part_name),
+        },
+        "PART2": {
+            "SCH": "NX-JSON",
+        },
+    }
+    if part_summary.get("full_path"):
+        header["PART1"]["SOURCE_PATH"] = str(part_summary["full_path"])
+
+    body_count = int(payload.get("body_count") or len(payload.get("bodies", [])))
+    summary = [
+        f"Imported Siemens NX JSON report for {part_name}.",
+        f"Detected {body_count} body/bodies and reconstructed {len(kernel_bodies)} previewable primitive shape(s).",
+        f"Source units were {units}; imported geometry was converted to meters for consistent viewer measurements.",
+    ]
+    for body_summary in imported_body_summaries[:6]:
+        summary.append(
+            f"Body {body_summary['index']}: {body_summary['shape_summary']} ({body_summary['face_count']} faces, {body_summary['edge_count']} edges)."
+        )
+
+    report: dict[str, Any] = {
+        "file": source_path or display_name,
+        "file_name": display_name,
+        "file_size_bytes": file_size_bytes if file_size_bytes is not None else len(raw_text.encode()),
+        "line_count": raw_text.count("\n") + (1 if raw_text else 0),
+        "header": header,
+        "transmit_info": {
+            "source_format": "siemens_nx_json",
+            "original_units": str(units),
+        },
+        "decoded_names": unique_preserve_order(
+            [value for value in [part_summary.get("leaf"), part_summary.get("part_name")] if value]
+        ),
+        "density": (
+            {
+                "value": float(density_value),
+                "unit": "kg/m^3",
+            }
+            if density_value is not None
+            else None
+        ),
+        "colors": [],
+        "has_scale_factor_attribute": False,
+        "object_state_ids": [],
+        "structured_parse": None,
+        "entity_hints": {
+            "source": "nx_json_import",
+            "body_count": body_count,
+        },
+        "kernel_body": kernel_bodies[0] if len(kernel_bodies) == 1 else None,
+        "kernel_bodies": kernel_bodies,
+        "kernel_topology": build_topology_from_kernel_body(kernel_bodies[0]) if len(kernel_bodies) == 1 else None,
+        "geometry_hints": {
+            "point_count": len(preview_points),
+            "point_samples": preview_points[:12],
+            "preview_points": preview_points[:500],
+            "bounds": merged_bounds,
+            "notable_scalar_values": notable_scalars,
+            "unit_inference": f"Original NX report units: {units}. Geometry was normalized to meters for preview and comparison.",
+        },
+        "model_analysis": {
+            "unique_axis_levels": summarize_unique_levels(
+                [tuple(point) for point in preview_points[:500]]
+            ) if preview_points else {"x": [], "y": [], "z": []},
+            "curve_hints": [],
+            "topology": None,
+            "summary": summary,
+        },
+        "nx_import": {
+            "part_summary": part_summary,
+            "part_attributes": payload.get("part_attributes", []),
+            "body_count": body_count,
+            "inter_body_distances": payload.get("inter_body_distances", []),
+            "body_summaries": imported_body_summaries,
+        },
+    }
+    return report
+
+
+def parse_imported_json_text(
+    raw_text: str,
+    *,
+    display_name: str,
+    source_path: str | None,
+    file_size_bytes: int | None,
+) -> list[dict[str, Any]] | None:
+    stripped = raw_text.lstrip()
+    if not stripped or stripped[0] not in "[{":
+        return None
+
+    try:
+        payload = json.loads(raw_text)
+    except json.JSONDecodeError:
+        return None
+
+    def normalize_payload(item: Any, fallback_name: str) -> list[dict[str, Any]] | None:
+        if isinstance(item, list):
+            reports: list[dict[str, Any]] = []
+            for index, child in enumerate(item, start=1):
+                child_reports = normalize_payload(child, f"{fallback_name} [{index}]")
+                if child_reports is None:
+                    return None
+                reports.extend(child_reports)
+            return reports
+
+        if not isinstance(item, dict):
+            return None
+
+        if "part_summary" in item and "bodies" in item:
+            return [
+                convert_nx_json_report(
+                    item,
+                    display_name=fallback_name,
+                    source_path=source_path,
+                    file_size_bytes=file_size_bytes,
+                    raw_text=raw_text,
+                )
+            ]
+
+        if "file_name" in item or "geometry_hints" in item or "kernel_body" in item:
+            return [
+                normalize_existing_report(
+                    item,
+                    display_name=fallback_name,
+                    source_path=source_path,
+                    file_size_bytes=file_size_bytes,
+                    raw_text=raw_text,
+                )
+            ]
+
+        return None
+
+    return normalize_payload(payload, display_name)
+
+
+def analyze_input_text(
+    raw_text: str,
+    *,
+    display_name: str = "<memory>",
+    source_path: str | None = None,
+    file_size_bytes: int | None = None,
+) -> list[dict[str, Any]]:
+    imported_reports = parse_imported_json_text(
+        raw_text,
+        display_name=display_name,
+        source_path=source_path,
+        file_size_bytes=file_size_bytes,
+    )
+    if imported_reports is not None:
+        return imported_reports
+
+    return [
+        analyze_xt_text(
+            raw_text,
+            display_name=display_name,
+            source_path=source_path,
+            file_size_bytes=file_size_bytes,
+        )
+    ]
+
+
+def analyze_input_file(path: Path) -> list[dict[str, Any]]:
+    raw_text = path.read_text(errors="ignore")
+    return analyze_input_text(
+        raw_text,
+        display_name=path.name,
+        source_path=str(path),
+        file_size_bytes=path.stat().st_size,
+    )
+
+
 def print_text_report(report: dict[str, Any]) -> None:
     header_part1 = report["header"].get("PART1", {})
     header_part2 = report["header"].get("PART2", {})
