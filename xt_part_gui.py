@@ -331,12 +331,12 @@ HTML = """<!doctype html>
   <div class="app">
     <div class="header">
       <h1>Parasolid XT Part Inspector</h1>
-      <p>Load `.x_t` files or compatible JSON reports, inspect extracted metadata, and view an interactive point-based preview from the geometry records found in the file.</p>
+      <p>Load `.x_t` files, compatible JSON reports, or Parasolid analysis text reports, inspect extracted metadata, and view an interactive point-based preview from the geometry records found in the file.</p>
     </div>
 
     <div class="toolbar">
       <button id="load-samples">Load Workspace Samples</button>
-      <label class="file-upload">Upload .x_t or .json Files<input id="file-input" type="file" accept=".x_t,.json,application/json" multiple></label>
+      <label class="file-upload">Upload .x_t, .json, or report Files<input id="file-input" type="file" accept=".x_t,.json,.txt,.md,text/plain,application/json" multiple></label>
       <input id="path-input" type="text" placeholder="Enter one or more file paths separated by commas">
       <button id="load-paths">Analyze Paths</button>
       <button id="export-json">Export Current JSON</button>
@@ -573,6 +573,11 @@ HTML = """<!doctype html>
 
       const kernelBody = report?.kernel_body;
       if (kernelBody) {
+        if (kernelBody?.metadata?.primitive === "compound" && Array.isArray(kernelBody?.metadata?.components)) {
+          const faceCount = kernelBody.metadata.components.reduce((sum, body) => sum + (body.faces?.length || 0), 0);
+          const edgeCount = kernelBody.metadata.components.reduce((sum, body) => sum + (body.edges?.length || 0), 0);
+          return `${faceCount} faces / ${edgeCount} edges across ${kernelBody.metadata.components.length} preview primitives`;
+        }
         return `${kernelBody.faces?.length || 0} faces / ${kernelBody.edges?.length || 0} edges`;
       }
 
@@ -1520,6 +1525,19 @@ HTML = """<!doctype html>
 
     function previewGeometryFromKernelBody(body) {
       if (!body) return { faces: [], points: [], edges: [] };
+
+      if (body.metadata?.primitive === "compound" && Array.isArray(body.metadata?.components)) {
+        return body.metadata.components
+          .map((component) => previewGeometryFromKernelBody(component))
+          .reduce(
+            (combined, geometry) => ({
+              faces: combined.faces.concat(geometry.faces || []),
+              points: combined.points.concat(geometry.points || []),
+              edges: combined.edges.concat(geometry.edges || []),
+            }),
+            { faces: [], points: [], edges: [] }
+          );
+      }
 
       if (body.faces?.some((face) => face.vertices?.length)) {
         const faces = body.faces

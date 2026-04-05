@@ -1,0 +1,3531 @@
+{
+  "export_metadata": {
+    "script_version": "brep-export-debug-2026-04-02-v8",
+    "runtime_diagnostics": [
+      {
+        "scope": "AskLineData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveLine_Struct"
+        }
+      },
+      {
+        "scope": "AskLineData",
+        "message": "line_attrs",
+        "context": {
+          "attrs": [
+            "EndPoint",
+            "StartPoint"
+          ]
+        }
+      },
+      {
+        "scope": "AskLineData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveLine_Struct"
+        }
+      },
+      {
+        "scope": "AskLineData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveLine_Struct"
+        }
+      },
+      {
+        "scope": "AskLineData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveLine_Struct"
+        }
+      },
+      {
+        "scope": "AskLineData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveLine_Struct"
+        }
+      },
+      {
+        "scope": "AskLineData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveLine_Struct"
+        }
+      },
+      {
+        "scope": "AskLineData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveLine_Struct"
+        }
+      },
+      {
+        "scope": "AskArcData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveArc_Struct"
+        }
+      },
+      {
+        "scope": "AskArcData",
+        "message": "arc_attrs",
+        "context": {
+          "attrs": [
+            "ArcCenter",
+            "EndAngle",
+            "MatrixTag",
+            "Radius",
+            "StartAngle"
+          ]
+        }
+      },
+      {
+        "scope": "AskMatrixValues",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "list"
+        }
+      },
+      {
+        "scope": "GetArcAndCurveProperties",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 3,
+          "returned_type": "tuple"
+        }
+      },
+      {
+        "scope": "AskArcData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveArc_Struct"
+        }
+      },
+      {
+        "scope": "AskMatrixValues",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "list"
+        }
+      },
+      {
+        "scope": "GetArcAndCurveProperties",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 3,
+          "returned_type": "tuple"
+        }
+      },
+      {
+        "scope": "AskLineData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveLine_Struct"
+        }
+      },
+      {
+        "scope": "AskLineData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveLine_Struct"
+        }
+      },
+      {
+        "scope": "AskLineData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveLine_Struct"
+        }
+      },
+      {
+        "scope": "AskLineData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveLine_Struct"
+        }
+      },
+      {
+        "scope": "AskArcData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveArc_Struct"
+        }
+      },
+      {
+        "scope": "AskMatrixValues",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "list"
+        }
+      },
+      {
+        "scope": "GetArcAndCurveProperties",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 3,
+          "returned_type": "tuple"
+        }
+      },
+      {
+        "scope": "AskLineData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveLine_Struct"
+        }
+      },
+      {
+        "scope": "AskLineData",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 1,
+          "returned_type": "CurveLine_Struct"
+        }
+      },
+      {
+        "scope": "GetFaceProperties",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 4,
+          "returned_type": "tuple"
+        }
+      },
+      {
+        "scope": "AskFaceData",
+        "message": "api_unavailable",
+        "context": {
+          "reason": "AskFaceData_missing"
+        }
+      },
+      {
+        "scope": "AskFaceUvMinmax",
+        "message": "api_unavailable",
+        "context": {
+          "reason": "AskFaceUvMinmax_missing"
+        }
+      },
+      {
+        "scope": "AskFacePeriodicity",
+        "message": "api_unavailable",
+        "context": {
+          "reason": "AskFacePeriodicity_missing"
+        }
+      },
+      {
+        "scope": "AskFaceTopology",
+        "message": "api_unavailable",
+        "context": {
+          "reason": "AskFaceTopology_missing"
+        }
+      },
+      {
+        "scope": "AskFaceProps",
+        "message": "api_unavailable",
+        "context": {
+          "reason": "AskFaceProps_missing"
+        }
+      },
+      {
+        "scope": "Ask2dtrimBsurf",
+        "message": "api_unavailable",
+        "context": {
+          "reason": "Ask2dtrimBsurf_missing"
+        }
+      },
+      {
+        "scope": "GetFaceProperties",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 4,
+          "returned_type": "tuple"
+        }
+      },
+      {
+        "scope": "GetFaceProperties",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 4,
+          "returned_type": "tuple"
+        }
+      },
+      {
+        "scope": "GetFaceProperties",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 4,
+          "returned_type": "tuple"
+        }
+      },
+      {
+        "scope": "GetFaceProperties",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 4,
+          "returned_type": "tuple"
+        }
+      },
+      {
+        "scope": "GetFaceProperties",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 4,
+          "returned_type": "tuple"
+        }
+      },
+      {
+        "scope": "GetFaceProperties",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 4,
+          "returned_type": "tuple"
+        }
+      },
+      {
+        "scope": "GetFaceProperties",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 4,
+          "returned_type": "tuple"
+        }
+      },
+      {
+        "scope": "GetBoundingBoxProperties",
+        "message": "call_succeeded",
+        "context": {
+          "args_count": 4,
+          "returned_type": "tuple"
+        }
+      }
+    ]
+  },
+  "part_summary": {
+    "part_name": "model7",
+    "full_path": "C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model7.prt",
+    "leaf": "model7",
+    "units": "Inches",
+    "tag": 61184,
+    "read_only": false,
+    "fully_loaded": true,
+    "has_write_access": true,
+    "unique_identifier": "e30f1643-721e-469b-a14e-fc19a8937dc3"
+  },
+  "part_attributes": [
+    {
+      "title": "NX_ComponentGroup",
+      "type": "String",
+      "value": "AllComponents",
+      "is_array": false,
+      "array_index": 0
+    },
+    {
+      "title": "NX_ReferenceSet",
+      "type": "String",
+      "value": "Empty",
+      "is_array": false,
+      "array_index": 0
+    },
+    {
+      "title": "NX_MaterialMissingAssignments",
+      "type": "String",
+      "value": "TRUE",
+      "is_array": false,
+      "array_index": 0
+    },
+    {
+      "title": "NX_MaterialMultipleAssigned",
+      "type": "String",
+      "value": "FALSE",
+      "is_array": false,
+      "array_index": 0
+    }
+  ],
+  "body_count": 1,
+  "inter_body_distances": [],
+  "bodies": [
+    {
+      "index": 1,
+      "metadata": {
+        "tag": 61270,
+        "journal_identifier": "UNPARAMETERIZED_FEATURE(1)",
+        "name": "N/A",
+        "is_solid_body": true,
+        "is_sheet_body": false,
+        "is_convergent_body": false,
+        "density": 7830.64504251646,
+        "facet_count": null,
+        "vertex_count": 11,
+        "shape_summary": "Likely contains extruded or revolved cylindrical geometry."
+      },
+      "measurement": {
+        "surface_area": 823.2787143815135,
+        "volume": 1290.7609813947442,
+        "mass": 365.156281636573,
+        "weight": 365.15628163657306,
+        "radius_of_gyration": 7.335558965979209,
+        "centroid": {
+          "x": -1.1841851605606726,
+          "y": -0.9854651777774647,
+          "z": 8.286090254735738
+        }
+      },
+      "bounding_box": {
+        "x_min": -9.5,
+        "y_min": -8.0,
+        "z_min": 0.0,
+        "x_max": 4.000000000022402,
+        "y_max": 4.000000000022402,
+        "z_max": 20.0,
+        "dx": 13.500000000022402,
+        "dy": 12.000000000022402,
+        "dz": 20.0
+      },
+      "attributes": [],
+      "topology": {
+        "vertex_count": 11,
+        "vertices": [
+          {
+            "index": 1,
+            "point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 0.0
+            }
+          },
+          {
+            "index": 2,
+            "point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 0.0
+            }
+          },
+          {
+            "index": 3,
+            "point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "index": 4,
+            "point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "index": 5,
+            "point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 4.5
+            }
+          },
+          {
+            "index": 6,
+            "point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 4.5
+            }
+          },
+          {
+            "index": 7,
+            "point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 4.5
+            }
+          },
+          {
+            "index": 8,
+            "point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 4.5
+            }
+          },
+          {
+            "index": 9,
+            "point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 4.5
+            }
+          },
+          {
+            "index": 10,
+            "point": {
+              "x": 4.000000000022402,
+              "y": 0.0,
+              "z": 20.0
+            }
+          },
+          {
+            "index": 11,
+            "point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 0.0
+            }
+          }
+        ]
+      },
+      "features": [
+        {
+          "name": "Body(1)",
+          "type": "BREP",
+          "timestamp": 1,
+          "warning": "[]",
+          "error": "[]",
+          "parents": [],
+          "children": [],
+          "expressions": []
+        }
+      ],
+      "edge_type_breakdown": {
+        "Linear": 13,
+        "Circular": 3
+      },
+      "edges": [
+        {
+          "index": 1,
+          "type": "Linear",
+          "length": 9.5,
+          "face_count": 2,
+          "tag": 61459,
+          "start_point": {
+            "x": 0.0,
+            "y": -8.0,
+            "z": 0.0
+          },
+          "end_point": {
+            "x": -9.5,
+            "y": -8.0,
+            "z": 0.0
+          },
+          "curve_measurement": {
+            "arc_length": 9.5,
+            "radius": null,
+            "diameter": null,
+            "min_radius": null,
+            "start_point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 0.0
+            },
+            "end_point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 0.0
+            },
+            "center": {
+              "x": -4.75,
+              "y": -8.0,
+              "z": 0.0
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61439,
+            61444
+          ],
+          "connected_face_indices": [
+            1,
+            8
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 0.0
+            },
+            "end_point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 0.0
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Line",
+              "start_point": {
+                "x": 0.0,
+                "y": -8.0,
+                "z": 0.0
+              },
+              "end_point": {
+                "x": -9.5,
+                "y": -8.0,
+                "z": 0.0
+              }
+            }
+          },
+          "start_vertex_index": 1,
+          "end_vertex_index": 2
+        },
+        {
+          "index": 2,
+          "type": "Linear",
+          "length": 5.499999999977598,
+          "face_count": 2,
+          "tag": 61453,
+          "start_point": {
+            "x": -9.5,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "end_point": {
+            "x": -4.000000000022402,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "curve_measurement": {
+            "arc_length": 5.499999999977598,
+            "radius": null,
+            "diameter": null,
+            "min_radius": null,
+            "start_point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "end_point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "center": {
+              "x": -6.750000000011201,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61439,
+            61440
+          ],
+          "connected_face_indices": [
+            1,
+            7
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "end_point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Line",
+              "start_point": {
+                "x": -9.5,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "end_point": {
+                "x": -4.000000000022402,
+                "y": 0.0,
+                "z": 0.0
+              }
+            }
+          },
+          "start_vertex_index": 3,
+          "end_vertex_index": 4
+        },
+        {
+          "index": 3,
+          "type": "Linear",
+          "length": 9.5,
+          "face_count": 2,
+          "tag": 61456,
+          "start_point": {
+            "x": 0.0,
+            "y": -8.0,
+            "z": 4.5
+          },
+          "end_point": {
+            "x": -9.5,
+            "y": -8.0,
+            "z": 4.5
+          },
+          "curve_measurement": {
+            "arc_length": 9.5,
+            "radius": null,
+            "diameter": null,
+            "min_radius": null,
+            "start_point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 4.5
+            },
+            "center": {
+              "x": -4.75,
+              "y": -8.0,
+              "z": 4.5
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61444,
+            61445
+          ],
+          "connected_face_indices": [
+            8,
+            6
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 4.5
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Line",
+              "start_point": {
+                "x": 0.0,
+                "y": -8.0,
+                "z": 4.5
+              },
+              "end_point": {
+                "x": -9.5,
+                "y": -8.0,
+                "z": 4.5
+              }
+            }
+          },
+          "start_vertex_index": 5,
+          "end_vertex_index": 6
+        },
+        {
+          "index": 4,
+          "type": "Linear",
+          "length": 5.499999999977598,
+          "face_count": 2,
+          "tag": 61448,
+          "start_point": {
+            "x": -9.5,
+            "y": 0.0,
+            "z": 4.5
+          },
+          "end_point": {
+            "x": -4.000000000022402,
+            "y": 0.0,
+            "z": 4.5
+          },
+          "curve_measurement": {
+            "arc_length": 5.499999999977598,
+            "radius": null,
+            "diameter": null,
+            "min_radius": null,
+            "start_point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 4.5
+            },
+            "center": {
+              "x": -6.750000000011201,
+              "y": 0.0,
+              "z": 4.5
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61440,
+            61445
+          ],
+          "connected_face_indices": [
+            7,
+            6
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 4.5
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Line",
+              "start_point": {
+                "x": -9.5,
+                "y": 0.0,
+                "z": 4.5
+              },
+              "end_point": {
+                "x": -4.000000000022402,
+                "y": 0.0,
+                "z": 4.5
+              }
+            }
+          },
+          "start_vertex_index": 7,
+          "end_vertex_index": 8
+        },
+        {
+          "index": 5,
+          "type": "Linear",
+          "length": 3.9999999999775984,
+          "face_count": 2,
+          "tag": 61451,
+          "start_point": {
+            "x": 0.0,
+            "y": -4.000000000022402,
+            "z": 4.5
+          },
+          "end_point": {
+            "x": 0.0,
+            "y": -8.0,
+            "z": 4.5
+          },
+          "curve_measurement": {
+            "arc_length": 3.9999999999775984,
+            "radius": null,
+            "diameter": null,
+            "min_radius": null,
+            "start_point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 4.5
+            },
+            "center": {
+              "x": 0.0,
+              "y": -6.000000000011201,
+              "z": 4.5
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61442,
+            61445
+          ],
+          "connected_face_indices": [
+            4,
+            6
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 4.5
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Line",
+              "start_point": {
+                "x": 0.0,
+                "y": -4.000000000022402,
+                "z": 4.5
+              },
+              "end_point": {
+                "x": 0.0,
+                "y": -8.0,
+                "z": 4.5
+              }
+            }
+          },
+          "start_vertex_index": 9,
+          "end_vertex_index": 5
+        },
+        {
+          "index": 6,
+          "type": "Linear",
+          "length": 4.499999999999999,
+          "face_count": 2,
+          "tag": 61457,
+          "start_point": {
+            "x": -9.5,
+            "y": 0.0,
+            "z": 4.5
+          },
+          "end_point": {
+            "x": -9.5,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "curve_measurement": {
+            "arc_length": 4.499999999999999,
+            "radius": null,
+            "diameter": null,
+            "min_radius": null,
+            "start_point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "center": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 2.25
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61440,
+            61443
+          ],
+          "connected_face_indices": [
+            7,
+            2
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Line",
+              "start_point": {
+                "x": -9.5,
+                "y": 0.0,
+                "z": 4.5
+              },
+              "end_point": {
+                "x": -9.5,
+                "y": 0.0,
+                "z": 0.0
+              }
+            }
+          },
+          "start_vertex_index": 7,
+          "end_vertex_index": 3
+        },
+        {
+          "index": 7,
+          "type": "Linear",
+          "length": 4.499999999999999,
+          "face_count": 2,
+          "tag": 61460,
+          "start_point": {
+            "x": 0.0,
+            "y": -8.0,
+            "z": 4.5
+          },
+          "end_point": {
+            "x": 0.0,
+            "y": -8.0,
+            "z": 0.0
+          },
+          "curve_measurement": {
+            "arc_length": 4.499999999999999,
+            "radius": null,
+            "diameter": null,
+            "min_radius": null,
+            "start_point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 0.0
+            },
+            "center": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 2.25
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61442,
+            61444
+          ],
+          "connected_face_indices": [
+            4,
+            8
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 0.0
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Line",
+              "start_point": {
+                "x": 0.0,
+                "y": -8.0,
+                "z": 4.5
+              },
+              "end_point": {
+                "x": 0.0,
+                "y": -8.0,
+                "z": 0.0
+              }
+            }
+          },
+          "start_vertex_index": 5,
+          "end_vertex_index": 1
+        },
+        {
+          "index": 8,
+          "type": "Circular",
+          "length": 25.132741228859096,
+          "face_count": 2,
+          "tag": 61446,
+          "start_point": {
+            "x": 4.000000000022402,
+            "y": 0.0,
+            "z": 20.0
+          },
+          "end_point": {
+            "x": 4.000000000022402,
+            "y": 0.0,
+            "z": 20.0
+          },
+          "curve_measurement": {
+            "arc_length": 25.1327412288591,
+            "radius": 4.000000000022402,
+            "diameter": 8.000000000044803,
+            "min_radius": 4.000000000022402,
+            "start_point": {
+              "x": 4.000000000022402,
+              "y": 0.0,
+              "z": 20.0
+            },
+            "end_point": {
+              "x": 4.000000000022402,
+              "y": 0.0,
+              "z": 20.0
+            },
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 20.0
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61438,
+            61441
+          ],
+          "connected_face_indices": [
+            3,
+            5
+          ],
+          "exact_vertices": {
+            "vertex_count": 1,
+            "start_point": {
+              "x": 4.000000000022402,
+              "y": 0.0,
+              "z": 20.0
+            },
+            "end_point": {
+              "x": 4.000000000022402,
+              "y": 0.0,
+              "z": 20.0
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Arc",
+              "radius": 4.000000000022402,
+              "center": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 20.0
+              },
+              "start_angle": 0.0,
+              "end_angle": 6.283185307179586,
+              "matrix_tag": 61236,
+              "matrix": {
+                "values": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "x_axis": {
+                  "x": 1.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "y_axis": {
+                  "x": 0.0,
+                  "y": 1.0,
+                  "z": 0.0
+                },
+                "z_axis": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1.0
+                }
+              },
+              "start_point": {
+                "x": 4.000000000022402,
+                "y": 0.0,
+                "z": 20.0
+              },
+              "end_point": {
+                "x": 4.000000000022402,
+                "y": -9.797174393233693e-16,
+                "z": 20.0
+              }
+            }
+          },
+          "start_vertex_index": 10,
+          "end_vertex_index": 10
+        },
+        {
+          "index": 9,
+          "type": "Circular",
+          "length": 18.849555921644324,
+          "face_count": 2,
+          "tag": 61449,
+          "start_point": {
+            "x": 0.0,
+            "y": -4.000000000022402,
+            "z": 0.0
+          },
+          "end_point": {
+            "x": -4.000000000022402,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "curve_measurement": {
+            "arc_length": 18.849555921644324,
+            "radius": 4.000000000022402,
+            "diameter": 8.000000000044803,
+            "min_radius": 4.000000000022402,
+            "start_point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 0.0
+            },
+            "end_point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61438,
+            61439
+          ],
+          "connected_face_indices": [
+            3,
+            1
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 0.0
+            },
+            "end_point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Arc",
+              "radius": 4.000000000022402,
+              "center": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "start_angle": 4.71238898038469,
+              "end_angle": 9.42477796076938,
+              "matrix_tag": 61236,
+              "matrix": {
+                "values": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "x_axis": {
+                  "x": 1.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "y_axis": {
+                  "x": 0.0,
+                  "y": 1.0,
+                  "z": 0.0
+                },
+                "z_axis": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1.0
+                }
+              },
+              "start_point": {
+                "x": -7.34788079492527e-16,
+                "y": -4.000000000022402,
+                "z": 0.0
+              },
+              "end_point": {
+                "x": -4.000000000022402,
+                "y": 1.469576158985054e-15,
+                "z": 0.0
+              }
+            }
+          },
+          "start_vertex_index": 11,
+          "end_vertex_index": 4
+        },
+        {
+          "index": 10,
+          "type": "Linear",
+          "length": 8.0,
+          "face_count": 2,
+          "tag": 61452,
+          "start_point": {
+            "x": -9.5,
+            "y": -8.0,
+            "z": 4.5
+          },
+          "end_point": {
+            "x": -9.5,
+            "y": 0.0,
+            "z": 4.5
+          },
+          "curve_measurement": {
+            "arc_length": 8.0,
+            "radius": null,
+            "diameter": null,
+            "min_radius": null,
+            "start_point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 4.5
+            },
+            "center": {
+              "x": -9.5,
+              "y": -4.0,
+              "z": 4.5
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61443,
+            61445
+          ],
+          "connected_face_indices": [
+            2,
+            6
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 4.5
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Line",
+              "start_point": {
+                "x": -9.5,
+                "y": -8.0,
+                "z": 4.5
+              },
+              "end_point": {
+                "x": -9.5,
+                "y": 0.0,
+                "z": 4.5
+              }
+            }
+          },
+          "start_vertex_index": 6,
+          "end_vertex_index": 7
+        },
+        {
+          "index": 11,
+          "type": "Linear",
+          "length": 4.499999999999999,
+          "face_count": 2,
+          "tag": 61455,
+          "start_point": {
+            "x": 0.0,
+            "y": -4.000000000022402,
+            "z": 4.5
+          },
+          "end_point": {
+            "x": 0.0,
+            "y": -4.000000000022402,
+            "z": 0.0
+          },
+          "curve_measurement": {
+            "arc_length": 4.499999999999999,
+            "radius": null,
+            "diameter": null,
+            "min_radius": null,
+            "start_point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 0.0
+            },
+            "center": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 2.25
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61438,
+            61442
+          ],
+          "connected_face_indices": [
+            3,
+            4
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 0.0
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Line",
+              "start_point": {
+                "x": 0.0,
+                "y": -4.000000000022402,
+                "z": 4.5
+              },
+              "end_point": {
+                "x": 0.0,
+                "y": -4.000000000022402,
+                "z": 0.0
+              }
+            }
+          },
+          "start_vertex_index": 9,
+          "end_vertex_index": 11
+        },
+        {
+          "index": 12,
+          "type": "Linear",
+          "length": 4.499999999999999,
+          "face_count": 2,
+          "tag": 61458,
+          "start_point": {
+            "x": -9.5,
+            "y": -8.0,
+            "z": 4.5
+          },
+          "end_point": {
+            "x": -9.5,
+            "y": -8.0,
+            "z": 0.0
+          },
+          "curve_measurement": {
+            "arc_length": 4.499999999999999,
+            "radius": null,
+            "diameter": null,
+            "min_radius": null,
+            "start_point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 0.0
+            },
+            "center": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 2.25
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61443,
+            61444
+          ],
+          "connected_face_indices": [
+            2,
+            8
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 0.0
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Line",
+              "start_point": {
+                "x": -9.5,
+                "y": -8.0,
+                "z": 4.5
+              },
+              "end_point": {
+                "x": -9.5,
+                "y": -8.0,
+                "z": 0.0
+              }
+            }
+          },
+          "start_vertex_index": 6,
+          "end_vertex_index": 2
+        },
+        {
+          "index": 13,
+          "type": "Linear",
+          "length": 4.499999999999999,
+          "face_count": 2,
+          "tag": 61461,
+          "start_point": {
+            "x": -4.000000000022402,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "end_point": {
+            "x": -4.000000000022402,
+            "y": 0.0,
+            "z": 4.5
+          },
+          "curve_measurement": {
+            "arc_length": 4.499999999999999,
+            "radius": null,
+            "diameter": null,
+            "min_radius": null,
+            "start_point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "end_point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 4.5
+            },
+            "center": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 2.25
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61438,
+            61440
+          ],
+          "connected_face_indices": [
+            3,
+            7
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "end_point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 4.5
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Line",
+              "start_point": {
+                "x": -4.000000000022402,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "end_point": {
+                "x": -4.000000000022402,
+                "y": 0.0,
+                "z": 4.5
+              }
+            }
+          },
+          "start_vertex_index": 4,
+          "end_vertex_index": 8
+        },
+        {
+          "index": 14,
+          "type": "Circular",
+          "length": 6.283185307214774,
+          "face_count": 2,
+          "tag": 61447,
+          "start_point": {
+            "x": 0.0,
+            "y": -4.000000000022402,
+            "z": 4.5
+          },
+          "end_point": {
+            "x": -4.000000000022402,
+            "y": 0.0,
+            "z": 4.5
+          },
+          "curve_measurement": {
+            "arc_length": 6.283185307214775,
+            "radius": 4.000000000022402,
+            "diameter": 8.000000000044803,
+            "min_radius": 4.000000000022402,
+            "start_point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 4.5
+            },
+            "center": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 4.5
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61438,
+            61445
+          ],
+          "connected_face_indices": [
+            3,
+            6
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 4.5
+            },
+            "end_point": {
+              "x": -4.000000000022402,
+              "y": 0.0,
+              "z": 4.5
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Arc",
+              "radius": 4.000000000022402,
+              "center": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 4.5
+              },
+              "start_angle": 4.71238898038469,
+              "end_angle": 6.283185307179586,
+              "matrix_tag": 61600,
+              "matrix": {
+                "values": [
+                  -1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  -1.0
+                ],
+                "x_axis": {
+                  "x": -1.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "y_axis": {
+                  "x": 0.0,
+                  "y": 1.0,
+                  "z": 0.0
+                },
+                "z_axis": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": -1.0
+                }
+              },
+              "start_point": {
+                "x": 7.34788079492527e-16,
+                "y": -4.000000000022402,
+                "z": 4.5
+              },
+              "end_point": {
+                "x": -4.000000000022402,
+                "y": -9.797174393233693e-16,
+                "z": 4.5
+              }
+            }
+          },
+          "start_vertex_index": 9,
+          "end_vertex_index": 8
+        },
+        {
+          "index": 15,
+          "type": "Linear",
+          "length": 8.0,
+          "face_count": 2,
+          "tag": 61450,
+          "start_point": {
+            "x": -9.5,
+            "y": -8.0,
+            "z": 0.0
+          },
+          "end_point": {
+            "x": -9.5,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "curve_measurement": {
+            "arc_length": 8.0,
+            "radius": null,
+            "diameter": null,
+            "min_radius": null,
+            "start_point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 0.0
+            },
+            "end_point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "center": {
+              "x": -9.5,
+              "y": -4.0,
+              "z": 0.0
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61439,
+            61443
+          ],
+          "connected_face_indices": [
+            1,
+            2
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": -9.5,
+              "y": -8.0,
+              "z": 0.0
+            },
+            "end_point": {
+              "x": -9.5,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Line",
+              "start_point": {
+                "x": -9.5,
+                "y": -8.0,
+                "z": 0.0
+              },
+              "end_point": {
+                "x": -9.5,
+                "y": 0.0,
+                "z": 0.0
+              }
+            }
+          },
+          "start_vertex_index": 2,
+          "end_vertex_index": 3
+        },
+        {
+          "index": 16,
+          "type": "Linear",
+          "length": 3.9999999999775984,
+          "face_count": 2,
+          "tag": 61454,
+          "start_point": {
+            "x": 0.0,
+            "y": -4.000000000022402,
+            "z": 0.0
+          },
+          "end_point": {
+            "x": 0.0,
+            "y": -8.0,
+            "z": 0.0
+          },
+          "curve_measurement": {
+            "arc_length": 3.9999999999775984,
+            "radius": null,
+            "diameter": null,
+            "min_radius": null,
+            "start_point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 0.0
+            },
+            "end_point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 0.0
+            },
+            "center": {
+              "x": 0.0,
+              "y": -6.000000000011201,
+              "z": 0.0
+            }
+          },
+          "is_reference": false,
+          "attributes": [],
+          "connected_face_tags": [
+            61439,
+            61442
+          ],
+          "connected_face_indices": [
+            1,
+            4
+          ],
+          "exact_vertices": {
+            "vertex_count": 2,
+            "start_point": {
+              "x": 0.0,
+              "y": -4.000000000022402,
+              "z": 0.0
+            },
+            "end_point": {
+              "x": 0.0,
+              "y": -8.0,
+              "z": 0.0
+            }
+          },
+          "exact_geometry": {
+            "curve_structure": null,
+            "analytic_curve": {
+              "type": "Line",
+              "start_point": {
+                "x": 0.0,
+                "y": -4.000000000022402,
+                "z": 0.0
+              },
+              "end_point": {
+                "x": 0.0,
+                "y": -8.0,
+                "z": 0.0
+              }
+            }
+          },
+          "start_vertex_index": 11,
+          "end_vertex_index": 1
+        }
+      ],
+      "face_type_breakdown": {
+        "Planar": 7,
+        "Cylindrical": 1
+      },
+      "faces": [
+        {
+          "index": 1,
+          "type": "Planar",
+          "edge_count": 5,
+          "facet_count": null,
+          "vertex_count": 5,
+          "tag": 61439,
+          "measurement": {
+            "area": 113.6991118434998,
+            "perimeter": 45.84955592159952,
+            "radius_or_diameter": null,
+            "min_radius_of_curvature": null,
+            "area_error_estimate": null,
+            "is_approximate": false,
+            "center": {
+              "x": -2.987417062094905,
+              "y": -2.486093884843907,
+              "z": 0.0
+            },
+            "anchor_point": {
+              "x": -2.987417062094905,
+              "y": -2.486093884843907,
+              "z": 0.0
+            }
+          },
+          "analytic_data": {
+            "face_type_code": 1,
+            "reference_point": {
+              "x": -2.987417062094905,
+              "y": -2.486093884843907,
+              "z": 0.0
+            },
+            "direction": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "box": {
+              "x_min": -9.5,
+              "y_min": -8.0,
+              "z_min": 0.0,
+              "x_max": 0.0,
+              "y_max": 0.0,
+              "z_max": 0.0,
+              "dx": 9.5,
+              "dy": 8.0,
+              "dz": 0.0
+            },
+            "radius": null,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges"
+          },
+          "surface_definition": {
+            "type": "Planar",
+            "face_type_code": 1,
+            "reference_point": {
+              "x": -2.987417062094905,
+              "y": -2.486093884843907,
+              "z": 0.0
+            },
+            "direction": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "radius": null,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges",
+            "sampled_normal": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "plane_equation": {
+              "a": 0.0,
+              "b": 0.0,
+              "c": 1.0,
+              "d": -0.0
+            }
+          },
+          "uv_bounds": {
+            "u_min": -2.486093884843907,
+            "u_max": 5.513906115156093,
+            "v_min": -6.512582937905095,
+            "v_max": 2.987417062094905,
+            "source": "inferred_from_edges"
+          },
+          "periodicity": {
+            "u_status": 0,
+            "u_period": 0.0,
+            "v_status": 0,
+            "v_period": 0.0,
+            "source": "inferred_from_surface_type"
+          },
+          "topology": {
+            "topology_code": 2,
+            "topology_name": "Closed",
+            "source": "inferred_from_loops"
+          },
+          "local_properties": {
+            "uv": {
+              "u": 0.0,
+              "v": 0.0
+            },
+            "point": {
+              "x": -2.987417062094905,
+              "y": -2.486093884843907,
+              "z": 0.0
+            },
+            "u_tangent": {
+              "x": 0.0,
+              "y": -1.0,
+              "z": 0.0
+            },
+            "v_tangent": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "u_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "v_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "unit_normal": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "principal_radii": [
+              null,
+              null
+            ],
+            "source": "inferred_from_surface_definition"
+          },
+          "trimmed_bsurface": {
+            "surface": {
+              "type": "Planar",
+              "num_poles_u": null,
+              "num_poles_v": null,
+              "order_u": null,
+              "order_v": null,
+              "is_rational": null
+            },
+            "loop_count": 1,
+            "edge_count": 5,
+            "edge_sense": [
+              1,
+              -1,
+              -1,
+              -1,
+              -1
+            ],
+            "edge_bcurve_tags": null,
+            "source": "inferred_from_loops"
+          },
+          "edge_indices": [
+            9,
+            1,
+            16,
+            2,
+            15
+          ],
+          "loops": [
+            {
+              "loop_index": 1,
+              "closed": true,
+              "coedges": [
+                {
+                  "edge_index": 9,
+                  "sense": "forward"
+                },
+                {
+                  "edge_index": 2,
+                  "sense": "reversed"
+                },
+                {
+                  "edge_index": 15,
+                  "sense": "reversed"
+                },
+                {
+                  "edge_index": 1,
+                  "sense": "reversed"
+                },
+                {
+                  "edge_index": 16,
+                  "sense": "reversed"
+                }
+              ],
+              "source": "inferred_from_edge_vertices"
+            }
+          ],
+          "adjacent_face_indices": [
+            3,
+            8,
+            4,
+            7,
+            2
+          ],
+          "is_blend_face": false,
+          "blend_radius": 0.0,
+          "attributes": []
+        },
+        {
+          "index": 2,
+          "type": "Planar",
+          "edge_count": 4,
+          "facet_count": null,
+          "vertex_count": 4,
+          "tag": 61443,
+          "measurement": {
+            "area": 36.0,
+            "perimeter": 24.999999999999996,
+            "radius_or_diameter": null,
+            "min_radius_of_curvature": null,
+            "area_error_estimate": null,
+            "is_approximate": false,
+            "center": {
+              "x": -9.5,
+              "y": -4.0,
+              "z": 2.25
+            },
+            "anchor_point": {
+              "x": -9.5,
+              "y": -4.0,
+              "z": 2.25
+            }
+          },
+          "analytic_data": {
+            "face_type_code": 1,
+            "reference_point": {
+              "x": -9.5,
+              "y": -4.0,
+              "z": 2.25
+            },
+            "direction": {
+              "x": 1.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "box": {
+              "x_min": -9.5,
+              "y_min": -8.0,
+              "z_min": 0.0,
+              "x_max": -9.5,
+              "y_max": 0.0,
+              "z_max": 4.5,
+              "dx": 0.0,
+              "dy": 8.0,
+              "dz": 4.5
+            },
+            "radius": null,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges"
+          },
+          "surface_definition": {
+            "type": "Planar",
+            "face_type_code": 1,
+            "reference_point": {
+              "x": -9.5,
+              "y": -4.0,
+              "z": 2.25
+            },
+            "direction": {
+              "x": 1.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "radius": null,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges",
+            "sampled_normal": {
+              "x": 1.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "plane_equation": {
+              "a": 1.0,
+              "b": -0.0,
+              "c": 0.0,
+              "d": 9.5
+            }
+          },
+          "uv_bounds": {
+            "u_min": -2.25,
+            "u_max": 2.25,
+            "v_min": -4.0,
+            "v_max": 4.0,
+            "source": "inferred_from_edges"
+          },
+          "periodicity": {
+            "u_status": 0,
+            "u_period": 0.0,
+            "v_status": 0,
+            "v_period": 0.0,
+            "source": "inferred_from_surface_type"
+          },
+          "topology": {
+            "topology_code": 2,
+            "topology_name": "Closed",
+            "source": "inferred_from_loops"
+          },
+          "local_properties": {
+            "uv": {
+              "u": 0.0,
+              "v": 0.0
+            },
+            "point": {
+              "x": -9.5,
+              "y": -4.0,
+              "z": 2.25
+            },
+            "u_tangent": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -1.0
+            },
+            "v_tangent": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "u_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "v_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "unit_normal": {
+              "x": 1.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "principal_radii": [
+              null,
+              null
+            ],
+            "source": "inferred_from_surface_definition"
+          },
+          "trimmed_bsurface": {
+            "surface": {
+              "type": "Planar",
+              "num_poles_u": null,
+              "num_poles_v": null,
+              "order_u": null,
+              "order_v": null,
+              "is_rational": null
+            },
+            "loop_count": 1,
+            "edge_count": 4,
+            "edge_sense": [
+              1,
+              -1,
+              -1,
+              1
+            ],
+            "edge_bcurve_tags": null,
+            "source": "inferred_from_loops"
+          },
+          "edge_indices": [
+            6,
+            12,
+            10,
+            15
+          ],
+          "loops": [
+            {
+              "loop_index": 1,
+              "closed": true,
+              "coedges": [
+                {
+                  "edge_index": 6,
+                  "sense": "forward"
+                },
+                {
+                  "edge_index": 15,
+                  "sense": "reversed"
+                },
+                {
+                  "edge_index": 12,
+                  "sense": "reversed"
+                },
+                {
+                  "edge_index": 10,
+                  "sense": "forward"
+                }
+              ],
+              "source": "inferred_from_edge_vertices"
+            }
+          ],
+          "adjacent_face_indices": [
+            7,
+            8,
+            6,
+            1
+          ],
+          "is_blend_face": false,
+          "blend_radius": 0.0,
+          "attributes": []
+        },
+        {
+          "index": 3,
+          "type": "Cylindrical",
+          "edge_count": 5,
+          "facet_count": null,
+          "vertex_count": 5,
+          "tag": 61438,
+          "measurement": {
+            "area": 474.3804906947155,
+            "perimeter": 59.26548245771821,
+            "radius_or_diameter": 4.000000000022402,
+            "min_radius_of_curvature": 4.000000000022402,
+            "area_error_estimate": null,
+            "is_approximate": false,
+            "center": {
+              "x": 0.1517768993732536,
+              "y": 0.1517768993732538,
+              "z": 10.461920529801324
+            },
+            "anchor_point": {
+              "x": 0.1517768993732536,
+              "y": 0.1517768993732538,
+              "z": 10.461920529801324
+            }
+          },
+          "analytic_data": {
+            "face_type_code": 2,
+            "reference_point": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 4.5
+            },
+            "direction": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -1.0
+            },
+            "box": {
+              "x_min": -4.000000000022402,
+              "y_min": -4.000000000022402,
+              "z_min": 0.0,
+              "x_max": 4.000000000022402,
+              "y_max": 0.0,
+              "z_max": 20.0,
+              "dx": 8.000000000044803,
+              "dy": 4.000000000022402,
+              "dz": 20.0
+            },
+            "radius": 4.000000000022402,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges"
+          },
+          "surface_definition": {
+            "type": "Cylindrical",
+            "face_type_code": 2,
+            "reference_point": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 4.5
+            },
+            "direction": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -1.0
+            },
+            "radius": 4.000000000022402,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges",
+            "sampled_normal": {
+              "x": 0.707106781186547,
+              "y": 0.707106781186548,
+              "z": 0.0
+            },
+            "axis_point": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 4.5
+            },
+            "axis_direction": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -1.0
+            }
+          },
+          "uv_bounds": {
+            "u_min": 0.0,
+            "u_max": 6.283185307179586,
+            "v_min": -15.5,
+            "v_max": 4.5,
+            "source": "inferred_from_edges"
+          },
+          "periodicity": {
+            "u_status": 1,
+            "u_period": 6.283185307179586,
+            "v_status": 0,
+            "v_period": 0.0,
+            "source": "inferred_from_surface_type"
+          },
+          "topology": {
+            "topology_code": 3,
+            "topology_name": "Periodic",
+            "source": "inferred_from_surface_type"
+          },
+          "local_properties": {
+            "uv": {
+              "u": 0.0,
+              "v": -5.961920529801324
+            },
+            "point": {
+              "x": 0.1517768993732536,
+              "y": 0.1517768993732538,
+              "z": 10.461920529801324
+            },
+            "u_tangent": {
+              "x": 0.707106781186548,
+              "y": -0.707106781186547,
+              "z": 0.0
+            },
+            "v_tangent": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -1.0
+            },
+            "u_curvature": {
+              "x": -0.17677669529564674,
+              "y": -0.176776695295647,
+              "z": -0.0
+            },
+            "v_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "unit_normal": {
+              "x": 0.707106781186547,
+              "y": 0.707106781186548,
+              "z": 0.0
+            },
+            "principal_radii": [
+              4.000000000022402,
+              null
+            ],
+            "source": "inferred_from_surface_definition"
+          },
+          "trimmed_bsurface": {
+            "surface": {
+              "type": "Cylindrical",
+              "num_poles_u": null,
+              "num_poles_v": null,
+              "order_u": null,
+              "order_v": null,
+              "is_rational": null
+            },
+            "loop_count": 2,
+            "edge_count": 5,
+            "edge_sense": [
+              1,
+              -1,
+              1,
+              1,
+              1
+            ],
+            "edge_bcurve_tags": null,
+            "source": "inferred_from_loops"
+          },
+          "edge_indices": [
+            13,
+            11,
+            14,
+            8,
+            9
+          ],
+          "loops": [
+            {
+              "loop_index": 1,
+              "closed": true,
+              "coedges": [
+                {
+                  "edge_index": 13,
+                  "sense": "forward"
+                },
+                {
+                  "edge_index": 14,
+                  "sense": "reversed"
+                },
+                {
+                  "edge_index": 11,
+                  "sense": "forward"
+                },
+                {
+                  "edge_index": 9,
+                  "sense": "forward"
+                }
+              ],
+              "source": "inferred_from_edge_vertices"
+            },
+            {
+              "loop_index": 2,
+              "closed": true,
+              "coedges": [
+                {
+                  "edge_index": 8,
+                  "sense": "forward"
+                }
+              ],
+              "source": "inferred_from_edge_vertices"
+            }
+          ],
+          "adjacent_face_indices": [
+            7,
+            4,
+            6,
+            5,
+            1
+          ],
+          "is_blend_face": false,
+          "blend_radius": 0.0,
+          "attributes": []
+        },
+        {
+          "index": 4,
+          "type": "Planar",
+          "edge_count": 4,
+          "facet_count": null,
+          "vertex_count": 4,
+          "tag": 61442,
+          "measurement": {
+            "area": 17.99999999989919,
+            "perimeter": 16.999999999955197,
+            "radius_or_diameter": null,
+            "min_radius_of_curvature": null,
+            "area_error_estimate": null,
+            "is_approximate": false,
+            "center": {
+              "x": 0.0,
+              "y": -6.000000000011202,
+              "z": 2.2499999999999996
+            },
+            "anchor_point": {
+              "x": 0.0,
+              "y": -6.000000000011202,
+              "z": 2.2499999999999996
+            }
+          },
+          "analytic_data": {
+            "face_type_code": 1,
+            "reference_point": {
+              "x": 0.0,
+              "y": -6.000000000011202,
+              "z": 2.2499999999999996
+            },
+            "direction": {
+              "x": -1.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "box": {
+              "x_min": 0.0,
+              "y_min": -8.0,
+              "z_min": 0.0,
+              "x_max": 0.0,
+              "y_max": -4.000000000022402,
+              "z_max": 4.5,
+              "dx": 0.0,
+              "dy": 3.9999999999775984,
+              "dz": 4.5
+            },
+            "radius": null,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges"
+          },
+          "surface_definition": {
+            "type": "Planar",
+            "face_type_code": 1,
+            "reference_point": {
+              "x": 0.0,
+              "y": -6.000000000011202,
+              "z": 2.2499999999999996
+            },
+            "direction": {
+              "x": -1.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "radius": null,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges",
+            "sampled_normal": {
+              "x": -1.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "plane_equation": {
+              "a": -1.0,
+              "b": -0.0,
+              "c": -0.0,
+              "d": -0.0
+            }
+          },
+          "uv_bounds": {
+            "u_min": -2.2499999999999996,
+            "u_max": 2.2500000000000004,
+            "v_min": -1.9999999999887983,
+            "v_max": 1.9999999999888,
+            "source": "inferred_from_edges"
+          },
+          "periodicity": {
+            "u_status": 0,
+            "u_period": 0.0,
+            "v_status": 0,
+            "v_period": 0.0,
+            "source": "inferred_from_surface_type"
+          },
+          "topology": {
+            "topology_code": 2,
+            "topology_name": "Closed",
+            "source": "inferred_from_loops"
+          },
+          "local_properties": {
+            "uv": {
+              "u": 0.0,
+              "v": 0.0
+            },
+            "point": {
+              "x": 0.0,
+              "y": -6.000000000011202,
+              "z": 2.2499999999999996
+            },
+            "u_tangent": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "v_tangent": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "u_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "v_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "unit_normal": {
+              "x": -1.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "principal_radii": [
+              null,
+              null
+            ],
+            "source": "inferred_from_surface_definition"
+          },
+          "trimmed_bsurface": {
+            "surface": {
+              "type": "Planar",
+              "num_poles_u": null,
+              "num_poles_v": null,
+              "order_u": null,
+              "order_v": null,
+              "is_rational": null
+            },
+            "loop_count": 1,
+            "edge_count": 4,
+            "edge_sense": [
+              1,
+              1,
+              -1,
+              -1
+            ],
+            "edge_bcurve_tags": null,
+            "source": "inferred_from_loops"
+          },
+          "edge_indices": [
+            11,
+            7,
+            5,
+            16
+          ],
+          "loops": [
+            {
+              "loop_index": 1,
+              "closed": true,
+              "coedges": [
+                {
+                  "edge_index": 11,
+                  "sense": "forward"
+                },
+                {
+                  "edge_index": 16,
+                  "sense": "forward"
+                },
+                {
+                  "edge_index": 7,
+                  "sense": "reversed"
+                },
+                {
+                  "edge_index": 5,
+                  "sense": "reversed"
+                }
+              ],
+              "source": "inferred_from_edge_vertices"
+            }
+          ],
+          "adjacent_face_indices": [
+            3,
+            8,
+            6,
+            1
+          ],
+          "is_blend_face": false,
+          "blend_radius": 0.0,
+          "attributes": []
+        },
+        {
+          "index": 5,
+          "type": "Planar",
+          "edge_count": 1,
+          "facet_count": null,
+          "vertex_count": 1,
+          "tag": 61441,
+          "measurement": {
+            "area": 50.26548245799971,
+            "perimeter": 25.1327412288591,
+            "radius_or_diameter": null,
+            "min_radius_of_curvature": null,
+            "area_error_estimate": null,
+            "is_approximate": false,
+            "center": {
+              "x": 0.0,
+              "y": 3.8649362089079495e-32,
+              "z": 20.0
+            },
+            "anchor_point": {
+              "x": 0.0,
+              "y": 3.8649362089079495e-32,
+              "z": 20.0
+            }
+          },
+          "analytic_data": {
+            "face_type_code": 1,
+            "reference_point": {
+              "x": 0.0,
+              "y": 3.8649362089079495e-32,
+              "z": 20.0
+            },
+            "direction": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "box": {
+              "x_min": -4.000000000022402,
+              "y_min": -4.000000000022402,
+              "z_min": 20.0,
+              "x_max": 4.000000000022402,
+              "y_max": 4.000000000022402,
+              "z_max": 20.0,
+              "dx": 8.000000000044803,
+              "dy": 8.000000000044803,
+              "dz": 0.0
+            },
+            "radius": 4.000000000022402,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges"
+          },
+          "surface_definition": {
+            "type": "Planar",
+            "face_type_code": 1,
+            "reference_point": {
+              "x": 0.0,
+              "y": 3.8649362089079495e-32,
+              "z": 20.0
+            },
+            "direction": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "radius": 4.000000000022402,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges",
+            "sampled_normal": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "plane_equation": {
+              "a": 0.0,
+              "b": 0.0,
+              "c": 1.0,
+              "d": -20.0
+            }
+          },
+          "uv_bounds": {
+            "u_min": -4.000000000022402,
+            "u_max": 4.000000000022402,
+            "v_min": -4.000000000022402,
+            "v_max": 4.000000000022402,
+            "source": "inferred_from_edges_and_radius"
+          },
+          "periodicity": {
+            "u_status": 0,
+            "u_period": 0.0,
+            "v_status": 0,
+            "v_period": 0.0,
+            "source": "inferred_from_surface_type"
+          },
+          "topology": {
+            "topology_code": 2,
+            "topology_name": "Closed",
+            "source": "inferred_from_loops"
+          },
+          "local_properties": {
+            "uv": {
+              "u": 0.0,
+              "v": 0.0
+            },
+            "point": {
+              "x": 0.0,
+              "y": 3.8649362089079495e-32,
+              "z": 20.0
+            },
+            "u_tangent": {
+              "x": 0.0,
+              "y": -1.0,
+              "z": 0.0
+            },
+            "v_tangent": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "u_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "v_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "unit_normal": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "principal_radii": [
+              null,
+              null
+            ],
+            "source": "inferred_from_surface_definition"
+          },
+          "trimmed_bsurface": {
+            "surface": {
+              "type": "Planar",
+              "num_poles_u": null,
+              "num_poles_v": null,
+              "order_u": null,
+              "order_v": null,
+              "is_rational": null
+            },
+            "loop_count": 1,
+            "edge_count": 1,
+            "edge_sense": [
+              1
+            ],
+            "edge_bcurve_tags": null,
+            "source": "inferred_from_loops"
+          },
+          "edge_indices": [
+            8
+          ],
+          "loops": [
+            {
+              "loop_index": 1,
+              "closed": true,
+              "coedges": [
+                {
+                  "edge_index": 8,
+                  "sense": "forward"
+                }
+              ],
+              "source": "inferred_from_edge_vertices"
+            }
+          ],
+          "adjacent_face_indices": [
+            3
+          ],
+          "is_blend_face": false,
+          "blend_radius": 0.0,
+          "attributes": []
+        },
+        {
+          "index": 6,
+          "type": "Planar",
+          "edge_count": 5,
+          "facet_count": null,
+          "vertex_count": 5,
+          "tag": 61445,
+          "measurement": {
+            "area": 63.433629385500076,
+            "perimeter": 33.28318530716997,
+            "radius_or_diameter": null,
+            "min_radius_of_curvature": null,
+            "area_error_estimate": null,
+            "is_approximate": false,
+            "center": {
+              "x": -5.354678109336602,
+              "y": -4.456101115521562,
+              "z": 4.5
+            },
+            "anchor_point": {
+              "x": -5.354678109336602,
+              "y": -4.456101115521562,
+              "z": 4.5
+            }
+          },
+          "analytic_data": {
+            "face_type_code": 1,
+            "reference_point": {
+              "x": -5.354678109336602,
+              "y": -4.456101115521562,
+              "z": 4.5
+            },
+            "direction": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "box": {
+              "x_min": -9.5,
+              "y_min": -8.0,
+              "z_min": 4.5,
+              "x_max": 0.0,
+              "y_max": 0.0,
+              "z_max": 4.5,
+              "dx": 9.5,
+              "dy": 8.0,
+              "dz": 0.0
+            },
+            "radius": null,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges"
+          },
+          "surface_definition": {
+            "type": "Planar",
+            "face_type_code": 1,
+            "reference_point": {
+              "x": -5.354678109336602,
+              "y": -4.456101115521562,
+              "z": 4.5
+            },
+            "direction": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "radius": null,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges",
+            "sampled_normal": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "plane_equation": {
+              "a": 0.0,
+              "b": 0.0,
+              "c": 1.0,
+              "d": -4.5
+            }
+          },
+          "uv_bounds": {
+            "u_min": -4.456101115521562,
+            "u_max": 3.5438988844784376,
+            "v_min": -4.145321890663398,
+            "v_max": 5.354678109336602,
+            "source": "inferred_from_edges"
+          },
+          "periodicity": {
+            "u_status": 0,
+            "u_period": 0.0,
+            "v_status": 0,
+            "v_period": 0.0,
+            "source": "inferred_from_surface_type"
+          },
+          "topology": {
+            "topology_code": 2,
+            "topology_name": "Closed",
+            "source": "inferred_from_loops"
+          },
+          "local_properties": {
+            "uv": {
+              "u": 0.0,
+              "v": 0.0
+            },
+            "point": {
+              "x": -5.354678109336602,
+              "y": -4.456101115521562,
+              "z": 4.5
+            },
+            "u_tangent": {
+              "x": 0.0,
+              "y": -1.0,
+              "z": 0.0
+            },
+            "v_tangent": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "u_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "v_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "unit_normal": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "principal_radii": [
+              null,
+              null
+            ],
+            "source": "inferred_from_surface_definition"
+          },
+          "trimmed_bsurface": {
+            "surface": {
+              "type": "Planar",
+              "num_poles_u": null,
+              "num_poles_v": null,
+              "order_u": null,
+              "order_v": null,
+              "is_rational": null
+            },
+            "loop_count": 1,
+            "edge_count": 5,
+            "edge_sense": [
+              1,
+              -1,
+              -1,
+              -1,
+              -1
+            ],
+            "edge_bcurve_tags": null,
+            "source": "inferred_from_loops"
+          },
+          "edge_indices": [
+            14,
+            3,
+            5,
+            4,
+            10
+          ],
+          "loops": [
+            {
+              "loop_index": 1,
+              "closed": true,
+              "coedges": [
+                {
+                  "edge_index": 14,
+                  "sense": "forward"
+                },
+                {
+                  "edge_index": 4,
+                  "sense": "reversed"
+                },
+                {
+                  "edge_index": 10,
+                  "sense": "reversed"
+                },
+                {
+                  "edge_index": 3,
+                  "sense": "reversed"
+                },
+                {
+                  "edge_index": 5,
+                  "sense": "reversed"
+                }
+              ],
+              "source": "inferred_from_edge_vertices"
+            }
+          ],
+          "adjacent_face_indices": [
+            3,
+            8,
+            4,
+            7,
+            2
+          ],
+          "is_blend_face": false,
+          "blend_radius": 0.0,
+          "attributes": []
+        },
+        {
+          "index": 7,
+          "type": "Planar",
+          "edge_count": 4,
+          "facet_count": null,
+          "vertex_count": 4,
+          "tag": 61440,
+          "measurement": {
+            "area": 24.7499999998992,
+            "perimeter": 19.9999999999552,
+            "radius_or_diameter": null,
+            "min_radius_of_curvature": null,
+            "area_error_estimate": null,
+            "is_approximate": false,
+            "center": {
+              "x": -6.750000000011201,
+              "y": 0.0,
+              "z": 2.25
+            },
+            "anchor_point": {
+              "x": -6.750000000011201,
+              "y": 0.0,
+              "z": 2.25
+            }
+          },
+          "analytic_data": {
+            "face_type_code": 1,
+            "reference_point": {
+              "x": -6.750000000011201,
+              "y": 0.0,
+              "z": 2.25
+            },
+            "direction": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "box": {
+              "x_min": -9.5,
+              "y_min": 0.0,
+              "z_min": 0.0,
+              "x_max": -4.000000000022402,
+              "y_max": 0.0,
+              "z_max": 4.5,
+              "dx": 5.499999999977598,
+              "dy": 0.0,
+              "dz": 4.5
+            },
+            "radius": null,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges"
+          },
+          "surface_definition": {
+            "type": "Planar",
+            "face_type_code": 1,
+            "reference_point": {
+              "x": -6.750000000011201,
+              "y": 0.0,
+              "z": 2.25
+            },
+            "direction": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "radius": null,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges",
+            "sampled_normal": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "plane_equation": {
+              "a": 0.0,
+              "b": 1.0,
+              "c": 0.0,
+              "d": -0.0
+            }
+          },
+          "uv_bounds": {
+            "u_min": -2.25,
+            "u_max": 2.25,
+            "v_min": -2.749999999988799,
+            "v_max": 2.749999999988799,
+            "source": "inferred_from_edges"
+          },
+          "periodicity": {
+            "u_status": 0,
+            "u_period": 0.0,
+            "v_status": 0,
+            "v_period": 0.0,
+            "source": "inferred_from_surface_type"
+          },
+          "topology": {
+            "topology_code": 2,
+            "topology_name": "Closed",
+            "source": "inferred_from_loops"
+          },
+          "local_properties": {
+            "uv": {
+              "u": 0.0,
+              "v": 0.0
+            },
+            "point": {
+              "x": -6.750000000011201,
+              "y": 0.0,
+              "z": 2.25
+            },
+            "u_tangent": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "v_tangent": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "u_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "v_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "unit_normal": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "principal_radii": [
+              null,
+              null
+            ],
+            "source": "inferred_from_surface_definition"
+          },
+          "trimmed_bsurface": {
+            "surface": {
+              "type": "Planar",
+              "num_poles_u": null,
+              "num_poles_v": null,
+              "order_u": null,
+              "order_v": null,
+              "is_rational": null
+            },
+            "loop_count": 1,
+            "edge_count": 4,
+            "edge_sense": [
+              1,
+              -1,
+              1,
+              1
+            ],
+            "edge_bcurve_tags": null,
+            "source": "inferred_from_loops"
+          },
+          "edge_indices": [
+            13,
+            6,
+            4,
+            2
+          ],
+          "loops": [
+            {
+              "loop_index": 1,
+              "closed": true,
+              "coedges": [
+                {
+                  "edge_index": 13,
+                  "sense": "forward"
+                },
+                {
+                  "edge_index": 4,
+                  "sense": "reversed"
+                },
+                {
+                  "edge_index": 6,
+                  "sense": "forward"
+                },
+                {
+                  "edge_index": 2,
+                  "sense": "forward"
+                }
+              ],
+              "source": "inferred_from_edge_vertices"
+            }
+          ],
+          "adjacent_face_indices": [
+            3,
+            2,
+            6,
+            1
+          ],
+          "is_blend_face": false,
+          "blend_radius": 0.0,
+          "attributes": []
+        },
+        {
+          "index": 8,
+          "type": "Planar",
+          "edge_count": 4,
+          "facet_count": null,
+          "vertex_count": 4,
+          "tag": 61444,
+          "measurement": {
+            "area": 42.75,
+            "perimeter": 28.0,
+            "radius_or_diameter": null,
+            "min_radius_of_curvature": null,
+            "area_error_estimate": null,
+            "is_approximate": false,
+            "center": {
+              "x": -4.749999999999999,
+              "y": -8.000000000000002,
+              "z": 2.25
+            },
+            "anchor_point": {
+              "x": -4.749999999999999,
+              "y": -8.000000000000002,
+              "z": 2.25
+            }
+          },
+          "analytic_data": {
+            "face_type_code": 1,
+            "reference_point": {
+              "x": -4.749999999999999,
+              "y": -8.000000000000002,
+              "z": 2.25
+            },
+            "direction": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "box": {
+              "x_min": -9.5,
+              "y_min": -8.0,
+              "z_min": 0.0,
+              "x_max": 0.0,
+              "y_max": -8.0,
+              "z_max": 4.5,
+              "dx": 9.5,
+              "dy": 0.0,
+              "dz": 4.5
+            },
+            "radius": null,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges"
+          },
+          "surface_definition": {
+            "type": "Planar",
+            "face_type_code": 1,
+            "reference_point": {
+              "x": -4.749999999999999,
+              "y": -8.000000000000002,
+              "z": 2.25
+            },
+            "direction": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "radius": null,
+            "radius_data": null,
+            "normal_direction": null,
+            "source": "inferred_from_edges",
+            "sampled_normal": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "plane_equation": {
+              "a": 0.0,
+              "b": 1.0,
+              "c": 0.0,
+              "d": 8.000000000000002
+            }
+          },
+          "uv_bounds": {
+            "u_min": -2.25,
+            "u_max": 2.25,
+            "v_min": -4.750000000000001,
+            "v_max": 4.749999999999999,
+            "source": "inferred_from_edges"
+          },
+          "periodicity": {
+            "u_status": 0,
+            "u_period": 0.0,
+            "v_status": 0,
+            "v_period": 0.0,
+            "source": "inferred_from_surface_type"
+          },
+          "topology": {
+            "topology_code": 2,
+            "topology_name": "Closed",
+            "source": "inferred_from_loops"
+          },
+          "local_properties": {
+            "uv": {
+              "u": 0.0,
+              "v": 0.0
+            },
+            "point": {
+              "x": -4.749999999999999,
+              "y": -8.000000000000002,
+              "z": 2.25
+            },
+            "u_tangent": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "v_tangent": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "u_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "v_curvature": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "unit_normal": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "principal_radii": [
+              null,
+              null
+            ],
+            "source": "inferred_from_surface_definition"
+          },
+          "trimmed_bsurface": {
+            "surface": {
+              "type": "Planar",
+              "num_poles_u": null,
+              "num_poles_v": null,
+              "order_u": null,
+              "order_v": null,
+              "is_rational": null
+            },
+            "loop_count": 1,
+            "edge_count": 4,
+            "edge_sense": [
+              1,
+              1,
+              -1,
+              -1
+            ],
+            "edge_bcurve_tags": null,
+            "source": "inferred_from_loops"
+          },
+          "edge_indices": [
+            7,
+            12,
+            3,
+            1
+          ],
+          "loops": [
+            {
+              "loop_index": 1,
+              "closed": true,
+              "coedges": [
+                {
+                  "edge_index": 7,
+                  "sense": "forward"
+                },
+                {
+                  "edge_index": 1,
+                  "sense": "forward"
+                },
+                {
+                  "edge_index": 12,
+                  "sense": "reversed"
+                },
+                {
+                  "edge_index": 3,
+                  "sense": "reversed"
+                }
+              ],
+              "source": "inferred_from_edge_vertices"
+            }
+          ],
+          "adjacent_face_indices": [
+            4,
+            2,
+            6,
+            1
+          ],
+          "is_blend_face": false,
+          "blend_radius": 0.0,
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

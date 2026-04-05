@@ -517,8 +517,17 @@ def analyze_xt_text(
     model_analysis = infer_model_analysis(geometry_points, bounds, decoded_names, notable_scalars)
     structured_parse = parse_xt_structure(normalized_text)
     entity_hints = infer_entity_hints(structured_parse, decoded_names)
-    kernel_body = build_kernel_body(geometry_points, bounds, decoded_names, structured_parse, notable_scalars, entity_hints)
-    kernel_topology = build_topology_from_kernel_body(kernel_body.to_dict() if kernel_body else None)
+    kernel_body_object = build_kernel_body(geometry_points, bounds, decoded_names, structured_parse, notable_scalars, entity_hints)
+    kernel_body = kernel_body_object.to_dict() if kernel_body_object else None
+    if kernel_body is None:
+        kernel_body = infer_compound_preview_from_xt_scalars(notable_scalars, entity_hints, decoded_names)
+        if kernel_body is not None:
+            model_analysis["summary"].append(
+                "A heuristic compound preview was synthesized from repeated XT scalar values and surface records."
+            )
+    kernel_topology = build_topology_from_kernel_body(
+        kernel_body if kernel_body and kernel_body.get("metadata", {}).get("primitive") != "compound" else None
+    )
 
     result: dict[str, Any] = {
         "file": source_path or display_name,
@@ -534,7 +543,7 @@ def analyze_xt_text(
         "object_state_ids": extract_object_state_ids(normalized_text),
         "structured_parse": structured_parse,
         "entity_hints": entity_hints,
-        "kernel_body": kernel_body.to_dict() if kernel_body else None,
+        "kernel_body": kernel_body,
         "kernel_topology": kernel_topology,
         "geometry_hints": {
             "point_count": len(geometry_points),
@@ -828,6 +837,426 @@ def _build_nx_cylinder_body(
     return kernel_body, bounds, points, label
 
 
+def _box_body_from_center_and_dimensions(
+    center: list[float],
+    dimensions: list[float],
+    *,
+    body_index: int,
+    source: str,
+) -> tuple[dict[str, Any], list[list[float]]]:
+    minimum = [center[index] - dimensions[index] / 2 for index in range(3)]
+    maximum = [center[index] + dimensions[index] / 2 for index in range(3)]
+    faces = _box_face_specs(minimum, maximum)
+    points = [vertex for face in faces for vertex in face["vertices"]]
+    body = {
+        "kind": "solid",
+        "name": "rectangular prism",
+        "faces": faces,
+        "edges": [
+            {
+                "kind": "line",
+                "name": f"{axis.upper()}-aligned edges",
+                "axis": axis,
+                "length": round(length, 12),
+            }
+            for axis, length in zip(("x", "y", "z"), dimensions)
+        ],
+        "vertices": [],
+        "metadata": {
+            "primitive": "box",
+            "dimensions": {
+                "x": round(dimensions[0], 12),
+                "y": round(dimensions[1], 12),
+                "z": round(dimensions[2], 12),
+            },
+            "center": _round_triplet(center),
+            "source": source,
+            "nx_body_index": body_index,
+        },
+    }
+    return body, points
+
+
+def _cylinder_body_from_center_radius_height(
+    center: list[float],
+    radius: float,
+    height: float,
+    *,
+    axis: str,
+    body_index: int,
+    source: str,
+) -> tuple[dict[str, Any], list[list[float]]]:
+    point_count = 24
+    axis_index = {"x": 0, "y": 1, "z": 2}[axis]
+    start = center.copy()
+    end = center.copy()
+    start[axis_index] -= height / 2
+    end[axis_index] += height / 2
+    points: list[list[float]] = []
+
+    for index in range(point_count):
+        angle = (index / point_count) * math.pi * 2
+        if axis == "z":
+            offset = [math.cos(angle) * radius, math.sin(angle) * radius, 0.0]
+        elif axis == "x":
+            offset = [0.0, math.cos(angle) * radius, math.sin(angle) * radius]
+        else:
+            offset = [math.cos(angle) * radius, 0.0, math.sin(angle) * radius]
+        points.append(_round_triplet([start[i] + offset[i] for i in range(3)]))
+        points.append(_round_triplet([end[i] + offset[i] for i in range(3)]))
+
+    body = {
+        "kind": "solid",
+        "name": "cylinder",
+        "faces": [],
+        "edges": [
+            {"kind": "circle", "name": "Start rim", "axis": axis, "radius": round(radius, 12)},
+            {"kind": "circle", "name": "End rim", "axis": axis, "radius": round(radius, 12)},
+        ],
+        "vertices": [],
+        "metadata": {
+            "primitive": "cylinder",
+            "axis": axis,
+            "radius": round(radius, 12),
+            "height": round(height, 12),
+            "center": _round_triplet(center),
+            "source": source,
+            "nx_body_index": body_index,
+        },
+    }
+    return body, points
+
+
+def _translate_kernel_body(body: dict[str, Any], delta: list[float]) -> dict[str, Any]:
+    shifted = json.loads(json.dumps(body))
+
+    def shift_point(point: list[float]) -> list[float]:
+        return _round_triplet([float(point[index]) + delta[index] for index in range(3)])
+
+    for face in shifted.get("faces", []):
+        if face.get("vertices"):
+            face["vertices"] = [shift_point(vertex) for vertex in face["vertices"]]
+
+    if shifted.get("vertices"):
+        shifted["vertices"] = [shift_point(vertex) for vertex in shifted["vertices"]]
+
+    metadata = shifted.get("metadata", {})
+    if isinstance(metadata.get("center"), list) and len(metadata["center"]) == 3:
+        metadata["center"] = shift_point(metadata["center"])
+
+    for component in metadata.get("components", []):
+        translated = _translate_kernel_body(component, delta)
+        component.clear()
+        component.update(translated)
+
+    return shifted
+
+
+def _dominant_axis_label(direction: dict[str, Any] | list[float] | None) -> str:
+    if isinstance(direction, dict):
+        values = [float(direction.get("x", 0.0)), float(direction.get("y", 0.0)), float(direction.get("z", 0.0))]
+    elif isinstance(direction, list) and len(direction) >= 3:
+        values = [float(direction[0]), float(direction[1]), float(direction[2])]
+    else:
+        return "z"
+
+    index = max(range(3), key=lambda idx: abs(values[idx]))
+    return ("x", "y", "z")[index]
+
+
+def _scaled_bounding_box(body_payload: dict[str, Any], scale: float) -> dict[str, Any] | None:
+    bounding_box = body_payload.get("bounding_box")
+    if not isinstance(bounding_box, dict):
+        return None
+    required = ["x_min", "y_min", "z_min", "x_max", "y_max", "z_max"]
+    if not all(key in bounding_box and bounding_box[key] is not None for key in required):
+        return None
+    minimum = [float(bounding_box["x_min"]) * scale, float(bounding_box["y_min"]) * scale, float(bounding_box["z_min"]) * scale]
+    maximum = [float(bounding_box["x_max"]) * scale, float(bounding_box["y_max"]) * scale, float(bounding_box["z_max"]) * scale]
+    return {
+        "min": _round_triplet(minimum),
+        "max": _round_triplet(maximum),
+        "size": _round_triplet([maximum[index] - minimum[index] for index in range(3)]),
+    }
+
+
+def _scaled_topology_vertices(body_payload: dict[str, Any], scale: float) -> list[list[float]]:
+    vertices = []
+    topology = body_payload.get("topology") or {}
+    for vertex in topology.get("vertices", []):
+        point = vertex.get("point") or {}
+        if {"x", "y", "z"} <= point.keys():
+            vertices.append(
+                [
+                    float(point["x"]) * scale,
+                    float(point["y"]) * scale,
+                    float(point["z"]) * scale,
+                ]
+            )
+    return vertices
+
+
+def _build_exact_compound_from_rich_body(
+    body_payload: dict[str, Any],
+    *,
+    scale: float,
+    body_index: int,
+) -> tuple[dict[str, Any], dict[str, Any], list[list[float]], str] | None:
+    topology_vertices = _scaled_topology_vertices(body_payload, scale)
+    if not topology_vertices:
+        return None
+
+    circle_edges = []
+    for edge in body_payload.get("edges", []):
+        analytic = ((edge.get("exact_geometry") or {}).get("analytic_curve") or {})
+        if analytic.get("type") != "Arc":
+            continue
+        center = analytic.get("center") or {}
+        if not {"x", "y", "z"} <= center.keys():
+            continue
+        radius = analytic.get("radius")
+        if radius is None:
+            continue
+        start_angle = analytic.get("start_angle")
+        end_angle = analytic.get("end_angle")
+        sweep = None
+        if start_angle is not None and end_angle is not None:
+            sweep = abs(float(end_angle) - float(start_angle))
+        circle_edges.append(
+            {
+                "center": [float(center["x"]) * scale, float(center["y"]) * scale, float(center["z"]) * scale],
+                "radius": float(radius) * scale,
+                "sweep": sweep,
+                "matrix": analytic.get("matrix"),
+                "edge": edge,
+            }
+        )
+
+    if not circle_edges:
+        return None
+
+    full_circle = next(
+        (
+            item
+            for item in circle_edges
+            if item["sweep"] is not None and abs(item["sweep"] - (2 * math.pi)) <= 0.05
+        ),
+        None,
+    )
+    if full_circle is None:
+        full_circle = next(
+            (
+                item
+                for item in circle_edges
+                if item["edge"].get("start_vertex_index") == item["edge"].get("end_vertex_index")
+            ),
+            None,
+        )
+    if full_circle is None:
+        return None
+
+    axis = "z"
+    cylindrical_face = next((face for face in body_payload.get("faces", []) if face.get("type") == "Cylindrical"), None)
+    if cylindrical_face:
+        surface_definition = cylindrical_face.get("surface_definition") or {}
+        axis = _dominant_axis_label(surface_definition.get("axis_direction") or surface_definition.get("direction"))
+    elif full_circle.get("matrix"):
+        axis = _dominant_axis_label(full_circle["matrix"].get("z_axis"))
+
+    axis_index = {"x": 0, "y": 1, "z": 2}[axis]
+    center = full_circle["center"]
+    radius = full_circle["radius"]
+    if radius <= 0:
+        return None
+
+    bounds = _scaled_bounding_box(body_payload, scale)
+    if bounds:
+        axis_min = float(bounds["min"][axis_index])
+        axis_max = float(bounds["max"][axis_index])
+    else:
+        axis_values = [point[axis_index] for point in topology_vertices]
+        axis_min = min(axis_values)
+        axis_max = max(axis_values)
+
+    if axis_max <= axis_min:
+        return None
+
+    cylinder_center = center.copy()
+    cylinder_center[axis_index] = (axis_min + axis_max) / 2
+    cylinder_height = axis_max - axis_min
+    cylinder_body, cylinder_points = _cylinder_body_from_center_radius_height(
+        cylinder_center,
+        radius,
+        cylinder_height,
+        axis=axis,
+        body_index=body_index,
+        source="nx_exact_topology_preview",
+    )
+
+    unique_axis_levels = sorted({round(point[axis_index], 12) for point in topology_vertices})
+    box_top = None
+    if len(unique_axis_levels) >= 2:
+        for candidate in unique_axis_levels:
+            if candidate > axis_min + 1e-6:
+                box_top = candidate
+                break
+    if box_top is None or box_top >= axis_max:
+        return None
+
+    box_extents_min = [min(point[index] for point in topology_vertices) for index in range(3)]
+    box_extents_max = [max(point[index] for point in topology_vertices) for index in range(3)]
+    for index in range(3):
+        if index == axis_index:
+            box_extents_min[index] = axis_min
+            box_extents_max[index] = box_top
+        else:
+            box_extents_max[index] = center[index]
+
+    if any(box_extents_max[index] <= box_extents_min[index] for index in range(3)):
+        return None
+
+    box_center = [(box_extents_min[index] + box_extents_max[index]) / 2 for index in range(3)]
+    box_dimensions = [box_extents_max[index] - box_extents_min[index] for index in range(3)]
+    box_body, box_points = _box_body_from_center_and_dimensions(
+        box_center,
+        box_dimensions,
+        body_index=body_index,
+        source="nx_exact_topology_preview",
+    )
+
+    points = box_points + cylinder_points
+    merged_bounds = bounds or _merge_bounds(
+        [
+            {
+                "min": [min(point[index] for point in box_points) for index in range(3)],
+                "max": [max(point[index] for point in box_points) for index in range(3)],
+            },
+            {
+                "min": [min(point[index] for point in cylinder_points) for index in range(3)],
+                "max": [max(point[index] for point in cylinder_points) for index in range(3)],
+            },
+        ]
+    )
+
+    label = "Exact block + cylinder preview from topology/edge geometry."
+    compound_body = {
+        "kind": "solid",
+        "name": "compound cylinder + block",
+        "faces": [],
+        "edges": [],
+        "vertices": [],
+        "metadata": {
+            "primitive": "compound",
+            "components": [box_body, cylinder_body],
+            "source": "nx_exact_topology_preview",
+            "nx_body_index": body_index,
+        },
+    }
+    return compound_body, merged_bounds, points, label
+
+
+def _build_nx_compound_block_cylinder_body(
+    body_payload: dict[str, Any],
+    *,
+    scale: float,
+    body_index: int,
+) -> tuple[dict[str, Any], dict[str, Any], list[list[float]], str] | None:
+    circular_lengths = sorted(
+        [
+            float(edge.get("length", 0.0)) * scale / (2 * math.pi)
+            for edge in body_payload.get("edges", [])
+            if edge.get("type") == "Circular" and edge.get("length") is not None
+        ]
+    )
+    if not circular_lengths:
+        return None
+
+    linear_lengths = sorted(
+        {
+            round(float(edge.get("length", 0.0)) * scale, 12)
+            for edge in body_payload.get("edges", [])
+            if edge.get("type") == "Linear" and edge.get("length") is not None
+        },
+        reverse=True,
+    )
+    if len(linear_lengths) < 3:
+        return None
+
+    radius = max(circular_lengths)
+    box_length = linear_lengths[0]
+    common_depth = linear_lengths[1]
+    box_height = linear_lengths[2]
+    cylinder_height = common_depth
+    if radius <= 0 or box_length <= 0 or common_depth <= 0 or box_height <= 0:
+        return None
+
+    box_center = [-(radius + box_length / 2), 0.0, box_height / 2]
+    cylinder_center = [0.0, 0.0, cylinder_height / 2]
+    box_body, box_points = _box_body_from_center_and_dimensions(
+        box_center,
+        [box_length, common_depth, box_height],
+        body_index=body_index,
+        source="nx_json_compound_preview",
+    )
+    cylinder_body, cylinder_points = _cylinder_body_from_center_radius_height(
+        cylinder_center,
+        radius,
+        cylinder_height,
+        axis="z",
+        body_index=body_index,
+        source="nx_json_compound_preview",
+    )
+
+    measurement = body_payload.get("measurement", {})
+    centroid_payload = measurement.get("centroid") or {}
+    if {"x", "y", "z"} <= centroid_payload.keys():
+        desired_centroid = [
+            float(centroid_payload["x"]) * scale,
+            float(centroid_payload["y"]) * scale,
+            float(centroid_payload["z"]) * scale,
+        ]
+        box_volume = box_length * common_depth * box_height
+        cylinder_volume = math.pi * radius * radius * cylinder_height
+        approx_centroid = [
+            (box_center[index] * box_volume + cylinder_center[index] * cylinder_volume) / (box_volume + cylinder_volume)
+            for index in range(3)
+        ]
+        delta = [desired_centroid[index] - approx_centroid[index] for index in range(3)]
+        box_body = _translate_kernel_body(box_body, delta)
+        cylinder_body = _translate_kernel_body(cylinder_body, delta)
+        box_points = [_round_triplet([point[i] + delta[i] for i in range(3)]) for point in box_points]
+        cylinder_points = [_round_triplet([point[i] + delta[i] for i in range(3)]) for point in cylinder_points]
+
+    points = box_points + cylinder_points
+    bounds = _merge_bounds(
+        [
+            {
+                "min": [min(point[index] for point in box_points) for index in range(3)],
+                "max": [max(point[index] for point in box_points) for index in range(3)],
+            },
+            {
+                "min": [min(point[index] for point in cylinder_points) for index in range(3)],
+                "max": [max(point[index] for point in cylinder_points) for index in range(3)],
+            },
+        ]
+    )
+    label = "Likely a block joined to a vertical cylinder."
+    compound_body = {
+        "kind": "solid",
+        "name": "compound cylinder + block",
+        "faces": [],
+        "edges": [],
+        "vertices": [],
+        "metadata": {
+            "primitive": "compound",
+            "components": [box_body, cylinder_body],
+            "source": "nx_json_compound_preview",
+            "nx_body_index": body_index,
+        },
+    }
+    return compound_body, bounds, points, label
+
+
 def _build_nx_body(
     body_payload: dict[str, Any],
     *,
@@ -835,15 +1264,49 @@ def _build_nx_body(
     body_index: int,
 ) -> tuple[dict[str, Any], dict[str, Any], list[list[float]], str] | None:
     shape_summary = str(body_payload.get("metadata", {}).get("shape_summary") or "").lower()
-    face_types = {str(name).lower() for name in (body_payload.get("face_type_breakdown") or {})}
-    edge_types = {str(name).lower() for name in (body_payload.get("edge_type_breakdown") or {})}
+    face_breakdown = body_payload.get("face_type_breakdown") or {}
+    edge_breakdown = body_payload.get("edge_type_breakdown") or {}
+    face_types = {str(name).lower() for name in face_breakdown}
+    edge_types = {str(name).lower() for name in edge_breakdown}
+    total_faces = sum(int(value) for value in face_breakdown.values())
+    total_edges = sum(int(value) for value in edge_breakdown.values())
+    circular_edges = int(edge_breakdown.get("Circular", edge_breakdown.get("circular", 0)) or 0)
+    linear_edges = int(edge_breakdown.get("Linear", edge_breakdown.get("linear", 0)) or 0)
+    cylindrical_faces = int(face_breakdown.get("Cylindrical", face_breakdown.get("cylindrical", 0)) or 0)
+    looks_like_simple_cylinder = (
+        cylindrical_faces == 1
+        and circular_edges == 2
+        and total_faces == 3
+    )
+    looks_like_simple_box = (
+        total_faces == 6
+        and total_edges == 12
+        and face_types == {"planar"}
+        and edge_types == {"linear"}
+        and linear_edges == 12
+    )
+    looks_like_compound_cylinder_block = (
+        cylindrical_faces == 1
+        and total_faces >= 8
+        and circular_edges >= 3
+        and linear_edges >= 8
+    )
 
-    if "cylinder" in shape_summary or "cylindrical" in face_types or "circular" in edge_types:
+    exact_built = _build_exact_compound_from_rich_body(body_payload, scale=scale, body_index=body_index)
+    if exact_built:
+        return exact_built
+
+    if looks_like_compound_cylinder_block:
+        built = _build_nx_compound_block_cylinder_body(body_payload, scale=scale, body_index=body_index)
+        if built:
+            return built
+
+    if looks_like_simple_cylinder or "right circular cylinder" in shape_summary:
         built = _build_nx_cylinder_body(body_payload, scale=scale, body_index=body_index)
         if built:
             return built
 
-    if "rectangular prism" in shape_summary or ("planar" in face_types and "linear" in edge_types):
+    if looks_like_simple_box or "rectangular prism" in shape_summary:
         built = _build_nx_box_body(body_payload, scale=scale, body_index=body_index)
         if built:
             return built
@@ -874,6 +1337,7 @@ def normalize_existing_report(
     report.setdefault("structured_parse", None)
     report.setdefault("entity_hints", {})
     report.setdefault("kernel_body", None)
+    report.setdefault("kernel_bodies", [])
     report.setdefault("kernel_topology", None)
     report.setdefault(
         "geometry_hints",
@@ -898,13 +1362,33 @@ def normalize_existing_report(
     return report
 
 
-def convert_nx_json_report(
+def _structured_body_summaries(payload: dict[str, Any]) -> list[dict[str, Any]]:
+    summaries: list[dict[str, Any]] = []
+    for fallback_index, body_payload in enumerate(payload.get("bodies", []), start=1):
+        face_breakdown = body_payload.get("face_type_breakdown") or {}
+        edge_breakdown = body_payload.get("edge_type_breakdown") or {}
+        summaries.append(
+            {
+                "index": int(body_payload.get("index", fallback_index)),
+                "name": body_payload.get("metadata", {}).get("name") or f"Body {fallback_index}",
+                "shape_summary": body_payload.get("metadata", {}).get("shape_summary") or "Unknown body shape.",
+                "face_count": sum(int(value) for value in face_breakdown.values()),
+                "edge_count": sum(int(value) for value in edge_breakdown.values()),
+            }
+        )
+    return summaries
+
+
+def _convert_structured_body_report(
     payload: dict[str, Any],
     *,
     display_name: str,
     source_path: str | None,
     file_size_bytes: int | None,
     raw_text: str,
+    source_format: str,
+    application_label: str,
+    schema_label: str,
 ) -> dict[str, Any]:
     part_summary = payload.get("part_summary") or {}
     part_name = part_summary.get("part_name") or part_summary.get("leaf") or display_name
@@ -912,7 +1396,7 @@ def convert_nx_json_report(
     scale = unit_scale_to_meters(units)
 
     kernel_bodies: list[dict[str, Any]] = []
-    imported_body_summaries: list[dict[str, Any]] = []
+    imported_body_summaries = _structured_body_summaries(payload)
     bounds_list: list[dict[str, Any]] = []
     preview_points: list[list[float]] = []
     edge_lengths: list[float] = []
@@ -933,15 +1417,10 @@ def convert_nx_json_report(
                 if edge.get("length") is not None
             ]
         )
-        imported_body_summaries.append(
-            {
-                "index": body_index,
-                "name": body_payload.get("metadata", {}).get("name") or f"Body {body_index}",
-                "shape_summary": label,
-                "face_count": sum(int(value) for value in (body_payload.get("face_type_breakdown") or {}).values()),
-                "edge_count": sum(int(value) for value in (body_payload.get("edge_type_breakdown") or {}).values()),
-            }
-        )
+        for summary in imported_body_summaries:
+            if summary["index"] == body_index:
+                summary["shape_summary"] = label
+                break
 
     merged_bounds = _merge_bounds(bounds_list)
     notable_scalars: list[dict[str, Any]] = []
@@ -964,13 +1443,13 @@ def convert_nx_json_report(
 
     header = {
         "PART1": {
-            "APPL": "Siemens NX JSON Import",
+            "APPL": application_label,
             "DATE": "",
             "UNITS": str(units),
             "PART": str(part_name),
         },
         "PART2": {
-            "SCH": "NX-JSON",
+            "SCH": schema_label,
         },
     }
     if part_summary.get("full_path"):
@@ -978,7 +1457,7 @@ def convert_nx_json_report(
 
     body_count = int(payload.get("body_count") or len(payload.get("bodies", [])))
     summary = [
-        f"Imported Siemens NX JSON report for {part_name}.",
+        f"Imported {application_label} for {part_name}.",
         f"Detected {body_count} body/bodies and reconstructed {len(kernel_bodies)} previewable primitive shape(s).",
         f"Source units were {units}; imported geometry was converted to meters for consistent viewer measurements.",
     ]
@@ -994,7 +1473,7 @@ def convert_nx_json_report(
         "line_count": raw_text.count("\n") + (1 if raw_text else 0),
         "header": header,
         "transmit_info": {
-            "source_format": "siemens_nx_json",
+            "source_format": source_format,
             "original_units": str(units),
         },
         "decoded_names": unique_preserve_order(
@@ -1013,12 +1492,16 @@ def convert_nx_json_report(
         "object_state_ids": [],
         "structured_parse": None,
         "entity_hints": {
-            "source": "nx_json_import",
+            "source": source_format,
             "body_count": body_count,
         },
         "kernel_body": kernel_bodies[0] if len(kernel_bodies) == 1 else None,
         "kernel_bodies": kernel_bodies,
-        "kernel_topology": build_topology_from_kernel_body(kernel_bodies[0]) if len(kernel_bodies) == 1 else None,
+        "kernel_topology": (
+            build_topology_from_kernel_body(kernel_bodies[0])
+            if len(kernel_bodies) == 1 and kernel_bodies[0].get("metadata", {}).get("primitive") != "compound"
+            else None
+        ),
         "geometry_hints": {
             "point_count": len(preview_points),
             "point_samples": preview_points[:12],
@@ -1044,6 +1527,391 @@ def convert_nx_json_report(
         },
     }
     return report
+
+
+def convert_nx_json_report(
+    payload: dict[str, Any],
+    *,
+    display_name: str,
+    source_path: str | None,
+    file_size_bytes: int | None,
+    raw_text: str,
+) -> dict[str, Any]:
+    return _convert_structured_body_report(
+        payload,
+        display_name=display_name,
+        source_path=source_path,
+        file_size_bytes=file_size_bytes,
+        raw_text=raw_text,
+        source_format="siemens_nx_json",
+        application_label="Siemens NX JSON Import",
+        schema_label="NX-JSON",
+    )
+
+
+def parse_scalar_value(raw_value: str) -> Any:
+    value = raw_value.strip()
+    if value in {"None", "null", ""}:
+        return None
+    if value == "True":
+        return True
+    if value == "False":
+        return False
+    try:
+        if re.fullmatch(r"[+-]?\d+", value):
+            return int(value)
+        if re.fullmatch(r"[+-]?(?:\d+\.\d*|\.\d+)(?:e[+-]?\d+)?", value, flags=re.IGNORECASE):
+            return float(value)
+    except ValueError:
+        return value
+    return value
+
+
+def parse_centroid_triplet(raw_value: str) -> dict[str, float] | None:
+    match = re.match(
+        r"\(\s*(" + NUMBER_PATTERN + r")\s*,\s*(" + NUMBER_PATTERN + r")\s*,\s*(" + NUMBER_PATTERN + r")\s*\)",
+        raw_value.strip(),
+        flags=re.IGNORECASE,
+    )
+    if not match:
+        return None
+    return {
+        "x": float(match.group(1)),
+        "y": float(match.group(2)),
+        "z": float(match.group(3)),
+    }
+
+
+def parse_parasolid_analysis_report_text(raw_text: str) -> dict[str, Any] | None:
+    lines = raw_text.splitlines()
+    if not any(line.strip() == "# Parasolid Analysis Report" for line in lines[:8]):
+        return None
+
+    payload: dict[str, Any] = {
+        "part_summary": {},
+        "part_attributes": [],
+        "body_count": 0,
+        "inter_body_distances": [],
+        "bodies": [],
+    }
+
+    current_body: dict[str, Any] | None = None
+    section = ""
+    subsection = ""
+    parse_mode = ""
+
+    part_summary_map = {
+        "Part Name": "part_name",
+        "Full Path": "full_path",
+        "Leaf": "leaf",
+        "Units": "units",
+        "Tag": "tag",
+        "Read Only": "read_only",
+        "Fully Loaded": "fully_loaded",
+        "Has Write Access": "has_write_access",
+        "Unique Identifier": "unique_identifier",
+    }
+    body_metadata_map = {
+        "Tag": "tag",
+        "Journal Identifier": "journal_identifier",
+        "Name": "name",
+        "Is Solid Body": "is_solid_body",
+        "Is Sheet Body": "is_sheet_body",
+        "Is Convergent Body": "is_convergent_body",
+        "Density": "density",
+        "Facet Count": "facet_count",
+        "Vertex Count": "vertex_count",
+        "Shape Summary": "shape_summary",
+    }
+    measurement_map = {
+        "Surface Area": "surface_area",
+        "Volume": "volume",
+        "Mass": "mass",
+        "Weight": "weight",
+        "Radius Of Gyration": "radius_of_gyration",
+    }
+
+    for raw_line in lines:
+        line = raw_line.rstrip()
+        stripped = line.strip()
+        if not stripped or stripped == "---":
+            continue
+
+        if stripped.startswith("## "):
+            parse_mode = ""
+            subsection = ""
+            if stripped == "## Part Summary":
+                section = "part_summary"
+                current_body = None
+                continue
+            body_match = re.match(r"## Body (\d+)", stripped)
+            if body_match:
+                section = "body"
+                current_body = {
+                    "index": int(body_match.group(1)),
+                    "metadata": {},
+                    "measurement": {},
+                    "bounding_box": None,
+                    "attributes": [],
+                    "features": [],
+                    "edge_type_breakdown": {},
+                    "edges": [],
+                    "face_type_breakdown": {},
+                    "faces": [],
+                }
+                payload["bodies"].append(current_body)
+                continue
+
+        if stripped.startswith("### "):
+            subsection = stripped[4:]
+            parse_mode = ""
+            continue
+
+        if stripped.startswith("**") and stripped.endswith("**"):
+            parse_mode = stripped.strip("*").strip().lower()
+            continue
+
+        body_count_match = re.match(r"\*\*Number of Bodies:\*\*\s*(.+)", stripped)
+        if body_count_match:
+            payload["body_count"] = int(parse_scalar_value(body_count_match.group(1)))
+            continue
+
+        if section == "part_summary":
+            attribute_match = re.match(r"-\s+(.+?)\s+\((.+?)\):\s*(.*)", stripped)
+            if subsection == "Part Attributes" and attribute_match:
+                payload["part_attributes"].append(
+                    {
+                        "title": attribute_match.group(1).strip(),
+                        "type": attribute_match.group(2).strip(),
+                        "value": parse_scalar_value(attribute_match.group(3)),
+                        "is_array": False,
+                        "array_index": 0,
+                    }
+                )
+                continue
+
+            summary_match = re.match(r"-\s+([^:]+):\s*(.*)", stripped)
+            if summary_match:
+                label = summary_match.group(1).strip()
+                value = summary_match.group(2).strip()
+                key = part_summary_map.get(label)
+                if key:
+                    payload["part_summary"][key] = parse_scalar_value(value)
+                continue
+
+        if section != "body" or current_body is None:
+            continue
+
+        if subsection == "Body Metadata":
+            match = re.match(r"-\s+([^:]+):\s*(.*)", stripped)
+            if match:
+                label = match.group(1).strip()
+                value = match.group(2).strip()
+                key = body_metadata_map.get(label)
+                if key:
+                    current_body["metadata"][key] = parse_scalar_value(value)
+                continue
+
+        if subsection == "Body Measurement":
+            centroid_match = re.match(r"-\s+Centroid:\s*(.*)", stripped)
+            if centroid_match:
+                centroid = parse_centroid_triplet(centroid_match.group(1))
+                if centroid:
+                    current_body["measurement"]["centroid"] = centroid
+                continue
+
+            match = re.match(r"-\s+([^:]+):\s*(.*)", stripped)
+            if match:
+                label = match.group(1).strip()
+                value = match.group(2).strip()
+                key = measurement_map.get(label)
+                if key:
+                    current_body["measurement"][key] = parse_scalar_value(value)
+                continue
+
+        if subsection == "Edges":
+            breakdown_match = re.match(r"-\s+([^:]+):\s*(\d+)", stripped)
+            if parse_mode == "edge type breakdown:" and breakdown_match:
+                current_body["edge_type_breakdown"][breakdown_match.group(1)] = int(breakdown_match.group(2))
+                continue
+
+            edge_match = re.match(
+                r"-\s+Edge\s+(\d+):\s+([^|]+)\|\s+Length:\s*([^|]+)\|\s+Connected Faces:\s*([^|]+)\|\s+Tag:\s*(.+)",
+                stripped,
+            )
+            if edge_match:
+                current_body["edges"].append(
+                    {
+                        "index": int(edge_match.group(1)),
+                        "type": edge_match.group(2).strip(),
+                        "length": float(edge_match.group(3).strip()),
+                        "face_count": int(parse_scalar_value(edge_match.group(4).strip())),
+                        "tag": int(parse_scalar_value(edge_match.group(5).strip())),
+                        "start_point": None,
+                        "end_point": None,
+                        "curve_measurement": None,
+                        "is_reference": False,
+                        "attributes": [],
+                        "connected_face_tags": [],
+                    }
+                )
+                continue
+
+            face_tags_match = re.match(r"-\s+Face Tags:\s*(.*)", stripped)
+            if face_tags_match and current_body["edges"]:
+                current_body["edges"][-1]["connected_face_tags"] = [
+                    int(token.strip())
+                    for token in face_tags_match.group(1).split(",")
+                    if token.strip()
+                ]
+                continue
+
+        if subsection == "Faces":
+            breakdown_match = re.match(r"-\s+([^:]+):\s*(\d+)", stripped)
+            if parse_mode == "face type breakdown:" and breakdown_match:
+                current_body["face_type_breakdown"][breakdown_match.group(1)] = int(breakdown_match.group(2))
+                continue
+
+            face_match = re.match(
+                r"-\s+Face\s+(\d+):\s+([^|]+)\|\s+Edges:\s*([^|]+)\|\s+Facets:\s*([^|]+)\|\s+Vertices:\s*([^|]+)\|\s+Tag:\s*(.+)",
+                stripped,
+            )
+            if face_match:
+                current_body["faces"].append(
+                    {
+                        "index": int(face_match.group(1)),
+                        "type": face_match.group(2).strip(),
+                        "edge_count": int(parse_scalar_value(face_match.group(3).strip())),
+                        "facet_count": parse_scalar_value(face_match.group(4).strip()),
+                        "vertex_count": parse_scalar_value(face_match.group(5).strip()),
+                        "tag": int(parse_scalar_value(face_match.group(6).strip())),
+                        "measurement": None,
+                        "analytic_data": None,
+                        "adjacent_face_indices": [],
+                        "is_blend_face": False,
+                        "blend_radius": 0.0,
+                        "attributes": [],
+                    }
+                )
+                continue
+
+            adjacent_match = re.match(r"-\s+Adjacent Faces:\s*(.*)", stripped)
+            if adjacent_match and current_body["faces"]:
+                current_body["faces"][-1]["adjacent_face_indices"] = [
+                    int(token.strip())
+                    for token in adjacent_match.group(1).split(",")
+                    if token.strip()
+                ]
+                continue
+
+            blend_match = re.match(r"-\s+Blend Data:\s+Is Blend\s+(True|False)\s+\|\s+Radius\s+(.+)", stripped)
+            if blend_match and current_body["faces"]:
+                current_body["faces"][-1]["is_blend_face"] = blend_match.group(1) == "True"
+                current_body["faces"][-1]["blend_radius"] = float(parse_scalar_value(blend_match.group(2).strip()) or 0.0)
+                continue
+
+    if not payload["part_summary"] or not payload["bodies"]:
+        return None
+    if not payload["body_count"]:
+        payload["body_count"] = len(payload["bodies"])
+    return payload
+
+
+def convert_parasolid_analysis_report(
+    payload: dict[str, Any],
+    *,
+    display_name: str,
+    source_path: str | None,
+    file_size_bytes: int | None,
+    raw_text: str,
+) -> dict[str, Any]:
+    return _convert_structured_body_report(
+        payload,
+        display_name=display_name,
+        source_path=source_path,
+        file_size_bytes=file_size_bytes,
+        raw_text=raw_text,
+        source_format="parasolid_analysis_report",
+        application_label="Parasolid Analysis Report",
+        schema_label="PARASOLID-REPORT",
+    )
+
+
+def infer_compound_preview_from_xt_scalars(
+    notable_scalars: list[dict[str, Any]],
+    entity_hints: dict[str, Any],
+    decoded_names: list[str],
+) -> dict[str, Any] | None:
+    if not (entity_hints.get("surface_candidate") or entity_hints.get("topology_candidate")):
+        return None
+
+    all_values = sorted(
+        {
+            round(float(item["value"]), 12)
+            for item in notable_scalars
+            if 0.0 < float(item["value"]) <= 0.75
+        },
+        reverse=True,
+    )
+    if len(all_values) < 4:
+        return None
+
+    scalar_values = [value for value in all_values if value <= 0.35]
+    if len(scalar_values) < 4:
+        return None
+
+    radius = None
+    for candidate in sorted(value for value in scalar_values if value <= 0.15):
+        if any(abs((2 * math.pi * candidate) - value) <= max(candidate * 0.1, 1e-3) for value in all_values):
+            radius = candidate
+    if radius is None:
+        return None
+
+    linear_dims = [
+        value for value in scalar_values
+        if abs(value - radius) > 1e-6
+        and abs(value - (radius * 3)) > 1e-3
+        and abs(value - (radius * 2 * math.pi)) > 1e-3
+    ]
+    if len(linear_dims) < 3:
+        return None
+
+    box_length = linear_dims[0]
+    common_depth = linear_dims[1]
+    box_height = linear_dims[2]
+    if box_height >= common_depth:
+        return None
+
+    box_center = [-(radius + box_length / 2), 0.0, box_height / 2]
+    cylinder_center = [0.0, 0.0, common_depth / 2]
+    box_body, _ = _box_body_from_center_and_dimensions(
+        box_center,
+        [box_length, common_depth, box_height],
+        body_index=1,
+        source="xt_scalar_compound_preview",
+    )
+    cylinder_body, _ = _cylinder_body_from_center_radius_height(
+        cylinder_center,
+        radius,
+        common_depth,
+        axis="z",
+        body_index=1,
+        source="xt_scalar_compound_preview",
+    )
+
+    return {
+        "kind": "solid",
+        "name": "compound cylinder + block",
+        "faces": [],
+        "edges": [],
+        "vertices": [],
+        "metadata": {
+            "primitive": "compound",
+            "components": [box_body, cylinder_body],
+            "source": "xt_scalar_compound_preview",
+            "decoded_name": decoded_names[0] if decoded_names else None,
+        },
+    }
 
 
 def parse_imported_json_text(
@@ -1102,6 +1970,28 @@ def parse_imported_json_text(
     return normalize_payload(payload, display_name)
 
 
+def parse_imported_report_text(
+    raw_text: str,
+    *,
+    display_name: str,
+    source_path: str | None,
+    file_size_bytes: int | None,
+) -> list[dict[str, Any]] | None:
+    payload = parse_parasolid_analysis_report_text(raw_text)
+    if payload is None:
+        return None
+
+    return [
+        convert_parasolid_analysis_report(
+            payload,
+            display_name=display_name,
+            source_path=source_path,
+            file_size_bytes=file_size_bytes,
+            raw_text=raw_text,
+        )
+    ]
+
+
 def analyze_input_text(
     raw_text: str,
     *,
@@ -1110,6 +2000,15 @@ def analyze_input_text(
     file_size_bytes: int | None = None,
 ) -> list[dict[str, Any]]:
     imported_reports = parse_imported_json_text(
+        raw_text,
+        display_name=display_name,
+        source_path=source_path,
+        file_size_bytes=file_size_bytes,
+    )
+    if imported_reports is not None:
+        return imported_reports
+
+    imported_reports = parse_imported_report_text(
         raw_text,
         display_name=display_name,
         source_path=source_path,
