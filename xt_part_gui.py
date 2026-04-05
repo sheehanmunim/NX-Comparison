@@ -511,10 +511,90 @@ HTML = """<!doctype html>
   </div>
 
   <script>
+    function identityRotation() {
+      return [
+        [1, 0, 0],
+        [0, 1, 0],
+        [0, 0, 1]
+      ];
+    }
+
+    function multiplyRotationMatrices(a, b) {
+      return a.map((row, rowIndex) => ([
+        row[0] * b[0][0] + row[1] * b[1][0] + row[2] * b[2][0],
+        row[0] * b[0][1] + row[1] * b[1][1] + row[2] * b[2][1],
+        row[0] * b[0][2] + row[1] * b[1][2] + row[2] * b[2][2]
+      ]));
+    }
+
+    function applyRotationMatrix(matrix, point) {
+      return [
+        matrix[0][0] * point[0] + matrix[0][1] * point[1] + matrix[0][2] * point[2],
+        matrix[1][0] * point[0] + matrix[1][1] * point[1] + matrix[1][2] * point[2],
+        matrix[2][0] * point[0] + matrix[2][1] * point[1] + matrix[2][2] * point[2]
+      ];
+    }
+
+    function rotationAroundX(angle) {
+      const c = Math.cos(angle);
+      const s = Math.sin(angle);
+      return [
+        [1, 0, 0],
+        [0, c, -s],
+        [0, s, c]
+      ];
+    }
+
+    function rotationAroundY(angle) {
+      const c = Math.cos(angle);
+      const s = Math.sin(angle);
+      return [
+        [c, 0, -s],
+        [0, 1, 0],
+        [s, 0, c]
+      ];
+    }
+
+    function vectorLength(vector) {
+      return Math.hypot(vector[0], vector[1], vector[2]);
+    }
+
+    function normalizeVector(vector) {
+      const length = vectorLength(vector);
+      if (!length) return [0, 0, 0];
+      return vector.map((value) => value / length);
+    }
+
+    function crossProduct(a, b) {
+      return [
+        a[1] * b[2] - a[2] * b[1],
+        a[2] * b[0] - a[0] * b[2],
+        a[0] * b[1] - a[1] * b[0]
+      ];
+    }
+
+    function normalizeRotationMatrix(matrix) {
+      const xAxis = normalizeVector(matrix[0]);
+      let yAxis = matrix[1];
+      let zAxis = normalizeVector(crossProduct(xAxis, yAxis));
+      if (!vectorLength(zAxis)) {
+        zAxis = [0, 0, 1];
+      }
+      yAxis = normalizeVector(crossProduct(zAxis, xAxis));
+      return [xAxis, yAxis, zAxis];
+    }
+
+    function rotationFromYawPitch(yaw, pitch) {
+      return multiplyRotationMatrices(rotationAroundX(pitch), rotationAroundY(yaw));
+    }
+
+    function defaultRotation() {
+      return rotationFromYawPitch(-0.7, 0.5);
+    }
+
     function defaultViewerState() {
       return {
-        yaw: -0.7,
-        pitch: 0.5,
+        rotation: defaultRotation(),
         zoom: 1,
         panX: 0,
         panY: 0,
@@ -1096,8 +1176,7 @@ HTML = """<!doctype html>
             point[1] - preview.center[1],
             point[2] - preview.center[2]
           ],
-          viewer.yaw,
-          viewer.pitch
+          viewer
         ),
         scale,
         canvasEl,
@@ -1219,8 +1298,7 @@ HTML = """<!doctype html>
 
     function cloneViewerState(viewer) {
       return {
-        yaw: viewer.yaw,
-        pitch: viewer.pitch,
+        rotation: (viewer.rotation || defaultRotation()).map((row) => [...row]),
         zoom: viewer.zoom,
         panX: viewer.panX,
         panY: viewer.panY,
@@ -1228,16 +1306,11 @@ HTML = """<!doctype html>
       };
     }
 
-    function clampPitch(value) {
-      const limit = Math.PI / 2 - 0.04;
-      return Math.max(-limit, Math.min(limit, value));
-    }
-
-    function presetAngles(name) {
-      if (name === "front") return { yaw: 0, pitch: 0 };
-      if (name === "top") return { yaw: 0, pitch: -Math.PI / 2 + 0.08 };
-      if (name === "right") return { yaw: -Math.PI / 2, pitch: 0 };
-      return { yaw: -0.7, pitch: 0.5 };
+    function presetRotation(name) {
+      if (name === "front") return rotationFromYawPitch(0, 0);
+      if (name === "top") return rotationFromYawPitch(0, -Math.PI / 2);
+      if (name === "right") return rotationFromYawPitch(-Math.PI / 2, 0);
+      return defaultRotation();
     }
 
     function applyViewPreset(viewers, preset) {
@@ -1248,9 +1321,7 @@ HTML = """<!doctype html>
           viewer.panY = 0;
           return;
         }
-        const angles = presetAngles(preset);
-        viewer.yaw = angles.yaw;
-        viewer.pitch = clampPitch(angles.pitch);
+        viewer.rotation = presetRotation(preset);
         viewer.zoom = 1;
         viewer.panX = 0;
         viewer.panY = 0;
@@ -1960,21 +2031,8 @@ HTML = """<!doctype html>
       canvasEl.height = Math.max(320, Math.floor(rect.height));
     }
 
-    function rotatePoint(point, yaw, pitch) {
-      const [x, y, z] = point;
-      const cy = Math.cos(yaw);
-      const sy = Math.sin(yaw);
-      const cp = Math.cos(pitch);
-      const sp = Math.sin(pitch);
-
-      const x1 = x * cy - z * sy;
-      const z1 = x * sy + z * cy;
-      const y1 = y;
-
-      const y2 = y1 * cp - z1 * sp;
-      const z2 = y1 * sp + z1 * cp;
-
-      return [x1, y2, z2];
+    function rotatePoint(point, viewer) {
+      return applyRotationMatrix(viewer?.rotation || defaultRotation(), point);
     }
 
     function projectPoint(point, scale, canvasEl, viewer) {
@@ -1994,7 +2052,7 @@ HTML = """<!doctype html>
       const triadScale = 34;
 
       function projectTriad(point) {
-        const rotated = rotatePoint(point, viewer.yaw, viewer.pitch);
+        const rotated = rotatePoint(point, viewer);
         return [
           centerX + rotated[0] * triadScale,
           centerY - rotated[1] * triadScale,
@@ -2452,7 +2510,7 @@ HTML = """<!doctype html>
       ]);
 
       const projected = centeredPoints.map((point) =>
-        projectPoint(rotatePoint(point, viewer.yaw, viewer.pitch), scale, canvasEl, viewer)
+        projectPoint(rotatePoint(point, viewer), scale, canvasEl, viewer)
       );
 
       const projectedFaces = (preview.kernelGeometry?.faces || []).map((face) => {
@@ -2461,10 +2519,10 @@ HTML = """<!doctype html>
             point[0] - preview.center[0],
             point[1] - preview.center[1],
             point[2] - preview.center[2]
-          ], viewer.yaw, viewer.pitch);
+          ], viewer);
         });
         const projectedVertices = rotatedVertices.map((point) => projectPoint(point, scale, canvasEl, viewer));
-        const rotatedNormal = face.normal ? rotatePoint(face.normal.map(Number), viewer.yaw, viewer.pitch) : null;
+        const rotatedNormal = face.normal ? rotatePoint(face.normal.map(Number), viewer) : null;
         const averageDepth = rotatedVertices.reduce((sum, point) => sum + point[2], 0) / rotatedVertices.length;
         let inferredAxis = face.axis;
         if (!inferredAxis && face.vertices.length >= 2) {
@@ -2532,7 +2590,7 @@ HTML = """<!doctype html>
         ]);
 
         const projectedCorners = corners.map((point) =>
-          projectPoint(rotatePoint(point, viewer.yaw, viewer.pitch), scale, canvasEl, viewer)
+          projectPoint(rotatePoint(point, viewer), scale, canvasEl, viewer)
         );
 
         const edges = [
@@ -2563,8 +2621,7 @@ HTML = """<!doctype html>
                   point[1] - preview.center[1],
                   point[2] - preview.center[2]
                 ],
-                viewer.yaw,
-                viewer.pitch
+                viewer
               ),
               scale,
               canvasEl,
@@ -2724,8 +2781,14 @@ HTML = """<!doctype html>
           viewer.panX += dx;
           viewer.panY += dy;
         } else {
-          viewer.yaw -= dx * 0.01;
-          viewer.pitch = clampPitch(viewer.pitch - dy * 0.01);
+          const yawRotation = rotationAroundY(-dx * 0.01);
+          const pitchRotation = rotationAroundX(-dy * 0.01);
+          viewer.rotation = normalizeRotationMatrix(
+            multiplyRotationMatrices(
+              pitchRotation,
+              multiplyRotationMatrices(yawRotation, viewer.rotation || defaultRotation())
+            )
+          );
         }
       });
       dragState.redraw();
