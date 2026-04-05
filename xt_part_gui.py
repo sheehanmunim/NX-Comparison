@@ -47,10 +47,26 @@ HTML = """<!doctype html>
   <style>
     * { box-sizing: border-box; }
     html, body { margin: 0; height: 100%; }
+    :root {
+      --app-bg: #d9d9d9;
+      --chrome-bg: #efefef;
+      --panel-bg: #f7f7f7;
+      --panel-border: #b8b8b8;
+      --panel-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+      --text-main: #1f1f1f;
+      --text-muted: #5f5f5f;
+      --accent: #ff9f1c;
+      --accent-strong: #ff7a00;
+      --viewport-top: #252525;
+      --viewport-bottom: #1a1a1a;
+      --viewport-grid: rgba(255, 255, 255, 0.06);
+      --viewport-grid-strong: rgba(255, 255, 255, 0.12);
+      --viewport-frame: #5a5a5a;
+    }
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f3f3f3;
-      color: #222;
+      font-family: "Segoe UI", "Aptos", "Helvetica Neue", Arial, sans-serif;
+      background: var(--app-bg);
+      color: var(--text-main);
     }
     .app {
       display: grid;
@@ -58,8 +74,9 @@ HTML = """<!doctype html>
       min-height: 100vh;
     }
     .header, .toolbar, .sidebar, .main, .status {
-      background: #fff;
-      border: 1px solid #cfcfcf;
+      background: rgba(247, 247, 247, 0.96);
+      border: 1px solid var(--panel-border);
+      box-shadow: var(--panel-shadow);
     }
     .header, .toolbar, .status {
       margin: 10px 10px 0 10px;
@@ -72,7 +89,7 @@ HTML = """<!doctype html>
     }
     .header p, .status {
       margin: 0;
-      color: #555;
+      color: var(--text-muted);
       font-size: 14px;
       line-height: 1.4;
     }
@@ -81,25 +98,31 @@ HTML = """<!doctype html>
       gap: 8px;
       align-items: center;
       flex-wrap: wrap;
+      background: rgba(239, 239, 239, 0.96);
     }
     .toolbar input[type="text"] {
       flex: 1 1 320px;
       min-width: 220px;
-      padding: 8px;
-      border: 1px solid #bdbdbd;
+      padding: 10px 12px;
+      border: 1px solid #b8b8b8;
+      border-radius: 0;
       background: #fff;
-      color: #222;
+      color: var(--text-main);
     }
     button, .file-upload {
       padding: 8px 12px;
-      border: 1px solid #bdbdbd;
-      background: #efefef;
-      color: #222;
+      border: 1px solid #ababab;
+      border-radius: 0;
+      background: #e6e6e6;
+      color: var(--text-main);
       cursor: pointer;
       font: inherit;
+      transition: background 120ms ease, transform 120ms ease, border-color 120ms ease;
     }
     button:hover, .file-upload:hover {
-      background: #e5e5e5;
+      background: #dcdcdc;
+      border-color: #8d8d8d;
+      transform: translateY(-1px);
     }
     .file-upload input { display: none; }
     .content {
@@ -115,31 +138,37 @@ HTML = """<!doctype html>
       grid-template-rows: auto auto 1fr auto;
       gap: 10px;
       min-height: 0;
+      background: rgba(242, 242, 242, 0.97);
     }
     .sidebar h2, .panel h2 {
       margin: 0;
       font-size: 16px;
     }
     .hint {
-      color: #666;
+      color: var(--text-muted);
       font-size: 13px;
       line-height: 1.4;
     }
     .file-list {
       overflow: auto;
       min-height: 0;
-      border: 1px solid #d8d8d8;
-      background: #fafafa;
+      border: 1px solid #d0d0d0;
+      border-radius: 0;
+      background: #f2f2f2;
     }
     .file-item {
       padding: 10px;
-      border-bottom: 1px solid #d8d8d8;
+      border-bottom: 1px solid #d7d7d7;
       cursor: pointer;
-      background: #fff;
+      background: transparent;
+      transition: background 120ms ease, border-color 120ms ease;
     }
     .file-item:last-child { border-bottom: 0; }
-    .file-item:hover { background: #f0f0f0; }
-    .file-item.selected { background: #dcdcdc; }
+    .file-item:hover { background: rgba(210, 210, 210, 0.35); }
+    .file-item.selected {
+      background: #e2e2e2;
+      box-shadow: inset 3px 0 0 var(--accent);
+    }
     .file-item strong {
       display: block;
       margin-bottom: 4px;
@@ -147,7 +176,7 @@ HTML = """<!doctype html>
     }
     .file-item span {
       display: block;
-      color: #666;
+      color: var(--text-muted);
       font-size: 12px;
       line-height: 1.4;
       word-break: break-word;
@@ -165,20 +194,22 @@ HTML = """<!doctype html>
       gap: 10px;
     }
     .panel {
-      border: 1px solid #d8d8d8;
-      background: #fff;
+      border: 1px solid #d2d2d2;
+      border-radius: 0;
+      background: #f5f5f5;
       padding: 10px;
       min-height: 0;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
     }
     .summary-grid {
       display: grid;
       gap: 8px;
       font-size: 14px;
     }
-    .summary-grid .muted { color: #666; }
+    .summary-grid .muted { color: var(--text-muted); }
     .preview-wrap {
       display: grid;
-      grid-template-rows: auto auto 1fr auto;
+      grid-template-rows: auto auto 1fr;
       gap: 8px;
       min-height: 320px;
     }
@@ -186,30 +217,84 @@ HTML = """<!doctype html>
       display: flex;
       gap: 6px;
       flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
     }
-    .preview-mode {
+    .toolbar-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    .toolbar-label {
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-right: 2px;
+    }
+    .preview-mode, .view-preset {
       padding: 6px 10px;
-      border: 1px solid #bdbdbd;
-      background: #efefef;
+      border: 1px solid #9a9a9a;
+      border-radius: 0;
+      background: #e6e6e6;
       cursor: pointer;
       font-size: 12px;
+      font-weight: 600;
     }
-    .preview-mode.active {
-      background: #dcdcdc;
+    .preview-mode.active, .view-preset.active {
+      background: #ffd8a8;
+      border-color: #f59e0b;
+      color: #7c3f00;
       font-weight: 700;
+    }
+    .canvas-frame {
+      position: relative;
+      min-height: 320px;
+      border: 0;
+      border-radius: 0;
+      overflow: hidden;
+      background: #1d1d1d;
+      box-shadow: none;
     }
     canvas {
       width: 100%;
       height: 100%;
       min-height: 320px;
-      border: 1px solid #bdbdbd;
-      background: #fff;
+      background: transparent;
       display: block;
+    }
+    .viewport-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 10px 12px 0 12px;
     }
     .preview-note {
       font-size: 12px;
-      color: #666;
+      color: var(--text-muted);
       line-height: 1.4;
+      max-width: 700px;
+    }
+    .viewport-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+    .viewport-badge {
+      padding: 5px 9px;
+      border-radius: 0;
+      border: 1px solid #c8c8c8;
+      background: rgba(255,255,255,0.86);
+      color: var(--text-main);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
     .tabs {
       display: flex;
@@ -218,19 +303,23 @@ HTML = """<!doctype html>
     }
     .tab {
       padding: 8px 10px;
-      border: 1px solid #bdbdbd;
-      background: #efefef;
+      border: 1px solid #b3b3b3;
+      border-radius: 0;
+      background: #e6e6e6;
       cursor: pointer;
       user-select: none;
       font-size: 13px;
+      font-weight: 600;
     }
     .tab.active {
-      background: #dcdcdc;
+      background: #d8d8d8;
+      border-color: #8c8c8c;
       font-weight: 700;
     }
     .tab-panels {
-      border: 1px solid #d8d8d8;
-      background: #fff;
+      border: 1px solid #d2d2d2;
+      border-radius: 0;
+      background: #f5f5f5;
       overflow: auto;
       min-height: 0;
     }
@@ -264,15 +353,39 @@ HTML = """<!doctype html>
       line-height: 1.5;
     }
     .empty {
-      border: 1px dashed #c8c8c8;
+      border: 1px dashed #bdbdbd;
+      border-radius: 0;
       padding: 16px;
-      color: #666;
-      background: #fafafa;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.78);
       font-size: 14px;
     }
     .compare-layout {
       display: grid;
       gap: 10px;
+    }
+    .compare-summary {
+      border: 1px solid #d0d0d0;
+      border-radius: 0;
+      background: #ededed;
+      padding: 12px;
+    }
+    .compare-summary h3 {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+    }
+    .compare-summary-list {
+      display: grid;
+      gap: 8px;
+    }
+    .compare-summary-item {
+      padding: 10px 12px;
+      border-radius: 0;
+      border: 1px solid rgba(140, 140, 140, 0.32);
+      background: rgba(255,255,255,0.9);
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--text-main);
     }
     .compare-controls {
       display: flex;
@@ -280,10 +393,11 @@ HTML = """<!doctype html>
       gap: 8px;
       flex-wrap: wrap;
       padding: 10px 12px;
-      border: 1px solid #d8d8d8;
-      background: #fafafa;
+      border: 1px solid #d2d2d2;
+      border-radius: 0;
+      background: #efefef;
       font-size: 13px;
-      color: #444;
+      color: #333333;
     }
     .compare-controls label {
       display: inline-flex;
@@ -298,8 +412,9 @@ HTML = """<!doctype html>
       gap: 10px;
     }
     .compare-preview-card {
-      border: 1px solid #d8d8d8;
-      background: #fff;
+      border: 1px solid #d2d2d2;
+      border-radius: 0;
+      background: #f5f5f5;
       padding: 10px;
     }
     .compare-preview-card h3 {
@@ -308,15 +423,13 @@ HTML = """<!doctype html>
     }
     .compare-canvas {
       width: 100%;
-      height: 320px;
-      min-height: 320px;
-      border: 1px solid #bdbdbd;
-      background: #fff;
+      height: 360px;
+      min-height: 360px;
       display: block;
     }
     .compare-note {
       margin-top: 8px;
-      color: #666;
+      color: var(--text-muted);
       font-size: 12px;
       line-height: 1.4;
     }
@@ -331,7 +444,7 @@ HTML = """<!doctype html>
   <div class="app">
     <div class="header">
       <h1>Parasolid XT Part Inspector</h1>
-      <p>Load `.x_t` files, compatible JSON reports, or Parasolid analysis text reports, inspect extracted metadata, and view an interactive point-based preview from the geometry records found in the file.</p>
+      <p>Load `.x_t` files, compatible JSON reports, or Parasolid analysis text reports, inspect extracted metadata, and review an interactive CAD-style preview with component-aware comparison.</p>
     </div>
 
     <div class="toolbar">
@@ -362,9 +475,21 @@ HTML = """<!doctype html>
 
           <div class="panel preview-wrap">
             <h2>Preview</h2>
-            <div class="preview-toolbar" id="preview-modes"></div>
-            <canvas id="preview-canvas"></canvas>
-            <div class="preview-note">Drag to rotate. Shift + drag to pan. Mouse wheel to zoom. Double-click to reset. Solid mode uses inferred faces when the part can be reconstructed confidently; otherwise the app falls back to points and edges decoded from the `.x_t` data.</div>
+            <div class="preview-toolbar">
+              <div class="toolbar-cluster" id="preview-modes"></div>
+              <div class="toolbar-cluster" id="preview-toolbar-right"></div>
+            </div>
+            <div class="canvas-frame">
+              <canvas id="preview-canvas"></canvas>
+            </div>
+            <div class="viewport-footer">
+              <div class="preview-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. Double-click fits the model. Solid mode uses inferred faces when the part can be reconstructed confidently; otherwise the app falls back to decoded points and edge geometry.</div>
+              <div class="viewport-badges">
+                <div class="viewport-badge">Orbit</div>
+                <div class="viewport-badge">Pan</div>
+                <div class="viewport-badge">Inspect</div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -402,6 +527,7 @@ HTML = """<!doctype html>
       selected: [],
       activeTab: "overview",
       viewer: defaultViewerState(),
+      viewportBackground: "gray",
       compareSync: false,
       compareViewers: {
         left: defaultViewerState(),
@@ -417,6 +543,21 @@ HTML = """<!doctype html>
       ["geometry", "Geometry"],
       ["compare", "Compare"],
       ["json", "JSON"]
+    ];
+
+    const AXES = ["x", "y", "z"];
+    const DIMENSION_TOLERANCE = 1e-6;
+    const VIEW_PRESETS = [
+      ["iso", "ISO"],
+      ["front", "Front"],
+      ["top", "Top"],
+      ["right", "Right"],
+      ["fit", "Fit"]
+    ];
+    const VIEWPORT_BACKGROUNDS = [
+      ["white", "White", "#ffffff"],
+      ["gray", "Gray", "#d9d9d9"],
+      ["dark", "Dark", "#1d1d1d"]
     ];
 
     const canvas = document.getElementById("preview-canvas");
@@ -502,13 +643,158 @@ HTML = """<!doctype html>
       return `${inches >= 0 ? "+" : ""}${inches.toFixed(3)} in`;
     }
 
+    function formatInches(value) {
+      return `${(Number(value || 0) * 39.37007874015748).toFixed(3)} in`;
+    }
+
+    function changeVerb(delta) {
+      return delta >= 0 ? "increased" : "decreased";
+    }
+
+    function capitalizeLabel(value) {
+      return String(value || "")
+        .replaceAll("_", " ")
+        .replace(/\\b\\w/g, (letter) => letter.toUpperCase());
+    }
+
+    function componentIdentity(component, bodyIndex, componentIndex) {
+      const metadata = component?.metadata || {};
+      const primitive = metadata.primitive || component?.name || "component";
+      const axis = metadata.axis || "na";
+      return {
+        id: `b${bodyIndex}-c${componentIndex}-${primitive}-${axis}`,
+        primitive,
+        axis: metadata.axis || null,
+        bodyIndex,
+        componentIndex,
+      };
+    }
+
+    function componentLabel(component, identity, siblingCount = 1) {
+      const primitive = identity.primitive;
+      if (primitive === "box") return siblingCount > 1 ? "Base block" : "Block";
+      if (primitive === "cylinder") return "Cylinder";
+      if (primitive === "sphere") return "Sphere";
+      return component?.name ? capitalizeLabel(component.name) : `Component ${identity.componentIndex + 1}`;
+    }
+
+    function boundsFromCenterSize(center, size) {
+      return {
+        min: center.map((value, index) => value - size[index] / 2),
+        max: center.map((value, index) => value + size[index] / 2),
+        size: [...size],
+      };
+    }
+
+    function cylinderBounds(axis, center, radius, height) {
+      const extents = [radius, radius, radius];
+      const axisIndex = AXES.indexOf(axis || "z");
+      extents[Math.max(axisIndex, 0)] = height / 2;
+      return {
+        min: center.map((value, index) => value - extents[index]),
+        max: center.map((value, index) => value + extents[index]),
+        size: extents.map((value) => value * 2),
+      };
+    }
+
+    function perpendicularAxisForCylinder(axis) {
+      if (axis === "x") return "y";
+      if (axis === "y") return "x";
+      return "x";
+    }
+
+    function describeComponent(component, identity, siblingCount = 1) {
+      const metadata = component?.metadata || {};
+      const primitive = identity.primitive;
+      const label = componentLabel(component, identity, siblingCount);
+
+      if (primitive === "box") {
+        const dimensions = metadata.dimensions || {};
+        const center = (metadata.center || [0, 0, 0]).map(Number);
+        const size = AXES.map((axis) => Number(dimensions[axis] || 0));
+        return {
+          ...identity,
+          label,
+          bounds: boundsFromCenterSize(center, size),
+          center,
+          measurements: Object.fromEntries(AXES.map((axis, index) => [axis, size[index]])),
+        };
+      }
+
+      if (primitive === "cylinder") {
+        const axis = metadata.axis || "z";
+        const radius = Number(metadata.radius || 0);
+        const height = Number(metadata.height || 0);
+        const center = (metadata.center || [0, 0, 0]).map(Number);
+        return {
+          ...identity,
+          label,
+          axis,
+          center,
+          bounds: cylinderBounds(axis, center, radius, height),
+          measurements: {
+            height,
+            radius,
+            diameter: radius * 2,
+          },
+        };
+      }
+
+      if (primitive === "sphere") {
+        const radius = Number(metadata.radius || 0);
+        const center = (metadata.center || [0, 0, 0]).map(Number);
+        const size = [radius * 2, radius * 2, radius * 2];
+        return {
+          ...identity,
+          label,
+          center,
+          bounds: boundsFromCenterSize(center, size),
+          measurements: {
+            diameter: radius * 2,
+            radius,
+          },
+        };
+      }
+
+      const pointCloud = [
+        ...(component?.faces || []).flatMap((face) => face.vertices || []),
+        ...(component?.edges || []).flatMap((edge) => edge.points || []),
+      ].map((point) => point.map(Number));
+      const bounds = pointCloud.length ? boundsFromPoints(pointCloud) : null;
+      return {
+        ...identity,
+        label,
+        center: bounds
+          ? bounds.min.map((value, index) => (value + bounds.max[index]) / 2)
+          : [0, 0, 0],
+        bounds,
+        measurements: bounds
+          ? Object.fromEntries(AXES.map((axis, index) => [axis, Number(bounds.size[index] || 0)]))
+          : {},
+      };
+    }
+
+    function reportComponents(report) {
+      const results = [];
+      kernelBodies(report).forEach((body, bodyIndex) => {
+        if (body?.metadata?.primitive === "compound" && Array.isArray(body.metadata.components)) {
+          const componentCount = body.metadata.components.length;
+          body.metadata.components.forEach((component, componentIndex) => {
+            results.push(describeComponent(component, componentIdentity(component, bodyIndex, componentIndex), componentCount));
+          });
+          return;
+        }
+        results.push(describeComponent(body, componentIdentity(body, bodyIndex, 0), 1));
+      });
+      return results.filter((component) => component && component.bounds);
+    }
+
     function compareAxisDimensions(left, right) {
-      const axes = ["x", "y", "z"];
       const leftBounds = left?.geometry_hints?.bounds;
       const rightBounds = right?.geometry_hints?.bounds;
       if (!leftBounds || !rightBounds) return [];
 
-      return axes.map((axis, index) => {
+      return AXES.map((axis, index) => {
         const leftValue = Number(leftBounds.size?.[index] || 0);
         const rightValue = Number(rightBounds.size?.[index] || 0);
         const delta = rightValue - leftValue;
@@ -517,30 +803,116 @@ HTML = """<!doctype html>
           leftValue,
           rightValue,
           delta,
-          changed: Math.abs(delta) > 1e-6
+          changed: Math.abs(delta) > DIMENSION_TOLERANCE
         };
       });
     }
 
-    function compareChangedFaces(left, right) {
-      const axes = ["x", "y", "z"];
-      const leftBounds = left?.geometry_hints?.bounds;
-      const rightBounds = right?.geometry_hints?.bounds;
-      const result = { left: [], right: [] };
-      if (!leftBounds || !rightBounds) return result;
+    function matchRightComponent(leftComponent, rightComponents, used) {
+      let match = rightComponents.find((candidate) => !used.has(candidate.id) && candidate.id === leftComponent.id);
+      if (match) return match;
 
-      axes.forEach((axis, index) => {
-        if (Math.abs(Number(leftBounds.min?.[index] || 0) - Number(rightBounds.min?.[index] || 0)) > 1e-6) {
-          result.left.push({ axis, side: "min" });
-          result.right.push({ axis, side: "min" });
+      match = rightComponents.find((candidate) =>
+        !used.has(candidate.id)
+        && candidate.primitive === leftComponent.primitive
+        && (candidate.axis || null) === (leftComponent.axis || null)
+      );
+      if (match) return match;
+
+      return rightComponents.find((candidate) => !used.has(candidate.id) && candidate.primitive === leftComponent.primitive) || null;
+    }
+
+    function componentPropertyChanges(leftComponent, rightComponent) {
+      const primitive = leftComponent.primitive;
+      const properties = [];
+
+      if (primitive === "box") {
+        AXES.forEach((axis) => {
+          const leftValue = Number(leftComponent.measurements[axis] || 0);
+          const rightValue = Number(rightComponent.measurements[axis] || 0);
+          const delta = rightValue - leftValue;
+          if (Math.abs(delta) > DIMENSION_TOLERANCE) {
+            properties.push({ kind: "size", axis, label: `${axis.toUpperCase()} size`, leftValue, rightValue, delta });
+          }
+        });
+        return properties;
+      }
+
+      if (primitive === "cylinder") {
+        const heightDelta = Number(rightComponent.measurements.height || 0) - Number(leftComponent.measurements.height || 0);
+        if (Math.abs(heightDelta) > DIMENSION_TOLERANCE) {
+          properties.push({
+            kind: "height",
+            axis: leftComponent.axis || rightComponent.axis || "z",
+            label: `${(leftComponent.axis || rightComponent.axis || "z").toUpperCase()} height`,
+            leftValue: Number(leftComponent.measurements.height || 0),
+            rightValue: Number(rightComponent.measurements.height || 0),
+            delta: heightDelta,
+          });
         }
-        if (Math.abs(Number(leftBounds.max?.[index] || 0) - Number(rightBounds.max?.[index] || 0)) > 1e-6) {
-          result.left.push({ axis, side: "max" });
-          result.right.push({ axis, side: "max" });
+
+        const diameterLeft = Number(leftComponent.measurements.diameter || 0);
+        const diameterRight = Number(rightComponent.measurements.diameter || 0);
+        const diameterDelta = diameterRight - diameterLeft;
+        if (Math.abs(diameterDelta) > DIMENSION_TOLERANCE) {
+          properties.push({
+            kind: "diameter",
+            axis: perpendicularAxisForCylinder(leftComponent.axis || rightComponent.axis || "z"),
+            label: "Diameter",
+            leftValue: diameterLeft,
+            rightValue: diameterRight,
+            delta: diameterDelta,
+          });
+        }
+        return properties;
+      }
+
+      AXES.forEach((axis, index) => {
+        const leftValue = Number(leftComponent.bounds?.size?.[index] || 0);
+        const rightValue = Number(rightComponent.bounds?.size?.[index] || 0);
+        const delta = rightValue - leftValue;
+        if (Math.abs(delta) > DIMENSION_TOLERANCE) {
+          properties.push({ kind: "size", axis, label: `${axis.toUpperCase()} size`, leftValue, rightValue, delta });
         }
       });
+      return properties;
+    }
 
-      return result;
+    function cylinderDiameterEndpoints(component, axis) {
+      const center = component.center.map(Number);
+      const radius = Number(component.measurements.radius || component.measurements.diameter / 2 || 0);
+      const alongAxis = component.axis || "z";
+      const capCoordinate = component.bounds.max[AXES.indexOf(alongAxis)];
+      if (alongAxis === "x") {
+        if (axis === "z") return [[center[0], center[1], capCoordinate - radius], [center[0], center[1], capCoordinate + radius]];
+        return [[center[0], center[1] - radius, capCoordinate], [center[0], center[1] + radius, capCoordinate]];
+      }
+      if (alongAxis === "y") {
+        if (axis === "z") return [[center[0], center[1], capCoordinate - radius], [center[0], center[1], capCoordinate + radius]];
+        return [[center[0] - radius, center[1], capCoordinate], [center[0] + radius, center[1], capCoordinate]];
+      }
+      return [[center[0] - radius, center[1], capCoordinate], [center[0] + radius, center[1], capCoordinate]];
+    }
+
+    function annotationEndpointsForProperty(component, property) {
+      if (!component?.bounds) return null;
+      if (property.kind === "diameter" && component.primitive === "cylinder") {
+        return cylinderDiameterEndpoints(component, property.axis);
+      }
+      return axisDimensionEndpoints(component.bounds, property.axis || "z");
+    }
+
+    function summarizeComponentChange(change) {
+      const propertyDescriptions = change.properties.map((property) =>
+        `${property.label} ${changeVerb(property.delta)} from ${formatLength(property.leftValue)} to ${formatLength(property.rightValue)} (${formatSignedInches(property.delta)})`
+      );
+
+      if (change.primitive === "cylinder" && change.properties.length === 1 && change.properties[0].kind === "height") {
+        const radiusValue = Number(change.left.measurements.radius || change.right.measurements.radius || 0);
+        return `${change.label} height ${changeVerb(change.properties[0].delta)} from ${formatLength(change.properties[0].leftValue)} to ${formatLength(change.properties[0].rightValue)} (${formatSignedInches(change.properties[0].delta)}). Radius stayed ${formatLength(radiusValue)}.`;
+      }
+
+      return `${change.label}: ${propertyDescriptions.join("; ")}.`;
     }
 
     function topologyLabel(report) {
@@ -604,35 +976,109 @@ HTML = """<!doctype html>
         changedShape: false,
         summary: [],
         dimensions: compareAxisDimensions(left, right),
-        faceChanges: compareChangedFaces(left, right)
+        highlightComponents: { left: [], right: [] },
+        annotations: { left: [], right: [] }
       };
 
       if (!left || !right) {
         return info;
       }
 
-      info.changedAxes = info.dimensions.filter((item) => item.changed).map((item) => item.axis);
+      const leftComponents = reportComponents(left);
+      const rightComponents = reportComponents(right);
+      const usedRightComponents = new Set();
+      const componentChanges = [];
+
+      for (const leftComponent of leftComponents) {
+        const rightComponent = matchRightComponent(leftComponent, rightComponents, usedRightComponents);
+        if (!rightComponent) continue;
+        usedRightComponents.add(rightComponent.id);
+        const properties = componentPropertyChanges(leftComponent, rightComponent);
+        if (!properties.length) {
+          componentChanges.push({
+            primitive: leftComponent.primitive,
+            label: leftComponent.label,
+            left: leftComponent,
+            right: rightComponent,
+            properties: [],
+            changed: false,
+          });
+          continue;
+        }
+
+        componentChanges.push({
+          primitive: leftComponent.primitive,
+          label: leftComponent.label,
+          left: leftComponent,
+          right: rightComponent,
+          properties,
+          changed: true,
+        });
+      }
 
       const leftShape = topologyLabel(left);
       const rightShape = topologyLabel(right);
       info.changedShape = leftShape !== rightShape;
 
-      if (info.changedShape && !info.changedAxes.length) {
-        info.changedAxes = ["x", "y", "z"];
-      }
+      const changedComponents = componentChanges.filter((change) => change.changed);
+      if (changedComponents.length) {
+        info.changedAxes = [...new Set(changedComponents.flatMap((change) => change.properties.map((property) => property.axis).filter(Boolean)))];
+        changedComponents.forEach((change) => {
+          info.summary.push(summarizeComponentChange(change));
+          info.highlightComponents.left.push(change.left.id);
+          info.highlightComponents.right.push(change.right.id);
+          change.properties.forEach((property) => {
+            const leftEndpoints = annotationEndpointsForProperty(change.left, property);
+            const rightEndpoints = annotationEndpointsForProperty(change.right, property);
+            if (leftEndpoints) {
+              info.annotations.left.push({
+                start: leftEndpoints[0],
+                end: leftEndpoints[1],
+                lines: [`${change.label} ${property.label}: ${formatInches(property.leftValue)}`],
+              });
+            }
+            if (rightEndpoints) {
+              info.annotations.right.push({
+                start: rightEndpoints[0],
+                end: rightEndpoints[1],
+                lines: [`${change.label} ${property.label}: ${formatInches(property.rightValue)} (${formatSignedInches(property.delta)})`],
+              });
+            }
+          });
+        });
 
-      if (info.changedAxes.length) {
+        const unchangedComponents = componentChanges.filter((change) => !change.changed).slice(0, 2);
+        unchangedComponents.forEach((change) => {
+          info.summary.push(`${change.label} stayed unchanged.`);
+        });
+      } else if (info.dimensions.some((item) => item.changed)) {
+        info.changedAxes = info.dimensions.filter((item) => item.changed).map((item) => item.axis);
         info.summary.push(`Changed axes: ${info.changedAxes.map((axis) => axis.toUpperCase()).join(", ")}`);
-        for (const item of info.dimensions.filter((dimension) => dimension.changed)) {
-          const minMoved = info.faceChanges.left.some((face) => face.axis === item.axis && face.side === "min");
-          const maxMoved = info.faceChanges.left.some((face) => face.axis === item.axis && face.side === "max");
-          const movedSide = minMoved && maxMoved ? "both faces" : (maxMoved ? "max face" : (minMoved ? "min face" : "face"));
+        info.dimensions.filter((dimension) => dimension.changed).forEach((item) => {
           info.summary.push(
-            `${item.axis.toUpperCase()} ${movedSide} changed from ${formatLength(item.leftValue)} to ${formatLength(item.rightValue)} (${formatSignedInches(item.delta)})`
+            `${item.axis.toUpperCase()} span changed from ${formatLength(item.leftValue)} to ${formatLength(item.rightValue)} (${formatSignedInches(item.delta)})`
           );
-        }
+          const leftBounds = left?.geometry_hints?.bounds;
+          const rightBounds = right?.geometry_hints?.bounds;
+          if (leftBounds) {
+            const leftEndpoints = axisDimensionEndpoints(leftBounds, item.axis);
+            info.annotations.left.push({
+              start: leftEndpoints[0],
+              end: leftEndpoints[1],
+              lines: [`${item.axis.toUpperCase()} span: ${formatInches(item.leftValue)}`],
+            });
+          }
+          if (rightBounds) {
+            const rightEndpoints = axisDimensionEndpoints(rightBounds, item.axis);
+            info.annotations.right.push({
+              start: rightEndpoints[0],
+              end: rightEndpoints[1],
+              lines: [`${item.axis.toUpperCase()} span: ${formatInches(item.rightValue)} (${formatSignedInches(item.delta)})`],
+            });
+          }
+        });
       } else {
-        info.summary.push("No axis-size difference was inferred from the available bounds.");
+        info.summary.push("No geometric size change was inferred from the current preview data.");
       }
 
       if (info.changedShape) {
@@ -674,7 +1120,10 @@ HTML = """<!doctype html>
       return face?.side || null;
     }
 
-    function faceMatchesHighlight(face, highlightFaces) {
+    function faceMatchesHighlight(face, highlightFaces, highlightComponents) {
+      if (highlightComponents?.length && face.componentId && highlightComponents.includes(face.componentId)) {
+        return true;
+      }
       if (!highlightFaces?.length) return false;
       return highlightFaces.some((item) => item.axis === face.axis && item.side === face.side);
     }
@@ -712,21 +1161,15 @@ HTML = """<!doctype html>
     }
 
     function drawCompareAnnotations(ctx2d, canvasEl, preview, viewer, scale, compareAnnotation) {
-      if (!compareAnnotation?.dimensions?.length || !preview?.bounds) return;
-
-      const changed = compareAnnotation.dimensions.filter((item) => item.changed);
-      if (!changed.length) return;
-
+      if (!compareAnnotation?.annotations?.length || !preview) return;
       const color = "#ef6c00";
-      const shadow = "rgba(255,255,255,0.95)";
-      const roleKey = compareAnnotation.role === "right" ? "rightValue" : "leftValue";
-      const deltaSuffix = compareAnnotation.role === "right" ? " vs left" : "";
+      const shadow = "rgba(255,255,255,0.94)";
       const labelStack = [];
 
-      for (const item of changed) {
-        const [start3d, end3d] = axisDimensionEndpoints(preview.bounds, item.axis);
-        const start = projectModelPoint(start3d, preview, viewer, scale, canvasEl);
-        const end = projectModelPoint(end3d, preview, viewer, scale, canvasEl);
+      for (const annotation of compareAnnotation.annotations) {
+        if (!annotation?.start || !annotation?.end) continue;
+        const start = projectModelPoint(annotation.start, preview, viewer, scale, canvasEl);
+        const end = projectModelPoint(annotation.end, preview, viewer, scale, canvasEl);
         const dx = end[0] - start[0];
         const dy = end[1] - start[1];
         const length = Math.hypot(dx, dy);
@@ -750,13 +1193,12 @@ HTML = """<!doctype html>
         ctx2d.lineTo(arrowEnd[0], arrowEnd[1]);
         ctx2d.stroke();
 
-        const label = `${item.axis.toUpperCase()}: ${(item[roleKey] * 39.37007874015748).toFixed(3)} in${compareAnnotation.role === "right" ? ` (${formatSignedInches(item.delta)}${deltaSuffix})` : ""}`;
-        labelStack.push(label);
+        labelStack.push(...(annotation.lines || []));
       }
 
       if (!labelStack.length) return;
 
-      ctx2d.font = "bold 12px Arial";
+      ctx2d.font = "bold 12px 'Segoe UI'";
       ctx2d.textBaseline = "top";
       const width = Math.max(...labelStack.map((line) => ctx2d.measureText(line).width)) + 18;
       const height = labelStack.length * 16 + 14;
@@ -786,6 +1228,35 @@ HTML = """<!doctype html>
       };
     }
 
+    function clampPitch(value) {
+      const limit = Math.PI / 2 - 0.04;
+      return Math.max(-limit, Math.min(limit, value));
+    }
+
+    function presetAngles(name) {
+      if (name === "front") return { yaw: 0, pitch: 0 };
+      if (name === "top") return { yaw: 0, pitch: -Math.PI / 2 + 0.08 };
+      if (name === "right") return { yaw: -Math.PI / 2, pitch: 0 };
+      return { yaw: -0.7, pitch: 0.5 };
+    }
+
+    function applyViewPreset(viewers, preset) {
+      normalizeViewerList(viewers).forEach((viewer) => {
+        if (preset === "fit") {
+          viewer.zoom = 1;
+          viewer.panX = 0;
+          viewer.panY = 0;
+          return;
+        }
+        const angles = presetAngles(preset);
+        viewer.yaw = angles.yaw;
+        viewer.pitch = clampPitch(angles.pitch);
+        viewer.zoom = 1;
+        viewer.panX = 0;
+        viewer.panY = 0;
+      });
+    }
+
     function compareInteractionViewers(side) {
       if (!state.compareSync) {
         return [state.compareViewers[side]];
@@ -801,15 +1272,20 @@ HTML = """<!doctype html>
 
     function bindCanvasInteractions(canvasEl, viewerAccessor, redraw, reset, label) {
       if (!canvasEl) return;
+      canvasEl.style.cursor = "grab";
+      canvasEl.addEventListener("contextmenu", (event) => event.preventDefault());
 
       canvasEl.addEventListener("mousedown", (event) => {
+        event.preventDefault();
         dragState = {
           x: event.clientX,
           y: event.clientY,
-          pan: event.shiftKey,
+          pan: event.shiftKey || event.button === 1 || event.button === 2,
           viewers: normalizeViewerList(viewerAccessor()),
-          redraw
+          redraw,
+          canvasEl,
         };
+        canvasEl.style.cursor = "grabbing";
         setStatus(`${label}: drag to rotate, Shift + drag to pan.`);
       });
 
@@ -826,7 +1302,7 @@ HTML = """<!doctype html>
       canvasEl.addEventListener("dblclick", () => {
         reset();
         redraw();
-        setStatus(`${label} reset.`);
+        setStatus(`${label} fit to view.`);
       });
     }
 
@@ -929,7 +1405,7 @@ HTML = """<!doctype html>
         ["wireframe", "Wireframe"],
         ["points", "Points"]
       ];
-      root.innerHTML = "";
+      root.innerHTML = '<span class="toolbar-label">Display</span>';
       for (const [mode, label] of modes) {
         const button = document.createElement("button");
         button.className = "preview-mode" + (state.viewer.mode === mode ? " active" : "");
@@ -941,6 +1417,49 @@ HTML = """<!doctype html>
         };
         root.appendChild(button);
       }
+    }
+
+    function renderPreviewPresets() {
+      const root = byId("preview-toolbar-right");
+      root.innerHTML = "";
+
+      const viewGroup = document.createElement("div");
+      viewGroup.className = "toolbar-cluster";
+      viewGroup.innerHTML = '<span class="toolbar-label">Views</span>';
+      VIEW_PRESETS.forEach(([preset, label]) => {
+        const button = document.createElement("button");
+        button.className = "view-preset";
+        button.textContent = label;
+        button.onclick = () => {
+          applyViewPreset(state.viewer, preset);
+          drawPreview();
+          setStatus(`Preview set to ${label.toLowerCase()} view.`);
+        };
+        viewGroup.appendChild(button);
+      });
+
+      const backgroundGroup = document.createElement("div");
+      backgroundGroup.className = "toolbar-cluster";
+      backgroundGroup.innerHTML = '<span class="toolbar-label">Background</span>';
+      VIEWPORT_BACKGROUNDS.forEach(([value, label]) => {
+        const button = document.createElement("button");
+        button.className = "view-preset" + (state.viewportBackground === value ? " active" : "");
+        button.textContent = label;
+        button.onclick = () => {
+          state.viewportBackground = value;
+          renderPreviewPresets();
+          if (state.activeTab === "compare") {
+            renderCompare();
+          } else {
+            drawPreview();
+          }
+          setStatus(`Viewport background set to ${label.toLowerCase()}.`);
+        };
+        backgroundGroup.appendChild(button);
+      });
+
+      root.appendChild(viewGroup);
+      root.appendChild(backgroundGroup);
     }
 
     function renderFileList() {
@@ -1282,23 +1801,34 @@ HTML = """<!doctype html>
 
       root.innerHTML = `
         <div class="compare-layout">
-          <div class="empty">${escapeHtml(diff.summary.join(" | "))}</div>
+          <div class="compare-summary">
+            <h3>Detected changes</h3>
+            <div class="compare-summary-list">
+              ${diff.summary.map((line) => `<div class="compare-summary-item">${escapeHtml(line)}</div>`).join("")}
+            </div>
+          </div>
           <div class="compare-controls">
             <label>
               <input type="checkbox" id="compare-sync-toggle" ${state.compareSync ? "checked" : ""}>
               Move both models together
             </label>
+            <div class="toolbar-cluster" id="compare-view-presets"></div>
+            <div class="toolbar-cluster" id="compare-background-presets"></div>
           </div>
           <div class="compare-preview-grid">
             <div class="compare-preview-card">
               <h3>${escapeHtml(left.file_name)}</h3>
-              <canvas id="compare-left-canvas" class="compare-canvas"></canvas>
-              <div class="compare-note">Drag to rotate. Shift + drag to pan. Wheel to zoom. Double-click to reset. Orange arrows show changed dimensions on this model.</div>
+              <div class="canvas-frame">
+                <canvas id="compare-left-canvas" class="compare-canvas"></canvas>
+              </div>
+              <div class="compare-note">Orbit with drag. Pan with Shift + drag or right-drag. Orange callouts stay attached to the changed feature on this model.</div>
             </div>
             <div class="compare-preview-card">
               <h3>${escapeHtml(right.file_name)}</h3>
-              <canvas id="compare-right-canvas" class="compare-canvas"></canvas>
-              <div class="compare-note">Drag to rotate. Shift + drag to pan. Wheel to zoom. Double-click to reset. Orange arrows show changed dimensions; labels include the delta versus the left model.</div>
+              <div class="canvas-frame">
+                <canvas id="compare-right-canvas" class="compare-canvas"></canvas>
+              </div>
+              <div class="compare-note">The right-side labels include the delta versus the left model, so feature-level changes read more like a CAD inspection view.</div>
             </div>
           </div>
           <table>
@@ -1313,6 +1843,38 @@ HTML = """<!doctype html>
           </table>
         </div>
       `;
+
+      const presetRoot = byId("compare-view-presets");
+      presetRoot.innerHTML = '<span class="toolbar-label">Views</span>';
+      VIEW_PRESETS.forEach(([preset, label]) => {
+        const button = document.createElement("button");
+        button.className = "view-preset";
+        button.textContent = label;
+        button.onclick = () => {
+          const targets = state.compareSync
+            ? [state.compareViewers.left, state.compareViewers.right]
+            : [state.compareViewers.left, state.compareViewers.right];
+          applyViewPreset(targets, preset);
+          drawComparePreviews();
+          setStatus(`Comparison previews set to ${label.toLowerCase()} view.`);
+        };
+        presetRoot.appendChild(button);
+      });
+
+      const backgroundRoot = byId("compare-background-presets");
+      backgroundRoot.innerHTML = '<span class="toolbar-label">Background</span>';
+      VIEWPORT_BACKGROUNDS.forEach(([value, label]) => {
+        const button = document.createElement("button");
+        button.className = "view-preset" + (state.viewportBackground === value ? " active" : "");
+        button.textContent = label;
+        button.onclick = () => {
+          state.viewportBackground = value;
+          renderPreviewPresets();
+          renderCompare();
+          setStatus(`Viewport background set to ${label.toLowerCase()}.`);
+        };
+        backgroundRoot.appendChild(button);
+      });
 
       byId("compare-sync-toggle").addEventListener("change", (event) => {
         state.compareSync = event.target.checked;
@@ -1369,19 +1931,19 @@ HTML = """<!doctype html>
       drawModelPreview(leftCanvas, left, state.compareViewers.left, {
         mode: "solid",
         highlightAxes: diff.changedAxes,
-        highlightFaces: diff.faceChanges.left,
+        highlightComponents: diff.highlightComponents.left,
         compareAnnotation: {
           role: "left",
-          dimensions: diff.dimensions
+          annotations: diff.annotations.left
         }
       });
       drawModelPreview(rightCanvas, right, state.compareViewers.right, {
         mode: "solid",
         highlightAxes: diff.changedAxes,
-        highlightFaces: diff.faceChanges.right,
+        highlightComponents: diff.highlightComponents.right,
         compareAnnotation: {
           role: "right",
-          dimensions: diff.dimensions
+          annotations: diff.annotations.right
         }
       });
     }
@@ -1426,6 +1988,7 @@ HTML = """<!doctype html>
     }
 
     function drawCornerTriad(canvasEl, ctx2d, viewer) {
+      const theme = currentViewportTheme();
       const centerX = 72;
       const centerY = canvasEl.height - 72;
       const triadScale = 34;
@@ -1446,8 +2009,8 @@ HTML = """<!doctype html>
         { point: [0, 0, 1], color: "#1565c0", label: "Z" }
       ];
 
-      ctx2d.fillStyle = "#ffffff";
-      ctx2d.strokeStyle = "#bdbdbd";
+      ctx2d.fillStyle = theme.hudFill;
+      ctx2d.strokeStyle = theme.hudStroke;
       ctx2d.lineWidth = 1;
       ctx2d.beginPath();
       ctx2d.rect(16, canvasEl.height - 128, 112, 112);
@@ -1466,14 +2029,100 @@ HTML = """<!doctype html>
         ctx2d.beginPath();
         ctx2d.arc(end[0], end[1], 4, 0, Math.PI * 2);
         ctx2d.fill();
-        ctx2d.font = "bold 12px Arial";
+        ctx2d.font = "bold 12px 'Segoe UI'";
         ctx2d.fillText(axis.label, end[0] + 7, end[1] - 4);
       }
 
-      ctx2d.fillStyle = "#555555";
+      ctx2d.fillStyle = theme.hudText;
       ctx2d.beginPath();
       ctx2d.arc(origin[0], origin[1], 3, 0, Math.PI * 2);
       ctx2d.fill();
+    }
+
+    function currentViewportTheme() {
+      if (state.viewportBackground === "white") {
+        return {
+          background: "#ffffff",
+          hudFill: "rgba(245, 245, 245, 0.92)",
+          hudStroke: "rgba(70, 70, 70, 0.22)",
+          hudText: "#333333",
+          secondaryText: "#4a4a4a",
+          point: "#444444",
+          faceStroke: "rgba(80, 80, 80, 0.82)",
+          bounds: "rgba(110, 110, 110, 0.5)",
+          wireframe: "rgba(70, 70, 70, 0.68)",
+          emptyText: "rgba(70, 70, 70, 0.92)",
+          surfaceBase: 210,
+          surfaceRange: 30,
+        };
+      }
+      if (state.viewportBackground === "dark") {
+        return {
+          background: "#1d1d1d",
+          hudFill: "rgba(24, 24, 24, 0.72)",
+          hudStroke: "rgba(220, 220, 220, 0.15)",
+          hudText: "rgba(242, 242, 242, 0.95)",
+          secondaryText: "rgba(241, 241, 241, 0.92)",
+          point: "rgba(241, 241, 241, 0.86)",
+          faceStroke: "rgba(215, 215, 215, 0.5)",
+          bounds: "rgba(215, 215, 215, 0.4)",
+          wireframe: "rgba(226, 226, 226, 0.6)",
+          emptyText: "rgba(241, 241, 241, 0.92)",
+          surfaceBase: 150,
+          surfaceRange: 52,
+        };
+      }
+      return {
+        background: "#d9d9d9",
+        hudFill: "rgba(238, 238, 238, 0.9)",
+        hudStroke: "rgba(80, 80, 80, 0.18)",
+        hudText: "#323232",
+        secondaryText: "#404040",
+        point: "#404040",
+        faceStroke: "rgba(65, 65, 65, 0.76)",
+        bounds: "rgba(95, 95, 95, 0.45)",
+        wireframe: "rgba(70, 70, 70, 0.62)",
+        emptyText: "rgba(55, 55, 55, 0.92)",
+        surfaceBase: 188,
+        surfaceRange: 36,
+      };
+    }
+
+    function drawViewportBackground(ctx2d, canvasEl) {
+      ctx2d.fillStyle = currentViewportTheme().background;
+      ctx2d.fillRect(0, 0, canvasEl.width, canvasEl.height);
+    }
+
+    function drawViewportHud(ctx2d, canvasEl, report, preview, viewer, options = {}) {
+      const theme = currentViewportTheme();
+      const lines = [
+        report?.file_name || "Preview",
+        `${capitalizeLabel(options.mode || viewer.mode || "solid")} view`,
+      ];
+      if (preview?.bounds?.size) {
+        lines.push(`Size ${preview.bounds.size.map((value) => formatInches(value)).join(" x ")}`);
+      }
+      if (options.highlightComponents?.length) {
+        lines.push(`${options.highlightComponents.length} feature${options.highlightComponents.length === 1 ? "" : "s"} changed`);
+      }
+
+      ctx2d.save();
+      ctx2d.font = "600 12px 'Segoe UI'";
+      ctx2d.textBaseline = "top";
+      const width = Math.max(...lines.map((line) => ctx2d.measureText(line).width)) + 24;
+      const height = lines.length * 16 + 16;
+      ctx2d.fillStyle = theme.hudFill;
+      ctx2d.strokeStyle = theme.hudStroke;
+      ctx2d.lineWidth = 1;
+      ctx2d.beginPath();
+      ctx2d.roundRect(16, 16, width, height, 12);
+      ctx2d.fill();
+      ctx2d.stroke();
+      ctx2d.fillStyle = theme.hudText;
+      lines.forEach((line, index) => {
+        ctx2d.fillText(line, 28, 24 + index * 16);
+      });
+      ctx2d.restore();
     }
 
     function axisVector(axis) {
@@ -1523,12 +2172,17 @@ HTML = """<!doctype html>
       };
     }
 
-    function previewGeometryFromKernelBody(body) {
+    function previewGeometryFromKernelBody(body, context = {}) {
       if (!body) return { faces: [], points: [], edges: [] };
 
       if (body.metadata?.primitive === "compound" && Array.isArray(body.metadata?.components)) {
         return body.metadata.components
-          .map((component) => previewGeometryFromKernelBody(component))
+          .map((component, componentIndex) =>
+            previewGeometryFromKernelBody(component, {
+              bodyIndex: context.bodyIndex || 0,
+              componentIndex,
+            })
+          )
           .reduce(
             (combined, geometry) => ({
               faces: combined.faces.concat(geometry.faces || []),
@@ -1539,6 +2193,14 @@ HTML = """<!doctype html>
           );
       }
 
+      const identity = componentIdentity(
+        body,
+        context.bodyIndex || 0,
+        context.componentIndex || 0
+      );
+      const componentId = identity.id;
+      const componentName = componentLabel(body, identity, 1);
+
       if (body.faces?.some((face) => face.vertices?.length)) {
         const faces = body.faces
           .filter((face) => face.vertices?.length)
@@ -1547,7 +2209,9 @@ HTML = """<!doctype html>
             axis: face.metadata?.axis || null,
             side: inferFaceSide(face),
             normal: face.normal || null,
-            vertices: face.vertices.map((vertex) => vertex.map(Number))
+            vertices: face.vertices.map((vertex) => vertex.map(Number)),
+            componentId,
+            componentName,
           }));
         const points = faces.flatMap((face) => face.vertices);
         return { faces, points, edges: [] };
@@ -1572,7 +2236,9 @@ HTML = """<!doctype html>
             name: `Cylinder side ${i}`,
             axis,
             normal: null,
-            vertices: [startRing[i], startRing[next], endRing[next], endRing[i]]
+            vertices: [startRing[i], startRing[next], endRing[next], endRing[i]],
+            componentId,
+            componentName,
           });
         }
 
@@ -1581,14 +2247,18 @@ HTML = """<!doctype html>
           axis,
           side: "min",
           normal: scaleVec(axisVec, -1),
-          vertices: [...startRing].reverse()
+          vertices: [...startRing].reverse(),
+          componentId,
+          componentName,
         });
         faces.push({
           name: "End cap",
           axis,
           side: "max",
           normal: axisVec,
-          vertices: endRing
+          vertices: endRing,
+          componentId,
+          componentName,
         });
 
         return {
@@ -1630,7 +2300,9 @@ HTML = """<!doctype html>
               name: `Sphere patch ${lat}-${lon}`,
               axis: null,
               normal: null,
-              vertices: quad
+              vertices: quad,
+              componentId,
+              componentName,
             });
             points.push(...quad);
           }
@@ -1655,7 +2327,8 @@ HTML = """<!doctype html>
           edges.push({
             kind: "arc_segment",
             axis,
-            points: [points[i], points[(i + 1) % points.length]]
+            points: [points[i], points[(i + 1) % points.length]],
+            componentId,
           });
         }
         return { faces: [], points, edges };
@@ -1669,7 +2342,7 @@ HTML = """<!doctype html>
       const points = (report.geometry_hints?.preview_points || []).map((point) => point.map(Number));
       const bodies = kernelBodies(report);
       const kernelGeometry = bodies
-        .map((body) => previewGeometryFromKernelBody(body))
+        .map((body, bodyIndex) => previewGeometryFromKernelBody(body, { bodyIndex }))
         .reduce(
           (combined, geometry) => ({
             faces: combined.faces.concat(geometry.faces || []),
@@ -1734,31 +2407,34 @@ HTML = """<!doctype html>
       };
     }
 
-    function shadeForNormal(normal) {
+    function shadeForNormal(normal, theme) {
       const light = [0.45, -0.35, 0.82];
       const len = Math.hypot(...light) || 1;
       const unitLight = light.map((value) => value / len);
       const dot = Math.max(0, normal[0] * unitLight[0] + normal[1] * unitLight[1] + normal[2] * unitLight[2]);
-      const shade = Math.round(160 + dot * 70);
+      const base = theme?.surfaceBase ?? 170;
+      const range = theme?.surfaceRange ?? 50;
+      const shade = Math.round(base + dot * range);
       return `rgb(${shade}, ${shade}, ${shade})`;
     }
 
     function drawModelPreview(canvasEl, report, viewer, options = {}) {
       const ctx2d = canvasEl.getContext("2d");
+      const theme = currentViewportTheme();
       const highlightAxes = options.highlightAxes || [];
       const highlightFaces = options.highlightFaces || [];
+      const highlightComponents = options.highlightComponents || [];
       const compareAnnotation = options.compareAnnotation || null;
       const forceMode = options.mode || viewer.mode || "solid";
 
       resizeCanvasElement(canvasEl);
       ctx2d.clearRect(0, 0, canvasEl.width, canvasEl.height);
-      ctx2d.fillStyle = "#ffffff";
-      ctx2d.fillRect(0, 0, canvasEl.width, canvasEl.height);
+      drawViewportBackground(ctx2d, canvasEl);
 
       const preview = getPreviewData(report);
       if (!preview) {
-        ctx2d.fillStyle = "#666666";
-        ctx2d.font = "14px Arial";
+        ctx2d.fillStyle = theme.emptyText;
+        ctx2d.font = "14px 'Segoe UI'";
         ctx2d.fillText("No previewable solid geometry was decoded from this file.", 16, 24);
         if (report?.decoded_names?.length) {
           ctx2d.fillText(`Named entities: ${report.decoded_names.join(", ")}`, 16, 48);
@@ -1822,14 +2498,17 @@ HTML = """<!doctype html>
             ctx2d.lineTo(vertex[0], vertex[1]);
           }
           ctx2d.closePath();
-          const faceHighlighted = faceMatchesHighlight(face, highlightFaces) || (!highlightFaces.length && highlightAxes.includes(face.axis));
+          const faceHighlighted = faceMatchesHighlight(face, highlightFaces, highlightComponents)
+            || (!highlightFaces.length && !highlightComponents.length && highlightAxes.includes(face.axis));
           const fillColor = faceHighlighted
-            ? "#ffcc80"
-            : (face.rotatedNormal ? shadeForNormal(face.rotatedNormal) : "#d9d9d9");
+            ? "#ffbf66"
+            : (face.rotatedNormal ? shadeForNormal(face.rotatedNormal, theme) : shadeForNormal([0, 0, -0.1], theme));
           ctx2d.fillStyle = fillColor;
+          ctx2d.globalAlpha = faceHighlighted ? 0.96 : 0.9;
           ctx2d.fill();
-          ctx2d.strokeStyle = faceHighlighted ? "#ef6c00" : "#5f5f5f";
-          ctx2d.lineWidth = faceHighlighted ? 2 : 1;
+          ctx2d.globalAlpha = 1;
+          ctx2d.strokeStyle = faceHighlighted ? "#ef6c00" : theme.faceStroke;
+          ctx2d.lineWidth = faceHighlighted ? 2.3 : 1;
           ctx2d.stroke();
         }
       }
@@ -1865,7 +2544,7 @@ HTML = """<!doctype html>
         for (const [a, b, axis] of edges) {
           ctx2d.strokeStyle = highlightAxes.includes(axis)
             ? "#ef6c00"
-            : (forceMode === "solid" ? "#6a6a6a" : "#4a4a4a");
+            : (forceMode === "solid" ? theme.bounds : theme.wireframe);
           ctx2d.lineWidth = highlightAxes.includes(axis) ? 2 : 1;
           ctx2d.beginPath();
           ctx2d.moveTo(projectedCorners[a][0], projectedCorners[a][1]);
@@ -1892,8 +2571,9 @@ HTML = """<!doctype html>
               viewer
             )
           );
-          ctx2d.strokeStyle = highlightAxes.includes(edge.axis) ? "#ef6c00" : "#2f2f2f";
-          ctx2d.lineWidth = highlightAxes.includes(edge.axis) ? 2 : 1.5;
+          const edgeHighlighted = highlightComponents.includes(edge.componentId) || highlightAxes.includes(edge.axis);
+          ctx2d.strokeStyle = edgeHighlighted ? "#ef6c00" : theme.wireframe;
+          ctx2d.lineWidth = edgeHighlighted ? 2 : 1.5;
           ctx2d.beginPath();
           ctx2d.moveTo(projectedEdge[0][0], projectedEdge[0][1]);
           ctx2d.lineTo(projectedEdge[1][0], projectedEdge[1][1]);
@@ -1906,7 +2586,7 @@ HTML = """<!doctype html>
         .sort((a, b) => a.point[2] - b.point[2]);
 
       if (forceMode !== "solid" || !projectedFaces.length) {
-        ctx2d.fillStyle = highlightAxes.length ? "#ef6c00" : "#333333";
+        ctx2d.fillStyle = highlightAxes.length || highlightComponents.length ? "#ef6c00" : theme.point;
         for (const item of ordered) {
           const [x, y, depth] = item.point;
           const radius = Math.max(3, ordered.length <= 2 ? 7 : 4 * depth);
@@ -1917,12 +2597,16 @@ HTML = """<!doctype html>
       }
 
       if (ordered.length === 1) {
-        ctx2d.fillStyle = "#555555";
-        ctx2d.font = "13px Arial";
+        ctx2d.fillStyle = theme.secondaryText;
+        ctx2d.font = "13px 'Segoe UI'";
         ctx2d.fillText("Only one geometric point was decoded from this file.", 16, 24);
       }
 
       drawCompareAnnotations(ctx2d, canvasEl, preview, viewer, scale, compareAnnotation);
+      drawViewportHud(ctx2d, canvasEl, report, preview, viewer, {
+        mode: forceMode,
+        highlightComponents,
+      });
       drawCornerTriad(canvasEl, ctx2d, viewer);
     }
 
@@ -1935,6 +2619,7 @@ HTML = """<!doctype html>
     function render() {
       renderTabs();
       renderPreviewModes();
+      renderPreviewPresets();
       renderFileList();
       renderSummary();
       renderOverview();
@@ -2039,14 +2724,17 @@ HTML = """<!doctype html>
           viewer.panX += dx;
           viewer.panY += dy;
         } else {
-          viewer.yaw += dx * 0.01;
-          viewer.pitch += dy * 0.01;
+          viewer.yaw -= dx * 0.01;
+          viewer.pitch = clampPitch(viewer.pitch - dy * 0.01);
         }
       });
       dragState.redraw();
     });
 
     window.addEventListener("mouseup", () => {
+      if (dragState?.canvasEl) {
+        dragState.canvasEl.style.cursor = "grab";
+      }
       dragState = null;
     });
 
