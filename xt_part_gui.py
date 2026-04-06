@@ -1221,6 +1221,542 @@ HTML = """<!doctype html>
       return `multiple bodies (${bodies.length})`;
     }
 
+    function rawIdentityKey(objectIdentity, fallback = null) {
+      if (objectIdentity?.journal_identifier) return `jid:${objectIdentity.journal_identifier}`;
+      if (Number.isFinite(Number(objectIdentity?.tag))) return `tag:${Number(objectIdentity.tag)}`;
+      return fallback;
+    }
+
+    function structuredBodies(report) {
+      if (Array.isArray(report?.source_bodies) && report.source_bodies.length) {
+        return report.source_bodies.filter(Boolean);
+      }
+      if (Array.isArray(report?.bodies) && report.bodies.length) {
+        return report.bodies.filter(Boolean);
+      }
+      return [];
+    }
+
+    function structuredTopologyCounts(report) {
+      const bodies = structuredBodies(report);
+      const bodyCount = bodies.length || Number(report?.source_body_count || 0);
+      const faceCount = bodies.reduce((sum, body) => sum + (body?.faces?.length || 0), 0);
+      const edgeCount = bodies.reduce((sum, body) => sum + (body?.edges?.length || 0), 0);
+      return { bodyCount, faceCount, edgeCount };
+    }
+
+    function structuredTopologyLabel(report) {
+      const counts = structuredTopologyCounts(report);
+      if (!counts.bodyCount && !counts.faceCount && !counts.edgeCount) return "Not available";
+      return `${counts.faceCount} faces / ${counts.edgeCount} edges across ${counts.bodyCount} bodies`;
+    }
+
+    function structuredBodyName(body, fallbackIndex = 0) {
+      return body?.metadata?.name || body?.name || `Body ${fallbackIndex + 1}`;
+    }
+
+    function structuredBodyIdentity(body, fallbackIndex = 0) {
+      const objectIdentity = body?.metadata?.object_identity || body?.object_identity || {};
+      const name = structuredBodyName(body, fallbackIndex);
+      const bodyIndex = Number(body?.index || (fallbackIndex + 1));
+      return {
+        id: rawIdentityKey(objectIdentity, `${name.toLowerCase()}::${bodyIndex}`),
+        name,
+        index: bodyIndex,
+      };
+    }
+
+    function structuredEdgeIdentity(body, edge, bodyIndex = 0, edgeIndex = 0) {
+      return rawIdentityKey(
+        edge?.object_identity,
+        `body:${Number(body?.index || bodyIndex + 1)}:edge:${Number(edge?.index || edgeIndex + 1)}`
+      );
+    }
+
+    function structuredFaceIdentity(body, face, bodyIndex = 0, faceIndex = 0) {
+      return rawIdentityKey(
+        face?.object_identity,
+        `body:${Number(body?.index || bodyIndex + 1)}:face:${Number(face?.index || faceIndex + 1)}`
+      );
+    }
+
+    function matchStructuredBody(leftBody, rightBodies, used) {
+      const leftIdentity = structuredBodyIdentity(leftBody);
+
+      let match = rightBodies.find((candidate, candidateIndex) =>
+        !used.has(structuredBodyIdentity(candidate, candidateIndex).id)
+        && structuredBodyIdentity(candidate, candidateIndex).id === leftIdentity.id
+      );
+      if (match) return match;
+
+      match = rightBodies.find((candidate, candidateIndex) =>
+        !used.has(structuredBodyIdentity(candidate, candidateIndex).id)
+        && structuredBodyIdentity(candidate, candidateIndex).name === leftIdentity.name
+      );
+      if (match) return match;
+
+      match = rightBodies.find((candidate, candidateIndex) =>
+        !used.has(structuredBodyIdentity(candidate, candidateIndex).id)
+        && Number(candidate?.index || (candidateIndex + 1)) === leftIdentity.index
+      );
+      if (match) return match;
+
+      return null;
+    }
+
+    function finiteNumber(value) {
+      const numeric = Number(value);
+      return Number.isFinite(numeric) ? numeric : null;
+    }
+
+    function pointArray(value) {
+      if (Array.isArray(value) && value.length >= 3) {
+        return value.slice(0, 3).map((item) => Number(item));
+      }
+      if (value && typeof value === "object") {
+        const x = finiteNumber(value.x);
+        const y = finiteNumber(value.y);
+        const z = finiteNumber(value.z);
+        if (x !== null && y !== null && z !== null) return [x, y, z];
+      }
+      return null;
+    }
+
+    function dedupeList(values) {
+      return [...new Set((values || []).filter(Boolean))];
+    }
+
+    function formatArea(value) {
+      return `${(Number(value || 0) * 1000000).toFixed(3)} mm²`;
+    }
+
+    function formatVolume(value) {
+      return `${(Number(value || 0) * 1000000000).toFixed(3)} mm³`;
+    }
+
+    function metricValueList(values) {
+      return values
+        .map((value) => finiteNumber(value))
+        .filter((value) => value !== null)
+        .sort((a, b) => a - b);
+    }
+
+    function compareNumericLists(leftValues, rightValues, tolerance = DIMENSION_TOLERANCE, maxChanges = 3) {
+      const left = metricValueList(leftValues);
+      const right = metricValueList(rightValues);
+      const changes = [];
+      let leftIndex = 0;
+      let rightIndex = 0;
+
+      while (leftIndex < left.length || rightIndex < right.length) {
+        const leftValue = leftIndex < left.length ? left[leftIndex] : null;
+        const rightValue = rightIndex < right.length ? right[rightIndex] : null;
+
+        if (leftValue !== null && rightValue !== null && Math.abs(rightValue - leftValue) <= tolerance) {
+          leftIndex += 1;
+          rightIndex += 1;
+          continue;
+        }
+
+        if (leftValue !== null && rightValue !== null) {
+          changes.push({ kind: "changed", leftValue, rightValue, delta: rightValue - leftValue });
+          leftIndex += 1;
+          rightIndex += 1;
+        } else if (leftValue !== null) {
+          changes.push({ kind: "removed", leftValue });
+          leftIndex += 1;
+        } else if (rightValue !== null) {
+          changes.push({ kind: "added", rightValue });
+          rightIndex += 1;
+        }
+
+        if (changes.length >= maxChanges) break;
+      }
+
+      return {
+        changes,
+        leftCount: left.length,
+        rightCount: right.length,
+        truncated: leftIndex < left.length || rightIndex < right.length,
+      };
+    }
+
+    function compareValueEntries(leftEntries, rightEntries, tolerance = DIMENSION_TOLERANCE, maxChanges = 3) {
+      const left = [...(leftEntries || [])]
+        .filter((entry) => entry && finiteNumber(entry.value) !== null)
+        .sort((a, b) => a.value - b.value);
+      const right = [...(rightEntries || [])]
+        .filter((entry) => entry && finiteNumber(entry.value) !== null)
+        .sort((a, b) => a.value - b.value);
+
+      const changes = [];
+      let leftIndex = 0;
+      let rightIndex = 0;
+
+      while (leftIndex < left.length || rightIndex < right.length) {
+        const leftEntry = leftIndex < left.length ? left[leftIndex] : null;
+        const rightEntry = rightIndex < right.length ? right[rightIndex] : null;
+
+        if (leftEntry && rightEntry && Math.abs(rightEntry.value - leftEntry.value) <= tolerance) {
+          leftIndex += 1;
+          rightIndex += 1;
+          continue;
+        }
+
+        if (leftEntry && rightEntry) {
+          changes.push({ kind: "changed", left: leftEntry, right: rightEntry, delta: rightEntry.value - leftEntry.value });
+          leftIndex += 1;
+          rightIndex += 1;
+        } else if (leftEntry) {
+          changes.push({ kind: "removed", left: leftEntry });
+          leftIndex += 1;
+        } else if (rightEntry) {
+          changes.push({ kind: "added", right: rightEntry });
+          rightIndex += 1;
+        }
+
+        if (changes.length >= maxChanges) break;
+      }
+
+      return { changes, truncated: leftIndex < left.length || rightIndex < right.length };
+    }
+
+    function circularEdgeDiameters(body) {
+      return (body?.edges || [])
+        .filter((edge) => edge?.type === "Circular")
+        .map((edge) =>
+          finiteNumber(edge?.curve_measurement?.diameter)
+          ?? (
+            finiteNumber(edge?.curve_measurement?.radius) !== null
+              ? finiteNumber(edge?.curve_measurement?.radius) * 2
+              : null
+          )
+          ?? (
+            finiteNumber(edge?.exact_geometry?.analytic_curve?.radius) !== null
+              ? finiteNumber(edge?.exact_geometry?.analytic_curve?.radius) * 2
+              : null
+          )
+        )
+        .filter((value) => value !== null);
+    }
+
+    function circularEdgeEntries(body, bodyIndex = 0) {
+      return (body?.edges || [])
+        .filter((edge) => edge?.type === "Circular")
+        .map((edge, edgeIndex) => {
+          const diameter =
+            finiteNumber(edge?.curve_measurement?.diameter)
+            ?? (
+              finiteNumber(edge?.curve_measurement?.radius) !== null
+                ? finiteNumber(edge?.curve_measurement?.radius) * 2
+                : null
+            )
+            ?? (
+              finiteNumber(edge?.exact_geometry?.analytic_curve?.radius) !== null
+                ? finiteNumber(edge?.exact_geometry?.analytic_curve?.radius) * 2
+                : null
+            );
+          if (diameter === null) return null;
+          return {
+            key: structuredEdgeIdentity(body, edge, bodyIndex, edgeIndex),
+            value: diameter,
+            center: pointArray(
+              edge?.curve_measurement?.center
+              || edge?.start_point
+              || (Array.isArray(edge?.preview_points) && edge.preview_points.length ? edge.preview_points[0] : null)
+            ),
+            label: structuredBodyName(body, bodyIndex),
+          };
+        })
+        .filter(Boolean);
+    }
+
+    function faceRadiusValues(body) {
+      return (body?.faces || [])
+        .map((face) =>
+          finiteNumber(face?.measurement?.radius_or_diameter)
+          ?? finiteNumber(face?.analytic_data?.radius)
+          ?? finiteNumber(face?.blend_radius)
+        )
+        .filter((value) => value !== null && value > 0);
+    }
+
+    function faceRadiusEntries(body, bodyIndex = 0) {
+      return (body?.faces || [])
+        .map((face, faceIndex) => {
+          const radius =
+            finiteNumber(face?.measurement?.radius_or_diameter)
+            ?? finiteNumber(face?.analytic_data?.radius)
+            ?? finiteNumber(face?.blend_radius);
+          if (radius === null || radius <= 0) return null;
+          return {
+            key: structuredFaceIdentity(body, face, bodyIndex, faceIndex),
+            value: radius,
+            center: pointArray(
+              face?.measurement?.center
+              || face?.analytic_data?.reference_point
+              || null
+            ),
+            label: structuredBodyName(body, bodyIndex),
+          };
+        })
+        .filter(Boolean);
+    }
+
+    function summarizeBreakdownDiff(kind, leftBreakdown, rightBreakdown) {
+      const keys = [...new Set([
+        ...Object.keys(leftBreakdown || {}),
+        ...Object.keys(rightBreakdown || {}),
+      ])];
+      const changes = keys
+        .map((key) => ({
+          key,
+          leftValue: Number(leftBreakdown?.[key] || 0),
+          rightValue: Number(rightBreakdown?.[key] || 0),
+        }))
+        .filter((entry) => entry.leftValue !== entry.rightValue)
+        .slice(0, 3);
+
+      if (!changes.length) return null;
+      const parts = changes.map((entry) => `${entry.key} ${entry.leftValue} -> ${entry.rightValue}`);
+      return `${kind} changed (${parts.join(", ")}${keys.length > changes.length ? ", ..." : ""}).`;
+    }
+
+    function summarizeMetricSetDiff(bodyLabel, metricLabel, leftValues, rightValues, formatter = formatLength) {
+      const diff = compareNumericLists(leftValues, rightValues);
+      if (!diff.changes.length) return null;
+
+      const parts = diff.changes.map((change) => {
+        if (change.kind === "changed") {
+          return `${formatter(change.leftValue)} -> ${formatter(change.rightValue)}`;
+        }
+        if (change.kind === "removed") {
+          return `removed ${formatter(change.leftValue)}`;
+        }
+        return `added ${formatter(change.rightValue)}`;
+      });
+
+      return `${bodyLabel}: ${metricLabel} changed (${parts.join(", ")}${diff.truncated ? ", ..." : ""}).`;
+    }
+
+    function summarizeScalarChange(bodyLabel, metricLabel, leftValue, rightValue, formatter) {
+      const leftNumeric = finiteNumber(leftValue);
+      const rightNumeric = finiteNumber(rightValue);
+      if (leftNumeric === null || rightNumeric === null) return null;
+      if (Math.abs(rightNumeric - leftNumeric) <= DIMENSION_TOLERANCE) return null;
+      return `${bodyLabel}: ${metricLabel} changed from ${formatter(leftNumeric)} to ${formatter(rightNumeric)}.`;
+    }
+
+    function compareStructuredReportData(left, right) {
+      const leftBodies = structuredBodies(left);
+      const rightBodies = structuredBodies(right);
+      if (!leftBodies.length || !rightBodies.length) {
+        return {
+          summary: [],
+          highlightBodyKeys: { left: [], right: [] },
+          highlightRawFaces: { left: [], right: [] },
+          highlightRawEdges: { left: [], right: [] },
+          annotations: { left: [], right: [] },
+        };
+      }
+
+      const summary = [];
+      const highlightBodyKeys = { left: [], right: [] };
+      const highlightRawFaces = { left: [], right: [] };
+      const highlightRawEdges = { left: [], right: [] };
+      const annotations = { left: [], right: [] };
+      const usedRightBodyIds = new Set();
+
+      const leftCounts = structuredTopologyCounts(left);
+      const rightCounts = structuredTopologyCounts(right);
+      if (
+        leftCounts.bodyCount !== rightCounts.bodyCount
+        || leftCounts.faceCount !== rightCounts.faceCount
+        || leftCounts.edgeCount !== rightCounts.edgeCount
+      ) {
+        summary.push(
+          `Raw NX topology changed from ${leftCounts.faceCount} faces / ${leftCounts.edgeCount} edges across ${leftCounts.bodyCount} bodies to ${rightCounts.faceCount} faces / ${rightCounts.edgeCount} edges across ${rightCounts.bodyCount} bodies.`
+        );
+      }
+
+      leftBodies.forEach((leftBody, leftIndex) => {
+        const rightBody = matchStructuredBody(leftBody, rightBodies, usedRightBodyIds);
+        if (!rightBody) {
+          summary.push(`Removed raw NX body: ${structuredBodyName(leftBody, leftIndex)}.`);
+          highlightBodyKeys.left.push(structuredBodyIdentity(leftBody, leftIndex).id);
+          return;
+        }
+
+        const rightIndex = rightBodies.indexOf(rightBody);
+        const leftIdentity = structuredBodyIdentity(leftBody, leftIndex);
+        const rightIdentity = structuredBodyIdentity(rightBody, rightIndex);
+        usedRightBodyIds.add(rightIdentity.id);
+
+        const bodyLabel = structuredBodyName(leftBody, leftIndex);
+        const leftFaceCount = leftBody?.faces?.length || 0;
+        const rightFaceCount = rightBody?.faces?.length || 0;
+        const leftEdgeCount = leftBody?.edges?.length || 0;
+        const rightEdgeCount = rightBody?.edges?.length || 0;
+        if (leftFaceCount !== rightFaceCount || leftEdgeCount !== rightEdgeCount) {
+          summary.push(
+            `${bodyLabel}: raw topology changed from ${leftFaceCount} faces / ${leftEdgeCount} edges to ${rightFaceCount} faces / ${rightEdgeCount} edges.`
+          );
+          highlightBodyKeys.left.push(leftIdentity.id);
+          highlightBodyKeys.right.push(rightIdentity.id);
+        }
+
+        const faceBreakdownSummary = summarizeBreakdownDiff(
+          "face types",
+          leftBody?.face_type_breakdown || {},
+          rightBody?.face_type_breakdown || {}
+        );
+        if (faceBreakdownSummary) {
+          summary.push(`${bodyLabel}: ${faceBreakdownSummary}`);
+          highlightBodyKeys.left.push(leftIdentity.id);
+          highlightBodyKeys.right.push(rightIdentity.id);
+        }
+
+        const edgeBreakdownSummary = summarizeBreakdownDiff(
+          "edge types",
+          leftBody?.edge_type_breakdown || {},
+          rightBody?.edge_type_breakdown || {}
+        );
+        if (edgeBreakdownSummary) {
+          summary.push(`${bodyLabel}: ${edgeBreakdownSummary}`);
+          highlightBodyKeys.left.push(leftIdentity.id);
+          highlightBodyKeys.right.push(rightIdentity.id);
+        }
+
+        const circularDiameterSummary = summarizeMetricSetDiff(
+          bodyLabel,
+          "circular diameters",
+          circularEdgeDiameters(leftBody),
+          circularEdgeDiameters(rightBody),
+          formatLength
+        );
+        if (circularDiameterSummary) summary.push(circularDiameterSummary);
+
+        const circularEntryDiff = compareValueEntries(
+          circularEdgeEntries(leftBody, leftIndex),
+          circularEdgeEntries(rightBody, rightIndex)
+        );
+        circularEntryDiff.changes.forEach((change) => {
+          if (change.left?.key) highlightRawEdges.left.push(change.left.key);
+          if (change.right?.key) highlightRawEdges.right.push(change.right.key);
+          if (change.left?.center) {
+            annotations.left.push({
+              point: change.left.center,
+              lines: [
+                change.kind === "changed"
+                  ? `${bodyLabel} circular diameter: ${formatInches(change.left.value)} -> ${formatInches(change.right.value)}`
+                  : `${bodyLabel} circular diameter removed: ${formatInches(change.left.value)}`
+              ],
+            });
+          }
+          if (change.right?.center) {
+            annotations.right.push({
+              point: change.right.center,
+              lines: [
+                change.kind === "changed"
+                  ? `${bodyLabel} circular diameter: ${formatInches(change.right.value)} (${formatSignedInches(change.delta)})`
+                  : `${bodyLabel} circular diameter added: ${formatInches(change.right.value)}`
+              ],
+            });
+          }
+        });
+
+        const faceRadiusSummary = summarizeMetricSetDiff(
+          bodyLabel,
+          "face radii",
+          faceRadiusValues(leftBody),
+          faceRadiusValues(rightBody),
+          formatLength
+        );
+        if (faceRadiusSummary) summary.push(faceRadiusSummary);
+
+        const faceEntryDiff = compareValueEntries(
+          faceRadiusEntries(leftBody, leftIndex),
+          faceRadiusEntries(rightBody, rightIndex)
+        );
+        faceEntryDiff.changes.forEach((change) => {
+          if (change.left?.key) highlightRawFaces.left.push(change.left.key);
+          if (change.right?.key) highlightRawFaces.right.push(change.right.key);
+          if (change.left?.center) {
+            annotations.left.push({
+              point: change.left.center,
+              lines: [
+                change.kind === "changed"
+                  ? `${bodyLabel} face radius: ${formatInches(change.left.value)} -> ${formatInches(change.right.value)}`
+                  : `${bodyLabel} face radius removed: ${formatInches(change.left.value)}`
+              ],
+            });
+          }
+          if (change.right?.center) {
+            annotations.right.push({
+              point: change.right.center,
+              lines: [
+                change.kind === "changed"
+                  ? `${bodyLabel} face radius: ${formatInches(change.right.value)} (${formatSignedInches(change.delta)})`
+                  : `${bodyLabel} face radius added: ${formatInches(change.right.value)}`
+              ],
+            });
+          }
+        });
+
+        const areaSummary = summarizeScalarChange(
+          bodyLabel,
+          "surface area",
+          leftBody?.measurement?.surface_area,
+          rightBody?.measurement?.surface_area,
+          formatArea
+        );
+        if (areaSummary) {
+          summary.push(areaSummary);
+          highlightBodyKeys.left.push(leftIdentity.id);
+          highlightBodyKeys.right.push(rightIdentity.id);
+        }
+
+        const volumeSummary = summarizeScalarChange(
+          bodyLabel,
+          "volume",
+          leftBody?.measurement?.volume,
+          rightBody?.measurement?.volume,
+          formatVolume
+        );
+        if (volumeSummary) {
+          summary.push(volumeSummary);
+          highlightBodyKeys.left.push(leftIdentity.id);
+          highlightBodyKeys.right.push(rightIdentity.id);
+        }
+      });
+
+      const unmatchedRightBodies = rightBodies.filter((body, index) => !usedRightBodyIds.has(structuredBodyIdentity(body, index).id));
+      unmatchedRightBodies.slice(0, 2).forEach((body, index) => {
+        summary.push(`Added raw NX body: ${structuredBodyName(body, index)}.`);
+        highlightBodyKeys.right.push(structuredBodyIdentity(body, index).id);
+      });
+
+      return {
+        summary: summary.slice(0, 12),
+        highlightBodyKeys: {
+          left: dedupeList(highlightBodyKeys.left),
+          right: dedupeList(highlightBodyKeys.right),
+        },
+        highlightRawFaces: {
+          left: dedupeList(highlightRawFaces.left),
+          right: dedupeList(highlightRawFaces.right),
+        },
+        highlightRawEdges: {
+          left: dedupeList(highlightRawEdges.left),
+          right: dedupeList(highlightRawEdges.right),
+        },
+        annotations: {
+          left: (annotations.left || []).slice(0, 6),
+          right: (annotations.right || []).slice(0, 6),
+        },
+      };
+    }
+
     function compareDiffInfo(left, right) {
       const info = {
         changedAxes: [],
@@ -1228,12 +1764,16 @@ HTML = """<!doctype html>
         summary: [],
         dimensions: compareAxisDimensions(left, right),
         highlightComponents: { left: [], right: [] },
+        highlightRawFaces: { left: [], right: [] },
+        highlightRawEdges: { left: [], right: [] },
         annotations: { left: [], right: [] }
       };
 
       if (!left || !right) {
         return info;
       }
+
+      const structuredDiff = compareStructuredReportData(left, right);
 
       const leftComponents = reportComponents(left);
       const rightComponents = reportComponents(right);
@@ -1344,12 +1884,22 @@ HTML = """<!doctype html>
             });
           }
         });
-      } else {
+      } else if (!structuredDiff.summary.length) {
         info.summary.push("No geometric size change was inferred from the current preview data.");
       }
 
       if (info.changedShape) {
         info.summary.push(`Shape changed: ${leftShape || "unknown"} -> ${rightShape || "unknown"}`);
+      }
+
+      if (structuredDiff.summary.length) {
+        info.summary = [...structuredDiff.summary, ...info.summary];
+        info.highlightComponents.left.push(...structuredDiff.highlightBodyKeys.left);
+        info.highlightComponents.right.push(...structuredDiff.highlightBodyKeys.right);
+        info.highlightRawFaces = structuredDiff.highlightRawFaces;
+        info.highlightRawEdges = structuredDiff.highlightRawEdges;
+        info.annotations.left.push(...structuredDiff.annotations.left);
+        info.annotations.right.push(...structuredDiff.annotations.right);
       }
 
       return info;
@@ -1413,8 +1963,14 @@ HTML = """<!doctype html>
       return null;
     }
 
-    function faceMatchesHighlight(face, highlightFaces, highlightComponents) {
+    function faceMatchesHighlight(face, highlightFaces, highlightComponents, highlightBodyKeys, highlightRawFaces) {
       if (highlightComponents?.length && face.componentId && highlightComponents.includes(face.componentId)) {
+        return true;
+      }
+      if (highlightBodyKeys?.length && face.bodyRawKey && highlightBodyKeys.includes(face.bodyRawKey)) {
+        return true;
+      }
+      if (highlightRawFaces?.length && face.rawFaceKey && highlightRawFaces.includes(face.rawFaceKey)) {
         return true;
       }
       if (!highlightFaces?.length) return false;
@@ -1461,6 +2017,20 @@ HTML = """<!doctype html>
       const labelStack = [];
 
       for (const annotation of compareAnnotation.annotations) {
+        if (annotation?.point) {
+          const point = projectModelPoint(annotation.point, preview, viewer, scale, canvasEl);
+          ctx2d.save();
+          ctx2d.fillStyle = "rgba(239,108,0,0.18)";
+          ctx2d.strokeStyle = color;
+          ctx2d.lineWidth = 2;
+          ctx2d.beginPath();
+          ctx2d.arc(point[0], point[1], 9, 0, Math.PI * 2);
+          ctx2d.fill();
+          ctx2d.stroke();
+          ctx2d.restore();
+          labelStack.push(...(annotation.lines || []));
+          continue;
+        }
         if (!annotation?.start || !annotation?.end) continue;
         const start = projectModelPoint(annotation.start, preview, viewer, scale, canvasEl);
         const end = projectModelPoint(annotation.end, preview, viewer, scale, canvasEl);
@@ -1853,6 +2423,7 @@ HTML = """<!doctype html>
         ["Kernel Body", kernelLabel(report)],
         ["Inferred Shape", topologyLabel(report)],
         ["Faces / Edges", topologyCounts(report)],
+        ["Raw NX Faces / Edges", structuredTopologyLabel(report)],
         ["Density", formatDensity(report)],
         ["Colors", formatColors(report)],
         ["Bounds", formatBounds(report.geometry_hints?.bounds)],
@@ -1883,6 +2454,7 @@ HTML = """<!doctype html>
         ["Kernel Body", kernelLabel(report)],
         ["Inferred Shape", topologyLabel(report)],
         ["Faces / Edges", topologyCounts(report)],
+        ["Raw NX Faces / Edges", structuredTopologyLabel(report)],
         ["Density", formatDensity(report)],
         ["Colors", formatColors(report)],
         ["Bounds", formatBounds(report.geometry_hints?.bounds)],
@@ -2134,6 +2706,7 @@ HTML = """<!doctype html>
         ["Decoded Names", left.decoded_names?.join(", ") || "None", right.decoded_names?.join(", ") || "None"],
         ["Inferred Shape", topologyLabel(left), topologyLabel(right)],
         ["Faces / Edges", topologyCounts(left), topologyCounts(right)],
+        ["Raw NX Faces / Edges", structuredTopologyLabel(left), structuredTopologyLabel(right)],
         ["Density", formatDensity(left), formatDensity(right)],
         ["Colors", formatColors(left), formatColors(right)],
         ["Bounds", formatBounds(left.geometry_hints?.bounds), formatBounds(right.geometry_hints?.bounds)],
@@ -2289,6 +2862,9 @@ HTML = """<!doctype html>
         mode: "solid",
         highlightAxes: diff.changedAxes,
         highlightComponents: diff.highlightComponents.left,
+        highlightBodyKeys: diff.highlightComponents.left,
+        highlightRawFaces: diff.highlightRawFaces.left,
+        highlightRawEdges: diff.highlightRawEdges.left,
         compareAnnotation: {
           role: "left",
           annotations: diff.annotations.left
@@ -2298,6 +2874,9 @@ HTML = """<!doctype html>
         mode: "solid",
         highlightAxes: diff.changedAxes,
         highlightComponents: diff.highlightComponents.right,
+        highlightBodyKeys: diff.highlightComponents.right,
+        highlightRawFaces: diff.highlightRawFaces.right,
+        highlightRawEdges: diff.highlightRawEdges.right,
         compareAnnotation: {
           role: "right",
           annotations: diff.annotations.right
@@ -2570,6 +3149,10 @@ HTML = """<!doctype html>
         context.componentIndex || 0
       );
       const componentId = identity.id;
+      const bodyRawKey = rawIdentityKey(
+        body?.metadata?.object_identity,
+        `body:${Number(body?.metadata?.nx_body_index || context.bodyIndex || 0)}`
+      );
       const componentName = componentLabel(body, identity, 1);
       const baseColor = displayColorFromProperties(
         bodyDisplay,
@@ -2593,6 +3176,11 @@ HTML = """<!doctype html>
             normal: face.normal || null,
             vertices: face.vertices.map((vertex) => vertex.map(Number)),
             componentId,
+            bodyRawKey,
+            rawFaceKey: rawIdentityKey(
+              face.metadata?.object_identity,
+              `body:${Number(face.metadata?.source_body_index || body?.metadata?.nx_body_index || context.bodyIndex || 0)}:face:${Number(face.metadata?.source_face_index || 0)}`
+            ),
             componentName,
             // Face-level NX color indices often vary across analytic/trim patches.
             // Keep the preview visually coherent by preferring the body/component color.
@@ -2606,6 +3194,11 @@ HTML = """<!doctype html>
             axis: edge.axis || null,
             points: edge.points.map((point) => point.map(Number)),
             componentId,
+            bodyRawKey,
+            rawEdgeKey: rawIdentityKey(
+              edge.object_identity,
+              `body:${Number(body?.metadata?.nx_body_index || context.bodyIndex || 0)}:edge:${Number(edge.source_edge_index || 0)}`
+            ),
             componentName,
             strokeColor: displayColorFromProperties(edge.display_properties, baseColor),
             opacity: displayOpacityFromProperties(edge.display_properties, 1),
@@ -2635,6 +3228,7 @@ HTML = """<!doctype html>
             normal: null,
             vertices: [startRing[i], startRing[next], endRing[next], endRing[i]],
             componentId,
+            bodyRawKey,
             componentName,
             baseColor,
             opacity: baseOpacity,
@@ -2648,6 +3242,7 @@ HTML = """<!doctype html>
           normal: scaleVec(axisVec, -1),
           vertices: [...startRing].reverse(),
           componentId,
+          bodyRawKey,
           componentName,
           baseColor,
           opacity: baseOpacity,
@@ -2659,6 +3254,7 @@ HTML = """<!doctype html>
           normal: axisVec,
           vertices: endRing,
           componentId,
+          bodyRawKey,
           componentName,
           baseColor,
           opacity: baseOpacity,
@@ -2705,6 +3301,7 @@ HTML = """<!doctype html>
               normal: null,
               vertices: quad,
               componentId,
+              bodyRawKey,
               componentName,
               baseColor,
               opacity: baseOpacity,
@@ -2734,6 +3331,7 @@ HTML = """<!doctype html>
             axis,
             points: [points[i], points[(i + 1) % points.length]],
             componentId,
+            bodyRawKey,
             componentName,
             strokeColor: baseColor,
             opacity: 1,
@@ -2750,6 +3348,11 @@ HTML = """<!doctype html>
             axis: edge.axis || null,
             points: edge.points.map((point) => point.map(Number)),
             componentId,
+            bodyRawKey,
+            rawEdgeKey: rawIdentityKey(
+              edge.object_identity,
+              `body:${Number(body?.metadata?.nx_body_index || context.bodyIndex || 0)}:edge:${Number(edge.source_edge_index || 0)}`
+            ),
             componentName,
             strokeColor: displayColorFromProperties(edge.display_properties, baseColor),
             opacity: displayOpacityFromProperties(edge.display_properties, 1),
@@ -2941,6 +3544,9 @@ HTML = """<!doctype html>
       const highlightAxes = options.highlightAxes || [];
       const highlightFaces = options.highlightFaces || [];
       const highlightComponents = options.highlightComponents || [];
+      const highlightBodyKeys = options.highlightBodyKeys || [];
+      const highlightRawFaces = options.highlightRawFaces || [];
+      const highlightRawEdges = options.highlightRawEdges || [];
       const compareAnnotation = options.compareAnnotation || null;
       const forceMode = options.mode || viewer.mode || "solid";
 
@@ -3003,7 +3609,7 @@ HTML = """<!doctype html>
           averageDepth,
           minDepth,
           maxDepth,
-          highlighted: faceMatchesHighlight(face, highlightFaces, highlightComponents)
+          highlighted: faceMatchesHighlight(face, highlightFaces, highlightComponents, highlightBodyKeys, highlightRawFaces)
             || (!highlightFaces.length && !highlightComponents.length && highlightAxes.includes(inferredAxis)),
           projectedVertices
         };
@@ -3074,7 +3680,11 @@ HTML = """<!doctype html>
 
       if (preview.kernelGeometry?.edges?.length && forceMode !== "points") {
         for (const edge of preview.kernelGeometry.edges) {
-          const edgeHighlighted = highlightComponents.includes(edge.componentId) || highlightAxes.includes(edge.axis);
+          const edgeHighlighted =
+            highlightComponents.includes(edge.componentId)
+            || highlightBodyKeys.includes(edge.bodyRawKey)
+            || highlightRawEdges.includes(edge.rawEdgeKey)
+            || highlightAxes.includes(edge.axis);
           const projectedEdge = edge.points.map((point) =>
             projectPoint(
               rotatePoint(
@@ -3130,7 +3740,7 @@ HTML = """<!doctype html>
       drawCompareAnnotations(ctx2d, canvasEl, preview, viewer, scale, compareAnnotation);
       drawViewportHud(ctx2d, canvasEl, report, preview, viewer, {
         mode: forceMode,
-        highlightComponents,
+        highlightComponents: dedupeList([...highlightComponents, ...highlightBodyKeys, ...highlightRawFaces, ...highlightRawEdges]),
       });
       drawCornerTriad(canvasEl, ctx2d, viewer);
     }

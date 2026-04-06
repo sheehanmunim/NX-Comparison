@@ -1339,6 +1339,7 @@ def _face_meshes_from_payload(
     base_metadata = {
         "kind": "nx_imported_face",
         "axis": axis,
+        "source_body_index": None,
         "source_face_index": face_payload.get("index"),
         "source_face_type": face_payload.get("type"),
         "object_identity": face_payload.get("object_identity"),
@@ -1481,6 +1482,7 @@ def _build_nx_wireframe_body(
             {
                 "kind": edge_kind,
                 "name": f"Edge {edge_identifier}",
+                "source_edge_index": edge_payload.get("index", edge_identifier),
                 "points": polyline,
                 "object_identity": edge_payload.get("object_identity"),
                 "display_properties": edge_payload.get("display_properties"),
@@ -1499,7 +1501,11 @@ def _build_nx_wireframe_body(
 
     preview_faces: list[dict[str, Any]] = []
     for face_payload in body_payload.get("faces", []):
-        preview_faces.extend(_face_meshes_from_payload(face_payload, edge_polyline_lookup, scale=scale))
+        meshes = _face_meshes_from_payload(face_payload, edge_polyline_lookup, scale=scale)
+        for mesh in meshes:
+            metadata = mesh.setdefault("metadata", {})
+            metadata["source_body_index"] = body_index
+        preview_faces.extend(meshes)
 
     label = (
         "Surface-enhanced topology preview reconstructed from NX face loops, exact edge curves, and imported surface definitions."
@@ -1896,6 +1902,9 @@ def normalize_existing_report(
     report.setdefault("object_state_ids", [])
     report.setdefault("structured_parse", None)
     report.setdefault("entity_hints", {})
+    report.setdefault("source_part_summary", None)
+    report.setdefault("source_bodies", [])
+    report.setdefault("source_body_count", 0)
     report.setdefault("kernel_body", None)
     report.setdefault("kernel_bodies", [])
     report.setdefault("kernel_topology", None)
@@ -2055,6 +2064,9 @@ def _convert_structured_body_report(
             "source": source_format,
             "body_count": body_count,
         },
+        "source_part_summary": part_summary,
+        "source_bodies": payload.get("bodies", []),
+        "source_body_count": body_count,
         "kernel_body": kernel_bodies[0] if len(kernel_bodies) == 1 else None,
         "kernel_bodies": kernel_bodies,
         "kernel_topology": (
