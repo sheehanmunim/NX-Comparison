@@ -740,6 +740,34 @@ def parse_edge_verts_result(result):
     return None
 
 
+def parse_curve_points_result(result):
+    values = sequenceize(result)
+    xyzs = [serialize_xyz(value) for value in values if looks_like_xyz(value)]
+    xyzs = [value for value in xyzs if value is not None]
+    if len(xyzs) >= 3:
+        return dedupe_point_sequence(xyzs)
+
+    number_lists = [to_number_list(value) for value in values]
+    for numbers in number_lists:
+        if numbers is not None and len(numbers) >= 9 and len(numbers) % 3 == 0:
+            points = []
+            for index in range(0, len(numbers), 3):
+                points.append({"x": numbers[index], "y": numbers[index + 1], "z": numbers[index + 2]})
+            deduped = dedupe_point_sequence(points)
+            if len(deduped) >= 3:
+                return deduped
+
+    flat_numbers = [value for value in values if is_number(value)]
+    if len(flat_numbers) >= 9 and len(flat_numbers) % 3 == 0:
+        points = []
+        for index in range(0, len(flat_numbers), 3):
+            points.append({"x": flat_numbers[index], "y": flat_numbers[index + 1], "z": flat_numbers[index + 2]})
+        deduped = dedupe_point_sequence(points)
+        if len(deduped) >= 3:
+            return deduped
+    return None
+
+
 def parse_face_data_result(result):
     values = sequenceize(result)
     scalar_values = [value for value in values if is_number(value)]
@@ -1053,6 +1081,7 @@ def get_curve_exact_geometry(uf_session, edge_tag, edge_type_name):
             ("UFCurve.Spline", "UFCurve.UFCurveSpline", "UFCurveSpline"),
             )
         if spline is not None:
+            raw_struct = serialize_public_object(spline, depth=2)
             geometry["analytic_curve"] = {
                 "type": "Spline",
                 "order": getattr(spline, "order", None),
@@ -1060,7 +1089,11 @@ def get_curve_exact_geometry(uf_session, edge_tag, edge_type_name):
                 "is_rational": bool(getattr(spline, "is_rational", 0)),
                 "start_param": getattr(spline, "start_param", None),
                 "end_param": getattr(spline, "end_param", None),
+                "raw_struct": raw_struct,
             }
+            sample_points = infer_curve_sample_points(geometry["analytic_curve"])
+            if sample_points:
+                geometry["analytic_curve"]["sample_points"] = sample_points
 
     if edge_type_name == "Intersection" and hasattr(curve_api, "AskIntCurveParents"):
         int_curve_object = [0]
@@ -1101,6 +1134,41 @@ def get_edge_vertices_uf(uf_session, edge_tag):
         }
     except Exception:
         return None
+
+
+def get_curve_sample_points_uf(uf_session, curve_tag):
+    modl, ask_curve_points = resolve_modeling_method(uf_session, "AskCurvePoints")
+    if modl is None or ask_curve_points is None or curve_tag is None:
+        return None
+
+    result = call_with_diagnostics(
+        "AskCurvePoints",
+        ask_curve_points,
+        (curve_tag, 0.0, 0.0, 0.0),
+        (curve_tag, 0.01, 0.5, 5.0),
+    )
+    parsed = parse_curve_points_result(result)
+    if parsed is not None:
+        return parsed
+
+    numpts = [0]
+    pts = [0.0] * (3 * 2048)
+    attempts = [
+        (curve_tag, 0.0, 0.0, 0.0, numpts, pts),
+        (curve_tag, 0.01, 0.5, 5.0, numpts, pts),
+    ]
+    for args in attempts:
+        try:
+            ask_curve_points(*args)
+            count = numpts[0] if isinstance(numpts, list) and numpts else 0
+            if count and count >= 3:
+                numbers = pts[: count * 3]
+                parsed = parse_curve_points_result(numbers)
+                if parsed is not None:
+                    return parsed
+        except Exception:
+            continue
+    return None
 
 
 def get_face_uv_bounds(uf_session, face_tag):
@@ -1426,6 +1494,64 @@ def dedupe_point_sequence(points):
     return sequence
 
 
+def collect_xyz_points(value, limit=256):
+    points = []
+
+    def visit(item):
+        if len(points) >= limit or item is None:
+            return
+        xyz = serialize_xyz(item)
+        if xyz is not None:
+            points.append(xyz)
+            return
+        if isinstance(item, dict):
+            for child in item.values():
+                visit(child)
+                if len(points) >= limit:
+                    return
+            return
+        if isinstance(item, (list, tuple)):
+            for child in item:
+                visit(child)
+                if len(points) >= limit:
+                    return
+
+    visit(value)
+    return dedupe_point_sequence(points)
+
+
+def infer_curve_sample_points(analytic_curve):
+    if not isinstance(analytic_curve, dict):
+        return None
+
+    for key in ("sample_points", "fit_points", "control_points", "poles", "points"):
+        points = collect_xyz_points(analytic_curve.get(key))
+        if len(points) >= 3:
+            return points
+
+    raw_struct = analytic_curve.get("raw_struct")
+    if isinstance(raw_struct, dict):
+        preferred_keys = (
+            "fit_pts",
+            "fit_points",
+            "control_points",
+            "ctrl_pts",
+            "poles",
+            "pole",
+            "pts",
+            "points",
+        )
+        for key in preferred_keys:
+            if key in raw_struct:
+                points = collect_xyz_points(raw_struct.get(key))
+                if len(points) >= 3:
+                    return points
+        points = collect_xyz_points(raw_struct)
+        if len(points) >= 3:
+            return points
+    return None
+
+
 def build_edge_preview_points(edge_type_name, exact_geometry, curve_measurement, start_point=None, end_point=None):
     analytic_curve = ((exact_geometry or {}).get("analytic_curve")) or {}
     start_xyz = serialize_xyz(
@@ -1478,6 +1604,15 @@ def build_edge_preview_points(edge_type_name, exact_geometry, curve_measurement,
                         return preview
             except Exception:
                 pass
+
+    if analytic_curve.get("type") == "Spline":
+        sample_points = infer_curve_sample_points(analytic_curve)
+        if sample_points:
+            if start_xyz is not None:
+                sample_points[0] = start_xyz
+            if end_xyz is not None:
+                sample_points[-1] = end_xyz
+            return dedupe_point_sequence(sample_points)
 
     return dedupe_point_sequence([start_xyz, end_xyz])
 
@@ -2524,6 +2659,10 @@ def summarize_edges(session, work_part, uf_session, body):
             curve_measurement = infer_linear_curve_measurement(length, start_point, end_point)
         exact_geometry = reconcile_arc_exact_geometry(exact_geometry, curve_measurement, start_point, end_point)
         preview_points = build_edge_preview_points(edge_type_name, exact_geometry, curve_measurement, start_point, end_point)
+        if (preview_points is None or len(preview_points) < 3) and edge_type_name in ("Spline", "SpCurve", "TrimmedCurve", "Intersection"):
+            sampled_points = get_curve_sample_points_uf(uf_session, edge_tag)
+            if sampled_points:
+                preview_points = sampled_points
         connected_face_tags = [get_nx_tag(face) for face in connected_faces]
 
         details.append(

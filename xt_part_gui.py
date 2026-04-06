@@ -3075,9 +3075,6 @@ HTML = """<!doctype html>
       if (preview.kernelGeometry?.edges?.length && forceMode !== "points") {
         for (const edge of preview.kernelGeometry.edges) {
           const edgeHighlighted = highlightComponents.includes(edge.componentId) || highlightAxes.includes(edge.axis);
-          if (forceMode === "solid" && projectedFaces.length && !edgeHighlighted) {
-            continue;
-          }
           const projectedEdge = edge.points.map((point) =>
             projectPoint(
               rotatePoint(
@@ -3093,9 +3090,12 @@ HTML = """<!doctype html>
               viewer
             )
           );
+          const edgeKind = String(edge.kind || "").toLowerCase();
+          const detailEdge = /spcurve|intersection|spline|trimmedcurve|circular|arc/.test(edgeKind);
           ctx2d.strokeStyle = edgeHighlighted ? "#ef6c00" : rgbCss(edge.strokeColor || theme.wireframe);
-          ctx2d.lineWidth = edgeHighlighted ? 2 : (forceMode === "solid" ? 0.9 : 1.5);
-          ctx2d.globalAlpha = edgeHighlighted ? 1 : ((forceMode === "solid" ? 0.35 : 1) * Math.max(0.2, Math.min(1, Number(edge.opacity ?? 1))));
+          ctx2d.lineWidth = edgeHighlighted ? 2 : (forceMode === "solid" ? (detailEdge ? 0.95 : 0.7) : 1.5);
+          const solidAlpha = detailEdge ? 0.48 : 0.2;
+          ctx2d.globalAlpha = edgeHighlighted ? 1 : ((forceMode === "solid" ? solidAlpha : 1) * Math.max(0.2, Math.min(1, Number(edge.opacity ?? 1))));
           ctx2d.beginPath();
           ctx2d.moveTo(projectedEdge[0][0], projectedEdge[0][1]);
           for (const point of projectedEdge.slice(1)) {
