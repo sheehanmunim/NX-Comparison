@@ -68,7 +68,7 @@ FACE_TOPOLOGY_NAMES = {
 }
 
 RUNTIME_DIAGNOSTICS = []
-SCRIPT_VERSION = "brep-export-debug-2026-04-02-v8"
+SCRIPT_VERSION = "brep-export-debug-2026-04-06-v9"
 DIAGNOSTIC_SEEN = set()
 
 
@@ -118,11 +118,84 @@ def resolve_member(obj, *candidate_names):
     return None
 
 
-def get_modeling_api(uf_session):
-    modeling = resolve_member(uf_session, "Modl", "Modeling")
-    if modeling is None:
+def normalize_member_name(name):
+    if name is None:
+        return ""
+    return "".join(ch for ch in str(name).lower() if ch.isalnum())
+
+
+def resolve_member_relaxed(obj, *candidate_names):
+    member = resolve_member(obj, *candidate_names)
+    if member is not None:
+        return member
+    try:
+        public_names = [name for name in dir(obj) if not name.startswith("_")]
+    except Exception:
+        return None
+    normalized_lookup = {}
+    for name in public_names:
+        normalized_lookup.setdefault(normalize_member_name(name), name)
+    normalized_candidates = [normalize_member_name(name) for name in candidate_names if name]
+    for candidate in normalized_candidates:
+        actual_name = normalized_lookup.get(candidate)
+        if actual_name is not None:
+            return getattr(obj, actual_name)
+    for candidate in normalized_candidates:
+        for normalized_name, actual_name in normalized_lookup.items():
+            if normalized_name.startswith(candidate) or candidate.startswith(normalized_name):
+                return getattr(obj, actual_name)
+    return None
+
+
+def get_modeling_apis(uf_session):
+    apis = []
+    for candidate_name in ("Modeling", "Modl"):
+        api = resolve_member(uf_session, candidate_name)
+        if api is None:
+            continue
+        if all(existing is not api for existing in apis):
+            apis.append(api)
+    if not apis:
         add_diagnostic_once("UFModeling", "api_unavailable", attrs=public_attrs(uf_session))
-    return modeling
+    return apis
+
+
+def get_modeling_api(uf_session):
+    apis = get_modeling_apis(uf_session)
+    return apis[0] if apis else None
+
+
+def resolve_modeling_method(uf_session, *candidate_names):
+    for modeling_api in get_modeling_apis(uf_session):
+        member = resolve_member_relaxed(modeling_api, *candidate_names)
+        if member is not None:
+            return modeling_api, member
+    return None, None
+
+
+def matching_public_attrs(obj, *tokens):
+    normalized_tokens = [normalize_member_name(token) for token in tokens if token]
+    if not normalized_tokens:
+        return []
+    matches = []
+    for name in public_attrs(obj):
+        normalized_name = normalize_member_name(name)
+        if all(token in normalized_name for token in normalized_tokens):
+            matches.append(name)
+    return matches[:20]
+
+
+def add_missing_modeling_method_diagnostic(scope, uf_session, reason, *tokens):
+    apis = get_modeling_apis(uf_session)
+    if not apis:
+        add_diagnostic_once(scope, "api_unavailable", reason="uf_modeling_api_missing")
+        return
+    nearby = []
+    for api in apis:
+        for name in matching_public_attrs(api, *tokens):
+            if name not in nearby:
+                nearby.append(name)
+    add_diagnostic_once(scope, "api_unavailable", reason=reason, nearby=nearby)
 
 
 def get_measurement_alternate_face():
@@ -877,8 +950,7 @@ def get_curve_exact_geometry(uf_session, edge_tag, edge_type_name):
 
 
 def get_edge_vertices_uf(uf_session, edge_tag):
-    modl = get_modeling_api(uf_session)
-    ask_edge_verts = resolve_member(modl, "AskEdgeVerts")
+    modl, ask_edge_verts = resolve_modeling_method(uf_session, "AskEdgeVerts")
     if modl is None or ask_edge_verts is None or edge_tag is None:
         return None
 
@@ -902,13 +974,9 @@ def get_edge_vertices_uf(uf_session, edge_tag):
 
 
 def get_face_uv_bounds(uf_session, face_tag):
-    modl = get_modeling_api(uf_session)
-    ask_face_uv = resolve_member(modl, "AskFaceUvMinmax")
-    if modl is None:
-        add_diagnostic_once("AskFaceUvMinmax", "api_unavailable", reason="uf_modeling_api_missing")
-        return None
-    if ask_face_uv is None:
-        add_diagnostic_once("AskFaceUvMinmax", "api_unavailable", reason="AskFaceUvMinmax_missing")
+    modl, ask_face_uv = resolve_modeling_method(uf_session, "AskFaceUvMinmax", "AskFaceUVMinmax")
+    if modl is None or ask_face_uv is None:
+        add_missing_modeling_method_diagnostic("AskFaceUvMinmax", uf_session, "AskFaceUvMinmax_missing", "face", "uv")
         return None
 
     result = call_with_diagnostics("AskFaceUvMinmax", ask_face_uv, (face_tag,))
@@ -937,13 +1005,9 @@ def get_face_uv_bounds(uf_session, face_tag):
 
 
 def get_face_periodicity(uf_session, face_tag):
-    modl = get_modeling_api(uf_session)
-    ask_face_periodicity = resolve_member(modl, "AskFacePeriodicity")
-    if modl is None:
-        add_diagnostic_once("AskFacePeriodicity", "api_unavailable", reason="uf_modeling_api_missing")
-        return None
-    if ask_face_periodicity is None:
-        add_diagnostic_once("AskFacePeriodicity", "api_unavailable", reason="AskFacePeriodicity_missing")
+    modl, ask_face_periodicity = resolve_modeling_method(uf_session, "AskFacePeriodicity")
+    if modl is None or ask_face_periodicity is None:
+        add_missing_modeling_method_diagnostic("AskFacePeriodicity", uf_session, "AskFacePeriodicity_missing", "face", "period")
         return None
 
     result = call_with_diagnostics("AskFacePeriodicity", ask_face_periodicity, (face_tag,))
@@ -975,13 +1039,9 @@ def get_face_periodicity(uf_session, face_tag):
 
 
 def get_face_topology(uf_session, face_tag):
-    modl = get_modeling_api(uf_session)
-    ask_face_topology = resolve_member(modl, "AskFaceTopology")
-    if modl is None:
-        add_diagnostic_once("AskFaceTopology", "api_unavailable", reason="uf_modeling_api_missing")
-        return None
-    if ask_face_topology is None:
-        add_diagnostic_once("AskFaceTopology", "api_unavailable", reason="AskFaceTopology_missing")
+    modl, ask_face_topology = resolve_modeling_method(uf_session, "AskFaceTopology")
+    if modl is None or ask_face_topology is None:
+        add_missing_modeling_method_diagnostic("AskFaceTopology", uf_session, "AskFaceTopology_missing", "face", "top")
         return None
 
     result = call_with_diagnostics("AskFaceTopology", ask_face_topology, (face_tag,))
@@ -1012,87 +1072,104 @@ def get_face_topology(uf_session, face_tag):
 
 
 def get_face_local_properties(uf_session, face_tag, uv_bounds):
-    modl = get_modeling_api(uf_session)
-    ask_face_props = resolve_member(modl, "AskFaceProps")
-    if modl is None:
-        add_diagnostic_once("AskFaceProps", "api_unavailable", reason="uf_modeling_api_missing")
-        return None
-    if ask_face_props is None:
-        add_diagnostic_once("AskFaceProps", "api_unavailable", reason="AskFaceProps_missing")
-        return None
-    if uv_bounds is None:
-        add_diagnostic_once("AskFaceProps", "skipped", reason="uv_bounds_missing")
+    modl, ask_face_props = resolve_modeling_method(uf_session, "AskFaceProps")
+    if modl is None or ask_face_props is None:
+        add_missing_modeling_method_diagnostic("AskFaceProps", uf_session, "AskFaceProps_missing", "face", "prop")
         return None
 
-    uv = [
-        (uv_bounds["u_min"] + uv_bounds["u_max"]) / 2.0,
-        (uv_bounds["v_min"] + uv_bounds["v_max"]) / 2.0,
-    ]
+    uv_candidates = []
+    if uv_bounds is not None:
+        uv_candidates.append(
+            [
+                (uv_bounds["u_min"] + uv_bounds["u_max"]) / 2.0,
+                (uv_bounds["v_min"] + uv_bounds["v_max"]) / 2.0,
+            ]
+        )
+    else:
+        add_diagnostic_once("AskFaceProps", "using_default_uv", reason="uv_bounds_missing")
+        uv_candidates.extend(([0.0, 0.0], [0.5, 0.5], [-0.5, -0.5]))
 
-    result = call_with_diagnostics("AskFaceProps", ask_face_props, (face_tag, uv))
-    parsed = parse_face_props_result(result, uv)
-    if parsed is not None:
-        return parsed
-    if result is not None:
-        add_diagnostic_once("AskFaceProps", "unparsed_result", sample=serialize_generic(result))
+    for uv in uv_candidates:
+        result = call_with_diagnostics("AskFaceProps", ask_face_props, (face_tag, uv))
+        parsed = parse_face_props_result(result, uv)
+        if parsed is not None:
+            return parsed
+        if result is not None:
+            add_diagnostic_once("AskFaceProps", "unparsed_result", sample=serialize_generic(result))
 
-    point = [0.0, 0.0, 0.0]
-    u1 = [0.0, 0.0, 0.0]
-    v1 = [0.0, 0.0, 0.0]
-    u2 = [0.0, 0.0, 0.0]
-    v2 = [0.0, 0.0, 0.0]
-    unit_norm = [0.0, 0.0, 0.0]
-    radii = [0.0, 0.0]
-    try:
-        ask_face_props(face_tag, uv, point, u1, v1, u2, v2, unit_norm, radii)
-        return {
-            "uv": {"u": uv[0], "v": uv[1]},
-            "point": serialize_xyz(point),
-            "u_tangent": serialize_xyz(u1),
-            "v_tangent": serialize_xyz(v1),
-            "u_curvature": serialize_xyz(u2),
-            "v_curvature": serialize_xyz(v2),
-            "unit_normal": serialize_xyz(unit_norm),
-            "principal_radii": radii,
-        }
-    except Exception:
+        point = [0.0, 0.0, 0.0]
+        u1 = [0.0, 0.0, 0.0]
+        v1 = [0.0, 0.0, 0.0]
+        u2 = [0.0, 0.0, 0.0]
+        v2 = [0.0, 0.0, 0.0]
+        unit_norm = [0.0, 0.0, 0.0]
+        radii = [0.0, 0.0]
+        try:
+            ask_face_props(face_tag, uv, point, u1, v1, u2, v2, unit_norm, radii)
+            return {
+                "uv": {"u": uv[0], "v": uv[1]},
+                "point": serialize_xyz(point),
+                "u_tangent": serialize_xyz(u1),
+                "v_tangent": serialize_xyz(v1),
+                "u_curvature": serialize_xyz(u2),
+                "v_curvature": serialize_xyz(v2),
+                "unit_normal": serialize_xyz(unit_norm),
+                "principal_radii": radii,
+            }
+        except Exception:
+            continue
+    return None
+
+
+def parse_trimmed_bsurface_result(result):
+    values = sequenceize(result)
+    if not values:
         return None
+    bsurface = first_matching(
+        values,
+        lambda value: hasattr(value, "num_poles_u")
+        or hasattr(value, "num_poles_v")
+        or hasattr(value, "order_u")
+        or hasattr(value, "order_v"),
+    )
+    if bsurface is None:
+        return None
+    scalar_values = [value for value in values if is_number(value)]
+    number_lists = [list(numbers) for numbers in (to_number_list(value) for value in values) if numbers is not None]
+    edge_sense = next(
+        (
+            numbers
+            for numbers in number_lists
+            if any(number < 0 for number in numbers) or any(number > 1 for number in numbers)
+        ),
+        None,
+    )
+    return {
+        "surface": {
+            "num_poles_u": getattr(bsurface, "num_poles_u", None),
+            "num_poles_v": getattr(bsurface, "num_poles_v", None),
+            "order_u": getattr(bsurface, "order_u", None),
+            "order_v": getattr(bsurface, "order_v", None),
+            "is_rational": getattr(bsurface, "is_rational", None),
+        },
+        "loop_count": int(scalar_values[0]) if len(scalar_values) >= 1 else None,
+        "edge_count": int(scalar_values[1]) if len(scalar_values) >= 2 else None,
+        "edge_sense": edge_sense,
+        "edge_bcurve_tags": None,
+    }
 
 
 def get_face_trimmed_bsurface(uf_session, face_tag, edge_count_hint):
-    modl = get_modeling_api(uf_session)
-    ask_trimmed_bsurface = resolve_member(modl, "Ask2dtrimBsurf", "Ask2dTrimBsurf")
-    if modl is None:
-        add_diagnostic_once("Ask2dtrimBsurf", "api_unavailable", reason="uf_modeling_api_missing")
-        return None
-    if ask_trimmed_bsurface is None:
-        add_diagnostic_once("Ask2dtrimBsurf", "api_unavailable", reason="Ask2dtrimBsurf_missing")
+    modl, ask_trimmed_bsurface = resolve_modeling_method(uf_session, "Ask2dtrimBsurf", "Ask2dTrimBsurf")
+    if modl is None or ask_trimmed_bsurface is None:
+        add_missing_modeling_method_diagnostic("Ask2dtrimBsurf", uf_session, "Ask2dtrimBsurf_missing", "trim", "bsurf")
         return None
 
-    result = call_with_diagnostics("Ask2dtrimBsurf", ask_trimmed_bsurface, (face_tag, 0, 0.0))
-    values = sequenceize(result)
-    if values:
-        bsurface = None
-        for value in values:
-            if hasattr(value, "num_poles_u") and hasattr(value, "num_poles_v"):
-                bsurface = value
-                break
-        if bsurface is not None:
-            number_values = [value for value in values if is_number(value)]
-            edge_sense = first_matching(values, lambda item: isinstance(item, (list, tuple)) and all(is_number(v) for v in item))
-            return {
-                "surface": {
-                    "num_poles_u": getattr(bsurface, "num_poles_u", None),
-                    "num_poles_v": getattr(bsurface, "num_poles_v", None),
-                    "order_u": getattr(bsurface, "order_u", None),
-                    "order_v": getattr(bsurface, "order_v", None),
-                    "is_rational": getattr(bsurface, "is_rational", None),
-                },
-                "loop_count": int(number_values[0]) if len(number_values) >= 1 else None,
-                "edge_count": int(number_values[1]) if len(number_values) >= 2 else None,
-                "edge_sense": list(edge_sense) if edge_sense is not None else None,
-                "edge_bcurve_tags": None,
-            }
+    options = [0]
+    result = call_with_diagnostics("Ask2dtrimBsurf", ask_trimmed_bsurface, (face_tag, options, 0.0), (face_tag, 0, 0.0))
+    parsed = parse_trimmed_bsurface_result(result)
+    if parsed is not None:
+        return parsed
 
     bsurface = instantiate_uf_class("UFModl.Bsurface", "UFModl.UFModlBsurface", "UFModlBsurface")
     if bsurface is None:
@@ -1101,14 +1178,16 @@ def get_face_trimmed_bsurface(uf_session, face_tag, edge_count_hint):
     edge_sense = [0] * max(edge_count_hint, 1)
     edge_bcurves = [0] * max(edge_count_hint, 1)
     loop_count = [0]
-    edge_count = [edge_count_hint]
+    edge_count = [0] * max(edge_count_hint, 1)
     attempts = [
+        lambda: ask_trimmed_bsurface(face_tag, options, 0.0, bsurface, loop_count, edge_count, edge_sense, edge_bcurves),
         lambda: ask_trimmed_bsurface(face_tag, 0, 0.0, bsurface, loop_count, edge_count, edge_sense, edge_bcurves),
     ]
 
     for attempt in attempts:
         try:
             attempt()
+            total_edges = sum(value for value in edge_count if is_number(value))
             return {
                 "surface": {
                     "num_poles_u": getattr(bsurface, "num_poles_u", None),
@@ -1118,7 +1197,7 @@ def get_face_trimmed_bsurface(uf_session, face_tag, edge_count_hint):
                     "is_rational": getattr(bsurface, "is_rational", None),
                 },
                 "loop_count": loop_count[0] if isinstance(loop_count, list) else loop_count,
-                "edge_count": edge_count[0] if isinstance(edge_count, list) else edge_count,
+                "edge_count": total_edges if total_edges else edge_count_hint,
                 "edge_sense": edge_sense,
                 "edge_bcurve_tags": edge_bcurves,
             }
@@ -1181,6 +1260,75 @@ def transform_point_by_matrix(point, matrix):
         "y": point_xyz["x"] * x_axis["y"] + point_xyz["y"] * y_axis["y"] + point_xyz["z"] * z_axis["y"],
         "z": point_xyz["x"] * x_axis["z"] + point_xyz["y"] * y_axis["z"] + point_xyz["z"] * z_axis["z"],
     }
+
+
+def dedupe_point_sequence(points):
+    sequence = []
+    for point in points or []:
+        point_xyz = serialize_xyz(point)
+        key = point_key(point_xyz)
+        if point_xyz is None or key is None:
+            continue
+        if sequence and point_key(sequence[-1]) == key:
+            continue
+        sequence.append(point_xyz)
+    return sequence
+
+
+def build_edge_preview_points(edge_type_name, exact_geometry, curve_measurement, start_point=None, end_point=None):
+    analytic_curve = ((exact_geometry or {}).get("analytic_curve")) or {}
+    start_xyz = serialize_xyz(
+        ((curve_measurement or {}).get("start_point"))
+        or analytic_curve.get("start_point")
+        or start_point
+    )
+    end_xyz = serialize_xyz(
+        ((curve_measurement or {}).get("end_point"))
+        or analytic_curve.get("end_point")
+        or end_point
+    )
+
+    if edge_type_name == "Linear":
+        return dedupe_point_sequence([start_xyz, end_xyz])
+
+    if analytic_curve.get("type") == "Arc":
+        center = serialize_xyz((curve_measurement or {}).get("center") or analytic_curve.get("center"))
+        radius = analytic_curve.get("radius") or ((curve_measurement or {}).get("radius"))
+        start_angle = analytic_curve.get("start_angle")
+        end_angle = analytic_curve.get("end_angle")
+        matrix = analytic_curve.get("matrix")
+        if center is not None and radius is not None and start_angle is not None and end_angle is not None:
+            try:
+                start_angle = float(start_angle)
+                end_angle = float(end_angle)
+                radius = float(radius)
+                sweep = end_angle - start_angle
+                is_closed = (
+                    start_xyz is not None
+                    and end_xyz is not None
+                    and point_key(start_xyz) == point_key(end_xyz)
+                )
+                if sweep <= 1e-9 and is_closed:
+                    sweep = 2.0 * math.pi
+                elif sweep < 0.0:
+                    sweep += 2.0 * math.pi
+                if sweep > 1e-6:
+                    segment_count = max(12, min(72, int(math.ceil(abs(sweep) / (math.pi / 18.0)))))
+                    preview = [
+                        compute_arc_point(center, radius, start_angle + (sweep * index / segment_count), matrix)
+                        for index in range(segment_count + 1)
+                    ]
+                    preview = dedupe_point_sequence(preview)
+                    if preview:
+                        if start_xyz is not None:
+                            preview[0] = start_xyz
+                        if end_xyz is not None:
+                            preview[-1] = end_xyz
+                        return preview
+            except Exception:
+                pass
+
+    return dedupe_point_sequence([start_xyz, end_xyz])
 
 
 def xyz_subtract(a, b):
@@ -1903,8 +2051,7 @@ def serialize_face_local_properties(properties):
 
 def get_body_bounding_box(session, uf_session, body):
     body_tag = get_nx_tag(body)
-    modl = get_modeling_api(uf_session)
-    ask_bounding_box = resolve_member(modl, "AskBoundingBox")
+    modl, ask_bounding_box = resolve_modeling_method(uf_session, "AskBoundingBox")
 
     if modl is not None and ask_bounding_box is not None:
         result = call_with_diagnostics("AskBoundingBox", ask_bounding_box, (body_tag,))
@@ -2164,13 +2311,9 @@ def get_face_measurement(session, face):
 
 
 def get_face_analytic_data(uf_session, face):
-    modl = get_modeling_api(uf_session)
-    ask_face_data = resolve_member(modl, "AskFaceData")
-    if modl is None:
-        add_diagnostic_once("AskFaceData", "api_unavailable", reason="uf_modeling_api_missing")
-        return None
-    if ask_face_data is None:
-        add_diagnostic_once("AskFaceData", "api_unavailable", reason="AskFaceData_missing")
+    modl, ask_face_data = resolve_modeling_method(uf_session, "AskFaceData")
+    if modl is None or ask_face_data is None:
+        add_missing_modeling_method_diagnostic("AskFaceData", uf_session, "AskFaceData_missing", "face", "data")
         return None
 
     face_tag = get_nx_tag(face)
@@ -2227,6 +2370,7 @@ def summarize_edges(session, work_part, uf_session, body):
         if curve_measurement is None and edge_type_name == "Linear":
             curve_measurement = infer_linear_curve_measurement(length, start_point, end_point)
         exact_geometry = reconcile_arc_exact_geometry(exact_geometry, curve_measurement, start_point, end_point)
+        preview_points = build_edge_preview_points(edge_type_name, exact_geometry, curve_measurement, start_point, end_point)
         connected_face_tags = [get_nx_tag(face) for face in connected_faces]
 
         details.append(
@@ -2245,6 +2389,7 @@ def summarize_edges(session, work_part, uf_session, body):
                 "connected_face_indices": [face_lookup.get(tag, tag) for tag in connected_face_tags],
                 "exact_vertices": exact_vertices,
                 "exact_geometry": exact_geometry,
+                "preview_points": preview_points,
             }
         )
 
@@ -2586,6 +2731,7 @@ def analyze_part_to_md(output_path="report.md"):
                     "connected_face_indices": edge["connected_face_indices"],
                     "exact_vertices": edge["exact_vertices"],
                     "exact_geometry": edge["exact_geometry"],
+                    "preview_points": [serialize_point(point) for point in (edge.get("preview_points") or [])],
                     "start_vertex_index": edge.get("start_vertex_index"),
                     "end_vertex_index": edge.get("end_vertex_index"),
                 }
@@ -2747,4 +2893,12 @@ def analyze_part_to_md(output_path="report.md"):
     print(f"JSON report saved to: {json_output_path}")
 
 
-analyze_part_to_md("parasolid_report.md")
+DEFAULT_REPORT_NAME = "parasolid_report.md"
+
+
+def main():
+    analyze_part_to_md(DEFAULT_REPORT_NAME)
+
+
+if __name__ == "__main__":
+    main()

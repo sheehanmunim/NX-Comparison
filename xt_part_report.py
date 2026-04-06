@@ -996,6 +996,178 @@ def _scaled_topology_vertices(body_payload: dict[str, Any], scale: float) -> lis
     return vertices
 
 
+def _scaled_topology_vertex_lookup(body_payload: dict[str, Any], scale: float) -> dict[int, list[float]]:
+    lookup: dict[int, list[float]] = {}
+    topology = body_payload.get("topology") or {}
+    for vertex in topology.get("vertices", []):
+        point = vertex.get("point") or {}
+        index = vertex.get("index")
+        if index is None or not {"x", "y", "z"} <= point.keys():
+            continue
+        lookup[int(index)] = [
+            float(point["x"]) * scale,
+            float(point["y"]) * scale,
+            float(point["z"]) * scale,
+        ]
+    return lookup
+
+
+def _polyline_bounds(points: list[list[float]]) -> dict[str, Any] | None:
+    if not points:
+        return None
+    minimum = [min(point[index] for point in points) for index in range(3)]
+    maximum = [max(point[index] for point in points) for index in range(3)]
+    return {
+        "min": _round_triplet(minimum),
+        "max": _round_triplet(maximum),
+        "size": _round_triplet([maximum[index] - minimum[index] for index in range(3)]),
+    }
+
+
+def _point_from_mapping(point_payload: dict[str, Any] | None, scale: float) -> list[float] | None:
+    if not isinstance(point_payload, dict) or not {"x", "y", "z"} <= point_payload.keys():
+        return None
+    return [
+        float(point_payload["x"]) * scale,
+        float(point_payload["y"]) * scale,
+        float(point_payload["z"]) * scale,
+    ]
+
+
+def _polyline_from_preview_payload(points_payload: Any, scale: float) -> list[list[float]] | None:
+    if not isinstance(points_payload, list):
+        return None
+    polyline: list[list[float]] = []
+    for point_payload in points_payload:
+        point = _point_from_mapping(point_payload, scale)
+        if point is None:
+            continue
+        rounded = _round_triplet(point)
+        if polyline and polyline[-1] == rounded:
+            continue
+        polyline.append(rounded)
+    return polyline if len(polyline) >= 2 else None
+
+
+def _edge_polyline_from_payload(
+    edge_payload: dict[str, Any],
+    scale: float,
+    vertex_lookup: dict[int, list[float]] | None = None,
+) -> list[list[float]] | None:
+    preview_polyline = _polyline_from_preview_payload(edge_payload.get("preview_points"), scale)
+    if preview_polyline:
+        return preview_polyline
+
+    analytic_curve = ((edge_payload.get("exact_geometry") or {}).get("analytic_curve") or {})
+    curve_type = analytic_curve.get("type")
+
+    if curve_type == "Arc":
+        center = _point_from_mapping(analytic_curve.get("center"), scale)
+        radius = analytic_curve.get("radius")
+        matrix = analytic_curve.get("matrix") or {}
+        x_axis_payload = matrix.get("x_axis")
+        y_axis_payload = matrix.get("y_axis")
+        x_axis = _point_from_mapping(x_axis_payload, 1.0)
+        y_axis = _point_from_mapping(y_axis_payload, 1.0)
+        if center and radius is not None and x_axis and y_axis:
+            start_angle = float(analytic_curve.get("start_angle", 0.0) or 0.0)
+            end_angle = float(analytic_curve.get("end_angle", 0.0) or 0.0)
+            sweep = end_angle - start_angle
+            if sweep <= 1e-9 and edge_payload.get("start_vertex_index") == edge_payload.get("end_vertex_index"):
+                sweep = 2 * math.pi
+            elif sweep < 0:
+                sweep += 2 * math.pi
+            if sweep > 1e-6:
+                segment_count = max(12, min(72, int(math.ceil(abs(sweep) / (math.pi / 18)))))
+                radius = float(radius) * scale
+                polyline: list[list[float]] = []
+                for index in range(segment_count + 1):
+                    angle = start_angle + (sweep * index / segment_count)
+                    polyline.append(
+                        _round_triplet(
+                            [
+                                center[axis] + radius * (math.cos(angle) * x_axis[axis] + math.sin(angle) * y_axis[axis])
+                                for axis in range(3)
+                            ]
+                        )
+                    )
+                return polyline
+
+    if curve_type == "Line":
+        start_point = _point_from_mapping(analytic_curve.get("start_point"), scale)
+        end_point = _point_from_mapping(analytic_curve.get("end_point"), scale)
+        if start_point and end_point:
+            return [_round_triplet(start_point), _round_triplet(end_point)]
+
+    exact_vertices = edge_payload.get("exact_vertices") or {}
+    start_point = _point_from_mapping(exact_vertices.get("start_point"), scale) or _point_from_mapping(edge_payload.get("start_point"), scale)
+    end_point = _point_from_mapping(exact_vertices.get("end_point"), scale) or _point_from_mapping(edge_payload.get("end_point"), scale)
+    if start_point and end_point:
+        return [_round_triplet(start_point), _round_triplet(end_point)]
+
+    if vertex_lookup:
+        start_vertex = edge_payload.get("start_vertex_index")
+        end_vertex = edge_payload.get("end_vertex_index")
+        if start_vertex is not None and end_vertex is not None:
+            start_point = vertex_lookup.get(int(start_vertex))
+            end_point = vertex_lookup.get(int(end_vertex))
+            if start_point and end_point:
+                return [_round_triplet(start_point), _round_triplet(end_point)]
+
+    return None
+
+
+def _build_nx_wireframe_body(
+    body_payload: dict[str, Any],
+    *,
+    scale: float,
+    body_index: int,
+) -> tuple[dict[str, Any], dict[str, Any], list[list[float]], str] | None:
+    vertex_lookup = _scaled_topology_vertex_lookup(body_payload, scale)
+    topology_vertices = [_round_triplet(point) for point in vertex_lookup.values()]
+    edge_polylines: list[dict[str, Any]] = []
+    polyline_points: list[list[float]] = []
+
+    for edge_index, edge_payload in enumerate(body_payload.get("edges", []), start=1):
+        polyline = _edge_polyline_from_payload(edge_payload, scale, vertex_lookup)
+        if not polyline or len(polyline) < 2:
+            continue
+        edge_kind = str(((edge_payload.get("exact_geometry") or {}).get("analytic_curve") or {}).get("type") or edge_payload.get("type") or "edge").lower()
+        edge_polylines.append(
+            {
+                "kind": edge_kind,
+                "name": f"Edge {edge_payload.get('index', edge_index)}",
+                "points": polyline,
+            }
+        )
+        polyline_points.extend(polyline)
+
+    preview_points = topology_vertices + polyline_points
+    if not preview_points:
+        return None
+
+    bounds = _scaled_bounding_box(body_payload, scale) or _polyline_bounds(preview_points)
+    if not bounds:
+        return None
+
+    label = "Topology wireframe preview reconstructed from NX edge and vertex data."
+    kernel_body = {
+        "kind": "wireframe",
+        "name": body_payload.get("metadata", {}).get("name") or f"Body {body_index}",
+        "faces": [],
+        "edges": edge_polylines,
+        "vertices": topology_vertices,
+        "metadata": {
+            "primitive": "wireframe",
+            "source": "nx_topology_wireframe",
+            "nx_body_index": body_index,
+            "edge_count": len(edge_polylines),
+            "vertex_count": len(topology_vertices),
+        },
+    }
+    return kernel_body, bounds, preview_points, label
+
+
 def _build_exact_compound_from_rich_body(
     body_payload: dict[str, Any],
     *,
@@ -1311,7 +1483,7 @@ def _build_nx_body(
         if built:
             return built
 
-    return None
+    return _build_nx_wireframe_body(body_payload, scale=scale, body_index=body_index)
 
 
 def normalize_existing_report(
@@ -1458,7 +1630,7 @@ def _convert_structured_body_report(
     body_count = int(payload.get("body_count") or len(payload.get("bodies", [])))
     summary = [
         f"Imported {application_label} for {part_name}.",
-        f"Detected {body_count} body/bodies and reconstructed {len(kernel_bodies)} previewable primitive shape(s).",
+        f"Detected {body_count} body/bodies and reconstructed {len(kernel_bodies)} previewable body preview(s).",
         f"Source units were {units}; imported geometry was converted to meters for consistent viewer measurements.",
     ]
     for body_summary in imported_body_summaries[:6]:

@@ -2572,6 +2572,23 @@ HTML = """<!doctype html>
         return { faces: [], points, edges };
       }
 
+      if (body.metadata?.primitive === "wireframe" || body.edges?.some((edge) => edge.points?.length >= 2)) {
+        const edges = (body.edges || [])
+          .filter((edge) => edge.points?.length >= 2)
+          .map((edge) => ({
+            kind: edge.kind || "edge",
+            axis: edge.axis || null,
+            points: edge.points.map((point) => point.map(Number)),
+            componentId,
+            componentName,
+          }));
+        const points = [
+          ...(body.vertices || []).map((point) => point.map(Number)),
+          ...edges.flatMap((edge) => edge.points),
+        ];
+        return { faces: [], points, edges };
+      }
+
       return { faces: [], points: [], edges: [] };
     }
 
@@ -2813,7 +2830,9 @@ HTML = """<!doctype html>
           ctx2d.lineWidth = edgeHighlighted ? 2 : 1.5;
           ctx2d.beginPath();
           ctx2d.moveTo(projectedEdge[0][0], projectedEdge[0][1]);
-          ctx2d.lineTo(projectedEdge[1][0], projectedEdge[1][1]);
+          for (const point of projectedEdge.slice(1)) {
+            ctx2d.lineTo(point[0], point[1]);
+          }
           ctx2d.stroke();
         }
       }
