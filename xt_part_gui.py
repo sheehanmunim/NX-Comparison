@@ -2451,8 +2451,17 @@ HTML = """<!doctype html>
             componentId,
             componentName,
           }));
+        const edges = (body.edges || [])
+          .filter((edge) => edge.points?.length >= 2)
+          .map((edge) => ({
+            kind: edge.kind || "edge",
+            axis: edge.axis || null,
+            points: edge.points.map((point) => point.map(Number)),
+            componentId,
+            componentName,
+          }));
         const points = faces.flatMap((face) => face.vertices);
-        return { faces, points, edges: [] };
+        return { faces, points, edges };
       }
 
       if (body.metadata?.primitive === "cylinder") {

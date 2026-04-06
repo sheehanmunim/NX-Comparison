@@ -1,0 +1,10863 @@
+# Parasolid Analysis Report
+
+## Part Summary
+- Part Name: model8
+- Full Path: C:\Program Files\Siemens\NX2306\NXBIN\model8.prt
+- Leaf: model8
+- Units: Inches
+- Tag: 60387
+- Read Only: False
+- Fully Loaded: True
+- Has Write Access: True
+- Unique Identifier: 3aff67b0-f2eb-4a2c-aea6-a4475836dcee
+
+### Part Attributes
+- NX_ComponentGroup (String): AllComponents
+- NX_ReferenceSet (String): Empty
+- NX_MaterialMissingAssignments (String): TRUE
+- NX_MaterialMultipleAssigned (String): FALSE
+
+**Number of Bodies:** 13
+
+## Inter-Body Distances
+- Body 1 to Body 2: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 1 to Body 3: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 1 to Body 4: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 1 to Body 5: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 1 to Body 6: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 1 to Body 7: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 1 to Body 8: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 1 to Body 9: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 1 to Body 10: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 1 to Body 11: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 1 to Body 12: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 1 to Body 13: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 2 to Body 3: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 2 to Body 4: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 2 to Body 5: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 2 to Body 6: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 2 to Body 7: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 2 to Body 8: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 2 to Body 9: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 2 to Body 10: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 2 to Body 11: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 2 to Body 12: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 2 to Body 13: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 3 to Body 4: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 3 to Body 5: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 3 to Body 6: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 3 to Body 7: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 3 to Body 8: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 3 to Body 9: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 3 to Body 10: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 3 to Body 11: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 3 to Body 12: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 3 to Body 13: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 4 to Body 5: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 4 to Body 6: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 4 to Body 7: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 4 to Body 8: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 4 to Body 9: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 4 to Body 10: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 4 to Body 11: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 4 to Body 12: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 4 to Body 13: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 5 to Body 6: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 5 to Body 7: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 5 to Body 8: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 5 to Body 9: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 5 to Body 10: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 5 to Body 11: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 5 to Body 12: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 5 to Body 13: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 6 to Body 7: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 6 to Body 8: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 6 to Body 9: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 6 to Body 10: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 6 to Body 11: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 6 to Body 12: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 6 to Body 13: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 7 to Body 8: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 7 to Body 9: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 7 to Body 10: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 7 to Body 11: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 7 to Body 12: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 7 to Body 13: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 8 to Body 9: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 8 to Body 10: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 8 to Body 11: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 8 to Body 12: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 8 to Body 13: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 9 to Body 10: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 9 to Body 11: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 9 to Body 12: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 9 to Body 13: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 10 to Body 11: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 10 to Body 12: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 10 to Body 13: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 11 to Body 12: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 11 to Body 13: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+- Body 12 to Body 13: N/A | Closest Points: (0.0000, 0.0000, 0.0000) to (0.0000, 0.0000, 0.0000)
+
+---
+## Body 1
+
+### Body Metadata
+- Tag: 60858
+- Journal Identifier: UNPARAMETERIZED_FEATURE(1)
+- Name: Cotter Pin
+- Is Solid Body: True
+- Is Sheet Body: False
+- Is Convergent Body: False
+- Density: 7800.0000
+- Facet Count: None
+- Vertex Count: None
+- Shape Summary: Likely contains extruded or revolved cylindrical geometry.
+- Exported Topology Vertices: 87
+### Body Measurement
+- Surface Area: 0.5775
+- Volume: 0.0066
+- Mass: 0.0019
+- Weight: 0.0019
+- Radius Of Gyration: 0.3448
+- Centroid: (0.9069, 3.1628, 0.3683)
+### Bounding Box
+- X Min: -1.1594
+- Y Min: 0.0000
+- Z Min: -1.1594
+- X Max: 1.1594
+- Y Max: 3.7441
+- Z Max: 1.1594
+- Dx (Length): 2.3189
+- Dy (Width): 3.7441
+- Dz (Height): 2.3189
+
+### Features
+- Total Features: 1
+- Body(1) | Type: BREP | Timestamp: 1
+-   Warning: []
+-   Error: []
+
+### Edges
+- Total Edges: 124
+**Edge Type Breakdown:**
+- Circular: 41
+- Intersection: 21
+- Linear: 32
+- SpCurve: 22
+- Spline: 8
+
+**Per-Edge Details:**
+- Edge 1: Intersection | Length: 0.1307 | Connected Faces: 2 | Tag: 61020
+-   Endpoints: (0.9477, 3.1174, -0.0323) -> (0.8661, 3.1186, -0.0324)
+-   Face Tags: 60936, 60958
+-   Face Indices: 33, 47
+-   Topology Vertices: 1 -> 2
+- Edge 2: Intersection | Length: 0.0034 | Connected Faces: 2 | Tag: 61230
+-   Endpoints: (0.9431, 2.8363, 0.1159) -> (0.9436, 2.8348, 0.1130)
+-   Face Tags: 60950, 60978
+-   Face Indices: 13, 36
+-   Topology Vertices: 3 -> 4
+- Edge 3: SpCurve | Length: 0.4693 | Connected Faces: 2 | Tag: 61108
+-   Endpoints: (0.8646, 3.1435, 0.7570) -> (0.8660, 3.2324, 0.7458)
+-   Face Tags: 60906, 60908
+-   Face Indices: 51, 20
+-   Topology Vertices: 5 -> 6
+- Edge 4: Intersection | Length: 0.0083 | Connected Faces: 2 | Tag: 61040
+-   Endpoints: (0.8661, 3.1186, -0.0324) -> (0.8655, 3.1148, -0.0397)
+-   Face Tags: 60938, 60962
+-   Face Indices: 56, 32
+-   Topology Vertices: 7 -> 8
+- Edge 5: Spline | Length: 0.4546 | Connected Faces: 2 | Tag: 61200
+-   Endpoints: (0.8656, 3.1212, -0.0472) -> (0.8714, 3.5181, 0.1289)
+-   Face Tags: 60870, 60880
+-   Face Indices: 16, 6
+-   Topology Vertices: 9 -> 10
+- Edge 6: SpCurve | Length: 0.4486 | Connected Faces: 2 | Tag: 61192
+-   Endpoints: (0.9482, 3.1157, -0.0399) -> (0.9540, 3.5091, 0.1299)
+-   Face Tags: 60872, 60874
+-   Face Indices: 10, 3
+-   Topology Vertices: 11 -> 12
+- Edge 7: SpCurve | Length: 0.4486 | Connected Faces: 2 | Tag: 61180
+-   Endpoints: (0.8655, 3.1170, -0.0400) -> (0.8713, 3.5104, 0.1297)
+-   Face Tags: 60878, 60880
+-   Face Indices: 48, 6
+-   Topology Vertices: 13 -> 14
+- Edge 8: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61194
+-   Endpoints: (0.9541, 3.5168, 0.1290) -> (0.9540, 3.5091, 0.1299)
+-   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9541, 3.5168, 0.1290) | End (0.9540, 3.5091, 0.1299) | Center (0.9540, 3.5130, 0.1294)
+-   Face Tags: 60864, 60872
+-   Face Indices: 34, 10
+-   Topology Vertices: 15 -> 12
+-   Analytic Curve Type: Line
+- Edge 9: Circular | Length: 0.1004 | Connected Faces: 2 | Tag: 61096
+-   Endpoints: (0.9486, 3.2311, 0.7459) -> (0.9482, 3.1908, 0.6558)
+-   Curve Props: Arc Length 0.1004 | Radius 0.1589 | Diameter 0.3178 | Min Curvature Radius 0.1589
+-   Curve Points: Start (0.9486, 3.2311, 0.7459) | End (0.9482, 3.1908, 0.6558) | Center (0.9506, 3.3488, 0.6391)
+-   Face Tags: 60912, 60914
+-   Face Indices: 31, 25
+-   Topology Vertices: 16 -> 17
+-   Analytic Curve Type: Arc
+- Edge 10: Linear | Length: 0.6964 | Connected Faces: 2 | Tag: 61176
+-   Endpoints: (0.8652, 3.0944, -0.0285) -> (0.8652, 3.1713, 0.6637)
+-   Curve Props: Arc Length 0.6964 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8652, 3.0944, -0.0285) | End (0.8652, 3.1713, 0.6637) | Center (0.8652, 3.1328, 0.3176)
+-   Face Tags: 60882, 60932
+-   Face Indices: 35, 44
+-   Topology Vertices: 18 -> 19
+-   Analytic Curve Type: Line
+- Edge 11: Circular | Length: 0.0067 | Connected Faces: 2 | Tag: 61206
+-   Endpoints: (0.9477, 3.1174, -0.0323) -> (0.9477, 3.1215, -0.0374)
+-   Curve Props: Arc Length 0.0067 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.9477, 3.1174, -0.0323) | End (0.9477, 3.1215, -0.0374) | Center (0.9607, 3.1218, -0.0328)
+-   Face Tags: 60954, 60956
+-   Face Indices: 1, 45
+-   Topology Vertices: 20 -> 21
+-   Analytic Curve Type: Arc
+- Edge 12: Circular | Length: 0.0067 | Connected Faces: 2 | Tag: 61208
+-   Endpoints: (0.9477, 3.1174, -0.0323) -> (0.9477, 3.1215, -0.0374)
+-   Curve Props: Arc Length 0.0067 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.9477, 3.1174, -0.0323) | End (0.9477, 3.1215, -0.0374) | Center (0.9607, 3.1218, -0.0328)
+-   Face Tags: 60956, 60958
+-   Face Indices: 45, 47
+-   Topology Vertices: 1 -> 22
+-   Analytic Curve Type: Arc
+- Edge 13: Linear | Length: 0.6964 | Connected Faces: 2 | Tag: 61174
+-   Endpoints: (0.9478, 3.0931, -0.0284) -> (0.9478, 3.1700, 0.6638)
+-   Curve Props: Arc Length 0.6964 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9478, 3.0931, -0.0284) | End (0.9478, 3.1700, 0.6638) | Center (0.9478, 3.1315, 0.3177)
+-   Face Tags: 60882, 60884
+-   Face Indices: 35, 29
+-   Topology Vertices: 23 -> 24
+-   Analytic Curve Type: Line
+- Edge 14: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61198
+-   Endpoints: (0.8714, 3.5181, 0.1289) -> (0.9541, 3.5168, 0.1290)
+-   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8714, 3.5181, 0.1289) | End (0.9541, 3.5168, 0.1290) | Center (0.9128, 3.5175, 0.1289)
+-   Face Tags: 60864, 60870
+-   Face Indices: 34, 16
+-   Topology Vertices: 10 -> 15
+-   Analytic Curve Type: Line
+- Edge 15: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61002
+-   Endpoints: (0.9478, 3.0931, -0.0284) -> (0.8652, 3.0944, -0.0285)
+-   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9478, 3.0931, -0.0284) | End (0.8652, 3.0944, -0.0285) | Center (0.9065, 3.0937, -0.0284)
+-   Face Tags: 60882, 60974
+-   Face Indices: 35, 28
+-   Topology Vertices: 23 -> 18
+-   Analytic Curve Type: Line
+- Edge 16: Spline | Length: 0.2911 | Connected Faces: 2 | Tag: 61062
+-   Endpoints: (0.9436, 2.8315, 0.1064) -> (0.9476, 3.0766, -0.0403)
+-   Face Tags: 60942, 60952
+-   Face Indices: 49, 53
+-   Topology Vertices: 25 -> 26
+- Edge 17: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61150
+-   Endpoints: (0.8646, 3.1474, 0.7638) -> (0.9473, 3.1461, 0.7640)
+-   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8646, 3.1474, 0.7638) | End (0.9473, 3.1461, 0.7640) | Center (0.9060, 3.1467, 0.7639)
+-   Face Tags: 60886, 60898
+-   Face Indices: 23, 27
+-   Topology Vertices: 27 -> 28
+-   Analytic Curve Type: Line
+- Edge 18: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61082
+-   Endpoints: (0.8655, 3.1920, 0.6557) -> (0.8654, 3.1849, 0.6525)
+-   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8655, 3.1920, 0.6557) | End (0.8654, 3.1849, 0.6525) | Center (0.8654, 3.1885, 0.6541)
+-   Face Tags: 60920, 60924
+-   Face Indices: 8, 38
+-   Topology Vertices: 29 -> 30
+-   Analytic Curve Type: Line
+- Edge 19: Circular | Length: 0.1085 | Connected Faces: 2 | Tag: 61186
+-   Endpoints: (0.9534, 3.5056, 0.1302) -> (0.8718, 3.5069, 0.1301)
+-   Curve Props: Arc Length 0.1085 | Radius 0.0427 | Diameter 0.0855 | Min Curvature Radius 0.0427
+-   Curve Points: Start (0.9534, 3.5056, 0.1302) | End (0.8718, 3.5069, 0.1301) | Center (0.9128, 3.5189, 0.1288)
+-   Face Tags: 60864, 60876
+-   Face Indices: 34, 54
+-   Topology Vertices: 31 -> 32
+-   Analytic Curve Type: Arc
+- Edge 20: Linear | Length: 0.6900 | Connected Faces: 2 | Tag: 61170
+-   Endpoints: (0.9471, 3.0835, -0.0266) -> (0.9471, 3.1597, 0.6592)
+-   Curve Props: Arc Length 0.6900 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9471, 3.0835, -0.0266) | End (0.9471, 3.1597, 0.6592) | Center (0.9471, 3.1216, 0.3163)
+-   Face Tags: 60928, 60930
+-   Face Indices: 24, 19
+-   Topology Vertices: 33 -> 34
+-   Analytic Curve Type: Line
+- Edge 21: SpCurve | Length: 0.0022 | Connected Faces: 2 | Tag: 61204
+-   Endpoints: (0.9482, 3.1135, -0.0396) -> (0.9482, 3.1157, -0.0399)
+-   Face Tags: 60872, 60874
+-   Face Indices: 10, 3
+-   Topology Vertices: 35 -> 11
+- Edge 22: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61126
+-   Endpoints: (0.8658, 3.2248, 0.7474) -> (0.9485, 3.2235, 0.7476)
+-   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8658, 3.2248, 0.7474) | End (0.9485, 3.2235, 0.7476) | Center (0.9072, 3.2242, 0.7475)
+-   Face Tags: 60898, 60910
+-   Face Indices: 27, 40
+-   Topology Vertices: 36 -> 37
+-   Analytic Curve Type: Line
+- Edge 23: Circular | Length: 0.0110 | Connected Faces: 2 | Tag: 60992
+-   Endpoints: (0.9481, 3.1105, -0.0420) -> (0.9483, 3.1199, -0.0471)
+-   Curve Props: Arc Length 0.0110 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.9481, 3.1105, -0.0420) | End (0.9483, 3.1199, -0.0471) | Center (0.9483, 3.1213, -0.0334)
+-   Face Tags: 60872, 60976
+-   Face Indices: 10, 52
+-   Topology Vertices: 38 -> 39
+-   Analytic Curve Type: Arc
+- Edge 24: SpCurve | Length: 0.0007 | Connected Faces: 2 | Tag: 61052
+-   Endpoints: (0.9477, 3.0849, -0.0351) -> (0.9477, 3.0855, -0.0352)
+-   Face Tags: 60950, 60952
+-   Face Indices: 13, 53
+-   Topology Vertices: 40 -> 41
+- Edge 25: Circular | Length: 0.1004 | Connected Faces: 2 | Tag: 61084
+-   Endpoints: (0.8660, 3.2324, 0.7458) -> (0.8655, 3.1920, 0.6557)
+-   Curve Props: Arc Length 0.1004 | Radius 0.1589 | Diameter 0.3178 | Min Curvature Radius 0.1589
+-   Curve Points: Start (0.8660, 3.2324, 0.7458) | End (0.8655, 3.1920, 0.6557) | Center (0.8680, 3.3501, 0.6390)
+-   Face Tags: 60918, 60920
+-   Face Indices: 37, 8
+-   Topology Vertices: 6 -> 29
+-   Analytic Curve Type: Arc
+- Edge 26: Spline | Length: 0.4826 | Connected Faces: 2 | Tag: 61112
+-   Endpoints: (0.8651, 3.1418, 0.7540) -> (0.8666, 3.2359, 0.7451)
+-   Face Tags: 60904, 60906
+-   Face Indices: 42, 51
+-   Topology Vertices: 42 -> 43
+- Edge 27: Intersection | Length: 0.0090 | Connected Faces: 2 | Tag: 61030
+-   Endpoints: (0.8655, 3.0791, -0.0308) -> (0.8651, 3.0868, -0.0354)
+-   Face Tags: 60946, 60972
+-   Face Indices: 39, 2
+-   Topology Vertices: 44 -> 45
+- Edge 28: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61160
+-   Endpoints: (0.9477, 3.1629, 0.6606) -> (0.9471, 3.1597, 0.6592)
+-   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
+-   Curve Points: Start (0.9477, 3.1629, 0.6606) | End (0.9471, 3.1597, 0.6592) | Center (0.9359, 3.1631, 0.6606)
+-   Face Tags: 60890, 60930
+-   Face Indices: 11, 19
+-   Topology Vertices: 46 -> 34
+-   Analytic Curve Type: Arc
+- Edge 29: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61178
+-   Endpoints: (0.8713, 3.5104, 0.1297) -> (0.8714, 3.5181, 0.1289)
+-   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8713, 3.5104, 0.1297) | End (0.8714, 3.5181, 0.1289) | Center (0.8714, 3.5142, 0.1293)
+-   Face Tags: 60864, 60880
+-   Face Indices: 34, 6
+-   Topology Vertices: 14 -> 10
+-   Analytic Curve Type: Line
+- Edge 30: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61098
+-   Endpoints: (0.9481, 3.1837, 0.6526) -> (0.9482, 3.1908, 0.6558)
+-   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9481, 3.1837, 0.6526) | End (0.9482, 3.1908, 0.6558) | Center (0.9481, 3.1872, 0.6542)
+-   Face Tags: 60912, 60940
+-   Face Indices: 31, 46
+-   Topology Vertices: 47 -> 17
+-   Analytic Curve Type: Line
+- Edge 31: SpCurve | Length: 0.0022 | Connected Faces: 2 | Tag: 61202
+-   Endpoints: (0.8655, 3.1148, -0.0397) -> (0.8655, 3.1170, -0.0400)
+-   Face Tags: 60878, 60880
+-   Face Indices: 48, 6
+-   Topology Vertices: 8 -> 13
+- Edge 32: SpCurve | Length: 0.7002 | Connected Faces: 2 | Tag: 61172
+-   Endpoints: (0.9477, 3.0855, -0.0352) -> (0.9477, 3.1629, 0.6606)
+-   Face Tags: 60884, 60930
+-   Face Indices: 29, 19
+-   Topology Vertices: 48 -> 46
+- Edge 33: Spline | Length: 0.4826 | Connected Faces: 2 | Tag: 61116
+-   Endpoints: (0.9467, 3.1405, 0.7541) -> (0.9482, 3.2346, 0.7452)
+-   Face Tags: 60902, 60904
+-   Face Indices: 18, 42
+-   Topology Vertices: 49 -> 50
+- Edge 34: Intersection | Length: 0.0000 | Connected Faces: 2 | Tag: 61012
+-   Endpoints: (0.8655, 3.0847, -0.0267) -> (0.8655, 3.0847, -0.0267)
+-   Face Tags: 60928, 60970
+-   Face Indices: 24, 9
+-   Topology Vertices: 51 -> 52
+- Edge 35: Circular | Length: 0.0985 | Connected Faces: 2 | Tag: 61092
+-   Endpoints: (0.9482, 3.2346, 0.7452) -> (0.9477, 3.1940, 0.6573)
+-   Curve Props: Arc Length 0.0985 | Radius 0.1559 | Diameter 0.3118 | Min Curvature Radius 0.1559
+-   Curve Points: Start (0.9482, 3.2346, 0.7452) | End (0.9477, 3.1940, 0.6573) | Center (0.9501, 3.3488, 0.6391)
+-   Face Tags: 60914, 60916
+-   Face Indices: 25, 21
+-   Topology Vertices: 50 -> 53
+-   Analytic Curve Type: Arc
+- Edge 36: Circular | Length: 0.0985 | Connected Faces: 2 | Tag: 61088
+-   Endpoints: (0.8666, 3.2359, 0.7451) -> (0.8661, 3.1952, 0.6571)
+-   Curve Props: Arc Length 0.0985 | Radius 0.1559 | Diameter 0.3118 | Min Curvature Radius 0.1559
+-   Curve Points: Start (0.8666, 3.2359, 0.7451) | End (0.8661, 3.1952, 0.6571) | Center (0.8685, 3.3500, 0.6390)
+-   Face Tags: 60916, 60918
+-   Face Indices: 21, 37
+-   Topology Vertices: 43 -> 54
+-   Analytic Curve Type: Arc
+- Edge 37: Circular | Length: 0.0116 | Connected Faces: 2 | Tag: 60998
+-   Endpoints: (0.8651, 3.0888, -0.0381) -> (0.8649, 3.0778, -0.0405)
+-   Curve Props: Arc Length 0.0116 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.8651, 3.0888, -0.0381) | End (0.8649, 3.0778, -0.0405) | Center (0.8649, 3.0807, -0.0270)
+-   Face Tags: 60944, 60974
+-   Face Indices: 15, 28
+-   Topology Vertices: 55 -> 56
+-   Analytic Curve Type: Arc
+- Edge 38: Circular | Length: 0.1047 | Connected Faces: 2 | Tag: 61148
+-   Endpoints: (0.9478, 3.1700, 0.6638) -> (0.9473, 3.1461, 0.7640)
+-   Curve Props: Arc Length 0.1047 | Radius 0.1657 | Diameter 0.3314 | Min Curvature Radius 0.1657
+-   Curve Points: Start (0.9478, 3.1700, 0.6638) | End (0.9473, 3.1461, 0.7640) | Center (0.9453, 3.0049, 0.6773)
+-   Face Tags: 60886, 60888
+-   Face Indices: 23, 17
+-   Topology Vertices: 24 -> 28
+-   Analytic Curve Type: Arc
+- Edge 39: Circular | Length: 0.0114 | Connected Faces: 2 | Tag: 61004
+-   Endpoints: (0.9478, 3.0875, -0.0380) -> (0.9478, 3.0931, -0.0284)
+-   Curve Props: Arc Length 0.0114 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.9478, 3.0875, -0.0380) | End (0.9478, 3.0931, -0.0284) | Center (0.9476, 3.0794, -0.0268)
+-   Face Tags: 60884, 60974
+-   Face Indices: 29, 28
+-   Topology Vertices: 57 -> 23
+-   Analytic Curve Type: Arc
+- Edge 40: Spline | Length: 0.2911 | Connected Faces: 2 | Tag: 61064
+-   Endpoints: (0.8609, 2.8328, 0.1062) -> (0.8649, 3.0778, -0.0405)
+-   Face Tags: 60942, 60944
+-   Face Indices: 49, 15
+-   Topology Vertices: 58 -> 56
+- Edge 41: Linear | Length: 0.6938 | Connected Faces: 2 | Tag: 61074
+-   Endpoints: (0.9477, 3.1940, 0.6573) -> (0.9477, 3.1174, -0.0323)
+-   Curve Props: Arc Length 0.6938 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9477, 3.1940, 0.6573) | End (0.9477, 3.1174, -0.0323) | Center (0.9477, 3.1557, 0.3125)
+-   Face Tags: 60934, 60936
+-   Face Indices: 7, 33
+-   Topology Vertices: 53 -> 20
+-   Analytic Curve Type: Line
+- Edge 42: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61182
+-   Endpoints: (0.8718, 3.5069, 0.1301) -> (0.8713, 3.5104, 0.1297)
+-   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
+-   Curve Points: Start (0.8718, 3.5069, 0.1301) | End (0.8713, 3.5104, 0.1297) | Center (0.8831, 3.5102, 0.1297)
+-   Face Tags: 60864, 60878
+-   Face Indices: 34, 48
+-   Topology Vertices: 32 -> 14
+-   Analytic Curve Type: Arc
+- Edge 43: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61102
+-   Endpoints: (0.8654, 3.1849, 0.6525) -> (0.9481, 3.1837, 0.6526)
+-   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8654, 3.1849, 0.6525) | End (0.9481, 3.1837, 0.6526) | Center (0.9067, 3.1843, 0.6526)
+-   Face Tags: 60910, 60922
+-   Face Indices: 40, 50
+-   Topology Vertices: 30 -> 47
+-   Analytic Curve Type: Line
+- Edge 44: SpCurve | Length: 0.4693 | Connected Faces: 2 | Tag: 61120
+-   Endpoints: (0.9472, 3.1422, 0.7572) -> (0.9486, 3.2311, 0.7459)
+-   Face Tags: 60900, 60902
+-   Face Indices: 12, 18
+-   Topology Vertices: 59 -> 16
+- Edge 45: Circular | Length: 0.0108 | Connected Faces: 2 | Tag: 60994
+-   Endpoints: (0.9481, 3.1076, -0.0319) -> (0.9481, 3.1105, -0.0420)
+-   Curve Props: Arc Length 0.0108 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.9481, 3.1076, -0.0319) | End (0.9481, 3.1105, -0.0420) | Center (0.9483, 3.1213, -0.0334)
+-   Face Tags: 60940, 60976
+-   Face Indices: 46, 52
+-   Topology Vertices: 60 -> 38
+-   Analytic Curve Type: Arc
+- Edge 46: SpCurve | Length: 0.2965 | Connected Faces: 2 | Tag: 61054
+-   Endpoints: (0.8609, 2.8361, 0.1128) -> (0.8650, 3.0861, -0.0353)
+-   Face Tags: 60944, 60946
+-   Face Indices: 15, 39
+-   Topology Vertices: 61 -> 62
+- Edge 47: Circular | Length: 0.0985 | Connected Faces: 2 | Tag: 61136
+-   Endpoints: (0.8655, 3.1609, 0.6590) -> (0.8651, 3.1418, 0.7540)
+-   Curve Props: Arc Length 0.0985 | Radius 0.1559 | Diameter 0.3118 | Min Curvature Radius 0.1559
+-   Curve Points: Start (0.8655, 3.1609, 0.6590) | End (0.8651, 3.1418, 0.7540) | Center (0.8631, 3.0061, 0.6772)
+-   Face Tags: 60892, 60894
+-   Face Indices: 4, 55
+-   Topology Vertices: 63 -> 42
+-   Analytic Curve Type: Arc
+- Edge 48: Circular | Length: 0.1004 | Connected Faces: 2 | Tag: 61144
+-   Endpoints: (0.9477, 3.1629, 0.6606) -> (0.9472, 3.1422, 0.7572)
+-   Curve Props: Arc Length 0.1004 | Radius 0.1589 | Diameter 0.3178 | Min Curvature Radius 0.1589
+-   Curve Points: Start (0.9477, 3.1629, 0.6606) | End (0.9472, 3.1422, 0.7572) | Center (0.9453, 3.0049, 0.6773)
+-   Face Tags: 60888, 60890
+-   Face Indices: 17, 11
+-   Topology Vertices: 46 -> 59
+-   Analytic Curve Type: Arc
+- Edge 49: Linear | Length: 0.0074 | Connected Faces: 2 | Tag: 61224
+-   Endpoints: (0.8609, 2.8328, 0.1062) -> (0.8609, 2.8361, 0.1128)
+-   Curve Props: Arc Length 0.0074 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8609, 2.8328, 0.1062) | End (0.8609, 2.8361, 0.1128) | Center (0.8609, 2.8344, 0.1095)
+-   Face Tags: 60944, 60978
+-   Face Indices: 15, 36
+-   Topology Vertices: 58 -> 64
+-   Analytic Curve Type: Line
+- Edge 50: Intersection | Length: 0.0090 | Connected Faces: 2 | Tag: 61032
+-   Endpoints: (0.8651, 3.0868, -0.0354) -> (0.8655, 3.0847, -0.0267)
+-   Face Tags: 60926, 60972
+-   Face Indices: 30, 2
+-   Topology Vertices: 45 -> 51
+- Edge 51: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61162
+-   Endpoints: (0.9478, 3.1700, 0.6638) -> (0.9477, 3.1629, 0.6606)
+-   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9478, 3.1700, 0.6638) | End (0.9477, 3.1629, 0.6606) | Center (0.9478, 3.1664, 0.6622)
+-   Face Tags: 60884, 60888
+-   Face Indices: 29, 17
+-   Topology Vertices: 24 -> 46
+-   Analytic Curve Type: Line
+- Edge 52: Intersection | Length: 0.0000 | Connected Faces: 2 | Tag: 61044
+-   Endpoints: (0.8661, 3.1228, -0.0376) -> (0.8661, 3.1228, -0.0376)
+-   Face Tags: 60878, 60960
+-   Face Indices: 48, 41
+-   Topology Vertices: 65 -> 66
+- Edge 53: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61118
+-   Endpoints: (0.9486, 3.2311, 0.7459) -> (0.9482, 3.2346, 0.7452)
+-   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
+-   Curve Points: Start (0.9486, 3.2311, 0.7459) | End (0.9482, 3.2346, 0.7452) | Center (0.9368, 3.2313, 0.7459)
+-   Face Tags: 60902, 60914
+-   Face Indices: 18, 25
+-   Topology Vertices: 16 -> 50
+-   Analytic Curve Type: Arc
+- Edge 54: Intersection | Length: 0.0000 | Connected Faces: 2 | Tag: 61022
+-   Endpoints: (0.8661, 3.1186, -0.0324) -> (0.8661, 3.1186, -0.0324)
+-   Face Tags: 60936, 60960
+-   Face Indices: 33, 41
+-   Topology Vertices: 2 -> 7
+- Edge 55: Circular | Length: 0.1047 | Connected Faces: 2 | Tag: 61152
+-   Endpoints: (0.8652, 3.1713, 0.6637) -> (0.8646, 3.1474, 0.7638)
+-   Curve Props: Arc Length 0.1047 | Radius 0.1657 | Diameter 0.3314 | Min Curvature Radius 0.1657
+-   Curve Points: Start (0.8652, 3.1713, 0.6637) | End (0.8646, 3.1474, 0.7638) | Center (0.8626, 3.0061, 0.6772)
+-   Face Tags: 60886, 60896
+-   Face Indices: 23, 43
+-   Topology Vertices: 19 -> 27
+-   Analytic Curve Type: Arc
+- Edge 56: Intersection | Length: 0.1355 | Connected Faces: 2 | Tag: 61014
+-   Endpoints: (0.8655, 3.0847, -0.0267) -> (0.9471, 3.0835, -0.0266)
+-   Face Tags: 60928, 60968
+-   Face Indices: 24, 14
+-   Topology Vertices: 67 -> 68
+- Edge 57: Intersection | Length: 0.0083 | Connected Faces: 2 | Tag: 61042
+-   Endpoints: (0.8655, 3.1148, -0.0397) -> (0.8661, 3.1228, -0.0376)
+-   Face Tags: 60878, 60962
+-   Face Indices: 48, 32
+-   Topology Vertices: 8 -> 65
+- Edge 58: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61222
+-   Endpoints: (0.9436, 2.8315, 0.1064) -> (0.8609, 2.8328, 0.1062)
+-   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9436, 2.8315, 0.1064) | End (0.8609, 2.8328, 0.1062) | Center (0.9022, 2.8321, 0.1063)
+-   Face Tags: 60942, 60978
+-   Face Indices: 49, 36
+-   Topology Vertices: 25 -> 58
+-   Analytic Curve Type: Line
+- Edge 59: SpCurve | Length: 0.4403 | Connected Faces: 2 | Tag: 61128
+-   Endpoints: (0.8646, 3.1474, 0.7638) -> (0.8658, 3.2248, 0.7474)
+-   Face Tags: 60898, 60908
+-   Face Indices: 27, 20
+-   Topology Vertices: 27 -> 36
+- Edge 60: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61142
+-   Endpoints: (0.9472, 3.1422, 0.7572) -> (0.9467, 3.1405, 0.7541)
+-   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
+-   Curve Points: Start (0.9472, 3.1422, 0.7572) | End (0.9467, 3.1405, 0.7541) | Center (0.9354, 3.1424, 0.7572)
+-   Face Tags: 60890, 60902
+-   Face Indices: 11, 18
+-   Topology Vertices: 59 -> 49
+-   Analytic Curve Type: Arc
+- Edge 61: SpCurve | Length: 0.4403 | Connected Faces: 2 | Tag: 61124
+-   Endpoints: (0.9473, 3.1461, 0.7640) -> (0.9485, 3.2235, 0.7476)
+-   Face Tags: 60898, 60900
+-   Face Indices: 27, 12
+-   Topology Vertices: 28 -> 37
+- Edge 62: Circular | Length: 0.1085 | Connected Faces: 2 | Tag: 61114
+-   Endpoints: (0.9482, 3.2346, 0.7452) -> (0.8666, 3.2359, 0.7451)
+-   Curve Props: Arc Length 0.1085 | Radius 0.0427 | Diameter 0.0855 | Min Curvature Radius 0.0427
+-   Curve Points: Start (0.9482, 3.2346, 0.7452) | End (0.8666, 3.2359, 0.7451) | Center (0.9072, 3.2228, 0.7478)
+-   Face Tags: 60904, 60916
+-   Face Indices: 42, 21
+-   Topology Vertices: 50 -> 43
+-   Analytic Curve Type: Arc
+- Edge 63: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61130
+-   Endpoints: (0.8646, 3.1435, 0.7570) -> (0.8646, 3.1474, 0.7638)
+-   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8646, 3.1435, 0.7570) | End (0.8646, 3.1474, 0.7638) | Center (0.8646, 3.1454, 0.7604)
+-   Face Tags: 60896, 60908
+-   Face Indices: 43, 20
+-   Topology Vertices: 5 -> 27
+-   Analytic Curve Type: Line
+- Edge 64: Circular | Length: 0.0116 | Connected Faces: 2 | Tag: 61006
+-   Endpoints: (0.9476, 3.0766, -0.0403) -> (0.9478, 3.0875, -0.0380)
+-   Curve Props: Arc Length 0.0116 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.9476, 3.0766, -0.0403) | End (0.9478, 3.0875, -0.0380) | Center (0.9476, 3.0794, -0.0268)
+-   Face Tags: 60952, 60974
+-   Face Indices: 53, 28
+-   Topology Vertices: 26 -> 57
+-   Analytic Curve Type: Arc
+- Edge 65: Linear | Length: 0.0038 | Connected Faces: 2 | Tag: 61066
+-   Endpoints: (0.9482, 3.1135, -0.0396) -> (0.9481, 3.1105, -0.0420)
+-   Curve Props: Arc Length 0.0038 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9482, 3.1135, -0.0396) | End (0.9481, 3.1105, -0.0420) | Center (0.9481, 3.1120, -0.0408)
+-   Face Tags: 60872, 60940
+-   Face Indices: 10, 46
+-   Topology Vertices: 35 -> 38
+-   Analytic Curve Type: Line
+- Edge 66: Circular | Length: 0.0070 | Connected Faces: 2 | Tag: 61220
+-   Endpoints: (0.8655, 3.0791, -0.0308) -> (0.8655, 3.0847, -0.0267)
+-   Curve Props: Arc Length 0.0070 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.8655, 3.0791, -0.0308) | End (0.8655, 3.0847, -0.0267) | Center (0.8525, 3.0803, -0.0262)
+-   Face Tags: 60970, 60972
+-   Face Indices: 9, 2
+-   Topology Vertices: 44 -> 51
+-   Analytic Curve Type: Arc
+- Edge 67: Intersection | Length: 0.0034 | Connected Faces: 2 | Tag: 61226
+-   Endpoints: (0.8609, 2.8361, 0.1128) -> (0.8615, 2.8375, 0.1158)
+-   Face Tags: 60946, 60978
+-   Face Indices: 39, 36
+-   Topology Vertices: 69 -> 70
+- Edge 68: Circular | Length: 0.0985 | Connected Faces: 2 | Tag: 61140
+-   Endpoints: (0.9471, 3.1597, 0.6592) -> (0.9467, 3.1405, 0.7541)
+-   Curve Props: Arc Length 0.0985 | Radius 0.1559 | Diameter 0.3118 | Min Curvature Radius 0.1559
+-   Curve Points: Start (0.9471, 3.1597, 0.6592) | End (0.9467, 3.1405, 0.7541) | Center (0.9447, 3.0049, 0.6773)
+-   Face Tags: 60890, 60892
+-   Face Indices: 11, 4
+-   Topology Vertices: 34 -> 49
+-   Analytic Curve Type: Arc
+- Edge 69: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61190
+-   Endpoints: (0.9540, 3.5091, 0.1299) -> (0.9534, 3.5056, 0.1302)
+-   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
+-   Curve Points: Start (0.9540, 3.5091, 0.1299) | End (0.9534, 3.5056, 0.1302) | Center (0.9422, 3.5093, 0.1298)
+-   Face Tags: 60864, 60874
+-   Face Indices: 34, 3
+-   Topology Vertices: 12 -> 31
+-   Analytic Curve Type: Arc
+- Edge 70: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 60996
+-   Endpoints: (0.8654, 3.1089, -0.0320) -> (0.9481, 3.1076, -0.0319)
+-   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8654, 3.1089, -0.0320) | End (0.9481, 3.1076, -0.0319) | Center (0.9067, 3.1082, -0.0319)
+-   Face Tags: 60922, 60976
+-   Face Indices: 50, 52
+-   Topology Vertices: 71 -> 60
+-   Analytic Curve Type: Line
+- Edge 71: SpCurve | Length: 0.2880 | Connected Faces: 2 | Tag: 61056
+-   Endpoints: (0.8615, 2.8375, 0.1158) -> (0.8655, 3.0791, -0.0308)
+-   Face Tags: 60946, 60948
+-   Face Indices: 39, 5
+-   Topology Vertices: 70 -> 72
+- Edge 72: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61164
+-   Endpoints: (0.8652, 3.1713, 0.6637) -> (0.9478, 3.1700, 0.6638)
+-   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8652, 3.1713, 0.6637) | End (0.9478, 3.1700, 0.6638) | Center (0.9065, 3.1706, 0.6637)
+-   Face Tags: 60882, 60886
+-   Face Indices: 35, 23
+-   Topology Vertices: 19 -> 24
+-   Analytic Curve Type: Line
+- Edge 73: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61146
+-   Endpoints: (0.9473, 3.1461, 0.7640) -> (0.9472, 3.1422, 0.7572)
+-   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9473, 3.1461, 0.7640) | End (0.9472, 3.1422, 0.7572) | Center (0.9473, 3.1442, 0.7606)
+-   Face Tags: 60888, 60900
+-   Face Indices: 17, 12
+-   Topology Vertices: 28 -> 59
+-   Analytic Curve Type: Line
+- Edge 74: Intersection | Length: 0.0083 | Connected Faces: 2 | Tag: 61034
+-   Endpoints: (0.9482, 3.1135, -0.0396) -> (0.9477, 3.1174, -0.0323)
+-   Face Tags: 60934, 60954
+-   Face Indices: 7, 1
+-   Topology Vertices: 35 -> 20
+- Edge 75: SpCurve | Length: 0.0070 | Connected Faces: 2 | Tag: 61218
+-   Endpoints: (0.8655, 3.0791, -0.0308) -> (0.8655, 3.0847, -0.0267)
+-   Face Tags: 60968, 60970
+-   Face Indices: 14, 9
+-   Topology Vertices: 73 -> 74
+- Edge 76: Circular | Length: 0.0108 | Connected Faces: 2 | Tag: 60986
+-   Endpoints: (0.8655, 3.1118, -0.0421) -> (0.8654, 3.1089, -0.0320)
+-   Curve Props: Arc Length 0.0108 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.8655, 3.1118, -0.0421) | End (0.8654, 3.1089, -0.0320) | Center (0.8656, 3.1226, -0.0335)
+-   Face Tags: 60924, 60976
+-   Face Indices: 38, 52
+-   Topology Vertices: 75 -> 71
+-   Analytic Curve Type: Arc
+- Edge 77: SpCurve | Length: 0.0034 | Connected Faces: 2 | Tag: 61046
+-   Endpoints: (0.9477, 3.0855, -0.0352) -> (0.9478, 3.0875, -0.0380)
+-   Face Tags: 60884, 60952
+-   Face Indices: 29, 53
+-   Topology Vertices: 48 -> 76
+- Edge 78: Circular | Length: 0.1085 | Connected Faces: 2 | Tag: 61138
+-   Endpoints: (0.9467, 3.1405, 0.7541) -> (0.8651, 3.1418, 0.7540)
+-   Curve Props: Arc Length 0.1085 | Radius 0.0427 | Diameter 0.0855 | Min Curvature Radius 0.0427
+-   Curve Points: Start (0.9467, 3.1405, 0.7541) | End (0.8651, 3.1418, 0.7540) | Center (0.9060, 3.1474, 0.7651)
+-   Face Tags: 60892, 60904
+-   Face Indices: 4, 42
+-   Topology Vertices: 49 -> 42
+-   Analytic Curve Type: Arc
+- Edge 79: Intersection | Length: 0.1320 | Connected Faces: 2 | Tag: 61024
+-   Endpoints: (0.8661, 3.1228, -0.0376) -> (0.9477, 3.1215, -0.0374)
+-   Face Tags: 60876, 60958
+-   Face Indices: 54, 47
+-   Topology Vertices: 66 -> 22
+- Edge 80: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61154
+-   Endpoints: (0.8651, 3.1641, 0.6605) -> (0.8652, 3.1713, 0.6637)
+-   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8651, 3.1641, 0.6605) | End (0.8652, 3.1713, 0.6637) | Center (0.8651, 3.1677, 0.6621)
+-   Face Tags: 60896, 60932
+-   Face Indices: 43, 44
+-   Topology Vertices: 77 -> 19
+-   Analytic Curve Type: Line
+- Edge 81: Intersection | Length: 0.0000 | Connected Faces: 2 | Tag: 61016
+-   Endpoints: (0.9471, 3.0835, -0.0266) -> (0.9471, 3.0835, -0.0266)
+-   Face Tags: 60928, 60966
+-   Face Indices: 24, 22
+-   Topology Vertices: 78 -> 33
+- Edge 82: Spline | Length: 0.4546 | Connected Faces: 2 | Tag: 61196
+-   Endpoints: (0.9483, 3.1199, -0.0471) -> (0.9541, 3.5168, 0.1290)
+-   Face Tags: 60870, 60872
+-   Face Indices: 16, 10
+-   Topology Vertices: 39 -> 15
+- Edge 83: Linear | Length: 0.6887 | Connected Faces: 2 | Tag: 61078
+-   Endpoints: (0.9481, 3.1837, 0.6526) -> (0.9481, 3.1076, -0.0319)
+-   Curve Props: Arc Length 0.6887 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9481, 3.1837, 0.6526) | End (0.9481, 3.1076, -0.0319) | Center (0.9481, 3.1456, 0.3104)
+-   Face Tags: 60922, 60940
+-   Face Indices: 50, 46
+-   Topology Vertices: 47 -> 60
+-   Analytic Curve Type: Line
+- Edge 84: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61106
+-   Endpoints: (0.8660, 3.2324, 0.7458) -> (0.8658, 3.2248, 0.7474)
+-   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8660, 3.2324, 0.7458) | End (0.8658, 3.2248, 0.7474) | Center (0.8659, 3.2286, 0.7466)
+-   Face Tags: 60908, 60920
+-   Face Indices: 20, 8
+-   Topology Vertices: 6 -> 36
+-   Analytic Curve Type: Line
+- Edge 85: Circular | Length: 0.0067 | Connected Faces: 2 | Tag: 61212
+-   Endpoints: (0.8661, 3.1186, -0.0324) -> (0.8661, 3.1228, -0.0376)
+-   Curve Props: Arc Length 0.0067 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.8661, 3.1186, -0.0324) | End (0.8661, 3.1228, -0.0376) | Center (0.8532, 3.1235, -0.0329)
+-   Face Tags: 60960, 60962
+-   Face Indices: 41, 32
+-   Topology Vertices: 7 -> 65
+-   Analytic Curve Type: Arc
+- Edge 86: Circular | Length: 0.1004 | Connected Faces: 2 | Tag: 61132
+-   Endpoints: (0.8651, 3.1641, 0.6605) -> (0.8646, 3.1435, 0.7570)
+-   Curve Props: Arc Length 0.1004 | Radius 0.1589 | Diameter 0.3178 | Min Curvature Radius 0.1589
+-   Curve Points: Start (0.8651, 3.1641, 0.6605) | End (0.8646, 3.1435, 0.7570) | Center (0.8626, 3.0061, 0.6772)
+-   Face Tags: 60894, 60896
+-   Face Indices: 55, 43
+-   Topology Vertices: 77 -> 5
+-   Analytic Curve Type: Arc
+- Edge 87: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61008
+-   Endpoints: (0.8649, 3.0778, -0.0405) -> (0.9476, 3.0766, -0.0403)
+-   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8649, 3.0778, -0.0405) | End (0.9476, 3.0766, -0.0403) | Center (0.9063, 3.0772, -0.0404)
+-   Face Tags: 60942, 60974
+-   Face Indices: 49, 28
+-   Topology Vertices: 56 -> 26
+-   Analytic Curve Type: Line
+- Edge 88: Linear | Length: 0.0038 | Connected Faces: 2 | Tag: 61068
+-   Endpoints: (0.8655, 3.1148, -0.0397) -> (0.8655, 3.1118, -0.0421)
+-   Curve Props: Arc Length 0.0038 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8655, 3.1148, -0.0397) | End (0.8655, 3.1118, -0.0421) | Center (0.8655, 3.1133, -0.0409)
+-   Face Tags: 60880, 60924
+-   Face Indices: 6, 38
+-   Topology Vertices: 8 -> 75
+-   Analytic Curve Type: Line
+- Edge 89: Intersection | Length: 0.1059 | Connected Faces: 2 | Tag: 61228
+-   Endpoints: (0.8615, 2.8375, 0.1158) -> (0.9431, 2.8363, 0.1159)
+-   Face Tags: 60948, 60978
+-   Face Indices: 5, 36
+-   Topology Vertices: 70 -> 3
+- Edge 90: Linear | Length: 0.0074 | Connected Faces: 2 | Tag: 60980
+-   Endpoints: (0.9436, 2.8348, 0.1130) -> (0.9436, 2.8315, 0.1064)
+-   Curve Props: Arc Length 0.0074 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9436, 2.8348, 0.1130) | End (0.9436, 2.8315, 0.1064) | Center (0.9436, 2.8331, 0.1097)
+-   Face Tags: 60952, 60978
+-   Face Indices: 53, 36
+-   Topology Vertices: 79 -> 25
+-   Analytic Curve Type: Line
+- Edge 91: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61086
+-   Endpoints: (0.8661, 3.1952, 0.6571) -> (0.8655, 3.1920, 0.6557)
+-   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
+-   Curve Points: Start (0.8661, 3.1952, 0.6571) | End (0.8655, 3.1920, 0.6557) | Center (0.8773, 3.1919, 0.6557)
+-   Face Tags: 60918, 60938
+-   Face Indices: 37, 56
+-   Topology Vertices: 54 -> 29
+-   Analytic Curve Type: Arc
+- Edge 92: SpCurve | Length: 0.2880 | Connected Faces: 2 | Tag: 61058
+-   Endpoints: (0.9431, 2.8363, 0.1159) -> (0.9471, 3.0779, -0.0306)
+-   Face Tags: 60948, 60950
+-   Face Indices: 5, 13
+-   Topology Vertices: 3 -> 80
+- Edge 93: Circular | Length: 0.0070 | Connected Faces: 2 | Tag: 61214
+-   Endpoints: (0.9471, 3.0779, -0.0306) -> (0.9471, 3.0835, -0.0266)
+-   Curve Props: Arc Length 0.0070 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.9471, 3.0779, -0.0306) | End (0.9471, 3.0835, -0.0266) | Center (0.9600, 3.0786, -0.0260)
+-   Face Tags: 60964, 60966
+-   Face Indices: 26, 22
+-   Topology Vertices: 81 -> 33
+-   Analytic Curve Type: Arc
+- Edge 94: Intersection | Length: 0.0083 | Connected Faces: 2 | Tag: 61036
+-   Endpoints: (0.9477, 3.1215, -0.0374) -> (0.9482, 3.1135, -0.0396)
+-   Face Tags: 60874, 60954
+-   Face Indices: 3, 1
+-   Topology Vertices: 21 -> 35
+- Edge 95: SpCurve | Length: 0.7002 | Connected Faces: 2 | Tag: 61166
+-   Endpoints: (0.8651, 3.0868, -0.0354) -> (0.8651, 3.1641, 0.6605)
+-   Face Tags: 60926, 60932
+-   Face Indices: 30, 44
+-   Topology Vertices: 45 -> 77
+- Edge 96: Linear | Length: 0.6938 | Connected Faces: 2 | Tag: 61072
+-   Endpoints: (0.8661, 3.1952, 0.6571) -> (0.8661, 3.1186, -0.0324)
+-   Curve Props: Arc Length 0.6938 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8661, 3.1952, 0.6571) | End (0.8661, 3.1186, -0.0324) | Center (0.8661, 3.1569, 0.3124)
+-   Face Tags: 60936, 60938
+-   Face Indices: 33, 56
+-   Topology Vertices: 54 -> 7
+-   Analytic Curve Type: Line
+- Edge 97: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61134
+-   Endpoints: (0.8651, 3.1418, 0.7540) -> (0.8646, 3.1435, 0.7570)
+-   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
+-   Curve Points: Start (0.8651, 3.1418, 0.7540) | End (0.8646, 3.1435, 0.7570) | Center (0.8764, 3.1433, 0.7571)
+-   Face Tags: 60894, 60906
+-   Face Indices: 55, 51
+-   Topology Vertices: 42 -> 5
+-   Analytic Curve Type: Arc
+- Edge 98: Circular | Length: 0.0110 | Connected Faces: 2 | Tag: 60988
+-   Endpoints: (0.8656, 3.1212, -0.0472) -> (0.8655, 3.1118, -0.0421)
+-   Curve Props: Arc Length 0.0110 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.8656, 3.1212, -0.0472) | End (0.8655, 3.1118, -0.0421) | Center (0.8656, 3.1226, -0.0335)
+-   Face Tags: 60880, 60976
+-   Face Indices: 6, 52
+-   Topology Vertices: 9 -> 75
+-   Analytic Curve Type: Arc
+- Edge 99: SpCurve | Length: 0.0034 | Connected Faces: 2 | Tag: 61048
+-   Endpoints: (0.8651, 3.0868, -0.0354) -> (0.8651, 3.0888, -0.0381)
+-   Face Tags: 60932, 60944
+-   Face Indices: 44, 15
+-   Topology Vertices: 82 -> 83
+- Edge 100: Circular | Length: 0.1047 | Connected Faces: 2 | Tag: 61100
+-   Endpoints: (0.9485, 3.2235, 0.7476) -> (0.9481, 3.1837, 0.6526)
+-   Curve Props: Arc Length 0.1047 | Radius 0.1657 | Diameter 0.3314 | Min Curvature Radius 0.1657
+-   Curve Points: Start (0.9485, 3.2235, 0.7476) | End (0.9481, 3.1837, 0.6526) | Center (0.9506, 3.3488, 0.6391)
+-   Face Tags: 60910, 60912
+-   Face Indices: 40, 31
+-   Topology Vertices: 37 -> 47
+-   Analytic Curve Type: Arc
+- Edge 101: Intersection | Length: 0.0090 | Connected Faces: 2 | Tag: 61026
+-   Endpoints: (0.9477, 3.0855, -0.0352) -> (0.9471, 3.0779, -0.0306)
+-   Face Tags: 60950, 60964
+-   Face Indices: 13, 26
+-   Topology Vertices: 48 -> 81
+- Edge 102: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61156
+-   Endpoints: (0.8655, 3.1609, 0.6590) -> (0.8651, 3.1641, 0.6605)
+-   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
+-   Curve Points: Start (0.8655, 3.1609, 0.6590) | End (0.8651, 3.1641, 0.6605) | Center (0.8769, 3.1640, 0.6605)
+-   Face Tags: 60894, 60926
+-   Face Indices: 55, 30
+-   Topology Vertices: 63 -> 77
+-   Analytic Curve Type: Arc
+- Edge 103: Intersection | Length: 0.0000 | Connected Faces: 2 | Tag: 61018
+-   Endpoints: (0.9477, 3.1174, -0.0323) -> (0.9477, 3.1174, -0.0323)
+-   Face Tags: 60936, 60956
+-   Face Indices: 33, 45
+-   Topology Vertices: 20 -> 1
+- Edge 104: Intersection | Length: 0.0000 | Connected Faces: 2 | Tag: 61038
+-   Endpoints: (0.9477, 3.1215, -0.0374) -> (0.9477, 3.1215, -0.0374)
+-   Face Tags: 60874, 60956
+-   Face Indices: 3, 45
+-   Topology Vertices: 22 -> 21
+- Edge 105: Circular | Length: 0.0114 | Connected Faces: 2 | Tag: 61000
+-   Endpoints: (0.8652, 3.0944, -0.0285) -> (0.8651, 3.0888, -0.0381)
+-   Curve Props: Arc Length 0.0114 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.8652, 3.0944, -0.0285) | End (0.8651, 3.0888, -0.0381) | Center (0.8649, 3.0807, -0.0270)
+-   Face Tags: 60932, 60974
+-   Face Indices: 44, 28
+-   Topology Vertices: 18 -> 55
+-   Analytic Curve Type: Arc
+- Edge 106: Linear | Length: 0.6887 | Connected Faces: 2 | Tag: 61080
+-   Endpoints: (0.8654, 3.1849, 0.6525) -> (0.8654, 3.1089, -0.0320)
+-   Curve Props: Arc Length 0.6887 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8654, 3.1849, 0.6525) | End (0.8654, 3.1089, -0.0320) | Center (0.8654, 3.1469, 0.3102)
+-   Face Tags: 60922, 60924
+-   Face Indices: 50, 38
+-   Topology Vertices: 30 -> 71
+-   Analytic Curve Type: Line
+- Edge 107: Spline | Length: 0.4382 | Connected Faces: 2 | Tag: 61184
+-   Endpoints: (0.8661, 3.1228, -0.0376) -> (0.8718, 3.5069, 0.1301)
+-   Face Tags: 60876, 60878
+-   Face Indices: 54, 48
+-   Topology Vertices: 66 -> 32
+- Edge 108: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61094
+-   Endpoints: (0.9482, 3.1908, 0.6558) -> (0.9477, 3.1940, 0.6573)
+-   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
+-   Curve Points: Start (0.9482, 3.1908, 0.6558) | End (0.9477, 3.1940, 0.6573) | Center (0.9364, 3.1910, 0.6558)
+-   Face Tags: 60914, 60934
+-   Face Indices: 25, 7
+-   Topology Vertices: 17 -> 53
+-   Analytic Curve Type: Arc
+- Edge 109: SpCurve | Length: 0.6997 | Connected Faces: 2 | Tag: 61076
+-   Endpoints: (0.9482, 3.1908, 0.6558) -> (0.9482, 3.1135, -0.0396)
+-   Face Tags: 60934, 60940
+-   Face Indices: 7, 46
+-   Topology Vertices: 17 -> 35
+- Edge 110: Intersection | Length: 0.1369 | Connected Faces: 2 | Tag: 61010
+-   Endpoints: (0.9471, 3.0779, -0.0306) -> (0.8655, 3.0791, -0.0308)
+-   Face Tags: 60948, 60968
+-   Face Indices: 5, 14
+-   Topology Vertices: 84 -> 85
+- Edge 111: SpCurve | Length: 0.6997 | Connected Faces: 2 | Tag: 61070
+-   Endpoints: (0.8655, 3.1920, 0.6557) -> (0.8655, 3.1148, -0.0397)
+-   Face Tags: 60924, 60938
+-   Face Indices: 38, 56
+-   Topology Vertices: 29 -> 8
+- Edge 112: Circular | Length: 0.1047 | Connected Faces: 2 | Tag: 61104
+-   Endpoints: (0.8658, 3.2248, 0.7474) -> (0.8654, 3.1849, 0.6525)
+-   Curve Props: Arc Length 0.1047 | Radius 0.1657 | Diameter 0.3314 | Min Curvature Radius 0.1657
+-   Curve Points: Start (0.8658, 3.2248, 0.7474) | End (0.8654, 3.1849, 0.6525) | Center (0.8680, 3.3501, 0.6390)
+-   Face Tags: 60910, 60920
+-   Face Indices: 40, 8
+-   Topology Vertices: 36 -> 30
+-   Analytic Curve Type: Arc
+- Edge 113: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61110
+-   Endpoints: (0.8666, 3.2359, 0.7451) -> (0.8660, 3.2324, 0.7458)
+-   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
+-   Curve Points: Start (0.8666, 3.2359, 0.7451) | End (0.8660, 3.2324, 0.7458) | Center (0.8778, 3.2322, 0.7458)
+-   Face Tags: 60906, 60918
+-   Face Indices: 51, 37
+-   Topology Vertices: 43 -> 6
+-   Analytic Curve Type: Arc
+- Edge 114: SpCurve | Length: 0.0070 | Connected Faces: 2 | Tag: 61216
+-   Endpoints: (0.9471, 3.0779, -0.0306) -> (0.9471, 3.0835, -0.0266)
+-   Face Tags: 60966, 60968
+-   Face Indices: 22, 14
+-   Topology Vertices: 84 -> 68
+- Edge 115: Circular | Length: 0.0067 | Connected Faces: 2 | Tag: 61210
+-   Endpoints: (0.8661, 3.1186, -0.0324) -> (0.8661, 3.1228, -0.0376)
+-   Curve Props: Arc Length 0.0067 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
+-   Curve Points: Start (0.8661, 3.1186, -0.0324) | End (0.8661, 3.1228, -0.0376) | Center (0.8532, 3.1235, -0.0329)
+-   Face Tags: 60958, 60960
+-   Face Indices: 47, 41
+-   Topology Vertices: 2 -> 66
+-   Analytic Curve Type: Arc
+- Edge 116: SpCurve | Length: 0.2965 | Connected Faces: 2 | Tag: 61060
+-   Endpoints: (0.9436, 2.8348, 0.1130) -> (0.9477, 3.0849, -0.0351)
+-   Face Tags: 60950, 60952
+-   Face Indices: 13, 53
+-   Topology Vertices: 86 -> 40
+- Edge 117: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61122
+-   Endpoints: (0.9485, 3.2235, 0.7476) -> (0.9486, 3.2311, 0.7459)
+-   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9485, 3.2235, 0.7476) | End (0.9486, 3.2311, 0.7459) | Center (0.9486, 3.2273, 0.7468)
+-   Face Tags: 60900, 60912
+-   Face Indices: 12, 31
+-   Topology Vertices: 37 -> 16
+-   Analytic Curve Type: Line
+- Edge 118: Circular | Length: 0.1085 | Connected Faces: 2 | Tag: 61090
+-   Endpoints: (0.9477, 3.1940, 0.6573) -> (0.8661, 3.1952, 0.6571)
+-   Curve Props: Arc Length 0.1085 | Radius 0.0427 | Diameter 0.0855 | Min Curvature Radius 0.0427
+-   Curve Points: Start (0.9477, 3.1940, 0.6573) | End (0.8661, 3.1952, 0.6571) | Center (0.9067, 3.1830, 0.6520)
+-   Face Tags: 60916, 60936
+-   Face Indices: 21, 33
+-   Topology Vertices: 53 -> 54
+-   Analytic Curve Type: Arc
+- Edge 119: Linear | Length: 0.6900 | Connected Faces: 2 | Tag: 61168
+-   Endpoints: (0.8655, 3.0847, -0.0267) -> (0.8655, 3.1609, 0.6590)
+-   Curve Props: Arc Length 0.6900 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8655, 3.0847, -0.0267) | End (0.8655, 3.1609, 0.6590) | Center (0.8655, 3.1228, 0.3162)
+-   Face Tags: 60926, 60928
+-   Face Indices: 30, 24
+-   Topology Vertices: 51 -> 63
+-   Analytic Curve Type: Line
+- Edge 120: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 60990
+-   Endpoints: (0.9483, 3.1199, -0.0471) -> (0.8656, 3.1212, -0.0472)
+-   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.9483, 3.1199, -0.0471) | End (0.8656, 3.1212, -0.0472) | Center (0.9069, 3.1205, -0.0472)
+-   Face Tags: 60870, 60976
+-   Face Indices: 16, 52
+-   Topology Vertices: 39 -> 9
+-   Analytic Curve Type: Line
+- Edge 121: SpCurve | Length: 0.0007 | Connected Faces: 2 | Tag: 61050
+-   Endpoints: (0.8650, 3.0861, -0.0353) -> (0.8651, 3.0868, -0.0354)
+-   Face Tags: 60944, 60946
+-   Face Indices: 15, 39
+-   Topology Vertices: 62 -> 87
+- Edge 122: Spline | Length: 0.4382 | Connected Faces: 2 | Tag: 61188
+-   Endpoints: (0.9477, 3.1215, -0.0374) -> (0.9534, 3.5056, 0.1302)
+-   Face Tags: 60874, 60876
+-   Face Indices: 3, 54
+-   Topology Vertices: 22 -> 31
+- Edge 123: Intersection | Length: 0.0090 | Connected Faces: 2 | Tag: 61028
+-   Endpoints: (0.9471, 3.0835, -0.0266) -> (0.9477, 3.0855, -0.0352)
+-   Face Tags: 60930, 60964
+-   Face Indices: 19, 26
+-   Topology Vertices: 33 -> 48
+- Edge 124: Circular | Length: 0.1085 | Connected Faces: 2 | Tag: 61158
+-   Endpoints: (0.9471, 3.1597, 0.6592) -> (0.8655, 3.1609, 0.6590)
+-   Curve Props: Arc Length 0.1085 | Radius 0.0427 | Diameter 0.0855 | Min Curvature Radius 0.0427
+-   Curve Points: Start (0.9471, 3.1597, 0.6592) | End (0.8655, 3.1609, 0.6590) | Center (0.9065, 3.1719, 0.6643)
+-   Face Tags: 60892, 60928
+-   Face Indices: 4, 24
+-   Topology Vertices: 34 -> 63
+-   Analytic Curve Type: Arc
+
+### Faces
+- Total Faces: 56
+**Face Type Breakdown:**
+- Blending: 10
+- Cylindrical: 4
+- Parametric: 24
+- Planar: 18
+
+**Per-Face Details:**
+- Face 1: Blending | Edges: 3 | Facets: None | Vertices: 3 | Tag: 60954
+-   Measure: Area 0.0000 | Perimeter 0.0234 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
+-   Points: Center (0.9478, 3.1174, -0.0365) | Anchor (0.9478, 3.1174, -0.0365)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status -4 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 74, 94, 11
+-   Loop Count: 1
+-   Adjacent Faces: 7, 3, 45
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 2: Blending | Edges: 3 | Facets: None | Vertices: 3 | Tag: 60972
+-   Measure: Area 0.0000 | Perimeter 0.0250 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
+-   Points: Center (0.8654, 3.0836, -0.0310) | Anchor (0.8654, 3.0836, -0.0310)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status -4 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 27, 50, 66
+-   Loop Count: 1
+-   Adjacent Faces: 39, 30, 9
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 3: Parametric | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60874
+-   Measure: Area 0.0014 | Perimeter 0.9009 | Radius/Diameter N/A | Min Curvature Radius 0.0088
+-   Points: Center (0.9512, 3.3273, 0.0114) | Anchor (0.9512, 3.3273, 0.0114)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 94, 104, 122, 69, 6, 21
+-   Loop Count: 1
+-   Adjacent Faces: 1, 45, 54, 34, 10
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 4: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60892
+-   Measure: Area 0.0090 | Perimeter 0.4139 | Radius/Diameter N/A | Min Curvature Radius 0.0323
+-   Points: Center (0.9060, 3.1417, 0.6948) | Anchor (0.9060, 3.1417, 0.6948)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 47, 78, 68, 124
+-   Loop Count: 1
+-   Adjacent Faces: 55, 42, 11, 24
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 5: Parametric | Edges: 4 | Facets: None | Vertices: 6 | Tag: 60948
+-   Measure: Area 0.0264 | Perimeter 0.8189 | Radius/Diameter N/A | Min Curvature Radius 0.0328
+-   Points: Center (0.9040, 2.9434, 0.0507) | Anchor (0.9040, 2.9434, 0.0507)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 110, 71, 92, 89
+-   Loop Count: 4
+-   Adjacent Faces: 14, 39, 13, 36
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 6: Planar | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60880
+-   Measure: Area 0.0031 | Perimeter 0.9281 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.8687, 3.3296, 0.0072) | Anchor (0.8687, 3.3296, 0.0072)
+-   Analytic: Ref Point (0.8684, 3.3149, 0.0449) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.1129, 0.1059] | V[-0.1923, 0.1927] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 98, 88, 29, 7, 5, 31
+-   Loop Count: 1
+-   Adjacent Faces: 52, 38, 34, 48, 16
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 7: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60934
+-   Measure: Area 0.0022 | Perimeter 1.4054 | Radius/Diameter N/A | Min Curvature Radius 0.0088
+-   Points: Center (0.9480, 3.1539, 0.3103) | Anchor (0.9480, 3.1539, 0.3103)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 74, 41, 109, 108
+-   Loop Count: 1
+-   Adjacent Faces: 1, 33, 46, 25
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 8: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60920
+-   Measure: Area 0.0007 | Perimeter 0.2207 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.8656, 3.2036, 0.7025) | Anchor (0.8656, 3.2036, 0.7025)
+-   Analytic: Ref Point (0.8657, 3.2087, 0.7000) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0498, 0.0489] | V[-0.0184, 0.0185] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 18, 25, 112, 84
+-   Loop Count: 1
+-   Adjacent Faces: 38, 37, 40, 20
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 9: Blending | Edges: 3 | Facets: None | Vertices: 5 | Tag: 60970
+-   Measure: Area 0.0000 | Perimeter 0.0140 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
+-   Points: Center (0.8658, 3.0820, -0.0288) | Anchor (0.8658, 3.0820, -0.0288)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 34, 75, 66
+-   Loop Count: 3
+-   Adjacent Faces: 24, 14, 2
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 10: Planar | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60872
+-   Measure: Area 0.0031 | Perimeter 0.9281 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.9514, 3.3283, 0.0074) | Anchor (0.9514, 3.3283, 0.0074)
+-   Analytic: Ref Point (0.9511, 3.3137, 0.0450) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.1059, 0.1129] | V[-0.1923, 0.1927] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 23, 65, 6, 8, 82, 21
+-   Loop Count: 1
+-   Adjacent Faces: 52, 46, 3, 34, 16
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 11: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60890
+-   Measure: Area 0.0003 | Perimeter 0.2060 | Radius/Diameter N/A | Min Curvature Radius 0.0088
+-   Points: Center (0.9474, 3.1564, 0.7088) | Anchor (0.9474, 3.1564, 0.7088)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 68, 60, 48, 28
+-   Loop Count: 1
+-   Adjacent Faces: 4, 18, 17, 19
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 12: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60900
+-   Measure: Area 0.0030 | Perimeter 0.9252 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.9479, 3.1995, 0.8581) | Anchor (0.9479, 3.1995, 0.8581)
+-   Analytic: Ref Point (0.9479, 3.1981, 0.8493) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0905, 0.0990] | V[-0.0453, 0.0443] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 44, 117, 61, 73
+-   Loop Count: 1
+-   Adjacent Faces: 18, 31, 27, 17
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 13: Parametric | Edges: 5 | Facets: None | Vertices: 8 | Tag: 60950
+-   Measure: Area 0.0009 | Perimeter 0.5976 | Radius/Diameter N/A | Min Curvature Radius 0.0088
+-   Points: Center (0.9453, 2.9501, 0.0266) | Anchor (0.9453, 2.9501, 0.0266)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 101, 24, 92, 116, 2
+-   Loop Count: 5
+-   Adjacent Faces: 26, 53, 5, 36
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 14: Blending | Edges: 4 | Facets: None | Vertices: 6 | Tag: 60968
+-   Measure: Area 0.0022 | Perimeter 0.2865 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
+-   Points: Center (0.9060, 3.0632, -0.0032) | Anchor (0.9060, 3.0632, -0.0032)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 110, 56, 114, 75
+-   Loop Count: 3
+-   Adjacent Faces: 5, 24, 22, 9
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 15: Planar | Edges: 6 | Facets: None | Vertices: 9 | Tag: 60944
+-   Measure: Area 0.0020 | Perimeter 0.6106 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.8629, 2.9517, 0.0208) | Anchor (0.8629, 2.9517, 0.0208)
+-   Analytic: Ref Point (0.8630, 2.9611, 0.0360) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0632, 0.0625] | V[-0.1353, 0.1351] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 37, 99, 121, 46, 40, 49
+-   Loop Count: 4
+-   Adjacent Faces: 28, 44, 39, 49, 36
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 16: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60870
+-   Measure: Area 0.0376 | Perimeter 1.0746 | Radius/Diameter N/A | Min Curvature Radius 0.2462
+-   Points: Center (0.9102, 3.3346, 0.0057) | Anchor (0.9102, 3.3346, 0.0057)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 120, 82, 14, 5
+-   Loop Count: 1
+-   Adjacent Faces: 52, 10, 34, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 17: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60888
+-   Measure: Area 0.0007 | Perimeter 0.2207 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.9476, 3.1605, 0.7126) | Anchor (0.9476, 3.1605, 0.7126)
+-   Analytic: Ref Point (0.9475, 3.1564, 0.7123) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0502, 0.0506] | V[-0.0190, 0.0189] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 48, 73, 38, 51
+-   Loop Count: 1
+-   Adjacent Faces: 11, 12, 23, 29
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 18: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60902
+-   Measure: Area 0.0015 | Perimeter 0.9590 | Radius/Diameter N/A | Min Curvature Radius 0.0086
+-   Points: Center (0.9478, 3.1993, 0.8604) | Anchor (0.9478, 3.1993, 0.8604)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 33, 53, 44, 60
+-   Loop Count: 1
+-   Adjacent Faces: 42, 25, 12, 11
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 19: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60930
+-   Measure: Area 0.0021 | Perimeter 1.4026 | Radius/Diameter N/A | Min Curvature Radius 0.0088
+-   Points: Center (0.9475, 3.1229, 0.3145) | Anchor (0.9475, 3.1229, 0.3145)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 123, 28, 20, 32
+-   Loop Count: 1
+-   Adjacent Faces: 26, 11, 24, 29
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 20: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60908
+-   Measure: Area 0.0030 | Perimeter 0.9252 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.8653, 3.2008, 0.8579) | Anchor (0.8653, 3.2008, 0.8579)
+-   Analytic: Ref Point (0.8653, 3.1993, 0.8491) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0990, -0.0905] | V[-0.0453, 0.0443] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 84, 3, 59, 63
+-   Loop Count: 1
+-   Adjacent Faces: 8, 51, 27, 43
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 21: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60916
+-   Measure: Area 0.0090 | Perimeter 0.4139 | Radius/Diameter N/A | Min Curvature Radius 0.0323
+-   Points: Center (0.9073, 3.2292, 0.7053) | Anchor (0.9073, 3.2292, 0.7053)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 36, 118, 35, 62
+-   Loop Count: 1
+-   Adjacent Faces: 37, 33, 25, 42
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 22: Blending | Edges: 3 | Facets: None | Vertices: 5 | Tag: 60966
+-   Measure: Area 0.0000 | Perimeter 0.0140 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
+-   Points: Center (0.9468, 3.0808, -0.0286) | Anchor (0.9468, 3.0808, -0.0286)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 81, 93, 114
+-   Loop Count: 2
+-   Adjacent Faces: 24, 26, 14
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 23: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60886
+-   Measure: Area 0.0087 | Perimeter 0.3747 | Radius/Diameter 0.1657 | Min Curvature Radius 0.1657
+-   Points: Center (0.9063, 3.1640, 0.7151) | Anchor (0.9063, 3.1640, 0.7151)
+-   Analytic: Ref Point (0.9039, 3.0055, 0.6773) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.1657 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0413, 0.0413] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 38, 17, 55, 72
+-   Loop Count: 1
+-   Adjacent Faces: 17, 27, 43, 35
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 24: Parametric | Edges: 6 | Facets: None | Vertices: 8 | Tag: 60928
+-   Measure: Area 0.0671 | Perimeter 1.6239 | Radius/Diameter N/A | Min Curvature Radius 0.0332
+-   Points: Center (0.9061, 3.1063, 0.3262) | Anchor (0.9061, 3.1063, 0.3262)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 34, 56, 81, 124, 119, 20
+-   Loop Count: 3
+-   Adjacent Faces: 9, 14, 22, 4, 30, 19
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 25: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60914
+-   Measure: Area 0.0003 | Perimeter 0.2060 | Radius/Diameter N/A | Min Curvature Radius 0.0088
+-   Points: Center (0.9482, 3.2079, 0.7032) | Anchor (0.9482, 3.2079, 0.7032)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 35, 108, 9, 53
+-   Loop Count: 1
+-   Adjacent Faces: 21, 7, 31, 18
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 26: Blending | Edges: 3 | Facets: None | Vertices: 3 | Tag: 60964
+-   Measure: Area 0.0000 | Perimeter 0.0250 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
+-   Points: Center (0.9473, 3.0823, -0.0308) | Anchor (0.9473, 3.0823, -0.0308)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status -4 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 101, 123, 93
+-   Loop Count: 1
+-   Adjacent Faces: 13, 19, 22
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 27: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60898
+-   Measure: Area 0.0364 | Perimeter 1.0460 | Radius/Diameter N/A | Min Curvature Radius 0.0357
+-   Points: Center (0.9066, 3.2004, 0.8571) | Anchor (0.9066, 3.2004, 0.8571)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 61, 22, 59, 17
+-   Loop Count: 1
+-   Adjacent Faces: 12, 40, 20, 23
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 28: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60974
+-   Measure: Area 0.0019 | Perimeter 0.2112 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
+-   Points: Center (0.9064, 3.0872, -0.0368) | Anchor (0.9064, 3.0872, -0.0368)
+-   Analytic: Ref Point (0.9063, 3.0800, -0.0269) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0138 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0413, 0.0413] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 37, 105, 15, 39, 64, 87
+-   Loop Count: 1
+-   Adjacent Faces: 15, 44, 35, 29, 53, 49
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 29: Planar | Edges: 5 | Facets: None | Vertices: 6 | Tag: 60884
+-   Measure: Area 0.0047 | Perimeter 1.4191 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.9478, 3.1277, 0.3133) | Anchor (0.9478, 3.1277, 0.3133)
+-   Analytic: Ref Point (0.9478, 3.1276, 0.3129) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.3534, 0.3531] | V[-0.0034, 0.0034] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 39, 77, 51, 32, 13
+-   Loop Count: 1
+-   Adjacent Faces: 28, 53, 17, 19, 35
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 30: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60926
+-   Measure: Area 0.0021 | Perimeter 1.4026 | Radius/Diameter N/A | Min Curvature Radius 0.0088
+-   Points: Center (0.8652, 3.1242, 0.3144) | Anchor (0.8652, 3.1242, 0.3144)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 50, 102, 95, 119
+-   Loop Count: 1
+-   Adjacent Faces: 2, 55, 44, 24
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 31: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60912
+-   Measure: Area 0.0007 | Perimeter 0.2207 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.9483, 3.2023, 0.7026) | Anchor (0.9483, 3.2023, 0.7026)
+-   Analytic: Ref Point (0.9483, 3.2074, 0.7001) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0489, 0.0498] | V[-0.0184, 0.0185] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 9, 30, 100, 117
+-   Loop Count: 1
+-   Adjacent Faces: 25, 46, 40, 12
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 32: Blending | Edges: 3 | Facets: None | Vertices: 3 | Tag: 60962
+-   Measure: Area 0.0000 | Perimeter 0.0234 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
+-   Points: Center (0.8659, 3.1187, -0.0366) | Anchor (0.8659, 3.1187, -0.0366)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status -4 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 4, 57, 85
+-   Loop Count: 1
+-   Adjacent Faces: 56, 48, 41
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 33: Parametric | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60936
+-   Measure: Area 0.0698 | Perimeter 1.6268 | Radius/Diameter N/A | Min Curvature Radius 0.0332
+-   Points: Center (0.9071, 3.1751, 0.3275) | Anchor (0.9071, 3.1751, 0.3275)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 103, 1, 54, 96, 41, 118
+-   Loop Count: 1
+-   Adjacent Faces: 45, 47, 41, 56, 7, 21
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 34: Planar | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60864
+-   Measure: Area 0.0027 | Perimeter 0.2139 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.9125, 3.5000, 0.1309) | Anchor (0.9125, 3.5000, 0.1309)
+-   Analytic: Ref Point (0.9127, 3.4973, 0.1312) | Direction (0.0000, 0.1104, 0.9939) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0210, -0.0084] | V[-0.0414, 0.0414] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 29, 42, 19, 69, 8, 14
+-   Loop Count: 1
+-   Adjacent Faces: 6, 48, 54, 3, 10, 16
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 35: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60882
+-   Measure: Area 0.0576 | Perimeter 1.5583 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.9065, 3.1322, 0.3177) | Anchor (0.9065, 3.1322, 0.3177)
+-   Analytic: Ref Point (0.9065, 3.1322, 0.3177) | Direction (0.0155, 0.9938, -0.1104) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.3482, 0.3482] | V[-0.0413, 0.0413] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 15, 72, 13, 10
+-   Loop Count: 1
+-   Adjacent Faces: 28, 23, 29, 44
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 36: Planar | Edges: 6 | Facets: None | Vertices: 8 | Tag: 60978
+-   Measure: Area 0.0026 | Perimeter 0.2100 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.9023, 2.8395, 0.1211) | Anchor (0.9023, 2.8395, 0.1211)
+-   Analytic: Ref Point (0.9023, 2.8415, 0.1251) | Direction (-0.0146, -0.8941, 0.4475) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0101, 0.0213] | V[-0.0414, 0.0413] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 90, 58, 49, 67, 89, 2
+-   Loop Count: 2
+-   Adjacent Faces: 53, 49, 15, 39, 5, 13
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 37: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60918
+-   Measure: Area 0.0003 | Perimeter 0.2060 | Radius/Diameter N/A | Min Curvature Radius 0.0088
+-   Points: Center (0.8659, 3.2092, 0.7031) | Anchor (0.8659, 3.2092, 0.7031)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 25, 91, 36, 113
+-   Loop Count: 1
+-   Adjacent Faces: 8, 56, 21, 51
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 38: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 60924
+-   Measure: Area 0.0047 | Perimeter 1.4108 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.8654, 3.1500, 0.3072) | Anchor (0.8654, 3.1500, 0.3072)
+-   Analytic: Ref Point (0.8655, 3.1504, 0.3068) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.3510, 0.3514] | V[-0.0039, 0.0028] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 76, 88, 111, 106, 18
+-   Loop Count: 1
+-   Adjacent Faces: 52, 6, 56, 50, 8
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 39: Parametric | Edges: 5 | Facets: None | Vertices: 8 | Tag: 60946
+-   Measure: Area 0.0009 | Perimeter 0.5976 | Radius/Diameter N/A | Min Curvature Radius 0.0088
+-   Points: Center (0.8630, 2.9514, 0.0265) | Anchor (0.8630, 2.9514, 0.0265)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 27, 121, 46, 71, 67
+-   Loop Count: 5
+-   Adjacent Faces: 2, 15, 5, 36
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 40: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60910
+-   Measure: Area 0.0087 | Perimeter 0.3747 | Radius/Diameter 0.1657 | Min Curvature Radius 0.1657
+-   Points: Center (0.9069, 3.1992, 0.7021) | Anchor (0.9069, 3.1992, 0.7021)
+-   Analytic: Ref Point (0.9093, 3.3494, 0.6391) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.1657 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0413, 0.0413] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 100, 43, 112, 22
+-   Loop Count: 1
+-   Adjacent Faces: 31, 50, 8, 27
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 41: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60960
+-   Measure: Area 0.0000 | Perimeter 0.0135 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
+-   Points: Center (0.8664, 3.1206, -0.0350) | Anchor (0.8664, 3.1206, -0.0350)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 54, 52, 115, 85
+-   Loop Count: 1
+-   Adjacent Faces: 33, 48, 47, 32
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 42: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60904
+-   Measure: Area 0.0582 | Perimeter 1.1821 | Radius/Diameter N/A | Min Curvature Radius 0.0340
+-   Points: Center (0.9066, 3.1982, 0.8683) | Anchor (0.9066, 3.1982, 0.8683)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 26, 62, 33, 78
+-   Loop Count: 1
+-   Adjacent Faces: 51, 21, 18, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 43: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60896
+-   Measure: Area 0.0007 | Perimeter 0.2207 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.8649, 3.1618, 0.7125) | Anchor (0.8649, 3.1618, 0.7125)
+-   Analytic: Ref Point (0.8649, 3.1577, 0.7121) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0506, 0.0502] | V[-0.0190, 0.0189] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 63, 86, 55, 80
+-   Loop Count: 1
+-   Adjacent Faces: 20, 55, 23, 44
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 44: Planar | Edges: 5 | Facets: None | Vertices: 7 | Tag: 60932
+-   Measure: Area 0.0047 | Perimeter 1.4191 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.8651, 3.1289, 0.3132) | Anchor (0.8651, 3.1289, 0.3132)
+-   Analytic: Ref Point (0.8651, 3.1289, 0.3128) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.3531, 0.3534] | V[-0.0034, 0.0034] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 105, 99, 80, 95, 10
+-   Loop Count: 4
+-   Adjacent Faces: 28, 15, 43, 30, 35
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 45: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60956
+-   Measure: Area 0.0000 | Perimeter 0.0135 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
+-   Points: Center (0.9474, 3.1193, -0.0348) | Anchor (0.9474, 3.1193, -0.0348)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 103, 104, 11, 12
+-   Loop Count: 1
+-   Adjacent Faces: 33, 3, 1, 47
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 46: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 60940
+-   Measure: Area 0.0047 | Perimeter 1.4108 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.9481, 3.1487, 0.3073) | Anchor (0.9481, 3.1487, 0.3073)
+-   Analytic: Ref Point (0.9481, 3.1492, 0.3069) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.3514, 0.3510] | V[-0.0039, 0.0028] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 45, 65, 109, 83, 30
+-   Loop Count: 1
+-   Adjacent Faces: 52, 10, 7, 50, 31
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 47: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60958
+-   Measure: Area 0.0021 | Perimeter 0.2762 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
+-   Points: Center (0.9072, 3.1429, -0.0163) | Anchor (0.9072, 3.1429, -0.0163)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 1, 79, 12, 115
+-   Loop Count: 1
+-   Adjacent Faces: 33, 54, 45, 41
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 48: Parametric | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60878
+-   Measure: Area 0.0014 | Perimeter 0.9009 | Radius/Diameter N/A | Min Curvature Radius 0.0088
+-   Points: Center (0.8689, 3.3285, 0.0112) | Anchor (0.8689, 3.3285, 0.0112)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 57, 52, 7, 42, 107, 31
+-   Loop Count: 1
+-   Adjacent Faces: 32, 41, 6, 34, 54
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 49: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60942
+-   Measure: Area 0.0241 | Perimeter 0.7475 | Radius/Diameter N/A | Min Curvature Radius 0.4333
+-   Points: Center (0.9041, 2.9464, 0.0192) | Anchor (0.9041, 2.9464, 0.0192)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 87, 16, 40, 58
+-   Loop Count: 1
+-   Adjacent Faces: 28, 53, 15, 36
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 50: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60922
+-   Measure: Area 0.0569 | Perimeter 1.5428 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.9067, 3.1463, 0.3103) | Anchor (0.9067, 3.1463, 0.3103)
+-   Analytic: Ref Point (0.9067, 3.1463, 0.3103) | Direction (-0.0155, -0.9938, 0.1104) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.3444, 0.3444] | V[-0.0413, 0.0413] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 70, 83, 106, 43
+-   Loop Count: 1
+-   Adjacent Faces: 52, 46, 38, 40
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 51: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60906
+-   Measure: Area 0.0015 | Perimeter 0.9590 | Radius/Diameter N/A | Min Curvature Radius 0.0086
+-   Points: Center (0.8655, 3.2005, 0.8603) | Anchor (0.8655, 3.2005, 0.8603)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 3, 113, 26, 97
+-   Loop Count: 1
+-   Adjacent Faces: 20, 37, 42, 55
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 52: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60976
+-   Measure: Area 0.0018 | Perimeter 0.2089 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
+-   Points: Center (0.9068, 3.1123, -0.0412) | Anchor (0.9068, 3.1123, -0.0412)
+-   Analytic: Ref Point (0.9069, 3.1219, -0.0335) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0138 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0413, 0.0413] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 76, 98, 120, 23, 45, 70
+-   Loop Count: 1
+-   Adjacent Faces: 38, 6, 16, 10, 46, 50
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 53: Planar | Edges: 6 | Facets: None | Vertices: 9 | Tag: 60952
+-   Measure: Area 0.0020 | Perimeter 0.6106 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.9455, 2.9504, 0.0210) | Anchor (0.9455, 2.9504, 0.0210)
+-   Analytic: Ref Point (0.9457, 2.9598, 0.0362) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0625, 0.0632] | V[-0.1353, 0.1351] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 90, 64, 77, 24, 116, 16
+-   Loop Count: 4
+-   Adjacent Faces: 36, 28, 29, 13, 49
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 54: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60876
+-   Measure: Area 0.0395 | Perimeter 1.1167 | Radius/Diameter N/A | Min Curvature Radius 0.0328
+-   Points: Center (0.9100, 3.3297, 0.0275) | Anchor (0.9100, 3.3297, 0.0275)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 79, 107, 19, 122
+-   Loop Count: 1
+-   Adjacent Faces: 47, 48, 34, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 55: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60894
+-   Measure: Area 0.0003 | Perimeter 0.2060 | Radius/Diameter N/A | Min Curvature Radius 0.0088
+-   Points: Center (0.8651, 3.1577, 0.7087) | Anchor (0.8651, 3.1577, 0.7087)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 86, 97, 47, 102
+-   Loop Count: 1
+-   Adjacent Faces: 43, 51, 4, 30
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 56: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60938
+-   Measure: Area 0.0022 | Perimeter 1.4054 | Radius/Diameter N/A | Min Curvature Radius 0.0088
+-   Points: Center (0.8657, 3.1552, 0.3102) | Anchor (0.8657, 3.1552, 0.3102)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 4, 111, 96, 91
+-   Loop Count: 1
+-   Adjacent Faces: 32, 38, 33, 37
+-   Blend Data: Is Blend False | Radius 0.0000
+
+---
+## Body 2
+
+### Body Metadata
+- Tag: 61415
+- Journal Identifier: UNPARAMETERIZED_FEATURE(2)
+- Name: Lever
+- Is Solid Body: True
+- Is Sheet Body: False
+- Is Convergent Body: False
+- Density: 7800.0000
+- Facet Count: None
+- Vertex Count: None
+- Shape Summary: Likely contains a conical region.
+- Exported Topology Vertices: 161
+### Body Measurement
+- Surface Area: 20.9850
+- Volume: 1.2550
+- Mass: 0.3536
+- Weight: 0.3536
+- Radius Of Gyration: 1.3711
+- Centroid: (-0.0000, 3.5379, -0.9916)
+### Bounding Box
+- X Min: -1.1594
+- Y Min: 0.0000
+- Z Min: -1.1594
+- X Max: 1.1594
+- Y Max: 3.7441
+- Z Max: 1.1594
+- Dx (Length): 2.3189
+- Dy (Width): 3.7441
+- Dz (Height): 2.3189
+
+### Features
+- Total Features: 1
+- Body(2) | Type: BREP | Timestamp: 2
+-   Warning: []
+-   Error: []
+
+### Edges
+- Total Edges: 270
+**Edge Type Breakdown:**
+- Circular: 126
+- Elliptical: 24
+- Intersection: 14
+- Linear: 106
+
+**Per-Edge Details:**
+- Edge 1: Circular | Length: 0.8534 | Connected Faces: 2 | Tag: 62072
+-   Endpoints: (0.4862, 4.2834, -2.3346) -> (0.4862, 4.2834, -2.3346)
+-   Curve Props: Arc Length 0.8534 | Radius 0.1358 | Diameter 0.2717 | Min Curvature Radius 0.1358
+-   Curve Points: Start (0.4862, 4.2834, -2.3346) | End (0.4862, 4.2834, -2.3346) | Center (0.4862, 4.1555, -2.3803)
+-   Face Tags: 61422, 61496
+-   Face Indices: 96, 47
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 2: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62146
+-   Endpoints: (-0.6358, 4.3107, -1.4982) -> (-0.6260, 4.3200, -1.4949)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.6358, 4.3107, -1.4982) | End (-0.6260, 4.3200, -1.4949) | Center (-0.6260, 4.3107, -1.4982)
+-   Face Tags: 61604, 61608
+-   Face Indices: 41, 13
+-   Topology Vertices: 2 -> 3
+-   Analytic Curve Type: Arc
+- Edge 3: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62136
+-   Endpoints: (0.8425, 3.7405, 0.1988) -> (0.8524, 3.7314, 0.2024)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.8425, 3.7405, 0.1988) | End (0.8524, 3.7314, 0.2024) | Center (0.8425, 3.7314, 0.2024)
+-   Face Tags: 61594, 61598
+-   Face Indices: 107, 71
+-   Topology Vertices: 4 -> 5
+-   Analytic Curve Type: Arc
+- Edge 4: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61850
+-   Endpoints: (0.7028, 2.8134, 0.7020) -> (0.8524, 2.8134, 0.7020)
+-   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.7028, 2.8134, 0.7020) | End (0.8524, 2.8134, 0.7020) | Center (0.7776, 2.8134, 0.7020)
+-   Face Tags: 61478, 61536
+-   Face Indices: 25, 6
+-   Topology Vertices: 6 -> 7
+-   Analytic Curve Type: Line
+- Edge 5: Linear | Length: 0.9872 | Connected Faces: 2 | Tag: 61944
+-   Endpoints: (0.6358, 3.2854, -1.3957) -> (0.6358, 3.6175, -2.3254)
+-   Curve Props: Arc Length 0.9872 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6358, 3.2854, -1.3957) | End (0.6358, 3.6175, -2.3254) | Center (0.6358, 3.4514, -1.8605)
+-   Face Tags: 61482, 61488
+-   Face Indices: 43, 76
+-   Topology Vertices: 8 -> 9
+-   Analytic Curve Type: Line
+- Edge 6: Circular | Length: 1.3915 | Connected Faces: 2 | Tag: 61706
+-   Endpoints: (-0.6358, 4.5726, -2.2313) -> (-0.6358, 3.7384, -2.5293)
+-   Curve Props: Arc Length 1.3915 | Radius 0.4429 | Diameter 0.8858 | Min Curvature Radius 0.4429
+-   Curve Points: Start (-0.6358, 4.5726, -2.2313) | End (-0.6358, 3.7384, -2.5293) | Center (-0.6358, 4.1555, -2.3803)
+-   Face Tags: 61484, 61612
+-   Face Indices: 91, 109
+-   Topology Vertices: 10 -> 11
+-   Analytic Curve Type: Arc
+- Edge 7: Circular | Length: 0.2801 | Connected Faces: 2 | Tag: 61820
+-   Endpoints: (0.6337, 3.2599, -1.4106) -> (0.4390, 3.1018, -1.4670)
+-   Curve Props: Arc Length 0.2801 | Radius 0.1969 | Diameter 0.3937 | Min Curvature Radius 0.1969
+-   Curve Points: Start (0.6337, 3.2599, -1.4106) | End (0.4390, 3.1018, -1.4670) | Center (0.4390, 3.2872, -1.4008)
+-   Face Tags: 61488, 61546
+-   Face Indices: 76, 29
+-   Topology Vertices: 12 -> 13
+-   Analytic Curve Type: Arc
+- Edge 8: Circular | Length: 0.0542 | Connected Faces: 2 | Tag: 61878
+-   Endpoints: (-0.4862, 3.2995, -1.3361) -> (-0.4862, 3.2817, -1.3856)
+-   Curve Props: Arc Length 0.0542 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
+-   Curve Points: Start (-0.4862, 3.2995, -1.3361) | End (-0.4862, 3.2817, -1.3856) | Center (-0.4862, 3.2367, -1.3415)
+-   Face Tags: 61498, 61522
+-   Face Indices: 103, 73
+-   Topology Vertices: 14 -> 15
+-   Analytic Curve Type: Arc
+- Edge 9: Intersection | Length: 0.0246 | Connected Faces: 2 | Tag: 61638
+-   Endpoints: (-0.6239, 3.5930, -2.3388) -> (-0.6260, 3.6170, -2.3352)
+-   Face Tags: 61524, 61624
+-   Face Indices: 99, 5
+-   Topology Vertices: 16 -> 17
+- Edge 10: Elliptical | Length: 0.3248 | Connected Faces: 2 | Tag: 61934
+-   Endpoints: (0.4862, 4.3304, -1.5242) -> (0.6486, 4.2433, -1.2802)
+-   Face Tags: 61460, 61508
+-   Face Indices: 90, 18
+-   Topology Vertices: 18 -> 19
+- Edge 11: Circular | Length: 0.0106 | Connected Faces: 2 | Tag: 62104
+-   Endpoints: (0.6869, 3.2625, -1.2264) -> (0.6900, 3.2701, -1.2323)
+-   Curve Props: Arc Length 0.0106 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.6869, 3.2625, -1.2264) | End (0.6900, 3.2701, -1.2323) | Center (0.6869, 3.2718, -1.2231)
+-   Face Tags: 61562, 61566
+-   Face Indices: 95, 82
+-   Topology Vertices: 20 -> 21
+-   Analytic Curve Type: Arc
+- Edge 12: Intersection | Length: 0.0246 | Connected Faces: 2 | Tag: 61810
+-   Endpoints: (0.6260, 3.6170, -2.3352) -> (0.6239, 3.5930, -2.3388)
+-   Face Tags: 61526, 61630
+-   Face Indices: 48, 14
+-   Topology Vertices: 22 -> 23
+- Edge 13: Circular | Length: 0.0203 | Connected Faces: 2 | Tag: 62142
+-   Endpoints: (-0.6900, 4.2763, -1.4159) -> (-0.6869, 4.2873, -1.4034)
+-   Curve Props: Arc Length 0.0203 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.6900, 4.2763, -1.4159) | End (-0.6869, 4.2873, -1.4034) | Center (-0.6869, 4.2780, -1.4067)
+-   Face Tags: 61600, 61604
+-   Face Indices: 34, 41
+-   Topology Vertices: 24 -> 25
+-   Analytic Curve Type: Arc
+- Edge 14: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61964
+-   Endpoints: (0.8425, 2.5569, 0.2162) -> (0.7028, 2.5569, 0.2162)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8425, 2.5569, 0.2162) | End (0.7028, 2.5569, 0.2162) | Center (0.7726, 2.5569, 0.2162)
+-   Face Tags: 61470, 61472
+-   Face Indices: 85, 16
+-   Topology Vertices: 26 -> 27
+-   Analytic Curve Type: Line
+- Edge 15: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62118
+-   Endpoints: (-0.8524, 2.2897, 0.9933) -> (-0.8425, 2.2805, 0.9900)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.8524, 2.2897, 0.9933) | End (-0.8425, 2.2805, 0.9900) | Center (-0.8425, 2.2897, 0.9933)
+-   Face Tags: 61576, 61580
+-   Face Indices: 36, 97
+-   Topology Vertices: 28 -> 29
+-   Analytic Curve Type: Arc
+- Edge 16: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61968
+-   Endpoints: (0.8425, 2.8480, -0.1252) -> (0.7028, 2.8480, -0.1252)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8425, 2.8480, -0.1252) | End (0.7028, 2.8480, -0.1252) | Center (0.7726, 2.8480, -0.1252)
+-   Face Tags: 61472, 61474
+-   Face Indices: 16, 60
+-   Topology Vertices: 30 -> 31
+-   Analytic Curve Type: Line
+- Edge 17: Elliptical | Length: 0.1106 | Connected Faces: 2 | Tag: 61782
+-   Endpoints: (0.6358, 4.3107, -1.4982) -> (0.6900, 4.2763, -1.4159)
+-   Face Tags: 61516, 61610
+-   Face Indices: 72, 55
+-   Topology Vertices: 32 -> 33
+- Edge 18: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61754
+-   Endpoints: (0.8425, 2.4570, 1.1979) -> (0.8425, 3.2654, 1.0504)
+-   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8425, 2.4570, 1.1979) | End (0.8425, 3.2654, 1.0504) | Center (0.8425, 2.8612, 1.1241)
+-   Face Tags: 61466, 61590
+-   Face Indices: 4, 11
+-   Topology Vertices: 34 -> 35
+-   Analytic Curve Type: Line
+- Edge 19: Linear | Length: 0.1654 | Connected Faces: 2 | Tag: 61800
+-   Endpoints: (0.6358, 3.6828, -2.3736) -> (0.6358, 3.7384, -2.5293)
+-   Curve Props: Arc Length 0.1654 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6358, 3.6828, -2.3736) | End (0.6358, 3.7384, -2.5293) | Center (0.6358, 3.7106, -2.4515)
+-   Face Tags: 61482, 61622
+-   Face Indices: 43, 101
+-   Topology Vertices: 36 -> 37
+-   Analytic Curve Type: Line
+- Edge 20: Elliptical | Length: 0.1083 | Connected Faces: 2 | Tag: 61914
+-   Endpoints: (-0.6486, 3.2147, -1.0925) -> (-0.7028, 3.1856, -1.0112)
+-   Face Tags: 61458, 61514
+-   Face Indices: 24, 45
+-   Topology Vertices: 38 -> 39
+- Edge 21: Circular | Length: 0.4515 | Connected Faces: 2 | Tag: 61772
+-   Endpoints: (0.8524, 2.5662, 0.2195) -> (0.8524, 2.8528, -0.1166)
+-   Curve Props: Arc Length 0.4515 | Radius 0.6220 | Diameter 1.2441 | Min Curvature Radius 0.6220
+-   Curve Points: Start (0.8524, 2.5662, 0.2195) | End (0.8524, 2.8528, -0.1166) | Center (0.8524, 3.1520, 0.4287)
+-   Face Tags: 61462, 61578
+-   Face Indices: 49, 42
+-   Topology Vertices: 40 -> 41
+-   Analytic Curve Type: Arc
+- Edge 22: Circular | Length: 0.2801 | Connected Faces: 2 | Tag: 61716
+-   Endpoints: (-0.4390, 3.1018, -1.4670) -> (-0.6337, 3.2599, -1.4106)
+-   Curve Props: Arc Length 0.2801 | Radius 0.1969 | Diameter 0.3937 | Min Curvature Radius 0.1969
+-   Curve Points: Start (-0.4390, 3.1018, -1.4670) | End (-0.6337, 3.2599, -1.4106) | Center (-0.4390, 3.2872, -1.4008)
+-   Face Tags: 61486, 61540
+-   Face Indices: 56, 104
+-   Topology Vertices: 42 -> 43
+-   Analytic Curve Type: Arc
+- Edge 23: Circular | Length: 0.8534 | Connected Faces: 2 | Tag: 62074
+-   Endpoints: (-0.4862, 4.0276, -2.4260) -> (-0.4862, 4.0276, -2.4260)
+-   Curve Props: Arc Length 0.8534 | Radius 0.1358 | Diameter 0.2717 | Min Curvature Radius 0.1358
+-   Curve Points: Start (-0.4862, 4.0276, -2.4260) | End (-0.4862, 4.0276, -2.4260) | Center (-0.4862, 4.1555, -2.3803)
+-   Face Tags: 61454, 61498
+-   Face Indices: 74, 103
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 24: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62126
+-   Endpoints: (-0.8524, 3.2636, 1.0407) -> (-0.8425, 3.2654, 1.0504)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.8524, 3.2636, 1.0407) | End (-0.8425, 3.2654, 1.0504) | Center (-0.8425, 3.2636, 1.0407)
+-   Face Tags: 61584, 61588
+-   Face Indices: 84, 88
+-   Topology Vertices: 44 -> 45
+-   Analytic Curve Type: Arc
+- Edge 25: Elliptical | Length: 0.3113 | Connected Faces: 2 | Tag: 61790
+-   Endpoints: (0.8425, 4.2038, -1.1696) -> (0.6869, 4.2873, -1.4034)
+-   Face Tags: 61460, 61606
+-   Face Indices: 90, 69
+-   Topology Vertices: 46 -> 47
+- Edge 26: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61990
+-   Endpoints: (-0.7028, 3.7405, 0.1988) -> (-0.8425, 3.7405, 0.1988)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 3.7405, 0.1988) | End (-0.8425, 3.7405, 0.1988) | Center (-0.7726, 3.7405, 0.1988)
+-   Face Tags: 61428, 61440
+-   Face Indices: 22, 98
+-   Topology Vertices: 48 -> 49
+-   Analytic Curve Type: Line
+- Edge 27: Linear | Length: 1.0229 | Connected Faces: 2 | Tag: 61904
+-   Endpoints: (-0.6358, 3.3045, -1.3146) -> (-0.6358, 4.3107, -1.4982)
+-   Curve Props: Arc Length 1.0229 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6358, 3.3045, -1.3146) | End (-0.6358, 4.3107, -1.4982) | Center (-0.6358, 3.8076, -1.4064)
+-   Face Tags: 61484, 61518
+-   Face Indices: 91, 15
+-   Topology Vertices: 50 -> 2
+-   Analytic Curve Type: Line
+- Edge 28: Circular | Length: 0.0775 | Connected Faces: 2 | Tag: 61762
+-   Endpoints: (0.8524, 3.7303, 0.1266) -> (0.8524, 3.7314, 0.2024)
+-   Curve Props: Arc Length 0.0775 | Radius 0.1083 | Diameter 0.2165 | Min Curvature Radius 0.1083
+-   Curve Points: Start (0.8524, 3.7303, 0.1266) | End (0.8524, 3.7314, 0.2024) | Center (0.8524, 3.8322, 0.1630)
+-   Face Tags: 61462, 61598
+-   Face Indices: 49, 71
+-   Topology Vertices: 51 -> 5
+-   Analytic Curve Type: Arc
+- Edge 29: Linear | Length: 1.3799 | Connected Faces: 2 | Tag: 61682
+-   Endpoints: (-0.8524, 3.7303, 0.1266) -> (-0.8524, 4.1945, -1.1729)
+-   Curve Props: Arc Length 1.3799 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8524, 3.7303, 0.1266) | End (-0.8524, 4.1945, -1.1729) | Center (-0.8524, 3.9624, -0.5232)
+-   Face Tags: 61456, 61596
+-   Face Indices: 70, 44
+-   Topology Vertices: 52 -> 53
+-   Analytic Curve Type: Line
+- Edge 30: Linear | Length: 1.0456 | Connected Faces: 2 | Tag: 61924
+-   Endpoints: (0.6486, 3.2147, -1.0925) -> (0.6486, 4.2433, -1.2802)
+-   Curve Props: Arc Length 1.0456 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6486, 3.2147, -1.0925) | End (0.6486, 4.2433, -1.2802) | Center (0.6486, 3.7290, -1.1863)
+-   Face Tags: 61508, 61512
+-   Face Indices: 18, 108
+-   Topology Vertices: 54 -> 19
+-   Analytic Curve Type: Line
+- Edge 31: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61834
+-   Endpoints: (0.7028, 2.8344, 0.7106) -> (0.7028, 2.8134, 0.7020)
+-   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
+-   Curve Points: Start (0.7028, 2.8344, 0.7106) | End (0.7028, 2.8134, 0.7020) | Center (0.7028, 2.8318, 0.6872)
+-   Face Tags: 61494, 61536
+-   Face Indices: 3, 6
+-   Topology Vertices: 55 -> 6
+-   Analytic Curve Type: Arc
+- Edge 32: Circular | Length: 0.3298 | Connected Faces: 2 | Tag: 61752
+-   Endpoints: (0.8425, 2.2805, 0.9900) -> (0.8425, 2.4570, 1.1979)
+-   Curve Props: Arc Length 0.3298 | Radius 0.1575 | Diameter 0.3150 | Min Curvature Radius 0.1575
+-   Curve Points: Start (0.8425, 2.2805, 0.9900) | End (0.8425, 2.4570, 1.1979) | Center (0.8425, 2.4288, 1.0429)
+-   Face Tags: 61468, 61586
+-   Face Indices: 77, 23
+-   Topology Vertices: 56 -> 34
+-   Analytic Curve Type: Arc
+- Edge 33: Elliptical | Length: 0.3113 | Connected Faces: 2 | Tag: 61696
+-   Endpoints: (-0.8425, 3.1790, -0.9926) -> (-0.6869, 3.2625, -1.2264)
+-   Face Tags: 61458, 61560
+-   Face Indices: 24, 79
+-   Topology Vertices: 57 -> 58
+- Edge 34: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61672
+-   Endpoints: (-0.8524, 2.5662, 0.2195) -> (-0.8524, 2.2897, 0.9933)
+-   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8524, 2.5662, 0.2195) | End (-0.8524, 2.2897, 0.9933) | Center (-0.8524, 2.4280, 0.6064)
+-   Face Tags: 61456, 61576
+-   Face Indices: 70, 36
+-   Topology Vertices: 59 -> 28
+-   Analytic Curve Type: Line
+- Edge 35: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62128
+-   Endpoints: (0.8425, 2.4570, 1.1979) -> (0.8524, 2.4553, 1.1882)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.8425, 2.4570, 1.1979) | End (0.8524, 2.4553, 1.1882) | Center (0.8425, 2.4553, 1.1882)
+-   Face Tags: 61586, 61590
+-   Face Indices: 23, 11
+-   Topology Vertices: 34 -> 60
+-   Analytic Curve Type: Arc
+- Edge 36: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61956
+-   Endpoints: (0.8425, 2.4570, 1.1979) -> (0.7028, 2.4570, 1.1979)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8425, 2.4570, 1.1979) | End (0.7028, 2.4570, 1.1979) | Center (0.7726, 2.4570, 1.1979)
+-   Face Tags: 61466, 61468
+-   Face Indices: 4, 77
+-   Topology Vertices: 34 -> 61
+-   Analytic Curve Type: Line
+- Edge 37: Elliptical | Length: 0.3225 | Connected Faces: 2 | Tag: 61686
+-   Endpoints: (-0.8524, 4.1945, -1.1729) -> (-0.6900, 4.2763, -1.4159)
+-   Face Tags: 61504, 61600
+-   Face Indices: 27, 34
+-   Topology Vertices: 53 -> 24
+- Edge 38: Circular | Length: 0.4587 | Connected Faces: 2 | Tag: 61662
+-   Endpoints: (-0.8425, 2.5569, 0.2162) -> (-0.8425, 2.8480, -0.1252)
+-   Curve Props: Arc Length 0.4587 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
+-   Curve Points: Start (-0.8425, 2.5569, 0.2162) | End (-0.8425, 2.8480, -0.1252) | Center (-0.8425, 3.1520, 0.4287)
+-   Face Tags: 61436, 61572
+-   Face Indices: 57, 9
+-   Topology Vertices: 62 -> 63
+-   Analytic Curve Type: Arc
+- Edge 39: Circular | Length: 0.8534 | Connected Faces: 2 | Tag: 61862
+-   Endpoints: (0.6260, 4.2834, -2.3346) -> (0.6260, 4.2834, -2.3346)
+-   Curve Props: Arc Length 0.8534 | Radius 0.1358 | Diameter 0.2717 | Min Curvature Radius 0.1358
+-   Curve Points: Start (0.6260, 4.2834, -2.3346) | End (0.6260, 4.2834, -2.3346) | Center (0.6260, 4.1555, -2.3803)
+-   Face Tags: 61422, 61530
+-   Face Indices: 96, 80
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 40: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61972
+-   Endpoints: (0.8425, 2.8843, -0.1678) -> (0.7028, 2.8843, -0.1678)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8425, 2.8843, -0.1678) | End (0.7028, 2.8843, -0.1678) | Center (0.7726, 2.8843, -0.1678)
+-   Face Tags: 61424, 61474
+-   Face Indices: 31, 60
+-   Topology Vertices: 64 -> 65
+-   Analytic Curve Type: Line
+- Edge 41: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62172
+-   Endpoints: (0.6239, 3.5930, -2.3388) -> (0.6337, 3.5883, -2.3300)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.6239, 3.5930, -2.3388) | End (0.6337, 3.5883, -2.3300) | Center (0.6239, 3.5897, -2.3295)
+-   Face Tags: 61630, 61634
+-   Face Indices: 14, 110
+-   Topology Vertices: 23 -> 66
+-   Analytic Curve Type: Arc
+- Edge 42: Circular | Length: 0.0704 | Connected Faces: 2 | Tag: 62022
+-   Endpoints: (0.7028, 3.7395, 0.1299) -> (0.7028, 3.7405, 0.1988)
+-   Curve Props: Arc Length 0.0704 | Radius 0.0984 | Diameter 0.1969 | Min Curvature Radius 0.0984
+-   Curve Points: Start (0.7028, 3.7395, 0.1299) | End (0.7028, 3.7405, 0.1988) | Center (0.7028, 3.8322, 0.1630)
+-   Face Tags: 61476, 61494
+-   Face Indices: 2, 3
+-   Topology Vertices: 67 -> 68
+-   Analytic Curve Type: Arc
+- Edge 43: Linear | Length: 0.9764 | Connected Faces: 2 | Tag: 61946
+-   Endpoints: (-0.4390, 3.1018, -1.4670) -> (-0.4390, 3.4303, -2.3865)
+-   Curve Props: Arc Length 0.9764 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4390, 3.1018, -1.4670) | End (-0.4390, 3.4303, -2.3865) | Center (-0.4390, 3.2660, -1.9268)
+-   Face Tags: 61448, 61486
+-   Face Indices: 37, 56
+-   Topology Vertices: 42 -> 69
+-   Analytic Curve Type: Line
+- Edge 44: Circular | Length: 1.8613 | Connected Faces: 2 | Tag: 61998
+-   Endpoints: (-0.8524, 2.8134, 0.7020) -> (-0.8524, 3.5422, 0.6210)
+-   Curve Props: Arc Length 1.8613 | Radius 0.4350 | Diameter 0.8701 | Min Curvature Radius 0.4350
+-   Curve Points: Start (-0.8524, 2.8134, 0.7020) | End (-0.8524, 3.5422, 0.6210) | Center (-0.8524, 3.1520, 0.4287)
+-   Face Tags: 61442, 61456
+-   Face Indices: 33, 70
+-   Topology Vertices: 70 -> 71
+-   Analytic Curve Type: Arc
+- Edge 45: Circular | Length: 0.0704 | Connected Faces: 2 | Tag: 61652
+-   Endpoints: (-0.8425, 3.7395, 0.1299) -> (-0.8425, 3.7405, 0.1988)
+-   Curve Props: Arc Length 0.0704 | Radius 0.0984 | Diameter 0.1969 | Min Curvature Radius 0.0984
+-   Curve Points: Start (-0.8425, 3.7395, 0.1299) | End (-0.8425, 3.7405, 0.1988) | Center (-0.8425, 3.8322, 0.1630)
+-   Face Tags: 61440, 61592
+-   Face Indices: 98, 54
+-   Topology Vertices: 72 -> 49
+-   Analytic Curve Type: Arc
+- Edge 46: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61858
+-   Endpoints: (-0.8524, 2.8134, 0.7020) -> (-0.7028, 2.8134, 0.7020)
+-   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8524, 2.8134, 0.7020) | End (-0.7028, 2.8134, 0.7020) | Center (-0.7776, 2.8134, 0.7020)
+-   Face Tags: 61442, 61538
+-   Face Indices: 33, 51
+-   Topology Vertices: 70 -> 73
+-   Analytic Curve Type: Line
+- Edge 47: Circular | Length: 1.1139 | Connected Faces: 2 | Tag: 62038
+-   Endpoints: (0.7028, 3.7405, 0.1988) -> (0.7028, 3.2654, 1.0504)
+-   Curve Props: Arc Length 1.1139 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
+-   Curve Points: Start (0.7028, 3.7405, 0.1988) | End (0.7028, 3.2654, 1.0504) | Center (0.7028, 3.1520, 0.4287)
+-   Face Tags: 61464, 61494
+-   Face Indices: 105, 3
+-   Topology Vertices: 68 -> 74
+-   Analytic Curve Type: Arc
+- Edge 48: Linear | Length: 0.8780 | Connected Faces: 2 | Tag: 62020
+-   Endpoints: (0.4390, 3.5745, -2.3454) -> (-0.4390, 3.5745, -2.3454)
+-   Curve Props: Arc Length 0.8780 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4390, 3.5745, -2.3454) | End (-0.4390, 3.5745, -2.3454) | Center (-0.0000, 3.5745, -2.3454)
+-   Face Tags: 61416, 61490
+-   Face Indices: 12, 75
+-   Topology Vertices: 75 -> 76
+-   Analytic Curve Type: Line
+- Edge 49: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61830
+-   Endpoints: (-0.8524, 2.8344, 0.7106) -> (-0.8524, 2.8134, 0.7020)
+-   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
+-   Curve Points: Start (-0.8524, 2.8344, 0.7106) | End (-0.8524, 2.8134, 0.7020) | Center (-0.8524, 2.8318, 0.6872)
+-   Face Tags: 61456, 61538
+-   Face Indices: 70, 51
+-   Topology Vertices: 77 -> 70
+-   Analytic Curve Type: Arc
+- Edge 50: Circular | Length: 1.8613 | Connected Faces: 2 | Tag: 61994
+-   Endpoints: (0.8524, 2.8134, 0.7020) -> (0.8524, 3.5422, 0.6210)
+-   Curve Props: Arc Length 1.8613 | Radius 0.4350 | Diameter 0.8701 | Min Curvature Radius 0.4350
+-   Curve Points: Start (0.8524, 2.8134, 0.7020) | End (0.8524, 3.5422, 0.6210) | Center (0.8524, 3.1520, 0.4287)
+-   Face Tags: 61462, 61478
+-   Face Indices: 49, 25
+-   Topology Vertices: 7 -> 78
+-   Analytic Curve Type: Arc
+- Edge 51: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61986
+-   Endpoints: (-0.7028, 3.7395, 0.1299) -> (-0.8425, 3.7395, 0.1299)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 3.7395, 0.1299) | End (-0.8425, 3.7395, 0.1299) | Center (-0.7726, 3.7395, 0.1299)
+-   Face Tags: 61426, 61440
+-   Face Indices: 83, 98
+-   Topology Vertices: 79 -> 72
+-   Analytic Curve Type: Line
+- Edge 52: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62170
+-   Endpoints: (-0.4390, 3.4303, -2.3865) -> (-0.4390, 3.4429, -2.3925)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.4390, 3.4303, -2.3865) | End (-0.4390, 3.4429, -2.3925) | Center (-0.4390, 3.4396, -2.3832)
+-   Face Tags: 61628, 61632
+-   Face Indices: 106, 58
+-   Topology Vertices: 69 -> 80
+-   Analytic Curve Type: Arc
+- Edge 53: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62154
+-   Endpoints: (-0.6358, 3.7384, -2.5293) -> (-0.6260, 3.7292, -2.5327)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.6358, 3.7384, -2.5293) | End (-0.6260, 3.7292, -2.5327) | Center (-0.6260, 3.7384, -2.5293)
+-   Face Tags: 61612, 61616
+-   Face Indices: 109, 21
+-   Topology Vertices: 11 -> 81
+-   Analytic Curve Type: Arc
+- Edge 54: Linear | Length: 0.9764 | Connected Faces: 2 | Tag: 61948
+-   Endpoints: (0.4390, 3.4303, -2.3865) -> (0.4390, 3.1018, -1.4670)
+-   Curve Props: Arc Length 0.9764 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4390, 3.4303, -2.3865) | End (0.4390, 3.1018, -1.4670) | Center (0.4390, 3.2660, -1.9268)
+-   Face Tags: 61448, 61488
+-   Face Indices: 37, 76
+-   Topology Vertices: 82 -> 13
+-   Analytic Curve Type: Line
+- Edge 55: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62130
+-   Endpoints: (-0.8524, 3.7314, 0.2024) -> (-0.8425, 3.7405, 0.1988)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.8524, 3.7314, 0.2024) | End (-0.8425, 3.7405, 0.1988) | Center (-0.8425, 3.7314, 0.2024)
+-   Face Tags: 61588, 61592
+-   Face Indices: 88, 54
+-   Topology Vertices: 83 -> 49
+-   Analytic Curve Type: Arc
+- Edge 56: Circular | Length: 0.8534 | Connected Faces: 2 | Tag: 61866
+-   Endpoints: (-0.6260, 4.0276, -2.4260) -> (-0.6260, 4.0276, -2.4260)
+-   Curve Props: Arc Length 0.8534 | Radius 0.1358 | Diameter 0.2717 | Min Curvature Radius 0.1358
+-   Curve Points: Start (-0.6260, 4.0276, -2.4260) | End (-0.6260, 4.0276, -2.4260) | Center (-0.6260, 4.1555, -2.3803)
+-   Face Tags: 61454, 61528
+-   Face Indices: 74, 28
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 57: Intersection | Length: 0.0162 | Connected Faces: 2 | Tag: 61882
+-   Endpoints: (0.4862, 3.2995, -1.3361) -> (0.4867, 3.2960, -1.3203)
+-   Face Tags: 61508, 61520
+-   Face Indices: 18, 59
+-   Topology Vertices: 84 -> 85
+- Edge 58: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62084
+-   Endpoints: (0.4390, 3.1078, -1.4545) -> (0.4390, 3.1018, -1.4670)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.4390, 3.1078, -1.4545) | End (0.4390, 3.1018, -1.4670) | Center (0.4390, 3.1111, -1.4637)
+-   Face Tags: 61542, 61546
+-   Face Indices: 39, 29
+-   Topology Vertices: 86 -> 13
+-   Analytic Curve Type: Arc
+- Edge 59: Circular | Length: 1.4224 | Connected Faces: 2 | Tag: 61642
+-   Endpoints: (-0.6260, 3.7292, -2.5327) -> (-0.6260, 4.5819, -2.2280)
+-   Curve Props: Arc Length 1.4224 | Radius 0.4528 | Diameter 0.9055 | Min Curvature Radius 0.4528
+-   Curve Points: Start (-0.6260, 3.7292, -2.5327) | End (-0.6260, 4.5819, -2.2280) | Center (-0.6260, 4.1555, -2.3803)
+-   Face Tags: 61420, 61612
+-   Face Indices: 40, 109
+-   Topology Vertices: 81 -> 87
+-   Analytic Curve Type: Arc
+- Edge 60: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61852
+-   Endpoints: (-0.8524, 3.5236, 0.6340) -> (-0.7028, 3.5236, 0.6340)
+-   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8524, 3.5236, 0.6340) | End (-0.7028, 3.5236, 0.6340) | Center (-0.7776, 3.5236, 0.6340)
+-   Face Tags: 61444, 61532
+-   Face Indices: 68, 19
+-   Topology Vertices: 88 -> 89
+-   Analytic Curve Type: Line
+- Edge 61: Elliptical | Length: 0.3076 | Connected Faces: 2 | Tag: 61938
+-   Endpoints: (0.6486, 3.2147, -1.0925) -> (0.4867, 3.2960, -1.3203)
+-   Face Tags: 61424, 61508
+-   Face Indices: 31, 18
+-   Topology Vertices: 54 -> 85
+- Edge 62: Circular | Length: 0.2661 | Connected Faces: 2 | Tag: 61824
+-   Endpoints: (-0.4390, 3.4429, -2.3925) -> (-0.6239, 3.5930, -2.3388)
+-   Curve Props: Arc Length 0.2661 | Radius 0.1870 | Diameter 0.3740 | Min Curvature Radius 0.1870
+-   Curve Points: Start (-0.4390, 3.4429, -2.3925) | End (-0.6239, 3.5930, -2.3388) | Center (-0.4390, 3.6190, -2.3295)
+-   Face Tags: 61416, 61628
+-   Face Indices: 12, 106
+-   Topology Vertices: 80 -> 16
+-   Analytic Curve Type: Arc
+- Edge 63: Elliptical | Length: 0.3113 | Connected Faces: 2 | Tag: 61740
+-   Endpoints: (0.6869, 3.2625, -1.2264) -> (0.8425, 3.1790, -0.9926)
+-   Face Tags: 61424, 61566
+-   Face Indices: 31, 82
+-   Topology Vertices: 20 -> 90
+- Edge 64: Circular | Length: 0.2801 | Connected Faces: 2 | Tag: 61814
+-   Endpoints: (0.4390, 3.4303, -2.3865) -> (0.6337, 3.5883, -2.3300)
+-   Curve Props: Arc Length 0.2801 | Radius 0.1969 | Diameter 0.3937 | Min Curvature Radius 0.1969
+-   Curve Points: Start (0.4390, 3.4303, -2.3865) | End (0.6337, 3.5883, -2.3300) | Center (0.4390, 3.6157, -2.3203)
+-   Face Tags: 61488, 61634
+-   Face Indices: 76, 110
+-   Topology Vertices: 82 -> 66
+-   Analytic Curve Type: Arc
+- Edge 65: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62162
+-   Endpoints: (-0.6358, 3.6175, -2.3254) -> (-0.6260, 3.6170, -2.3352)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.6358, 3.6175, -2.3254) | End (-0.6260, 3.6170, -2.3352) | Center (-0.6260, 3.6175, -2.3254)
+-   Face Tags: 61620, 61624
+-   Face Indices: 17, 5
+-   Topology Vertices: 91 -> 17
+-   Analytic Curve Type: Arc
+- Edge 66: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61978
+-   Endpoints: (-0.4862, 3.7292, -2.5327) -> (-0.6260, 3.7292, -2.5327)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4862, 3.7292, -2.5327) | End (-0.6260, 3.7292, -2.5327) | Center (-0.5561, 3.7292, -2.5327)
+-   Face Tags: 61418, 61420
+-   Face Indices: 7, 40
+-   Topology Vertices: 92 -> 81
+-   Analytic Curve Type: Line
+- Edge 67: Elliptical | Length: 0.3248 | Connected Faces: 2 | Tag: 61928
+-   Endpoints: (-0.6486, 4.2433, -1.2802) -> (-0.4862, 4.3304, -1.5242)
+-   Face Tags: 61426, 61510
+-   Face Indices: 83, 62
+-   Topology Vertices: 93 -> 94
+- Edge 68: Linear | Length: 0.8780 | Connected Faces: 2 | Tag: 61730
+-   Endpoints: (-0.4390, 3.1078, -1.4545) -> (0.4390, 3.1078, -1.4545)
+-   Curve Props: Arc Length 0.8780 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4390, 3.1078, -1.4545) | End (0.4390, 3.1078, -1.4545) | Center (-0.0000, 3.1078, -1.4545)
+-   Face Tags: 61446, 61542
+-   Face Indices: 100, 39
+-   Topology Vertices: 95 -> 86
+-   Analytic Curve Type: Line
+- Edge 69: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62138
+-   Endpoints: (-0.8524, 4.1945, -1.1729) -> (-0.8425, 4.2038, -1.1696)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.8524, 4.1945, -1.1729) | End (-0.8425, 4.2038, -1.1696) | Center (-0.8425, 4.1945, -1.1729)
+-   Face Tags: 61596, 61600
+-   Face Indices: 44, 34
+-   Topology Vertices: 53 -> 96
+-   Analytic Curve Type: Arc
+- Edge 70: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61828
+-   Endpoints: (-0.7028, 2.8134, 0.7020) -> (-0.7028, 2.8344, 0.7106)
+-   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
+-   Curve Points: Start (-0.7028, 2.8134, 0.7020) | End (-0.7028, 2.8344, 0.7106) | Center (-0.7028, 2.8318, 0.6872)
+-   Face Tags: 61492, 61538
+-   Face Indices: 61, 51
+-   Topology Vertices: 73 -> 97
+-   Analytic Curve Type: Arc
+- Edge 71: Circular | Length: 0.3298 | Connected Faces: 2 | Tag: 62052
+-   Endpoints: (-0.7028, 2.4570, 1.1979) -> (-0.7028, 2.2805, 0.9900)
+-   Curve Props: Arc Length 0.3298 | Radius 0.1575 | Diameter 0.3150 | Min Curvature Radius 0.1575
+-   Curve Points: Start (-0.7028, 2.4570, 1.1979) | End (-0.7028, 2.2805, 0.9900) | Center (-0.7028, 2.4288, 1.0429)
+-   Face Tags: 61432, 61492
+-   Face Indices: 10, 61
+-   Topology Vertices: 98 -> 99
+-   Analytic Curve Type: Arc
+- Edge 72: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62150
+-   Endpoints: (-0.6358, 4.5726, -2.2313) -> (-0.6260, 4.5819, -2.2280)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.6358, 4.5726, -2.2313) | End (-0.6260, 4.5819, -2.2280) | Center (-0.6260, 4.5726, -2.2313)
+-   Face Tags: 61608, 61612
+-   Face Indices: 13, 109
+-   Topology Vertices: 10 -> 87
+-   Analytic Curve Type: Arc
+- Edge 73: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 62036
+-   Endpoints: (0.7028, 3.2654, 1.0504) -> (0.7028, 2.4570, 1.1979)
+-   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.7028, 3.2654, 1.0504) | End (0.7028, 2.4570, 1.1979) | Center (0.7028, 2.8612, 1.1241)
+-   Face Tags: 61466, 61494
+-   Face Indices: 4, 3
+-   Topology Vertices: 74 -> 61
+-   Analytic Curve Type: Line
+- Edge 74: Linear | Length: 0.8759 | Connected Faces: 2 | Tag: 61776
+-   Endpoints: (0.8524, 2.8936, -0.1645) -> (0.8524, 3.1882, -0.9893)
+-   Curve Props: Arc Length 0.8759 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8524, 2.8936, -0.1645) | End (0.8524, 3.1882, -0.9893) | Center (0.8524, 3.0409, -0.5769)
+-   Face Tags: 61462, 61570
+-   Face Indices: 49, 66
+-   Topology Vertices: 100 -> 101
+-   Analytic Curve Type: Line
+- Edge 75: Circular | Length: 0.0704 | Connected Faces: 2 | Tag: 62040
+-   Endpoints: (-0.7028, 3.7395, 0.1299) -> (-0.7028, 3.7405, 0.1988)
+-   Curve Props: Arc Length 0.0704 | Radius 0.0984 | Diameter 0.1969 | Min Curvature Radius 0.0984
+-   Curve Points: Start (-0.7028, 3.7395, 0.1299) | End (-0.7028, 3.7405, 0.1988) | Center (-0.7028, 3.8322, 0.1630)
+-   Face Tags: 61440, 61492
+-   Face Indices: 98, 61
+-   Topology Vertices: 79 -> 48
+-   Analytic Curve Type: Arc
+- Edge 76: Circular | Length: 1.4224 | Connected Faces: 2 | Tag: 61794
+-   Endpoints: (0.6260, 4.5819, -2.2280) -> (0.6260, 3.7292, -2.5327)
+-   Curve Props: Arc Length 1.4224 | Radius 0.4528 | Diameter 0.9055 | Min Curvature Radius 0.4528
+-   Curve Points: Start (0.6260, 4.5819, -2.2280) | End (0.6260, 3.7292, -2.5327) | Center (0.6260, 4.1555, -2.3803)
+-   Face Tags: 61452, 61618
+-   Face Indices: 26, 87
+-   Topology Vertices: 102 -> 103
+-   Analytic Curve Type: Arc
+- Edge 77: Circular | Length: 0.0448 | Connected Faces: 2 | Tag: 62004
+-   Endpoints: (0.4773, 3.5930, -2.3388) -> (0.4390, 3.5745, -2.3454)
+-   Curve Props: Arc Length 0.0448 | Radius 0.0472 | Diameter 0.0945 | Min Curvature Radius 0.0472
+-   Curve Points: Start (0.4773, 3.5930, -2.3388) | End (0.4390, 3.5745, -2.3454) | Center (0.4390, 3.6190, -2.3295)
+-   Face Tags: 61416, 61502
+-   Face Indices: 12, 92
+-   Topology Vertices: 104 -> 75
+-   Analytic Curve Type: Arc
+- Edge 78: Linear | Length: 1.0229 | Connected Faces: 2 | Tag: 61908
+-   Endpoints: (0.6900, 3.2701, -1.2323) -> (0.6900, 4.2763, -1.4159)
+-   Curve Props: Arc Length 1.0229 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6900, 3.2701, -1.2323) | End (0.6900, 4.2763, -1.4159) | Center (0.6900, 3.7732, -1.3241)
+-   Face Tags: 61506, 61516
+-   Face Indices: 78, 72
+-   Topology Vertices: 21 -> 33
+-   Analytic Curve Type: Line
+- Edge 79: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61766
+-   Endpoints: (0.8524, 3.2636, 1.0407) -> (0.8524, 2.4553, 1.1882)
+-   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8524, 3.2636, 1.0407) | End (0.8524, 2.4553, 1.1882) | Center (0.8524, 2.8594, 1.1144)
+-   Face Tags: 61462, 61590
+-   Face Indices: 49, 11
+-   Topology Vertices: 105 -> 60
+-   Analytic Curve Type: Line
+- Edge 80: Circular | Length: 0.0861 | Connected Faces: 2 | Tag: 61710
+-   Endpoints: (-0.6358, 3.6828, -2.3736) -> (-0.6358, 3.6175, -2.3254)
+-   Curve Props: Arc Length 0.0861 | Radius 0.0728 | Diameter 0.1457 | Min Curvature Radius 0.0728
+-   Curve Points: Start (-0.6358, 3.6828, -2.3736) | End (-0.6358, 3.6175, -2.3254) | Center (-0.6358, 3.6142, -2.3981)
+-   Face Tags: 61484, 61620
+-   Face Indices: 91, 17
+-   Topology Vertices: 106 -> 91
+-   Analytic Curve Type: Arc
+- Edge 81: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61974
+-   Endpoints: (-0.7028, 2.8843, -0.1678) -> (-0.8425, 2.8843, -0.1678)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 2.8843, -0.1678) | End (-0.8425, 2.8843, -0.1678) | Center (-0.7726, 2.8843, -0.1678)
+-   Face Tags: 61438, 61458
+-   Face Indices: 93, 24
+-   Topology Vertices: 107 -> 108
+-   Analytic Curve Type: Line
+- Edge 82: Linear | Length: 1.0456 | Connected Faces: 2 | Tag: 61926
+-   Endpoints: (0.7028, 4.2142, -1.1989) -> (0.7028, 3.1856, -1.0112)
+-   Curve Props: Arc Length 1.0456 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.7028, 4.2142, -1.1989) | End (0.7028, 3.1856, -1.0112) | Center (0.7028, 3.6999, -1.1050)
+-   Face Tags: 61494, 61512
+-   Face Indices: 3, 108
+-   Topology Vertices: 109 -> 110
+-   Analytic Curve Type: Line
+- Edge 83: Linear | Length: 0.8780 | Connected Faces: 2 | Tag: 62018
+-   Endpoints: (0.4390, 3.2394, -1.4074) -> (-0.4390, 3.2394, -1.4074)
+-   Curve Props: Arc Length 0.8780 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4390, 3.2394, -1.4074) | End (-0.4390, 3.2394, -1.4074) | Center (-0.0000, 3.2394, -1.4074)
+-   Face Tags: 61446, 61490
+-   Face Indices: 100, 75
+-   Topology Vertices: 111 -> 112
+-   Analytic Curve Type: Line
+- Edge 84: Linear | Length: 0.1393 | Connected Faces: 2 | Tag: 61898
+-   Endpoints: (0.4867, 3.2960, -1.3203) -> (0.6260, 3.2960, -1.3203)
+-   Curve Props: Arc Length 0.1393 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4867, 3.2960, -1.3203) | End (0.6260, 3.2960, -1.3203) | Center (0.5563, 3.2960, -1.3203)
+-   Face Tags: 61424, 61520
+-   Face Indices: 31, 59
+-   Topology Vertices: 85 -> 113
+-   Analytic Curve Type: Line
+- Edge 85: Circular | Length: 1.1139 | Connected Faces: 2 | Tag: 61756
+-   Endpoints: (0.8425, 3.2654, 1.0504) -> (0.8425, 3.7405, 0.1988)
+-   Curve Props: Arc Length 1.1139 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
+-   Curve Points: Start (0.8425, 3.2654, 1.0504) | End (0.8425, 3.7405, 0.1988) | Center (0.8425, 3.1520, 0.4287)
+-   Face Tags: 61464, 61594
+-   Face Indices: 105, 107
+-   Topology Vertices: 35 -> 4
+-   Analytic Curve Type: Arc
+- Edge 86: Circular | Length: 0.0861 | Connected Faces: 2 | Tag: 61700
+-   Endpoints: (-0.6358, 3.2854, -1.3957) -> (-0.6358, 3.3053, -1.3170)
+-   Curve Props: Arc Length 0.0861 | Radius 0.0728 | Diameter 0.1457 | Min Curvature Radius 0.0728
+-   Curve Points: Start (-0.6358, 3.2854, -1.3957) | End (-0.6358, 3.3053, -1.3170) | Center (-0.6358, 3.2367, -1.3415)
+-   Face Tags: 61484, 61548
+-   Face Indices: 91, 81
+-   Topology Vertices: 114 -> 115
+-   Analytic Curve Type: Arc
+- Edge 87: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61988
+-   Endpoints: (0.8425, 3.7405, 0.1988) -> (0.7028, 3.7405, 0.1988)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8425, 3.7405, 0.1988) | End (0.7028, 3.7405, 0.1988) | Center (0.7726, 3.7405, 0.1988)
+-   Face Tags: 61464, 61476
+-   Face Indices: 105, 2
+-   Topology Vertices: 4 -> 68
+-   Analytic Curve Type: Line
+- Edge 88: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61676
+-   Endpoints: (-0.8524, 2.4553, 1.1882) -> (-0.8524, 3.2636, 1.0407)
+-   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8524, 2.4553, 1.1882) | End (-0.8524, 3.2636, 1.0407) | Center (-0.8524, 2.8594, 1.1144)
+-   Face Tags: 61456, 61584
+-   Face Indices: 70, 84
+-   Topology Vertices: 116 -> 44
+-   Analytic Curve Type: Line
+- Edge 89: Intersection | Length: 0.0298 | Connected Faces: 2 | Tag: 61720
+-   Endpoints: (-0.6358, 3.6175, -2.3254) -> (-0.6337, 3.5883, -2.3300)
+-   Face Tags: 61486, 61624
+-   Face Indices: 56, 5
+-   Topology Vertices: 91 -> 117
+- Edge 90: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62110
+-   Endpoints: (-0.8524, 2.8528, -0.1166) -> (-0.8425, 2.8480, -0.1252)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.8524, 2.8528, -0.1166) | End (-0.8425, 2.8480, -0.1252) | Center (-0.8425, 2.8528, -0.1166)
+-   Face Tags: 61568, 61572
+-   Face Indices: 1, 9
+-   Topology Vertices: 118 -> 63
+-   Analytic Curve Type: Arc
+- Edge 91: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61888
+-   Endpoints: (0.6260, 3.6735, -2.3769) -> (0.4862, 3.6735, -2.3769)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6260, 3.6735, -2.3769) | End (0.4862, 3.6735, -2.3769) | Center (0.5561, 3.6735, -2.3769)
+-   Face Tags: 61450, 61526
+-   Face Indices: 89, 48
+-   Topology Vertices: 119 -> 120
+-   Analytic Curve Type: Line
+- Edge 92: Circular | Length: 0.0572 | Connected Faces: 2 | Tag: 61746
+-   Endpoints: (0.8425, 2.8843, -0.1678) -> (0.8425, 2.8480, -0.1252)
+-   Curve Props: Arc Length 0.0572 | Radius 0.0787 | Diameter 0.1575 | Min Curvature Radius 0.0787
+-   Curve Points: Start (0.8425, 2.8843, -0.1678) | End (0.8425, 2.8480, -0.1252) | Center (0.8425, 2.8102, -0.1943)
+-   Face Tags: 61474, 61574
+-   Face Indices: 60, 52
+-   Topology Vertices: 64 -> 30
+-   Analytic Curve Type: Arc
+- Edge 93: Elliptical | Length: 0.1106 | Connected Faces: 2 | Tag: 61690
+-   Endpoints: (-0.6900, 4.2763, -1.4159) -> (-0.6358, 4.3107, -1.4982)
+-   Face Tags: 61518, 61604
+-   Face Indices: 15, 41
+-   Topology Vertices: 24 -> 2
+- Edge 94: Linear | Length: 0.8759 | Connected Faces: 2 | Tag: 61666
+-   Endpoints: (-0.8524, 3.1882, -0.9893) -> (-0.8524, 2.8936, -0.1645)
+-   Curve Props: Arc Length 0.8759 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8524, 3.1882, -0.9893) | End (-0.8524, 2.8936, -0.1645) | Center (-0.8524, 3.0409, -0.5769)
+-   Face Tags: 61456, 61564
+-   Face Indices: 70, 30
+-   Topology Vertices: 121 -> 122
+-   Analytic Curve Type: Line
+- Edge 95: Circular | Length: 1.8613 | Connected Faces: 2 | Tag: 62060
+-   Endpoints: (0.7028, 2.8134, 0.7020) -> (0.7028, 3.5422, 0.6210)
+-   Curve Props: Arc Length 1.8613 | Radius 0.4350 | Diameter 0.8701 | Min Curvature Radius 0.4350
+-   Curve Points: Start (0.7028, 2.8134, 0.7020) | End (0.7028, 3.5422, 0.6210) | Center (0.7028, 3.1520, 0.4287)
+-   Face Tags: 61478, 61494
+-   Face Indices: 25, 3
+-   Topology Vertices: 6 -> 123
+-   Analytic Curve Type: Arc
+- Edge 96: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 62050
+-   Endpoints: (-0.7028, 2.2805, 0.9900) -> (-0.7028, 2.5569, 0.2162)
+-   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 2.2805, 0.9900) | End (-0.7028, 2.5569, 0.2162) | Center (-0.7028, 2.4187, 0.6031)
+-   Face Tags: 61434, 61492
+-   Face Indices: 53, 61
+-   Topology Vertices: 99 -> 124
+-   Analytic Curve Type: Line
+- Edge 97: Elliptical | Length: 0.3225 | Connected Faces: 2 | Tag: 61684
+-   Endpoints: (-0.6900, 3.2701, -1.2323) -> (-0.8524, 3.1882, -0.9893)
+-   Face Tags: 61504, 61560
+-   Face Indices: 27, 79
+-   Topology Vertices: 125 -> 121
+- Edge 98: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61656
+-   Endpoints: (-0.8425, 3.2654, 1.0504) -> (-0.8425, 2.4570, 1.1979)
+-   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8425, 3.2654, 1.0504) | End (-0.8425, 2.4570, 1.1979) | Center (-0.8425, 2.8612, 1.1241)
+-   Face Tags: 61430, 61584
+-   Face Indices: 67, 84
+-   Topology Vertices: 45 -> 126
+-   Analytic Curve Type: Line
+- Edge 99: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62132
+-   Endpoints: (0.8425, 3.2654, 1.0504) -> (0.8524, 3.2636, 1.0407)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.8425, 3.2654, 1.0504) | End (0.8524, 3.2636, 1.0407) | Center (0.8425, 3.2636, 1.0407)
+-   Face Tags: 61590, 61594
+-   Face Indices: 11, 107
+-   Topology Vertices: 35 -> 105
+-   Analytic Curve Type: Arc
+- Edge 100: Elliptical | Length: 0.1083 | Connected Faces: 2 | Tag: 61916
+-   Endpoints: (0.6486, 4.2433, -1.2802) -> (0.7028, 4.2142, -1.1989)
+-   Face Tags: 61460, 61512
+-   Face Indices: 90, 108
+-   Topology Vertices: 19 -> 109
+- Edge 101: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62094
+-   Endpoints: (-0.6358, 3.3045, -1.3146) -> (-0.6260, 3.2952, -1.3179)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.6358, 3.3045, -1.3146) | End (-0.6260, 3.2952, -1.3179) | Center (-0.6260, 3.3045, -1.3146)
+-   Face Tags: 61552, 61556
+-   Face Indices: 65, 63
+-   Topology Vertices: 50 -> 127
+-   Analytic Curve Type: Arc
+- Edge 102: Intersection | Length: 0.0304 | Connected Faces: 2 | Tag: 61868
+-   Endpoints: (0.4862, 3.6211, -2.3355) -> (0.4773, 3.5930, -2.3388)
+-   Face Tags: 61502, 61526
+-   Face Indices: 92, 48
+-   Topology Vertices: 128 -> 104
+- Edge 103: Elliptical | Length: 0.1218 | Connected Faces: 2 | Tag: 61742
+-   Endpoints: (0.6260, 3.2952, -1.3179) -> (0.6869, 3.2625, -1.2264)
+-   Face Tags: 61424, 61562
+-   Face Indices: 31, 95
+-   Topology Vertices: 129 -> 20
+- Edge 104: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62134
+-   Endpoints: (-0.8524, 3.7303, 0.1266) -> (-0.8425, 3.7395, 0.1299)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.8524, 3.7303, 0.1266) | End (-0.8425, 3.7395, 0.1299) | Center (-0.8425, 3.7303, 0.1266)
+-   Face Tags: 61592, 61596
+-   Face Indices: 54, 44
+-   Topology Vertices: 52 -> 72
+-   Analytic Curve Type: Arc
+- Edge 105: Elliptical | Length: 0.3113 | Connected Faces: 2 | Tag: 61646
+-   Endpoints: (-0.6869, 4.2873, -1.4034) -> (-0.8425, 4.2038, -1.1696)
+-   Face Tags: 61426, 61600
+-   Face Indices: 83, 34
+-   Topology Vertices: 25 -> 96
+- Edge 106: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62088
+-   Endpoints: (0.6239, 3.2579, -1.4008) -> (0.6337, 3.2599, -1.4106)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.6239, 3.2579, -1.4008) | End (0.6337, 3.2599, -1.4106) | Center (0.6239, 3.2612, -1.4101)
+-   Face Tags: 61546, 61550
+-   Face Indices: 29, 20
+-   Topology Vertices: 130 -> 12
+-   Analytic Curve Type: Arc
+- Edge 107: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62116
+-   Endpoints: (0.8425, 2.8480, -0.1252) -> (0.8524, 2.8528, -0.1166)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.8425, 2.8480, -0.1252) | End (0.8524, 2.8528, -0.1166) | Center (0.8425, 2.8528, -0.1166)
+-   Face Tags: 61574, 61578
+-   Face Indices: 52, 42
+-   Topology Vertices: 30 -> 41
+-   Analytic Curve Type: Arc
+- Edge 108: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62168
+-   Endpoints: (0.6260, 3.6170, -2.3352) -> (0.6358, 3.6175, -2.3254)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.6260, 3.6170, -2.3352) | End (0.6358, 3.6175, -2.3254) | Center (0.6260, 3.6175, -2.3254)
+-   Face Tags: 61626, 61630
+-   Face Indices: 50, 14
+-   Topology Vertices: 22 -> 9
+-   Analytic Curve Type: Arc
+- Edge 109: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62144
+-   Endpoints: (0.8425, 4.2038, -1.1696) -> (0.8524, 4.1945, -1.1729)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.8425, 4.2038, -1.1696) | End (0.8524, 4.1945, -1.1729) | Center (0.8425, 4.1945, -1.1729)
+-   Face Tags: 61602, 61606
+-   Face Indices: 86, 69
+-   Topology Vertices: 46 -> 131
+-   Analytic Curve Type: Arc
+- Edge 110: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61854
+-   Endpoints: (-0.7028, 2.8344, 0.7106) -> (-0.8524, 2.8344, 0.7106)
+-   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 2.8344, 0.7106) | End (-0.8524, 2.8344, 0.7106) | Center (-0.7776, 2.8344, 0.7106)
+-   Face Tags: 61444, 61538
+-   Face Indices: 68, 51
+-   Topology Vertices: 97 -> 77
+-   Analytic Curve Type: Line
+- Edge 111: Circular | Length: 0.0448 | Connected Faces: 2 | Tag: 62010
+-   Endpoints: (-0.4773, 3.2579, -1.4008) -> (-0.4390, 3.2394, -1.4074)
+-   Curve Props: Arc Length 0.0448 | Radius 0.0472 | Diameter 0.0945 | Min Curvature Radius 0.0472
+-   Curve Points: Start (-0.4773, 3.2579, -1.4008) | End (-0.4390, 3.2394, -1.4074) | Center (-0.4390, 3.2839, -1.3915)
+-   Face Tags: 61446, 61500
+-   Face Indices: 100, 38
+-   Topology Vertices: 132 -> 112
+-   Analytic Curve Type: Arc
+- Edge 112: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61848
+-   Endpoints: (0.8524, 3.5422, 0.6210) -> (0.7028, 3.5422, 0.6210)
+-   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8524, 3.5422, 0.6210) | End (0.7028, 3.5422, 0.6210) | Center (0.7776, 3.5422, 0.6210)
+-   Face Tags: 61478, 61534
+-   Face Indices: 25, 64
+-   Topology Vertices: 78 -> 123
+-   Analytic Curve Type: Line
+- Edge 113: Linear | Length: 0.0025 | Connected Faces: 2 | Tag: 61806
+-   Endpoints: (0.6358, 3.3045, -1.3146) -> (0.6358, 3.3053, -1.3170)
+-   Curve Props: Arc Length 0.0025 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6358, 3.3045, -1.3146) | End (0.6358, 3.3053, -1.3170) | Center (0.6358, 3.3049, -1.3158)
+-   Face Tags: 61482, 61558
+-   Face Indices: 43, 35
+-   Topology Vertices: 133 -> 134
+-   Analytic Curve Type: Line
+- Edge 114: Linear | Length: 1.0229 | Connected Faces: 2 | Tag: 61942
+-   Endpoints: (-0.8524, 4.1945, -1.1729) -> (-0.8524, 3.1882, -0.9893)
+-   Curve Props: Arc Length 1.0229 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8524, 4.1945, -1.1729) | End (-0.8524, 3.1882, -0.9893) | Center (-0.8524, 3.6914, -1.0811)
+-   Face Tags: 61456, 61504
+-   Face Indices: 70, 27
+-   Topology Vertices: 53 -> 121
+-   Analytic Curve Type: Line
+- Edge 115: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62124
+-   Endpoints: (0.8425, 2.2805, 0.9900) -> (0.8524, 2.2897, 0.9933)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.8425, 2.2805, 0.9900) | End (0.8524, 2.2897, 0.9933) | Center (0.8425, 2.2897, 0.9933)
+-   Face Tags: 61582, 61586
+-   Face Indices: 32, 23
+-   Topology Vertices: 56 -> 135
+-   Analytic Curve Type: Arc
+- Edge 116: Intersection | Length: 0.0298 | Connected Faces: 2 | Tag: 61818
+-   Endpoints: (0.6358, 3.2854, -1.3957) -> (0.6337, 3.2599, -1.4106)
+-   Face Tags: 61488, 61550
+-   Face Indices: 76, 20
+-   Topology Vertices: 8 -> 12
+- Edge 117: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62120
+-   Endpoints: (0.8425, 2.5569, 0.2162) -> (0.8524, 2.5662, 0.2195)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.8425, 2.5569, 0.2162) | End (0.8524, 2.5662, 0.2195) | Center (0.8425, 2.5662, 0.2195)
+-   Face Tags: 61578, 61582
+-   Face Indices: 42, 32
+-   Topology Vertices: 26 -> 40
+-   Analytic Curve Type: Arc
+- Edge 118: Intersection | Length: 0.0304 | Connected Faces: 2 | Tag: 61876
+-   Endpoints: (-0.4862, 3.2817, -1.3856) -> (-0.4773, 3.2579, -1.4008)
+-   Face Tags: 61500, 61522
+-   Face Indices: 38, 73
+-   Topology Vertices: 15 -> 132
+- Edge 119: Circular | Length: 0.0203 | Connected Faces: 2 | Tag: 62148
+-   Endpoints: (0.6869, 4.2873, -1.4034) -> (0.6900, 4.2763, -1.4159)
+-   Curve Props: Arc Length 0.0203 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.6869, 4.2873, -1.4034) | End (0.6900, 4.2763, -1.4159) | Center (0.6869, 4.2780, -1.4067)
+-   Face Tags: 61606, 61610
+-   Face Indices: 69, 55
+-   Topology Vertices: 47 -> 33
+-   Analytic Curve Type: Arc
+- Edge 120: Circular | Length: 0.0745 | Connected Faces: 2 | Tag: 61636
+-   Endpoints: (-0.6260, 3.6170, -2.3352) -> (-0.6260, 3.6735, -2.3769)
+-   Curve Props: Arc Length 0.0745 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
+-   Curve Points: Start (-0.6260, 3.6170, -2.3352) | End (-0.6260, 3.6735, -2.3769) | Center (-0.6260, 3.6142, -2.3981)
+-   Face Tags: 61524, 61620
+-   Face Indices: 99, 17
+-   Topology Vertices: 17 -> 136
+-   Analytic Curve Type: Arc
+- Edge 121: Linear | Length: 0.1654 | Connected Faces: 2 | Tag: 62076
+-   Endpoints: (-0.4862, 3.7292, -2.5327) -> (-0.4862, 3.6735, -2.3769)
+-   Curve Props: Arc Length 0.1654 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4862, 3.7292, -2.5327) | End (-0.4862, 3.6735, -2.3769) | Center (-0.4862, 3.7013, -2.4548)
+-   Face Tags: 61418, 61498
+-   Face Indices: 7, 103
+-   Topology Vertices: 92 -> 137
+-   Analytic Curve Type: Line
+- Edge 122: Linear | Length: 1.0480 | Connected Faces: 2 | Tag: 61932
+-   Endpoints: (-0.4862, 4.3304, -1.5242) -> (-0.4862, 3.2995, -1.3361)
+-   Curve Props: Arc Length 1.0480 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4862, 4.3304, -1.5242) | End (-0.4862, 3.2995, -1.3361) | Center (-0.4862, 3.8150, -1.4301)
+-   Face Tags: 61498, 61510
+-   Face Indices: 103, 62
+-   Topology Vertices: 94 -> 14
+-   Analytic Curve Type: Line
+- Edge 123: Linear | Length: 0.9961 | Connected Faces: 2 | Tag: 62008
+-   Endpoints: (0.4390, 3.5745, -2.3454) -> (0.4390, 3.2394, -1.4074)
+-   Curve Props: Arc Length 0.9961 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4390, 3.5745, -2.3454) | End (0.4390, 3.2394, -1.4074) | Center (0.4390, 3.4069, -1.8764)
+-   Face Tags: 61490, 61502
+-   Face Indices: 75, 92
+-   Topology Vertices: 75 -> 111
+-   Analytic Curve Type: Line
+- Edge 124: Circular | Length: 0.0745 | Connected Faces: 2 | Tag: 61734
+-   Endpoints: (0.6260, 3.2788, -1.3884) -> (0.6260, 3.2960, -1.3203)
+-   Curve Props: Arc Length 0.0745 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
+-   Curve Points: Start (0.6260, 3.2788, -1.3884) | End (0.6260, 3.2960, -1.3203) | Center (0.6260, 3.2367, -1.3415)
+-   Face Tags: 61520, 61554
+-   Face Indices: 59, 8
+-   Topology Vertices: 138 -> 113
+-   Analytic Curve Type: Arc
+- Edge 125: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62160
+-   Endpoints: (0.6260, 3.7292, -2.5327) -> (0.6358, 3.7384, -2.5293)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.6260, 3.7292, -2.5327) | End (0.6358, 3.7384, -2.5293) | Center (0.6260, 3.7384, -2.5293)
+-   Face Tags: 61618, 61622
+-   Face Indices: 87, 101
+-   Topology Vertices: 103 -> 37
+-   Analytic Curve Type: Arc
+- Edge 126: Linear | Length: 0.6934 | Connected Faces: 2 | Tag: 62062
+-   Endpoints: (-0.7028, 3.5236, 0.6340) -> (-0.7028, 2.8344, 0.7106)
+-   Curve Props: Arc Length 0.6934 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 3.5236, 0.6340) | End (-0.7028, 2.8344, 0.7106) | Center (-0.7028, 3.1790, 0.6723)
+-   Face Tags: 61444, 61492
+-   Face Indices: 68, 61
+-   Topology Vertices: 89 -> 97
+-   Analytic Curve Type: Line
+- Edge 127: Intersection | Length: 0.0298 | Connected Faces: 2 | Tag: 61816
+-   Endpoints: (0.6337, 3.5883, -2.3300) -> (0.6358, 3.6175, -2.3254)
+-   Face Tags: 61488, 61630
+-   Face Indices: 76, 14
+-   Topology Vertices: 66 -> 9
+- Edge 128: Linear | Length: 1.0456 | Connected Faces: 2 | Tag: 61922
+-   Endpoints: (-0.6486, 4.2433, -1.2802) -> (-0.6486, 3.2147, -1.0925)
+-   Curve Props: Arc Length 1.0456 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6486, 4.2433, -1.2802) | End (-0.6486, 3.2147, -1.0925) | Center (-0.6486, 3.7290, -1.1863)
+-   Face Tags: 61510, 61514
+-   Face Indices: 62, 45
+-   Topology Vertices: 93 -> 38
+-   Analytic Curve Type: Line
+- Edge 129: Elliptical | Length: 0.3225 | Connected Faces: 2 | Tag: 61780
+-   Endpoints: (0.8524, 3.1882, -0.9893) -> (0.6900, 3.2701, -1.2323)
+-   Face Tags: 61506, 61566
+-   Face Indices: 78, 82
+-   Topology Vertices: 101 -> 21
+- Edge 130: Linear | Length: 0.8780 | Connected Faces: 2 | Tag: 61724
+-   Endpoints: (0.4390, 3.1018, -1.4670) -> (-0.4390, 3.1018, -1.4670)
+-   Curve Props: Arc Length 0.8780 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4390, 3.1018, -1.4670) | End (-0.4390, 3.1018, -1.4670) | Center (-0.0000, 3.1018, -1.4670)
+-   Face Tags: 61448, 61542
+-   Face Indices: 37, 39
+-   Topology Vertices: 13 -> 42
+-   Analytic Curve Type: Line
+- Edge 131: Linear | Length: 1.4110 | Connected Faces: 2 | Tag: 62042
+-   Endpoints: (-0.7028, 4.2142, -1.1989) -> (-0.7028, 3.7395, 0.1299)
+-   Curve Props: Arc Length 1.4110 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 4.2142, -1.1989) | End (-0.7028, 3.7395, 0.1299) | Center (-0.7028, 3.9769, -0.5345)
+-   Face Tags: 61426, 61492
+-   Face Indices: 83, 61
+-   Topology Vertices: 139 -> 79
+-   Analytic Curve Type: Line
+- Edge 132: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61838
+-   Endpoints: (0.7028, 3.5422, 0.6210) -> (0.7028, 3.5236, 0.6340)
+-   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
+-   Curve Points: Start (0.7028, 3.5422, 0.6210) | End (0.7028, 3.5236, 0.6340) | Center (0.7028, 3.5210, 0.6106)
+-   Face Tags: 61494, 61534
+-   Face Indices: 3, 64
+-   Topology Vertices: 123 -> 140
+-   Analytic Curve Type: Arc
+- Edge 133: Circular | Length: 0.0861 | Connected Faces: 2 | Tag: 61798
+-   Endpoints: (0.6358, 3.6175, -2.3254) -> (0.6358, 3.6828, -2.3736)
+-   Curve Props: Arc Length 0.0861 | Radius 0.0728 | Diameter 0.1457 | Min Curvature Radius 0.0728
+-   Curve Points: Start (0.6358, 3.6175, -2.3254) | End (0.6358, 3.6828, -2.3736) | Center (0.6358, 3.6142, -2.3981)
+-   Face Tags: 61482, 61626
+-   Face Indices: 43, 50
+-   Topology Vertices: 9 -> 36
+-   Analytic Curve Type: Arc
+- Edge 134: Elliptical | Length: 0.1083 | Connected Faces: 2 | Tag: 61912
+-   Endpoints: (-0.7028, 4.2142, -1.1989) -> (-0.6486, 4.2433, -1.2802)
+-   Face Tags: 61426, 61514
+-   Face Indices: 83, 45
+-   Topology Vertices: 139 -> 93
+- Edge 135: Circular | Length: 0.0704 | Connected Faces: 2 | Tag: 61870
+-   Endpoints: (0.4862, 3.6735, -2.3769) -> (0.4862, 3.6211, -2.3355)
+-   Curve Props: Arc Length 0.0704 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
+-   Curve Points: Start (0.4862, 3.6735, -2.3769) | End (0.4862, 3.6211, -2.3355) | Center (0.4862, 3.6142, -2.3981)
+-   Face Tags: 61496, 61526
+-   Face Indices: 47, 48
+-   Topology Vertices: 120 -> 128
+-   Analytic Curve Type: Arc
+- Edge 136: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61770
+-   Endpoints: (0.8524, 2.2897, 0.9933) -> (0.8524, 2.5662, 0.2195)
+-   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8524, 2.2897, 0.9933) | End (0.8524, 2.5662, 0.2195) | Center (0.8524, 2.4280, 0.6064)
+-   Face Tags: 61462, 61582
+-   Face Indices: 49, 32
+-   Topology Vertices: 135 -> 40
+-   Analytic Curve Type: Line
+- Edge 137: Circular | Length: 0.0745 | Connected Faces: 2 | Tag: 61714
+-   Endpoints: (-0.6260, 3.2960, -1.3203) -> (-0.6260, 3.2788, -1.3884)
+-   Curve Props: Arc Length 0.0745 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
+-   Curve Points: Start (-0.6260, 3.2960, -1.3203) | End (-0.6260, 3.2788, -1.3884) | Center (-0.6260, 3.2367, -1.3415)
+-   Face Tags: 61522, 61548
+-   Face Indices: 73, 81
+-   Topology Vertices: 141 -> 142
+-   Analytic Curve Type: Arc
+- Edge 138: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61840
+-   Endpoints: (-0.7028, 3.5236, 0.6340) -> (-0.7028, 3.5422, 0.6210)
+-   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
+-   Curve Points: Start (-0.7028, 3.5236, 0.6340) | End (-0.7028, 3.5422, 0.6210) | Center (-0.7028, 3.5210, 0.6106)
+-   Face Tags: 61492, 61532
+-   Face Indices: 61, 19
+-   Topology Vertices: 89 -> 143
+-   Analytic Curve Type: Arc
+- Edge 139: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61962
+-   Endpoints: (-0.7028, 2.2805, 0.9900) -> (-0.8425, 2.2805, 0.9900)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 2.2805, 0.9900) | End (-0.8425, 2.2805, 0.9900) | Center (-0.7726, 2.2805, 0.9900)
+-   Face Tags: 61432, 61434
+-   Face Indices: 10, 53
+-   Topology Vertices: 99 -> 29
+-   Analytic Curve Type: Line
+- Edge 140: Linear | Length: 0.1466 | Connected Faces: 2 | Tag: 61902
+-   Endpoints: (-0.4773, 3.2579, -1.4008) -> (-0.6239, 3.2579, -1.4008)
+-   Curve Props: Arc Length 0.1466 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4773, 3.2579, -1.4008) | End (-0.6239, 3.2579, -1.4008) | Center (-0.5506, 3.2579, -1.4008)
+-   Face Tags: 61446, 61522
+-   Face Indices: 100, 73
+-   Topology Vertices: 132 -> 144
+-   Analytic Curve Type: Line
+- Edge 141: Linear | Length: 1.3799 | Connected Faces: 2 | Tag: 61760
+-   Endpoints: (0.8524, 4.1945, -1.1729) -> (0.8524, 3.7303, 0.1266)
+-   Curve Props: Arc Length 1.3799 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8524, 4.1945, -1.1729) | End (0.8524, 3.7303, 0.1266) | Center (0.8524, 3.9624, -0.5232)
+-   Face Tags: 61462, 61602
+-   Face Indices: 49, 86
+-   Topology Vertices: 131 -> 51
+-   Analytic Curve Type: Line
+- Edge 142: Elliptical | Length: 0.3076 | Connected Faces: 2 | Tag: 61930
+-   Endpoints: (-0.4867, 3.2960, -1.3203) -> (-0.6486, 3.2147, -1.0925)
+-   Face Tags: 61458, 61510
+-   Face Indices: 24, 62
+-   Topology Vertices: 145 -> 38
+- Edge 143: Circular | Length: 0.0775 | Connected Faces: 2 | Tag: 61680
+-   Endpoints: (-0.8524, 3.7314, 0.2024) -> (-0.8524, 3.7303, 0.1266)
+-   Curve Props: Arc Length 0.0775 | Radius 0.1083 | Diameter 0.2165 | Min Curvature Radius 0.1083
+-   Curve Points: Start (-0.8524, 3.7314, 0.2024) | End (-0.8524, 3.7303, 0.1266) | Center (-0.8524, 3.8322, 0.1630)
+-   Face Tags: 61456, 61592
+-   Face Indices: 70, 54
+-   Topology Vertices: 83 -> 52
+-   Analytic Curve Type: Arc
+- Edge 144: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61894
+-   Endpoints: (-0.4862, 3.6735, -2.3769) -> (-0.6260, 3.6735, -2.3769)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4862, 3.6735, -2.3769) | End (-0.6260, 3.6735, -2.3769) | Center (-0.5561, 3.6735, -2.3769)
+-   Face Tags: 61418, 61524
+-   Face Indices: 7, 99
+-   Topology Vertices: 137 -> 136
+-   Analytic Curve Type: Line
+- Edge 145: Linear | Length: 0.1466 | Connected Faces: 2 | Tag: 61892
+-   Endpoints: (0.4773, 3.5930, -2.3388) -> (0.6239, 3.5930, -2.3388)
+-   Curve Props: Arc Length 0.1466 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4773, 3.5930, -2.3388) | End (0.6239, 3.5930, -2.3388) | Center (0.5506, 3.5930, -2.3388)
+-   Face Tags: 61416, 61526
+-   Face Indices: 12, 48
+-   Topology Vertices: 104 -> 23
+-   Analytic Curve Type: Line
+- Edge 146: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62112
+-   Endpoints: (0.8425, 2.8843, -0.1678) -> (0.8524, 2.8936, -0.1645)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.8425, 2.8843, -0.1678) | End (0.8524, 2.8936, -0.1645) | Center (0.8425, 2.8936, -0.1645)
+-   Face Tags: 61570, 61574
+-   Face Indices: 66, 52
+-   Topology Vertices: 64 -> 100
+-   Analytic Curve Type: Arc
+- Edge 147: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61750
+-   Endpoints: (0.8425, 2.5569, 0.2162) -> (0.8425, 2.2805, 0.9900)
+-   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8425, 2.5569, 0.2162) | End (0.8425, 2.2805, 0.9900) | Center (0.8425, 2.4187, 0.6031)
+-   Face Tags: 61470, 61582
+-   Face Indices: 85, 32
+-   Topology Vertices: 26 -> 56
+-   Analytic Curve Type: Line
+- Edge 148: Elliptical | Length: 0.1218 | Connected Faces: 2 | Tag: 61694
+-   Endpoints: (-0.6869, 3.2625, -1.2264) -> (-0.6260, 3.2952, -1.3179)
+-   Face Tags: 61458, 61556
+-   Face Indices: 24, 63
+-   Topology Vertices: 58 -> 127
+- Edge 149: Circular | Length: 0.0572 | Connected Faces: 2 | Tag: 62028
+-   Endpoints: (0.7028, 2.8480, -0.1252) -> (0.7028, 2.8843, -0.1678)
+-   Curve Props: Arc Length 0.0572 | Radius 0.0787 | Diameter 0.1575 | Min Curvature Radius 0.0787
+-   Curve Points: Start (0.7028, 2.8480, -0.1252) | End (0.7028, 2.8843, -0.1678) | Center (0.7028, 2.8102, -0.1943)
+-   Face Tags: 61474, 61494
+-   Face Indices: 60, 3
+-   Topology Vertices: 31 -> 65
+-   Analytic Curve Type: Arc
+- Edge 150: Circular | Length: 0.4515 | Connected Faces: 2 | Tag: 61670
+-   Endpoints: (-0.8524, 2.8528, -0.1166) -> (-0.8524, 2.5662, 0.2195)
+-   Curve Props: Arc Length 0.4515 | Radius 0.6220 | Diameter 1.2441 | Min Curvature Radius 0.6220
+-   Curve Points: Start (-0.8524, 2.8528, -0.1166) | End (-0.8524, 2.5662, 0.2195) | Center (-0.8524, 3.1520, 0.4287)
+-   Face Tags: 61456, 61572
+-   Face Indices: 70, 9
+-   Topology Vertices: 118 -> 59
+-   Analytic Curve Type: Arc
+- Edge 151: Circular | Length: 0.9153 | Connected Faces: 2 | Tag: 61864
+-   Endpoints: (-0.6358, 4.0183, -2.4293) -> (-0.6358, 4.0183, -2.4293)
+-   Curve Props: Arc Length 0.9153 | Radius 0.1457 | Diameter 0.2913 | Min Curvature Radius 0.1457
+-   Curve Points: Start (-0.6358, 4.0183, -2.4293) | End (-0.6358, 4.0183, -2.4293) | Center (-0.6358, 4.1555, -2.3803)
+-   Face Tags: 61484, 61528
+-   Face Indices: 91, 28
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 152: Linear | Length: 1.4110 | Connected Faces: 2 | Tag: 62024
+-   Endpoints: (0.7028, 4.2142, -1.1989) -> (0.7028, 3.7395, 0.1299)
+-   Curve Props: Arc Length 1.4110 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.7028, 4.2142, -1.1989) | End (0.7028, 3.7395, 0.1299) | Center (0.7028, 3.9769, -0.5345)
+-   Face Tags: 61460, 61494
+-   Face Indices: 90, 3
+-   Topology Vertices: 109 -> 67
+-   Analytic Curve Type: Line
+- Edge 153: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62106
+-   Endpoints: (-0.8524, 2.8936, -0.1645) -> (-0.8425, 2.8843, -0.1678)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.8524, 2.8936, -0.1645) | End (-0.8425, 2.8843, -0.1678) | Center (-0.8425, 2.8936, -0.1645)
+-   Face Tags: 61564, 61568
+-   Face Indices: 30, 1
+-   Topology Vertices: 122 -> 108
+-   Analytic Curve Type: Arc
+- Edge 154: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62174
+-   Endpoints: (0.4390, 3.4303, -2.3865) -> (0.4390, 3.4429, -2.3925)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.4390, 3.4303, -2.3865) | End (0.4390, 3.4429, -2.3925) | Center (0.4390, 3.4396, -2.3832)
+-   Face Tags: 61632, 61634
+-   Face Indices: 58, 110
+-   Topology Vertices: 82 -> 146
+-   Analytic Curve Type: Arc
+- Edge 155: Circular | Length: 0.4587 | Connected Faces: 2 | Tag: 62030
+-   Endpoints: (0.7028, 2.5569, 0.2162) -> (0.7028, 2.8480, -0.1252)
+-   Curve Props: Arc Length 0.4587 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
+-   Curve Points: Start (0.7028, 2.5569, 0.2162) | End (0.7028, 2.8480, -0.1252) | Center (0.7028, 3.1520, 0.4287)
+-   Face Tags: 61472, 61494
+-   Face Indices: 16, 3
+-   Topology Vertices: 27 -> 31
+-   Analytic Curve Type: Arc
+- Edge 156: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61660
+-   Endpoints: (-0.8425, 2.2805, 0.9900) -> (-0.8425, 2.5569, 0.2162)
+-   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8425, 2.2805, 0.9900) | End (-0.8425, 2.5569, 0.2162) | Center (-0.8425, 2.4187, 0.6031)
+-   Face Tags: 61434, 61576
+-   Face Indices: 53, 36
+-   Topology Vertices: 29 -> 62
+-   Analytic Curve Type: Line
+- Edge 157: Circular | Length: 0.0106 | Connected Faces: 2 | Tag: 62098
+-   Endpoints: (-0.6900, 3.2701, -1.2323) -> (-0.6869, 3.2625, -1.2264)
+-   Curve Props: Arc Length 0.0106 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.6900, 3.2701, -1.2323) | End (-0.6869, 3.2625, -1.2264) | Center (-0.6869, 3.2718, -1.2231)
+-   Face Tags: 61556, 61560
+-   Face Indices: 63, 79
+-   Topology Vertices: 125 -> 58
+-   Analytic Curve Type: Arc
+- Edge 158: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 62054
+-   Endpoints: (-0.7028, 3.2654, 1.0504) -> (-0.7028, 2.4570, 1.1979)
+-   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 3.2654, 1.0504) | End (-0.7028, 2.4570, 1.1979) | Center (-0.7028, 2.8612, 1.1241)
+-   Face Tags: 61430, 61492
+-   Face Indices: 67, 61
+-   Topology Vertices: 147 -> 98
+-   Analytic Curve Type: Line
+- Edge 159: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62086
+-   Endpoints: (-0.6358, 3.2854, -1.3957) -> (-0.6260, 3.2788, -1.3884)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.6358, 3.2854, -1.3957) | End (-0.6260, 3.2788, -1.3884) | Center (-0.6260, 3.2854, -1.3957)
+-   Face Tags: 61544, 61548
+-   Face Indices: 94, 81
+-   Topology Vertices: 114 -> 142
+-   Analytic Curve Type: Arc
+- Edge 160: Circular | Length: 0.0704 | Connected Faces: 2 | Tag: 61872
+-   Endpoints: (-0.4862, 3.6211, -2.3355) -> (-0.4862, 3.6735, -2.3769)
+-   Curve Props: Arc Length 0.0704 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
+-   Curve Points: Start (-0.4862, 3.6211, -2.3355) | End (-0.4862, 3.6735, -2.3769) | Center (-0.4862, 3.6142, -2.3981)
+-   Face Tags: 61498, 61524
+-   Face Indices: 103, 99
+-   Topology Vertices: 148 -> 137
+-   Analytic Curve Type: Arc
+- Edge 161: Linear | Length: 0.7785 | Connected Faces: 2 | Tag: 61650
+-   Endpoints: (-0.6260, 4.5819, -2.2280) -> (-0.6260, 4.3200, -1.4949)
+-   Curve Props: Arc Length 0.7785 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6260, 4.5819, -2.2280) | End (-0.6260, 4.3200, -1.4949) | Center (-0.6260, 4.4509, -1.8615)
+-   Face Tags: 61426, 61608
+-   Face Indices: 83, 13
+-   Topology Vertices: 87 -> 3
+-   Analytic Curve Type: Line
+- Edge 162: Linear | Length: 1.0229 | Connected Faces: 2 | Tag: 61910
+-   Endpoints: (0.6358, 4.3107, -1.4982) -> (0.6358, 3.3045, -1.3146)
+-   Curve Props: Arc Length 1.0229 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6358, 4.3107, -1.4982) | End (0.6358, 3.3045, -1.3146) | Center (0.6358, 3.8076, -1.4064)
+-   Face Tags: 61482, 61516
+-   Face Indices: 43, 72
+-   Topology Vertices: 32 -> 133
+-   Analytic Curve Type: Line
+- Edge 163: Linear | Length: 0.9961 | Connected Faces: 2 | Tag: 62006
+-   Endpoints: (-0.4390, 3.2394, -1.4074) -> (-0.4390, 3.5745, -2.3454)
+-   Curve Props: Arc Length 0.9961 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4390, 3.2394, -1.4074) | End (-0.4390, 3.5745, -2.3454) | Center (-0.4390, 3.4069, -1.8764)
+-   Face Tags: 61490, 61500
+-   Face Indices: 75, 38
+-   Topology Vertices: 112 -> 76
+-   Analytic Curve Type: Line
+- Edge 164: Circular | Length: 0.0542 | Connected Faces: 2 | Tag: 61884
+-   Endpoints: (0.4862, 3.2817, -1.3856) -> (0.4862, 3.2995, -1.3361)
+-   Curve Props: Arc Length 0.0542 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
+-   Curve Points: Start (0.4862, 3.2817, -1.3856) | End (0.4862, 3.2995, -1.3361) | Center (0.4862, 3.2367, -1.3415)
+-   Face Tags: 61496, 61520
+-   Face Indices: 47, 59
+-   Topology Vertices: 149 -> 84
+-   Analytic Curve Type: Arc
+- Edge 165: Circular | Length: 0.0861 | Connected Faces: 2 | Tag: 61808
+-   Endpoints: (0.6358, 3.3053, -1.3170) -> (0.6358, 3.2854, -1.3957)
+-   Curve Props: Arc Length 0.0861 | Radius 0.0728 | Diameter 0.1457 | Min Curvature Radius 0.0728
+-   Curve Points: Start (0.6358, 3.3053, -1.3170) | End (0.6358, 3.2854, -1.3957) | Center (0.6358, 3.2367, -1.3415)
+-   Face Tags: 61482, 61554
+-   Face Indices: 43, 8
+-   Topology Vertices: 134 -> 8
+-   Analytic Curve Type: Arc
+- Edge 166: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62114
+-   Endpoints: (-0.8524, 2.5662, 0.2195) -> (-0.8425, 2.5569, 0.2162)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.8524, 2.5662, 0.2195) | End (-0.8425, 2.5569, 0.2162) | Center (-0.8425, 2.5662, 0.2195)
+-   Face Tags: 61572, 61576
+-   Face Indices: 9, 36
+-   Topology Vertices: 59 -> 62
+-   Analytic Curve Type: Arc
+- Edge 167: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61984
+-   Endpoints: (0.8425, 3.7395, 0.1299) -> (0.7028, 3.7395, 0.1299)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8425, 3.7395, 0.1299) | End (0.7028, 3.7395, 0.1299) | Center (0.7726, 3.7395, 0.1299)
+-   Face Tags: 61460, 61476
+-   Face Indices: 90, 2
+-   Topology Vertices: 150 -> 67
+-   Analytic Curve Type: Line
+- Edge 168: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62164
+-   Endpoints: (0.6260, 3.6735, -2.3769) -> (0.6358, 3.6828, -2.3736)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.6260, 3.6735, -2.3769) | End (0.6358, 3.6828, -2.3736) | Center (0.6260, 3.6828, -2.3736)
+-   Face Tags: 61622, 61626
+-   Face Indices: 101, 50
+-   Topology Vertices: 119 -> 36
+-   Analytic Curve Type: Arc
+- Edge 169: Linear | Length: 0.8956 | Connected Faces: 2 | Tag: 62026
+-   Endpoints: (0.7028, 2.8843, -0.1678) -> (0.7028, 3.1856, -1.0112)
+-   Curve Props: Arc Length 0.8956 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.7028, 2.8843, -0.1678) | End (0.7028, 3.1856, -1.0112) | Center (0.7028, 3.0350, -0.5895)
+-   Face Tags: 61424, 61494
+-   Face Indices: 31, 3
+-   Topology Vertices: 65 -> 110
+-   Analytic Curve Type: Line
+- Edge 170: Linear | Length: 1.0229 | Connected Faces: 2 | Tag: 61940
+-   Endpoints: (0.8524, 3.1882, -0.9893) -> (0.8524, 4.1945, -1.1729)
+-   Curve Props: Arc Length 1.0229 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8524, 3.1882, -0.9893) | End (0.8524, 4.1945, -1.1729) | Center (0.8524, 3.6914, -1.0811)
+-   Face Tags: 61462, 61506
+-   Face Indices: 49, 78
+-   Topology Vertices: 101 -> 131
+-   Analytic Curve Type: Line
+- Edge 171: Circular | Length: 0.2661 | Connected Faces: 2 | Tag: 61822
+-   Endpoints: (0.6239, 3.5930, -2.3388) -> (0.4390, 3.4429, -2.3925)
+-   Curve Props: Arc Length 0.2661 | Radius 0.1870 | Diameter 0.3740 | Min Curvature Radius 0.1870
+-   Curve Points: Start (0.6239, 3.5930, -2.3388) | End (0.4390, 3.4429, -2.3925) | Center (0.4390, 3.6190, -2.3295)
+-   Face Tags: 61416, 61634
+-   Face Indices: 12, 110
+-   Topology Vertices: 23 -> 146
+-   Analytic Curve Type: Arc
+- Edge 172: Intersection | Length: 0.0162 | Connected Faces: 2 | Tag: 61880
+-   Endpoints: (-0.4867, 3.2960, -1.3203) -> (-0.4862, 3.2995, -1.3361)
+-   Face Tags: 61510, 61522
+-   Face Indices: 62, 73
+-   Topology Vertices: 145 -> 14
+- Edge 173: Linear | Length: 0.1654 | Connected Faces: 2 | Tag: 61640
+-   Endpoints: (-0.6260, 3.6735, -2.3769) -> (-0.6260, 3.7292, -2.5327)
+-   Curve Props: Arc Length 0.1654 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6260, 3.6735, -2.3769) | End (-0.6260, 3.7292, -2.5327) | Center (-0.6260, 3.7013, -2.4548)
+-   Face Tags: 61418, 61616
+-   Face Indices: 7, 21
+-   Topology Vertices: 136 -> 81
+-   Analytic Curve Type: Line
+- Edge 174: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61842
+-   Endpoints: (-0.8524, 3.5422, 0.6210) -> (-0.8524, 3.5236, 0.6340)
+-   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
+-   Curve Points: Start (-0.8524, 3.5422, 0.6210) | End (-0.8524, 3.5236, 0.6340) | Center (-0.8524, 3.5210, 0.6106)
+-   Face Tags: 61456, 61532
+-   Face Indices: 70, 19
+-   Topology Vertices: 71 -> 88
+-   Analytic Curve Type: Arc
+- Edge 175: Linear | Length: 1.0480 | Connected Faces: 2 | Tag: 61936
+-   Endpoints: (0.4862, 3.2995, -1.3361) -> (0.4862, 4.3304, -1.5242)
+-   Curve Props: Arc Length 1.0480 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4862, 3.2995, -1.3361) | End (0.4862, 4.3304, -1.5242) | Center (0.4862, 3.8150, -1.4301)
+-   Face Tags: 61496, 61508
+-   Face Indices: 47, 18
+-   Topology Vertices: 84 -> 18
+-   Analytic Curve Type: Line
+- Edge 176: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 62032
+-   Endpoints: (0.7028, 2.2805, 0.9900) -> (0.7028, 2.5569, 0.2162)
+-   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.7028, 2.2805, 0.9900) | End (0.7028, 2.5569, 0.2162) | Center (0.7028, 2.4187, 0.6031)
+-   Face Tags: 61470, 61494
+-   Face Indices: 85, 3
+-   Topology Vertices: 151 -> 27
+-   Analytic Curve Type: Line
+- Edge 177: Linear | Length: 0.8759 | Connected Faces: 2 | Tag: 61738
+-   Endpoints: (0.8425, 3.1790, -0.9926) -> (0.8425, 2.8843, -0.1678)
+-   Curve Props: Arc Length 0.8759 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8425, 3.1790, -0.9926) | End (0.8425, 2.8843, -0.1678) | Center (0.8425, 3.0316, -0.5802)
+-   Face Tags: 61424, 61570
+-   Face Indices: 31, 66
+-   Topology Vertices: 90 -> 64
+-   Analytic Curve Type: Line
+- Edge 178: Circular | Length: 0.0745 | Connected Faces: 2 | Tag: 61812
+-   Endpoints: (0.6260, 3.6735, -2.3769) -> (0.6260, 3.6170, -2.3352)
+-   Curve Props: Arc Length 0.0745 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
+-   Curve Points: Start (0.6260, 3.6735, -2.3769) | End (0.6260, 3.6170, -2.3352) | Center (0.6260, 3.6142, -2.3981)
+-   Face Tags: 61526, 61626
+-   Face Indices: 48, 50
+-   Topology Vertices: 119 -> 22
+-   Analytic Curve Type: Arc
+- Edge 179: Elliptical | Length: 0.1218 | Connected Faces: 2 | Tag: 61788
+-   Endpoints: (0.6869, 4.2873, -1.4034) -> (0.6260, 4.3200, -1.4949)
+-   Face Tags: 61460, 61610
+-   Face Indices: 90, 55
+-   Topology Vertices: 47 -> 152
+- Edge 180: Elliptical | Length: 0.1106 | Connected Faces: 2 | Tag: 61784
+-   Endpoints: (0.6900, 3.2701, -1.2323) -> (0.6358, 3.3045, -1.3146)
+-   Face Tags: 61516, 61562
+-   Face Indices: 72, 95
+-   Topology Vertices: 21 -> 133
+- Edge 181: Circular | Length: 0.2661 | Connected Faces: 2 | Tag: 61728
+-   Endpoints: (0.4390, 3.1078, -1.4545) -> (0.6239, 3.2579, -1.4008)
+-   Curve Props: Arc Length 0.2661 | Radius 0.1870 | Diameter 0.3740 | Min Curvature Radius 0.1870
+-   Curve Points: Start (0.4390, 3.1078, -1.4545) | End (0.6239, 3.2579, -1.4008) | Center (0.4390, 3.2839, -1.3915)
+-   Face Tags: 61446, 61546
+-   Face Indices: 100, 29
+-   Topology Vertices: 86 -> 130
+-   Analytic Curve Type: Arc
+- Edge 182: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61970
+-   Endpoints: (-0.7028, 2.8480, -0.1252) -> (-0.8425, 2.8480, -0.1252)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 2.8480, -0.1252) | End (-0.8425, 2.8480, -0.1252) | Center (-0.7726, 2.8480, -0.1252)
+-   Face Tags: 61436, 61438
+-   Face Indices: 57, 93
+-   Topology Vertices: 153 -> 63
+-   Analytic Curve Type: Line
+- Edge 183: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62108
+-   Endpoints: (0.8425, 3.1790, -0.9926) -> (0.8524, 3.1882, -0.9893)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.8425, 3.1790, -0.9926) | End (0.8524, 3.1882, -0.9893) | Center (0.8425, 3.1882, -0.9893)
+-   Face Tags: 61566, 61570
+-   Face Indices: 82, 66
+-   Topology Vertices: 90 -> 101
+-   Analytic Curve Type: Arc
+- Edge 184: Circular | Length: 0.0643 | Connected Faces: 2 | Tag: 61774
+-   Endpoints: (0.8524, 2.8528, -0.1166) -> (0.8524, 2.8936, -0.1645)
+-   Curve Props: Arc Length 0.0643 | Radius 0.0886 | Diameter 0.1772 | Min Curvature Radius 0.0886
+-   Curve Points: Start (0.8524, 2.8528, -0.1166) | End (0.8524, 2.8936, -0.1645) | Center (0.8524, 2.8102, -0.1943)
+-   Face Tags: 61462, 61574
+-   Face Indices: 49, 52
+-   Topology Vertices: 41 -> 100
+-   Analytic Curve Type: Arc
+- Edge 185: Intersection | Length: 0.0298 | Connected Faces: 2 | Tag: 61718
+-   Endpoints: (-0.6337, 3.2599, -1.4106) -> (-0.6358, 3.2854, -1.3957)
+-   Face Tags: 61486, 61544
+-   Face Indices: 56, 94
+-   Topology Vertices: 43 -> 114
+- Edge 186: Linear | Length: 1.3799 | Connected Faces: 2 | Tag: 61792
+-   Endpoints: (0.8425, 3.7395, 0.1299) -> (0.8425, 4.2038, -1.1696)
+-   Curve Props: Arc Length 1.3799 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8425, 3.7395, 0.1299) | End (0.8425, 4.2038, -1.1696) | Center (0.8425, 3.9716, -0.5199)
+-   Face Tags: 61460, 61602
+-   Face Indices: 90, 86
+-   Topology Vertices: 150 -> 46
+-   Analytic Curve Type: Line
+- Edge 187: Circular | Length: 0.0448 | Connected Faces: 2 | Tag: 62002
+-   Endpoints: (-0.4390, 3.5745, -2.3454) -> (-0.4773, 3.5930, -2.3388)
+-   Curve Props: Arc Length 0.0448 | Radius 0.0472 | Diameter 0.0945 | Min Curvature Radius 0.0472
+-   Curve Points: Start (-0.4390, 3.5745, -2.3454) | End (-0.4773, 3.5930, -2.3388) | Center (-0.4390, 3.6190, -2.3295)
+-   Face Tags: 61416, 61500
+-   Face Indices: 12, 38
+-   Topology Vertices: 76 -> 154
+-   Analytic Curve Type: Arc
+- Edge 188: Linear | Length: 1.0229 | Connected Faces: 2 | Tag: 61906
+-   Endpoints: (-0.6900, 4.2763, -1.4159) -> (-0.6900, 3.2701, -1.2323)
+-   Curve Props: Arc Length 1.0229 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6900, 4.2763, -1.4159) | End (-0.6900, 3.2701, -1.2323) | Center (-0.6900, 3.7732, -1.3241)
+-   Face Tags: 61504, 61518
+-   Face Indices: 27, 15
+-   Topology Vertices: 24 -> 125
+-   Analytic Curve Type: Line
+- Edge 189: Circular | Length: 1.0965 | Connected Faces: 2 | Tag: 61764
+-   Endpoints: (0.8524, 3.7314, 0.2024) -> (0.8524, 3.2636, 1.0407)
+-   Curve Props: Arc Length 1.0965 | Radius 0.6220 | Diameter 1.2441 | Min Curvature Radius 0.6220
+-   Curve Points: Start (0.8524, 3.7314, 0.2024) | End (0.8524, 3.2636, 1.0407) | Center (0.8524, 3.1520, 0.4287)
+-   Face Tags: 61462, 61594
+-   Face Indices: 49, 107
+-   Topology Vertices: 5 -> 105
+-   Analytic Curve Type: Arc
+- Edge 190: Linear | Length: 0.1654 | Connected Faces: 2 | Tag: 61708
+-   Endpoints: (-0.6358, 3.7384, -2.5293) -> (-0.6358, 3.6828, -2.3736)
+-   Curve Props: Arc Length 0.1654 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6358, 3.7384, -2.5293) | End (-0.6358, 3.6828, -2.3736) | Center (-0.6358, 3.7106, -2.4515)
+-   Face Tags: 61484, 61616
+-   Face Indices: 91, 21
+-   Topology Vertices: 11 -> 106
+-   Analytic Curve Type: Line
+- Edge 191: Circular | Length: 1.4224 | Connected Faces: 2 | Tag: 62068
+-   Endpoints: (0.4862, 3.7292, -2.5327) -> (0.4862, 4.5819, -2.2280)
+-   Curve Props: Arc Length 1.4224 | Radius 0.4528 | Diameter 0.9055 | Min Curvature Radius 0.4528
+-   Curve Points: Start (0.4862, 3.7292, -2.5327) | End (0.4862, 4.5819, -2.2280) | Center (0.4862, 4.1555, -2.3803)
+-   Face Tags: 61452, 61496
+-   Face Indices: 26, 47
+-   Topology Vertices: 155 -> 156
+-   Analytic Curve Type: Arc
+- Edge 192: Circular | Length: 0.0448 | Connected Faces: 2 | Tag: 62012
+-   Endpoints: (0.4390, 3.2394, -1.4074) -> (0.4773, 3.2579, -1.4008)
+-   Curve Props: Arc Length 0.0448 | Radius 0.0472 | Diameter 0.0945 | Min Curvature Radius 0.0472
+-   Curve Points: Start (0.4390, 3.2394, -1.4074) | End (0.4773, 3.2579, -1.4008) | Center (0.4390, 3.2839, -1.3915)
+-   Face Tags: 61446, 61502
+-   Face Indices: 100, 92
+-   Topology Vertices: 111 -> 157
+-   Analytic Curve Type: Arc
+- Edge 193: Linear | Length: 0.1393 | Connected Faces: 2 | Tag: 61896
+-   Endpoints: (-0.6260, 3.2960, -1.3203) -> (-0.4867, 3.2960, -1.3203)
+-   Curve Props: Arc Length 0.1393 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6260, 3.2960, -1.3203) | End (-0.4867, 3.2960, -1.3203) | Center (-0.5563, 3.2960, -1.3203)
+-   Face Tags: 61458, 61522
+-   Face Indices: 24, 73
+-   Topology Vertices: 141 -> 145
+-   Analytic Curve Type: Line
+- Edge 194: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61958
+-   Endpoints: (-0.7028, 2.4570, 1.1979) -> (-0.8425, 2.4570, 1.1979)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 2.4570, 1.1979) | End (-0.8425, 2.4570, 1.1979) | Center (-0.7726, 2.4570, 1.1979)
+-   Face Tags: 61430, 61432
+-   Face Indices: 67, 10
+-   Topology Vertices: 98 -> 126
+-   Analytic Curve Type: Line
+- Edge 195: Circular | Length: 0.3092 | Connected Faces: 2 | Tag: 61674
+-   Endpoints: (-0.8524, 2.2897, 0.9933) -> (-0.8524, 2.4553, 1.1882)
+-   Curve Props: Arc Length 0.3092 | Radius 0.1476 | Diameter 0.2953 | Min Curvature Radius 0.1476
+-   Curve Points: Start (-0.8524, 2.2897, 0.9933) | End (-0.8524, 2.4553, 1.1882) | Center (-0.8524, 2.4288, 1.0429)
+-   Face Tags: 61456, 61580
+-   Face Indices: 70, 97
+-   Topology Vertices: 28 -> 116
+-   Analytic Curve Type: Arc
+- Edge 196: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61952
+-   Endpoints: (0.8425, 3.2654, 1.0504) -> (0.7028, 3.2654, 1.0504)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8425, 3.2654, 1.0504) | End (0.7028, 3.2654, 1.0504) | Center (0.7726, 3.2654, 1.0504)
+-   Face Tags: 61464, 61466
+-   Face Indices: 105, 4
+-   Topology Vertices: 35 -> 74
+-   Analytic Curve Type: Line
+- Edge 197: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61844
+-   Endpoints: (0.7028, 3.5236, 0.6340) -> (0.8524, 3.5236, 0.6340)
+-   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.7028, 3.5236, 0.6340) | End (0.8524, 3.5236, 0.6340) | Center (0.7776, 3.5236, 0.6340)
+-   Face Tags: 61480, 61534
+-   Face Indices: 102, 64
+-   Topology Vertices: 140 -> 158
+-   Analytic Curve Type: Line
+- Edge 198: Intersection | Length: 0.0304 | Connected Faces: 2 | Tag: 61886
+-   Endpoints: (0.4773, 3.2579, -1.4008) -> (0.4862, 3.2817, -1.3856)
+-   Face Tags: 61502, 61520
+-   Face Indices: 92, 59
+-   Topology Vertices: 157 -> 149
+- Edge 199: Linear | Length: 0.0025 | Connected Faces: 2 | Tag: 61744
+-   Endpoints: (0.6260, 3.2960, -1.3203) -> (0.6260, 3.2952, -1.3179)
+-   Curve Props: Arc Length 0.0025 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6260, 3.2960, -1.3203) | End (0.6260, 3.2952, -1.3179) | Center (0.6260, 3.2956, -1.3191)
+-   Face Tags: 61424, 61558
+-   Face Indices: 31, 35
+-   Topology Vertices: 113 -> 129
+-   Analytic Curve Type: Line
+- Edge 200: Elliptical | Length: 0.1106 | Connected Faces: 2 | Tag: 61688
+-   Endpoints: (-0.6358, 3.3045, -1.3146) -> (-0.6900, 3.2701, -1.2323)
+-   Face Tags: 61518, 61556
+-   Face Indices: 15, 63
+-   Topology Vertices: 50 -> 125
+- Edge 201: Circular | Length: 0.3298 | Connected Faces: 2 | Tag: 62034
+-   Endpoints: (0.7028, 2.4570, 1.1979) -> (0.7028, 2.2805, 0.9900)
+-   Curve Props: Arc Length 0.3298 | Radius 0.1575 | Diameter 0.3150 | Min Curvature Radius 0.1575
+-   Curve Points: Start (0.7028, 2.4570, 1.1979) | End (0.7028, 2.2805, 0.9900) | Center (0.7028, 2.4288, 1.0429)
+-   Face Tags: 61468, 61494
+-   Face Indices: 77, 3
+-   Topology Vertices: 61 -> 151
+-   Analytic Curve Type: Arc
+- Edge 202: Circular | Length: 0.0572 | Connected Faces: 2 | Tag: 61664
+-   Endpoints: (-0.8425, 2.8480, -0.1252) -> (-0.8425, 2.8843, -0.1678)
+-   Curve Props: Arc Length 0.0572 | Radius 0.0787 | Diameter 0.1575 | Min Curvature Radius 0.0787
+-   Curve Points: Start (-0.8425, 2.8480, -0.1252) | End (-0.8425, 2.8843, -0.1678) | Center (-0.8425, 2.8102, -0.1943)
+-   Face Tags: 61438, 61568
+-   Face Indices: 93, 1
+-   Topology Vertices: 63 -> 108
+-   Analytic Curve Type: Arc
+- Edge 203: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62080
+-   Endpoints: (-0.4390, 3.1078, -1.4545) -> (-0.4390, 3.1018, -1.4670)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.4390, 3.1078, -1.4545) | End (-0.4390, 3.1018, -1.4670) | Center (-0.4390, 3.1111, -1.4637)
+-   Face Tags: 61540, 61542
+-   Face Indices: 104, 39
+-   Topology Vertices: 95 -> 42
+-   Analytic Curve Type: Arc
+- Edge 204: Linear | Length: 0.6934 | Connected Faces: 2 | Tag: 61996
+-   Endpoints: (-0.8524, 3.5236, 0.6340) -> (-0.8524, 2.8344, 0.7106)
+-   Curve Props: Arc Length 0.6934 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8524, 3.5236, 0.6340) | End (-0.8524, 2.8344, 0.7106) | Center (-0.8524, 3.1790, 0.6723)
+-   Face Tags: 61444, 61456
+-   Face Indices: 68, 70
+-   Topology Vertices: 88 -> 77
+-   Analytic Curve Type: Line
+- Edge 205: Linear | Length: 0.6934 | Connected Faces: 2 | Tag: 62058
+-   Endpoints: (0.7028, 3.5236, 0.6340) -> (0.7028, 2.8344, 0.7106)
+-   Curve Props: Arc Length 0.6934 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.7028, 3.5236, 0.6340) | End (0.7028, 2.8344, 0.7106) | Center (0.7028, 3.1790, 0.6723)
+-   Face Tags: 61480, 61494
+-   Face Indices: 102, 3
+-   Topology Vertices: 140 -> 55
+-   Analytic Curve Type: Line
+- Edge 206: Linear | Length: 1.0088 | Connected Faces: 2 | Tag: 62000
+-   Endpoints: (0.4862, 3.2817, -1.3856) -> (0.4862, 3.6211, -2.3355)
+-   Curve Props: Arc Length 1.0088 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4862, 3.2817, -1.3856) | End (0.4862, 3.6211, -2.3355) | Center (0.4862, 3.4514, -1.8605)
+-   Face Tags: 61496, 61502
+-   Face Indices: 47, 92
+-   Topology Vertices: 149 -> 128
+-   Analytic Curve Type: Line
+- Edge 207: Circular | Length: 1.1139 | Connected Faces: 2 | Tag: 61654
+-   Endpoints: (-0.8425, 3.7405, 0.1988) -> (-0.8425, 3.2654, 1.0504)
+-   Curve Props: Arc Length 1.1139 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
+-   Curve Points: Start (-0.8425, 3.7405, 0.1988) | End (-0.8425, 3.2654, 1.0504) | Center (-0.8425, 3.1520, 0.4287)
+-   Face Tags: 61428, 61588
+-   Face Indices: 22, 88
+-   Topology Vertices: 49 -> 45
+-   Analytic Curve Type: Arc
+- Edge 208: Linear | Length: 0.7474 | Connected Faces: 2 | Tag: 62070
+-   Endpoints: (0.4862, 4.5819, -2.2280) -> (0.4862, 4.3304, -1.5242)
+-   Curve Props: Arc Length 0.7474 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4862, 4.5819, -2.2280) | End (0.4862, 4.3304, -1.5242) | Center (0.4862, 4.4562, -1.8761)
+-   Face Tags: 61460, 61496
+-   Face Indices: 90, 47
+-   Topology Vertices: 156 -> 18
+-   Analytic Curve Type: Line
+- Edge 209: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61966
+-   Endpoints: (-0.7028, 2.5569, 0.2162) -> (-0.8425, 2.5569, 0.2162)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 2.5569, 0.2162) | End (-0.8425, 2.5569, 0.2162) | Center (-0.7726, 2.5569, 0.2162)
+-   Face Tags: 61434, 61436
+-   Face Indices: 53, 57
+-   Topology Vertices: 124 -> 62
+-   Analytic Curve Type: Line
+- Edge 210: Linear | Length: 1.0088 | Connected Faces: 2 | Tag: 62014
+-   Endpoints: (-0.4862, 3.6211, -2.3355) -> (-0.4862, 3.2817, -1.3856)
+-   Curve Props: Arc Length 1.0088 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4862, 3.6211, -2.3355) | End (-0.4862, 3.2817, -1.3856) | Center (-0.4862, 3.4514, -1.8605)
+-   Face Tags: 61498, 61500
+-   Face Indices: 103, 38
+-   Topology Vertices: 148 -> 15
+-   Analytic Curve Type: Line
+- Edge 211: Linear | Length: 1.3799 | Connected Faces: 2 | Tag: 61644
+-   Endpoints: (-0.8425, 4.2038, -1.1696) -> (-0.8425, 3.7395, 0.1299)
+-   Curve Props: Arc Length 1.3799 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8425, 4.2038, -1.1696) | End (-0.8425, 3.7395, 0.1299) | Center (-0.8425, 3.9716, -0.5199)
+-   Face Tags: 61426, 61596
+-   Face Indices: 83, 44
+-   Topology Vertices: 96 -> 72
+-   Analytic Curve Type: Line
+- Edge 212: Linear | Length: 0.8956 | Connected Faces: 2 | Tag: 62044
+-   Endpoints: (-0.7028, 2.8843, -0.1678) -> (-0.7028, 3.1856, -1.0112)
+-   Curve Props: Arc Length 0.8956 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 2.8843, -0.1678) | End (-0.7028, 3.1856, -1.0112) | Center (-0.7028, 3.0350, -0.5895)
+-   Face Tags: 61458, 61492
+-   Face Indices: 24, 61
+-   Topology Vertices: 107 -> 39
+-   Analytic Curve Type: Line
+- Edge 213: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61856
+-   Endpoints: (-0.7028, 3.5422, 0.6210) -> (-0.8524, 3.5422, 0.6210)
+-   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 3.5422, 0.6210) | End (-0.8524, 3.5422, 0.6210) | Center (-0.7776, 3.5422, 0.6210)
+-   Face Tags: 61442, 61532
+-   Face Indices: 33, 19
+-   Topology Vertices: 143 -> 71
+-   Analytic Curve Type: Line
+- Edge 214: Circular | Length: 1.1139 | Connected Faces: 2 | Tag: 62056
+-   Endpoints: (-0.7028, 3.7405, 0.1988) -> (-0.7028, 3.2654, 1.0504)
+-   Curve Props: Arc Length 1.1139 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
+-   Curve Points: Start (-0.7028, 3.7405, 0.1988) | End (-0.7028, 3.2654, 1.0504) | Center (-0.7028, 3.1520, 0.4287)
+-   Face Tags: 61428, 61492
+-   Face Indices: 22, 61
+-   Topology Vertices: 48 -> 147
+-   Analytic Curve Type: Arc
+- Edge 215: Linear | Length: 0.9872 | Connected Faces: 2 | Tag: 61950
+-   Endpoints: (-0.6358, 3.6175, -2.3254) -> (-0.6358, 3.2854, -1.3957)
+-   Curve Props: Arc Length 0.9872 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6358, 3.6175, -2.3254) | End (-0.6358, 3.2854, -1.3957) | Center (-0.6358, 3.4514, -1.8605)
+-   Face Tags: 61484, 61486
+-   Face Indices: 91, 56
+-   Topology Vertices: 91 -> 114
+-   Analytic Curve Type: Line
+- Edge 216: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62102
+-   Endpoints: (-0.8524, 3.1882, -0.9893) -> (-0.8425, 3.1790, -0.9926)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.8524, 3.1882, -0.9893) | End (-0.8425, 3.1790, -0.9926) | Center (-0.8425, 3.1882, -0.9893)
+-   Face Tags: 61560, 61564
+-   Face Indices: 79, 30
+-   Topology Vertices: 121 -> 57
+-   Analytic Curve Type: Arc
+- Edge 217: Linear | Length: 0.8759 | Connected Faces: 2 | Tag: 61698
+-   Endpoints: (-0.8425, 2.8843, -0.1678) -> (-0.8425, 3.1790, -0.9926)
+-   Curve Props: Arc Length 0.8759 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8425, 2.8843, -0.1678) | End (-0.8425, 3.1790, -0.9926) | Center (-0.8425, 3.0316, -0.5802)
+-   Face Tags: 61458, 61564
+-   Face Indices: 24, 30
+-   Topology Vertices: 108 -> 57
+-   Analytic Curve Type: Line
+- Edge 218: Intersection | Length: 0.0246 | Connected Faces: 2 | Tag: 61736
+-   Endpoints: (0.6239, 3.2579, -1.4008) -> (0.6260, 3.2788, -1.3884)
+-   Face Tags: 61520, 61550
+-   Face Indices: 59, 20
+-   Topology Vertices: 130 -> 138
+- Edge 219: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61846
+-   Endpoints: (0.8524, 2.8344, 0.7106) -> (0.7028, 2.8344, 0.7106)
+-   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8524, 2.8344, 0.7106) | End (0.7028, 2.8344, 0.7106) | Center (0.7776, 2.8344, 0.7106)
+-   Face Tags: 61480, 61536
+-   Face Indices: 102, 6
+-   Topology Vertices: 159 -> 55
+-   Analytic Curve Type: Line
+- Edge 220: Linear | Length: 0.7785 | Connected Faces: 2 | Tag: 61804
+-   Endpoints: (0.6358, 4.5726, -2.2313) -> (0.6358, 4.3107, -1.4982)
+-   Curve Props: Arc Length 0.7785 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6358, 4.5726, -2.2313) | End (0.6358, 4.3107, -1.4982) | Center (0.6358, 4.4417, -1.8648)
+-   Face Tags: 61482, 61614
+-   Face Indices: 43, 46
+-   Topology Vertices: 160 -> 32
+-   Analytic Curve Type: Line
+- Edge 221: Linear | Length: 0.8780 | Connected Faces: 2 | Tag: 61826
+-   Endpoints: (0.4390, 3.4429, -2.3925) -> (-0.4390, 3.4429, -2.3925)
+-   Curve Props: Arc Length 0.8780 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4390, 3.4429, -2.3925) | End (-0.4390, 3.4429, -2.3925) | Center (-0.0000, 3.4429, -2.3925)
+-   Face Tags: 61416, 61632
+-   Face Indices: 12, 58
+-   Topology Vertices: 146 -> 80
+-   Analytic Curve Type: Line
+- Edge 222: Linear | Length: 0.7785 | Connected Faces: 2 | Tag: 61704
+-   Endpoints: (-0.6358, 4.3107, -1.4982) -> (-0.6358, 4.5726, -2.2313)
+-   Curve Props: Arc Length 0.7785 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6358, 4.3107, -1.4982) | End (-0.6358, 4.5726, -2.2313) | Center (-0.6358, 4.4417, -1.8648)
+-   Face Tags: 61484, 61608
+-   Face Indices: 91, 13
+-   Topology Vertices: 2 -> 10
+-   Analytic Curve Type: Line
+- Edge 223: Intersection | Length: 0.0304 | Connected Faces: 2 | Tag: 61874
+-   Endpoints: (-0.4773, 3.5930, -2.3388) -> (-0.4862, 3.6211, -2.3355)
+-   Face Tags: 61500, 61524
+-   Face Indices: 38, 99
+-   Topology Vertices: 154 -> 148
+- Edge 224: Circular | Length: 1.3915 | Connected Faces: 2 | Tag: 61802
+-   Endpoints: (0.6358, 3.7384, -2.5293) -> (0.6358, 4.5726, -2.2313)
+-   Curve Props: Arc Length 1.3915 | Radius 0.4429 | Diameter 0.8858 | Min Curvature Radius 0.4429
+-   Curve Points: Start (0.6358, 3.7384, -2.5293) | End (0.6358, 4.5726, -2.2313) | Center (0.6358, 4.1555, -2.3803)
+-   Face Tags: 61482, 61618
+-   Face Indices: 43, 87
+-   Topology Vertices: 37 -> 160
+-   Analytic Curve Type: Arc
+- Edge 225: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62082
+-   Endpoints: (-0.6337, 3.2599, -1.4106) -> (-0.6239, 3.2579, -1.4008)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.6337, 3.2599, -1.4106) | End (-0.6239, 3.2579, -1.4008) | Center (-0.6239, 3.2612, -1.4101)
+-   Face Tags: 61540, 61544
+-   Face Indices: 104, 94
+-   Topology Vertices: 43 -> 144
+-   Analytic Curve Type: Arc
+- Edge 226: Elliptical | Length: 0.1083 | Connected Faces: 2 | Tag: 61918
+-   Endpoints: (0.7028, 3.1856, -1.0112) -> (0.6486, 3.2147, -1.0925)
+-   Face Tags: 61424, 61512
+-   Face Indices: 31, 108
+-   Topology Vertices: 110 -> 54
+- Edge 227: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61982
+-   Endpoints: (-0.4862, 4.5819, -2.2280) -> (-0.6260, 4.5819, -2.2280)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4862, 4.5819, -2.2280) | End (-0.6260, 4.5819, -2.2280) | Center (-0.5561, 4.5819, -2.2280)
+-   Face Tags: 61420, 61426
+-   Face Indices: 40, 83
+-   Topology Vertices: 161 -> 87
+-   Analytic Curve Type: Line
+- Edge 228: Circular | Length: 0.2661 | Connected Faces: 2 | Tag: 61732
+-   Endpoints: (-0.6239, 3.2579, -1.4008) -> (-0.4390, 3.1078, -1.4545)
+-   Curve Props: Arc Length 0.2661 | Radius 0.1870 | Diameter 0.3740 | Min Curvature Radius 0.1870
+-   Curve Points: Start (-0.6239, 3.2579, -1.4008) | End (-0.4390, 3.1078, -1.4545) | Center (-0.4390, 3.2839, -1.3915)
+-   Face Tags: 61446, 61540
+-   Face Indices: 100, 104
+-   Topology Vertices: 144 -> 95
+-   Analytic Curve Type: Arc
+- Edge 229: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62140
+-   Endpoints: (0.8425, 3.7395, 0.1299) -> (0.8524, 3.7303, 0.1266)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.8425, 3.7395, 0.1299) | End (0.8524, 3.7303, 0.1266) | Center (0.8425, 3.7303, 0.1266)
+-   Face Tags: 61598, 61602
+-   Face Indices: 71, 86
+-   Topology Vertices: 150 -> 51
+-   Analytic Curve Type: Arc
+- Edge 230: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61980
+-   Endpoints: (0.6260, 4.5819, -2.2280) -> (0.4862, 4.5819, -2.2280)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6260, 4.5819, -2.2280) | End (0.4862, 4.5819, -2.2280) | Center (0.5561, 4.5819, -2.2280)
+-   Face Tags: 61452, 61460
+-   Face Indices: 26, 90
+-   Topology Vertices: 102 -> 156
+-   Analytic Curve Type: Line
+- Edge 231: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62166
+-   Endpoints: (-0.6337, 3.5883, -2.3300) -> (-0.6239, 3.5930, -2.3388)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.6337, 3.5883, -2.3300) | End (-0.6239, 3.5930, -2.3388) | Center (-0.6239, 3.5897, -2.3295)
+-   Face Tags: 61624, 61628
+-   Face Indices: 5, 106
+-   Topology Vertices: 117 -> 16
+-   Analytic Curve Type: Arc
+- Edge 232: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61960
+-   Endpoints: (0.8425, 2.2805, 0.9900) -> (0.7028, 2.2805, 0.9900)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8425, 2.2805, 0.9900) | End (0.7028, 2.2805, 0.9900) | Center (0.7726, 2.2805, 0.9900)
+-   Face Tags: 61468, 61470
+-   Face Indices: 77, 85
+-   Topology Vertices: 56 -> 151
+-   Analytic Curve Type: Line
+- Edge 233: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62152
+-   Endpoints: (0.6260, 4.3200, -1.4949) -> (0.6358, 4.3107, -1.4982)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.6260, 4.3200, -1.4949) | End (0.6358, 4.3107, -1.4982) | Center (0.6260, 4.3107, -1.4982)
+-   Face Tags: 61610, 61614
+-   Face Indices: 55, 46
+-   Topology Vertices: 152 -> 32
+-   Analytic Curve Type: Arc
+- Edge 234: Linear | Length: 1.0456 | Connected Faces: 2 | Tag: 61920
+-   Endpoints: (-0.7028, 3.1856, -1.0112) -> (-0.7028, 4.2142, -1.1989)
+-   Curve Props: Arc Length 1.0456 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 3.1856, -1.0112) | End (-0.7028, 4.2142, -1.1989) | Center (-0.7028, 3.6999, -1.1050)
+-   Face Tags: 61492, 61514
+-   Face Indices: 61, 45
+-   Topology Vertices: 39 -> 139
+-   Analytic Curve Type: Line
+- Edge 235: Elliptical | Length: 0.3225 | Connected Faces: 2 | Tag: 61778
+-   Endpoints: (0.6900, 4.2763, -1.4159) -> (0.8524, 4.1945, -1.1729)
+-   Face Tags: 61506, 61606
+-   Face Indices: 78, 69
+-   Topology Vertices: 33 -> 131
+- Edge 236: Circular | Length: 0.2801 | Connected Faces: 2 | Tag: 61722
+-   Endpoints: (-0.6337, 3.5883, -2.3300) -> (-0.4390, 3.4303, -2.3865)
+-   Curve Props: Arc Length 0.2801 | Radius 0.1969 | Diameter 0.3937 | Min Curvature Radius 0.1969
+-   Curve Points: Start (-0.6337, 3.5883, -2.3300) | End (-0.4390, 3.4303, -2.3865) | Center (-0.4390, 3.6157, -2.3203)
+-   Face Tags: 61486, 61628
+-   Face Indices: 56, 106
+-   Topology Vertices: 117 -> 69
+-   Analytic Curve Type: Arc
+- Edge 237: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61836
+-   Endpoints: (0.8524, 3.5236, 0.6340) -> (0.8524, 3.5422, 0.6210)
+-   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
+-   Curve Points: Start (0.8524, 3.5236, 0.6340) | End (0.8524, 3.5422, 0.6210) | Center (0.8524, 3.5210, 0.6106)
+-   Face Tags: 61462, 61534
+-   Face Indices: 49, 64
+-   Topology Vertices: 158 -> 78
+-   Analytic Curve Type: Arc
+- Edge 238: Circular | Length: 1.4224 | Connected Faces: 2 | Tag: 62078
+-   Endpoints: (-0.4862, 4.5819, -2.2280) -> (-0.4862, 3.7292, -2.5327)
+-   Curve Props: Arc Length 1.4224 | Radius 0.4528 | Diameter 0.9055 | Min Curvature Radius 0.4528
+-   Curve Points: Start (-0.4862, 4.5819, -2.2280) | End (-0.4862, 3.7292, -2.5327) | Center (-0.4862, 4.1555, -2.3803)
+-   Face Tags: 61420, 61498
+-   Face Indices: 40, 103
+-   Topology Vertices: 161 -> 92
+-   Analytic Curve Type: Arc
+- Edge 239: Linear | Length: 0.1654 | Connected Faces: 2 | Tag: 61796
+-   Endpoints: (0.6260, 3.7292, -2.5327) -> (0.6260, 3.6735, -2.3769)
+-   Curve Props: Arc Length 0.1654 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6260, 3.7292, -2.5327) | End (0.6260, 3.6735, -2.3769) | Center (0.6260, 3.7013, -2.4548)
+-   Face Tags: 61450, 61622
+-   Face Indices: 89, 101
+-   Topology Vertices: 103 -> 119
+-   Analytic Curve Type: Line
+- Edge 240: Linear | Length: 0.7785 | Connected Faces: 2 | Tag: 61786
+-   Endpoints: (0.6260, 4.3200, -1.4949) -> (0.6260, 4.5819, -2.2280)
+-   Curve Props: Arc Length 0.7785 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6260, 4.3200, -1.4949) | End (0.6260, 4.5819, -2.2280) | Center (0.6260, 4.4509, -1.8615)
+-   Face Tags: 61460, 61614
+-   Face Indices: 90, 46
+-   Topology Vertices: 152 -> 102
+-   Analytic Curve Type: Line
+- Edge 241: Linear | Length: 0.8780 | Connected Faces: 2 | Tag: 61726
+-   Endpoints: (-0.4390, 3.4303, -2.3865) -> (0.4390, 3.4303, -2.3865)
+-   Curve Props: Arc Length 0.8780 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4390, 3.4303, -2.3865) | End (0.4390, 3.4303, -2.3865) | Center (-0.0000, 3.4303, -2.3865)
+-   Face Tags: 61448, 61632
+-   Face Indices: 37, 58
+-   Topology Vertices: 69 -> 82
+-   Analytic Curve Type: Line
+- Edge 242: Circular | Length: 0.3092 | Connected Faces: 2 | Tag: 61768
+-   Endpoints: (0.8524, 2.4553, 1.1882) -> (0.8524, 2.2897, 0.9933)
+-   Curve Props: Arc Length 0.3092 | Radius 0.1476 | Diameter 0.2953 | Min Curvature Radius 0.1476
+-   Curve Points: Start (0.8524, 2.4553, 1.1882) | End (0.8524, 2.2897, 0.9933) | Center (0.8524, 2.4288, 1.0429)
+-   Face Tags: 61462, 61586
+-   Face Indices: 49, 23
+-   Topology Vertices: 60 -> 135
+-   Analytic Curve Type: Arc
+- Edge 243: Intersection | Length: 0.0246 | Connected Faces: 2 | Tag: 61712
+-   Endpoints: (-0.6260, 3.2788, -1.3884) -> (-0.6239, 3.2579, -1.4008)
+-   Face Tags: 61522, 61544
+-   Face Indices: 73, 94
+-   Topology Vertices: 142 -> 144
+- Edge 244: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61976
+-   Endpoints: (0.6260, 3.7292, -2.5327) -> (0.4862, 3.7292, -2.5327)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6260, 3.7292, -2.5327) | End (0.4862, 3.7292, -2.5327) | Center (0.5561, 3.7292, -2.5327)
+-   Face Tags: 61450, 61452
+-   Face Indices: 89, 26
+-   Topology Vertices: 103 -> 155
+-   Analytic Curve Type: Line
+- Edge 245: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62100
+-   Endpoints: (0.6260, 3.2952, -1.3179) -> (0.6358, 3.3045, -1.3146)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.6260, 3.2952, -1.3179) | End (0.6358, 3.3045, -1.3146) | Center (0.6260, 3.3045, -1.3146)
+-   Face Tags: 61558, 61562
+-   Face Indices: 35, 95
+-   Topology Vertices: 129 -> 133
+-   Analytic Curve Type: Arc
+- Edge 246: Linear | Length: 0.1466 | Connected Faces: 2 | Tag: 61900
+-   Endpoints: (0.6239, 3.2579, -1.4008) -> (0.4773, 3.2579, -1.4008)
+-   Curve Props: Arc Length 0.1466 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6239, 3.2579, -1.4008) | End (0.4773, 3.2579, -1.4008) | Center (0.5506, 3.2579, -1.4008)
+-   Face Tags: 61446, 61520
+-   Face Indices: 100, 59
+-   Topology Vertices: 130 -> 157
+-   Analytic Curve Type: Line
+- Edge 247: Circular | Length: 0.0704 | Connected Faces: 2 | Tag: 61758
+-   Endpoints: (0.8425, 3.7405, 0.1988) -> (0.8425, 3.7395, 0.1299)
+-   Curve Props: Arc Length 0.0704 | Radius 0.0984 | Diameter 0.1969 | Min Curvature Radius 0.0984
+-   Curve Points: Start (0.8425, 3.7405, 0.1988) | End (0.8425, 3.7395, 0.1299) | Center (0.8425, 3.8322, 0.1630)
+-   Face Tags: 61476, 61598
+-   Face Indices: 2, 71
+-   Topology Vertices: 4 -> 150
+-   Analytic Curve Type: Arc
+- Edge 248: Linear | Length: 0.0025 | Connected Faces: 2 | Tag: 61702
+-   Endpoints: (-0.6358, 3.3053, -1.3170) -> (-0.6358, 3.3045, -1.3146)
+-   Curve Props: Arc Length 0.0025 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6358, 3.3053, -1.3170) | End (-0.6358, 3.3045, -1.3146) | Center (-0.6358, 3.3049, -1.3158)
+-   Face Tags: 61484, 61552
+-   Face Indices: 91, 65
+-   Topology Vertices: 115 -> 50
+-   Analytic Curve Type: Line
+- Edge 249: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61954
+-   Endpoints: (-0.7028, 3.2654, 1.0504) -> (-0.8425, 3.2654, 1.0504)
+-   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7028, 3.2654, 1.0504) | End (-0.8425, 3.2654, 1.0504) | Center (-0.7726, 3.2654, 1.0504)
+-   Face Tags: 61428, 61430
+-   Face Indices: 22, 67
+-   Topology Vertices: 147 -> 45
+-   Analytic Curve Type: Line
+- Edge 250: Circular | Length: 1.0965 | Connected Faces: 2 | Tag: 61678
+-   Endpoints: (-0.8524, 3.2636, 1.0407) -> (-0.8524, 3.7314, 0.2024)
+-   Curve Props: Arc Length 1.0965 | Radius 0.6220 | Diameter 1.2441 | Min Curvature Radius 0.6220
+-   Curve Points: Start (-0.8524, 3.2636, 1.0407) | End (-0.8524, 3.7314, 0.2024) | Center (-0.8524, 3.1520, 0.4287)
+-   Face Tags: 61456, 61588
+-   Face Indices: 70, 88
+-   Topology Vertices: 44 -> 83
+-   Analytic Curve Type: Arc
+- Edge 251: Circular | Length: 0.4587 | Connected Faces: 2 | Tag: 62048
+-   Endpoints: (-0.7028, 2.5569, 0.2162) -> (-0.7028, 2.8480, -0.1252)
+-   Curve Props: Arc Length 0.4587 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
+-   Curve Points: Start (-0.7028, 2.5569, 0.2162) | End (-0.7028, 2.8480, -0.1252) | Center (-0.7028, 3.1520, 0.4287)
+-   Face Tags: 61436, 61492
+-   Face Indices: 57, 61
+-   Topology Vertices: 124 -> 153
+-   Analytic Curve Type: Arc
+- Edge 252: Linear | Length: 0.1466 | Connected Faces: 2 | Tag: 61890
+-   Endpoints: (-0.6239, 3.5930, -2.3388) -> (-0.4773, 3.5930, -2.3388)
+-   Curve Props: Arc Length 0.1466 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6239, 3.5930, -2.3388) | End (-0.4773, 3.5930, -2.3388) | Center (-0.5506, 3.5930, -2.3388)
+-   Face Tags: 61416, 61524
+-   Face Indices: 12, 99
+-   Topology Vertices: 16 -> 154
+-   Analytic Curve Type: Line
+- Edge 253: Circular | Length: 0.4587 | Connected Faces: 2 | Tag: 61748
+-   Endpoints: (0.8425, 2.8480, -0.1252) -> (0.8425, 2.5569, 0.2162)
+-   Curve Props: Arc Length 0.4587 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
+-   Curve Points: Start (0.8425, 2.8480, -0.1252) | End (0.8425, 2.5569, 0.2162) | Center (0.8425, 3.1520, 0.4287)
+-   Face Tags: 61472, 61578
+-   Face Indices: 16, 42
+-   Topology Vertices: 30 -> 26
+-   Analytic Curve Type: Arc
+- Edge 254: Linear | Length: 0.0025 | Connected Faces: 2 | Tag: 61692
+-   Endpoints: (-0.6260, 3.2952, -1.3179) -> (-0.6260, 3.2960, -1.3203)
+-   Curve Props: Arc Length 0.0025 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6260, 3.2952, -1.3179) | End (-0.6260, 3.2960, -1.3203) | Center (-0.6260, 3.2956, -1.3191)
+-   Face Tags: 61458, 61552
+-   Face Indices: 24, 65
+-   Topology Vertices: 127 -> 141
+-   Analytic Curve Type: Line
+- Edge 255: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62122
+-   Endpoints: (-0.8524, 2.4553, 1.1882) -> (-0.8425, 2.4570, 1.1979)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.8524, 2.4553, 1.1882) | End (-0.8425, 2.4570, 1.1979) | Center (-0.8425, 2.4553, 1.1882)
+-   Face Tags: 61580, 61584
+-   Face Indices: 97, 84
+-   Topology Vertices: 116 -> 126
+-   Analytic Curve Type: Arc
+- Edge 256: Circular | Length: 0.0643 | Connected Faces: 2 | Tag: 61668
+-   Endpoints: (-0.8524, 2.8936, -0.1645) -> (-0.8524, 2.8528, -0.1166)
+-   Curve Props: Arc Length 0.0643 | Radius 0.0886 | Diameter 0.1772 | Min Curvature Radius 0.0886
+-   Curve Points: Start (-0.8524, 2.8936, -0.1645) | End (-0.8524, 2.8528, -0.1166) | Center (-0.8524, 2.8102, -0.1943)
+-   Face Tags: 61456, 61568
+-   Face Indices: 70, 1
+-   Topology Vertices: 122 -> 118
+-   Analytic Curve Type: Arc
+- Edge 257: Linear | Length: 0.1654 | Connected Faces: 2 | Tag: 62066
+-   Endpoints: (0.4862, 3.6735, -2.3769) -> (0.4862, 3.7292, -2.5327)
+-   Curve Props: Arc Length 0.1654 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4862, 3.6735, -2.3769) | End (0.4862, 3.7292, -2.5327) | Center (0.4862, 3.7013, -2.4548)
+-   Face Tags: 61450, 61496
+-   Face Indices: 89, 47
+-   Topology Vertices: 120 -> 155
+-   Analytic Curve Type: Line
+- Edge 258: Linear | Length: 0.6934 | Connected Faces: 2 | Tag: 61992
+-   Endpoints: (0.8524, 3.5236, 0.6340) -> (0.8524, 2.8344, 0.7106)
+-   Curve Props: Arc Length 0.6934 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.8524, 3.5236, 0.6340) | End (0.8524, 2.8344, 0.7106) | Center (0.8524, 3.1790, 0.6723)
+-   Face Tags: 61462, 61480
+-   Face Indices: 49, 102
+-   Topology Vertices: 158 -> 159
+-   Analytic Curve Type: Line
+- Edge 259: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62156
+-   Endpoints: (0.6260, 4.5819, -2.2280) -> (0.6358, 4.5726, -2.2313)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.6260, 4.5819, -2.2280) | End (0.6358, 4.5726, -2.2313) | Center (0.6260, 4.5726, -2.2313)
+-   Face Tags: 61614, 61618
+-   Face Indices: 46, 87
+-   Topology Vertices: 102 -> 160
+-   Analytic Curve Type: Arc
+- Edge 260: Circular | Length: 0.3298 | Connected Faces: 2 | Tag: 61658
+-   Endpoints: (-0.8425, 2.4570, 1.1979) -> (-0.8425, 2.2805, 0.9900)
+-   Curve Props: Arc Length 0.3298 | Radius 0.1575 | Diameter 0.3150 | Min Curvature Radius 0.1575
+-   Curve Points: Start (-0.8425, 2.4570, 1.1979) | End (-0.8425, 2.2805, 0.9900) | Center (-0.8425, 2.4288, 1.0429)
+-   Face Tags: 61432, 61580
+-   Face Indices: 10, 97
+-   Topology Vertices: 126 -> 29
+-   Analytic Curve Type: Arc
+- Edge 261: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62092
+-   Endpoints: (0.6260, 3.2788, -1.3884) -> (0.6358, 3.2854, -1.3957)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.6260, 3.2788, -1.3884) | End (0.6358, 3.2854, -1.3957) | Center (0.6260, 3.2854, -1.3957)
+-   Face Tags: 61550, 61554
+-   Face Indices: 20, 8
+-   Topology Vertices: 138 -> 8
+-   Analytic Curve Type: Arc
+- Edge 262: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62096
+-   Endpoints: (0.6260, 3.2960, -1.3203) -> (0.6358, 3.3053, -1.3170)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.6260, 3.2960, -1.3203) | End (0.6358, 3.3053, -1.3170) | Center (0.6260, 3.3053, -1.3170)
+-   Face Tags: 61554, 61558
+-   Face Indices: 8, 35
+-   Topology Vertices: 113 -> 134
+-   Analytic Curve Type: Arc
+- Edge 263: Circular | Length: 0.9153 | Connected Faces: 2 | Tag: 61860
+-   Endpoints: (0.6358, 4.2927, -2.3313) -> (0.6358, 4.2927, -2.3313)
+-   Curve Props: Arc Length 0.9153 | Radius 0.1457 | Diameter 0.2913 | Min Curvature Radius 0.1457
+-   Curve Points: Start (0.6358, 4.2927, -2.3313) | End (0.6358, 4.2927, -2.3313) | Center (0.6358, 4.1555, -2.3803)
+-   Face Tags: 61482, 61530
+-   Face Indices: 43, 80
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 264: Linear | Length: 0.7474 | Connected Faces: 2 | Tag: 62016
+-   Endpoints: (-0.4862, 4.3304, -1.5242) -> (-0.4862, 4.5819, -2.2280)
+-   Curve Props: Arc Length 0.7474 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4862, 4.3304, -1.5242) | End (-0.4862, 4.5819, -2.2280) | Center (-0.4862, 4.4562, -1.8761)
+-   Face Tags: 61426, 61498
+-   Face Indices: 83, 103
+-   Topology Vertices: 94 -> 161
+-   Analytic Curve Type: Line
+- Edge 265: Circular | Length: 0.0572 | Connected Faces: 2 | Tag: 62046
+-   Endpoints: (-0.7028, 2.8480, -0.1252) -> (-0.7028, 2.8843, -0.1678)
+-   Curve Props: Arc Length 0.0572 | Radius 0.0787 | Diameter 0.1575 | Min Curvature Radius 0.0787
+-   Curve Points: Start (-0.7028, 2.8480, -0.1252) | End (-0.7028, 2.8843, -0.1678) | Center (-0.7028, 2.8102, -0.1943)
+-   Face Tags: 61438, 61492
+-   Face Indices: 93, 61
+-   Topology Vertices: 153 -> 107
+-   Analytic Curve Type: Arc
+- Edge 266: Elliptical | Length: 0.1218 | Connected Faces: 2 | Tag: 61648
+-   Endpoints: (-0.6260, 4.3200, -1.4949) -> (-0.6869, 4.2873, -1.4034)
+-   Face Tags: 61426, 61604
+-   Face Indices: 83, 41
+-   Topology Vertices: 3 -> 25
+- Edge 267: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62158
+-   Endpoints: (-0.6358, 3.6828, -2.3736) -> (-0.6260, 3.6735, -2.3769)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.6358, 3.6828, -2.3736) | End (-0.6260, 3.6735, -2.3769) | Center (-0.6260, 3.6828, -2.3736)
+-   Face Tags: 61616, 61620
+-   Face Indices: 21, 17
+-   Topology Vertices: 106 -> 136
+-   Analytic Curve Type: Arc
+- Edge 268: Circular | Length: 1.8613 | Connected Faces: 2 | Tag: 62064
+-   Endpoints: (-0.7028, 2.8134, 0.7020) -> (-0.7028, 3.5422, 0.6210)
+-   Curve Props: Arc Length 1.8613 | Radius 0.4350 | Diameter 0.8701 | Min Curvature Radius 0.4350
+-   Curve Points: Start (-0.7028, 2.8134, 0.7020) | End (-0.7028, 3.5422, 0.6210) | Center (-0.7028, 3.1520, 0.4287)
+-   Face Tags: 61442, 61492
+-   Face Indices: 33, 61
+-   Topology Vertices: 73 -> 143
+-   Analytic Curve Type: Arc
+- Edge 269: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62090
+-   Endpoints: (-0.6358, 3.3053, -1.3170) -> (-0.6260, 3.2960, -1.3203)
+-   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.6358, 3.3053, -1.3170) | End (-0.6260, 3.2960, -1.3203) | Center (-0.6260, 3.3053, -1.3170)
+-   Face Tags: 61548, 61552
+-   Face Indices: 81, 65
+-   Topology Vertices: 115 -> 141
+-   Analytic Curve Type: Arc
+- Edge 270: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61832
+-   Endpoints: (0.8524, 2.8134, 0.7020) -> (0.8524, 2.8344, 0.7106)
+-   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
+-   Curve Points: Start (0.8524, 2.8134, 0.7020) | End (0.8524, 2.8344, 0.7106) | Center (0.8524, 2.8318, 0.6872)
+-   Face Tags: 61462, 61536
+-   Face Indices: 49, 6
+-   Topology Vertices: 7 -> 159
+-   Analytic Curve Type: Arc
+
+### Faces
+- Total Faces: 110
+**Face Type Breakdown:**
+- Blending: 12
+- Conical: 2
+- Cylindrical: 52
+- Planar: 24
+- SurfaceOfRevolution: 20
+
+**Per-Face Details:**
+- Face 1: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61568
+-   Measure: Area 0.0009 | Perimeter 0.1524 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (-0.8489, 2.8715, -0.1420) | Anchor (-0.8489, 2.8715, -0.1420)
+-   Analytic: Ref Point (-0.8474, 2.8102, -0.1943) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0886 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 153, 90, 202, 256
+-   Loop Count: 1
+-   Adjacent Faces: 30, 9, 93, 70
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 2: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61476
+-   Measure: Area 0.0098 | Perimeter 0.4204 | Radius/Diameter 0.0984 | Min Curvature Radius 0.0984
+-   Points: Center (0.7726, 3.7359, 0.1644) | Anchor (0.7726, 3.7359, 0.1644)
+-   Analytic: Ref Point (0.7726, 3.8322, 0.1630) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0984 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 167, 87, 42, 247
+-   Loop Count: 1
+-   Adjacent Faces: 90, 105, 3, 71
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 3: Planar | Edges: 14 | Facets: None | Vertices: 14 | Tag: 61494
+-   Measure: Area 1.9688 | Perimeter 9.6276 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.7028, 3.2752, 0.0081) | Anchor (0.7028, 3.2752, 0.0081)
+-   Analytic: Ref Point (0.7028, 3.2428, 0.0008) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.5420, 0.5999] | V[-1.4454, 1.3842] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 132, 82, 42, 152, 169, 149, 155, 176, 201, 73, 47, 205, 95, 31
+-   Loop Count: 2
+-   Adjacent Faces: 64, 108, 2, 90, 31, 60, 16, 85, 77, 4, 105, 102, 25, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 4: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61466
+-   Measure: Area 0.1148 | Perimeter 1.9229 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.7726, 2.8612, 1.1241) | Anchor (0.7726, 2.8612, 1.1241)
+-   Analytic: Ref Point (0.7726, 2.8612, 1.1241) | Direction (0.0000, 0.1795, 0.9838) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.4109, 0.4109] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 196, 36, 73, 18
+-   Loop Count: 1
+-   Adjacent Faces: 105, 77, 3, 11
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 5: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61624
+-   Measure: Area 0.0004 | Perimeter 0.0853 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.6317, 3.6039, -2.3327) | Anchor (-0.6317, 3.6039, -2.3327)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 65, 231, 9, 89
+-   Loop Count: 1
+-   Adjacent Faces: 17, 106, 99, 56
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 6: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61536
+-   Measure: Area 0.0035 | Perimeter 0.3466 | Radius/Diameter 0.0236 | Min Curvature Radius 0.0236
+-   Points: Center (0.7776, 2.8232, 0.7081) | Anchor (0.7776, 2.8232, 0.7081)
+-   Analytic: Ref Point (0.7776, 2.8318, 0.6872) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0236 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 219, 4, 270, 31
+-   Loop Count: 1
+-   Adjacent Faces: 102, 25, 49, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 7: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61418
+-   Measure: Area 0.0231 | Perimeter 0.6102 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.5561, 3.7013, -2.4548) | Anchor (-0.5561, 3.7013, -2.4548)
+-   Analytic: Ref Point (-0.5561, 3.7013, -2.4548) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0827, 0.0827] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 144, 66, 121, 173
+-   Loop Count: 1
+-   Adjacent Faces: 99, 40, 103, 21
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 8: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61554
+-   Measure: Area 0.0012 | Perimeter 0.1916 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (0.6324, 3.2977, -1.3569) | Anchor (0.6324, 3.2977, -1.3569)
+-   Analytic: Ref Point (0.6309, 3.2367, -1.3415) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0728 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 261, 262, 124, 165
+-   Loop Count: 1
+-   Adjacent Faces: 20, 35, 59, 43
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 9: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61572
+-   Measure: Area 0.0071 | Perimeter 0.9411 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (-0.8488, 2.6843, 0.0299) | Anchor (-0.8488, 2.6843, 0.0299)
+-   Analytic: Ref Point (-0.8474, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.6220 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 90, 166, 38, 150
+-   Loop Count: 1
+-   Adjacent Faces: 1, 36, 57, 70
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 10: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61432
+-   Measure: Area 0.0461 | Perimeter 0.9392 | Radius/Diameter 0.1575 | Min Curvature Radius 0.1575
+-   Points: Center (-0.7726, 2.3295, 1.1272) | Anchor (-0.7726, 2.3295, 1.1272)
+-   Analytic: Ref Point (-0.7726, 2.4288, 1.0429) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1575 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 194, 139, 71, 260
+-   Loop Count: 1
+-   Adjacent Faces: 67, 53, 61, 97
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 11: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61590
+-   Measure: Area 0.0127 | Perimeter 1.6743 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.8488, 2.8606, 1.1206) | Anchor (0.8488, 2.8606, 1.1206)
+-   Analytic: Ref Point (0.8425, 2.8594, 1.1144) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.4109, 0.4109] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 35, 99, 18, 79
+-   Loop Count: 1
+-   Adjacent Faces: 23, 107, 4, 49
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 12: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 61416
+-   Measure: Area 0.1663 | Perimeter 2.6708 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, 3.5139, -2.3671) | Anchor (0.0000, 3.5139, -2.3671)
+-   Analytic: Ref Point (-0.0000, 3.5179, -2.3656) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0797, 0.0797] | V[-0.6239, 0.6239] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 252, 145, 187, 77, 48, 171, 62, 221
+-   Loop Count: 1
+-   Adjacent Faces: 99, 48, 38, 92, 75, 110, 106, 58
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 13: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61608
+-   Measure: Area 0.0120 | Perimeter 1.5879 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.6323, 4.4476, -1.8627) | Anchor (-0.6323, 4.4476, -1.8627)
+-   Analytic: Ref Point (-0.6260, 4.4417, -1.8648) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.3892, 0.3892] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 2, 72, 161, 222
+-   Loop Count: 1
+-   Adjacent Faces: 41, 109, 83, 91
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 14: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61630
+-   Measure: Area 0.0004 | Perimeter 0.0853 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.6317, 3.6039, -2.3327) | Anchor (0.6317, 3.6039, -2.3327)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 108, 41, 12, 127
+-   Loop Count: 1
+-   Adjacent Faces: 50, 110, 48, 76
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 15: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61518
+-   Measure: Area 0.1009 | Perimeter 2.2670 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
+-   Points: Center (-0.6549, 3.7877, -1.3589) | Anchor (-0.6549, 3.7877, -1.3589)
+-   Analytic: Ref Point (-0.7146, 3.7837, -1.4021) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.0787 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.5357, 0.5357] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 27, 188, 200, 93
+-   Loop Count: 1
+-   Adjacent Faces: 91, 27, 63, 41
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 16: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61472
+-   Measure: Area 0.0641 | Perimeter 1.1969 | Radius/Diameter 0.6319 | Min Curvature Radius 0.6319
+-   Points: Center (0.7726, 2.6816, 0.0277) | Anchor (0.7726, 2.6816, 0.0277)
+-   Analytic: Ref Point (0.7726, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.6319 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 14, 16, 155, 253
+-   Loop Count: 1
+-   Adjacent Faces: 85, 60, 3, 42
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 17: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61620
+-   Measure: Area 0.0012 | Perimeter 0.1916 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (-0.6324, 3.6516, -2.3476) | Anchor (-0.6324, 3.6516, -2.3476)
+-   Analytic: Ref Point (-0.6309, 3.6142, -2.3981) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0728 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 267, 65, 120, 80
+-   Loop Count: 1
+-   Adjacent Faces: 21, 5, 99, 91
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 18: Cylindrical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 61508
+-   Measure: Area 0.3095 | Perimeter 2.7421 | Radius/Diameter 0.2362 | Min Curvature Radius 0.2362
+-   Points: Center (0.5434, 3.7658, -1.2894) | Anchor (0.5434, 3.7658, -1.2894)
+-   Analytic: Ref Point (0.7224, 3.7524, -1.4187) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.2362 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.5876, 0.5876] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 57, 30, 10, 175, 61
+-   Loop Count: 1
+-   Adjacent Faces: 59, 108, 90, 47, 31
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 19: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61532
+-   Measure: Area 0.0035 | Perimeter 0.3466 | Radius/Diameter 0.0236 | Min Curvature Radius 0.0236
+-   Points: Center (-0.7776, 3.5340, 0.6291) | Anchor (-0.7776, 3.5340, 0.6291)
+-   Analytic: Ref Point (-0.7776, 3.5210, 0.6106) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0236 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 138, 174, 60, 213
+-   Loop Count: 1
+-   Adjacent Faces: 61, 70, 68, 33
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 20: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61550
+-   Measure: Area 0.0004 | Perimeter 0.0853 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.6317, 3.2702, -1.3987) | Anchor (0.6317, 3.2702, -1.3987)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 106, 261, 218, 116
+-   Loop Count: 1
+-   Adjacent Faces: 29, 8, 59, 76
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 21: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61616
+-   Measure: Area 0.0026 | Perimeter 0.3616 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.6323, 3.7047, -2.4536) | Anchor (-0.6323, 3.7047, -2.4536)
+-   Analytic: Ref Point (-0.6260, 3.7106, -2.4515) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0827, 0.0827] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 53, 267, 173, 190
+-   Loop Count: 1
+-   Adjacent Faces: 109, 17, 7, 91
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 22: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61428
+-   Measure: Area 0.1557 | Perimeter 2.5073 | Radius/Diameter 0.6319 | Min Curvature Radius 0.6319
+-   Points: Center (-0.7726, 3.6351, 0.6983) | Anchor (-0.7726, 3.6351, 0.6983)
+-   Analytic: Ref Point (-0.7726, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.6319 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 249, 26, 214, 207
+-   Loop Count: 1
+-   Adjacent Faces: 67, 98, 61, 88
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 23: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61586
+-   Measure: Area 0.0050 | Perimeter 0.6700 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (0.8487, 2.3317, 1.1254) | Anchor (0.8487, 2.3317, 1.1254)
+-   Analytic: Ref Point (0.8474, 2.4288, 1.0429) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1476 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 115, 35, 32, 242
+-   Loop Count: 1
+-   Adjacent Faces: 32, 11, 77, 49
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 24: Planar | Edges: 9 | Facets: None | Vertices: 9 | Tag: 61458
+-   Measure: Area 0.1831 | Perimeter 2.9019 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.7378, 3.0999, -0.7714) | Anchor (-0.7378, 3.0999, -0.7714)
+-   Analytic: Ref Point (-0.6646, 3.0902, -0.7440) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.6119, 0.6119] | V[-0.1779, 0.1779] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 193, 20, 142, 81, 212, 254, 148, 33, 217
+-   Loop Count: 1
+-   Adjacent Faces: 73, 45, 62, 93, 61, 65, 63, 79, 30
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 25: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61478
+-   Measure: Area 0.2785 | Perimeter 4.0218 | Radius/Diameter 0.4350 | Min Curvature Radius 0.4350
+-   Points: Center (0.7776, 3.1330, 0.2584) | Anchor (0.7776, 3.1330, 0.2584)
+-   Analytic: Ref Point (0.7776, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.4350 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 112, 4, 50, 95
+-   Loop Count: 1
+-   Adjacent Faces: 64, 6, 49, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 26: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61452
+-   Measure: Area 0.1988 | Perimeter 3.1243 | Radius/Diameter 0.4528 | Min Curvature Radius 0.4528
+-   Points: Center (0.5561, 4.2525, -2.6518) | Anchor (0.5561, 4.2525, -2.6518)
+-   Analytic: Ref Point (0.5561, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.4528 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 244, 230, 191, 76
+-   Loop Count: 1
+-   Adjacent Faces: 89, 90, 47, 87
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 27: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61504
+-   Measure: Area 0.3027 | Perimeter 2.6908 | Radius/Diameter 0.2362 | Min Curvature Radius 0.2362
+-   Points: Center (-0.7952, 3.7386, -1.2215) | Anchor (-0.7952, 3.7386, -1.2215)
+-   Analytic: Ref Point (-0.6161, 3.7524, -1.0922) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.2362 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.5735, 0.5735] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 188, 114, 97, 37
+-   Loop Count: 1
+-   Adjacent Faces: 15, 70, 79, 34
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 28: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 61528
+-   Measure: Area 0.0123 | Perimeter 1.7687 | Radius/Diameter N/A | Min Curvature Radius 0.1921
+-   Points: Center (-0.6310, 4.1555, -2.3803) | Anchor (-0.6310, 4.1555, -2.3803)
+-   Analytic: Ref Point (-0.6309, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1407 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 151, 56
+-   Loop Count: 1
+-   Adjacent Faces: 91, 74
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 29: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61546
+-   Measure: Area 0.0043 | Perimeter 0.5771 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (0.5548, 3.1585, -1.4402) | Anchor (0.5548, 3.1585, -1.4402)
+-   Analytic: Ref Point (0.4390, 3.2856, -1.3964) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.1870 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 58, 106, 181, 7
+-   Loop Count: 1
+-   Adjacent Faces: 39, 20, 100, 76
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 30: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61564
+-   Measure: Area 0.0135 | Perimeter 1.7826 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.8488, 3.0350, -0.5790) | Anchor (-0.8488, 3.0350, -0.5790)
+-   Analytic: Ref Point (-0.8425, 3.0409, -0.5769) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.4379, 0.4379] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 216, 153, 94, 217
+-   Loop Count: 1
+-   Adjacent Faces: 79, 1, 70, 24
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 31: Planar | Edges: 9 | Facets: None | Vertices: 9 | Tag: 61424
+-   Measure: Area 0.1831 | Perimeter 2.9019 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.7378, 3.0999, -0.7714) | Anchor (0.7378, 3.0999, -0.7714)
+-   Analytic: Ref Point (0.6646, 3.0902, -0.7440) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.6119, 0.6119] | V[-0.1779, 0.1779] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 84, 226, 61, 40, 169, 177, 63, 103, 199
+-   Loop Count: 1
+-   Adjacent Faces: 59, 108, 18, 60, 3, 66, 82, 95, 35
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 32: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61582
+-   Measure: Area 0.0127 | Perimeter 1.6743 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.8488, 2.4221, 0.6043) | Anchor (0.8488, 2.4221, 0.6043)
+-   Analytic: Ref Point (0.8425, 2.4280, 0.6064) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.4109, 0.4109] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 117, 115, 147, 136
+-   Loop Count: 1
+-   Adjacent Faces: 42, 23, 85, 49
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 33: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61442
+-   Measure: Area 0.2785 | Perimeter 4.0218 | Radius/Diameter 0.4350 | Min Curvature Radius 0.4350
+-   Points: Center (-0.7776, 3.1330, 0.2584) | Anchor (-0.7776, 3.1330, 0.2584)
+-   Analytic: Ref Point (-0.7776, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.4350 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 213, 46, 44, 268
+-   Loop Count: 1
+-   Adjacent Faces: 19, 51, 70, 61
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 34: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61600
+-   Measure: Area 0.0058 | Perimeter 0.6696 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.7912, 4.2498, -1.3128) | Anchor (-0.7912, 4.2498, -1.3128)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 69, 13, 105, 37
+-   Loop Count: 1
+-   Adjacent Faces: 44, 41, 83, 27
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 35: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61558
+-   Measure: Area 0.0000 | Perimeter 0.0359 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.6323, 3.2990, -1.3179) | Anchor (0.6323, 3.2990, -1.3179)
+-   Analytic: Ref Point (0.6260, 3.3049, -1.3158) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0013, 0.0013] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 262, 245, 199, 113
+-   Loop Count: 1
+-   Adjacent Faces: 8, 95, 31, 43
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 36: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61576
+-   Measure: Area 0.0127 | Perimeter 1.6743 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.8488, 2.4221, 0.6043) | Anchor (-0.8488, 2.4221, 0.6043)
+-   Analytic: Ref Point (-0.8425, 2.4280, 0.6064) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.4109, 0.4109] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 166, 15, 156, 34
+-   Loop Count: 1
+-   Adjacent Faces: 9, 97, 53, 70
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 37: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61448
+-   Measure: Area 0.8572 | Perimeter 3.7087 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, 3.2660, -1.9268) | Anchor (0.0000, 3.2660, -1.9268)
+-   Analytic: Ref Point (-0.0000, 3.2660, -1.9268) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.4882, 0.4882] | V[-0.4390, 0.4390] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 43, 54, 130, 241
+-   Loop Count: 1
+-   Adjacent Faces: 56, 76, 39, 58
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 38: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61500
+-   Measure: Area 0.0740 | Perimeter 2.1551 | Radius/Diameter 0.0472 | Min Curvature Radius 0.0472
+-   Points: Center (-0.4691, 3.4231, -1.8706) | Anchor (-0.4691, 3.4231, -1.8706)
+-   Analytic: Ref Point (-0.4390, 3.4502, -1.8572) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0472 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.5079, 0.5008] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 223, 118, 187, 163, 111, 210
+-   Loop Count: 1
+-   Adjacent Faces: 99, 73, 12, 75, 100, 103
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 39: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61542
+-   Measure: Area 0.0136 | Perimeter 1.7868 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.0000, 3.1031, -1.4599) | Anchor (-0.0000, 3.1031, -1.4599)
+-   Analytic: Ref Point (-0.0000, 3.1111, -1.4637) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.4390, 0.4390] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 203, 58, 130, 68
+-   Loop Count: 1
+-   Adjacent Faces: 104, 29, 37, 100
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 40: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61420
+-   Measure: Area 0.1988 | Perimeter 3.1243 | Radius/Diameter 0.4528 | Min Curvature Radius 0.4528
+-   Points: Center (-0.5561, 4.2525, -2.6518) | Anchor (-0.5561, 4.2525, -2.6518)
+-   Analytic: Ref Point (-0.5561, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.4528 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 66, 227, 238, 59
+-   Loop Count: 1
+-   Adjacent Faces: 7, 83, 103, 109
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 41: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61604
+-   Measure: Area 0.0021 | Perimeter 0.2682 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.6530, 4.2976, -1.4461) | Anchor (-0.6530, 4.2976, -1.4461)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 13, 2, 266, 93
+-   Loop Count: 1
+-   Adjacent Faces: 34, 13, 83, 15
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 42: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61578
+-   Measure: Area 0.0071 | Perimeter 0.9411 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (0.8488, 2.6843, 0.0299) | Anchor (0.8488, 2.6843, 0.0299)
+-   Analytic: Ref Point (0.8474, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.6220 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 107, 117, 253, 21
+-   Loop Count: 1
+-   Adjacent Faces: 52, 32, 16, 49
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 43: Planar | Edges: 9 | Facets: None | Vertices: 9 | Tag: 61482
+-   Measure: Area 1.2040 | Perimeter 5.4354 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.6358, 3.9842, -2.0366) | Anchor (0.6358, 3.9842, -2.0366)
+-   Analytic: Ref Point (0.6358, 3.9419, -2.0689) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-3.0848, 0.5469] | V[-0.3724, 3.2098] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 263, 162, 5, 133, 19, 224, 220, 113, 165
+-   Loop Count: 2
+-   Adjacent Faces: 80, 72, 76, 50, 101, 87, 46, 35, 8
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 44: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61596
+-   Measure: Area 0.0213 | Perimeter 2.7907 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.8488, 3.9683, -0.5211) | Anchor (-0.8488, 3.9683, -0.5211)
+-   Analytic: Ref Point (-0.8425, 3.9624, -0.5232) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.6899, 0.6899] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 104, 69, 211, 29
+-   Loop Count: 1
+-   Adjacent Faces: 54, 34, 83, 70
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 45: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61514
+-   Measure: Area 0.1032 | Perimeter 2.3077 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
+-   Points: Center (-0.6837, 3.7167, -1.1520) | Anchor (-0.6837, 3.7167, -1.1520)
+-   Analytic: Ref Point (-0.6240, 3.7212, -1.1089) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.0787 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.5444, 0.5444] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 134, 20, 234, 128
+-   Loop Count: 1
+-   Adjacent Faces: 83, 24, 61, 62
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 46: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61614
+-   Measure: Area 0.0120 | Perimeter 1.5879 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.6323, 4.4476, -1.8627) | Anchor (0.6323, 4.4476, -1.8627)
+-   Analytic: Ref Point (0.6260, 4.4417, -1.8648) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.3892, 0.3892] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 233, 259, 240, 220
+-   Loop Count: 1
+-   Adjacent Faces: 55, 87, 90, 43
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 47: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 61496
+-   Measure: Area 1.2144 | Perimeter 5.3699 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.4862, 3.9936, -2.0570) | Anchor (0.4862, 3.9936, -2.0570)
+-   Analytic: Ref Point (0.4862, 3.9450, -2.0846) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.5588, 3.0828] | V[-0.3568, 3.2256] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 135, 164, 175, 206, 257, 191, 208, 1
+-   Loop Count: 2
+-   Adjacent Faces: 48, 59, 18, 92, 89, 26, 90, 96
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 48: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61526
+-   Measure: Area 0.0139 | Perimeter 0.4862 | Radius/Diameter 0.0630 | Min Curvature Radius 0.0630
+-   Points: Center (0.5556, 3.6383, -2.3468) | Anchor (0.5556, 3.6383, -2.3468)
+-   Analytic: Ref Point (0.5522, 3.6142, -2.3981) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0630 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0738, 0.0749] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 102, 135, 91, 145, 12, 178
+-   Loop Count: 1
+-   Adjacent Faces: 92, 47, 89, 12, 14, 50
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 49: Planar | Edges: 14 | Facets: None | Vertices: 14 | Tag: 61462
+-   Measure: Area 1.8876 | Perimeter 9.5231 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.8524, 3.2724, 0.0148) | Anchor (0.8524, 3.2724, 0.0148)
+-   Analytic: Ref Point (0.8524, 3.2378, 0.0088) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.5879, 0.5337] | V[-1.4237, 1.3663] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 237, 170, 258, 50, 141, 28, 189, 79, 242, 136, 21, 184, 74, 270
+-   Loop Count: 2
+-   Adjacent Faces: 64, 78, 102, 25, 86, 71, 107, 11, 23, 32, 42, 52, 66, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 50: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61626
+-   Measure: Area 0.0012 | Perimeter 0.1916 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (0.6324, 3.6516, -2.3476) | Anchor (0.6324, 3.6516, -2.3476)
+-   Analytic: Ref Point (0.6309, 3.6142, -2.3981) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0728 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 168, 108, 133, 178
+-   Loop Count: 1
+-   Adjacent Faces: 101, 14, 43, 48
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 51: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61538
+-   Measure: Area 0.0035 | Perimeter 0.3466 | Radius/Diameter 0.0236 | Min Curvature Radius 0.0236
+-   Points: Center (-0.7776, 2.8232, 0.7081) | Anchor (-0.7776, 2.8232, 0.7081)
+-   Analytic: Ref Point (-0.7776, 2.8318, 0.6872) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0236 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 110, 46, 70, 49
+-   Loop Count: 1
+-   Adjacent Faces: 68, 33, 61, 70
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 52: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61574
+-   Measure: Area 0.0009 | Perimeter 0.1524 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (0.8489, 2.8715, -0.1420) | Anchor (0.8489, 2.8715, -0.1420)
+-   Analytic: Ref Point (0.8474, 2.8102, -0.1943) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0886 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 146, 107, 92, 184
+-   Loop Count: 1
+-   Adjacent Faces: 66, 42, 60, 49
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 53: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61434
+-   Measure: Area 0.1148 | Perimeter 1.9229 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.7726, 2.4187, 0.6031) | Anchor (-0.7726, 2.4187, 0.6031)
+-   Analytic: Ref Point (-0.7726, 2.4187, 0.6031) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.4109, 0.4109] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 139, 209, 96, 156
+-   Loop Count: 1
+-   Adjacent Faces: 10, 57, 61, 36
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 54: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61592
+-   Measure: Area 0.0011 | Perimeter 0.1788 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (-0.8489, 3.7323, 0.1644) | Anchor (-0.8489, 3.7323, 0.1644)
+-   Analytic: Ref Point (-0.8474, 3.8322, 0.1630) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1083 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 55, 104, 45, 143
+-   Loop Count: 1
+-   Adjacent Faces: 88, 44, 98, 70
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 55: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61610
+-   Measure: Area 0.0021 | Perimeter 0.2682 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.6530, 4.2976, -1.4461) | Anchor (0.6530, 4.2976, -1.4461)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 119, 233, 17, 179
+-   Loop Count: 1
+-   Adjacent Faces: 69, 46, 72, 90
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 56: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61486
+-   Measure: Area 0.3020 | Perimeter 2.5833 | Radius/Diameter 0.1969 | Min Curvature Radius 0.1969
+-   Points: Center (-0.5643, 3.3334, -1.9027) | Anchor (-0.5643, 3.3334, -1.9027)
+-   Analytic: Ref Point (-0.4390, 3.4507, -1.8586) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.1969 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.4915, 0.4957] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 43, 215, 22, 185, 89, 236
+-   Loop Count: 1
+-   Adjacent Faces: 37, 91, 104, 94, 5, 106
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 57: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61436
+-   Measure: Area 0.0641 | Perimeter 1.1969 | Radius/Diameter 0.6319 | Min Curvature Radius 0.6319
+-   Points: Center (-0.7726, 2.6816, 0.0277) | Anchor (-0.7726, 2.6816, 0.0277)
+-   Analytic: Ref Point (-0.7726, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.6319 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 209, 182, 251, 38
+-   Loop Count: 1
+-   Adjacent Faces: 53, 93, 61, 9
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 58: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61632
+-   Measure: Area 0.0136 | Perimeter 1.7868 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.0000, 3.4358, -2.3912) | Anchor (-0.0000, 3.4358, -2.3912)
+-   Analytic: Ref Point (-0.0000, 3.4396, -2.3832) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.4390, 0.4390] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 52, 154, 241, 221
+-   Loop Count: 1
+-   Adjacent Faces: 106, 110, 37, 12
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 59: Cylindrical | Edges: 7 | Facets: None | Vertices: 7 | Tag: 61520
+-   Measure: Area 0.0139 | Perimeter 0.4858 | Radius/Diameter 0.0630 | Min Curvature Radius 0.0630
+-   Points: Center (0.5556, 3.2879, -1.3659) | Anchor (0.5556, 3.2879, -1.3659)
+-   Analytic: Ref Point (0.5522, 3.2367, -1.3415) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0630 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0738, 0.0749] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 57, 164, 198, 84, 246, 124, 218
+-   Loop Count: 1
+-   Adjacent Faces: 18, 47, 92, 31, 100, 8, 20
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 60: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61474
+-   Measure: Area 0.0080 | Perimeter 0.3938 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
+-   Points: Center (0.7726, 2.8688, -0.1443) | Anchor (0.7726, 2.8688, -0.1443)
+-   Analytic: Ref Point (0.7726, 2.8102, -0.1943) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0787 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 16, 40, 149, 92
+-   Loop Count: 1
+-   Adjacent Faces: 16, 31, 3, 52
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 61: Planar | Edges: 14 | Facets: None | Vertices: 14 | Tag: 61492
+-   Measure: Area 1.9688 | Perimeter 9.6276 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.7028, 3.2752, 0.0081) | Anchor (-0.7028, 3.2752, 0.0081)
+-   Analytic: Ref Point (-0.7028, 3.2428, 0.0008) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.5999, 0.5420] | V[-1.4454, 1.3842] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 138, 234, 75, 131, 212, 265, 251, 96, 71, 158, 214, 126, 268, 70
+-   Loop Count: 2
+-   Adjacent Faces: 19, 45, 98, 83, 24, 93, 57, 53, 10, 67, 22, 68, 33, 51
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 62: Cylindrical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 61510
+-   Measure: Area 0.3095 | Perimeter 2.7421 | Radius/Diameter 0.2362 | Min Curvature Radius 0.2362
+-   Points: Center (-0.5434, 3.7658, -1.2894) | Anchor (-0.5434, 3.7658, -1.2894)
+-   Analytic: Ref Point (-0.7224, 3.7524, -1.4187) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.2362 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.5876, 0.5876] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 172, 128, 67, 142, 122
+-   Loop Count: 1
+-   Adjacent Faces: 73, 45, 83, 24, 103
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 63: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61556
+-   Measure: Area 0.0015 | Perimeter 0.2585 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.6492, 3.2811, -1.2708) | Anchor (-0.6492, 3.2811, -1.2708)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 101, 157, 200, 148
+-   Loop Count: 1
+-   Adjacent Faces: 65, 79, 15, 24
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 64: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61534
+-   Measure: Area 0.0035 | Perimeter 0.3466 | Radius/Diameter 0.0236 | Min Curvature Radius 0.0236
+-   Points: Center (0.7776, 3.5340, 0.6291) | Anchor (0.7776, 3.5340, 0.6291)
+-   Analytic: Ref Point (0.7776, 3.5210, 0.6106) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0236 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 237, 132, 197, 112
+-   Loop Count: 1
+-   Adjacent Faces: 49, 3, 102, 25
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 65: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61552
+-   Measure: Area 0.0000 | Perimeter 0.0359 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.6323, 3.2990, -1.3179) | Anchor (-0.6323, 3.2990, -1.3179)
+-   Analytic: Ref Point (-0.6260, 3.3049, -1.3158) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0013, 0.0013] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 269, 101, 254, 248
+-   Loop Count: 1
+-   Adjacent Faces: 81, 63, 24, 91
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 66: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61570
+-   Measure: Area 0.0135 | Perimeter 1.7826 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.8488, 3.0350, -0.5790) | Anchor (0.8488, 3.0350, -0.5790)
+-   Analytic: Ref Point (0.8425, 3.0409, -0.5769) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.4379, 0.4379] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 183, 146, 177, 74
+-   Loop Count: 1
+-   Adjacent Faces: 82, 52, 31, 49
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 67: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61430
+-   Measure: Area 0.1148 | Perimeter 1.9229 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.7726, 2.8612, 1.1241) | Anchor (-0.7726, 2.8612, 1.1241)
+-   Analytic: Ref Point (-0.7726, 2.8612, 1.1241) | Direction (0.0000, 0.1795, 0.9838) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.4109, 0.4109] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 249, 194, 158, 98
+-   Loop Count: 1
+-   Adjacent Faces: 22, 10, 61, 84
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 68: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61444
+-   Measure: Area 0.1037 | Perimeter 1.6861 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.7776, 3.1790, 0.6723) | Anchor (-0.7776, 3.1790, 0.6723)
+-   Analytic: Ref Point (-0.7776, 3.1790, 0.6723) | Direction (-0.0000, -0.1104, -0.9939) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.3467, 0.3467] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 60, 110, 204, 126
+-   Loop Count: 1
+-   Adjacent Faces: 19, 51, 70, 61
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 69: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61606
+-   Measure: Area 0.0058 | Perimeter 0.6696 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.7912, 4.2498, -1.3128) | Anchor (0.7912, 4.2498, -1.3128)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 109, 119, 235, 25
+-   Loop Count: 1
+-   Adjacent Faces: 86, 55, 78, 90
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 70: Planar | Edges: 14 | Facets: None | Vertices: 14 | Tag: 61456
+-   Measure: Area 1.8876 | Perimeter 9.5231 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.8524, 3.2724, 0.0148) | Anchor (-0.8524, 3.2724, 0.0148)
+-   Analytic: Ref Point (-0.8524, 3.2378, 0.0088) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.5337, 0.5879] | V[-1.4237, 1.3663] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 174, 114, 204, 44, 94, 256, 150, 34, 195, 88, 250, 143, 29, 49
+-   Loop Count: 2
+-   Adjacent Faces: 19, 27, 68, 33, 30, 1, 9, 36, 97, 84, 88, 54, 44, 51
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 71: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61598
+-   Measure: Area 0.0011 | Perimeter 0.1788 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (0.8489, 3.7323, 0.1644) | Anchor (0.8489, 3.7323, 0.1644)
+-   Analytic: Ref Point (0.8474, 3.8322, 0.1630) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1083 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 3, 229, 247, 28
+-   Loop Count: 1
+-   Adjacent Faces: 107, 86, 2, 49
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 72: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61516
+-   Measure: Area 0.1009 | Perimeter 2.2670 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
+-   Points: Center (0.6549, 3.7877, -1.3589) | Anchor (0.6549, 3.7877, -1.3589)
+-   Analytic: Ref Point (0.7146, 3.7837, -1.4021) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.0787 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.5357, 0.5357] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 78, 162, 17, 180
+-   Loop Count: 1
+-   Adjacent Faces: 78, 43, 55, 95
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 73: Cylindrical | Edges: 7 | Facets: None | Vertices: 7 | Tag: 61522
+-   Measure: Area 0.0139 | Perimeter 0.4858 | Radius/Diameter 0.0630 | Min Curvature Radius 0.0630
+-   Points: Center (-0.5556, 3.2879, -1.3659) | Anchor (-0.5556, 3.2879, -1.3659)
+-   Analytic: Ref Point (-0.5522, 3.2367, -1.3415) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0630 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0749, 0.0738] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 118, 8, 172, 193, 140, 243, 137
+-   Loop Count: 1
+-   Adjacent Faces: 38, 103, 62, 24, 100, 94, 81
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 74: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 61454
+-   Measure: Area 0.1193 | Perimeter 1.7068 | Radius/Diameter 0.1358 | Min Curvature Radius 0.1358
+-   Points: Center (-0.5561, 4.1555, -2.3803) | Anchor (-0.5561, 4.1555, -2.3803)
+-   Analytic: Ref Point (-0.5561, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1358 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[0.5561, 0.5561] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 56, 23
+-   Loop Count: 1
+-   Adjacent Faces: 28, 103
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 75: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61490
+-   Measure: Area 0.8745 | Perimeter 3.7480 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, 3.4069, -1.8764) | Anchor (0.0000, 3.4069, -1.8764)
+-   Analytic: Ref Point (-0.0000, 3.4069, -1.8764) | Direction (0.0000, 0.9417, 0.3364) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.4980, 0.4980] | V[-0.4390, 0.4390] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 163, 123, 83, 48
+-   Loop Count: 1
+-   Adjacent Faces: 38, 92, 100, 12
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 76: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61488
+-   Measure: Area 0.3020 | Perimeter 2.5833 | Radius/Diameter 0.1969 | Min Curvature Radius 0.1969
+-   Points: Center (0.5643, 3.3334, -1.9027) | Anchor (0.5643, 3.3334, -1.9027)
+-   Analytic: Ref Point (0.4390, 3.4507, -1.8586) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.1969 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.4957, 0.4915] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 5, 54, 64, 127, 116, 7
+-   Loop Count: 1
+-   Adjacent Faces: 43, 37, 110, 14, 20, 29
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 77: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61468
+-   Measure: Area 0.0461 | Perimeter 0.9392 | Radius/Diameter 0.1575 | Min Curvature Radius 0.1575
+-   Points: Center (0.7726, 2.3295, 1.1272) | Anchor (0.7726, 2.3295, 1.1272)
+-   Analytic: Ref Point (0.7726, 2.4288, 1.0429) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1575 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 36, 232, 201, 32
+-   Loop Count: 1
+-   Adjacent Faces: 4, 85, 3, 23
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 78: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61506
+-   Measure: Area 0.3027 | Perimeter 2.6908 | Radius/Diameter 0.2362 | Min Curvature Radius 0.2362
+-   Points: Center (0.7952, 3.7386, -1.2215) | Anchor (0.7952, 3.7386, -1.2215)
+-   Analytic: Ref Point (0.6161, 3.7524, -1.0922) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.2362 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.5735, 0.5735] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 78, 170, 235, 129
+-   Loop Count: 1
+-   Adjacent Faces: 72, 49, 69, 82
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 79: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61560
+-   Measure: Area 0.0041 | Perimeter 0.6598 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.7994, 3.2267, -1.1184) | Anchor (-0.7994, 3.2267, -1.1184)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 157, 216, 97, 33
+-   Loop Count: 1
+-   Adjacent Faces: 63, 30, 27, 24
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 80: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 61530
+-   Measure: Area 0.0123 | Perimeter 1.7687 | Radius/Diameter N/A | Min Curvature Radius 0.1921
+-   Points: Center (0.6310, 4.1555, -2.3803) | Anchor (0.6310, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.6309, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1407 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 263, 39
+-   Loop Count: 1
+-   Adjacent Faces: 43, 96
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 81: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61548
+-   Measure: Area 0.0012 | Perimeter 0.1916 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (-0.6324, 3.2977, -1.3569) | Anchor (-0.6324, 3.2977, -1.3569)
+-   Analytic: Ref Point (-0.6309, 3.2367, -1.3415) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0728 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 159, 269, 86, 137
+-   Loop Count: 1
+-   Adjacent Faces: 94, 65, 91, 73
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 82: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61566
+-   Measure: Area 0.0041 | Perimeter 0.6598 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.7994, 3.2267, -1.1184) | Anchor (0.7994, 3.2267, -1.1184)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 11, 183, 63, 129
+-   Loop Count: 1
+-   Adjacent Faces: 95, 66, 31, 78
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 83: Planar | Edges: 10 | Facets: None | Vertices: 10 | Tag: 61426
+-   Measure: Area 0.3595 | Perimeter 5.4623 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.6908, 4.1635, -1.0569) | Anchor (-0.6908, 4.1635, -1.0569)
+-   Analytic: Ref Point (-0.6644, 4.1607, -1.0491) | Direction (0.0000, 0.9417, 0.3364) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-1.2519, 1.2519] | V[-0.1781, 0.1781] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 134, 67, 227, 51, 264, 131, 211, 105, 266, 161
+-   Loop Count: 1
+-   Adjacent Faces: 45, 62, 40, 98, 103, 61, 44, 34, 41, 13
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 84: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61584
+-   Measure: Area 0.0127 | Perimeter 1.6743 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.8488, 2.8606, 1.1206) | Anchor (-0.8488, 2.8606, 1.1206)
+-   Analytic: Ref Point (-0.8425, 2.8594, 1.1144) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.4109, 0.4109] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 255, 24, 98, 88
+-   Loop Count: 1
+-   Adjacent Faces: 97, 88, 67, 70
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 85: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61470
+-   Measure: Area 0.1148 | Perimeter 1.9229 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.7726, 2.4187, 0.6031) | Anchor (0.7726, 2.4187, 0.6031)
+-   Analytic: Ref Point (0.7726, 2.4187, 0.6031) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.4109, 0.4109] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 232, 14, 176, 147
+-   Loop Count: 1
+-   Adjacent Faces: 77, 16, 3, 32
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 86: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61602
+-   Measure: Area 0.0213 | Perimeter 2.7907 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.8488, 3.9683, -0.5211) | Anchor (0.8488, 3.9683, -0.5211)
+-   Analytic: Ref Point (0.8425, 3.9624, -0.5232) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.6899, 0.6899] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 229, 109, 141, 186
+-   Loop Count: 1
+-   Adjacent Faces: 71, 69, 49, 90
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 87: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61618
+-   Measure: Area 0.0218 | Perimeter 2.8447 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (0.6322, 4.2517, -2.6496) | Anchor (0.6322, 4.2517, -2.6496)
+-   Analytic: Ref Point (0.6309, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.4429 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 259, 125, 76, 224
+-   Loop Count: 1
+-   Adjacent Faces: 46, 101, 26, 43
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 88: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61588
+-   Measure: Area 0.0171 | Perimeter 2.2413 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (-0.8488, 3.6323, 0.6968) | Anchor (-0.8488, 3.6323, 0.6968)
+-   Analytic: Ref Point (-0.8474, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.6220 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 24, 55, 207, 250
+-   Loop Count: 1
+-   Adjacent Faces: 84, 54, 22, 70
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 89: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61450
+-   Measure: Area 0.0231 | Perimeter 0.6102 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.5561, 3.7013, -2.4548) | Anchor (0.5561, 3.7013, -2.4548)
+-   Analytic: Ref Point (0.5561, 3.7013, -2.4548) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0827, 0.0827] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 91, 244, 257, 239
+-   Loop Count: 1
+-   Adjacent Faces: 48, 26, 47, 101
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 90: Planar | Edges: 10 | Facets: None | Vertices: 10 | Tag: 61460
+-   Measure: Area 0.3595 | Perimeter 5.4623 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.6908, 4.1635, -1.0569) | Anchor (0.6908, 4.1635, -1.0569)
+-   Analytic: Ref Point (0.6644, 4.1607, -1.0491) | Direction (0.0000, 0.9417, 0.3364) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-1.2519, 1.2519] | V[-0.1781, 0.1781] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 100, 10, 230, 167, 152, 208, 240, 179, 25, 186
+-   Loop Count: 1
+-   Adjacent Faces: 108, 18, 26, 2, 3, 47, 46, 55, 69, 86
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 91: Planar | Edges: 9 | Facets: None | Vertices: 9 | Tag: 61484
+-   Measure: Area 1.2040 | Perimeter 5.4354 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.6358, 3.9842, -2.0366) | Anchor (-0.6358, 3.9842, -2.0366)
+-   Analytic: Ref Point (-0.6358, 3.9419, -2.0689) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.5469, 3.0848] | V[-0.3724, 3.2098] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 151, 27, 215, 86, 248, 222, 6, 190, 80
+-   Loop Count: 2
+-   Adjacent Faces: 28, 15, 56, 81, 65, 13, 109, 21, 17
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 92: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61502
+-   Measure: Area 0.0740 | Perimeter 2.1551 | Radius/Diameter 0.0472 | Min Curvature Radius 0.0472
+-   Points: Center (0.4691, 3.4231, -1.8706) | Anchor (0.4691, 3.4231, -1.8706)
+-   Analytic: Ref Point (0.4390, 3.4502, -1.8572) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0472 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.5008, 0.5079] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 102, 198, 206, 77, 123, 192
+-   Loop Count: 1
+-   Adjacent Faces: 48, 59, 47, 12, 75, 100
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 93: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61438
+-   Measure: Area 0.0080 | Perimeter 0.3938 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
+-   Points: Center (-0.7726, 2.8688, -0.1443) | Anchor (-0.7726, 2.8688, -0.1443)
+-   Analytic: Ref Point (-0.7726, 2.8102, -0.1943) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0787 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 182, 81, 265, 202
+-   Loop Count: 1
+-   Adjacent Faces: 57, 24, 61, 1
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 94: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61544
+-   Measure: Area 0.0004 | Perimeter 0.0853 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.6317, 3.2702, -1.3987) | Anchor (-0.6317, 3.2702, -1.3987)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 225, 159, 243, 185
+-   Loop Count: 1
+-   Adjacent Faces: 104, 81, 73, 56
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 95: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61562
+-   Measure: Area 0.0015 | Perimeter 0.2585 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.6492, 3.2811, -1.2708) | Anchor (0.6492, 3.2811, -1.2708)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 245, 11, 103, 180
+-   Loop Count: 1
+-   Adjacent Faces: 35, 82, 31, 72
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 96: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 61422
+-   Measure: Area 0.1193 | Perimeter 1.7068 | Radius/Diameter 0.1358 | Min Curvature Radius 0.1358
+-   Points: Center (0.5561, 4.1555, -2.3803) | Anchor (0.5561, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.5561, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1358 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.5561, -0.5561] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 39, 1
+-   Loop Count: 1
+-   Adjacent Faces: 80, 47
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 97: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61580
+-   Measure: Area 0.0050 | Perimeter 0.6700 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (-0.8487, 2.3317, 1.1254) | Anchor (-0.8487, 2.3317, 1.1254)
+-   Analytic: Ref Point (-0.8474, 2.4288, 1.0429) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1476 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 15, 255, 260, 195
+-   Loop Count: 1
+-   Adjacent Faces: 36, 84, 10, 70
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 98: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61440
+-   Measure: Area 0.0098 | Perimeter 0.4204 | Radius/Diameter 0.0984 | Min Curvature Radius 0.0984
+-   Points: Center (-0.7726, 3.7359, 0.1644) | Anchor (-0.7726, 3.7359, 0.1644)
+-   Analytic: Ref Point (-0.7726, 3.8322, 0.1630) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0984 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 51, 26, 75, 45
+-   Loop Count: 1
+-   Adjacent Faces: 83, 22, 61, 54
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 99: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61524
+-   Measure: Area 0.0139 | Perimeter 0.4862 | Radius/Diameter 0.0630 | Min Curvature Radius 0.0630
+-   Points: Center (-0.5556, 3.6383, -2.3468) | Anchor (-0.5556, 3.6383, -2.3468)
+-   Analytic: Ref Point (-0.5522, 3.6142, -2.3981) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0630 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0749, 0.0738] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 160, 223, 252, 144, 120, 9
+-   Loop Count: 1
+-   Adjacent Faces: 103, 38, 12, 7, 17, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 100: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 61446
+-   Measure: Area 0.1663 | Perimeter 2.6708 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, 3.1788, -1.4291) | Anchor (0.0000, 3.1788, -1.4291)
+-   Analytic: Ref Point (-0.0000, 3.1828, -1.4276) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0797, 0.0797] | V[-0.6239, 0.6239] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 246, 140, 111, 192, 83, 181, 68, 228
+-   Loop Count: 1
+-   Adjacent Faces: 59, 73, 38, 92, 75, 29, 39, 104
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 101: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61622
+-   Measure: Area 0.0026 | Perimeter 0.3616 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.6323, 3.7047, -2.4536) | Anchor (0.6323, 3.7047, -2.4536)
+-   Analytic: Ref Point (0.6260, 3.7106, -2.4515) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0827, 0.0827] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 125, 168, 239, 19
+-   Loop Count: 1
+-   Adjacent Faces: 87, 50, 89, 43
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 102: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61480
+-   Measure: Area 0.1037 | Perimeter 1.6861 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.7776, 3.1790, 0.6723) | Anchor (0.7776, 3.1790, 0.6723)
+-   Analytic: Ref Point (0.7776, 3.1790, 0.6723) | Direction (-0.0000, -0.1104, -0.9939) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.3467, 0.3467] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 197, 219, 258, 205
+-   Loop Count: 1
+-   Adjacent Faces: 64, 6, 49, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 103: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 61498
+-   Measure: Area 1.2144 | Perimeter 5.3699 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.4862, 3.9936, -2.0570) | Anchor (-0.4862, 3.9936, -2.0570)
+-   Analytic: Ref Point (-0.4862, 3.9450, -2.0846) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-3.0828, 0.5588] | V[-0.3568, 3.2256] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 160, 8, 122, 210, 264, 23, 121, 238
+-   Loop Count: 2
+-   Adjacent Faces: 99, 73, 62, 38, 83, 74, 7, 40
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 104: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61540
+-   Measure: Area 0.0043 | Perimeter 0.5771 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (-0.5548, 3.1585, -1.4402) | Anchor (-0.5548, 3.1585, -1.4402)
+-   Analytic: Ref Point (-0.4390, 3.2856, -1.3964) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.1870 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 203, 225, 22, 228
+-   Loop Count: 1
+-   Adjacent Faces: 39, 94, 56, 100
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 105: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61464
+-   Measure: Area 0.1557 | Perimeter 2.5073 | Radius/Diameter 0.6319 | Min Curvature Radius 0.6319
+-   Points: Center (0.7726, 3.6351, 0.6983) | Anchor (0.7726, 3.6351, 0.6983)
+-   Analytic: Ref Point (0.7726, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.6319 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 196, 87, 47, 85
+-   Loop Count: 1
+-   Adjacent Faces: 4, 2, 3, 107
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 106: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61628
+-   Measure: Area 0.0043 | Perimeter 0.5771 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (-0.5548, 3.4912, -2.3713) | Anchor (-0.5548, 3.4912, -2.3713)
+-   Analytic: Ref Point (-0.4390, 3.6170, -2.3239) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.1870 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 231, 52, 236, 62
+-   Loop Count: 1
+-   Adjacent Faces: 5, 58, 56, 12
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 107: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61594
+-   Measure: Area 0.0171 | Perimeter 2.2413 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (0.8488, 3.6323, 0.6968) | Anchor (0.8488, 3.6323, 0.6968)
+-   Analytic: Ref Point (0.8474, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.6220 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 99, 3, 85, 189
+-   Loop Count: 1
+-   Adjacent Faces: 11, 71, 105, 49
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 108: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61512
+-   Measure: Area 0.1032 | Perimeter 2.3077 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
+-   Points: Center (0.6837, 3.7167, -1.1520) | Anchor (0.6837, 3.7167, -1.1520)
+-   Analytic: Ref Point (0.6240, 3.7212, -1.1089) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.0787 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.5444, 0.5444] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 100, 226, 30, 82
+-   Loop Count: 1
+-   Adjacent Faces: 90, 31, 18, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 109: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61612
+-   Measure: Area 0.0218 | Perimeter 2.8447 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (-0.6322, 4.2517, -2.6496) | Anchor (-0.6322, 4.2517, -2.6496)
+-   Analytic: Ref Point (-0.6309, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.4429 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 72, 53, 59, 6
+-   Loop Count: 1
+-   Adjacent Faces: 13, 21, 40, 91
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 110: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61634
+-   Measure: Area 0.0043 | Perimeter 0.5771 | Radius/Diameter N/A | Min Curvature Radius 0.0098
+-   Points: Center (0.5548, 3.4912, -2.3713) | Anchor (0.5548, 3.4912, -2.3713)
+-   Analytic: Ref Point (0.4390, 3.6170, -2.3239) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.1870 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 41, 154, 64, 171
+-   Loop Count: 1
+-   Adjacent Faces: 14, 58, 76, 12
+-   Blend Data: Is Blend False | Radius 0.0000
+
+---
+## Body 3
+
+### Body Metadata
+- Tag: 62559
+- Journal Identifier: UNPARAMETERIZED_FEATURE(3)
+- Name: Wascher
+- Is Solid Body: True
+- Is Sheet Body: False
+- Is Convergent Body: False
+- Density: 7800.0000
+- Facet Count: None
+- Vertex Count: None
+- Shape Summary: Likely contains a conical region.
+- Exported Topology Vertices: 1
+### Body Measurement
+- Surface Area: 0.4677
+- Volume: 0.0088
+- Mass: 0.0025
+- Weight: 0.0025
+- Radius Of Gyration: 0.2201
+- Centroid: (-0.6614, 4.1555, -2.3803)
+### Bounding Box
+- X Min: -1.1594
+- Y Min: 0.0000
+- Z Min: -1.1594
+- X Max: 1.1594
+- Y Max: 3.7441
+- Z Max: 1.1594
+- Dx (Length): 2.3189
+- Dy (Width): 3.7441
+- Dz (Height): 2.3189
+
+### Features
+- Total Features: 1
+- Body(3) | Type: BREP | Timestamp: 3
+-   Warning: []
+-   Error: []
+
+### Edges
+- Total Edges: 8
+**Edge Type Breakdown:**
+- Circular: 8
+
+**Per-Edge Details:**
+- Edge 1: Circular | Length: 1.7019 | Connected Faces: 2 | Tag: 62590
+-   Endpoints: (-0.6358, 4.1515, -2.6512) -> (-0.6358, 4.1515, -2.6512)
+-   Curve Props: Arc Length 1.7019 | Radius 0.2709 | Diameter 0.5417 | Min Curvature Radius 0.2709
+-   Curve Points: Start (-0.6358, 4.1515, -2.6512) | End (-0.6358, 4.1515, -2.6512) | Center (-0.6358, 4.1555, -2.3803)
+-   Face Tags: 62562, 62574
+-   Face Indices: 7, 1
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 2: Circular | Length: 1.7316 | Connected Faces: 2 | Tag: 62576
+-   Endpoints: (-0.6823, 4.1514, -2.6559) -> (-0.6823, 4.1514, -2.6559)
+-   Curve Props: Arc Length 1.7316 | Radius 0.2756 | Diameter 0.5512 | Min Curvature Radius 0.2756
+-   Curve Points: Start (-0.6823, 4.1514, -2.6559) | End (-0.6823, 4.1514, -2.6559) | Center (-0.6823, 4.1555, -2.3803)
+-   Face Tags: 62564, 62572
+-   Face Indices: 3, 8
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 3: Circular | Length: 0.9326 | Connected Faces: 2 | Tag: 62580
+-   Endpoints: (-0.6870, 4.1533, -2.5287) -> (-0.6870, 4.1533, -2.5287)
+-   Curve Props: Arc Length 0.9326 | Radius 0.1484 | Diameter 0.2969 | Min Curvature Radius 0.1484
+-   Curve Points: Start (-0.6870, 4.1533, -2.5287) | End (-0.6870, 4.1533, -2.5287) | Center (-0.6870, 4.1555, -2.3803)
+-   Face Tags: 62560, 62570
+-   Face Indices: 2, 6
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 4: Circular | Length: 0.9029 | Connected Faces: 2 | Tag: 62584
+-   Endpoints: (-0.6406, 4.1534, -2.5240) -> (-0.6406, 4.1534, -2.5240)
+-   Curve Props: Arc Length 0.9029 | Radius 0.1437 | Diameter 0.2874 | Min Curvature Radius 0.1437
+-   Curve Points: Start (-0.6406, 4.1534, -2.5240) | End (-0.6406, 4.1534, -2.5240) | Center (-0.6406, 4.1555, -2.3803)
+-   Face Tags: 62566, 62568
+-   Face Indices: 4, 5
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 5: Circular | Length: 0.9326 | Connected Faces: 2 | Tag: 62588
+-   Endpoints: (-0.6358, 4.1533, -2.5287) -> (-0.6358, 4.1533, -2.5287)
+-   Curve Props: Arc Length 0.9326 | Radius 0.1484 | Diameter 0.2969 | Min Curvature Radius 0.1484
+-   Curve Points: Start (-0.6358, 4.1533, -2.5287) | End (-0.6358, 4.1533, -2.5287) | Center (-0.6358, 4.1555, -2.3803)
+-   Face Tags: 62562, 62568
+-   Face Indices: 7, 5
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 6: Circular | Length: 1.7316 | Connected Faces: 2 | Tag: 62578
+-   Endpoints: (-0.6406, 4.1514, -2.6559) -> (-0.6406, 4.1514, -2.6559)
+-   Curve Props: Arc Length 1.7316 | Radius 0.2756 | Diameter 0.5512 | Min Curvature Radius 0.2756
+-   Curve Points: Start (-0.6406, 4.1514, -2.6559) | End (-0.6406, 4.1514, -2.6559) | Center (-0.6406, 4.1555, -2.3803)
+-   Face Tags: 62564, 62574
+-   Face Indices: 3, 1
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 7: Circular | Length: 1.7019 | Connected Faces: 2 | Tag: 62582
+-   Endpoints: (-0.6870, 4.1515, -2.6512) -> (-0.6870, 4.1515, -2.6512)
+-   Curve Props: Arc Length 1.7019 | Radius 0.2709 | Diameter 0.5417 | Min Curvature Radius 0.2709
+-   Curve Points: Start (-0.6870, 4.1515, -2.6512) | End (-0.6870, 4.1515, -2.6512) | Center (-0.6870, 4.1555, -2.3803)
+-   Face Tags: 62560, 62572
+-   Face Indices: 2, 8
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 8: Circular | Length: 0.9029 | Connected Faces: 2 | Tag: 62586
+-   Endpoints: (-0.6823, 4.1534, -2.5240) -> (-0.6823, 4.1534, -2.5240)
+-   Curve Props: Arc Length 0.9029 | Radius 0.1437 | Diameter 0.2874 | Min Curvature Radius 0.1437
+-   Curve Points: Start (-0.6823, 4.1534, -2.5240) | End (-0.6823, 4.1534, -2.5240) | Center (-0.6823, 4.1555, -2.3803)
+-   Face Tags: 62566, 62570
+-   Face Indices: 4, 6
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+
+### Faces
+- Total Faces: 8
+**Face Type Breakdown:**
+- Conical: 4
+- Cylindrical: 2
+- Planar: 2
+
+**Per-Face Details:**
+- Face 1: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62574
+-   Measure: Area 0.0115 | Perimeter 3.4335 | Radius/Diameter N/A | Min Curvature Radius 0.3831
+-   Points: Center (-0.6382, 4.1555, -2.3803) | Anchor (-0.6382, 4.1555, -2.3803)
+-   Analytic: Ref Point (-0.6382, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.2732 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 6, 1
+-   Loop Count: 1
+-   Adjacent Faces: 3, 7
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 2: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62560
+-   Measure: Area 0.1613 | Perimeter 2.6345 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.6870, 4.1555, -2.3803) | Anchor (-0.6870, 4.1555, -2.3803)
+-   Analytic: Ref Point (-0.6870, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 3, 7
+-   Loop Count: 1
+-   Adjacent Faces: 6, 8
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 3: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62564
+-   Measure: Area 0.0723 | Perimeter 3.4632 | Radius/Diameter 0.2756 | Min Curvature Radius 0.2756
+-   Points: Center (-0.6614, 4.1555, -2.3803) | Anchor (-0.6614, 4.1555, -2.3803)
+-   Analytic: Ref Point (-0.6614, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.2756 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[0.6614, 0.6614] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 2, 6
+-   Loop Count: 1
+-   Adjacent Faces: 8, 1
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 4: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62566
+-   Measure: Area 0.0377 | Perimeter 1.8058 | Radius/Diameter 0.1437 | Min Curvature Radius 0.1437
+-   Points: Center (-0.6614, 4.1555, -2.3803) | Anchor (-0.6614, 4.1555, -2.3803)
+-   Analytic: Ref Point (-0.6614, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1437 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.6614, -0.6614] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 4, 8
+-   Loop Count: 1
+-   Adjacent Faces: 5, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 5: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62568
+-   Measure: Area 0.0061 | Perimeter 1.8355 | Radius/Diameter N/A | Min Curvature Radius 0.2032
+-   Points: Center (-0.6382, 4.1555, -2.3803) | Anchor (-0.6382, 4.1555, -2.3803)
+-   Analytic: Ref Point (-0.6382, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1461 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 4, 5
+-   Loop Count: 1
+-   Adjacent Faces: 4, 7
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 6: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62570
+-   Measure: Area 0.0061 | Perimeter 1.8355 | Radius/Diameter N/A | Min Curvature Radius 0.2032
+-   Points: Center (-0.6847, 4.1555, -2.3803) | Anchor (-0.6847, 4.1555, -2.3803)
+-   Analytic: Ref Point (-0.6846, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1461 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 3, 8
+-   Loop Count: 1
+-   Adjacent Faces: 2, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 7: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62562
+-   Measure: Area 0.1613 | Perimeter 2.6345 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.6358, 4.1555, -2.3803) | Anchor (-0.6358, 4.1555, -2.3803)
+-   Analytic: Ref Point (-0.6358, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 5, 1
+-   Loop Count: 1
+-   Adjacent Faces: 5, 1
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 8: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62572
+-   Measure: Area 0.0115 | Perimeter 3.4335 | Radius/Diameter N/A | Min Curvature Radius 0.3831
+-   Points: Center (-0.6846, 4.1555, -2.3803) | Anchor (-0.6846, 4.1555, -2.3803)
+-   Analytic: Ref Point (-0.6846, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.2732 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 2, 7
+-   Loop Count: 1
+-   Adjacent Faces: 3, 2
+-   Blend Data: Is Blend False | Radius 0.0000
+
+---
+## Body 4
+
+### Body Metadata
+- Tag: 62611
+- Journal Identifier: UNPARAMETERIZED_FEATURE(4)
+- Name: Wascher
+- Is Solid Body: True
+- Is Sheet Body: False
+- Is Convergent Body: False
+- Density: 7800.0000
+- Facet Count: None
+- Vertex Count: None
+- Shape Summary: Likely contains a conical region.
+- Exported Topology Vertices: 1
+### Body Measurement
+- Surface Area: 0.4677
+- Volume: 0.0088
+- Mass: 0.0025
+- Weight: 0.0025
+- Radius Of Gyration: 0.2201
+- Centroid: (0.6614, 4.1555, -2.3803)
+### Bounding Box
+- X Min: -1.1594
+- Y Min: 0.0000
+- Z Min: -1.1594
+- X Max: 1.1594
+- Y Max: 3.7441
+- Z Max: 1.1594
+- Dx (Length): 2.3189
+- Dy (Width): 3.7441
+- Dz (Height): 2.3189
+
+### Features
+- Total Features: 1
+- Body(4) | Type: BREP | Timestamp: 4
+-   Warning: []
+-   Error: []
+
+### Edges
+- Total Edges: 8
+**Edge Type Breakdown:**
+- Circular: 8
+
+**Per-Edge Details:**
+- Edge 1: Circular | Length: 0.9029 | Connected Faces: 2 | Tag: 62636
+-   Endpoints: (0.6823, 4.1556, -2.5240) -> (0.6823, 4.1556, -2.5240)
+-   Curve Props: Arc Length 0.9029 | Radius 0.1437 | Diameter 0.2874 | Min Curvature Radius 0.1437
+-   Curve Points: Start (0.6823, 4.1556, -2.5240) | End (0.6823, 4.1556, -2.5240) | Center (0.6823, 4.1555, -2.3803)
+-   Face Tags: 62618, 62620
+-   Face Indices: 8, 1
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 2: Circular | Length: 1.7316 | Connected Faces: 2 | Tag: 62630
+-   Endpoints: (0.6823, 4.1557, -2.6559) -> (0.6823, 4.1557, -2.6559)
+-   Curve Props: Arc Length 1.7316 | Radius 0.2756 | Diameter 0.5512 | Min Curvature Radius 0.2756
+-   Curve Points: Start (0.6823, 4.1557, -2.6559) | End (0.6823, 4.1557, -2.6559) | Center (0.6823, 4.1555, -2.3803)
+-   Face Tags: 62616, 62626
+-   Face Indices: 7, 4
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 3: Circular | Length: 1.7316 | Connected Faces: 2 | Tag: 62628
+-   Endpoints: (0.6406, 4.1557, -2.6559) -> (0.6406, 4.1557, -2.6559)
+-   Curve Props: Arc Length 1.7316 | Radius 0.2756 | Diameter 0.5512 | Min Curvature Radius 0.2756
+-   Curve Points: Start (0.6406, 4.1557, -2.6559) | End (0.6406, 4.1557, -2.6559) | Center (0.6406, 4.1555, -2.3803)
+-   Face Tags: 62616, 62624
+-   Face Indices: 7, 3
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 4: Circular | Length: 1.7019 | Connected Faces: 2 | Tag: 62634
+-   Endpoints: (0.6358, 4.1557, -2.6512) -> (0.6358, 4.1557, -2.6512)
+-   Curve Props: Arc Length 1.7019 | Radius 0.2709 | Diameter 0.5417 | Min Curvature Radius 0.2709
+-   Curve Points: Start (0.6358, 4.1557, -2.6512) | End (0.6358, 4.1557, -2.6512) | Center (0.6358, 4.1555, -2.3803)
+-   Face Tags: 62612, 62624
+-   Face Indices: 5, 3
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 5: Circular | Length: 0.9029 | Connected Faces: 2 | Tag: 62638
+-   Endpoints: (0.6406, 4.1556, -2.5240) -> (0.6406, 4.1556, -2.5240)
+-   Curve Props: Arc Length 0.9029 | Radius 0.1437 | Diameter 0.2874 | Min Curvature Radius 0.1437
+-   Curve Points: Start (0.6406, 4.1556, -2.5240) | End (0.6406, 4.1556, -2.5240) | Center (0.6406, 4.1555, -2.3803)
+-   Face Tags: 62618, 62622
+-   Face Indices: 8, 2
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 6: Circular | Length: 0.9326 | Connected Faces: 2 | Tag: 62632
+-   Endpoints: (0.6358, 4.1556, -2.5288) -> (0.6358, 4.1556, -2.5288)
+-   Curve Props: Arc Length 0.9326 | Radius 0.1484 | Diameter 0.2969 | Min Curvature Radius 0.1484
+-   Curve Points: Start (0.6358, 4.1556, -2.5288) | End (0.6358, 4.1556, -2.5288) | Center (0.6358, 4.1555, -2.3803)
+-   Face Tags: 62612, 62622
+-   Face Indices: 5, 2
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 7: Circular | Length: 0.9326 | Connected Faces: 2 | Tag: 62640
+-   Endpoints: (0.6870, 4.1556, -2.5288) -> (0.6870, 4.1556, -2.5288)
+-   Curve Props: Arc Length 0.9326 | Radius 0.1484 | Diameter 0.2969 | Min Curvature Radius 0.1484
+-   Curve Points: Start (0.6870, 4.1556, -2.5288) | End (0.6870, 4.1556, -2.5288) | Center (0.6870, 4.1555, -2.3803)
+-   Face Tags: 62614, 62620
+-   Face Indices: 6, 1
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 8: Circular | Length: 1.7019 | Connected Faces: 2 | Tag: 62642
+-   Endpoints: (0.6870, 4.1557, -2.6512) -> (0.6870, 4.1557, -2.6512)
+-   Curve Props: Arc Length 1.7019 | Radius 0.2709 | Diameter 0.5417 | Min Curvature Radius 0.2709
+-   Curve Points: Start (0.6870, 4.1557, -2.6512) | End (0.6870, 4.1557, -2.6512) | Center (0.6870, 4.1555, -2.3803)
+-   Face Tags: 62614, 62626
+-   Face Indices: 6, 4
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+
+### Faces
+- Total Faces: 8
+**Face Type Breakdown:**
+- Conical: 4
+- Cylindrical: 2
+- Planar: 2
+
+**Per-Face Details:**
+- Face 1: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62620
+-   Measure: Area 0.0061 | Perimeter 1.8355 | Radius/Diameter N/A | Min Curvature Radius 0.2032
+-   Points: Center (0.6847, 4.1555, -2.3803) | Anchor (0.6847, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.6846, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1461 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 1, 7
+-   Loop Count: 1
+-   Adjacent Faces: 8, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 2: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62622
+-   Measure: Area 0.0061 | Perimeter 1.8355 | Radius/Diameter N/A | Min Curvature Radius 0.2032
+-   Points: Center (0.6382, 4.1555, -2.3803) | Anchor (0.6382, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.6382, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1461 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 6, 5
+-   Loop Count: 1
+-   Adjacent Faces: 5, 8
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 3: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62624
+-   Measure: Area 0.0115 | Perimeter 3.4335 | Radius/Diameter N/A | Min Curvature Radius 0.3831
+-   Points: Center (0.6382, 4.1555, -2.3803) | Anchor (0.6382, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.6382, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.2732 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 3, 4
+-   Loop Count: 1
+-   Adjacent Faces: 7, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 4: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62626
+-   Measure: Area 0.0115 | Perimeter 3.4335 | Radius/Diameter N/A | Min Curvature Radius 0.3831
+-   Points: Center (0.6846, 4.1555, -2.3803) | Anchor (0.6846, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.6846, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.2732 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 2, 8
+-   Loop Count: 1
+-   Adjacent Faces: 7, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 5: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62612
+-   Measure: Area 0.1613 | Perimeter 2.6345 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.6358, 4.1555, -2.3803) | Anchor (0.6358, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.6358, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 6, 4
+-   Loop Count: 1
+-   Adjacent Faces: 2, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 6: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62614
+-   Measure: Area 0.1613 | Perimeter 2.6345 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.6870, 4.1555, -2.3803) | Anchor (0.6870, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.6870, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 7, 8
+-   Loop Count: 1
+-   Adjacent Faces: 1, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 7: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62616
+-   Measure: Area 0.0723 | Perimeter 3.4632 | Radius/Diameter 0.2756 | Min Curvature Radius 0.2756
+-   Points: Center (0.6614, 4.1555, -2.3803) | Anchor (0.6614, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.6614, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.2756 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.6614, -0.6614] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 3, 2
+-   Loop Count: 1
+-   Adjacent Faces: 3, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 8: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62618
+-   Measure: Area 0.0377 | Perimeter 1.8058 | Radius/Diameter 0.1437 | Min Curvature Radius 0.1437
+-   Points: Center (0.6614, 4.1555, -2.3803) | Anchor (0.6614, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.6614, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1437 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[0.6614, 0.6614] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 1, 5
+-   Loop Count: 1
+-   Adjacent Faces: 1, 2
+-   Blend Data: Is Blend False | Radius 0.0000
+
+---
+## Body 5
+
+### Body Metadata
+- Tag: 62663
+- Journal Identifier: UNPARAMETERIZED_FEATURE(5)
+- Name: Pin__2
+- Is Solid Body: True
+- Is Sheet Body: False
+- Is Convergent Body: False
+- Density: 7800.0000
+- Facet Count: None
+- Vertex Count: None
+- Shape Summary: Likely contains a conical region.
+- Exported Topology Vertices: 1
+### Body Measurement
+- Surface Area: 1.8366
+- Volume: 0.1064
+- Mass: 0.0300
+- Weight: 0.0300
+- Radius Of Gyration: 0.5478
+- Centroid: (-0.0000, 4.1555, -2.3803)
+### Bounding Box
+- X Min: -0.9508
+- Y Min: 4.0197
+- Z Min: -2.5162
+- X Max: 0.9508
+- Y Max: 4.2914
+- Z Max: -2.2445
+- Dx (Length): 1.9016
+- Dy (Width): 0.2717
+- Dz (Height): 0.2717
+
+### Features
+- Total Features: 1
+- Body(5) | Type: BREP | Timestamp: 5
+-   Warning: []
+-   Error: []
+
+### Edges
+- Total Edges: 12
+**Edge Type Breakdown:**
+- Circular: 4
+- SpCurve: 8
+
+**Per-Edge Details:**
+- Edge 1: Circular | Length: 0.7297 | Connected Faces: 2 | Tag: 62702
+-   Endpoints: (-0.9508, 4.1109, -2.4876) -> (-0.9508, 4.1109, -2.4876)
+-   Curve Props: Arc Length 0.7297 | Radius 0.1161 | Diameter 0.2323 | Min Curvature Radius 0.1161
+-   Curve Points: Start (-0.9508, 4.1109, -2.4876) | End (-0.9508, 4.1109, -2.4876) | Center (-0.9508, 4.1555, -2.3803)
+-   Face Tags: 62666, 62672
+-   Face Indices: 10, 6
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 2: Circular | Length: 0.8534 | Connected Faces: 2 | Tag: 62706
+-   Endpoints: (0.9311, 4.1034, -2.5058) -> (0.9311, 4.1034, -2.5058)
+-   Curve Props: Arc Length 0.8534 | Radius 0.1358 | Diameter 0.2717 | Min Curvature Radius 0.1358
+-   Curve Points: Start (0.9311, 4.1034, -2.5058) | End (0.9311, 4.1034, -2.5058) | Center (0.9311, 4.1555, -2.3803)
+-   Face Tags: 62664, 62670
+-   Face Indices: 3, 5
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 3: SpCurve | Length: 0.2879 | Connected Faces: 2 | Tag: 62690
+-   Endpoints: (0.7087, 4.2047, -2.2620) -> (0.7087, 4.2047, -2.2620)
+-   Face Tags: 62676, 62678
+-   Face Indices: 9, 11
+-   Topology Vertices: 1 -> 1
+- Edge 4: SpCurve | Length: 0.3232 | Connected Faces: 2 | Tag: 62700
+-   Endpoints: (-0.7045, 4.1034, -2.5058) -> (-0.7045, 4.1034, -2.5058)
+-   Face Tags: 62664, 62684
+-   Face Indices: 3, 4
+-   Topology Vertices: 1 -> 1
+- Edge 5: Circular | Length: 0.8534 | Connected Faces: 2 | Tag: 62708
+-   Endpoints: (-0.9311, 4.1034, -2.5058) -> (-0.9311, 4.1034, -2.5058)
+-   Curve Props: Arc Length 0.8534 | Radius 0.1358 | Diameter 0.2717 | Min Curvature Radius 0.1358
+-   Curve Points: Start (-0.9311, 4.1034, -2.5058) | End (-0.9311, 4.1034, -2.5058) | Center (-0.9311, 4.1555, -2.3803)
+-   Face Tags: 62664, 62672
+-   Face Indices: 3, 6
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 6: SpCurve | Length: 0.2879 | Connected Faces: 2 | Tag: 62686
+-   Endpoints: (-0.7992, 4.2047, -2.2620) -> (-0.7992, 4.2047, -2.2620)
+-   Face Tags: 62674, 62682
+-   Face Indices: 7, 2
+-   Topology Vertices: 1 -> 1
+- Edge 7: SpCurve | Length: 0.3232 | Connected Faces: 2 | Tag: 62696
+-   Endpoints: (0.8033, 4.1034, -2.5058) -> (0.8033, 4.1034, -2.5058)
+-   Face Tags: 62664, 62680
+-   Face Indices: 3, 1
+-   Topology Vertices: 1 -> 1
+- Edge 8: SpCurve | Length: 0.3232 | Connected Faces: 2 | Tag: 62694
+-   Endpoints: (0.7045, 4.2077, -2.2549) -> (0.7045, 4.2077, -2.2549)
+-   Face Tags: 62664, 62678
+-   Face Indices: 3, 11
+-   Topology Vertices: 1 -> 1
+- Edge 9: Circular | Length: 0.7297 | Connected Faces: 2 | Tag: 62704
+-   Endpoints: (0.9508, 4.1109, -2.4876) -> (0.9508, 4.1109, -2.4876)
+-   Curve Props: Arc Length 0.7297 | Radius 0.1161 | Diameter 0.2323 | Min Curvature Radius 0.1161
+-   Curve Points: Start (0.9508, 4.1109, -2.4876) | End (0.9508, 4.1109, -2.4876) | Center (0.9508, 4.1555, -2.3803)
+-   Face Tags: 62668, 62670
+-   Face Indices: 8, 5
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 10: SpCurve | Length: 0.2879 | Connected Faces: 2 | Tag: 62688
+-   Endpoints: (-0.7087, 4.1063, -2.4986) -> (-0.7087, 4.1063, -2.4986)
+-   Face Tags: 62674, 62684
+-   Face Indices: 7, 4
+-   Topology Vertices: 1 -> 1
+- Edge 11: SpCurve | Length: 0.3232 | Connected Faces: 2 | Tag: 62698
+-   Endpoints: (-0.8033, 4.2077, -2.2549) -> (-0.8033, 4.2077, -2.2549)
+-   Face Tags: 62664, 62682
+-   Face Indices: 3, 2
+-   Topology Vertices: 1 -> 1
+- Edge 12: SpCurve | Length: 0.2879 | Connected Faces: 2 | Tag: 62692
+-   Endpoints: (0.7992, 4.1063, -2.4986) -> (0.7992, 4.1063, -2.4986)
+-   Face Tags: 62676, 62680
+-   Face Indices: 9, 1
+-   Topology Vertices: 1 -> 1
+
+### Faces
+- Total Faces: 11
+**Face Type Breakdown:**
+- Conical: 2
+- Cylindrical: 3
+- Parametric: 4
+- Planar: 2
+
+**Per-Face Details:**
+- Face 1: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62680
+-   Measure: Area 0.0029 | Perimeter 0.6111 | Radius/Diameter N/A | Min Curvature Radius 0.0438
+-   Points: Center (0.7540, 4.1068, -2.4975) | Anchor (0.7540, 4.1068, -2.4975)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0079 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 12, 7
+-   Loop Count: 1
+-   Adjacent Faces: 9, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 2: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62682
+-   Measure: Area 0.0029 | Perimeter 0.6111 | Radius/Diameter N/A | Min Curvature Radius 0.0438
+-   Points: Center (-0.7540, 4.2042, -2.2632) | Anchor (-0.7540, 4.2042, -2.2632)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0079 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 6, 11
+-   Loop Count: 1
+-   Adjacent Faces: 7, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 3: Cylindrical | Edges: 6 | Facets: None | Vertices: 1 | Tag: 62664
+-   Measure: Area 1.5561 | Perimeter 2.9998 | Radius/Diameter 0.1358 | Min Curvature Radius 0.1358
+-   Points: Center (0.0000, 4.1555, -2.3803) | Anchor (0.0000, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.0000, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1358 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0000, -0.0000] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 8, 7, 11, 4, 2, 5
+-   Loop Count: 1
+-   Adjacent Faces: 11, 1, 2, 4, 5, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 4: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62684
+-   Measure: Area 0.0029 | Perimeter 0.6111 | Radius/Diameter N/A | Min Curvature Radius 0.0438
+-   Points: Center (-0.7539, 4.1068, -2.4975) | Anchor (-0.7539, 4.1068, -2.4975)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0079 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 10, 4
+-   Loop Count: 1
+-   Adjacent Faces: 7, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 5: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62670
+-   Measure: Area 0.0220 | Perimeter 1.5832 | Radius/Diameter N/A | Min Curvature Radius 0.1642
+-   Points: Center (0.9407, 4.1555, -2.3803) | Anchor (0.9407, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.9409, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1260 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 9, 2
+-   Loop Count: 1
+-   Adjacent Faces: 8, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 6: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62672
+-   Measure: Area 0.0220 | Perimeter 1.5832 | Radius/Diameter N/A | Min Curvature Radius 0.1642
+-   Points: Center (-0.9407, 4.1555, -2.3803) | Anchor (-0.9407, 4.1555, -2.3803)
+-   Analytic: Ref Point (-0.9409, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1260 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 1, 5
+-   Loop Count: 1
+-   Adjacent Faces: 10, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 7: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62674
+-   Measure: Area 0.0701 | Perimeter 0.5757 | Radius/Diameter 0.0453 | Min Curvature Radius 0.0453
+-   Points: Center (-0.7539, 4.1555, -2.3803) | Anchor (-0.7539, 4.1555, -2.3803)
+-   Analytic: Ref Point (-0.7539, 4.1555, -2.3803) | Direction (0.0000, 0.3839, 0.9234) | Radius 0.0453 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[0.6025, 0.6025] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 6, 10
+-   Loop Count: 1
+-   Adjacent Faces: 2, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 8: Planar | Edges: 1 | Facets: None | Vertices: 1 | Tag: 62668
+-   Measure: Area 0.0424 | Perimeter 0.7297 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.9508, 4.1555, -2.3803) | Anchor (0.9508, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.9508, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 9
+-   Loop Count: 1
+-   Adjacent Faces: 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 9: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62676
+-   Measure: Area 0.0701 | Perimeter 0.5757 | Radius/Diameter 0.0453 | Min Curvature Radius 0.0453
+-   Points: Center (0.7539, 4.1555, -2.3803) | Anchor (0.7539, 4.1555, -2.3803)
+-   Analytic: Ref Point (0.7539, 4.1555, -2.3803) | Direction (0.0000, 0.3839, 0.9234) | Radius 0.0453 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[0.6025, 0.6025] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 3, 12
+-   Loop Count: 1
+-   Adjacent Faces: 11, 1
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 10: Planar | Edges: 1 | Facets: None | Vertices: 1 | Tag: 62666
+-   Measure: Area 0.0424 | Perimeter 0.7297 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.9508, 4.1555, -2.3803) | Anchor (-0.9508, 4.1555, -2.3803)
+-   Analytic: Ref Point (-0.9508, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 1
+-   Loop Count: 1
+-   Adjacent Faces: 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 11: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62678
+-   Measure: Area 0.0029 | Perimeter 0.6111 | Radius/Diameter N/A | Min Curvature Radius 0.0438
+-   Points: Center (0.7539, 4.2042, -2.2632) | Anchor (0.7539, 4.2042, -2.2632)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0079 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 3, 8
+-   Loop Count: 1
+-   Adjacent Faces: 9, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+
+---
+## Body 6
+
+### Body Metadata
+- Tag: 62736
+- Journal Identifier: UNPARAMETERIZED_FEATURE(6)
+- Name: Seal_1
+- Is Solid Body: True
+- Is Sheet Body: False
+- Is Convergent Body: False
+- Density: 7800.0000
+- Facet Count: None
+- Vertex Count: None
+- Shape Summary: Likely contains extruded or revolved cylindrical geometry.
+- Exported Topology Vertices: 1
+### Body Measurement
+- Surface Area: 3.7660
+- Volume: 0.1841
+- Mass: 0.0519
+- Weight: 0.0519
+- Radius Of Gyration: 0.9624
+- Centroid: (0.0000, 0.2264, 0.0000)
+### Bounding Box
+- X Min: -0.9508
+- Y Min: 4.0197
+- Z Min: -2.5162
+- X Max: 0.9508
+- Y Max: 4.2914
+- Z Max: -2.2445
+- Dx (Length): 1.9016
+- Dy (Width): 0.2717
+- Dz (Height): 0.2717
+
+### Features
+- Total Features: 1
+- Body(6) | Type: BREP | Timestamp: 6
+-   Warning: []
+-   Error: []
+
+### Edges
+- Total Edges: 8
+**Edge Type Breakdown:**
+- Circular: 8
+
+**Per-Edge Details:**
+- Edge 1: Circular | Length: 5.4347 | Connected Faces: 2 | Tag: 62761
+-   Endpoints: (0.0000, 0.2559, -0.8650) -> (0.0000, 0.2559, -0.8650)
+-   Curve Props: Arc Length 5.4347 | Radius 0.8650 | Diameter 1.7299 | Min Curvature Radius 0.8650
+-   Curve Points: Start (0.0000, 0.2559, -0.8650) | End (0.0000, 0.2559, -0.8650) | Center (0.0000, 0.2559, 0.0000)
+-   Face Tags: 62745, 62747
+-   Face Indices: 4, 5
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 2: Circular | Length: 6.1273 | Connected Faces: 2 | Tag: 62757
+-   Endpoints: (0.0000, 0.3189, -0.9752) -> (0.0000, 0.3189, -0.9752)
+-   Curve Props: Arc Length 6.1273 | Radius 0.9752 | Diameter 1.9504 | Min Curvature Radius 0.9752
+-   Curve Points: Start (0.0000, 0.3189, -0.9752) | End (0.0000, 0.3189, -0.9752) | Center (0.0000, 0.3189, 0.0000)
+-   Face Tags: 62741, 62743
+-   Face Indices: 2, 3
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 3: Circular | Length: 6.6221 | Connected Faces: 2 | Tag: 62755
+-   Endpoints: (0.0000, 0.2402, -1.0539) -> (0.0000, 0.2402, -1.0539)
+-   Curve Props: Arc Length 6.6221 | Radius 1.0539 | Diameter 2.1079 | Min Curvature Radius 1.0539
+-   Curve Points: Start (0.0000, 0.2402, -1.0539) | End (0.0000, 0.2402, -1.0539) | Center (0.0000, 0.2402, 0.0000)
+-   Face Tags: 62739, 62741
+-   Face Indices: 1, 2
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 4: Circular | Length: 6.1273 | Connected Faces: 2 | Tag: 62767
+-   Endpoints: (0.0000, 0.1339, -0.9752) -> (0.0000, 0.1339, -0.9752)
+-   Curve Props: Arc Length 6.1273 | Radius 0.9752 | Diameter 1.9504 | Min Curvature Radius 0.9752
+-   Curve Points: Start (0.0000, 0.1339, -0.9752) | End (0.0000, 0.1339, -0.9752) | Center (0.0000, 0.1339, 0.0000)
+-   Face Tags: 62737, 62751
+-   Face Indices: 8, 7
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 5: Circular | Length: 5.8305 | Connected Faces: 2 | Tag: 62759
+-   Endpoints: (0.0000, 0.3189, -0.9280) -> (0.0000, 0.3189, -0.9280)
+-   Curve Props: Arc Length 5.8305 | Radius 0.9280 | Diameter 1.8559 | Min Curvature Radius 0.9280
+-   Curve Points: Start (0.0000, 0.3189, -0.9280) | End (0.0000, 0.3189, -0.9280) | Center (0.0000, 0.3189, 0.0000)
+-   Face Tags: 62743, 62745
+-   Face Indices: 3, 4
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 6: Circular | Length: 5.4347 | Connected Faces: 2 | Tag: 62763
+-   Endpoints: (0.0000, 0.1969, -0.8650) -> (0.0000, 0.1969, -0.8650)
+-   Curve Props: Arc Length 5.4347 | Radius 0.8650 | Diameter 1.7299 | Min Curvature Radius 0.8650
+-   Curve Points: Start (0.0000, 0.1969, -0.8650) | End (0.0000, 0.1969, -0.8650) | Center (0.0000, 0.1969, 0.0000)
+-   Face Tags: 62747, 62749
+-   Face Indices: 5, 6
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 7: Circular | Length: 5.8305 | Connected Faces: 2 | Tag: 62765
+-   Endpoints: (0.0000, 0.1339, -0.9280) -> (0.0000, 0.1339, -0.9280)
+-   Curve Props: Arc Length 5.8305 | Radius 0.9280 | Diameter 1.8559 | Min Curvature Radius 0.9280
+-   Curve Points: Start (0.0000, 0.1339, -0.9280) | End (0.0000, 0.1339, -0.9280) | Center (0.0000, 0.1339, 0.0000)
+-   Face Tags: 62749, 62751
+-   Face Indices: 6, 7
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 8: Circular | Length: 6.6221 | Connected Faces: 2 | Tag: 62753
+-   Endpoints: (0.0000, 0.2126, -1.0539) -> (0.0000, 0.2126, -1.0539)
+-   Curve Props: Arc Length 6.6221 | Radius 1.0539 | Diameter 2.1079 | Min Curvature Radius 1.0539
+-   Curve Points: Start (0.0000, 0.2126, -1.0539) | End (0.0000, 0.2126, -1.0539) | Center (0.0000, 0.2126, 0.0000)
+-   Face Tags: 62737, 62739
+-   Face Indices: 8, 1
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+
+### Faces
+- Total Faces: 8
+**Face Type Breakdown:**
+- Cylindrical: 2
+- Planar: 2
+- SurfaceOfRevolution: 4
+
+**Per-Face Details:**
+- Face 1: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62739
+-   Measure: Area 0.1825 | Perimeter 13.2442 | Radius/Diameter 1.0539 | Min Curvature Radius 1.0539
+-   Points: Center (0.0000, 0.2264, 0.0000) | Anchor (0.0000, 0.2264, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.2264, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0539 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[0.2264, 0.2264] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 8, 3
+-   Loop Count: 1
+-   Adjacent Faces: 8, 2
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 2: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62741
+-   Measure: Area 0.7968 | Perimeter 12.7494 | Radius/Diameter N/A | Min Curvature Radius 0.0787
+-   Points: Center (0.0000, 0.2898, 0.0000) | Anchor (0.0000, 0.2898, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.2795, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.9752 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 3, 2
+-   Loop Count: 1
+-   Adjacent Faces: 1, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 3: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62743
+-   Measure: Area 0.2825 | Perimeter 11.9578 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, 0.3189, -0.0000) | Anchor (0.0000, 0.3189, -0.0000)
+-   Analytic: Ref Point (0.0000, 0.3189, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 2, 5
+-   Loop Count: 1
+-   Adjacent Faces: 2, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 4: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62745
+-   Measure: Area 0.5520 | Perimeter 11.2652 | Radius/Diameter N/A | Min Curvature Radius 0.0630
+-   Points: Center (0.0000, 0.2964, 0.0000) | Anchor (0.0000, 0.2964, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.2874, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.9280 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 5, 1
+-   Loop Count: 1
+-   Adjacent Faces: 3, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 5: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62747
+-   Measure: Area 0.3209 | Perimeter 10.8694 | Radius/Diameter 0.8650 | Min Curvature Radius 0.8650
+-   Points: Center (0.0000, 0.2264, 0.0000) | Anchor (0.0000, 0.2264, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.2264, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.8650 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.2264, -0.2264] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 1, 6
+-   Loop Count: 1
+-   Adjacent Faces: 4, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 6: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62749
+-   Measure: Area 0.5520 | Perimeter 11.2652 | Radius/Diameter N/A | Min Curvature Radius 0.0630
+-   Points: Center (0.0000, 0.1564, 0.0000) | Anchor (0.0000, 0.1564, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.1654, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.9280 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 6, 7
+-   Loop Count: 1
+-   Adjacent Faces: 5, 7
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 7: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62751
+-   Measure: Area 0.2825 | Perimeter 11.9578 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, 0.1339, 0.0000) | Anchor (0.0000, 0.1339, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.1339, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 7, 4
+-   Loop Count: 1
+-   Adjacent Faces: 6, 8
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 8: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62737
+-   Measure: Area 0.7968 | Perimeter 12.7494 | Radius/Diameter N/A | Min Curvature Radius 0.0787
+-   Points: Center (0.0000, 0.1630, 0.0000) | Anchor (0.0000, 0.1630, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.1732, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.9752 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 8, 4
+-   Loop Count: 1
+-   Adjacent Faces: 1, 7
+-   Blend Data: Is Blend False | Radius 0.0000
+
+---
+## Body 7
+
+### Body Metadata
+- Tag: 62788
+- Journal Identifier: UNPARAMETERIZED_FEATURE(7)
+- Name: Seal_2
+- Is Solid Body: True
+- Is Sheet Body: False
+- Is Convergent Body: False
+- Density: 7800.0000
+- Facet Count: None
+- Vertex Count: None
+- Shape Summary: Likely contains extruded or revolved cylindrical geometry.
+- Exported Topology Vertices: 1
+### Body Measurement
+- Surface Area: 3.7298
+- Volume: 0.1890
+- Mass: 0.0533
+- Weight: 0.0533
+- Radius Of Gyration: 0.9268
+- Centroid: (0.0000, -3.4331, -0.0000)
+### Bounding Box
+- X Min: -0.9508
+- Y Min: 4.0197
+- Z Min: -2.5162
+- X Max: 0.9508
+- Y Max: 4.2914
+- Z Max: -2.2445
+- Dx (Length): 1.9016
+- Dy (Width): 0.2717
+- Dz (Height): 0.2717
+
+### Features
+- Total Features: 1
+- Body(7) | Type: BREP | Timestamp: 7
+-   Warning: []
+-   Error: []
+
+### Edges
+- Total Edges: 8
+**Edge Type Breakdown:**
+- Circular: 8
+
+**Per-Edge Details:**
+- Edge 1: Circular | Length: 6.3945 | Connected Faces: 2 | Tag: 62813
+-   Endpoints: (0.0000, -3.4528, 1.0177) -> (0.0000, -3.4528, 1.0177)
+-   Curve Props: Arc Length 6.3945 | Radius 1.0177 | Diameter 2.0354 | Min Curvature Radius 1.0177
+-   Curve Points: Start (0.0000, -3.4528, 1.0177) | End (0.0000, -3.4528, 1.0177) | Center (0.0000, -3.4528, -0.0000)
+-   Face Tags: 62797, 62799
+-   Face Indices: 8, 1
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 2: Circular | Length: 5.1824 | Connected Faces: 2 | Tag: 62805
+-   Endpoints: (0.0000, -3.4134, 0.8248) -> (0.0000, -3.4134, 0.8248)
+-   Curve Props: Arc Length 5.1824 | Radius 0.8248 | Diameter 1.6496 | Min Curvature Radius 0.8248
+-   Curve Points: Start (0.0000, -3.4134, 0.8248) | End (0.0000, -3.4134, 0.8248) | Center (0.0000, -3.4134, -0.0000)
+-   Face Tags: 62789, 62791
+-   Face Indices: 6, 2
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 3: Circular | Length: 5.1824 | Connected Faces: 2 | Tag: 62807
+-   Endpoints: (0.0000, -3.4528, 0.8248) -> (0.0000, -3.4528, 0.8248)
+-   Curve Props: Arc Length 5.1824 | Radius 0.8248 | Diameter 1.6496 | Min Curvature Radius 0.8248
+-   Curve Points: Start (0.0000, -3.4528, 0.8248) | End (0.0000, -3.4528, 0.8248) | Center (0.0000, -3.4528, -0.0000)
+-   Face Tags: 62791, 62793
+-   Face Indices: 2, 3
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 4: Circular | Length: 5.8998 | Connected Faces: 2 | Tag: 62811
+-   Endpoints: (0.0000, -3.5315, 0.9390) -> (0.0000, -3.5315, 0.9390)
+-   Curve Props: Arc Length 5.8998 | Radius 0.9390 | Diameter 1.8780 | Min Curvature Radius 0.9390
+-   Curve Points: Start (0.0000, -3.5315, 0.9390) | End (0.0000, -3.5315, 0.9390) | Center (0.0000, -3.5315, -0.0000)
+-   Face Tags: 62795, 62797
+-   Face Indices: 7, 8
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 5: Circular | Length: 5.8998 | Connected Faces: 2 | Tag: 62817
+-   Endpoints: (0.0000, -3.3346, 0.9390) -> (0.0000, -3.3346, 0.9390)
+-   Curve Props: Arc Length 5.8998 | Radius 0.9390 | Diameter 1.8780 | Min Curvature Radius 0.9390
+-   Curve Points: Start (0.0000, -3.3346, 0.9390) | End (0.0000, -3.3346, 0.9390) | Center (0.0000, -3.3346, -0.0000)
+-   Face Tags: 62801, 62803
+-   Face Indices: 4, 5
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 6: Circular | Length: 5.6771 | Connected Faces: 2 | Tag: 62819
+-   Endpoints: (0.0000, -3.3346, 0.9035) -> (0.0000, -3.3346, 0.9035)
+-   Curve Props: Arc Length 5.6771 | Radius 0.9035 | Diameter 1.8071 | Min Curvature Radius 0.9035
+-   Curve Points: Start (0.0000, -3.3346, 0.9035) | End (0.0000, -3.3346, 0.9035) | Center (0.0000, -3.3346, -0.0000)
+-   Face Tags: 62789, 62803
+-   Face Indices: 6, 5
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 7: Circular | Length: 6.3945 | Connected Faces: 2 | Tag: 62815
+-   Endpoints: (0.0000, -3.4134, 1.0177) -> (0.0000, -3.4134, 1.0177)
+-   Curve Props: Arc Length 6.3945 | Radius 1.0177 | Diameter 2.0354 | Min Curvature Radius 1.0177
+-   Curve Points: Start (0.0000, -3.4134, 1.0177) | End (0.0000, -3.4134, 1.0177) | Center (0.0000, -3.4134, -0.0000)
+-   Face Tags: 62799, 62801
+-   Face Indices: 1, 4
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 8: Circular | Length: 5.6771 | Connected Faces: 2 | Tag: 62809
+-   Endpoints: (0.0000, -3.5315, 0.9035) -> (0.0000, -3.5315, 0.9035)
+-   Curve Props: Arc Length 5.6771 | Radius 0.9035 | Diameter 1.8071 | Min Curvature Radius 0.9035
+-   Curve Points: Start (0.0000, -3.5315, 0.9035) | End (0.0000, -3.5315, 0.9035) | Center (0.0000, -3.5315, -0.0000)
+-   Face Tags: 62793, 62795
+-   Face Indices: 3, 7
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+
+### Faces
+- Total Faces: 8
+**Face Type Breakdown:**
+- Cylindrical: 2
+- Planar: 2
+- SurfaceOfRevolution: 4
+
+**Per-Face Details:**
+- Face 1: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62799
+-   Measure: Area 0.2518 | Perimeter 12.7890 | Radius/Diameter 1.0177 | Min Curvature Radius 1.0177
+-   Points: Center (0.0000, -3.4331, -0.0000) | Anchor (0.0000, -3.4331, -0.0000)
+-   Analytic: Ref Point (0.0000, -3.4331, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 1.0177 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[3.4331, 3.4331] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 1, 7
+-   Loop Count: 1
+-   Adjacent Faces: 8, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 2: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62791
+-   Measure: Area 0.2040 | Perimeter 10.3648 | Radius/Diameter 0.8248 | Min Curvature Radius 0.8248
+-   Points: Center (0.0000, -3.4331, -0.0000) | Anchor (0.0000, -3.4331, -0.0000)
+-   Analytic: Ref Point (0.0000, -3.4331, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.8248 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-3.4331, -3.4331] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 2, 3
+-   Loop Count: 1
+-   Adjacent Faces: 6, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 3: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62793
+-   Measure: Area 0.6632 | Perimeter 10.8595 | Radius/Diameter N/A | Min Curvature Radius 0.0787
+-   Points: Center (0.0000, -3.5035, -0.0000) | Anchor (0.0000, -3.5035, -0.0000)
+-   Analytic: Ref Point (0.0000, -3.4921, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9035 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 3, 8
+-   Loop Count: 1
+-   Adjacent Faces: 2, 7
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 4: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62801
+-   Measure: Area 0.7687 | Perimeter 12.2943 | Radius/Diameter N/A | Min Curvature Radius 0.0787
+-   Points: Center (0.0000, -3.3638, -0.0000) | Anchor (0.0000, -3.3638, -0.0000)
+-   Analytic: Ref Point (0.0000, -3.3740, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9390 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 7, 5
+-   Loop Count: 1
+-   Adjacent Faces: 1, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 5: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62803
+-   Measure: Area 0.2051 | Perimeter 11.5769 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, -3.3346, -0.0000) | Anchor (0.0000, -3.3346, -0.0000)
+-   Analytic: Ref Point (0.0000, -3.3346, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 5, 6
+-   Loop Count: 1
+-   Adjacent Faces: 4, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 6: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62789
+-   Measure: Area 0.6632 | Perimeter 10.8595 | Radius/Diameter N/A | Min Curvature Radius 0.0787
+-   Points: Center (0.0000, -3.3626, -0.0000) | Anchor (0.0000, -3.3626, -0.0000)
+-   Analytic: Ref Point (0.0000, -3.3740, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9035 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 2, 6
+-   Loop Count: 1
+-   Adjacent Faces: 2, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 7: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62795
+-   Measure: Area 0.2051 | Perimeter 11.5769 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, -3.5315, 0.0000) | Anchor (0.0000, -3.5315, 0.0000)
+-   Analytic: Ref Point (0.0000, -3.5315, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 8, 4
+-   Loop Count: 1
+-   Adjacent Faces: 3, 8
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 8: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62797
+-   Measure: Area 0.7687 | Perimeter 12.2943 | Radius/Diameter N/A | Min Curvature Radius 0.0787
+-   Points: Center (0.0000, -3.5023, -0.0000) | Anchor (0.0000, -3.5023, -0.0000)
+-   Analytic: Ref Point (0.0000, -3.4921, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9390 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 4, 1
+-   Loop Count: 1
+-   Adjacent Faces: 7, 1
+-   Blend Data: Is Blend False | Radius 0.0000
+
+---
+## Body 8
+
+### Body Metadata
+- Tag: 62840
+- Journal Identifier: UNPARAMETERIZED_FEATURE(8)
+- Name: Seal_3
+- Is Solid Body: True
+- Is Sheet Body: False
+- Is Convergent Body: False
+- Density: 7800.0000
+- Facet Count: None
+- Vertex Count: None
+- Shape Summary: Likely contains extruded or revolved cylindrical geometry.
+- Exported Topology Vertices: 1
+### Body Measurement
+- Surface Area: 1.7815
+- Volume: 0.0769
+- Mass: 0.0217
+- Weight: 0.0217
+- Radius Of Gyration: 0.5158
+- Centroid: (0.0000, -2.7953, 0.0000)
+### Bounding Box
+- X Min: -0.9508
+- Y Min: 4.0197
+- Z Min: -2.5162
+- X Max: 0.9508
+- Y Max: 4.2914
+- Z Max: -2.2445
+- Dx (Length): 1.9016
+- Dy (Width): 0.2717
+- Dz (Height): 0.2717
+
+### Features
+- Total Features: 1
+- Body(8) | Type: BREP | Timestamp: 8
+-   Warning: []
+-   Error: []
+
+### Edges
+- Total Edges: 8
+**Edge Type Breakdown:**
+- Circular: 8
+
+**Per-Edge Details:**
+- Edge 1: Circular | Length: 3.2776 | Connected Faces: 2 | Tag: 62869
+-   Endpoints: (0.0000, -2.8858, 0.5217) -> (0.0000, -2.8858, 0.5217)
+-   Curve Props: Arc Length 3.2776 | Radius 0.5217 | Diameter 1.0433 | Min Curvature Radius 0.5217
+-   Curve Points: Start (0.0000, -2.8858, 0.5217) | End (0.0000, -2.8858, 0.5217) | Center (0.0000, -2.8858, 0.0000)
+-   Face Tags: 62853, 62855
+-   Face Indices: 7, 8
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 2: Circular | Length: 3.1169 | Connected Faces: 2 | Tag: 62871
+-   Endpoints: (0.0000, -2.8858, 0.4961) -> (0.0000, -2.8858, 0.4961)
+-   Curve Props: Arc Length 3.1169 | Radius 0.4961 | Diameter 0.9921 | Min Curvature Radius 0.4961
+-   Curve Points: Start (0.0000, -2.8858, 0.4961) | End (0.0000, -2.8858, 0.4961) | Center (0.0000, -2.8858, 0.0000)
+-   Face Tags: 62841, 62855
+-   Face Indices: 3, 8
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 3: Circular | Length: 3.6734 | Connected Faces: 2 | Tag: 62865
+-   Endpoints: (0.0000, -2.7677, 0.5846) -> (0.0000, -2.7677, 0.5846)
+-   Curve Props: Arc Length 3.6734 | Radius 0.5846 | Diameter 1.1693 | Min Curvature Radius 0.5846
+-   Curve Points: Start (0.0000, -2.7677, 0.5846) | End (0.0000, -2.7677, 0.5846) | Center (0.0000, -2.7677, 0.0000)
+-   Face Tags: 62849, 62851
+-   Face Indices: 5, 6
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 4: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 62859
+-   Endpoints: (0.0000, -2.7677, 0.4331) -> (0.0000, -2.7677, 0.4331)
+-   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
+-   Curve Points: Start (0.0000, -2.7677, 0.4331) | End (0.0000, -2.7677, 0.4331) | Center (0.0000, -2.7677, 0.0000)
+-   Face Tags: 62843, 62845
+-   Face Indices: 1, 2
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 5: Circular | Length: 3.2776 | Connected Faces: 2 | Tag: 62863
+-   Endpoints: (0.0000, -2.7047, 0.5217) -> (0.0000, -2.7047, 0.5217)
+-   Curve Props: Arc Length 3.2776 | Radius 0.5217 | Diameter 1.0433 | Min Curvature Radius 0.5217
+-   Curve Points: Start (0.0000, -2.7047, 0.5217) | End (0.0000, -2.7047, 0.5217) | Center (0.0000, -2.7047, 0.0000)
+-   Face Tags: 62847, 62849
+-   Face Indices: 4, 5
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 6: Circular | Length: 3.6734 | Connected Faces: 2 | Tag: 62867
+-   Endpoints: (0.0000, -2.8228, 0.5846) -> (0.0000, -2.8228, 0.5846)
+-   Curve Props: Arc Length 3.6734 | Radius 0.5846 | Diameter 1.1693 | Min Curvature Radius 0.5846
+-   Curve Points: Start (0.0000, -2.8228, 0.5846) | End (0.0000, -2.8228, 0.5846) | Center (0.0000, -2.8228, 0.0000)
+-   Face Tags: 62851, 62853
+-   Face Indices: 6, 7
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 7: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 62857
+-   Endpoints: (0.0000, -2.8228, 0.4331) -> (0.0000, -2.8228, 0.4331)
+-   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
+-   Curve Points: Start (0.0000, -2.8228, 0.4331) | End (0.0000, -2.8228, 0.4331) | Center (0.0000, -2.8228, 0.0000)
+-   Face Tags: 62841, 62843
+-   Face Indices: 3, 1
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 8: Circular | Length: 3.1169 | Connected Faces: 2 | Tag: 62861
+-   Endpoints: (0.0000, -2.7047, 0.4961) -> (0.0000, -2.7047, 0.4961)
+-   Curve Props: Arc Length 3.1169 | Radius 0.4961 | Diameter 0.9921 | Min Curvature Radius 0.4961
+-   Curve Points: Start (0.0000, -2.7047, 0.4961) | End (0.0000, -2.7047, 0.4961) | Center (0.0000, -2.7047, 0.0000)
+-   Face Tags: 62845, 62847
+-   Face Indices: 2, 4
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+
+### Faces
+- Total Faces: 8
+**Face Type Breakdown:**
+- Cylindrical: 2
+- Planar: 2
+- SurfaceOfRevolution: 4
+
+**Per-Face Details:**
+- Face 1: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62843
+-   Measure: Area 0.1500 | Perimeter 5.4421 | Radius/Diameter 0.4331 | Min Curvature Radius 0.4331
+-   Points: Center (0.0000, -2.7953, 0.0000) | Anchor (0.0000, -2.7953, 0.0000)
+-   Analytic: Ref Point (0.0000, -2.7953, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.4331 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[2.7953, 2.7953] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 7, 4
+-   Loop Count: 1
+-   Adjacent Faces: 3, 2
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 2: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62845
+-   Measure: Area 0.2835 | Perimeter 5.8379 | Radius/Diameter N/A | Min Curvature Radius 0.0630
+-   Points: Center (0.0000, -2.7269, 0.0000) | Anchor (0.0000, -2.7269, 0.0000)
+-   Analytic: Ref Point (0.0000, -2.7362, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.4961 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 4, 8
+-   Loop Count: 1
+-   Adjacent Faces: 1, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 3: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62841
+-   Measure: Area 0.2835 | Perimeter 5.8379 | Radius/Diameter N/A | Min Curvature Radius 0.0630
+-   Points: Center (0.0000, -2.8637, 0.0000) | Anchor (0.0000, -2.8637, 0.0000)
+-   Analytic: Ref Point (0.0000, -2.8543, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.4961 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 7, 2
+-   Loop Count: 1
+-   Adjacent Faces: 1, 8
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 4: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62847
+-   Measure: Area 0.0818 | Perimeter 6.3945 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, -2.7047, 0.0000) | Anchor (0.0000, -2.7047, 0.0000)
+-   Analytic: Ref Point (0.0000, -2.7047, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 8, 5
+-   Loop Count: 1
+-   Adjacent Faces: 2, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 5: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62849
+-   Measure: Area 0.3492 | Perimeter 6.9511 | Radius/Diameter N/A | Min Curvature Radius 0.0630
+-   Points: Center (0.0000, -2.7282, 0.0000) | Anchor (0.0000, -2.7282, 0.0000)
+-   Analytic: Ref Point (0.0000, -2.7362, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.5217 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 5, 3
+-   Loop Count: 1
+-   Adjacent Faces: 4, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 6: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62851
+-   Measure: Area 0.2025 | Perimeter 7.3469 | Radius/Diameter 0.5846 | Min Curvature Radius 0.5846
+-   Points: Center (0.0000, -2.7953, 0.0000) | Anchor (0.0000, -2.7953, 0.0000)
+-   Analytic: Ref Point (0.0000, -2.7953, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.5846 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-2.7953, -2.7953] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 3, 6
+-   Loop Count: 1
+-   Adjacent Faces: 5, 7
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 7: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62853
+-   Measure: Area 0.3492 | Perimeter 6.9511 | Radius/Diameter N/A | Min Curvature Radius 0.0630
+-   Points: Center (0.0000, -2.8623, 0.0000) | Anchor (0.0000, -2.8623, 0.0000)
+-   Analytic: Ref Point (0.0000, -2.8543, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.5217 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 6, 1
+-   Loop Count: 1
+-   Adjacent Faces: 6, 8
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 8: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62855
+-   Measure: Area 0.0818 | Perimeter 6.3945 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, -2.8858, -0.0000) | Anchor (0.0000, -2.8858, -0.0000)
+-   Analytic: Ref Point (0.0000, -2.8858, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 1, 2
+-   Loop Count: 1
+-   Adjacent Faces: 7, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+
+---
+## Body 9
+
+### Body Metadata
+- Tag: 62892
+- Journal Identifier: UNPARAMETERIZED_FEATURE(9)
+- Name: Pin
+- Is Solid Body: True
+- Is Sheet Body: False
+- Is Convergent Body: False
+- Density: 7800.0000
+- Facet Count: None
+- Vertex Count: None
+- Shape Summary: Likely contains a conical region.
+- Exported Topology Vertices: 33
+### Body Measurement
+- Surface Area: 6.6123
+- Volume: 0.8023
+- Mass: 0.2261
+- Weight: 0.2261
+- Radius Of Gyration: 0.7052
+- Centroid: (0.0143, 3.1402, 0.3231)
+### Bounding Box
+- X Min: -0.9508
+- Y Min: 4.0197
+- Z Min: -2.5162
+- X Max: 0.9508
+- Y Max: 4.2914
+- Z Max: -2.2445
+- Dx (Length): 1.9016
+- Dy (Width): 0.2717
+- Dz (Height): 0.2717
+
+### Features
+- Total Features: 1
+- Body(9) | Type: BREP | Timestamp: 9
+-   Warning: []
+-   Error: []
+
+### Edges
+- Total Edges: 54
+**Edge Type Breakdown:**
+- Circular: 14
+- Intersection: 16
+- Linear: 22
+- SpCurve: 2
+
+**Per-Edge Details:**
+- Edge 1: Linear | Length: 0.0467 | Connected Faces: 2 | Tag: 63033
+-   Endpoints: (-0.8721, 3.5897, 0.6217) -> (-0.8721, 3.5432, 0.6269)
+-   Curve Props: Arc Length 0.0467 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8721, 3.5897, 0.6217) | End (-0.8721, 3.5432, 0.6269) | Center (-0.8721, 3.5664, 0.6243)
+-   Face Tags: 62893, 62903
+-   Face Indices: 4, 11
+-   Topology Vertices: 1 -> 2
+-   Analytic Curve Type: Line
+- Edge 2: Intersection | Length: 0.0181 | Connected Faces: 2 | Tag: 62959
+-   Endpoints: (-0.9804, 2.7561, 0.7144) -> (-0.9902, 2.7607, 0.7039)
+-   Face Tags: 62909, 62929
+-   Face Indices: 18, 12
+-   Topology Vertices: 3 -> 4
+- Edge 3: Circular | Length: 0.2274 | Connected Faces: 2 | Tag: 63043
+-   Endpoints: (0.5003, 3.5795, 0.3971) -> (0.5003, 3.5368, 0.6177)
+-   Curve Props: Arc Length 0.2274 | Radius 0.4287 | Diameter 0.8575 | Min Curvature Radius 0.4287
+-   Curve Points: Start (0.5003, 3.5795, 0.3971) | End (0.5003, 3.5368, 0.6177) | Center (0.5003, 3.1520, 0.4287)
+-   Face Tags: 62899, 62919
+-   Face Indices: 5, 20
+-   Topology Vertices: 5 -> 6
+-   Analytic Curve Type: Arc
+- Edge 4: Intersection | Length: 0.0150 | Connected Faces: 2 | Tag: 63017
+-   Endpoints: (-0.8721, 2.7673, 0.7131) -> (-0.8820, 2.7561, 0.7144)
+-   Face Tags: 62893, 62905
+-   Face Indices: 4, 7
+-   Topology Vertices: 7 -> 8
+- Edge 5: Intersection | Length: 0.0170 | Connected Faces: 2 | Tag: 62975
+-   Endpoints: (-0.4784, 2.8180, 0.6976) -> (-0.4883, 2.8255, 0.7067)
+-   Face Tags: 62899, 62927
+-   Face Indices: 5, 16
+-   Topology Vertices: 9 -> 10
+- Edge 6: Intersection | Length: 0.0183 | Connected Faces: 2 | Tag: 62949
+-   Endpoints: (1.0515, 2.8296, 0.6963) -> (1.0416, 2.8255, 0.7067)
+-   Face Tags: 62897, 62931
+-   Face Indices: 9, 8
+-   Topology Vertices: 11 -> 12
+- Edge 7: Intersection | Length: 0.0154 | Connected Faces: 2 | Tag: 63021
+-   Endpoints: (-0.8623, 2.8255, 0.7067) -> (-0.8721, 2.8137, 0.7080)
+-   Face Tags: 62893, 62901
+-   Face Indices: 4, 22
+-   Topology Vertices: 13 -> 14
+- Edge 8: Linear | Length: 0.8574 | Connected Faces: 2 | Tag: 62991
+-   Endpoints: (0.4806, 2.7254, 0.4722) -> (0.4806, 3.5776, 0.3775)
+-   Curve Props: Arc Length 0.8574 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4806, 2.7254, 0.4722) | End (0.4806, 3.5776, 0.3775) | Center (0.4806, 3.1515, 0.4248)
+-   Face Tags: 62915, 62921
+-   Face Indices: 1, 21
+-   Topology Vertices: 15 -> 16
+-   Analytic Curve Type: Line
+- Edge 9: Linear | Length: 0.7103 | Connected Faces: 2 | Tag: 62965
+-   Endpoints: (-0.4883, 2.8255, 0.7067) -> (-0.4883, 3.5315, 0.6282)
+-   Curve Props: Arc Length 0.7103 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4883, 2.8255, 0.7067) | End (-0.4883, 3.5315, 0.6282) | Center (-0.4883, 3.1785, 0.6674)
+-   Face Tags: 62893, 62927
+-   Face Indices: 4, 16
+-   Topology Vertices: 10 -> 17
+-   Analytic Curve Type: Line
+- Edge 10: Intersection | Length: 0.0150 | Connected Faces: 2 | Tag: 63035
+-   Endpoints: (-0.8820, 3.6009, 0.6205) -> (-0.8721, 3.5897, 0.6217)
+-   Face Tags: 62893, 62905
+-   Face Indices: 4, 7
+-   Topology Vertices: 18 -> 1
+- Edge 11: Linear | Length: 0.9394 | Connected Faces: 2 | Tag: 62995
+-   Endpoints: (0.4806, 2.7254, 0.4722) -> (-0.4587, 2.7254, 0.4722)
+-   Curve Props: Arc Length 0.9394 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4806, 2.7254, 0.4722) | End (-0.4587, 2.7254, 0.4722) | Center (0.0109, 2.7254, 0.4722)
+-   Face Tags: 62899, 62915
+-   Face Indices: 5, 1
+-   Topology Vertices: 15 -> 19
+-   Analytic Curve Type: Line
+- Edge 12: SpCurve | Length: 0.2849 | Connected Faces: 2 | Tag: 62943
+-   Endpoints: (0.9066, 3.1510, 0.0098) -> (0.9066, 3.1510, 0.0098)
+-   Face Tags: 62933, 62937
+-   Face Indices: 3, 15
+-   Topology Vertices: 20 -> 20
+- Edge 13: Intersection | Length: 0.0309 | Connected Faces: 2 | Tag: 62981
+-   Endpoints: (-0.4587, 2.7254, 0.4722) -> (-0.4784, 2.7279, 0.4917)
+-   Face Tags: 62899, 62923
+-   Face Indices: 5, 6
+-   Topology Vertices: 19 -> 21
+- Edge 14: Linear | Length: 0.8501 | Connected Faces: 2 | Tag: 62955
+-   Endpoints: (-0.9804, 3.6009, 0.6205) -> (-0.9804, 2.7561, 0.7144)
+-   Curve Props: Arc Length 0.8501 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.9804, 3.6009, 0.6205) | End (-0.9804, 2.7561, 0.7144) | Center (-0.9804, 3.1785, 0.6674)
+-   Face Tags: 62893, 62929
+-   Face Indices: 4, 12
+-   Topology Vertices: 22 -> 3
+-   Analytic Curve Type: Line
+- Edge 15: Circular | Length: 0.2274 | Connected Faces: 2 | Tag: 63039
+-   Endpoints: (-0.4784, 2.7279, 0.4917) -> (-0.4784, 2.8180, 0.6976)
+-   Curve Props: Arc Length 0.2274 | Radius 0.4287 | Diameter 0.8575 | Min Curvature Radius 0.4287
+-   Curve Points: Start (-0.4784, 2.7279, 0.4917) | End (-0.4784, 2.8180, 0.6976) | Center (-0.4784, 3.1520, 0.4287)
+-   Face Tags: 62899, 62917
+-   Face Indices: 5, 23
+-   Topology Vertices: 21 -> 9
+-   Analytic Curve Type: Arc
+- Edge 16: Linear | Length: 0.9394 | Connected Faces: 2 | Tag: 62997
+-   Endpoints: (-0.4587, 3.5776, 0.3775) -> (0.4806, 3.5776, 0.3775)
+-   Curve Props: Arc Length 0.9394 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4587, 3.5776, 0.3775) | End (0.4806, 3.5776, 0.3775) | Center (0.0109, 3.5776, 0.3775)
+-   Face Tags: 62899, 62915
+-   Face Indices: 5, 1
+-   Topology Vertices: 23 -> 16
+-   Analytic Curve Type: Line
+- Edge 17: Linear | Length: 0.5315 | Connected Faces: 2 | Tag: 63029
+-   Endpoints: (0.5102, 3.5315, 0.6282) -> (1.0416, 3.5315, 0.6282)
+-   Curve Props: Arc Length 0.5315 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.5102, 3.5315, 0.6282) | End (1.0416, 3.5315, 0.6282) | Center (0.7759, 3.5315, 0.6282)
+-   Face Tags: 62899, 62913
+-   Face Indices: 5, 10
+-   Topology Vertices: 24 -> 25
+-   Analytic Curve Type: Line
+- Edge 18: Linear | Length: 0.8569 | Connected Faces: 2 | Tag: 62987
+-   Endpoints: (-0.4784, 2.7279, 0.4917) -> (-0.4784, 3.5795, 0.3971)
+-   Curve Props: Arc Length 0.8569 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4784, 2.7279, 0.4917) | End (-0.4784, 3.5795, 0.3971) | Center (-0.4784, 3.1537, 0.4444)
+-   Face Tags: 62917, 62923
+-   Face Indices: 23, 6
+-   Topology Vertices: 21 -> 26
+-   Analytic Curve Type: Line
+- Edge 19: Linear | Length: 0.8385 | Connected Faces: 2 | Tag: 62961
+-   Endpoints: (-0.9902, 2.7607, 0.7039) -> (-0.9902, 3.5941, 0.6113)
+-   Curve Props: Arc Length 0.8385 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.9902, 2.7607, 0.7039) | End (-0.9902, 3.5941, 0.6113) | Center (-0.9902, 3.1774, 0.6576)
+-   Face Tags: 62911, 62929
+-   Face Indices: 14, 12
+-   Topology Vertices: 4 -> 27
+-   Analytic Curve Type: Line
+- Edge 20: Circular | Length: 1.8568 | Connected Faces: 2 | Tag: 63003
+-   Endpoints: (-0.8623, 3.5315, 0.6282) -> (-0.8623, 2.8255, 0.7067)
+-   Curve Props: Arc Length 1.8568 | Radius 0.4287 | Diameter 0.8575 | Min Curvature Radius 0.4287
+-   Curve Points: Start (-0.8623, 3.5315, 0.6282) | End (-0.8623, 2.8255, 0.7067) | Center (-0.8623, 3.1520, 0.4287)
+-   Face Tags: 62899, 62901
+-   Face Indices: 5, 22
+-   Topology Vertices: 28 -> 13
+-   Analytic Curve Type: Arc
+- Edge 21: SpCurve | Length: 0.3367 | Connected Faces: 2 | Tag: 62939
+-   Endpoints: (0.9066, 3.1588, 0.0001) -> (0.9066, 3.1588, 0.0001)
+-   Face Tags: 62899, 62937
+-   Face Indices: 5, 15
+-   Topology Vertices: 20 -> 20
+- Edge 22: Circular | Length: 1.8037 | Connected Faces: 2 | Tag: 62999
+-   Endpoints: (1.0515, 3.5252, 0.6190) -> (1.0515, 2.8296, 0.6963)
+-   Curve Props: Arc Length 1.8037 | Radius 0.4189 | Diameter 0.8378 | Min Curvature Radius 0.4189
+-   Curve Points: Start (1.0515, 3.5252, 0.6190) | End (1.0515, 2.8296, 0.6963) | Center (1.0515, 3.1520, 0.4287)
+-   Face Tags: 62895, 62897
+-   Face Indices: 13, 9
+-   Topology Vertices: 29 -> 11
+-   Analytic Curve Type: Arc
+- Edge 23: Linear | Length: 0.7103 | Connected Faces: 2 | Tag: 62977
+-   Endpoints: (0.5102, 3.5315, 0.6282) -> (0.5102, 2.8255, 0.7067)
+-   Curve Props: Arc Length 0.7103 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.5102, 3.5315, 0.6282) | End (0.5102, 2.8255, 0.7067) | Center (0.5102, 3.1785, 0.6674)
+-   Face Tags: 62913, 62925
+-   Face Indices: 10, 17
+-   Topology Vertices: 24 -> 30
+-   Analytic Curve Type: Line
+- Edge 24: Intersection | Length: 0.0309 | Connected Faces: 2 | Tag: 62979
+-   Endpoints: (-0.4784, 3.5795, 0.3971) -> (-0.4587, 3.5776, 0.3775)
+-   Face Tags: 62899, 62923
+-   Face Indices: 5, 6
+-   Topology Vertices: 26 -> 23
+- Edge 25: Intersection | Length: 0.0183 | Connected Faces: 2 | Tag: 62951
+-   Endpoints: (1.0416, 3.5315, 0.6282) -> (1.0515, 3.5252, 0.6190)
+-   Face Tags: 62897, 62931
+-   Face Indices: 9, 8
+-   Topology Vertices: 25 -> 29
+- Edge 26: Linear | Length: 0.3740 | Connected Faces: 2 | Tag: 63027
+-   Endpoints: (-0.8623, 3.5315, 0.6282) -> (-0.4883, 3.5315, 0.6282)
+-   Curve Props: Arc Length 0.3740 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8623, 3.5315, 0.6282) | End (-0.4883, 3.5315, 0.6282) | Center (-0.6753, 3.5315, 0.6282)
+-   Face Tags: 62893, 62899
+-   Face Indices: 4, 5
+-   Topology Vertices: 28 -> 17
+-   Analytic Curve Type: Line
+- Edge 27: Linear | Length: 0.8574 | Connected Faces: 2 | Tag: 62993
+-   Endpoints: (-0.4587, 3.5776, 0.3775) -> (-0.4587, 2.7254, 0.4722)
+-   Curve Props: Arc Length 0.8574 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4587, 3.5776, 0.3775) | End (-0.4587, 2.7254, 0.4722) | Center (-0.4587, 3.1515, 0.4248)
+-   Face Tags: 62915, 62923
+-   Face Indices: 1, 6
+-   Topology Vertices: 23 -> 19
+-   Analytic Curve Type: Line
+- Edge 28: Linear | Length: 0.7233 | Connected Faces: 2 | Tag: 62967
+-   Endpoints: (0.5003, 2.8180, 0.6976) -> (0.5003, 3.5368, 0.6177)
+-   Curve Props: Arc Length 0.7233 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.5003, 2.8180, 0.6976) | End (0.5003, 3.5368, 0.6177) | Center (0.5003, 3.1774, 0.6576)
+-   Face Tags: 62919, 62925
+-   Face Indices: 20, 17
+-   Topology Vertices: 31 -> 6
+-   Analytic Curve Type: Line
+- Edge 29: Circular | Length: 1.9834 | Connected Faces: 2 | Tag: 63013
+-   Endpoints: (-0.9902, 3.5941, 0.6113) -> (-0.9902, 2.7607, 0.7039)
+-   Curve Props: Arc Length 1.9834 | Radius 0.4783 | Diameter 0.9567 | Min Curvature Radius 0.4783
+-   Curve Points: Start (-0.9902, 3.5941, 0.6113) | End (-0.9902, 2.7607, 0.7039) | Center (-0.9902, 3.1520, 0.4287)
+-   Face Tags: 62909, 62911
+-   Face Indices: 18, 14
+-   Topology Vertices: 27 -> 4
+-   Analytic Curve Type: Arc
+- Edge 30: Circular | Length: 1.8568 | Connected Faces: 2 | Tag: 63001
+-   Endpoints: (1.0416, 3.5315, 0.6282) -> (1.0416, 2.8255, 0.7067)
+-   Curve Props: Arc Length 1.8568 | Radius 0.4287 | Diameter 0.8575 | Min Curvature Radius 0.4287
+-   Curve Points: Start (1.0416, 3.5315, 0.6282) | End (1.0416, 2.8255, 0.7067) | Center (1.0416, 3.1520, 0.4287)
+-   Face Tags: 62897, 62899
+-   Face Indices: 9, 5
+-   Topology Vertices: 25 -> 12
+-   Analytic Curve Type: Arc
+- Edge 31: Circular | Length: 0.3463 | Connected Faces: 2 | Tag: 62945
+-   Endpoints: (0.9066, 3.2333, 0.6613) -> (0.9066, 3.2333, 0.6613)
+-   Curve Props: Arc Length 0.3463 | Radius 0.0551 | Diameter 0.1102 | Min Curvature Radius 0.0551
+-   Curve Points: Start (0.9066, 3.2333, 0.6613) | End (0.9066, 3.2333, 0.6613) | Center (0.9066, 3.1785, 0.6674)
+-   Face Tags: 62913, 62935
+-   Face Indices: 10, 19
+-   Topology Vertices: 20 -> 20
+-   Analytic Curve Type: Arc
+- Edge 32: Intersection | Length: 0.0309 | Connected Faces: 2 | Tag: 62983
+-   Endpoints: (0.5003, 2.7279, 0.4917) -> (0.4806, 2.7254, 0.4722)
+-   Face Tags: 62899, 62921
+-   Face Indices: 5, 21
+-   Topology Vertices: 32 -> 15
+- Edge 33: Intersection | Length: 0.0181 | Connected Faces: 2 | Tag: 62957
+-   Endpoints: (-0.9902, 3.5941, 0.6113) -> (-0.9804, 3.6009, 0.6205)
+-   Face Tags: 62909, 62929
+-   Face Indices: 18, 12
+-   Topology Vertices: 27 -> 22
+- Edge 34: Linear | Length: 0.3740 | Connected Faces: 2 | Tag: 63025
+-   Endpoints: (-0.4883, 2.8255, 0.7067) -> (-0.8623, 2.8255, 0.7067)
+-   Curve Props: Arc Length 0.3740 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4883, 2.8255, 0.7067) | End (-0.8623, 2.8255, 0.7067) | Center (-0.6753, 2.8255, 0.7067)
+-   Face Tags: 62893, 62899
+-   Face Indices: 4, 5
+-   Topology Vertices: 10 -> 13
+-   Analytic Curve Type: Line
+- Edge 35: Circular | Length: 0.2274 | Connected Faces: 2 | Tag: 63041
+-   Endpoints: (-0.4784, 3.5368, 0.6177) -> (-0.4784, 3.5795, 0.3971)
+-   Curve Props: Arc Length 0.2274 | Radius 0.4287 | Diameter 0.8575 | Min Curvature Radius 0.4287
+-   Curve Points: Start (-0.4784, 3.5368, 0.6177) | End (-0.4784, 3.5795, 0.3971) | Center (-0.4784, 3.1520, 0.4287)
+-   Face Tags: 62899, 62917
+-   Face Indices: 5, 23
+-   Topology Vertices: 33 -> 26
+-   Analytic Curve Type: Arc
+- Edge 36: Linear | Length: 0.0984 | Connected Faces: 2 | Tag: 63015
+-   Endpoints: (-0.8820, 2.7561, 0.7144) -> (-0.9804, 2.7561, 0.7144)
+-   Curve Props: Arc Length 0.0984 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8820, 2.7561, 0.7144) | End (-0.9804, 2.7561, 0.7144) | Center (-0.9312, 2.7561, 0.7144)
+-   Face Tags: 62893, 62907
+-   Face Indices: 4, 2
+-   Topology Vertices: 8 -> 3
+-   Analytic Curve Type: Line
+- Edge 37: Intersection | Length: 0.0170 | Connected Faces: 2 | Tag: 62973
+-   Endpoints: (-0.4883, 3.5315, 0.6282) -> (-0.4784, 3.5368, 0.6177)
+-   Face Tags: 62899, 62927
+-   Face Indices: 5, 16
+-   Topology Vertices: 17 -> 33
+- Edge 38: Circular | Length: 0.2274 | Connected Faces: 2 | Tag: 63045
+-   Endpoints: (0.5003, 2.8180, 0.6976) -> (0.5003, 2.7279, 0.4917)
+-   Curve Props: Arc Length 0.2274 | Radius 0.4287 | Diameter 0.8575 | Min Curvature Radius 0.4287
+-   Curve Points: Start (0.5003, 2.8180, 0.6976) | End (0.5003, 2.7279, 0.4917) | Center (0.5003, 3.1520, 0.4287)
+-   Face Tags: 62899, 62919
+-   Face Indices: 5, 20
+-   Topology Vertices: 31 -> 32
+-   Analytic Curve Type: Arc
+- Edge 39: Intersection | Length: 0.0154 | Connected Faces: 2 | Tag: 63031
+-   Endpoints: (-0.8721, 3.5432, 0.6269) -> (-0.8623, 3.5315, 0.6282)
+-   Face Tags: 62893, 62901
+-   Face Indices: 4, 22
+-   Topology Vertices: 2 -> 28
+- Edge 40: Circular | Length: 1.8861 | Connected Faces: 2 | Tag: 63005
+-   Endpoints: (-0.8721, 3.5432, 0.6269) -> (-0.8721, 2.8137, 0.7080)
+-   Curve Props: Arc Length 1.8861 | Radius 0.4386 | Diameter 0.8772 | Min Curvature Radius 0.4386
+-   Curve Points: Start (-0.8721, 3.5432, 0.6269) | End (-0.8721, 2.8137, 0.7080) | Center (-0.8721, 3.1520, 0.4287)
+-   Face Tags: 62901, 62903
+-   Face Indices: 22, 11
+-   Topology Vertices: 2 -> 14
+-   Analytic Curve Type: Arc
+- Edge 41: Linear | Length: 0.8569 | Connected Faces: 2 | Tag: 62989
+-   Endpoints: (0.5003, 3.5795, 0.3971) -> (0.5003, 2.7279, 0.4917)
+-   Curve Props: Arc Length 0.8569 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.5003, 3.5795, 0.3971) | End (0.5003, 2.7279, 0.4917) | Center (0.5003, 3.1537, 0.4444)
+-   Face Tags: 62919, 62921
+-   Face Indices: 20, 21
+-   Topology Vertices: 5 -> 32
+-   Analytic Curve Type: Line
+- Edge 42: Circular | Length: 2.0359 | Connected Faces: 2 | Tag: 63011
+-   Endpoints: (-0.9804, 3.6009, 0.6205) -> (-0.9804, 2.7561, 0.7144)
+-   Curve Props: Arc Length 2.0359 | Radius 0.4882 | Diameter 0.9764 | Min Curvature Radius 0.4882
+-   Curve Points: Start (-0.9804, 3.6009, 0.6205) | End (-0.9804, 2.7561, 0.7144) | Center (-0.9804, 3.1520, 0.4287)
+-   Face Tags: 62907, 62909
+-   Face Indices: 2, 18
+-   Topology Vertices: 22 -> 3
+-   Analytic Curve Type: Arc
+- Edge 43: Linear | Length: 0.7233 | Connected Faces: 2 | Tag: 62963
+-   Endpoints: (-0.4784, 3.5368, 0.6177) -> (-0.4784, 2.8180, 0.6976)
+-   Curve Props: Arc Length 0.7233 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4784, 3.5368, 0.6177) | End (-0.4784, 2.8180, 0.6976) | Center (-0.4784, 3.1774, 0.6576)
+-   Face Tags: 62917, 62927
+-   Face Indices: 23, 16
+-   Topology Vertices: 33 -> 9
+-   Analytic Curve Type: Line
+- Edge 44: Linear | Length: 0.5315 | Connected Faces: 2 | Tag: 63023
+-   Endpoints: (1.0416, 2.8255, 0.7067) -> (0.5102, 2.8255, 0.7067)
+-   Curve Props: Arc Length 0.5315 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (1.0416, 2.8255, 0.7067) | End (0.5102, 2.8255, 0.7067) | Center (0.7759, 2.8255, 0.7067)
+-   Face Tags: 62899, 62913
+-   Face Indices: 5, 10
+-   Topology Vertices: 12 -> 30
+-   Analytic Curve Type: Line
+- Edge 45: Circular | Length: 0.2845 | Connected Faces: 2 | Tag: 62941
+-   Endpoints: (0.9066, 3.2224, 0.6526) -> (0.9066, 3.2224, 0.6526)
+-   Curve Props: Arc Length 0.2845 | Radius 0.0453 | Diameter 0.0906 | Min Curvature Radius 0.0453
+-   Curve Points: Start (0.9066, 3.2224, 0.6526) | End (0.9066, 3.2224, 0.6526) | Center (0.9066, 3.1774, 0.6576)
+-   Face Tags: 62933, 62935
+-   Face Indices: 3, 19
+-   Topology Vertices: 20 -> 20
+-   Analytic Curve Type: Arc
+- Edge 46: Linear | Length: 0.0467 | Connected Faces: 2 | Tag: 63019
+-   Endpoints: (-0.8721, 2.8137, 0.7080) -> (-0.8721, 2.7673, 0.7131)
+-   Curve Props: Arc Length 0.0467 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.8721, 2.8137, 0.7080) | End (-0.8721, 2.7673, 0.7131) | Center (-0.8721, 2.7905, 0.7105)
+-   Face Tags: 62893, 62903
+-   Face Indices: 4, 11
+-   Topology Vertices: 14 -> 7
+-   Analytic Curve Type: Line
+- Edge 47: Linear | Length: 0.7103 | Connected Faces: 2 | Tag: 62947
+-   Endpoints: (1.0416, 2.8255, 0.7067) -> (1.0416, 3.5315, 0.6282)
+-   Curve Props: Arc Length 0.7103 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (1.0416, 2.8255, 0.7067) | End (1.0416, 3.5315, 0.6282) | Center (1.0416, 3.1785, 0.6674)
+-   Face Tags: 62913, 62931
+-   Face Indices: 10, 8
+-   Topology Vertices: 12 -> 25
+-   Analytic Curve Type: Line
+- Edge 48: Linear | Length: 0.6998 | Connected Faces: 2 | Tag: 62953
+-   Endpoints: (1.0515, 3.5252, 0.6190) -> (1.0515, 2.8296, 0.6963)
+-   Curve Props: Arc Length 0.6998 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (1.0515, 3.5252, 0.6190) | End (1.0515, 2.8296, 0.6963) | Center (1.0515, 3.1774, 0.6576)
+-   Face Tags: 62895, 62931
+-   Face Indices: 13, 8
+-   Topology Vertices: 29 -> 11
+-   Analytic Curve Type: Line
+- Edge 49: Linear | Length: 0.0984 | Connected Faces: 2 | Tag: 63037
+-   Endpoints: (-0.9804, 3.6009, 0.6205) -> (-0.8820, 3.6009, 0.6205)
+-   Curve Props: Arc Length 0.0984 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.9804, 3.6009, 0.6205) | End (-0.8820, 3.6009, 0.6205) | Center (-0.9312, 3.6009, 0.6205)
+-   Face Tags: 62893, 62907
+-   Face Indices: 4, 2
+-   Topology Vertices: 22 -> 18
+-   Analytic Curve Type: Line
+- Edge 50: Intersection | Length: 0.0170 | Connected Faces: 2 | Tag: 62969
+-   Endpoints: (0.5102, 2.8255, 0.7067) -> (0.5003, 2.8180, 0.6976)
+-   Face Tags: 62899, 62925
+-   Face Indices: 5, 17
+-   Topology Vertices: 30 -> 31
+- Edge 51: Circular | Length: 2.0359 | Connected Faces: 2 | Tag: 63009
+-   Endpoints: (-0.8820, 3.6009, 0.6205) -> (-0.8820, 2.7561, 0.7144)
+-   Curve Props: Arc Length 2.0359 | Radius 0.4882 | Diameter 0.9764 | Min Curvature Radius 0.4882
+-   Curve Points: Start (-0.8820, 3.6009, 0.6205) | End (-0.8820, 2.7561, 0.7144) | Center (-0.8820, 3.1520, 0.4287)
+-   Face Tags: 62905, 62907
+-   Face Indices: 7, 2
+-   Topology Vertices: 18 -> 8
+-   Analytic Curve Type: Arc
+- Edge 52: Intersection | Length: 0.0170 | Connected Faces: 2 | Tag: 62971
+-   Endpoints: (0.5003, 3.5368, 0.6177) -> (0.5102, 3.5315, 0.6282)
+-   Face Tags: 62899, 62925
+-   Face Indices: 5, 17
+-   Topology Vertices: 6 -> 24
+- Edge 53: Circular | Length: 2.0060 | Connected Faces: 2 | Tag: 63007
+-   Endpoints: (-0.8721, 3.5897, 0.6217) -> (-0.8721, 2.7673, 0.7131)
+-   Curve Props: Arc Length 2.0060 | Radius 0.4783 | Diameter 0.9567 | Min Curvature Radius 0.4783
+-   Curve Points: Start (-0.8721, 3.5897, 0.6217) | End (-0.8721, 2.7673, 0.7131) | Center (-0.8721, 3.1520, 0.4287)
+-   Face Tags: 62903, 62905
+-   Face Indices: 11, 7
+-   Topology Vertices: 1 -> 7
+-   Analytic Curve Type: Arc
+- Edge 54: Intersection | Length: 0.0309 | Connected Faces: 2 | Tag: 62985
+-   Endpoints: (0.4806, 3.5776, 0.3775) -> (0.5003, 3.5795, 0.3971)
+-   Face Tags: 62899, 62921
+-   Face Indices: 5, 21
+-   Topology Vertices: 16 -> 5
+
+### Faces
+- Total Faces: 23
+**Face Type Breakdown:**
+- Conical: 5
+- Cylindrical: 9
+- Parametric: 1
+- Planar: 8
+
+**Per-Face Details:**
+- Face 1: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62915
+-   Measure: Area 0.8055 | Perimeter 3.5936 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0109, 3.1515, 0.4248) | Anchor (0.0109, 3.1515, 0.4248)
+-   Analytic: Ref Point (0.0109, 3.1515, 0.4248) | Direction (-0.0000, 0.1104, 0.9939) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.4287, 0.4287] | V[-0.4697, 0.4697] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 8, 27, 11, 16
+-   Loop Count: 1
+-   Adjacent Faces: 21, 6, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 2: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62907
+-   Measure: Area 0.2004 | Perimeter 4.2686 | Radius/Diameter 0.4882 | Min Curvature Radius 0.4882
+-   Points: Center (-0.9312, 3.1295, 0.2261) | Anchor (-0.9312, 3.1295, 0.2261)
+-   Analytic: Ref Point (-0.9312, 3.1520, 0.4287) | Direction (-1.0000, 0.0000, -0.0000) | Radius 0.4882 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0492, 0.0492] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 51, 42, 36, 49
+-   Loop Count: 1
+-   Adjacent Faces: 7, 18, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 3: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62933
+-   Measure: Area 0.1844 | Perimeter 0.5693 | Radius/Diameter 0.0453 | Min Curvature Radius 0.0453
+-   Points: Center (0.9066, 3.1416, 0.3354) | Anchor (0.9066, 3.1416, 0.3354)
+-   Analytic: Ref Point (0.9066, 3.1415, 0.3345) | Direction (-0.0000, 0.1104, 0.9939) | Radius 0.0453 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.6794, -0.6794] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 45, 12
+-   Loop Count: 1
+-   Adjacent Faces: 19, 15
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 4: Planar | Edges: 12 | Facets: None | Vertices: 12 | Tag: 62893
+-   Measure: Area 0.3647 | Perimeter 2.6595 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.7423, 3.1785, 0.6674) | Anchor (-0.7423, 3.1785, 0.6674)
+-   Analytic: Ref Point (-0.7343, 3.1785, 0.6674) | Direction (-0.0000, 0.1104, 0.9939) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.4250, 0.4250] | V[-0.2461, 0.2461] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 14, 9, 36, 4, 46, 7, 34, 26, 39, 1, 10, 49
+-   Loop Count: 1
+-   Adjacent Faces: 12, 16, 2, 7, 11, 22, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 5: Cylindrical | Edges: 21 | Facets: None | Vertices: 21 | Tag: 62899
+-   Measure: Area 3.0197 | Perimeter 8.8412 | Radius/Diameter 0.4287 | Min Curvature Radius 0.4287
+-   Points: Center (0.1004, 3.1286, 0.2188) | Anchor (0.1004, 3.1286, 0.2188)
+-   Analytic: Ref Point (0.0897, 3.1520, 0.4287) | Direction (-1.0000, 0.0000, -0.0000) | Radius 0.4287 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.9520, 0.9520] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 21, 50, 52, 37, 5, 24, 13, 32, 54, 11, 16, 30, 20, 44, 34, 26, 17, 15, 35, 3, 38
+-   Loop Count: 2
+-   Adjacent Faces: 15, 17, 16, 6, 21, 1, 9, 22, 10, 4, 23, 20
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 6: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62923
+-   Measure: Area 0.0265 | Perimeter 1.7762 | Radius/Diameter 0.0197 | Min Curvature Radius 0.0197
+-   Points: Center (-0.4713, 3.1523, 0.4319) | Anchor (-0.4713, 3.1523, 0.4319)
+-   Analytic: Ref Point (-0.4587, 3.1536, 0.4444) | Direction (-0.0000, -0.9939, 0.1104) | Radius 0.0197 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.4289, 0.4286] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 24, 13, 18, 27
+-   Loop Count: 1
+-   Adjacent Faces: 5, 23, 1
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 7: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62905
+-   Measure: Area 0.0281 | Perimeter 4.0719 | Radius/Diameter N/A | Min Curvature Radius 0.6765
+-   Points: Center (-0.8771, 3.1298, 0.2294) | Anchor (-0.8771, 3.1298, 0.2294)
+-   Analytic: Ref Point (-0.8771, 3.1520, 0.4287) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.4833 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 53, 51, 4, 10
+-   Loop Count: 1
+-   Adjacent Faces: 11, 2, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 8: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62931
+-   Measure: Area 0.0108 | Perimeter 1.4468 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (1.0479, 3.1781, 0.6639) | Anchor (1.0479, 3.1781, 0.6639)
+-   Analytic: Ref Point (1.0416, 3.1779, 0.6576) | Direction (0.0000, -0.9939, 0.1104) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.3547, 0.3556] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 47, 6, 25, 48
+-   Loop Count: 1
+-   Adjacent Faces: 10, 9, 13
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 9: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62897
+-   Measure: Area 0.0256 | Perimeter 3.6971 | Radius/Diameter N/A | Min Curvature Radius 0.5924
+-   Points: Center (1.0465, 3.1341, 0.2679) | Anchor (1.0465, 3.1341, 0.2679)
+-   Analytic: Ref Point (1.0466, 3.1520, 0.4287) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.4238 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 6, 25, 22, 30
+-   Loop Count: 1
+-   Adjacent Faces: 8, 13, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 10: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 62913
+-   Measure: Area 0.3680 | Perimeter 2.8300 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.7725, 3.1785, 0.6674) | Anchor (0.7725, 3.1785, 0.6674)
+-   Analytic: Ref Point (0.7759, 3.1785, 0.6674) | Direction (-0.0000, 0.1104, 0.9939) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.3552, 3.0853] | V[-0.7759, 0.2657] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 31, 47, 23, 44, 17
+-   Loop Count: 2
+-   Adjacent Faces: 19, 8, 17, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 11: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62903
+-   Measure: Area 0.0774 | Perimeter 3.9855 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.8721, 3.1316, 0.2457) | Anchor (-0.8721, 3.1316, 0.2457)
+-   Analytic: Ref Point (-0.8721, 3.1520, 0.3318) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.3814, -0.2900] | V[-0.3846, 0.4377] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 40, 53, 46, 1
+-   Loop Count: 1
+-   Adjacent Faces: 22, 7, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 12: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62929
+-   Measure: Area 0.0130 | Perimeter 1.7249 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.9867, 3.1781, 0.6639) | Anchor (-0.9867, 3.1781, 0.6639)
+-   Analytic: Ref Point (-0.9804, 3.1781, 0.6576) | Direction (0.0000, 0.9939, -0.1104) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.4257, 0.4244] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 14, 33, 2, 19
+-   Loop Count: 1
+-   Adjacent Faces: 4, 18, 14
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 13: Planar | Edges: 2 | Facets: None | Vertices: 2 | Tag: 62895
+-   Measure: Area 0.4584 | Perimeter 2.5035 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (1.0515, 3.1451, 0.3668) | Anchor (1.0515, 3.1451, 0.3668)
+-   Analytic: Ref Point (1.0515, 3.1520, 0.3531) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.3432, -0.2659] | V[-0.3223, 0.3732] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 48, 22
+-   Loop Count: 1
+-   Adjacent Faces: 8, 9
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 14: Planar | Edges: 2 | Facets: None | Vertices: 2 | Tag: 62911
+-   Measure: Area 0.5709 | Perimeter 2.8219 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.9902, 3.1425, 0.3432) | Anchor (-0.9902, 3.1425, 0.3432)
+-   Analytic: Ref Point (-0.9902, 3.1520, 0.3272) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.2842, 0.3768] | V[-0.3913, 0.4421] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 19, 29
+-   Loop Count: 1
+-   Adjacent Faces: 12, 18
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 15: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62937
+-   Measure: Area 0.0038 | Perimeter 0.6216 | Radius/Diameter N/A | Min Curvature Radius 0.0555
+-   Points: Center (0.9066, 3.1053, 0.0086) | Anchor (0.9066, 3.1053, 0.0086)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0084 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 21, 12
+-   Loop Count: 1
+-   Adjacent Faces: 5, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 16: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62927
+-   Measure: Area 0.0111 | Perimeter 1.4676 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.4820, 3.1781, 0.6639) | Anchor (-0.4820, 3.1781, 0.6639)
+-   Analytic: Ref Point (-0.4883, 3.1768, 0.6577) | Direction (0.0000, 0.9939, -0.1104) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.3610, 0.3622] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 43, 9, 37, 5
+-   Loop Count: 1
+-   Adjacent Faces: 23, 4, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 17: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62925
+-   Measure: Area 0.0111 | Perimeter 1.4676 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.5039, 3.1781, 0.6639) | Anchor (0.5039, 3.1781, 0.6639)
+-   Analytic: Ref Point (0.5102, 3.1770, 0.6577) | Direction (0.0000, -0.9939, 0.1104) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.3620, 0.3612] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 28, 50, 52, 23
+-   Loop Count: 1
+-   Adjacent Faces: 20, 5, 10
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 18: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62909
+-   Measure: Area 0.0281 | Perimeter 4.0555 | Radius/Diameter N/A | Min Curvature Radius 0.6765
+-   Points: Center (-0.9853, 3.1297, 0.2283) | Anchor (-0.9853, 3.1297, 0.2283)
+-   Analytic: Ref Point (-0.9853, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.4833 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 33, 2, 42, 29
+-   Loop Count: 1
+-   Adjacent Faces: 12, 2, 14
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 19: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62935
+-   Measure: Area 0.0044 | Perimeter 0.6308 | Radius/Diameter N/A | Min Curvature Radius 0.0640
+-   Points: Center (0.9066, 3.1780, 0.6627) | Anchor (0.9066, 3.1780, 0.6627)
+-   Analytic: Ref Point (0.9066, 3.1779, 0.6625) | Direction (-0.0000, -0.1104, -0.9939) | Radius 0.0502 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 45, 31
+-   Loop Count: 1
+-   Adjacent Faces: 3, 10
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 20: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62919
+-   Measure: Area 0.1740 | Perimeter 2.0349 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.5003, 3.1652, 0.5481) | Anchor (0.5003, 3.1652, 0.5481)
+-   Analytic: Ref Point (0.5003, 3.1543, 0.5473) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.1503, 0.1503] | V[-0.4264, 0.4252] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 28, 41, 3, 38
+-   Loop Count: 1
+-   Adjacent Faces: 17, 21, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 21: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62921
+-   Measure: Area 0.0265 | Perimeter 1.7762 | Radius/Diameter 0.0197 | Min Curvature Radius 0.0197
+-   Points: Center (0.4932, 3.1523, 0.4319) | Anchor (0.4932, 3.1523, 0.4319)
+-   Analytic: Ref Point (0.4806, 3.1536, 0.4444) | Direction (-0.0000, 0.9939, -0.1104) | Radius 0.0197 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.4286, 0.4289] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 32, 54, 41, 8
+-   Loop Count: 1
+-   Adjacent Faces: 5, 20, 1
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 22: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62901
+-   Measure: Area 0.0260 | Perimeter 3.7737 | Radius/Diameter N/A | Min Curvature Radius 0.6063
+-   Points: Center (-0.8672, 3.1335, 0.2624) | Anchor (-0.8672, 3.1335, 0.2624)
+-   Analytic: Ref Point (-0.8672, 3.1520, 0.4287) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.4337 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 20, 40, 7, 39
+-   Loop Count: 1
+-   Adjacent Faces: 5, 11, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 23: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62917
+-   Measure: Area 0.1740 | Perimeter 2.0349 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.4784, 3.1652, 0.5481) | Anchor (-0.4784, 3.1652, 0.5481)
+-   Analytic: Ref Point (-0.4784, 3.1543, 0.5473) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.1503, 0.1503] | V[-0.4264, 0.4252] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 43, 18, 15, 35
+-   Loop Count: 1
+-   Adjacent Faces: 16, 6, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+
+---
+## Body 10
+
+### Body Metadata
+- Tag: 63127
+- Journal Identifier: UNPARAMETERIZED_FEATURE(10)
+- Name: Nut M16
+- Is Solid Body: True
+- Is Sheet Body: False
+- Is Convergent Body: False
+- Density: 7800.0000
+- Facet Count: None
+- Vertex Count: None
+- Shape Summary: Likely contains a conical region.
+- Exported Topology Vertices: 39
+### Body Measurement
+- Surface Area: 3.6719
+- Volume: 0.2478
+- Mass: 0.0698
+- Weight: 0.0698
+- Radius Of Gyration: 0.4246
+- Centroid: (0.0000, 4.1137, 0.0000)
+### Bounding Box
+- X Min: -0.9508
+- Y Min: 4.0197
+- Z Min: -2.5162
+- X Max: 0.9508
+- Y Max: 4.2914
+- Z Max: -2.2445
+- Dx (Length): 1.9016
+- Dy (Width): 0.2717
+- Dz (Height): 0.2717
+
+### Features
+- Total Features: 1
+- Body(10) | Type: BREP | Timestamp: 10
+-   Warning: []
+-   Error: []
+
+### Edges
+- Total Edges: 63
+**Edge Type Breakdown:**
+- Circular: 23
+- Intersection: 24
+- Linear: 12
+- Spline: 4
+
+**Per-Edge Details:**
+- Edge 1: Intersection | Length: 0.4912 | Connected Faces: 2 | Tag: 63256
+-   Endpoints: (0.0558, 4.3225, -0.5246) -> (-0.3962, 4.3225, -0.3484)
+-   Face Tags: 63144, 63168
+-   Face Indices: 18, 11
+-   Topology Vertices: 1 -> 2
+- Edge 2: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63214
+-   Endpoints: (0.3962, 4.3225, 0.3484) -> (0.4264, 4.3225, 0.3106)
+-   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
+-   Curve Points: Start (0.3962, 4.3225, 0.3484) | End (0.4264, 4.3225, 0.3106) | Center (0.0000, 4.3225, 0.0000)
+-   Face Tags: 63144, 63154
+-   Face Indices: 18, 27
+-   Topology Vertices: 3 -> 4
+-   Analytic Curve Type: Arc
+- Edge 3: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63282
+-   Endpoints: (0.2929, 3.8661, -0.3656) -> (0.4822, 3.9002, -0.2140)
+-   Face Tags: 63142, 63158
+-   Face Indices: 17, 4
+-   Topology Vertices: 5 -> 6
+- Edge 4: Spline | Length: 9.0990 | Connected Faces: 2 | Tag: 63188
+-   Endpoints: (0.2565, 3.9497, 0.0418) -> (-0.2500, 4.2786, 0.0707)
+-   Face Tags: 63176, 63180
+-   Face Indices: 25, 10
+-   Topology Vertices: 7 -> 8
+- Edge 5: Intersection | Length: 0.3998 | Connected Faces: 2 | Tag: 63298
+-   Endpoints: (0.0423, 4.3106, 0.2887) -> (-0.2500, 4.2786, 0.0707)
+-   Face Tags: 63170, 63176
+-   Face Indices: 14, 25
+-   Topology Vertices: 9 -> 8
+- Edge 6: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63244
+-   Endpoints: (-0.4822, 3.9002, 0.2140) -> (-0.4998, 3.9002, 0.1689)
+-   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
+-   Curve Points: Start (-0.4822, 3.9002, 0.2140) | End (-0.4998, 3.9002, 0.1689) | Center (0.0000, 3.9002, 0.0000)
+-   Face Tags: 63136, 63150
+-   Face Indices: 15, 2
+-   Topology Vertices: 10 -> 11
+-   Analytic Curve Type: Arc
+- Edge 7: Circular | Length: 0.4906 | Connected Faces: 2 | Tag: 63230
+-   Endpoints: (-0.2929, 3.8661, 0.3656) -> (0.1702, 3.8661, 0.4365)
+-   Curve Props: Arc Length 0.4906 | Radius 0.4685 | Diameter 0.9370 | Min Curvature Radius 0.4685
+-   Curve Points: Start (-0.2929, 3.8661, 0.3656) | End (0.1702, 3.8661, 0.4365) | Center (0.0000, 3.8661, 0.0000)
+-   Face Tags: 63130, 63138
+-   Face Indices: 6, 8
+-   Topology Vertices: 12 -> 13
+-   Analytic Curve Type: Arc
+- Edge 8: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63260
+-   Endpoints: (-0.4998, 3.9002, 0.1689) -> (-0.4631, 3.8661, -0.0709)
+-   Face Tags: 63136, 63166
+-   Face Indices: 15, 24
+-   Topology Vertices: 11 -> 14
+- Edge 9: Spline | Length: 12.2025 | Connected Faces: 2 | Tag: 63288
+-   Endpoints: (0.2112, 3.9178, -0.2013) -> (0.0423, 4.3106, 0.2887)
+-   Face Tags: 63176, 63178
+-   Face Indices: 25, 16
+-   Topology Vertices: 15 -> 9
+- Edge 10: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63272
+-   Endpoints: (0.3962, 3.9002, 0.3484) -> (0.1702, 3.8661, 0.4365)
+-   Face Tags: 63140, 63162
+-   Face Indices: 20, 23
+-   Topology Vertices: 16 -> 13
+- Edge 11: Intersection | Length: 0.4912 | Connected Faces: 2 | Tag: 63262
+-   Endpoints: (-0.4264, 4.3225, -0.3106) -> (-0.4998, 4.3225, 0.1689)
+-   Face Tags: 63144, 63166
+-   Face Indices: 18, 24
+-   Topology Vertices: 17 -> 18
+- Edge 12: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63284
+-   Endpoints: (0.1036, 3.9002, -0.5173) -> (0.2929, 3.8661, -0.3656)
+-   Face Tags: 63134, 63158
+-   Face Indices: 21, 4
+-   Topology Vertices: 19 -> 5
+- Edge 13: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63220
+-   Endpoints: (-0.3962, 4.3225, -0.3484) -> (-0.4264, 4.3225, -0.3106)
+-   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
+-   Curve Points: Start (-0.3962, 4.3225, -0.3484) | End (-0.4264, 4.3225, -0.3106) | Center (0.0000, 4.3225, 0.0000)
+-   Face Tags: 63144, 63148
+-   Face Indices: 18, 19
+-   Topology Vertices: 2 -> 17
+-   Analytic Curve Type: Arc
+- Edge 14: Circular | Length: 2.1577 | Connected Faces: 2 | Tag: 63304
+-   Endpoints: (-0.0519, 3.8661, 0.3395) -> (-0.0519, 3.8661, 0.3395)
+-   Curve Props: Arc Length 2.1577 | Radius 0.3434 | Diameter 0.6868 | Min Curvature Radius 0.3434
+-   Curve Points: Start (-0.0519, 3.8661, 0.3395) | End (-0.0519, 3.8661, 0.3395) | Center (0.0000, 3.8661, 0.0000)
+-   Face Tags: 63130, 63172
+-   Face Indices: 6, 7
+-   Topology Vertices: 20 -> 20
+-   Analytic Curve Type: Arc
+- Edge 15: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63194
+-   Endpoints: (-0.4264, 4.3225, -0.3106) -> (-0.4264, 3.9002, -0.3106)
+-   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4264, 4.3225, -0.3106) | End (-0.4264, 3.9002, -0.3106) | Center (-0.4264, 4.1114, -0.3106)
+-   Face Tags: 63148, 63166
+-   Face Indices: 19, 24
+-   Topology Vertices: 17 -> 21
+-   Analytic Curve Type: Line
+- Edge 16: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63278
+-   Endpoints: (0.4998, 3.9002, -0.1689) -> (0.4631, 3.8661, 0.0709)
+-   Face Tags: 63142, 63160
+-   Face Indices: 17, 22
+-   Topology Vertices: 22 -> 23
+- Edge 17: Circular | Length: 0.4082 | Connected Faces: 2 | Tag: 63294
+-   Endpoints: (0.0418, 3.9497, -0.2565) -> (0.2565, 3.9497, 0.0418)
+-   Curve Props: Arc Length 0.4082 | Radius 0.2598 | Diameter 0.5197 | Min Curvature Radius 0.2598
+-   Curve Points: Start (0.0418, 3.9497, -0.2565) | End (0.2565, 3.9497, 0.0418) | Center (0.0000, 3.9497, 0.0000)
+-   Face Tags: 63172, 63180
+-   Face Indices: 7, 10
+-   Topology Vertices: 24 -> 7
+-   Analytic Curve Type: Arc
+- Edge 18: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63252
+-   Endpoints: (-0.1702, 3.8661, -0.4365) -> (0.0558, 3.9002, -0.5246)
+-   Face Tags: 63134, 63168
+-   Face Indices: 21, 11
+-   Topology Vertices: 25 -> 26
+- Edge 19: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63210
+-   Endpoints: (0.4822, 4.3225, -0.2140) -> (0.4822, 3.9002, -0.2140)
+-   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4822, 4.3225, -0.2140) | End (0.4822, 3.9002, -0.2140) | Center (0.4822, 4.1114, -0.2140)
+-   Face Tags: 63156, 63158
+-   Face Indices: 26, 4
+-   Topology Vertices: 27 -> 6
+-   Analytic Curve Type: Line
+- Edge 20: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63258
+-   Endpoints: (-0.4631, 3.8661, -0.0709) -> (-0.4264, 3.9002, -0.3106)
+-   Face Tags: 63132, 63166
+-   Face Indices: 1, 24
+-   Topology Vertices: 14 -> 21
+- Edge 21: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63248
+-   Endpoints: (0.0558, 3.9002, -0.5246) -> (0.1036, 3.9002, -0.5173)
+-   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
+-   Curve Points: Start (0.0558, 3.9002, -0.5246) | End (0.1036, 3.9002, -0.5173) | Center (0.0000, 3.9002, 0.0000)
+-   Face Tags: 63134, 63146
+-   Face Indices: 21, 9
+-   Topology Vertices: 26 -> 19
+-   Analytic Curve Type: Arc
+- Edge 22: Intersection | Length: 1.4807 | Connected Faces: 2 | Tag: 63184
+-   Endpoints: (0.0707, 4.2786, 0.2500) -> (-0.1743, 4.3106, 0.2340)
+-   Face Tags: 63170, 63174
+-   Face Indices: 14, 3
+-   Topology Vertices: 28 -> 29
+- Edge 23: Intersection | Length: 0.4912 | Connected Faces: 2 | Tag: 63286
+-   Endpoints: (0.4822, 4.3225, -0.2140) -> (0.1036, 4.3225, -0.5173)
+-   Face Tags: 63144, 63158
+-   Face Indices: 18, 4
+-   Topology Vertices: 27 -> 30
+- Edge 24: Intersection | Length: 0.4912 | Connected Faces: 2 | Tag: 63268
+-   Endpoints: (-0.4822, 4.3225, 0.2140) -> (-0.1036, 4.3225, 0.5173)
+-   Face Tags: 63144, 63164
+-   Face Indices: 18, 5
+-   Topology Vertices: 31 -> 32
+- Edge 25: Circular | Length: 0.4906 | Connected Faces: 2 | Tag: 63226
+-   Endpoints: (-0.1702, 3.8661, -0.4365) -> (-0.4631, 3.8661, -0.0709)
+-   Curve Props: Arc Length 0.4906 | Radius 0.4685 | Diameter 0.9370 | Min Curvature Radius 0.4685
+-   Curve Points: Start (-0.1702, 3.8661, -0.4365) | End (-0.4631, 3.8661, -0.0709) | Center (0.0000, 3.8661, 0.0000)
+-   Face Tags: 63130, 63132
+-   Face Indices: 6, 1
+-   Topology Vertices: 25 -> 14
+-   Analytic Curve Type: Arc
+- Edge 26: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63200
+-   Endpoints: (-0.1036, 3.9002, 0.5173) -> (-0.1036, 4.3225, 0.5173)
+-   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.1036, 3.9002, 0.5173) | End (-0.1036, 4.3225, 0.5173) | Center (-0.1036, 4.1114, 0.5173)
+-   Face Tags: 63152, 63164
+-   Face Indices: 12, 5
+-   Topology Vertices: 33 -> 32
+-   Analytic Curve Type: Line
+- Edge 27: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63196
+-   Endpoints: (-0.4998, 3.9002, 0.1689) -> (-0.4998, 4.3225, 0.1689)
+-   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4998, 3.9002, 0.1689) | End (-0.4998, 4.3225, 0.1689) | Center (-0.4998, 4.1114, 0.1689)
+-   Face Tags: 63150, 63166
+-   Face Indices: 2, 24
+-   Topology Vertices: 11 -> 18
+-   Analytic Curve Type: Line
+- Edge 28: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63216
+-   Endpoints: (0.4998, 4.3225, -0.1689) -> (0.4822, 4.3225, -0.2140)
+-   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
+-   Curve Points: Start (0.4998, 4.3225, -0.1689) | End (0.4822, 4.3225, -0.2140) | Center (0.0000, 4.3225, 0.0000)
+-   Face Tags: 63144, 63156
+-   Face Indices: 18, 26
+-   Topology Vertices: 34 -> 27
+-   Analytic Curve Type: Arc
+- Edge 29: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63190
+-   Endpoints: (0.0558, 4.3225, -0.5246) -> (0.0558, 3.9002, -0.5246)
+-   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.0558, 4.3225, -0.5246) | End (0.0558, 3.9002, -0.5246) | Center (0.0558, 4.1114, -0.5246)
+-   Face Tags: 63146, 63168
+-   Face Indices: 9, 11
+-   Topology Vertices: 1 -> 26
+-   Analytic Curve Type: Line
+- Edge 30: Circular | Length: 0.4906 | Connected Faces: 2 | Tag: 63234
+-   Endpoints: (0.4631, 3.8661, 0.0709) -> (0.2929, 3.8661, -0.3656)
+-   Curve Props: Arc Length 0.4906 | Radius 0.4685 | Diameter 0.9370 | Min Curvature Radius 0.4685
+-   Curve Points: Start (0.4631, 3.8661, 0.0709) | End (0.2929, 3.8661, -0.3656) | Center (0.0000, 3.8661, 0.0000)
+-   Face Tags: 63130, 63142
+-   Face Indices: 6, 17
+-   Topology Vertices: 23 -> 5
+-   Analytic Curve Type: Arc
+- Edge 31: Circular | Length: 0.4906 | Connected Faces: 2 | Tag: 63232
+-   Endpoints: (0.1702, 3.8661, 0.4365) -> (0.4631, 3.8661, 0.0709)
+-   Curve Props: Arc Length 0.4906 | Radius 0.4685 | Diameter 0.9370 | Min Curvature Radius 0.4685
+-   Curve Points: Start (0.1702, 3.8661, 0.4365) | End (0.4631, 3.8661, 0.0709) | Center (0.0000, 3.8661, 0.0000)
+-   Face Tags: 63130, 63140
+-   Face Indices: 6, 20
+-   Topology Vertices: 13 -> 23
+-   Analytic Curve Type: Arc
+- Edge 32: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63206
+-   Endpoints: (0.4264, 4.3225, 0.3106) -> (0.4264, 3.9002, 0.3106)
+-   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4264, 4.3225, 0.3106) | End (0.4264, 3.9002, 0.3106) | Center (0.4264, 4.1114, 0.3106)
+-   Face Tags: 63154, 63160
+-   Face Indices: 27, 22
+-   Topology Vertices: 4 -> 35
+-   Analytic Curve Type: Line
+- Edge 33: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63264
+-   Endpoints: (-0.2929, 3.8661, 0.3656) -> (-0.4822, 3.9002, 0.2140)
+-   Face Tags: 63136, 63164
+-   Face Indices: 15, 5
+-   Topology Vertices: 12 -> 10
+- Edge 34: Spline | Length: 12.2025 | Connected Faces: 2 | Tag: 63290
+-   Endpoints: (0.2917, 3.9178, 0.0070) -> (-0.1743, 4.3106, 0.2340)
+-   Face Tags: 63174, 63178
+-   Face Indices: 3, 16
+-   Topology Vertices: 36 -> 29
+- Edge 35: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63238
+-   Endpoints: (0.4822, 3.9002, -0.2140) -> (0.4998, 3.9002, -0.1689)
+-   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
+-   Curve Points: Start (0.4822, 3.9002, -0.2140) | End (0.4998, 3.9002, -0.1689) | Center (0.0000, 3.9002, 0.0000)
+-   Face Tags: 63142, 63156
+-   Face Indices: 17, 26
+-   Topology Vertices: 6 -> 22
+-   Analytic Curve Type: Arc
+- Edge 36: Intersection | Length: 1.4786 | Connected Faces: 2 | Tag: 63292
+-   Endpoints: (0.2565, 3.9497, 0.0418) -> (0.2112, 3.9178, -0.2013)
+-   Face Tags: 63172, 63176
+-   Face Indices: 7, 25
+-   Topology Vertices: 7 -> 15
+- Edge 37: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63246
+-   Endpoints: (-0.4264, 3.9002, -0.3106) -> (-0.3962, 3.9002, -0.3484)
+-   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
+-   Curve Points: Start (-0.4264, 3.9002, -0.3106) | End (-0.3962, 3.9002, -0.3484) | Center (0.0000, 3.9002, 0.0000)
+-   Face Tags: 63132, 63148
+-   Face Indices: 1, 19
+-   Topology Vertices: 21 -> 37
+-   Analytic Curve Type: Arc
+- Edge 38: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63222
+-   Endpoints: (-0.4998, 4.3225, 0.1689) -> (-0.4822, 4.3225, 0.2140)
+-   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
+-   Curve Points: Start (-0.4998, 4.3225, 0.1689) | End (-0.4822, 4.3225, 0.2140) | Center (0.0000, 4.3225, 0.0000)
+-   Face Tags: 63144, 63150
+-   Face Indices: 18, 2
+-   Topology Vertices: 18 -> 31
+-   Analytic Curve Type: Arc
+- Edge 39: Circular | Length: 2.1577 | Connected Faces: 2 | Tag: 63306
+-   Endpoints: (-0.0519, 4.3622, 0.3395) -> (-0.0519, 4.3622, 0.3395)
+-   Curve Props: Arc Length 2.1577 | Radius 0.3434 | Diameter 0.6868 | Min Curvature Radius 0.3434
+-   Curve Points: Start (-0.0519, 4.3622, 0.3395) | End (-0.0519, 4.3622, 0.3395) | Center (0.0000, 4.3622, 0.0000)
+-   Face Tags: 63128, 63170
+-   Face Indices: 13, 14
+-   Topology Vertices: 20 -> 20
+-   Analytic Curve Type: Arc
+- Edge 40: Intersection | Length: 0.4912 | Connected Faces: 2 | Tag: 63280
+-   Endpoints: (0.4264, 4.3225, 0.3106) -> (0.4998, 4.3225, -0.1689)
+-   Face Tags: 63144, 63160
+-   Face Indices: 18, 22
+-   Topology Vertices: 4 -> 34
+- Edge 41: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63266
+-   Endpoints: (-0.1036, 3.9002, 0.5173) -> (-0.2929, 3.8661, 0.3656)
+-   Face Tags: 63138, 63164
+-   Face Indices: 8, 5
+-   Topology Vertices: 33 -> 12
+- Edge 42: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63254
+-   Endpoints: (-0.3962, 3.9002, -0.3484) -> (-0.1702, 3.8661, -0.4365)
+-   Face Tags: 63132, 63168
+-   Face Indices: 1, 11
+-   Topology Vertices: 37 -> 25
+- Edge 43: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63212
+-   Endpoints: (0.1036, 3.9002, -0.5173) -> (0.1036, 4.3225, -0.5173)
+-   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.1036, 3.9002, -0.5173) | End (0.1036, 4.3225, -0.5173) | Center (0.1036, 4.1114, -0.5173)
+-   Face Tags: 63146, 63158
+-   Face Indices: 9, 4
+-   Topology Vertices: 19 -> 30
+-   Analytic Curve Type: Line
+- Edge 44: Intersection | Length: 0.2291 | Connected Faces: 2 | Tag: 63296
+-   Endpoints: (0.2112, 3.9178, -0.2013) -> (0.2917, 3.9178, 0.0070)
+-   Face Tags: 63172, 63178
+-   Face Indices: 7, 16
+-   Topology Vertices: 15 -> 36
+- Edge 45: Spline | Length: 9.0990 | Connected Faces: 2 | Tag: 63186
+-   Endpoints: (0.0418, 3.9497, -0.2565) -> (0.0707, 4.2786, 0.2500)
+-   Face Tags: 63174, 63180
+-   Face Indices: 3, 10
+-   Topology Vertices: 24 -> 28
+- Edge 46: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63270
+-   Endpoints: (0.1702, 3.8661, 0.4365) -> (-0.0558, 3.9002, 0.5246)
+-   Face Tags: 63138, 63162
+-   Face Indices: 8, 23
+-   Topology Vertices: 13 -> 38
+- Edge 47: Circular | Length: 0.4906 | Connected Faces: 2 | Tag: 63228
+-   Endpoints: (-0.4631, 3.8661, -0.0709) -> (-0.2929, 3.8661, 0.3656)
+-   Curve Props: Arc Length 0.4906 | Radius 0.4685 | Diameter 0.9370 | Min Curvature Radius 0.4685
+-   Curve Points: Start (-0.4631, 3.8661, -0.0709) | End (-0.2929, 3.8661, 0.3656) | Center (0.0000, 3.8661, 0.0000)
+-   Face Tags: 63130, 63136
+-   Face Indices: 6, 15
+-   Topology Vertices: 14 -> 12
+-   Analytic Curve Type: Arc
+- Edge 48: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63240
+-   Endpoints: (0.4264, 3.9002, 0.3106) -> (0.3962, 3.9002, 0.3484)
+-   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
+-   Curve Points: Start (0.4264, 3.9002, 0.3106) | End (0.3962, 3.9002, 0.3484) | Center (0.0000, 3.9002, 0.0000)
+-   Face Tags: 63140, 63154
+-   Face Indices: 20, 27
+-   Topology Vertices: 35 -> 16
+-   Analytic Curve Type: Arc
+- Edge 49: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63202
+-   Endpoints: (-0.0558, 4.3225, 0.5246) -> (-0.0558, 3.9002, 0.5246)
+-   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.0558, 4.3225, 0.5246) | End (-0.0558, 3.9002, 0.5246) | Center (-0.0558, 4.1114, 0.5246)
+-   Face Tags: 63152, 63162
+-   Face Indices: 12, 23
+-   Topology Vertices: 39 -> 38
+-   Analytic Curve Type: Line
+- Edge 50: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63204
+-   Endpoints: (0.3962, 3.9002, 0.3484) -> (0.3962, 4.3225, 0.3484)
+-   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.3962, 3.9002, 0.3484) | End (0.3962, 4.3225, 0.3484) | Center (0.3962, 4.1114, 0.3484)
+-   Face Tags: 63154, 63162
+-   Face Indices: 27, 23
+-   Topology Vertices: 16 -> 3
+-   Analytic Curve Type: Line
+- Edge 51: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63242
+-   Endpoints: (-0.0558, 3.9002, 0.5246) -> (-0.1036, 3.9002, 0.5173)
+-   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
+-   Curve Points: Start (-0.0558, 3.9002, 0.5246) | End (-0.1036, 3.9002, 0.5173) | Center (0.0000, 3.9002, 0.0000)
+-   Face Tags: 63138, 63152
+-   Face Indices: 8, 12
+-   Topology Vertices: 38 -> 33
+-   Analytic Curve Type: Arc
+- Edge 52: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63218
+-   Endpoints: (0.1036, 4.3225, -0.5173) -> (0.0558, 4.3225, -0.5246)
+-   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
+-   Curve Points: Start (0.1036, 4.3225, -0.5173) | End (0.0558, 4.3225, -0.5246) | Center (0.0000, 4.3225, 0.0000)
+-   Face Tags: 63144, 63146
+-   Face Indices: 18, 9
+-   Topology Vertices: 30 -> 1
+-   Analytic Curve Type: Arc
+- Edge 53: Intersection | Length: 0.2291 | Connected Faces: 2 | Tag: 63302
+-   Endpoints: (-0.1743, 4.3106, 0.2340) -> (0.0423, 4.3106, 0.2887)
+-   Face Tags: 63170, 63178
+-   Face Indices: 14, 16
+-   Topology Vertices: 29 -> 9
+- Edge 54: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63192
+-   Endpoints: (-0.3962, 3.9002, -0.3484) -> (-0.3962, 4.3225, -0.3484)
+-   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.3962, 3.9002, -0.3484) | End (-0.3962, 4.3225, -0.3484) | Center (-0.3962, 4.1114, -0.3484)
+-   Face Tags: 63148, 63168
+-   Face Indices: 19, 11
+-   Topology Vertices: 37 -> 2
+-   Analytic Curve Type: Line
+- Edge 55: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63276
+-   Endpoints: (0.4631, 3.8661, 0.0709) -> (0.4264, 3.9002, 0.3106)
+-   Face Tags: 63140, 63160
+-   Face Indices: 20, 22
+-   Topology Vertices: 23 -> 35
+- Edge 56: Circular | Length: 2.8824 | Connected Faces: 2 | Tag: 63250
+-   Endpoints: (-0.0694, 4.3622, 0.4535) -> (-0.0694, 4.3622, 0.4535)
+-   Curve Props: Arc Length 2.8824 | Radius 0.4588 | Diameter 0.9175 | Min Curvature Radius 0.4588
+-   Curve Points: Start (-0.0694, 4.3622, 0.4535) | End (-0.0694, 4.3622, 0.4535) | Center (0.0000, 4.3622, 0.0000)
+-   Face Tags: 63128, 63144
+-   Face Indices: 13, 18
+-   Topology Vertices: 20 -> 20
+-   Analytic Curve Type: Arc
+- Edge 57: Intersection | Length: 0.3977 | Connected Faces: 2 | Tag: 63182
+-   Endpoints: (0.2917, 3.9178, 0.0070) -> (0.0418, 3.9497, -0.2565)
+-   Face Tags: 63172, 63174
+-   Face Indices: 7, 3
+-   Topology Vertices: 36 -> 24
+- Edge 58: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63208
+-   Endpoints: (0.4998, 3.9002, -0.1689) -> (0.4998, 4.3225, -0.1689)
+-   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.4998, 3.9002, -0.1689) | End (0.4998, 4.3225, -0.1689) | Center (0.4998, 4.1114, -0.1689)
+-   Face Tags: 63156, 63160
+-   Face Indices: 26, 22
+-   Topology Vertices: 22 -> 34
+-   Analytic Curve Type: Line
+- Edge 59: Circular | Length: 0.4082 | Connected Faces: 2 | Tag: 63300
+-   Endpoints: (-0.2500, 4.2786, 0.0707) -> (0.0707, 4.2786, 0.2500)
+-   Curve Props: Arc Length 0.4082 | Radius 0.2598 | Diameter 0.5197 | Min Curvature Radius 0.2598
+-   Curve Points: Start (-0.2500, 4.2786, 0.0707) | End (0.0707, 4.2786, 0.2500) | Center (0.0000, 4.2786, 0.0000)
+-   Face Tags: 63170, 63180
+-   Face Indices: 14, 10
+-   Topology Vertices: 8 -> 28
+-   Analytic Curve Type: Arc
+- Edge 60: Circular | Length: 0.4906 | Connected Faces: 2 | Tag: 63236
+-   Endpoints: (0.2929, 3.8661, -0.3656) -> (-0.1702, 3.8661, -0.4365)
+-   Curve Props: Arc Length 0.4906 | Radius 0.4685 | Diameter 0.9370 | Min Curvature Radius 0.4685
+-   Curve Points: Start (0.2929, 3.8661, -0.3656) | End (-0.1702, 3.8661, -0.4365) | Center (0.0000, 3.8661, 0.0000)
+-   Face Tags: 63130, 63134
+-   Face Indices: 6, 21
+-   Topology Vertices: 5 -> 25
+-   Analytic Curve Type: Arc
+- Edge 61: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63224
+-   Endpoints: (-0.1036, 4.3225, 0.5173) -> (-0.0558, 4.3225, 0.5246)
+-   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
+-   Curve Points: Start (-0.1036, 4.3225, 0.5173) | End (-0.0558, 4.3225, 0.5246) | Center (0.0000, 4.3225, 0.0000)
+-   Face Tags: 63144, 63152
+-   Face Indices: 18, 12
+-   Topology Vertices: 32 -> 39
+-   Analytic Curve Type: Arc
+- Edge 62: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63198
+-   Endpoints: (-0.4822, 4.3225, 0.2140) -> (-0.4822, 3.9002, 0.2140)
+-   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.4822, 4.3225, 0.2140) | End (-0.4822, 3.9002, 0.2140) | Center (-0.4822, 4.1114, 0.2140)
+-   Face Tags: 63150, 63164
+-   Face Indices: 2, 5
+-   Topology Vertices: 31 -> 10
+-   Analytic Curve Type: Line
+- Edge 63: Intersection | Length: 0.4912 | Connected Faces: 2 | Tag: 63274
+-   Endpoints: (-0.0558, 4.3225, 0.5246) -> (0.3962, 4.3225, 0.3484)
+-   Face Tags: 63144, 63162
+-   Face Indices: 18, 23
+-   Topology Vertices: 39 -> 3
+
+### Faces
+- Total Faces: 27
+**Face Type Breakdown:**
+- Conical: 9
+- Cylindrical: 7
+- Parametric: 3
+- Planar: 8
+
+**Per-Face Details:**
+- Face 1: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63132
+-   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
+-   Points: Center (-0.3769, 3.8781, -0.3019) | Anchor (-0.3769, 3.8781, -0.3019)
+-   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 25, 37, 42, 20
+-   Loop Count: 1
+-   Adjacent Faces: 6, 19, 11, 24
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 2: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63150
+-   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
+-   Points: Center (-0.4913, 4.1114, 0.1916) | Anchor (-0.4913, 4.1114, 0.1916)
+-   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.2111, 0.2111] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 27, 62, 38, 6
+-   Loop Count: 1
+-   Adjacent Faces: 24, 5, 18, 15
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 3: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63174
+-   Measure: Area 0.3917 | Perimeter 23.1806 | Radius/Diameter N/A | Min Curvature Radius 0.5057
+-   Points: Center (-0.0028, 4.1142, -0.0053) | Anchor (-0.0028, 4.1142, -0.0053)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 57, 22, 45, 34
+-   Loop Count: 1
+-   Adjacent Faces: 7, 14, 10, 16
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 4: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63158
+-   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.2929, 4.1114, -0.3656) | Anchor (0.2929, 4.1114, -0.3656)
+-   Analytic: Ref Point (0.2929, 4.1114, -0.3656) | Direction (0.6252, 0.0000, -0.7804) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.2452, 0.2111] | V[-0.2425, 0.2425] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 19, 43, 3, 12, 23
+-   Loop Count: 1
+-   Adjacent Faces: 26, 9, 17, 21, 18
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 5: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63164
+-   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.2929, 4.1114, 0.3656) | Anchor (-0.2929, 4.1114, 0.3656)
+-   Analytic: Ref Point (-0.2929, 4.1114, 0.3656) | Direction (-0.6252, -0.0000, 0.7804) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.2111, 0.2452] | V[-0.2425, 0.2425] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 62, 26, 33, 41, 24
+-   Loop Count: 1
+-   Adjacent Faces: 2, 12, 15, 8, 18
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 6: Planar | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63130
+-   Measure: Area 0.3191 | Perimeter 5.1014 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.0000, 3.8661, 0.0000) | Anchor (-0.0000, 3.8661, 0.0000)
+-   Analytic: Ref Point (0.0000, 3.8661, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.4365, 0.4365] | V[-0.4631, 0.4631] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 25, 47, 7, 31, 30, 60, 14
+-   Loop Count: 2
+-   Adjacent Faces: 1, 15, 8, 20, 17, 21, 7
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 7: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63172
+-   Measure: Area 0.1902 | Perimeter 4.6720 | Radius/Diameter N/A | Min Curvature Radius 0.3675
+-   Points: Center (0.0103, 3.9004, 0.0162) | Anchor (0.0103, 3.9004, 0.0162)
+-   Analytic: Ref Point (0.0000, 3.9079, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.3016 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 57, 36, 17, 44, 14
+-   Loop Count: 2
+-   Adjacent Faces: 3, 25, 10, 16, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 8: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63138
+-   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
+-   Points: Center (-0.0730, 3.8781, 0.4773) | Anchor (-0.0730, 3.8781, 0.4773)
+-   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 7, 51, 41, 46
+-   Loop Count: 1
+-   Adjacent Faces: 6, 12, 5, 23
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 9: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63146
+-   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
+-   Points: Center (0.0798, 4.1114, -0.5213) | Anchor (0.0798, 4.1114, -0.5213)
+-   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.2111, 0.2111] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 29, 43, 52, 21
+-   Loop Count: 1
+-   Adjacent Faces: 11, 4, 18, 21
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 10: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63180
+-   Measure: Area 0.1343 | Perimeter 19.0144 | Radius/Diameter 0.2598 | Min Curvature Radius 0.2598
+-   Points: Center (-0.0097, 4.1142, -0.0087) | Anchor (-0.0097, 4.1142, -0.0087)
+-   Analytic: Ref Point (0.0000, 4.1142, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.2598 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.1645, 0.1645] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 45, 4, 17, 59
+-   Loop Count: 1
+-   Adjacent Faces: 3, 25, 7, 14
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 11: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63168
+-   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.1702, 4.1114, -0.4365) | Anchor (-0.1702, 4.1114, -0.4365)
+-   Analytic: Ref Point (-0.1702, 4.1114, -0.4365) | Direction (-0.3633, 0.0000, -0.9317) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.2452, 0.2111] | V[-0.2425, 0.2425] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 29, 54, 18, 42, 1
+-   Loop Count: 1
+-   Adjacent Faces: 9, 19, 21, 1, 18
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 12: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63152
+-   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
+-   Points: Center (-0.0798, 4.1114, 0.5213) | Anchor (-0.0798, 4.1114, 0.5213)
+-   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.2111, 0.2111] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 26, 49, 61, 51
+-   Loop Count: 1
+-   Adjacent Faces: 5, 23, 18, 8
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 13: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63128
+-   Measure: Area 0.2907 | Perimeter 5.0402 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, 4.3622, -0.0000) | Anchor (0.0000, 4.3622, -0.0000)
+-   Analytic: Ref Point (0.0000, 4.3622, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 56, 39
+-   Loop Count: 1
+-   Adjacent Faces: 18, 14
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 14: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63170
+-   Measure: Area 0.1902 | Perimeter 4.6763 | Radius/Diameter N/A | Min Curvature Radius 0.3675
+-   Points: Center (0.0172, 4.3279, 0.0084) | Anchor (0.0172, 4.3279, 0.0084)
+-   Analytic: Ref Point (0.0000, 4.3204, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.3016 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 22, 5, 59, 53, 39
+-   Loop Count: 2
+-   Adjacent Faces: 3, 25, 10, 16, 13
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 15: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63136
+-   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
+-   Points: Center (-0.4499, 3.8781, 0.1754) | Anchor (-0.4499, 3.8781, 0.1754)
+-   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 47, 6, 8, 33
+-   Loop Count: 1
+-   Adjacent Faces: 6, 2, 24, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 16: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63178
+-   Measure: Area 0.0900 | Perimeter 24.8634 | Radius/Diameter N/A | Min Curvature Radius 0.2918
+-   Points: Center (-0.0090, 4.1142, -0.0080) | Anchor (-0.0090, 4.1142, -0.0080)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 9, 34, 44, 53
+-   Loop Count: 1
+-   Adjacent Faces: 25, 3, 7, 14
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 17: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63142
+-   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
+-   Points: Center (0.4499, 3.8781, -0.1754) | Anchor (0.4499, 3.8781, -0.1754)
+-   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 30, 35, 16, 3
+-   Loop Count: 1
+-   Adjacent Faces: 6, 26, 22, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 18: Conical | Edges: 13 | Facets: None | Vertices: 13 | Tag: 63144
+-   Measure: Area 0.1123 | Perimeter 6.1206 | Radius/Diameter N/A | Min Curvature Radius 0.9175
+-   Points: Center (0.0000, 4.3489, -0.0000) | Anchor (0.0000, 4.3489, -0.0000)
+-   Analytic: Ref Point (0.0000, 4.3423, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4932 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 2, 28, 52, 13, 38, 61, 56, 1, 11, 24, 63, 40, 23
+-   Loop Count: 2
+-   Adjacent Faces: 27, 26, 9, 19, 2, 12, 13, 11, 24, 5, 23, 22, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 19: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63148
+-   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
+-   Points: Center (-0.4116, 4.1114, -0.3297) | Anchor (-0.4116, 4.1114, -0.3297)
+-   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.2111, 0.2111] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 54, 15, 13, 37
+-   Loop Count: 1
+-   Adjacent Faces: 11, 24, 18, 1
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 20: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63140
+-   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
+-   Points: Center (0.3769, 3.8781, 0.3019) | Anchor (0.3769, 3.8781, 0.3019)
+-   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 31, 48, 10, 55
+-   Loop Count: 1
+-   Adjacent Faces: 6, 27, 23, 22
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 21: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63134
+-   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
+-   Points: Center (0.0730, 3.8781, -0.4773) | Anchor (0.0730, 3.8781, -0.4773)
+-   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 60, 21, 18, 12
+-   Loop Count: 1
+-   Adjacent Faces: 6, 9, 11, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 22: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63160
+-   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.4631, 4.1114, 0.0709) | Anchor (0.4631, 4.1114, 0.0709)
+-   Analytic: Ref Point (0.4628, 4.1114, 0.0731) | Direction (0.9885, -0.0000, 0.1512) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.2111, 0.2452] | V[-0.2403, 0.2448] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 32, 58, 55, 16, 40
+-   Loop Count: 1
+-   Adjacent Faces: 27, 26, 20, 17, 18
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 23: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63162
+-   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.1702, 4.1114, 0.4365) | Anchor (0.1702, 4.1114, 0.4365)
+-   Analytic: Ref Point (0.1702, 4.1114, 0.4365) | Direction (0.3633, -0.0000, 0.9317) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.2111, 0.2452] | V[-0.2425, 0.2425] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 49, 50, 46, 10, 63
+-   Loop Count: 1
+-   Adjacent Faces: 12, 27, 8, 20, 18
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 24: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63166
+-   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.4631, 4.1114, -0.0709) | Anchor (-0.4631, 4.1114, -0.0709)
+-   Analytic: Ref Point (-0.4628, 4.1114, -0.0731) | Direction (-0.9885, 0.0000, -0.1512) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.2452, 0.2111] | V[-0.2448, 0.2403] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 15, 27, 20, 8, 11
+-   Loop Count: 1
+-   Adjacent Faces: 19, 2, 1, 15, 18
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 25: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63176
+-   Measure: Area 0.3916 | Perimeter 23.1806 | Radius/Diameter N/A | Min Curvature Radius 0.5057
+-   Points: Center (-0.0056, 4.1142, -0.0022) | Anchor (-0.0056, 4.1142, -0.0022)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 4, 9, 36, 5
+-   Loop Count: 1
+-   Adjacent Faces: 10, 16, 7, 14
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 26: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63156
+-   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
+-   Points: Center (0.4913, 4.1114, -0.1916) | Anchor (0.4913, 4.1114, -0.1916)
+-   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.2111, 0.2111] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 58, 19, 28, 35
+-   Loop Count: 1
+-   Adjacent Faces: 22, 4, 18, 17
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 27: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63154
+-   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
+-   Points: Center (0.4116, 4.1114, 0.3297) | Anchor (0.4116, 4.1114, 0.3297)
+-   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.2111, 0.2111] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 50, 32, 2, 48
+-   Loop Count: 1
+-   Adjacent Faces: 23, 22, 18, 20
+-   Blend Data: Is Blend False | Radius 0.0000
+
+---
+## Body 11
+
+### Body Metadata
+- Tag: 63401
+- Journal Identifier: UNPARAMETERIZED_FEATURE(11)
+- Name: Wascher M16
+- Is Solid Body: True
+- Is Sheet Body: False
+- Is Convergent Body: False
+- Density: 7800.0000
+- Facet Count: None
+- Vertex Count: None
+- Shape Summary: Likely contains a conical region.
+- Exported Topology Vertices: 1
+### Body Measurement
+- Surface Area: 2.1255
+- Volume: 0.0904
+- Mass: 0.0255
+- Weight: 0.0255
+- Radius Of Gyration: 0.4759
+- Centroid: (-0.0000, 3.8051, -0.0000)
+### Bounding Box
+- X Min: -0.5866
+- Y Min: 3.7441
+- Z Min: -0.5866
+- X Max: 0.5866
+- Y Max: 3.8661
+- Z Max: 0.5866
+- Dx (Length): 1.1732
+- Dy (Width): 0.1220
+- Dz (Height): 1.1732
+
+### Features
+- Total Features: 1
+- Body(11) | Type: BREP | Timestamp: 11
+-   Warning: []
+-   Error: []
+
+### Edges
+- Total Edges: 8
+**Edge Type Breakdown:**
+- Circular: 8
+
+**Per-Edge Details:**
+- Edge 1: Circular | Length: 3.6858 | Connected Faces: 2 | Tag: 63432
+-   Endpoints: (0.2541, 3.8563, 0.5287) -> (0.2541, 3.8563, 0.5287)
+-   Curve Props: Arc Length 3.6858 | Radius 0.5866 | Diameter 1.1732 | Min Curvature Radius 0.5866
+-   Curve Points: Start (0.2541, 3.8563, 0.5287) | End (0.2541, 3.8563, 0.5287) | Center (-0.0000, 3.8563, 0.0000)
+-   Face Tags: 63406, 63412
+-   Face Indices: 3, 6
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 2: Circular | Length: 3.6858 | Connected Faces: 2 | Tag: 63430
+-   Endpoints: (0.2541, 3.7539, 0.5287) -> (0.2541, 3.7539, 0.5287)
+-   Curve Props: Arc Length 3.6858 | Radius 0.5866 | Diameter 1.1732 | Min Curvature Radius 0.5866
+-   Curve Points: Start (0.2541, 3.7539, 0.5287) | End (0.2541, 3.7539, 0.5287) | Center (-0.0000, 3.7539, 0.0000)
+-   Face Tags: 63406, 63410
+-   Face Indices: 3, 5
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 3: Circular | Length: 2.0532 | Connected Faces: 2 | Tag: 63418
+-   Endpoints: (0.1415, 3.7539, 0.2945) -> (0.1415, 3.7539, 0.2945)
+-   Curve Props: Arc Length 2.0532 | Radius 0.3268 | Diameter 0.6535 | Min Curvature Radius 0.3268
+-   Curve Points: Start (0.1415, 3.7539, 0.2945) | End (0.1415, 3.7539, 0.2945) | Center (-0.0000, 3.7539, 0.0000)
+-   Face Tags: 63408, 63414
+-   Face Indices: 4, 7
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 4: Circular | Length: 3.6240 | Connected Faces: 2 | Tag: 63422
+-   Endpoints: (0.2498, 3.8661, 0.5199) -> (0.2498, 3.8661, 0.5199)
+-   Curve Props: Arc Length 3.6240 | Radius 0.5768 | Diameter 1.1535 | Min Curvature Radius 0.5768
+-   Curve Points: Start (0.2498, 3.8661, 0.5199) | End (0.2498, 3.8661, 0.5199) | Center (-0.0000, 3.8661, 0.0000)
+-   Face Tags: 63402, 63412
+-   Face Indices: 2, 6
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 5: Circular | Length: 3.6240 | Connected Faces: 2 | Tag: 63426
+-   Endpoints: (0.2498, 3.7441, 0.5199) -> (0.2498, 3.7441, 0.5199)
+-   Curve Props: Arc Length 3.6240 | Radius 0.5768 | Diameter 1.1535 | Min Curvature Radius 0.5768
+-   Curve Points: Start (0.2498, 3.7441, 0.5199) | End (0.2498, 3.7441, 0.5199) | Center (-0.0000, 3.7441, 0.0000)
+-   Face Tags: 63404, 63410
+-   Face Indices: 8, 5
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 6: Circular | Length: 2.0532 | Connected Faces: 2 | Tag: 63420
+-   Endpoints: (0.1415, 3.8563, 0.2945) -> (0.1415, 3.8563, 0.2945)
+-   Curve Props: Arc Length 2.0532 | Radius 0.3268 | Diameter 0.6535 | Min Curvature Radius 0.3268
+-   Curve Points: Start (0.1415, 3.8563, 0.2945) | End (0.1415, 3.8563, 0.2945) | Center (-0.0000, 3.8563, 0.0000)
+-   Face Tags: 63408, 63416
+-   Face Indices: 4, 1
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 7: Circular | Length: 2.1150 | Connected Faces: 2 | Tag: 63424
+-   Endpoints: (0.1458, 3.8661, 0.3034) -> (0.1458, 3.8661, 0.3034)
+-   Curve Props: Arc Length 2.1150 | Radius 0.3366 | Diameter 0.6732 | Min Curvature Radius 0.3366
+-   Curve Points: Start (0.1458, 3.8661, 0.3034) | End (0.1458, 3.8661, 0.3034) | Center (-0.0000, 3.8661, 0.0000)
+-   Face Tags: 63402, 63416
+-   Face Indices: 2, 1
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+- Edge 8: Circular | Length: 2.1150 | Connected Faces: 2 | Tag: 63428
+-   Endpoints: (0.1458, 3.7441, 0.3034) -> (0.1458, 3.7441, 0.3034)
+-   Curve Props: Arc Length 2.1150 | Radius 0.3366 | Diameter 0.6732 | Min Curvature Radius 0.3366
+-   Curve Points: Start (0.1458, 3.7441, 0.3034) | End (0.1458, 3.7441, 0.3034) | Center (-0.0000, 3.7441, 0.0000)
+-   Face Tags: 63404, 63414
+-   Face Indices: 8, 7
+-   Topology Vertices: 1 -> 1
+-   Analytic Curve Type: Arc
+
+### Faces
+- Total Faces: 8
+**Face Type Breakdown:**
+- Conical: 4
+- Cylindrical: 2
+- Planar: 2
+
+**Per-Face Details:**
+- Face 1: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63416
+-   Measure: Area 0.0290 | Perimeter 4.1682 | Radius/Diameter N/A | Min Curvature Radius 0.4621
+-   Points: Center (-0.0000, 3.8612, -0.0000) | Anchor (-0.0000, 3.8612, -0.0000)
+-   Analytic: Ref Point (-0.0000, 3.8612, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.3317 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 6, 7
+-   Loop Count: 1
+-   Adjacent Faces: 4, 2
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 2: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63402
+-   Measure: Area 0.6891 | Perimeter 5.7390 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.0000, 3.8661, -0.0000) | Anchor (-0.0000, 3.8661, -0.0000)
+-   Analytic: Ref Point (-0.0000, 3.8661, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 4, 7
+-   Loop Count: 1
+-   Adjacent Faces: 6, 1
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 3: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63406
+-   Measure: Area 0.3773 | Perimeter 7.3716 | Radius/Diameter 0.5866 | Min Curvature Radius 0.5866
+-   Points: Center (-0.0000, 3.8051, -0.0000) | Anchor (-0.0000, 3.8051, -0.0000)
+-   Analytic: Ref Point (-0.0000, 3.8051, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.5866 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[3.8051, 3.8051] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 2, 1
+-   Loop Count: 1
+-   Adjacent Faces: 5, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 4: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63408
+-   Measure: Area 0.2102 | Perimeter 4.1063 | Radius/Diameter 0.3268 | Min Curvature Radius 0.3268
+-   Points: Center (-0.0000, 3.8051, -0.0000) | Anchor (-0.0000, 3.8051, -0.0000)
+-   Analytic: Ref Point (-0.0000, 3.8051, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.3268 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-3.8051, -3.8051] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 3, 6
+-   Loop Count: 1
+-   Adjacent Faces: 7, 1
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 5: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63410
+-   Measure: Area 0.0509 | Perimeter 7.3098 | Radius/Diameter N/A | Min Curvature Radius 0.8157
+-   Points: Center (-0.0000, 3.7490, -0.0000) | Anchor (-0.0000, 3.7490, -0.0000)
+-   Analytic: Ref Point (-0.0000, 3.7490, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.5817 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 5, 2
+-   Loop Count: 1
+-   Adjacent Faces: 8, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 6: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63412
+-   Measure: Area 0.0509 | Perimeter 7.3098 | Radius/Diameter N/A | Min Curvature Radius 0.8157
+-   Points: Center (-0.0000, 3.8612, -0.0000) | Anchor (-0.0000, 3.8612, -0.0000)
+-   Analytic: Ref Point (-0.0000, 3.8612, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.5817 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 4, 1
+-   Loop Count: 1
+-   Adjacent Faces: 2, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 7: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63414
+-   Measure: Area 0.0290 | Perimeter 4.1682 | Radius/Diameter N/A | Min Curvature Radius 0.4621
+-   Points: Center (-0.0000, 3.7490, -0.0000) | Anchor (-0.0000, 3.7490, -0.0000)
+-   Analytic: Ref Point (-0.0000, 3.7490, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.3317 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 3, 8
+-   Loop Count: 1
+-   Adjacent Faces: 4, 8
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 8: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63404
+-   Measure: Area 0.6891 | Perimeter 5.7390 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.0000, 3.7441, -0.0000) | Anchor (-0.0000, 3.7441, -0.0000)
+-   Analytic: Ref Point (-0.0000, 3.7441, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 5, 8
+-   Loop Count: 1
+-   Adjacent Faces: 5, 7
+-   Blend Data: Is Blend False | Radius 0.0000
+
+---
+## Body 12
+
+### Body Metadata
+- Tag: 63453
+- Journal Identifier: UNPARAMETERIZED_FEATURE(12)
+- Name: Piston
+- Is Solid Body: True
+- Is Sheet Body: False
+- Is Convergent Body: False
+- Density: 1.0000
+- Facet Count: None
+- Vertex Count: None
+- Shape Summary: Likely contains a conical region.
+- Exported Topology Vertices: 39
+### Body Measurement
+- Surface Area: 31.3745
+- Volume: 5.8808
+- Mass: 0.0002
+- Weight: 0.0002
+- Radius Of Gyration: 2.4422
+- Centroid: (-0.0000, -1.0302, -0.0208)
+### Bounding Box
+- X Min: -0.5866
+- Y Min: 3.7441
+- Z Min: -0.5866
+- X Max: 0.5866
+- Y Max: 3.8661
+- Z Max: 0.5866
+- Dx (Length): 1.1732
+- Dy (Width): 0.1220
+- Dz (Height): 1.1732
+
+### Features
+- Total Features: 1
+- Body(12) | Type: BREP | Timestamp: 12
+-   Warning: []
+-   Error: []
+
+### Edges
+- Total Edges: 80
+**Edge Type Breakdown:**
+- Circular: 38
+- Intersection: 26
+- Linear: 11
+- SpCurve: 4
+- Spline: 1
+
+**Per-Edge Details:**
+- Edge 1: Circular | Length: 0.2528 | Connected Faces: 2 | Tag: 63684
+-   Endpoints: (-0.3044, 3.9355, -0.0438) -> (-0.1751, 3.9355, -0.2528)
+-   Curve Props: Arc Length 0.2528 | Radius 0.3076 | Diameter 0.6152 | Min Curvature Radius 0.3076
+-   Curve Points: Start (-0.3044, 3.9355, -0.0438) | End (-0.1751, 3.9355, -0.2528) | Center (-0.0000, 3.9355, 0.0000)
+-   Face Tags: 63504, 63506
+-   Face Indices: 20, 42
+-   Topology Vertices: 1 -> 2
+-   Analytic Curve Type: Arc
+- Edge 2: Circular | Length: 2.7918 | Connected Faces: 2 | Tag: 63652
+-   Endpoints: (0.4443, -3.7756, 0.0000) -> (0.4443, -3.7756, 0.0000)
+-   Curve Props: Arc Length 2.7918 | Radius 0.4443 | Diameter 0.8886 | Min Curvature Radius 0.4443
+-   Curve Points: Start (0.4443, -3.7756, 0.0000) | End (0.4443, -3.7756, 0.0000) | Center (-0.0000, -3.7756, -0.0000)
+-   Face Tags: 63500, 63502
+-   Face Indices: 30, 1
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 3: Intersection | Length: 0.0057 | Connected Faces: 2 | Tag: 63680
+-   Endpoints: (-0.3044, 3.9355, -0.0438) -> (-0.3039, 3.9355, -0.0494)
+-   Face Tags: 63504, 63512
+-   Face Indices: 20, 41
+-   Topology Vertices: 1 -> 4
+- Edge 4: Intersection | Length: 0.0059 | Connected Faces: 2 | Tag: 63664
+-   Endpoints: (-0.3079, 4.4094, -0.0000) -> (-0.3075, 4.4094, 0.0059)
+-   Face Tags: 63512, 63518
+-   Face Indices: 41, 24
+-   Topology Vertices: 5 -> 6
+- Edge 5: Circular | Length: 6.1719 | Connected Faces: 2 | Tag: 63642
+-   Endpoints: (0.9823, -3.6220, 0.0000) -> (0.9823, -3.6220, 0.0000)
+-   Curve Props: Arc Length 6.1719 | Radius 0.9823 | Diameter 1.9646 | Min Curvature Radius 0.9823
+-   Curve Points: Start (0.9823, -3.6220, 0.0000) | End (0.9823, -3.6220, 0.0000) | Center (-0.0000, -3.6220, -0.0000)
+-   Face Tags: 63490, 63492
+-   Face Indices: 8, 4
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 6: Circular | Length: 5.1824 | Connected Faces: 2 | Tag: 63632
+-   Endpoints: (0.8248, -3.3543, 0.0000) -> (0.8248, -3.3543, 0.0000)
+-   Curve Props: Arc Length 5.1824 | Radius 0.8248 | Diameter 1.6496 | Min Curvature Radius 0.8248
+-   Curve Points: Start (0.8248, -3.3543, 0.0000) | End (0.8248, -3.3543, 0.0000) | Center (-0.0000, -3.3543, -0.0000)
+-   Face Tags: 63480, 63482
+-   Face Indices: 28, 25
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 7: Linear | Length: 0.6562 | Connected Faces: 2 | Tag: 63688
+-   Endpoints: (-0.3281, -0.6591, 0.2772) -> (0.3281, -0.6591, 0.2772)
+-   Curve Props: Arc Length 0.6562 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.3281, -0.6591, 0.2772) | End (0.3281, -0.6591, 0.2772) | Center (-0.0000, -0.6591, 0.2772)
+-   Face Tags: 63526, 63528
+-   Face Indices: 5, 47
+-   Topology Vertices: 7 -> 8
+-   Analytic Curve Type: Line
+- Edge 8: Circular | Length: 0.0083 | Connected Faces: 2 | Tag: 63706
+-   Endpoints: (0.3081, 2.7442, 0.2739) -> (0.3007, 2.7442, 0.2772)
+-   Curve Props: Arc Length 0.0083 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.3081, 2.7442, 0.2739) | End (0.3007, 2.7442, 0.2772) | Center (0.3007, 2.7442, 0.2673)
+-   Face Tags: 63544, 63548
+-   Face Indices: 6, 44
+-   Topology Vertices: 9 -> 10
+-   Analytic Curve Type: Arc
+- Edge 9: Linear | Length: 0.1498 | Connected Faces: 2 | Tag: 63580
+-   Endpoints: (0.3007, 2.5943, 0.2772) -> (0.3007, 2.7442, 0.2772)
+-   Curve Props: Arc Length 0.1498 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.3007, 2.5943, 0.2772) | End (0.3007, 2.7442, 0.2772) | Center (0.3007, 2.6693, 0.2772)
+-   Face Tags: 63528, 63548
+-   Face Indices: 47, 44
+-   Topology Vertices: 11 -> 10
+-   Analytic Curve Type: Line
+- Edge 10: Circular | Length: 0.0118 | Connected Faces: 2 | Tag: 63702
+-   Endpoints: (0.3007, 2.7533, 0.2709) -> (0.3007, 2.7442, 0.2772)
+-   Curve Props: Arc Length 0.0118 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.3007, 2.7533, 0.2709) | End (0.3007, 2.7442, 0.2772) | Center (0.3007, 2.7442, 0.2673)
+-   Face Tags: 63540, 63544
+-   Face Indices: 16, 6
+-   Topology Vertices: 12 -> 10
+-   Analytic Curve Type: Arc
+- Edge 11: Circular | Length: 5.9245 | Connected Faces: 2 | Tag: 63622
+-   Endpoints: (0.9429, -2.8858, 0.0000) -> (0.9429, -2.8858, 0.0000)
+-   Curve Props: Arc Length 5.9245 | Radius 0.9429 | Diameter 1.8858 | Min Curvature Radius 0.9429
+-   Curve Points: Start (0.9429, -2.8858, 0.0000) | End (0.9429, -2.8858, 0.0000) | Center (-0.0000, -2.8858, -0.0000)
+-   Face Tags: 63470, 63472
+-   Face Indices: 15, 35
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 12: Circular | Length: 0.0087 | Connected Faces: 2 | Tag: 63696
+-   Endpoints: (-0.3281, -0.6591, 0.2772) -> (-0.3357, -0.6591, 0.2735)
+-   Curve Props: Arc Length 0.0087 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.3281, -0.6591, 0.2772) | End (-0.3357, -0.6591, 0.2735) | Center (-0.3281, -0.6591, 0.2673)
+-   Face Tags: 63534, 63538
+-   Face Indices: 32, 31
+-   Topology Vertices: 7 -> 13
+-   Analytic Curve Type: Arc
+- Edge 13: Linear | Length: 0.6014 | Connected Faces: 2 | Tag: 63570
+-   Endpoints: (-0.3007, 2.7533, 0.2709) -> (0.3007, 2.7533, 0.2709)
+-   Curve Props: Arc Length 0.6014 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.3007, 2.7533, 0.2709) | End (0.3007, 2.7533, 0.2709) | Center (0.0000, 2.7533, 0.2709)
+-   Face Tags: 63522, 63540
+-   Face Indices: 14, 16
+-   Topology Vertices: 14 -> 12
+-   Analytic Curve Type: Line
+- Edge 14: Circular | Length: 2.5900 | Connected Faces: 2 | Tag: 63612
+-   Endpoints: (0.4122, 3.7205, 0.0000) -> (0.4122, 3.7205, 0.0000)
+-   Curve Props: Arc Length 2.5900 | Radius 0.4122 | Diameter 0.8244 | Min Curvature Radius 0.4122
+-   Curve Points: Start (0.4122, 3.7205, 0.0000) | End (0.4122, 3.7205, 0.0000) | Center (-0.0000, 3.7205, 0.0000)
+-   Face Tags: 63460, 63462
+-   Face Indices: 17, 12
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 15: Circular | Length: 1.6697 | Connected Faces: 2 | Tag: 63686
+-   Endpoints: (-0.0000, 3.8937, -0.2657) -> (-0.0000, 3.8937, -0.2657)
+-   Curve Props: Arc Length 1.6697 | Radius 0.2657 | Diameter 0.5315 | Min Curvature Radius 0.2657
+-   Curve Points: Start (-0.0000, 3.8937, -0.2657) | End (-0.0000, 3.8937, -0.2657) | Center (-0.0000, 3.8937, 0.0000)
+-   Face Tags: 63454, 63506
+-   Face Indices: 34, 42
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 16: Intersection | Length: 1.5495 | Connected Faces: 2 | Tag: 63602
+-   Endpoints: (-0.1751, 3.9355, -0.2528) -> (-0.2759, 3.9039, 0.0023)
+-   Face Tags: 63506, 63508
+-   Face Indices: 42, 40
+-   Topology Vertices: 2 -> 15
+- Edge 17: Intersection | Length: 0.4333 | Connected Faces: 2 | Tag: 63676
+-   Endpoints: (-0.2759, 3.9039, 0.0023) -> (-0.0023, 3.9039, -0.2759)
+-   Face Tags: 63506, 63510
+-   Face Indices: 42, 39
+-   Topology Vertices: 15 -> 16
+- Edge 18: Circular | Length: 5.8503 | Connected Faces: 2 | Tag: 63644
+-   Endpoints: (0.9311, -3.6732, 0.0000) -> (0.9311, -3.6732, 0.0000)
+-   Curve Props: Arc Length 5.8503 | Radius 0.9311 | Diameter 1.8622 | Min Curvature Radius 0.9311
+-   Curve Points: Start (0.9311, -3.6732, 0.0000) | End (0.9311, -3.6732, 0.0000) | Center (-0.0000, -3.6732, -0.0000)
+-   Face Tags: 63492, 63494
+-   Face Indices: 4, 46
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 19: Intersection | Length: 1.1137 | Connected Faces: 2 | Tag: 63554
+-   Endpoints: (-0.3281, -0.6591, 0.2772) -> (0.3281, -0.6591, 0.2772)
+-   Face Tags: 63526, 63538
+-   Face Indices: 5, 31
+-   Topology Vertices: 7 -> 8
+- Edge 20: Linear | Length: 0.1461 | Connected Faces: 2 | Tag: 63592
+-   Endpoints: (-0.3081, 2.5980, 0.2739) -> (-0.3081, 2.7442, 0.2739)
+-   Curve Props: Arc Length 0.1461 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.3081, 2.5980, 0.2739) | End (-0.3081, 2.7442, 0.2739) | Center (-0.3081, 2.6711, 0.2739)
+-   Face Tags: 63462, 63532
+-   Face Indices: 12, 37
+-   Topology Vertices: 17 -> 18
+-   Analytic Curve Type: Line
+- Edge 21: Circular | Length: 0.2418 | Connected Faces: 2 | Tag: 63666
+-   Endpoints: (-0.3079, 4.4094, -0.0000) -> (-0.2177, 4.4094, -0.2177)
+-   Curve Props: Arc Length 0.2418 | Radius 0.3079 | Diameter 0.6157 | Min Curvature Radius 0.3079
+-   Curve Points: Start (-0.3079, 4.4094, -0.0000) | End (-0.2177, 4.4094, -0.2177) | Center (-0.0000, 4.4094, 0.0000)
+-   Face Tags: 63514, 63518
+-   Face Indices: 22, 24
+-   Topology Vertices: 5 -> 19
+-   Analytic Curve Type: Arc
+- Edge 22: Circular | Length: 5.1824 | Connected Faces: 2 | Tag: 63634
+-   Endpoints: (0.8248, -3.5118, 0.0000) -> (0.8248, -3.5118, 0.0000)
+-   Curve Props: Arc Length 5.1824 | Radius 0.8248 | Diameter 1.6496 | Min Curvature Radius 0.8248
+-   Curve Points: Start (0.8248, -3.5118, 0.0000) | End (0.8248, -3.5118, 0.0000) | Center (-0.0000, -3.5118, -0.0000)
+-   Face Tags: 63482, 63484
+-   Face Indices: 25, 11
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 23: Linear | Length: 3.2363 | Connected Faces: 2 | Tag: 63566
+-   Endpoints: (-0.3357, -0.6591, 0.2735) -> (-0.3357, 2.5772, 0.2735)
+-   Curve Props: Arc Length 3.2363 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.3357, -0.6591, 0.2735) | End (-0.3357, 2.5772, 0.2735) | Center (-0.3357, 0.9591, 0.2735)
+-   Face Tags: 63466, 63534
+-   Face Indices: 3, 32
+-   Topology Vertices: 13 -> 20
+-   Analytic Curve Type: Line
+- Edge 24: Intersection | Length: 0.0091 | Connected Faces: 2 | Tag: 63708
+-   Endpoints: (0.3007, 2.5943, 0.2772) -> (0.3081, 2.5980, 0.2739)
+-   Face Tags: 63546, 63548
+-   Face Indices: 48, 44
+-   Topology Vertices: 11 -> 21
+- Edge 25: Linear | Length: 0.6014 | Connected Faces: 2 | Tag: 63582
+-   Endpoints: (0.3007, 2.7442, 0.2772) -> (-0.3007, 2.7442, 0.2772)
+-   Curve Props: Arc Length 0.6014 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.3007, 2.7442, 0.2772) | End (-0.3007, 2.7442, 0.2772) | Center (0.0000, 2.7442, 0.2772)
+-   Face Tags: 63528, 63540
+-   Face Indices: 47, 16
+-   Topology Vertices: 10 -> 22
+-   Analytic Curve Type: Line
+- Edge 26: Circular | Length: 6.1719 | Connected Faces: 2 | Tag: 63624
+-   Endpoints: (0.9823, -2.9252, 0.0000) -> (0.9823, -2.9252, 0.0000)
+-   Curve Props: Arc Length 6.1719 | Radius 0.9823 | Diameter 1.9646 | Min Curvature Radius 0.9823
+-   Curve Points: Start (0.9823, -2.9252, 0.0000) | End (0.9823, -2.9252, 0.0000) | Center (-0.0000, -2.9252, -0.0000)
+-   Face Tags: 63472, 63474
+-   Face Indices: 35, 29
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 27: Circular | Length: 0.0118 | Connected Faces: 2 | Tag: 63698
+-   Endpoints: (-0.3007, 2.7533, 0.2709) -> (-0.3007, 2.7442, 0.2772)
+-   Curve Props: Arc Length 0.0118 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.3007, 2.7533, 0.2709) | End (-0.3007, 2.7442, 0.2772) | Center (-0.3007, 2.7442, 0.2673)
+-   Face Tags: 63536, 63540
+-   Face Indices: 26, 16
+-   Topology Vertices: 14 -> 22
+-   Analytic Curve Type: Arc
+- Edge 28: Intersection | Length: 0.0024 | Connected Faces: 2 | Tag: 63560
+-   Endpoints: (0.3372, 2.5776, 0.2717) -> (0.3357, 2.5772, 0.2735)
+-   Face Tags: 63466, 63546
+-   Face Indices: 3, 48
+-   Topology Vertices: 23 -> 24
+- Edge 29: Intersection | Length: 0.4164 | Connected Faces: 2 | Tag: 63674
+-   Endpoints: (-0.0023, 3.9039, -0.2759) -> (-0.3044, 3.9355, -0.0438)
+-   Face Tags: 63506, 63512
+-   Face Indices: 42, 41
+-   Topology Vertices: 16 -> 1
+- Edge 30: Intersection | Length: 0.0345 | Connected Faces: 2 | Tag: 63558
+-   Endpoints: (-0.3372, 2.5776, 0.2717) -> (-0.3098, 2.5984, 0.2719)
+-   Face Tags: 63464, 63530
+-   Face Indices: 7, 43
+-   Topology Vertices: 25 -> 26
+- Edge 31: Circular | Length: 1.8889 | Connected Faces: 2 | Tag: 63614
+-   Endpoints: (0.3098, 2.5984, 0.2719) -> (-0.3098, 2.5984, 0.2719)
+-   Curve Props: Arc Length 1.8889 | Radius 0.4122 | Diameter 0.8244 | Min Curvature Radius 0.4122
+-   Curve Points: Start (0.3098, 2.5984, 0.2719) | End (-0.3098, 2.5984, 0.2719) | Center (-0.0000, 2.5984, -0.0000)
+-   Face Tags: 63462, 63464
+-   Face Indices: 12, 7
+-   Topology Vertices: 27 -> 26
+-   Analytic Curve Type: Arc
+- Edge 32: SpCurve | Length: 15.7793 | Connected Faces: 2 | Tag: 63656
+-   Endpoints: (-0.2251, 4.4411, 0.1595) -> (-0.2759, 3.9039, 0.0023)
+-   Face Tags: 63508, 63510
+-   Face Indices: 40, 39
+-   Topology Vertices: 28 -> 15
+- Edge 33: Intersection | Length: 0.0024 | Connected Faces: 2 | Tag: 63562
+-   Endpoints: (-0.3357, 2.5772, 0.2735) -> (-0.3372, 2.5776, 0.2717)
+-   Face Tags: 63466, 63530
+-   Face Indices: 3, 43
+-   Topology Vertices: 20 -> 25
+- Edge 34: Circular | Length: 1.6697 | Connected Faces: 2 | Tag: 63606
+-   Endpoints: (0.2657, 3.7559, 0.0000) -> (0.2657, 3.7559, 0.0000)
+-   Curve Props: Arc Length 1.6697 | Radius 0.2657 | Diameter 0.5315 | Min Curvature Radius 0.2657
+-   Curve Points: Start (0.2657, 3.7559, 0.0000) | End (0.2657, 3.7559, 0.0000) | Center (-0.0000, 3.7559, 0.0000)
+-   Face Tags: 63454, 63456
+-   Face Indices: 34, 27
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 35: Intersection | Length: 0.0056 | Connected Faces: 2 | Tag: 63604
+-   Endpoints: (-0.1799, 3.9355, -0.2498) -> (-0.1751, 3.9355, -0.2528)
+-   Face Tags: 63504, 63508
+-   Face Indices: 20, 40
+-   Topology Vertices: 29 -> 2
+- Edge 36: Intersection | Length: 0.4168 | Connected Faces: 2 | Tag: 63600
+-   Endpoints: (-0.2251, 4.4411, 0.1595) -> (-0.2133, 4.4094, -0.2216)
+-   Face Tags: 63508, 63516
+-   Face Indices: 40, 2
+-   Topology Vertices: 28 -> 30
+- Edge 37: Circular | Length: 3.6398 | Connected Faces: 2 | Tag: 63646
+-   Endpoints: (0.5793, -3.6732, 0.0000) -> (0.5793, -3.6732, 0.0000)
+-   Curve Props: Arc Length 3.6398 | Radius 0.5793 | Diameter 1.1586 | Min Curvature Radius 0.5793
+-   Curve Points: Start (0.5793, -3.6732, 0.0000) | End (0.5793, -3.6732, 0.0000) | Center (-0.0000, -3.6732, -0.0000)
+-   Face Tags: 63494, 63496
+-   Face Indices: 46, 38
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 38: Intersection | Length: 2.8166 | Connected Faces: 2 | Tag: 63594
+-   Endpoints: (0.3007, 2.7533, 0.2709) -> (-0.3007, 2.7533, 0.2709)
+-   Face Tags: 63522, 63524
+-   Face Indices: 14, 9
+-   Topology Vertices: 12 -> 14
+- Edge 39: Circular | Length: 0.2414 | Connected Faces: 2 | Tag: 63678
+-   Endpoints: (-0.1802, 3.9355, -0.2496) -> (-0.3039, 3.9355, -0.0494)
+-   Curve Props: Arc Length 0.2414 | Radius 0.3079 | Diameter 0.6157 | Min Curvature Radius 0.3079
+-   Curve Points: Start (-0.1802, 3.9355, -0.2496) | End (-0.3039, 3.9355, -0.0494) | Center (-0.0000, 3.9355, 0.0000)
+-   Face Tags: 63504, 63514
+-   Face Indices: 20, 22
+-   Topology Vertices: 31 -> 4
+-   Analytic Curve Type: Arc
+- Edge 40: Circular | Length: 1.6852 | Connected Faces: 2 | Tag: 63668
+-   Endpoints: (-0.2682, 4.4488, 0.0000) -> (-0.2682, 4.4488, 0.0000)
+-   Curve Props: Arc Length 1.6852 | Radius 0.2682 | Diameter 0.5364 | Min Curvature Radius 0.2682
+-   Curve Points: Start (-0.2682, 4.4488, 0.0000) | End (-0.2682, 4.4488, 0.0000) | Center (-0.0000, 4.4488, 0.0000)
+-   Face Tags: 63516, 63520
+-   Face Indices: 2, 19
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 41: Circular | Length: 5.3061 | Connected Faces: 2 | Tag: 63636
+-   Endpoints: (0.8445, -3.5315, 0.0000) -> (0.8445, -3.5315, 0.0000)
+-   Curve Props: Arc Length 5.3061 | Radius 0.8445 | Diameter 1.6890 | Min Curvature Radius 0.8445
+-   Curve Points: Start (0.8445, -3.5315, 0.0000) | End (0.8445, -3.5315, 0.0000) | Center (-0.0000, -3.5315, -0.0000)
+-   Face Tags: 63484, 63486
+-   Face Indices: 11, 33
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 42: Linear | Length: 3.2325 | Connected Faces: 2 | Tag: 63584
+-   Endpoints: (-0.3281, 2.5735, 0.2772) -> (-0.3281, -0.6591, 0.2772)
+-   Curve Props: Arc Length 3.2325 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.3281, 2.5735, 0.2772) | End (-0.3281, -0.6591, 0.2772) | Center (-0.3281, 0.9572, 0.2772)
+-   Face Tags: 63528, 63534
+-   Face Indices: 47, 32
+-   Topology Vertices: 32 -> 7
+-   Analytic Curve Type: Line
+- Edge 43: Circular | Length: 0.0130 | Connected Faces: 2 | Tag: 63574
+-   Endpoints: (-0.3081, 2.7442, 0.2739) -> (-0.3007, 2.7533, 0.2709)
+-   Curve Props: Arc Length 0.0130 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.3081, 2.7442, 0.2739) | End (-0.3007, 2.7533, 0.2709) | Center (-0.3007, 2.7442, 0.2673)
+-   Face Tags: 63524, 63536
+-   Face Indices: 9, 26
+-   Topology Vertices: 18 -> 14
+-   Analytic Curve Type: Arc
+- Edge 44: Circular | Length: 6.1719 | Connected Faces: 2 | Tag: 63626
+-   Endpoints: (0.9823, -3.3248, 0.0000) -> (0.9823, -3.3248, 0.0000)
+-   Curve Props: Arc Length 6.1719 | Radius 0.9823 | Diameter 1.9646 | Min Curvature Radius 0.9823
+-   Curve Points: Start (0.9823, -3.3248, 0.0000) | End (0.9823, -3.3248, 0.0000) | Center (-0.0000, -3.3248, -0.0000)
+-   Face Tags: 63474, 63476
+-   Face Indices: 29, 23
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 45: Circular | Length: 0.0087 | Connected Faces: 2 | Tag: 63700
+-   Endpoints: (0.3281, -0.6591, 0.2772) -> (0.3357, -0.6591, 0.2735)
+-   Curve Props: Arc Length 0.0087 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.3281, -0.6591, 0.2772) | End (0.3357, -0.6591, 0.2735) | Center (0.3281, -0.6591, 0.2673)
+-   Face Tags: 63538, 63542
+-   Face Indices: 31, 10
+-   Topology Vertices: 8 -> 33
+-   Analytic Curve Type: Arc
+- Edge 46: Circular | Length: 1.9479 | Connected Faces: 2 | Tag: 63616
+-   Endpoints: (0.3372, 2.5776, 0.2717) -> (-0.3372, 2.5776, 0.2717)
+-   Curve Props: Arc Length 1.9479 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
+-   Curve Points: Start (0.3372, 2.5776, 0.2717) | End (-0.3372, 2.5776, 0.2717) | Center (-0.0000, 2.5776, -0.0000)
+-   Face Tags: 63464, 63466
+-   Face Indices: 7, 3
+-   Topology Vertices: 23 -> 25
+-   Analytic Curve Type: Arc
+- Edge 47: Circular | Length: 0.2534 | Connected Faces: 2 | Tag: 63682
+-   Endpoints: (-0.3075, 4.4094, 0.0059) -> (-0.2133, 4.4094, -0.2216)
+-   Curve Props: Arc Length 0.2534 | Radius 0.3076 | Diameter 0.6152 | Min Curvature Radius 0.3076
+-   Curve Points: Start (-0.3075, 4.4094, 0.0059) | End (-0.2133, 4.4094, -0.2216) | Center (-0.0000, 4.4094, 0.0000)
+-   Face Tags: 63516, 63518
+-   Face Indices: 2, 24
+-   Topology Vertices: 6 -> 30
+-   Analytic Curve Type: Arc
+- Edge 48: Intersection | Length: 0.0091 | Connected Faces: 2 | Tag: 63690
+-   Endpoints: (-0.3081, 2.5980, 0.2739) -> (-0.3007, 2.5943, 0.2772)
+-   Face Tags: 63530, 63532
+-   Face Indices: 43, 37
+-   Topology Vertices: 17 -> 34
+- Edge 49: Spline | Length: 15.5323 | Connected Faces: 2 | Tag: 63658
+-   Endpoints: (-0.3079, 4.4094, -0.0000) -> (-0.3039, 3.9355, -0.0494)
+-   Face Tags: 63512, 63514
+-   Face Indices: 41, 22
+-   Topology Vertices: 5 -> 4
+- Edge 50: Linear | Length: 3.2363 | Connected Faces: 2 | Tag: 63564
+-   Endpoints: (0.3357, 2.5772, 0.2735) -> (0.3357, -0.6591, 0.2735)
+-   Curve Props: Arc Length 3.2363 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.3357, 2.5772, 0.2735) | End (0.3357, -0.6591, 0.2735) | Center (0.3357, 0.9591, 0.2735)
+-   Face Tags: 63466, 63542
+-   Face Indices: 3, 10
+-   Topology Vertices: 24 -> 33
+-   Analytic Curve Type: Line
+- Edge 51: Circular | Length: 3.4649 | Connected Faces: 2 | Tag: 63648
+-   Endpoints: (0.5515, -3.6848, 0.0000) -> (0.5515, -3.6848, 0.0000)
+-   Curve Props: Arc Length 3.4649 | Radius 0.5515 | Diameter 1.1029 | Min Curvature Radius 0.5515
+-   Curve Points: Start (0.5515, -3.6848, 0.0000) | End (0.5515, -3.6848, 0.0000) | Center (-0.0000, -3.6848, -0.0000)
+-   Face Tags: 63496, 63498
+-   Face Indices: 38, 36
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 52: Intersection | Length: 2.9027 | Connected Faces: 2 | Tag: 63596
+-   Endpoints: (-0.3081, 2.7442, 0.2739) -> (0.3081, 2.7442, 0.2739)
+-   Face Tags: 63462, 63524
+-   Face Indices: 12, 9
+-   Topology Vertices: 18 -> 9
+- Edge 53: Intersection | Length: 1.5495 | Connected Faces: 2 | Tag: 63670
+-   Endpoints: (-0.3075, 4.4094, 0.0059) -> (-0.1595, 4.4411, -0.2251)
+-   Face Tags: 63512, 63516
+-   Face Indices: 41, 2
+-   Topology Vertices: 6 -> 35
+- Edge 54: Circular | Length: 6.1100 | Connected Faces: 2 | Tag: 63638
+-   Endpoints: (0.9724, -3.5315, 0.0000) -> (0.9724, -3.5315, 0.0000)
+-   Curve Props: Arc Length 6.1100 | Radius 0.9724 | Diameter 1.9449 | Min Curvature Radius 0.9724
+-   Curve Points: Start (0.9724, -3.5315, 0.0000) | End (0.9724, -3.5315, 0.0000) | Center (-0.0000, -3.5315, -0.0000)
+-   Face Tags: 63486, 63488
+-   Face Indices: 33, 13
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 55: Intersection | Length: 0.0095 | Connected Faces: 2 | Tag: 63704
+-   Endpoints: (0.3281, 2.5735, 0.2772) -> (0.3357, 2.5772, 0.2735)
+-   Face Tags: 63542, 63546
+-   Face Indices: 10, 48
+-   Topology Vertices: 36 -> 24
+- Edge 56: Intersection | Length: 0.0344 | Connected Faces: 2 | Tag: 63586
+-   Endpoints: (-0.3007, 2.5943, 0.2772) -> (-0.3281, 2.5735, 0.2772)
+-   Face Tags: 63528, 63530
+-   Face Indices: 47, 43
+-   Topology Vertices: 34 -> 32
+- Edge 57: Intersection | Length: 0.0026 | Connected Faces: 2 | Tag: 63552
+-   Endpoints: (0.3081, 2.5980, 0.2739) -> (0.3098, 2.5984, 0.2719)
+-   Face Tags: 63462, 63546
+-   Face Indices: 12, 48
+-   Topology Vertices: 21 -> 27
+- Edge 58: Circular | Length: 6.1100 | Connected Faces: 2 | Tag: 63628
+-   Endpoints: (0.9724, -3.3346, 0.0000) -> (0.9724, -3.3346, 0.0000)
+-   Curve Props: Arc Length 6.1100 | Radius 0.9724 | Diameter 1.9449 | Min Curvature Radius 0.9724
+-   Curve Points: Start (0.9724, -3.3346, 0.0000) | End (0.9724, -3.3346, 0.0000) | Center (-0.0000, -3.3346, -0.0000)
+-   Face Tags: 63476, 63478
+-   Face Indices: 23, 18
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 59: SpCurve | Length: 15.7793 | Connected Faces: 2 | Tag: 63654
+-   Endpoints: (-0.1595, 4.4411, -0.2251) -> (-0.0023, 3.9039, -0.2759)
+-   Face Tags: 63510, 63512
+-   Face Indices: 39, 41
+-   Topology Vertices: 35 -> 16
+- Edge 60: Linear | Length: 3.2325 | Connected Faces: 2 | Tag: 63576
+-   Endpoints: (0.3281, -0.6591, 0.2772) -> (0.3281, 2.5735, 0.2772)
+-   Curve Props: Arc Length 3.2325 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.3281, -0.6591, 0.2772) | End (0.3281, 2.5735, 0.2772) | Center (0.3281, 0.9572, 0.2772)
+-   Face Tags: 63528, 63542
+-   Face Indices: 47, 10
+-   Topology Vertices: 8 -> 36
+-   Analytic Curve Type: Line
+- Edge 61: Intersection | Length: 0.4333 | Connected Faces: 2 | Tag: 63672
+-   Endpoints: (-0.1595, 4.4411, -0.2251) -> (-0.2251, 4.4411, 0.1595)
+-   Face Tags: 63510, 63516
+-   Face Indices: 39, 2
+-   Topology Vertices: 35 -> 28
+- Edge 62: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 63618
+-   Endpoints: (0.4331, -2.8661, 0.0000) -> (0.4331, -2.8661, 0.0000)
+-   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
+-   Curve Points: Start (0.4331, -2.8661, 0.0000) | End (0.4331, -2.8661, 0.0000) | Center (-0.0000, -2.8661, -0.0000)
+-   Face Tags: 63466, 63468
+-   Face Indices: 3, 45
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 63: Intersection | Length: 0.0095 | Connected Faces: 2 | Tag: 63692
+-   Endpoints: (-0.3281, 2.5735, 0.2772) -> (-0.3357, 2.5772, 0.2735)
+-   Face Tags: 63530, 63534
+-   Face Indices: 43, 32
+-   Topology Vertices: 32 -> 20
+- Edge 64: SpCurve | Length: 15.5314 | Connected Faces: 2 | Tag: 63660
+-   Endpoints: (-0.2177, 4.4094, -0.2177) -> (-0.1802, 3.9355, -0.2496)
+-   Face Tags: 63508, 63514
+-   Face Indices: 40, 22
+-   Topology Vertices: 37 -> 31
+- Edge 65: Intersection | Length: 0.0026 | Connected Faces: 2 | Tag: 63550
+-   Endpoints: (-0.3098, 2.5984, 0.2719) -> (-0.3081, 2.5980, 0.2739)
+-   Face Tags: 63462, 63530
+-   Face Indices: 12, 43
+-   Topology Vertices: 26 -> 17
+- Edge 66: Circular | Length: 1.7440 | Connected Faces: 2 | Tag: 63608
+-   Endpoints: (0.2776, 3.7441, 0.0000) -> (0.2776, 3.7441, 0.0000)
+-   Curve Props: Arc Length 1.7440 | Radius 0.2776 | Diameter 0.5551 | Min Curvature Radius 0.2776
+-   Curve Points: Start (0.2776, 3.7441, 0.0000) | End (0.2776, 3.7441, 0.0000) | Center (-0.0000, 3.7441, 0.0000)
+-   Face Tags: 63456, 63458
+-   Face Indices: 27, 21
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 67: Intersection | Length: 0.0345 | Connected Faces: 2 | Tag: 63556
+-   Endpoints: (0.3098, 2.5984, 0.2719) -> (0.3372, 2.5776, 0.2717)
+-   Face Tags: 63464, 63546
+-   Face Indices: 7, 48
+-   Topology Vertices: 27 -> 23
+- Edge 68: Circular | Length: 2.9667 | Connected Faces: 2 | Tag: 63650
+-   Endpoints: (0.4722, -3.7641, 0.0000) -> (0.4722, -3.7641, 0.0000)
+-   Curve Props: Arc Length 2.9667 | Radius 0.4722 | Diameter 0.9443 | Min Curvature Radius 0.4722
+-   Curve Points: Start (0.4722, -3.7641, 0.0000) | End (0.4722, -3.7641, 0.0000) | Center (-0.0000, -3.7641, -0.0000)
+-   Face Tags: 63498, 63500
+-   Face Indices: 36, 30
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 69: Intersection | Length: 0.0059 | Connected Faces: 2 | Tag: 63598
+-   Endpoints: (-0.2133, 4.4094, -0.2216) -> (-0.2177, 4.4094, -0.2177)
+-   Face Tags: 63508, 63518
+-   Face Indices: 40, 24
+-   Topology Vertices: 30 -> 38
+- Edge 70: Circular | Length: 6.1719 | Connected Faces: 2 | Tag: 63640
+-   Endpoints: (0.9823, -3.5413, 0.0000) -> (0.9823, -3.5413, 0.0000)
+-   Curve Props: Arc Length 6.1719 | Radius 0.9823 | Diameter 1.9646 | Min Curvature Radius 0.9823
+-   Curve Points: Start (0.9823, -3.5413, 0.0000) | End (0.9823, -3.5413, 0.0000) | Center (-0.0000, -3.5413, -0.0000)
+-   Face Tags: 63488, 63490
+-   Face Indices: 13, 8
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 71: Linear | Length: 0.1498 | Connected Faces: 2 | Tag: 63588
+-   Endpoints: (-0.3007, 2.7442, 0.2772) -> (-0.3007, 2.5943, 0.2772)
+-   Curve Props: Arc Length 0.1498 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.3007, 2.7442, 0.2772) | End (-0.3007, 2.5943, 0.2772) | Center (-0.3007, 2.6693, 0.2772)
+-   Face Tags: 63528, 63532
+-   Face Indices: 47, 37
+-   Topology Vertices: 22 -> 34
+-   Analytic Curve Type: Line
+- Edge 72: Circular | Length: 5.3061 | Connected Faces: 2 | Tag: 63630
+-   Endpoints: (0.8445, -3.3346, 0.0000) -> (0.8445, -3.3346, 0.0000)
+-   Curve Props: Arc Length 5.3061 | Radius 0.8445 | Diameter 1.6890 | Min Curvature Radius 0.8445
+-   Curve Points: Start (0.8445, -3.3346, 0.0000) | End (0.8445, -3.3346, 0.0000) | Center (-0.0000, -3.3346, -0.0000)
+-   Face Tags: 63478, 63480
+-   Face Indices: 18, 28
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 73: SpCurve | Length: 0.0004 | Connected Faces: 2 | Tag: 63662
+-   Endpoints: (-0.1802, 3.9355, -0.2496) -> (-0.1799, 3.9355, -0.2498)
+-   Face Tags: 63504, 63508
+-   Face Indices: 20, 40
+-   Topology Vertices: 31 -> 39
+- Edge 74: Intersection | Length: 0.0344 | Connected Faces: 2 | Tag: 63578
+-   Endpoints: (0.3281, 2.5735, 0.2772) -> (0.3007, 2.5943, 0.2772)
+-   Face Tags: 63528, 63546
+-   Face Indices: 47, 48
+-   Topology Vertices: 36 -> 11
+- Edge 75: Circular | Length: 2.8447 | Connected Faces: 2 | Tag: 63620
+-   Endpoints: (0.4528, -2.8858, 0.0000) -> (0.4528, -2.8858, 0.0000)
+-   Curve Props: Arc Length 2.8447 | Radius 0.4528 | Diameter 0.9055 | Min Curvature Radius 0.4528
+-   Curve Points: Start (0.4528, -2.8858, 0.0000) | End (0.4528, -2.8858, 0.0000) | Center (-0.0000, -2.8858, -0.0000)
+-   Face Tags: 63468, 63470
+-   Face Indices: 45, 15
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 76: Linear | Length: 0.1461 | Connected Faces: 2 | Tag: 63590
+-   Endpoints: (0.3081, 2.7442, 0.2739) -> (0.3081, 2.5980, 0.2739)
+-   Curve Props: Arc Length 0.1461 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.3081, 2.7442, 0.2739) | End (0.3081, 2.5980, 0.2739) | Center (0.3081, 2.6711, 0.2739)
+-   Face Tags: 63462, 63548
+-   Face Indices: 12, 44
+-   Topology Vertices: 9 -> 21
+-   Analytic Curve Type: Line
+- Edge 77: Circular | Length: 0.0130 | Connected Faces: 2 | Tag: 63572
+-   Endpoints: (0.3007, 2.7533, 0.2709) -> (0.3081, 2.7442, 0.2739)
+-   Curve Props: Arc Length 0.0130 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (0.3007, 2.7533, 0.2709) | End (0.3081, 2.7442, 0.2739) | Center (0.3007, 2.7442, 0.2673)
+-   Face Tags: 63524, 63544
+-   Face Indices: 9, 6
+-   Topology Vertices: 12 -> 9
+-   Analytic Curve Type: Arc
+- Edge 78: Circular | Length: 0.0083 | Connected Faces: 2 | Tag: 63694
+-   Endpoints: (-0.3081, 2.7442, 0.2739) -> (-0.3007, 2.7442, 0.2772)
+-   Curve Props: Arc Length 0.0083 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
+-   Curve Points: Start (-0.3081, 2.7442, 0.2739) | End (-0.3007, 2.7442, 0.2772) | Center (-0.3007, 2.7442, 0.2673)
+-   Face Tags: 63532, 63536
+-   Face Indices: 37, 26
+-   Topology Vertices: 18 -> 22
+-   Analytic Curve Type: Arc
+- Edge 79: Intersection | Length: 1.1419 | Connected Faces: 2 | Tag: 63568
+-   Endpoints: (0.3357, -0.6591, 0.2735) -> (-0.3357, -0.6591, 0.2735)
+-   Face Tags: 63466, 63538
+-   Face Indices: 3, 31
+-   Topology Vertices: 33 -> 13
+- Edge 80: Circular | Length: 2.4415 | Connected Faces: 2 | Tag: 63610
+-   Endpoints: (0.3886, 3.7441, 0.0000) -> (0.3886, 3.7441, 0.0000)
+-   Curve Props: Arc Length 2.4415 | Radius 0.3886 | Diameter 0.7772 | Min Curvature Radius 0.3886
+-   Curve Points: Start (0.3886, 3.7441, 0.0000) | End (0.3886, 3.7441, 0.0000) | Center (-0.0000, 3.7441, 0.0000)
+-   Face Tags: 63458, 63460
+-   Face Indices: 21, 17
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+
+### Faces
+- Total Faces: 48
+**Face Type Breakdown:**
+- Blending: 4
+- Conical: 13
+- Cylindrical: 14
+- Parametric: 3
+- Planar: 10
+- Spherical: 2
+- SurfaceOfRevolution: 2
+
+**Per-Face Details:**
+- Face 1: Planar | Edges: 1 | Facets: None | Vertices: 1 | Tag: 63502
+-   Measure: Area 0.6202 | Perimeter 2.7918 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.0000, -3.7756, -0.0000) | Anchor (-0.0000, -3.7756, -0.0000)
+-   Analytic: Ref Point (-0.0000, -3.7756, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 2
+-   Loop Count: 1
+-   Adjacent Faces: 30
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 2: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63516
+-   Measure: Area 0.0543 | Perimeter 4.3388 | Radius/Diameter N/A | Min Curvature Radius 0.3793
+-   Points: Center (-0.0158, 4.4343, 0.0737) | Anchor (-0.0158, 4.4343, 0.0737)
+-   Analytic: Ref Point (-0.0000, 4.4291, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.2879 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 36, 40, 53, 61, 47
+-   Loop Count: 2
+-   Adjacent Faces: 40, 19, 41, 39, 24
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 3: Cylindrical | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63466
+-   Measure: Area 12.1192 | Perimeter 12.2884 | Radius/Diameter 0.4331 | Min Curvature Radius 0.4331
+-   Points: Center (0.0000, -0.3595, -0.0843) | Anchor (0.0000, -0.3595, -0.0843)
+-   Analytic: Ref Point (-0.0000, -0.1441, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4331 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.5150, 2.7217] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 28, 33, 50, 23, 79, 46, 62
+-   Loop Count: 2
+-   Adjacent Faces: 48, 43, 10, 32, 31, 7, 45
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 4: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63492
+-   Measure: Area 0.4351 | Perimeter 12.0222 | Radius/Diameter N/A | Min Curvature Radius 1.3168
+-   Points: Center (-0.0000, -3.6474, -0.0000) | Anchor (-0.0000, -3.6474, -0.0000)
+-   Analytic: Ref Point (-0.0000, -3.6476, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.9567 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 5, 18
+-   Loop Count: 1
+-   Adjacent Faces: 8, 46
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 5: Cylindrical | Edges: 2 | Facets: None | Vertices: 2 | Tag: 63526
+-   Measure: Area 0.1961 | Perimeter 1.7700 | Radius/Diameter 0.4287 | Min Curvature Radius 0.4287
+-   Points: Center (-0.0000, -0.8112, 0.3172) | Anchor (-0.0000, -0.8112, 0.3172)
+-   Analytic: Ref Point (-0.0000, -0.6591, 0.7059) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.4287 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.3281, 0.3281] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 19, 7
+-   Loop Count: 1
+-   Adjacent Faces: 31, 47
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 6: Spherical | Edges: 3 | Facets: None | Vertices: 3 | Tag: 63544
+-   Measure: Area 0.0001 | Perimeter 0.0331 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.3036, 2.7481, 0.2752) | Anchor (0.3036, 2.7481, 0.2752)
+-   Analytic: Ref Point (0.3007, 2.7442, 0.2673) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status -2 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 77, 10, 8
+-   Loop Count: 1
+-   Adjacent Faces: 9, 16, 44
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 7: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63464
+-   Measure: Area 0.0566 | Perimeter 3.9057 | Radius/Diameter N/A | Min Curvature Radius 0.5829
+-   Points: Center (0.0000, 2.5879, -0.1426) | Anchor (0.0000, 2.5879, -0.1426)
+-   Analytic: Ref Point (-0.0000, 2.5880, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4226 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 67, 30, 31, 46
+-   Loop Count: 1
+-   Adjacent Faces: 48, 43, 12, 3
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 8: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63490
+-   Measure: Area 0.4981 | Perimeter 12.3437 | Radius/Diameter 0.9823 | Min Curvature Radius 0.9823
+-   Points: Center (-0.0000, -3.5817, -0.0000) | Anchor (-0.0000, -3.5817, -0.0000)
+-   Analytic: Ref Point (-0.0000, -3.5817, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9823 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[3.5817, 3.5817] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 70, 5
+-   Loop Count: 1
+-   Adjacent Faces: 13, 4
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 9: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63524
+-   Measure: Area 0.0403 | Perimeter 5.7458 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.0000, 3.2547, 0.1582) | Anchor (-0.0000, 3.2547, 0.1582)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 0.0895 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 77, 43, 38, 52
+-   Loop Count: 1
+-   Adjacent Faces: 6, 26, 14, 12
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 10: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63542
+-   Measure: Area 0.0282 | Perimeter 6.4870 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.3322, 0.9582, 0.2759) | Anchor (0.3322, 0.9582, 0.2759)
+-   Analytic: Ref Point (0.3281, 0.9594, 0.2673) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-1.6185, 1.6178] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 50, 60, 45, 55
+-   Loop Count: 1
+-   Adjacent Faces: 3, 47, 31, 48
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 11: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63484
+-   Measure: Area 0.1460 | Perimeter 10.4885 | Radius/Diameter N/A | Min Curvature Radius 1.1664
+-   Points: Center (-0.0000, -3.5217, -0.0000) | Anchor (-0.0000, -3.5217, -0.0000)
+-   Analytic: Ref Point (-0.0000, -3.5217, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.8346 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 22, 41
+-   Loop Count: 1
+-   Adjacent Faces: 25, 33
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 12: Cylindrical | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63462
+-   Measure: Area 1.8480 | Perimeter 7.6793 | Radius/Diameter 0.4122 | Min Curvature Radius 0.4122
+-   Points: Center (0.0000, 3.1865, -0.1683) | Anchor (0.0000, 3.1865, -0.1683)
+-   Analytic: Ref Point (-0.0000, 3.1590, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4122 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-3.1590, -0.4149] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 65, 57, 76, 20, 52, 14, 31
+-   Loop Count: 2
+-   Adjacent Faces: 43, 48, 44, 37, 9, 17, 7
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 13: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63488
+-   Measure: Area 0.0855 | Perimeter 12.2819 | Radius/Diameter N/A | Min Curvature Radius 1.3752
+-   Points: Center (-0.0000, -3.5364, -0.0000) | Anchor (-0.0000, -3.5364, -0.0000)
+-   Analytic: Ref Point (-0.0000, -3.5364, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9774 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 54, 70
+-   Loop Count: 1
+-   Adjacent Faces: 33, 8
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 14: Cylindrical | Edges: 2 | Facets: None | Vertices: 2 | Tag: 63522
+-   Measure: Area 0.8402 | Perimeter 3.4183 | Radius/Diameter 0.4287 | Min Curvature Radius 0.4287
+-   Points: Center (-0.0000, 3.1800, 0.1053) | Anchor (-0.0000, 3.1800, 0.1053)
+-   Analytic: Ref Point (0.0000, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.4287 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.3007, 0.3007] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 13, 38
+-   Loop Count: 1
+-   Adjacent Faces: 16, 9
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 15: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63470
+-   Measure: Area 2.1492 | Perimeter 8.7692 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.0000, -2.8858, 0.0000) | Anchor (-0.0000, -2.8858, 0.0000)
+-   Analytic: Ref Point (-0.0000, -2.8858, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 75, 11
+-   Loop Count: 1
+-   Adjacent Faces: 45, 35
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 16: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63540
+-   Measure: Area 0.0071 | Perimeter 1.2264 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.0000, 2.7494, 0.2750) | Anchor (0.0000, 2.7494, 0.2750)
+-   Analytic: Ref Point (0.0000, 2.7442, 0.2673) | Direction (1.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.3007, 0.3007] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 13, 25, 27, 10
+-   Loop Count: 1
+-   Adjacent Faces: 14, 47, 26, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 17: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63460
+-   Measure: Area 0.0840 | Perimeter 5.0315 | Radius/Diameter N/A | Min Curvature Radius 0.5495
+-   Points: Center (-0.0000, 3.7322, 0.0000) | Anchor (-0.0000, 3.7322, 0.0000)
+-   Analytic: Ref Point (-0.0000, 3.7323, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4004 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 80, 14
+-   Loop Count: 1
+-   Adjacent Faces: 21, 12
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 18: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63478
+-   Measure: Area 0.7304 | Perimeter 11.4161 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, -3.3346, 0.0000) | Anchor (0.0000, -3.3346, 0.0000)
+-   Analytic: Ref Point (-0.0000, -3.3346, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 58, 72
+-   Loop Count: 1
+-   Adjacent Faces: 23, 28
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 19: Planar | Edges: 1 | Facets: None | Vertices: 1 | Tag: 63520
+-   Measure: Area 0.2260 | Perimeter 1.6852 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.0000, 4.4488, 0.0000) | Anchor (-0.0000, 4.4488, 0.0000)
+-   Analytic: Ref Point (-0.0000, 4.4488, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 40
+-   Loop Count: 1
+-   Adjacent Faces: 2
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 20: Planar | Edges: 5 | Facets: None | Vertices: 6 | Tag: 63504
+-   Measure: Area 0.0001 | Perimeter 0.5059 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.2547, 3.9355, -0.1576) | Anchor (-0.2547, 3.9355, -0.1576)
+-   Analytic: Ref Point (-0.2398, 3.9355, -0.1483) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.1045, 0.1045] | V[-0.0646, 0.0646] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 35, 73, 39, 3, 1
+-   Loop Count: 1
+-   Adjacent Faces: 40, 22, 41, 42
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 21: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63458
+-   Measure: Area 0.2323 | Perimeter 4.1855 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.0000, 3.7441, -0.0000) | Anchor (-0.0000, 3.7441, -0.0000)
+-   Analytic: Ref Point (-0.0000, 3.7441, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 66, 80
+-   Loop Count: 1
+-   Adjacent Faces: 27, 17
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 22: Cylindrical | Edges: 4 | Facets: None | Vertices: 5 | Tag: 63514
+-   Measure: Area 0.1143 | Perimeter 31.5474 | Radius/Diameter 0.3079 | Min Curvature Radius 0.3079
+-   Points: Center (-0.0009, 4.1725, -0.0005) | Anchor (-0.0009, 4.1725, -0.0005)
+-   Analytic: Ref Point (-0.0000, 4.1725, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.3079 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.2370, 0.2369] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 49, 64, 21, 39
+-   Loop Count: 2
+-   Adjacent Faces: 41, 40, 24, 20
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 23: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63476
+-   Measure: Area 0.0855 | Perimeter 12.2819 | Radius/Diameter N/A | Min Curvature Radius 1.3752
+-   Points: Center (-0.0000, -3.3297, -0.0000) | Anchor (-0.0000, -3.3297, -0.0000)
+-   Analytic: Ref Point (-0.0000, -3.3297, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.9774 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 44, 58
+-   Loop Count: 1
+-   Adjacent Faces: 29, 18
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 24: Planar | Edges: 4 | Facets: None | Vertices: 5 | Tag: 63518
+-   Measure: Area 0.0001 | Perimeter 0.5070 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.2767, 4.4094, -0.1146) | Anchor (-0.2767, 4.4094, -0.1146)
+-   Analytic: Ref Point (-0.2606, 4.4094, -0.1079) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.1138, 0.1138] | V[-0.0473, 0.0473] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 69, 4, 21, 47
+-   Loop Count: 3
+-   Adjacent Faces: 40, 41, 22, 2
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 25: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63482
+-   Measure: Area 0.8161 | Perimeter 10.3648 | Radius/Diameter 0.8248 | Min Curvature Radius 0.8248
+-   Points: Center (-0.0000, -3.4331, -0.0000) | Anchor (-0.0000, -3.4331, -0.0000)
+-   Analytic: Ref Point (-0.0000, -3.4331, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.8248 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[3.4331, 3.4331] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 6, 22
+-   Loop Count: 1
+-   Adjacent Faces: 28, 11
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 26: Spherical | Edges: 3 | Facets: None | Vertices: 3 | Tag: 63536
+-   Measure: Area 0.0001 | Perimeter 0.0331 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.3036, 2.7481, 0.2752) | Anchor (-0.3036, 2.7481, 0.2752)
+-   Analytic: Ref Point (-0.3007, 2.7442, 0.2673) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status -2 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 43, 78, 27
+-   Loop Count: 1
+-   Adjacent Faces: 9, 37, 16
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 27: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63456
+-   Measure: Area 0.0285 | Perimeter 3.4137 | Radius/Diameter N/A | Min Curvature Radius 0.3758
+-   Points: Center (-0.0000, 3.7500, 0.0000) | Anchor (-0.0000, 3.7500, 0.0000)
+-   Analytic: Ref Point (-0.0000, 3.7500, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.2717 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 34, 66
+-   Loop Count: 1
+-   Adjacent Faces: 34, 21
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 28: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63480
+-   Measure: Area 0.1460 | Perimeter 10.4885 | Radius/Diameter N/A | Min Curvature Radius 1.1664
+-   Points: Center (-0.0000, -3.3444, -0.0000) | Anchor (-0.0000, -3.3444, -0.0000)
+-   Analytic: Ref Point (-0.0000, -3.3445, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.8346 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 72, 6
+-   Loop Count: 1
+-   Adjacent Faces: 18, 25
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 29: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63474
+-   Measure: Area 2.4663 | Perimeter 12.3437 | Radius/Diameter 0.9823 | Min Curvature Radius 0.9823
+-   Points: Center (-0.0000, -3.1250, -0.0000) | Anchor (-0.0000, -3.1250, -0.0000)
+-   Analytic: Ref Point (-0.0000, -3.1250, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9823 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[3.1250, 3.1250] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 26, 44
+-   Loop Count: 1
+-   Adjacent Faces: 35, 23
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 30: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63500
+-   Measure: Area 0.0892 | Perimeter 5.7584 | Radius/Diameter N/A | Min Curvature Radius 0.0394
+-   Points: Center (-0.0000, -3.7716, -0.0000) | Anchor (-0.0000, -3.7716, -0.0000)
+-   Analytic: Ref Point (-0.0000, -3.7698, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4443 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 68, 2
+-   Loop Count: 1
+-   Adjacent Faces: 36, 1
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 31: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63538
+-   Measure: Area 0.0095 | Perimeter 2.2733 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.0000, -0.8761, 0.3536) | Anchor (0.0000, -0.8761, 0.3536)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 19, 79, 12, 45
+-   Loop Count: 1
+-   Adjacent Faces: 5, 3, 32, 10
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 32: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63534
+-   Measure: Area 0.0282 | Perimeter 6.4870 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.3322, 0.9582, 0.2759) | Anchor (-0.3322, 0.9582, 0.2759)
+-   Analytic: Ref Point (-0.3281, 0.9594, 0.2673) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-1.6185, 1.6178] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 23, 42, 63, 12
+-   Loop Count: 1
+-   Adjacent Faces: 3, 47, 43, 31
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 33: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63486
+-   Measure: Area 0.7304 | Perimeter 11.4161 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.0000, -3.5315, -0.0000) | Anchor (-0.0000, -3.5315, -0.0000)
+-   Analytic: Ref Point (-0.0000, -3.5315, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 41, 54
+-   Loop Count: 1
+-   Adjacent Faces: 11, 13
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 34: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63454
+-   Measure: Area 0.2301 | Perimeter 3.3395 | Radius/Diameter 0.2657 | Min Curvature Radius 0.2657
+-   Points: Center (-0.0000, 3.8248, 0.0000) | Anchor (-0.0000, 3.8248, 0.0000)
+-   Analytic: Ref Point (-0.0000, 3.8248, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.2657 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-3.8248, -3.8248] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 34, 15
+-   Loop Count: 1
+-   Adjacent Faces: 27, 42
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 35: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63472
+-   Measure: Area 0.3367 | Perimeter 12.0964 | Radius/Diameter N/A | Min Curvature Radius 1.3335
+-   Points: Center (-0.0000, -2.9056, -0.0000) | Anchor (-0.0000, -2.9056, -0.0000)
+-   Analytic: Ref Point (-0.0000, -2.9055, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9626 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 11, 26
+-   Loop Count: 1
+-   Adjacent Faces: 15, 29
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 36: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63498
+-   Measure: Area 0.3606 | Perimeter 6.4316 | Radius/Diameter N/A | Min Curvature Radius 0.6677
+-   Points: Center (-0.0000, -3.7234, -0.0000) | Anchor (-0.0000, -3.7234, -0.0000)
+-   Analytic: Ref Point (-0.0000, -3.7244, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5118 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 51, 68
+-   Loop Count: 1
+-   Adjacent Faces: 38, 30
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 37: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63532
+-   Measure: Area 0.0012 | Perimeter 0.3134 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.3046, 2.6702, 0.2760) | Anchor (-0.3046, 2.6702, 0.2760)
+-   Analytic: Ref Point (-0.3007, 2.6689, 0.2673) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0746, 0.0752] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 71, 20, 48, 78
+-   Loop Count: 1
+-   Adjacent Faces: 47, 12, 43, 26
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 38: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63496
+-   Measure: Area 0.1097 | Perimeter 7.1048 | Radius/Diameter N/A | Min Curvature Radius 0.0394
+-   Points: Center (-0.0000, -3.6771, -0.0000) | Anchor (-0.0000, -3.6771, -0.0000)
+-   Analytic: Ref Point (-0.0000, -3.6790, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5793 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 37, 51
+-   Loop Count: 1
+-   Adjacent Faces: 46, 36
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 39: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63510
+-   Measure: Area 0.2327 | Perimeter 32.4253 | Radius/Diameter N/A | Min Curvature Radius 0.2759
+-   Points: Center (-0.0023, 4.1725, -0.0012) | Anchor (-0.0023, 4.1725, -0.0012)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 59, 32, 61, 17
+-   Loop Count: 1
+-   Adjacent Faces: 41, 40, 2, 42
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 40: Parametric | Edges: 7 | Facets: None | Vertices: 9 | Tag: 63508
+-   Measure: Area 0.5784 | Perimeter 33.2900 | Radius/Diameter N/A | Min Curvature Radius 0.5379
+-   Points: Center (0.0008, 4.1725, -0.0059) | Anchor (0.0008, 4.1725, -0.0059)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 69, 36, 16, 35, 32, 64, 73
+-   Loop Count: 5
+-   Adjacent Faces: 24, 2, 42, 20, 39, 22
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 41: Parametric | Edges: 6 | Facets: None | Vertices: 6 | Tag: 63512
+-   Measure: Area 0.5785 | Perimeter 33.2894 | Radius/Diameter N/A | Min Curvature Radius 0.5379
+-   Points: Center (-0.0043, 4.1725, 0.0041) | Anchor (-0.0043, 4.1725, 0.0041)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 59, 49, 4, 53, 29, 3
+-   Loop Count: 1
+-   Adjacent Faces: 39, 22, 24, 2, 42, 20
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 42: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63506
+-   Measure: Area 0.0601 | Perimeter 4.3223 | Radius/Diameter N/A | Min Curvature Radius 0.3758
+-   Points: Center (0.0454, 3.9091, -0.0507) | Anchor (0.0454, 3.9091, -0.0507)
+-   Analytic: Ref Point (-0.0000, 3.9146, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.2867 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 16, 29, 17, 1, 15
+-   Loop Count: 2
+-   Adjacent Faces: 40, 41, 39, 20, 34
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 43: Blending | Edges: 6 | Facets: None | Vertices: 6 | Tag: 63530
+-   Measure: Area 0.0004 | Perimeter 0.0926 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (-0.3194, 2.5863, 0.2753) | Anchor (-0.3194, 2.5863, 0.2753)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 65, 30, 33, 56, 48, 63
+-   Loop Count: 1
+-   Adjacent Faces: 12, 7, 3, 47, 37, 32
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 44: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63548
+-   Measure: Area 0.0012 | Perimeter 0.3134 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.3046, 2.6702, 0.2760) | Anchor (0.3046, 2.6702, 0.2760)
+-   Analytic: Ref Point (0.3007, 2.6689, 0.2673) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.0746, 0.0752] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 9, 76, 8, 24
+-   Loop Count: 1
+-   Adjacent Faces: 47, 12, 6, 48
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 45: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63468
+-   Measure: Area 0.0775 | Perimeter 5.5658 | Radius/Diameter N/A | Min Curvature Radius 0.6125
+-   Points: Center (-0.0000, -2.8761, -0.0000) | Anchor (-0.0000, -2.8761, -0.0000)
+-   Analytic: Ref Point (-0.0000, -2.8760, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4429 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 62, 75
+-   Loop Count: 1
+-   Adjacent Faces: 3, 15
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 46: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63494
+-   Measure: Area 1.6693 | Perimeter 9.4901 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.0000, -3.6732, 0.0000) | Anchor (-0.0000, -3.6732, 0.0000)
+-   Analytic: Ref Point (-0.0000, -3.6732, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 18, 37
+-   Loop Count: 1
+-   Adjacent Faces: 4, 38
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 47: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 63528
+-   Measure: Area 2.2245 | Perimeter 8.0913 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, 1.0362, 0.2772) | Anchor (0.0000, 1.0362, 0.2772)
+-   Analytic: Ref Point (-0.0000, 1.0426, 0.2772) | Direction (-0.0000, -0.0000, 1.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-1.7016, 1.7016] | V[-0.3281, 0.3281] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 60, 74, 9, 25, 42, 56, 71, 7
+-   Loop Count: 1
+-   Adjacent Faces: 10, 48, 44, 16, 32, 43, 37, 5
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 48: Blending | Edges: 6 | Facets: None | Vertices: 6 | Tag: 63546
+-   Measure: Area 0.0004 | Perimeter 0.0926 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
+-   Points: Center (0.3194, 2.5863, 0.2753) | Anchor (0.3194, 2.5863, 0.2753)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 57, 67, 28, 74, 55, 24
+-   Loop Count: 1
+-   Adjacent Faces: 12, 7, 3, 47, 10, 44
+-   Blend Data: Is Blend False | Radius 0.0000
+
+---
+## Body 13
+
+### Body Metadata
+- Tag: 63841
+- Journal Identifier: UNPARAMETERIZED_FEATURE(13)
+- Name: Body
+- Is Solid Body: True
+- Is Sheet Body: False
+- Is Convergent Body: False
+- Density: 7800.0000
+- Facet Count: None
+- Vertex Count: None
+- Shape Summary: Likely contains a conical region.
+- Exported Topology Vertices: 25
+### Body Measurement
+- Surface Area: 46.6068
+- Volume: 9.1651
+- Mass: 2.5826
+- Weight: 2.5826
+- Radius Of Gyration: 1.3041
+- Centroid: (0.0001, 1.7373, -0.0330)
+### Bounding Box
+- X Min: -0.5866
+- Y Min: 3.7441
+- Z Min: -0.5866
+- X Max: 0.5866
+- Y Max: 3.8661
+- Z Max: 0.5866
+- Dx (Length): 1.1732
+- Dy (Width): 0.1220
+- Dz (Height): 1.1732
+
+### Features
+- Total Features: 1
+- Body(13) | Type: BREP | Timestamp: 13
+-   Warning: []
+-   Error: []
+
+### Edges
+- Total Edges: 61
+**Edge Type Breakdown:**
+- Circular: 32
+- Elliptical: 4
+- Intersection: 11
+- Linear: 10
+- Spline: 4
+
+**Per-Edge Details:**
+- Edge 1: Linear | Length: 1.8474 | Connected Faces: 2 | Tag: 63940
+-   Endpoints: (0.7008, 1.9724, -0.9237) -> (0.7008, 1.9724, 0.9237)
+-   Curve Props: Arc Length 1.8474 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.7008, 1.9724, -0.9237) | End (0.7008, 1.9724, 0.9237) | Center (0.7008, 1.9724, 0.0000)
+-   Face Tags: 63890, 63894
+-   Face Indices: 32, 27
+-   Topology Vertices: 1 -> 2
+-   Analytic Curve Type: Line
+- Edge 2: Circular | Length: 2.7829 | Connected Faces: 2 | Tag: 63918
+-   Endpoints: (0.6811, 3.1520, -0.0142) -> (0.6811, 3.1520, -0.0142)
+-   Curve Props: Arc Length 2.7829 | Radius 0.4429 | Diameter 0.8858 | Min Curvature Radius 0.4429
+-   Curve Points: Start (0.6811, 3.1520, -0.0142) | End (0.6811, 3.1520, -0.0142) | Center (0.6811, 3.1520, 0.4287)
+-   Face Tags: 63892, 63912
+-   Face Indices: 22, 3
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 3: Intersection | Length: 0.1011 | Connected Faces: 2 | Tag: 64000
+-   Endpoints: (0.6811, 3.7441, -0.8593) -> (0.6811, 3.6811, -0.9383)
+-   Face Tags: 63844, 63892
+-   Face Indices: 6, 22
+-   Topology Vertices: 4 -> 5
+- Edge 4: Linear | Length: 1.7185 | Connected Faces: 2 | Tag: 63950
+-   Endpoints: (-0.6811, 3.7441, -0.8593) -> (-0.6811, 3.7441, 0.8593)
+-   Curve Props: Arc Length 1.7185 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6811, 3.7441, -0.8593) | End (-0.6811, 3.7441, 0.8593) | Center (-0.6811, 3.7441, 0.0000)
+-   Face Tags: 63848, 63886
+-   Face Indices: 15, 37
+-   Topology Vertices: 6 -> 7
+-   Analytic Curve Type: Line
+- Edge 5: Circular | Length: 5.4347 | Connected Faces: 2 | Tag: 63970
+-   Endpoints: (0.0000, 0.3091, -0.8650) -> (0.0000, 0.3091, -0.8650)
+-   Curve Props: Arc Length 5.4347 | Radius 0.8650 | Diameter 1.7299 | Min Curvature Radius 0.8650
+-   Curve Points: Start (0.0000, 0.3091, -0.8650) | End (0.0000, 0.3091, -0.8650) | Center (0.0000, 0.3091, 0.0000)
+-   Face Tags: 63864, 63866
+-   Face Indices: 33, 16
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 6: Elliptical | Length: 0.0314 | Connected Faces: 2 | Tag: 63934
+-   Endpoints: (0.6811, 1.9921, -0.9383) -> (0.7008, 1.9724, -0.9237)
+-   Face Tags: 63846, 63894
+-   Face Indices: 23, 27
+-   Topology Vertices: 8 -> 1
+- Edge 7: Circular | Length: 6.4440 | Connected Faces: 2 | Tag: 63962
+-   Endpoints: (0.0000, 1.7559, -1.0256) -> (0.0000, 1.7559, -1.0256)
+-   Curve Props: Arc Length 6.4440 | Radius 1.0256 | Diameter 2.0512 | Min Curvature Radius 1.0256
+-   Curve Points: Start (0.0000, 1.7559, -1.0256) | End (0.0000, 1.7559, -1.0256) | Center (0.0000, 1.7559, 0.0000)
+-   Face Tags: 63854, 63856
+-   Face Indices: 26, 18
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 8: Intersection | Length: 5.7992 | Connected Faces: 2 | Tag: 64028
+-   Endpoints: (1.0716, 1.4685, 0.2319) -> (0.4546, 1.5005, 0.9625)
+-   Face Tags: 63898, 63906
+-   Face Indices: 35, 24
+-   Topology Vertices: 9 -> 10
+- Edge 9: Circular | Length: 1.4698 | Connected Faces: 2 | Tag: 63992
+-   Endpoints: (0.6811, 3.7441, 0.8593) -> (-0.6811, 3.7441, 0.8593)
+-   Curve Props: Arc Length 1.4698 | Radius 1.0965 | Diameter 2.1929 | Min Curvature Radius 1.0965
+-   Curve Points: Start (0.6811, 3.7441, 0.8593) | End (-0.6811, 3.7441, 0.8593) | Center (0.0000, 3.7441, 0.0000)
+-   Face Tags: 63842, 63848
+-   Face Indices: 14, 15
+-   Topology Vertices: 11 -> 7
+-   Analytic Curve Type: Arc
+- Edge 10: Circular | Length: 6.3623 | Connected Faces: 2 | Tag: 63966
+-   Endpoints: (0.0000, 0.3189, -1.0126) -> (0.0000, 0.3189, -1.0126)
+-   Curve Props: Arc Length 6.3623 | Radius 1.0126 | Diameter 2.0252 | Min Curvature Radius 1.0126
+-   Curve Points: Start (0.0000, 0.3189, -1.0126) | End (0.0000, 0.3189, -1.0126) | Center (0.0000, 0.3189, 0.0000)
+-   Face Tags: 63860, 63862
+-   Face Indices: 5, 34
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 11: Linear | Length: 1.7185 | Connected Faces: 2 | Tag: 63948
+-   Endpoints: (0.6811, 3.7441, 0.8593) -> (0.6811, 3.7441, -0.8593)
+-   Curve Props: Arc Length 1.7185 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6811, 3.7441, 0.8593) | End (0.6811, 3.7441, -0.8593) | Center (0.6811, 3.7441, 0.0000)
+-   Face Tags: 63848, 63892
+-   Face Indices: 15, 22
+-   Topology Vertices: 11 -> 4
+-   Analytic Curve Type: Line
+- Edge 12: Circular | Length: 6.4242 | Connected Faces: 2 | Tag: 63978
+-   Endpoints: (0.0000, 0.1142, -1.0224) -> (0.0000, 0.1142, -1.0224)
+-   Curve Props: Arc Length 6.4242 | Radius 1.0224 | Diameter 2.0449 | Min Curvature Radius 1.0224
+-   Curve Points: Start (0.0000, 0.1142, -1.0224) | End (0.0000, 0.1142, -1.0224) | Center (0.0000, 0.1142, 0.0000)
+-   Face Tags: 63872, 63874
+-   Face Indices: 25, 8
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 13: Intersection | Length: 0.1011 | Connected Faces: 2 | Tag: 64008
+-   Endpoints: (-0.6811, 3.7441, 0.8593) -> (-0.6811, 3.6811, 0.9383)
+-   Face Tags: 63842, 63886
+-   Face Indices: 14, 37
+-   Topology Vertices: 7 -> 12
+- Edge 14: Circular | Length: 6.3005 | Connected Faces: 2 | Tag: 63982
+-   Endpoints: (0.0000, 0.0000, -1.0028) -> (0.0000, 0.0000, -1.0028)
+-   Curve Props: Arc Length 6.3005 | Radius 1.0028 | Diameter 2.0055 | Min Curvature Radius 1.0028
+-   Curve Points: Start (0.0000, 0.0000, -1.0028) | End (0.0000, 0.0000, -1.0028) | Center (0.0000, 0.0000, 0.0000)
+-   Face Tags: 63876, 63878
+-   Face Indices: 29, 2
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 15: Intersection | Length: 1.6721 | Connected Faces: 2 | Tag: 64024
+-   Endpoints: (1.0281, 0.8491, -0.2758) -> (0.2758, 0.8491, 1.0281)
+-   Face Tags: 63900, 63904
+-   Face Indices: 13, 36
+-   Topology Vertices: 13 -> 14
+- Edge 16: Circular | Length: 6.5677 | Connected Faces: 2 | Tag: 63960
+-   Endpoints: (0.0000, 1.7756, -1.0453) -> (0.0000, 1.7756, -1.0453)
+-   Curve Props: Arc Length 6.5677 | Radius 1.0453 | Diameter 2.0906 | Min Curvature Radius 1.0453
+-   Curve Points: Start (0.0000, 1.7756, -1.0453) | End (0.0000, 1.7756, -1.0453) | Center (0.0000, 1.7756, 0.0000)
+-   Face Tags: 63852, 63854
+-   Face Indices: 1, 26
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 17: Linear | Length: 1.6890 | Connected Faces: 2 | Tag: 63998
+-   Endpoints: (0.6811, 1.9921, 0.9383) -> (0.6811, 3.6811, 0.9383)
+-   Curve Props: Arc Length 1.6890 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6811, 1.9921, 0.9383) | End (0.6811, 3.6811, 0.9383) | Center (0.6811, 2.8366, 0.9383)
+-   Face Tags: 63846, 63892
+-   Face Indices: 23, 22
+-   Topology Vertices: 15 -> 16
+-   Analytic Curve Type: Line
+- Edge 18: Circular | Length: 5.4347 | Connected Faces: 2 | Tag: 63972
+-   Endpoints: (0.0000, 0.1437, -0.8650) -> (0.0000, 0.1437, -0.8650)
+-   Curve Props: Arc Length 5.4347 | Radius 0.8650 | Diameter 1.7299 | Min Curvature Radius 0.8650
+-   Curve Points: Start (0.0000, 0.1437, -0.8650) | End (0.0000, 0.1437, -0.8650) | Center (0.0000, 0.1437, 0.0000)
+-   Face Tags: 63866, 63868
+-   Face Indices: 16, 10
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 19: Intersection | Length: 5.7973 | Connected Faces: 2 | Tag: 63924
+-   Endpoints: (0.8689, 0.8811, 0.6687) -> (1.0281, 0.8491, -0.2758)
+-   Face Tags: 63900, 63902
+-   Face Indices: 13, 7
+-   Topology Vertices: 17 -> 13
+- Edge 20: Spline | Length: 73.7660 | Connected Faces: 2 | Tag: 64012
+-   Endpoints: (0.4546, 1.5005, 0.9625) -> (0.2758, 0.8491, 1.0281)
+-   Face Tags: 63904, 63906
+-   Face Indices: 36, 24
+-   Topology Vertices: 10 -> 14
+- Edge 21: Elliptical | Length: 0.0314 | Connected Faces: 2 | Tag: 63930
+-   Endpoints: (-0.6811, 1.9921, 0.9383) -> (-0.7008, 1.9724, 0.9237)
+-   Face Tags: 63846, 63896
+-   Face Indices: 23, 19
+-   Topology Vertices: 18 -> 19
+- Edge 22: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 63986
+-   Endpoints: (0.0000, 0.0472, -0.4331) -> (0.0000, 0.0472, -0.4331)
+-   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
+-   Curve Points: Start (0.0000, 0.0472, -0.4331) | End (0.0000, 0.0472, -0.4331) | Center (0.0000, 0.0472, 0.0000)
+-   Face Tags: 63880, 63882
+-   Face Indices: 28, 21
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 23: Circular | Length: 7.2850 | Connected Faces: 2 | Tag: 63956
+-   Endpoints: (0.0000, 1.8150, -1.1594) -> (0.0000, 1.8150, -1.1594)
+-   Curve Props: Arc Length 7.2850 | Radius 1.1594 | Diameter 2.3189 | Min Curvature Radius 1.1594
+-   Curve Points: Start (0.0000, 1.8150, -1.1594) | End (0.0000, 1.8150, -1.1594) | Center (0.0000, 1.8150, 0.0000)
+-   Face Tags: 63846, 63850
+-   Face Indices: 23, 9
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 24: Intersection | Length: 0.1011 | Connected Faces: 2 | Tag: 63996
+-   Endpoints: (0.6811, 3.6811, 0.9383) -> (0.6811, 3.7441, 0.8593)
+-   Face Tags: 63842, 63892
+-   Face Indices: 14, 22
+-   Topology Vertices: 16 -> 11
+- Edge 25: Circular | Length: 2.1375 | Connected Faces: 2 | Tag: 63946
+-   Endpoints: (-0.7008, 1.9724, 0.9237) -> (-0.7008, 1.9724, -0.9237)
+-   Curve Props: Arc Length 2.1375 | Radius 1.1594 | Diameter 2.3189 | Min Curvature Radius 1.1594
+-   Curve Points: Start (-0.7008, 1.9724, 0.9237) | End (-0.7008, 1.9724, -0.9237) | Center (0.0000, 1.9724, 0.0000)
+-   Face Tags: 63846, 63888
+-   Face Indices: 23, 31
+-   Topology Vertices: 19 -> 20
+-   Analytic Curve Type: Arc
+- Edge 26: Intersection | Length: 1.6721 | Connected Faces: 2 | Tag: 64030
+-   Endpoints: (0.4546, 1.5005, 0.9625) -> (0.9625, 1.5005, -0.4546)
+-   Face Tags: 63898, 63904
+-   Face Indices: 35, 36
+-   Topology Vertices: 10 -> 21
+- Edge 27: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 63920
+-   Endpoints: (0.6713, 3.1520, -0.0043) -> (0.6713, 3.1520, -0.0043)
+-   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
+-   Curve Points: Start (0.6713, 3.1520, -0.0043) | End (0.6713, 3.1520, -0.0043) | Center (0.6713, 3.1520, 0.4287)
+-   Face Tags: 63910, 63912
+-   Face Indices: 11, 3
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 28: Circular | Length: 7.0377 | Connected Faces: 2 | Tag: 63958
+-   Endpoints: (0.0000, 1.7756, -1.1201) -> (0.0000, 1.7756, -1.1201)
+-   Curve Props: Arc Length 7.0377 | Radius 1.1201 | Diameter 2.2402 | Min Curvature Radius 1.1201
+-   Curve Points: Start (0.0000, 1.7756, -1.1201) | End (0.0000, 1.7756, -1.1201) | Center (0.0000, 1.7756, 0.0000)
+-   Face Tags: 63850, 63852
+-   Face Indices: 9, 1
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 29: Circular | Length: 0.8612 | Connected Faces: 2 | Tag: 64020
+-   Endpoints: (1.0873, 0.8811, -0.1415) -> (0.8689, 0.8811, 0.6687)
+-   Curve Props: Arc Length 0.8612 | Radius 1.0965 | Diameter 2.1929 | Min Curvature Radius 1.0965
+-   Curve Points: Start (1.0873, 0.8811, -0.1415) | End (0.8689, 0.8811, 0.6687) | Center (0.0000, 0.8811, 0.0000)
+-   Face Tags: 63900, 63908
+-   Face Indices: 13, 17
+-   Topology Vertices: 22 -> 17
+-   Analytic Curve Type: Arc
+- Edge 30: Linear | Length: 1.8474 | Connected Faces: 2 | Tag: 63936
+-   Endpoints: (-0.7008, 1.9724, 0.9237) -> (-0.7008, 1.9724, -0.9237)
+-   Curve Props: Arc Length 1.8474 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.7008, 1.9724, 0.9237) | End (-0.7008, 1.9724, -0.9237) | Center (-0.7008, 1.9724, 0.0000)
+-   Face Tags: 63888, 63896
+-   Face Indices: 31, 19
+-   Topology Vertices: 19 -> 20
+-   Analytic Curve Type: Line
+- Edge 31: Circular | Length: 1.4560 | Connected Faces: 2 | Tag: 63954
+-   Endpoints: (-0.6811, 3.6811, -0.9383) -> (0.6811, 3.6811, -0.9383)
+-   Curve Props: Arc Length 1.4560 | Radius 1.1594 | Diameter 2.3189 | Min Curvature Radius 1.1594
+-   Curve Points: Start (-0.6811, 3.6811, -0.9383) | End (0.6811, 3.6811, -0.9383) | Center (0.0000, 3.6811, 0.0000)
+-   Face Tags: 63844, 63846
+-   Face Indices: 6, 23
+-   Topology Vertices: 23 -> 5
+-   Analytic Curve Type: Arc
+- Edge 32: Circular | Length: 1.4698 | Connected Faces: 2 | Tag: 63994
+-   Endpoints: (-0.6811, 3.7441, -0.8593) -> (0.6811, 3.7441, -0.8593)
+-   Curve Props: Arc Length 1.4698 | Radius 1.0965 | Diameter 2.1929 | Min Curvature Radius 1.0965
+-   Curve Points: Start (-0.6811, 3.7441, -0.8593) | End (0.6811, 3.7441, -0.8593) | Center (0.0000, 3.7441, 0.0000)
+-   Face Tags: 63844, 63848
+-   Face Indices: 6, 15
+-   Topology Vertices: 6 -> 4
+-   Analytic Curve Type: Arc
+- Edge 33: Circular | Length: 5.4966 | Connected Faces: 2 | Tag: 63968
+-   Endpoints: (0.0000, 0.3189, -0.8748) -> (0.0000, 0.3189, -0.8748)
+-   Curve Props: Arc Length 5.4966 | Radius 0.8748 | Diameter 1.7496 | Min Curvature Radius 0.8748
+-   Curve Points: Start (0.0000, 0.3189, -0.8748) | End (0.0000, 0.3189, -0.8748) | Center (0.0000, 0.3189, 0.0000)
+-   Face Tags: 63862, 63864
+-   Face Indices: 34, 33
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 34: Intersection | Length: 3.7104 | Connected Faces: 2 | Tag: 64036
+-   Endpoints: (-0.0000, 3.5850, 0.4331) -> (-0.0000, 3.5850, 0.4331)
+-   Face Tags: 63882, 63910
+-   Face Indices: 21, 11
+-   Topology Vertices: 3 -> 3
+- Edge 35: Intersection | Length: 1.5564 | Connected Faces: 2 | Tag: 63926
+-   Endpoints: (0.9625, 1.5005, -0.4546) -> (0.5938, 1.4685, 0.9218)
+-   Face Tags: 63898, 63902
+-   Face Indices: 35, 7
+-   Topology Vertices: 21 -> 24
+- Edge 36: Spline | Length: 68.5193 | Connected Faces: 2 | Tag: 64018
+-   Endpoints: (0.5938, 1.4685, 0.9218) -> (0.8689, 0.8811, 0.6687)
+-   Face Tags: 63902, 63908
+-   Face Indices: 7, 17
+-   Topology Vertices: 24 -> 17
+- Edge 37: Linear | Length: 1.6890 | Connected Faces: 2 | Tag: 64010
+-   Endpoints: (-0.6811, 3.6811, 0.9383) -> (-0.6811, 1.9921, 0.9383)
+-   Curve Props: Arc Length 1.6890 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6811, 3.6811, 0.9383) | End (-0.6811, 1.9921, 0.9383) | Center (-0.6811, 2.8366, 0.9383)
+-   Face Tags: 63846, 63886
+-   Face Indices: 23, 37
+-   Topology Vertices: 12 -> 18
+-   Analytic Curve Type: Line
+- Edge 38: Circular | Length: 3.0179 | Connected Faces: 2 | Tag: 63984
+-   Endpoints: (0.0000, 0.0000, -0.4803) -> (0.0000, 0.0000, -0.4803)
+-   Curve Props: Arc Length 3.0179 | Radius 0.4803 | Diameter 0.9606 | Min Curvature Radius 0.4803
+-   Curve Points: Start (0.0000, 0.0000, -0.4803) | End (0.0000, 0.0000, -0.4803) | Center (0.0000, 0.0000, 0.0000)
+-   Face Tags: 63878, 63880
+-   Face Indices: 2, 28
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 39: Linear | Length: 1.8766 | Connected Faces: 2 | Tag: 63942
+-   Endpoints: (0.6811, 1.9921, 0.9383) -> (0.6811, 1.9921, -0.9383)
+-   Curve Props: Arc Length 1.8766 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6811, 1.9921, 0.9383) | End (0.6811, 1.9921, -0.9383) | Center (0.6811, 1.9921, 0.0000)
+-   Face Tags: 63892, 63894
+-   Face Indices: 22, 27
+-   Topology Vertices: 15 -> 8
+-   Analytic Curve Type: Line
+- Edge 40: Circular | Length: 0.8612 | Connected Faces: 2 | Tag: 64026
+-   Endpoints: (0.5938, 1.4685, 0.9218) -> (1.0716, 1.4685, 0.2319)
+-   Curve Props: Arc Length 0.8612 | Radius 1.0965 | Diameter 2.1929 | Min Curvature Radius 1.0965
+-   Curve Points: Start (0.5938, 1.4685, 0.9218) | End (1.0716, 1.4685, 0.2319) | Center (0.0000, 1.4685, 0.0000)
+-   Face Tags: 63898, 63908
+-   Face Indices: 35, 17
+-   Topology Vertices: 24 -> 9
+-   Analytic Curve Type: Arc
+- Edge 41: Circular | Length: 2.7829 | Connected Faces: 2 | Tag: 63916
+-   Endpoints: (-0.6811, 3.1520, 0.8717) -> (-0.6811, 3.1520, 0.8717)
+-   Curve Props: Arc Length 2.7829 | Radius 0.4429 | Diameter 0.8858 | Min Curvature Radius 0.4429
+-   Curve Points: Start (-0.6811, 3.1520, 0.8717) | End (-0.6811, 3.1520, 0.8717) | Center (-0.6811, 3.1520, 0.4287)
+-   Face Tags: 63886, 63914
+-   Face Indices: 37, 30
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 42: Circular | Length: 6.4242 | Connected Faces: 2 | Tag: 63980
+-   Endpoints: (0.0000, 0.0197, -1.0224) -> (0.0000, 0.0197, -1.0224)
+-   Curve Props: Arc Length 6.4242 | Radius 1.0224 | Diameter 2.0449 | Min Curvature Radius 1.0224
+-   Curve Points: Start (0.0000, 0.0197, -1.0224) | End (0.0000, 0.0197, -1.0224) | Center (0.0000, 0.0197, 0.0000)
+-   Face Tags: 63874, 63876
+-   Face Indices: 8, 29
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 43: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 63988
+-   Endpoints: (0.0000, 3.6969, -0.4331) -> (0.0000, 3.6969, -0.4331)
+-   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
+-   Curve Points: Start (0.0000, 3.6969, -0.4331) | End (0.0000, 3.6969, -0.4331) | Center (0.0000, 3.6969, 0.0000)
+-   Face Tags: 63882, 63884
+-   Face Indices: 21, 4
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 44: Circular | Length: 5.4966 | Connected Faces: 2 | Tag: 63974
+-   Endpoints: (0.0000, 0.1339, -0.8748) -> (0.0000, 0.1339, -0.8748)
+-   Curve Props: Arc Length 5.4966 | Radius 0.8748 | Diameter 1.7496 | Min Curvature Radius 0.8748
+-   Curve Points: Start (0.0000, 0.1339, -0.8748) | End (0.0000, 0.1339, -0.8748) | Center (0.0000, 0.1339, 0.0000)
+-   Face Tags: 63868, 63870
+-   Face Indices: 10, 20
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 45: Circular | Length: 6.4440 | Connected Faces: 2 | Tag: 64034
+-   Endpoints: (0.0000, 1.5394, -1.0256) -> (0.0000, 1.5394, -1.0256)
+-   Curve Props: Arc Length 6.4440 | Radius 1.0256 | Diameter 2.0512 | Min Curvature Radius 1.0256
+-   Curve Points: Start (0.0000, 1.5394, -1.0256) | End (0.0000, 1.5394, -1.0256) | Center (0.0000, 1.5394, 0.0000)
+-   Face Tags: 63856, 63898
+-   Face Indices: 18, 35
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 46: Elliptical | Length: 0.0314 | Connected Faces: 2 | Tag: 63932
+-   Endpoints: (0.7008, 1.9724, 0.9237) -> (0.6811, 1.9921, 0.9383)
+-   Face Tags: 63846, 63894
+-   Face Indices: 23, 27
+-   Topology Vertices: 2 -> 15
+- Edge 47: Intersection | Length: 0.1011 | Connected Faces: 2 | Tag: 64004
+-   Endpoints: (-0.6811, 3.6811, -0.9383) -> (-0.6811, 3.7441, -0.8593)
+-   Face Tags: 63844, 63886
+-   Face Indices: 6, 37
+-   Topology Vertices: 23 -> 6
+- Edge 48: Spline | Length: 68.5193 | Connected Faces: 2 | Tag: 64016
+-   Endpoints: (1.0716, 1.4685, 0.2319) -> (1.0873, 0.8811, -0.1415)
+-   Face Tags: 63906, 63908
+-   Face Indices: 24, 17
+-   Topology Vertices: 9 -> 22
+- Edge 49: Circular | Length: 3.0179 | Connected Faces: 2 | Tag: 63990
+-   Endpoints: (0.0000, 3.7441, -0.4803) -> (0.0000, 3.7441, -0.4803)
+-   Curve Props: Arc Length 3.0179 | Radius 0.4803 | Diameter 0.9606 | Min Curvature Radius 0.4803
+-   Curve Points: Start (0.0000, 3.7441, -0.4803) | End (0.0000, 3.7441, -0.4803) | Center (0.0000, 3.7441, 0.0000)
+-   Face Tags: 63848, 63884
+-   Face Indices: 15, 4
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 50: Circular | Length: 6.4242 | Connected Faces: 2 | Tag: 63964
+-   Endpoints: (0.0000, 0.3287, -1.0224) -> (0.0000, 0.3287, -1.0224)
+-   Curve Props: Arc Length 6.4242 | Radius 1.0224 | Diameter 2.0449 | Min Curvature Radius 1.0224
+-   Curve Points: Start (0.0000, 0.3287, -1.0224) | End (0.0000, 0.3287, -1.0224) | Center (0.0000, 0.3287, 0.0000)
+-   Face Tags: 63858, 63860
+-   Face Indices: 12, 5
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 51: Circular | Length: 6.4242 | Connected Faces: 2 | Tag: 64032
+-   Endpoints: (0.0000, 0.8071, -1.0224) -> (0.0000, 0.8071, -1.0224)
+-   Curve Props: Arc Length 6.4242 | Radius 1.0224 | Diameter 2.0449 | Min Curvature Radius 1.0224
+-   Curve Points: Start (0.0000, 0.8071, -1.0224) | End (0.0000, 0.8071, -1.0224) | Center (0.0000, 0.8071, 0.0000)
+-   Face Tags: 63858, 63900
+-   Face Indices: 12, 13
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 52: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 63922
+-   Endpoints: (-0.6713, 3.1520, 0.8618) -> (-0.6713, 3.1520, 0.8618)
+-   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
+-   Curve Points: Start (-0.6713, 3.1520, 0.8618) | End (-0.6713, 3.1520, 0.8618) | Center (-0.6713, 3.1520, 0.4287)
+-   Face Tags: 63910, 63914
+-   Face Indices: 11, 30
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 53: Linear | Length: 1.6890 | Connected Faces: 2 | Tag: 64006
+-   Endpoints: (-0.6811, 1.9921, -0.9383) -> (-0.6811, 3.6811, -0.9383)
+-   Curve Props: Arc Length 1.6890 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6811, 1.9921, -0.9383) | End (-0.6811, 3.6811, -0.9383) | Center (-0.6811, 2.8366, -0.9383)
+-   Face Tags: 63846, 63886
+-   Face Indices: 23, 37
+-   Topology Vertices: 25 -> 23
+-   Analytic Curve Type: Line
+- Edge 54: Linear | Length: 1.8766 | Connected Faces: 2 | Tag: 63938
+-   Endpoints: (-0.6811, 1.9921, -0.9383) -> (-0.6811, 1.9921, 0.9383)
+-   Curve Props: Arc Length 1.8766 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (-0.6811, 1.9921, -0.9383) | End (-0.6811, 1.9921, 0.9383) | Center (-0.6811, 1.9921, 0.0000)
+-   Face Tags: 63886, 63896
+-   Face Indices: 37, 19
+-   Topology Vertices: 25 -> 18
+-   Analytic Curve Type: Line
+- Edge 55: Intersection | Length: 1.5546 | Connected Faces: 2 | Tag: 64022
+-   Endpoints: (0.2758, 0.8491, 1.0281) -> (1.0873, 0.8811, -0.1415)
+-   Face Tags: 63900, 63906
+-   Face Indices: 13, 24
+-   Topology Vertices: 14 -> 22
+- Edge 56: Linear | Length: 1.6890 | Connected Faces: 2 | Tag: 64002
+-   Endpoints: (0.6811, 3.6811, -0.9383) -> (0.6811, 1.9921, -0.9383)
+-   Curve Props: Arc Length 1.6890 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
+-   Curve Points: Start (0.6811, 3.6811, -0.9383) | End (0.6811, 1.9921, -0.9383) | Center (0.6811, 2.8366, -0.9383)
+-   Face Tags: 63846, 63892
+-   Face Indices: 23, 22
+-   Topology Vertices: 5 -> 8
+-   Analytic Curve Type: Line
+- Edge 57: Circular | Length: 1.4560 | Connected Faces: 2 | Tag: 63952
+-   Endpoints: (0.6811, 3.6811, 0.9383) -> (-0.6811, 3.6811, 0.9383)
+-   Curve Props: Arc Length 1.4560 | Radius 1.1594 | Diameter 2.3189 | Min Curvature Radius 1.1594
+-   Curve Points: Start (0.6811, 3.6811, 0.9383) | End (-0.6811, 3.6811, 0.9383) | Center (0.0000, 3.6811, 0.0000)
+-   Face Tags: 63842, 63846
+-   Face Indices: 14, 23
+-   Topology Vertices: 16 -> 12
+-   Analytic Curve Type: Arc
+- Edge 58: Spline | Length: 73.7660 | Connected Faces: 2 | Tag: 64014
+-   Endpoints: (0.9625, 1.5005, -0.4546) -> (1.0281, 0.8491, -0.2758)
+-   Face Tags: 63902, 63904
+-   Face Indices: 7, 36
+-   Topology Vertices: 21 -> 13
+- Edge 59: Elliptical | Length: 0.0314 | Connected Faces: 2 | Tag: 63928
+-   Endpoints: (-0.7008, 1.9724, -0.9237) -> (-0.6811, 1.9921, -0.9383)
+-   Face Tags: 63846, 63896
+-   Face Indices: 23, 19
+-   Topology Vertices: 20 -> 25
+- Edge 60: Circular | Length: 6.3005 | Connected Faces: 2 | Tag: 63976
+-   Endpoints: (0.0000, 0.1339, -1.0028) -> (0.0000, 0.1339, -1.0028)
+-   Curve Props: Arc Length 6.3005 | Radius 1.0028 | Diameter 2.0055 | Min Curvature Radius 1.0028
+-   Curve Points: Start (0.0000, 0.1339, -1.0028) | End (0.0000, 0.1339, -1.0028) | Center (0.0000, 0.1339, 0.0000)
+-   Face Tags: 63870, 63872
+-   Face Indices: 20, 25
+-   Topology Vertices: 3 -> 3
+-   Analytic Curve Type: Arc
+- Edge 61: Circular | Length: 2.1375 | Connected Faces: 2 | Tag: 63944
+-   Endpoints: (0.7008, 1.9724, -0.9237) -> (0.7008, 1.9724, 0.9237)
+-   Curve Props: Arc Length 2.1375 | Radius 1.1594 | Diameter 2.3189 | Min Curvature Radius 1.1594
+-   Curve Points: Start (0.7008, 1.9724, -0.9237) | End (0.7008, 1.9724, 0.9237) | Center (0.0000, 1.9724, 0.0000)
+-   Face Tags: 63846, 63890
+-   Face Indices: 23, 32
+-   Topology Vertices: 1 -> 2
+-   Analytic Curve Type: Arc
+
+### Faces
+- Total Faces: 37
+**Face Type Breakdown:**
+- Conical: 15
+- Cylindrical: 8
+- Parametric: 3
+- Planar: 11
+
+**Per-Face Details:**
+- Face 1: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63852
+-   Measure: Area 0.5089 | Perimeter 13.6053 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, 1.7756, 0.0000) | Anchor (0.0000, 1.7756, 0.0000)
+-   Analytic: Ref Point (0.0000, 1.7756, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 28, 16
+-   Loop Count: 1
+-   Adjacent Faces: 9, 26
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 2: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63878
+-   Measure: Area 2.4342 | Perimeter 9.3184 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, 0.0000, 0.0000) | Anchor (0.0000, 0.0000, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 14, 38
+-   Loop Count: 1
+-   Adjacent Faces: 29, 28
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 3: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63912
+-   Measure: Area 0.0383 | Perimeter 5.5040 | Radius/Diameter N/A | Min Curvature Radius 0.6125
+-   Points: Center (0.6762, 3.1520, 0.4287) | Anchor (0.6762, 3.1520, 0.4287)
+-   Analytic: Ref Point (0.6762, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.4380 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 2, 27
+-   Loop Count: 1
+-   Adjacent Faces: 22, 11
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 4: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63884
+-   Measure: Area 0.1917 | Perimeter 5.7390 | Radius/Diameter N/A | Min Curvature Radius 0.6125
+-   Points: Center (0.0000, 3.7209, 0.0000) | Anchor (0.0000, 3.7209, 0.0000)
+-   Analytic: Ref Point (0.0000, 3.7205, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.4567 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 43, 49
+-   Loop Count: 1
+-   Adjacent Faces: 21, 15
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 5: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63860
+-   Measure: Area 0.0890 | Perimeter 12.7865 | Radius/Diameter N/A | Min Curvature Radius 1.4320
+-   Points: Center (0.0000, 0.3238, 0.0000) | Anchor (0.0000, 0.3238, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.3238, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.0175 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 50, 10
+-   Loop Count: 1
+-   Adjacent Faces: 12, 34
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 6: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63844
+-   Measure: Area 0.1303 | Perimeter 3.1280 | Radius/Diameter N/A | Min Curvature Radius 1.5506
+-   Points: Center (-0.0000, 3.7126, -1.0505) | Anchor (-0.0000, 3.7126, -1.0505)
+-   Analytic: Ref Point (0.0000, 3.7126, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 1.1280 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 31, 32, 3, 47
+-   Loop Count: 1
+-   Adjacent Faces: 23, 15, 22, 37
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 7: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63902
+-   Measure: Area 2.6262 | Perimeter 149.6389 | Radius/Diameter N/A | Min Curvature Radius 2.1159
+-   Points: Center (-0.0046, 1.1748, 0.0171) | Anchor (-0.0046, 1.1748, 0.0171)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 19, 35, 58, 36
+-   Loop Count: 1
+-   Adjacent Faces: 13, 35, 36, 17
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 8: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63874
+-   Measure: Area 0.6070 | Perimeter 12.8484 | Radius/Diameter 1.0224 | Min Curvature Radius 1.0224
+-   Points: Center (0.0000, 0.0669, 0.0000) | Anchor (0.0000, 0.0669, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.0669, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0224 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[0.0669, 0.0669] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 12, 42
+-   Loop Count: 1
+-   Adjacent Faces: 25, 29
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 9: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63850
+-   Measure: Area 0.3987 | Perimeter 14.3227 | Radius/Diameter N/A | Min Curvature Radius 1.5840
+-   Points: Center (0.0000, 1.7954, 0.0000) | Anchor (0.0000, 1.7954, 0.0000)
+-   Analytic: Ref Point (0.0000, 1.7953, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.1398 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 23, 28
+-   Loop Count: 1
+-   Adjacent Faces: 23, 1
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 10: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63868
+-   Measure: Area 0.0761 | Perimeter 10.9313 | Radius/Diameter N/A | Min Curvature Radius 1.2232
+-   Points: Center (0.0000, 0.1388, 0.0000) | Anchor (0.0000, 0.1388, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.1388, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.8699 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 18, 44
+-   Loop Count: 1
+-   Adjacent Faces: 16, 20
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 11: Cylindrical | Edges: 3 | Facets: None | Vertices: 1 | Tag: 63910
+-   Measure: Area 2.6376 | Perimeter 9.1527 | Radius/Diameter 0.4331 | Min Curvature Radius 0.4331
+-   Points: Center (-0.0000, 3.1520, 0.5455) | Anchor (-0.0000, 3.1520, 0.5455)
+-   Analytic: Ref Point (0.0000, 3.1520, 0.4287) | Direction (1.0000, -0.0000, -0.0000) | Radius 0.4331 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[0.0000, 0.0000] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 27, 52, 34
+-   Loop Count: 1
+-   Adjacent Faces: 3, 30, 21
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 12: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63858
+-   Measure: Area 3.0730 | Perimeter 12.8484 | Radius/Diameter 1.0224 | Min Curvature Radius 1.0224
+-   Points: Center (0.0000, 0.5679, 0.0000) | Anchor (0.0000, 0.5679, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.5679, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0224 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[0.5679, 0.5679] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 50, 51
+-   Loop Count: 1
+-   Adjacent Faces: 5, 13
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 13: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63900
+-   Measure: Area 0.5235 | Perimeter 16.3092 | Radius/Diameter N/A | Min Curvature Radius 1.4459
+-   Points: Center (-0.0532, 0.8367, 0.0935) | Anchor (-0.0532, 0.8367, 0.0935)
+-   Analytic: Ref Point (0.0000, 0.8441, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.0594 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 19, 29, 55, 15, 51
+-   Loop Count: 2
+-   Adjacent Faces: 7, 17, 24, 36, 12
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 14: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63842
+-   Measure: Area 0.1303 | Perimeter 3.1280 | Radius/Diameter N/A | Min Curvature Radius 1.5506
+-   Points: Center (0.0000, 3.7126, 1.0505) | Anchor (0.0000, 3.7126, 1.0505)
+-   Analytic: Ref Point (0.0000, 3.7126, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 1.1280 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 57, 9, 24, 13
+-   Loop Count: 1
+-   Adjacent Faces: 23, 15, 22, 37
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 15: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63848
+-   Measure: Area 2.0573 | Perimeter 9.3945 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, 3.7441, 0.0000) | Anchor (0.0000, 3.7441, 0.0000)
+-   Analytic: Ref Point (0.0000, 3.7441, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.8593, 0.8593] | V[-0.6811, 0.6811] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 11, 4, 49, 9, 32
+-   Loop Count: 2
+-   Adjacent Faces: 22, 37, 4, 14, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 16: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63866
+-   Measure: Area 0.8987 | Perimeter 10.8694 | Radius/Diameter 0.8650 | Min Curvature Radius 0.8650
+-   Points: Center (0.0000, 0.2264, 0.0000) | Anchor (0.0000, 0.2264, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.2264, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.8650 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[0.2264, 0.2264] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 5, 18
+-   Loop Count: 1
+-   Adjacent Faces: 33, 10
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 17: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63908
+-   Measure: Area 0.5055 | Perimeter 138.7609 | Radius/Diameter 1.0965 | Min Curvature Radius 1.0965
+-   Points: Center (-0.0051, 1.1748, -0.0025) | Anchor (-0.0051, 1.1748, -0.0025)
+-   Analytic: Ref Point (0.0000, 1.1748, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0965 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.2937, 0.2937] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 48, 36, 29, 40
+-   Loop Count: 1
+-   Adjacent Faces: 24, 7, 13, 35
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 18: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63856
+-   Measure: Area 1.3953 | Perimeter 12.8880 | Radius/Diameter 1.0256 | Min Curvature Radius 1.0256
+-   Points: Center (0.0000, 1.6476, 0.0000) | Anchor (0.0000, 1.6476, 0.0000)
+-   Analytic: Ref Point (0.0000, 1.6476, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0256 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[1.6476, 1.6476] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 7, 45
+-   Loop Count: 1
+-   Adjacent Faces: 26, 35
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 19: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63896
+-   Measure: Area 0.0518 | Perimeter 3.7869 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.6909, 1.9823, -0.0000) | Anchor (-0.6909, 1.9823, -0.0000)
+-   Analytic: Ref Point (-0.6909, 1.9823, 0.0000) | Direction (-0.7071, 0.7071, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.9383, 0.9383] | V[-0.0139, 0.0139] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 59, 21, 30, 54
+-   Loop Count: 1
+-   Adjacent Faces: 23, 31, 37
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 20: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63870
+-   Measure: Area 0.7547 | Perimeter 11.7971 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, 0.1339, -0.0000) | Anchor (0.0000, 0.1339, -0.0000)
+-   Analytic: Ref Point (0.0000, 0.1339, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 44, 60
+-   Loop Count: 1
+-   Adjacent Faces: 10, 25
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 21: Cylindrical | Edges: 3 | Facets: None | Vertices: 1 | Tag: 63882
+-   Measure: Area 8.9155 | Perimeter 9.1527 | Radius/Diameter 0.4331 | Min Curvature Radius 0.4331
+-   Points: Center (-0.0000, 1.7262, -0.0345) | Anchor (-0.0000, 1.7262, -0.0345)
+-   Analytic: Ref Point (0.0000, 1.8720, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.4331 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-1.8720, -1.8720] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 22, 43, 34
+-   Loop Count: 1
+-   Adjacent Faces: 28, 4, 11
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 22: Planar | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63892
+-   Measure: Area 2.6665 | Perimeter 9.9581 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.6811, 2.8009, -0.0991) | Anchor (0.6811, 2.8009, -0.0991)
+-   Analytic: Ref Point (0.6811, 2.8681, -0.0000) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-2.8681, 0.8760] | V[-0.9383, 0.9383] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 2, 39, 11, 24, 17, 3, 56
+-   Loop Count: 2
+-   Adjacent Faces: 3, 27, 15, 14, 23, 6
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 23: Cylindrical | Edges: 13 | Facets: None | Vertices: 13 | Tag: 63846
+-   Measure: Area 6.1239 | Perimeter 21.3537 | Radius/Diameter 1.1594 | Min Curvature Radius 1.1594
+-   Points: Center (0.0000, 2.6518, -0.0000) | Anchor (0.0000, 2.6518, -0.0000)
+-   Analytic: Ref Point (0.0000, 2.7480, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.1594 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[0.0000, 6.2832] | V[-0.9331, 2.7480] [inferred: inferred_from_edges]
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 59, 21, 46, 6, 61, 25, 57, 31, 23, 17, 56, 53, 37
+-   Loop Count: 2
+-   Adjacent Faces: 19, 27, 32, 31, 14, 6, 9, 22, 37
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 24: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63906
+-   Measure: Area 2.6262 | Perimeter 149.6389 | Radius/Diameter N/A | Min Curvature Radius 2.1159
+-   Points: Center (0.0101, 1.1748, -0.0145) | Anchor (0.0101, 1.1748, -0.0145)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 20, 48, 55, 8
+-   Loop Count: 1
+-   Adjacent Faces: 36, 17, 13, 35
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 25: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63872
+-   Measure: Area 0.1771 | Perimeter 12.7247 | Radius/Diameter N/A | Min Curvature Radius 1.4181
+-   Points: Center (0.0000, 0.1240, 0.0000) | Anchor (0.0000, 0.1240, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.1240, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 1.0126 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 60, 12
+-   Loop Count: 1
+-   Adjacent Faces: 20, 8
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 26: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63854
+-   Measure: Area 0.1811 | Perimeter 13.0116 | Radius/Diameter N/A | Min Curvature Radius 1.4504
+-   Points: Center (0.0000, 1.7658, 0.0000) | Anchor (0.0000, 1.7658, 0.0000)
+-   Analytic: Ref Point (0.0000, 1.7657, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.0354 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 16, 7
+-   Loop Count: 1
+-   Adjacent Faces: 1, 18
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 27: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63894
+-   Measure: Area 0.0518 | Perimeter 3.7869 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.6909, 1.9823, 0.0000) | Anchor (0.6909, 1.9823, 0.0000)
+-   Analytic: Ref Point (0.6909, 1.9823, -0.0000) | Direction (0.7071, 0.7071, -0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.9383, 0.9383] | V[-0.0139, 0.0139] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 46, 6, 1, 39
+-   Loop Count: 1
+-   Adjacent Faces: 23, 32, 22
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 28: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63880
+-   Measure: Area 0.1917 | Perimeter 5.7390 | Radius/Diameter N/A | Min Curvature Radius 0.6125
+-   Points: Center (0.0000, 0.0232, 0.0000) | Anchor (0.0000, 0.0232, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.0236, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.4567 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 38, 22
+-   Loop Count: 1
+-   Adjacent Faces: 2, 21
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 29: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63876
+-   Measure: Area 0.1771 | Perimeter 12.7247 | Radius/Diameter N/A | Min Curvature Radius 1.4181
+-   Points: Center (0.0000, 0.0099, 0.0000) | Anchor (0.0000, 0.0099, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.0098, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.0126 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 42, 14
+-   Loop Count: 1
+-   Adjacent Faces: 8, 2
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 30: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63914
+-   Measure: Area 0.0383 | Perimeter 5.5040 | Radius/Diameter N/A | Min Curvature Radius 0.6125
+-   Points: Center (-0.6762, 3.1520, 0.4287) | Anchor (-0.6762, 3.1520, 0.4287)
+-   Analytic: Ref Point (-0.6762, 3.1520, 0.4287) | Direction (1.0000, -0.0000, -0.0000) | Radius 0.4380 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 41, 52
+-   Loop Count: 1
+-   Adjacent Faces: 37, 11
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 31: Planar | Edges: 2 | Facets: None | Vertices: 2 | Tag: 63888
+-   Measure: Area 0.5918 | Perimeter 3.9849 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.8878, 1.9724, 0.0000) | Anchor (-0.8878, 1.9724, 0.0000)
+-   Analytic: Ref Point (-0.9301, 1.9724, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.9237, 0.9237] | V[0.2293, 0.2293] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 30, 25
+-   Loop Count: 1
+-   Adjacent Faces: 19, 23
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 32: Planar | Edges: 2 | Facets: None | Vertices: 2 | Tag: 63890
+-   Measure: Area 0.5918 | Perimeter 3.9849 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.8878, 1.9724, 0.0000) | Anchor (0.8878, 1.9724, 0.0000)
+-   Analytic: Ref Point (0.9301, 1.9724, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.9237, 0.9237] | V[-0.2293, -0.2293] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 1, 61
+-   Loop Count: 1
+-   Adjacent Faces: 27, 23
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 33: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63864
+-   Measure: Area 0.0761 | Perimeter 10.9313 | Radius/Diameter N/A | Min Curvature Radius 1.2232
+-   Points: Center (0.0000, 0.3140, 0.0000) | Anchor (0.0000, 0.3140, 0.0000)
+-   Analytic: Ref Point (0.0000, 0.3140, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.8699 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 33, 5
+-   Loop Count: 1
+-   Adjacent Faces: 34, 16
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 34: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63862
+-   Measure: Area 0.8170 | Perimeter 11.8589 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (0.0000, 0.3189, -0.0000) | Anchor (0.0000, 0.3189, -0.0000)
+-   Analytic: Ref Point (0.0000, 0.3189, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 10, 33
+-   Loop Count: 1
+-   Adjacent Faces: 5, 33
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 35: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63898
+-   Measure: Area 0.4949 | Perimeter 16.3327 | Radius/Diameter N/A | Min Curvature Radius 1.4504
+-   Points: Center (0.0392, 1.5113, -0.1068) | Anchor (0.0392, 1.5113, -0.1068)
+-   Analytic: Ref Point (0.0000, 1.5039, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 1.0610 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
+-   Face Topology: Closed [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 35, 40, 8, 26, 45
+-   Loop Count: 2
+-   Adjacent Faces: 7, 17, 24, 36, 18
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 36: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63904
+-   Measure: Area 1.0886 | Perimeter 150.8762 | Radius/Diameter N/A | Min Curvature Radius 1.0645
+-   Points: Center (0.0023, 1.1748, 0.0011) | Anchor (0.0023, 1.1748, 0.0011)
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 20, 58, 15, 26
+-   Loop Count: 1
+-   Adjacent Faces: 24, 7, 13, 35
+-   Blend Data: Is Blend False | Radius 0.0000
+- Face 37: Planar | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63886
+-   Measure: Area 2.6665 | Perimeter 9.9581 | Radius/Diameter N/A | Min Curvature Radius N/A
+-   Points: Center (-0.6811, 2.8009, -0.0991) | Anchor (-0.6811, 2.8009, -0.0991)
+-   Analytic: Ref Point (-0.6811, 2.8681, 0.0000) | Direction (-1.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
+-   Surface Definition Source: native
+-   UV Bounds: U[-0.9383, 0.9383] | V[-2.8681, 0.8760] [inferred: inferred_from_edges]
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
+-   Face Topology: Open [native]
+-   Local Properties Source: native
+-   Trimmed Surface Source: inferred: inferred_from_loops
+-   Face Edge Indices: 41, 54, 4, 47, 53, 13, 37
+-   Loop Count: 2
+-   Adjacent Faces: 30, 19, 15, 6, 23, 14
+-   Blend Data: Is Blend False | Radius 0.0000
+
+## Runtime Diagnostics Summary
+- Ask2dtrimBsurf: api_unavailable x1 | reason: Ask2dtrimBsurf_missing
+- AskArcData: arc_attrs x1
+- AskArcData: call_succeeded x326
+- AskConicData: call_failed x28 | example error: Input parameter must be the tag of a conic object
+- AskEdgeVerts: call_succeeded x712
+- AskFaceData: call_succeeded x360
+- AskFacePeriodicity: call_succeeded x360
+- AskFaceProps: call_failed x18 | example error: Modeler error. Initiating error recovery.
+- AskFaceProps: call_succeeded x354
+- AskFaceProps: using_default_uv x1
+- AskFaceTopology: call_succeeded x360
+- AskFaceUvMinmax: call_succeeded x360
+- AskFaceUvMinmax: unparsed_result x1
+- AskLineData: call_succeeded x193
+- AskLineData: line_attrs x1
+- AskMatrixValues: call_succeeded x326
+- GetArcAndCurveProperties: call_failed x193 | example error: Error number: 1
+- GetArcAndCurveProperties: call_succeeded x326
+- GetBoundingBoxProperties: call_succeeded x13
+- GetFaceProperties: call_succeeded x360

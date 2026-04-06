@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/nx_brep_export_v1.schema.json",
+  "title": "NX BREP Export v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "generator",
+    "part",
+    "bodies"
+  ],
+  "properties": {
+    "schema": {
+      "const": "nx_brep_export/v1"
+    },
+    "generator": {
+      "type": "object",
+      "required": [
+        "name",
+        "language",
+        "version"
+      ],
+      "properties": {
+        "name": { "type": "string" },
+        "language": { "type": "string" },
+        "version": { "type": "string" },
+        "nx_version": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "export_metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "part": {
+      "type": "object",
+      "required": [
+        "name",
+        "units"
+      ],
+      "properties": {
+        "name": { "type": "string" },
+        "full_path": { "type": ["string", "null"] },
+        "leaf": { "type": ["string", "null"] },
+        "units": { "type": "string" },
+        "tag": { "type": ["integer", "null"] },
+        "read_only": { "type": ["boolean", "null"] },
+        "fully_loaded": { "type": ["boolean", "null"] },
+        "has_write_access": { "type": ["boolean", "null"] },
+        "unique_identifier": { "type": ["string", "null"] },
+        "attributes": {
+          "type": "array",
+          "items": { "type": "object" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "body_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "inter_body_distances": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "bodies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "index",
+          "metadata",
+          "edges",
+          "faces"
+        ],
+        "properties": {
+          "index": { "type": "integer", "minimum": 1 },
+          "metadata": { "type": "object" },
+          "measurement": { "type": ["object", "null"] },
+          "bounding_box": { "type": ["object", "array", "null"] },
+          "attributes": {
+            "type": "array",
+            "items": { "type": "object" }
+          },
+          "topology": {
+            "type": "object",
+            "properties": {
+              "vertex_count": { "type": ["integer", "null"] },
+              "vertices": {
+                "type": "array",
+                "items": { "type": "object" }
+              }
+            },
+            "additionalProperties": true
+          },
+          "features": {
+            "type": "array",
+            "items": { "type": "object" }
+          },
+          "edge_type_breakdown": { "type": "object" },
+          "edges": {
+            "type": "array",
+            "items": { "type": "object" }
+          },
+          "face_type_breakdown": { "type": "object" },
+          "faces": {
+            "type": "array",
+            "items": { "type": "object" }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

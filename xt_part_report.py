@@ -1117,6 +1117,204 @@ def _edge_polyline_from_payload(
     return None
 
 
+def _point_distance_sq(a: list[float], b: list[float]) -> float:
+    return sum((float(a[index]) - float(b[index])) ** 2 for index in range(3))
+
+
+def _closed_ring_from_polyline(polyline: list[list[float]] | None) -> list[list[float]] | None:
+    if not polyline or len(polyline) < 3:
+        return None
+
+    ring = [_round_triplet(point) for point in polyline]
+    if _point_distance_sq(ring[0], ring[-1]) <= 1e-12:
+        ring = ring[:-1]
+    if len(ring) < 3:
+        return None
+    return ring
+
+
+def _polyline_length(points: list[list[float]]) -> float:
+    if len(points) < 2:
+        return 0.0
+    return sum(math.sqrt(_point_distance_sq(points[index], points[(index + 1) % len(points)])) for index in range(len(points)))
+
+
+def _vector_from_payload(payload: dict[str, Any] | list[float] | None) -> list[float] | None:
+    if isinstance(payload, dict) and {"x", "y", "z"} <= payload.keys():
+        return [float(payload["x"]), float(payload["y"]), float(payload["z"])]
+    if isinstance(payload, list) and len(payload) >= 3:
+        return [float(payload[0]), float(payload[1]), float(payload[2])]
+    return None
+
+
+def _face_normal_from_vertices(vertices: list[list[float]]) -> list[float] | None:
+    if len(vertices) < 3:
+        return None
+
+    anchor = vertices[0]
+    for index in range(1, len(vertices) - 1):
+        u = [vertices[index][axis] - anchor[axis] for axis in range(3)]
+        v = [vertices[index + 1][axis] - anchor[axis] for axis in range(3)]
+        normal = [
+            u[1] * v[2] - u[2] * v[1],
+            u[2] * v[0] - u[0] * v[2],
+            u[0] * v[1] - u[1] * v[0],
+        ]
+        magnitude = math.sqrt(sum(component * component for component in normal))
+        if magnitude > 1e-9:
+            return [component / magnitude for component in normal]
+    return None
+
+
+def _shift_ring(ring: list[list[float]], offset: int) -> list[list[float]]:
+    if not ring:
+        return []
+    offset %= len(ring)
+    return ring[offset:] + ring[:offset]
+
+
+def _resample_ring(ring: list[list[float]], count: int) -> list[list[float]]:
+    if not ring:
+        return []
+    if len(ring) == count:
+        return [_round_triplet(point) for point in ring]
+    return [_round_triplet(ring[int(index * len(ring) / count) % len(ring)]) for index in range(count)]
+
+
+def _align_ring_pair(reference_ring: list[list[float]], target_ring: list[list[float]]) -> tuple[list[list[float]], list[list[float]]]:
+    sample_count = max(12, min(72, max(len(reference_ring), len(target_ring))))
+    reference = _resample_ring(reference_ring, sample_count)
+    target_base = _resample_ring(target_ring, sample_count)
+
+    def score(candidate: list[list[float]]) -> float:
+        return sum(_point_distance_sq(reference[index], candidate[index]) for index in range(sample_count))
+
+    best = target_base
+    best_score = float("inf")
+    for candidate_base in (target_base, list(reversed(target_base))):
+        for offset in range(sample_count):
+            candidate = _shift_ring(candidate_base, offset)
+            candidate_score = score(candidate)
+            if candidate_score < best_score:
+                best = candidate
+                best_score = candidate_score
+
+    return reference, best
+
+
+def _stitch_loop_polyline(loop_payload: dict[str, Any], edge_polyline_lookup: dict[int, list[list[float]]]) -> list[list[float]] | None:
+    stitched: list[list[float]] = []
+
+    for coedge in loop_payload.get("coedges", []):
+        edge_index = coedge.get("edge_index")
+        if edge_index is None:
+            continue
+        polyline = edge_polyline_lookup.get(int(edge_index))
+        if not polyline or len(polyline) < 2:
+            continue
+
+        segment = polyline if coedge.get("sense") != "backward" else list(reversed(polyline))
+        if not stitched:
+            stitched = [_round_triplet(point) for point in segment]
+            continue
+
+        if _point_distance_sq(stitched[-1], segment[0]) <= 1e-12:
+            stitched.extend(_round_triplet(point) for point in segment[1:])
+        elif _point_distance_sq(stitched[-1], segment[-1]) <= 1e-12:
+            reversed_segment = list(reversed(segment))
+            stitched.extend(_round_triplet(point) for point in reversed_segment[1:])
+        else:
+            stitched.extend(_round_triplet(point) for point in segment)
+
+    return _closed_ring_from_polyline(stitched)
+
+
+def _face_meshes_from_payload(
+    face_payload: dict[str, Any],
+    edge_polyline_lookup: dict[int, list[list[float]]],
+) -> list[dict[str, Any]]:
+    rings: list[list[list[float]]] = []
+
+    for loop_payload in face_payload.get("loops", []):
+        has_closed_coedge = False
+        for coedge in loop_payload.get("coedges", []):
+            edge_index = coedge.get("edge_index")
+            if edge_index is None:
+                continue
+            polyline = edge_polyline_lookup.get(int(edge_index))
+            if not polyline:
+                continue
+            oriented = polyline if coedge.get("sense") != "backward" else list(reversed(polyline))
+            ring = _closed_ring_from_polyline(oriented)
+            if ring:
+                rings.append(ring)
+                has_closed_coedge = True
+        if not has_closed_coedge:
+            stitched = _stitch_loop_polyline(loop_payload, edge_polyline_lookup)
+            if stitched:
+                rings.append(stitched)
+
+    if not rings:
+        return []
+
+    face_type = str(face_payload.get("type") or "Unknown")
+    analytic_data = face_payload.get("analytic_data") or {}
+    face_normal = _vector_from_payload(analytic_data.get("direction"))
+    axis = _dominant_axis_label(face_normal)
+    meshes: list[dict[str, Any]] = []
+
+    if face_type == "Planar":
+        if len(rings) == 1:
+            ring = rings[0]
+            meshes.append(
+                {
+                    "name": f"Face {face_payload.get('index', '?')}",
+                    "surface": {"kind": "plane"},
+                    "vertices": ring,
+                    "normal": face_normal or _face_normal_from_vertices(ring),
+                    "metadata": {"kind": "planar_loop", "axis": axis},
+                }
+            )
+            return meshes
+
+        ordered_rings = sorted(rings, key=_polyline_length, reverse=True)
+        outer, inner = _align_ring_pair(ordered_rings[0], ordered_rings[1])
+        patch_normal = face_normal or _face_normal_from_vertices(outer)
+        for index in range(len(outer)):
+            next_index = (index + 1) % len(outer)
+            quad = [outer[index], outer[next_index], inner[next_index], inner[index]]
+            meshes.append(
+                {
+                    "name": f"Face {face_payload.get('index', '?')} patch {index + 1}",
+                    "surface": {"kind": "plane"},
+                    "vertices": quad,
+                    "normal": patch_normal,
+                    "metadata": {"kind": "planar_ring_patch", "axis": axis},
+                }
+            )
+        return meshes
+
+    if face_type in {"Cylindrical", "Conical", "SurfaceOfRevolution"} and len(rings) >= 2:
+        ordered_rings = sorted(rings, key=_polyline_length, reverse=True)
+        outer, inner = _align_ring_pair(ordered_rings[0], ordered_rings[1])
+        surface_kind = face_type.lower()
+        for index in range(len(outer)):
+            next_index = (index + 1) % len(outer)
+            quad = [outer[index], outer[next_index], inner[next_index], inner[index]]
+            meshes.append(
+                {
+                    "name": f"Face {face_payload.get('index', '?')} patch {index + 1}",
+                    "surface": {"kind": surface_kind},
+                    "vertices": quad,
+                    "normal": _face_normal_from_vertices(quad),
+                    "metadata": {"kind": "revolved_patch", "axis": axis},
+                }
+            )
+        return meshes
+
+    return meshes
+
+
 def _build_nx_wireframe_body(
     body_payload: dict[str, Any],
     *,
@@ -1126,17 +1324,20 @@ def _build_nx_wireframe_body(
     vertex_lookup = _scaled_topology_vertex_lookup(body_payload, scale)
     topology_vertices = [_round_triplet(point) for point in vertex_lookup.values()]
     edge_polylines: list[dict[str, Any]] = []
+    edge_polyline_lookup: dict[int, list[list[float]]] = {}
     polyline_points: list[list[float]] = []
 
     for edge_index, edge_payload in enumerate(body_payload.get("edges", []), start=1):
         polyline = _edge_polyline_from_payload(edge_payload, scale, vertex_lookup)
         if not polyline or len(polyline) < 2:
             continue
+        edge_identifier = int(edge_payload.get("index", edge_index))
+        edge_polyline_lookup[edge_identifier] = polyline
         edge_kind = str(((edge_payload.get("exact_geometry") or {}).get("analytic_curve") or {}).get("type") or edge_payload.get("type") or "edge").lower()
         edge_polylines.append(
             {
                 "kind": edge_kind,
-                "name": f"Edge {edge_payload.get('index', edge_index)}",
+                "name": f"Edge {edge_identifier}",
                 "points": polyline,
             }
         )
@@ -1150,19 +1351,28 @@ def _build_nx_wireframe_body(
     if not bounds:
         return None
 
-    label = "Topology wireframe preview reconstructed from NX edge and vertex data."
+    preview_faces: list[dict[str, Any]] = []
+    for face_payload in body_payload.get("faces", []):
+        preview_faces.extend(_face_meshes_from_payload(face_payload, edge_polyline_lookup))
+
+    label = (
+        "Surface-enhanced topology preview reconstructed from NX face loops, edge curves, and vertices."
+        if preview_faces
+        else "Topology wireframe preview reconstructed from NX edge and vertex data."
+    )
     kernel_body = {
         "kind": "wireframe",
         "name": body_payload.get("metadata", {}).get("name") or f"Body {body_index}",
-        "faces": [],
+        "faces": preview_faces,
         "edges": edge_polylines,
         "vertices": topology_vertices,
         "metadata": {
             "primitive": "wireframe",
-            "source": "nx_topology_wireframe",
+            "source": "nx_surface_topology_preview" if preview_faces else "nx_topology_wireframe",
             "nx_body_index": body_index,
             "edge_count": len(edge_polylines),
             "vertex_count": len(topology_vertices),
+            "face_patch_count": len(preview_faces),
         },
     }
     return kernel_body, bounds, preview_points, label
@@ -1721,6 +1931,76 @@ def convert_nx_json_report(
     )
 
 
+def _legacy_structured_payload_from_cpp_export(payload: dict[str, Any]) -> dict[str, Any]:
+    part = payload.get("part") or {}
+    part_summary = {
+        "part_name": part.get("name") or part.get("part_name"),
+        "full_path": part.get("full_path"),
+        "leaf": part.get("leaf"),
+        "units": part.get("units"),
+        "tag": part.get("tag"),
+        "read_only": part.get("read_only"),
+        "fully_loaded": part.get("fully_loaded"),
+        "has_write_access": part.get("has_write_access"),
+        "unique_identifier": part.get("unique_identifier"),
+    }
+
+    body_payloads = []
+    for fallback_index, body in enumerate(payload.get("bodies", []), start=1):
+        body_payloads.append(
+            {
+                "index": body.get("index", fallback_index),
+                "metadata": body.get("metadata") or {},
+                "measurement": body.get("measurement"),
+                "bounding_box": body.get("bounding_box"),
+                "attributes": body.get("attributes") or [],
+                "topology": body.get("topology") or {},
+                "features": body.get("features") or [],
+                "edge_type_breakdown": body.get("edge_type_breakdown") or {},
+                "edges": body.get("edges") or [],
+                "face_type_breakdown": body.get("face_type_breakdown") or {},
+                "faces": body.get("faces") or [],
+            }
+        )
+
+    legacy_payload = {
+        "export_metadata": payload.get("export_metadata") or {},
+        "part_summary": part_summary,
+        "part_attributes": part.get("attributes") or payload.get("part_attributes") or [],
+        "body_count": int(payload.get("body_count") or len(body_payloads)),
+        "inter_body_distances": payload.get("inter_body_distances") or [],
+        "bodies": body_payloads,
+    }
+    return legacy_payload
+
+
+def convert_nx_cpp_export_report(
+    payload: dict[str, Any],
+    *,
+    display_name: str,
+    source_path: str | None,
+    file_size_bytes: int | None,
+    raw_text: str,
+) -> dict[str, Any]:
+    legacy_payload = _legacy_structured_payload_from_cpp_export(payload)
+    report = _convert_structured_body_report(
+        legacy_payload,
+        display_name=display_name,
+        source_path=source_path,
+        file_size_bytes=file_size_bytes,
+        raw_text=raw_text,
+        source_format="nx_brep_export_cpp_json",
+        application_label="Siemens NX C++ BREP Export",
+        schema_label="NX-BREP-EXPORT-v1",
+    )
+    report["nx_cpp_export"] = {
+        "schema": payload.get("schema"),
+        "generator": payload.get("generator") or {},
+        "export_metadata": payload.get("export_metadata") or {},
+    }
+    return report
+
+
 def parse_scalar_value(raw_value: str) -> Any:
     value = raw_value.strip()
     if value in {"None", "null", ""}:
@@ -2118,6 +2398,17 @@ def parse_imported_json_text(
         if "part_summary" in item and "bodies" in item:
             return [
                 convert_nx_json_report(
+                    item,
+                    display_name=fallback_name,
+                    source_path=source_path,
+                    file_size_bytes=file_size_bytes,
+                    raw_text=raw_text,
+                )
+            ]
+
+        if item.get("schema") == "nx_brep_export/v1" and "part" in item and "bodies" in item:
+            return [
+                convert_nx_cpp_export_report(
                     item,
                     display_name=fallback_name,
                     source_path=source_path,

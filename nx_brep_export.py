@@ -2515,7 +2515,7 @@ def analyze_part_to_md(output_path="report.md"):
     session = NXOpen.Session.GetSession()
     uf_session = NXOpen.UF.UFSession.GetUFSession()
     work_part = session.Parts.Work
-    output_dir = r"\\tsclient\Drives\sheehanmunim\NX test scripts"
+    output_dir = os.path.dirname(os.path.abspath(__file__))
     output_path = os.path.join(output_dir, output_path)
     json_output_path = os.path.splitext(output_path)[0] + ".json"
 
@@ -2828,11 +2828,11 @@ def analyze_part_to_md(output_path="report.md"):
                 )
             if face["analytic_data"] is not None:
                 analytic = face["analytic_data"]
-                reference_point = analytic.get("reference_point") or {}
-                direction = analytic.get("direction") or {}
+                reference_point = analytic.get("reference_point")
+                direction = analytic.get("direction")
                 md_lines.append(
-                    f"-   Analytic: Ref Point ({format_float(reference_point.get('x'))}, {format_float(reference_point.get('y'))}, {format_float(reference_point.get('z'))}) | "
-                    f"Direction ({format_float(direction.get('x'))}, {format_float(direction.get('y'))}, {format_float(direction.get('z'))}) | "
+                    f"-   Analytic: Ref Point {format_point(reference_point)} | "
+                    f"Direction {format_point(direction)} | "
                     f"Radius {format_float(analytic.get('radius'))}{source_suffix(analytic.get('source'))}"
                 )
             if face.get("surface_definition") is not None:
