@@ -1137,8 +1137,12 @@ def get_edge_vertices_uf(uf_session, edge_tag):
 
 
 def get_curve_sample_points_uf(uf_session, curve_tag):
-    modl, ask_curve_points = resolve_modeling_method(uf_session, "AskCurvePoints")
-    if modl is None or ask_curve_points is None or curve_tag is None:
+    curve_api = getattr(uf_session, "Curve", None)
+    ask_curve_points = resolve_member_relaxed(curve_api, "AskCurvePoints") if curve_api is not None else None
+    if ask_curve_points is None:
+        add_diagnostic_once("AskCurvePoints", "api_unavailable")
+        return None
+    if curve_tag is None:
         return None
 
     result = call_with_diagnostics(
@@ -1368,54 +1372,189 @@ def parse_trimmed_bsurface_result(result):
     }
 
 
-def get_face_trimmed_bsurface(uf_session, face_tag, edge_count_hint):
-    modl, ask_trimmed_bsurface = resolve_modeling_method(uf_session, "Ask2dtrimBsurf", "Ask2dTrimBsurf")
-    if modl is None or ask_trimmed_bsurface is None:
-        add_missing_modeling_method_diagnostic("Ask2dtrimBsurf", uf_session, "Ask2dtrimBsurf_missing", "trim", "bsurf")
+def get_face_bsurface(uf_session, face_tag):
+    modl, ask_bsurf = resolve_modeling_method(uf_session, "AskBsurf")
+    if modl is None or ask_bsurf is None:
+        add_missing_modeling_method_diagnostic("AskBsurf", uf_session, "AskBsurf_missing", "bsurf")
         return None
-
-    options = [0]
-    result = call_with_diagnostics("Ask2dtrimBsurf", ask_trimmed_bsurface, (face_tag, options, 0.0), (face_tag, 0, 0.0))
-    parsed = parse_trimmed_bsurface_result(result)
-    if parsed is not None:
-        return parsed
 
     bsurface = instantiate_uf_class("UFModl.Bsurface", "UFModl.UFModlBsurface", "UFModlBsurface")
     if bsurface is None:
         return None
 
-    edge_sense = [0] * max(edge_count_hint, 1)
-    edge_bcurves = [0] * max(edge_count_hint, 1)
-    loop_count = [0]
-    edge_count = [0] * max(edge_count_hint, 1)
-    attempts = [
-        lambda: ask_trimmed_bsurface(face_tag, options, 0.0, bsurface, loop_count, edge_count, edge_sense, edge_bcurves),
-        lambda: ask_trimmed_bsurface(face_tag, 0, 0.0, bsurface, loop_count, edge_count, edge_sense, edge_bcurves),
-    ]
+    result = call_with_diagnostics("AskBsurf", ask_bsurf, (face_tag,), (face_tag, bsurface))
+    parsed = parse_trimmed_bsurface_result(result)
+    if parsed is not None and parsed.get("surface"):
+        parsed["source"] = "AskBsurf"
+        return parsed["surface"]
 
-    for attempt in attempts:
+    try:
+        ask_bsurf(face_tag, bsurface)
+        return {
+            "type": clean_text(getattr(bsurface, "type", None), None),
+            "num_poles_u": getattr(bsurface, "num_poles_u", None),
+            "num_poles_v": getattr(bsurface, "num_poles_v", None),
+            "order_u": getattr(bsurface, "order_u", None),
+            "order_v": getattr(bsurface, "order_v", None),
+            "is_rational": getattr(bsurface, "is_rational", None),
+            "raw_struct": serialize_public_object(bsurface, depth=2),
+            "source": "AskBsurf",
+        }
+    except Exception:
+        return None
+
+
+def _vector_from_flat(values, offset):
+    if values is None or len(values) < offset + 3:
+        return None
+    return {"x": values[offset], "y": values[offset + 1], "z": values[offset + 2]}
+
+
+def get_face_facet_mesh(uf_session, face_tag, facet_count_hint):
+    facet_api = getattr(uf_session, "Facet", None)
+    if facet_api is None or face_tag is None:
+        add_diagnostic_once("TessellateFace", "api_unavailable", reason="uf_facet_api_missing")
+        return None
+
+    tessellation_params = instantiate_uf_class(
+        "UFFacet.TessellationParameters",
+        "UFFacet.UFFacetTessellationParameters",
+        "UFFacetTessellationParameters",
+    )
+    if tessellation_params is None:
+        add_diagnostic_once("TessellateFace", "params_unavailable")
+        return None
+
+    for name, value in (
+        ("specify_surface_dist_tolerance", True),
+        ("surface_dist_tolerance", 0.001),
+        ("specify_surface_angular_tolerance", True),
+        ("surface_angular_tolerance", 15.0),
+        ("specify_curve_dist_tolerance", True),
+        ("curve_dist_tolerance", 0.001),
+        ("specify_curve_angular_tolerance", True),
+        ("curve_angular_tolerance", 15.0),
+        ("specify_max_facet_size", False),
+        ("max_facet_size", 0.0),
+    ):
         try:
-            attempt()
-            total_edges = sum(value for value in edge_count if is_number(value))
-            return {
-                "surface": {
-                    "type": clean_text(getattr(bsurface, "type", None), None),
-                    "num_poles_u": getattr(bsurface, "num_poles_u", None),
-                    "num_poles_v": getattr(bsurface, "num_poles_v", None),
-                    "order_u": getattr(bsurface, "order_u", None),
-                    "order_v": getattr(bsurface, "order_v", None),
-                    "is_rational": getattr(bsurface, "is_rational", None),
-                    "raw_struct": serialize_public_object(bsurface, depth=2),
-                },
-                "loop_count": loop_count[0] if isinstance(loop_count, list) else loop_count,
-                "edge_count": total_edges if total_edges else edge_count_hint,
-                "edges_per_loop": [value for value in edge_count if is_number(value)],
-                "edge_sense": edge_sense,
-                "edge_bcurve_tags": edge_bcurves,
-                "source": "Ask2dtrimBsurf",
-            }
+            setattr(tessellation_params, name, value)
         except Exception:
-            continue
+            pass
+
+    tessellation = [0]
+    try:
+        facet_api.TessellateFace(face_tag, tessellation_params, tessellation)
+    except Exception as ex:
+        add_diagnostic_once("TessellateFace", "call_failed", error=str(ex))
+        return None
+
+    tessellation_id = tessellation[0] if isinstance(tessellation, list) else tessellation
+    if not tessellation_id:
+        return None
+
+    count = [0]
+    try:
+        facet_api.AskNumFacetsInTessellation(tessellation_id, count)
+    except Exception as ex:
+        add_diagnostic_once("AskNumFacetsInTessellation", "call_failed", error=str(ex))
+        safe_call(facet_api.DeleteTessellation, tessellation_id)
+        return None
+
+    facet_total = count[0] if isinstance(count, list) else count
+    if not facet_total:
+        safe_call(facet_api.DeleteTessellation, tessellation_id)
+        return None
+
+    triangles = []
+    max_facets = facet_count_hint or facet_total
+    max_facets = min(max(int(max_facets), int(facet_total)), 4000)
+
+    try:
+        for facet_id in range(1, max_facets + 1):
+            vertices = [0.0] * 9
+            normals = [0.0] * 9
+            try:
+                facet_api.AskFacetDataOfTessellation(tessellation_id, facet_id, vertices, normals)
+            except Exception:
+                continue
+            triangle = [_vector_from_flat(vertices, 0), _vector_from_flat(vertices, 3), _vector_from_flat(vertices, 6)]
+            if any(point is None for point in triangle):
+                continue
+            normal = _vector_from_flat(normals, 0)
+            triangles.append(
+                {
+                    "vertices": triangle,
+                    "normal": normal,
+                }
+            )
+    finally:
+        safe_call(facet_api.DeleteTessellation, tessellation_id)
+
+    if not triangles:
+        return None
+    return {
+        "triangle_count": len(triangles),
+        "triangles": triangles,
+        "source": "TessellateFace",
+    }
+
+
+def get_face_trimmed_bsurface(uf_session, face_tag, edge_count_hint):
+    modl, ask_trimmed_bsurface = resolve_modeling_method(uf_session, "Ask2dtrimBsurf", "Ask2dTrimBsurf")
+    if modl is None or ask_trimmed_bsurface is None:
+        add_missing_modeling_method_diagnostic("Ask2dtrimBsurf", uf_session, "Ask2dtrimBsurf_missing", "trim", "bsurf")
+    else:
+        options = [0]
+        result = call_with_diagnostics("Ask2dtrimBsurf", ask_trimmed_bsurface, (face_tag, options, 0.0), (face_tag, 0, 0.0))
+        parsed = parse_trimmed_bsurface_result(result)
+        if parsed is not None:
+            return parsed
+
+        bsurface = instantiate_uf_class("UFModl.Bsurface", "UFModl.UFModlBsurface", "UFModlBsurface")
+        if bsurface is not None:
+            edge_sense = [0] * max(edge_count_hint, 1)
+            edge_bcurves = [0] * max(edge_count_hint, 1)
+            loop_count = [0]
+            edge_count = [0] * max(edge_count_hint, 1)
+            attempts = [
+                lambda: ask_trimmed_bsurface(face_tag, options, 0.0, bsurface, loop_count, edge_count, edge_sense, edge_bcurves),
+                lambda: ask_trimmed_bsurface(face_tag, 0, 0.0, bsurface, loop_count, edge_count, edge_sense, edge_bcurves),
+            ]
+
+            for attempt in attempts:
+                try:
+                    attempt()
+                    total_edges = sum(value for value in edge_count if is_number(value))
+                    return {
+                        "surface": {
+                            "type": clean_text(getattr(bsurface, "type", None), None),
+                            "num_poles_u": getattr(bsurface, "num_poles_u", None),
+                            "num_poles_v": getattr(bsurface, "num_poles_v", None),
+                            "order_u": getattr(bsurface, "order_u", None),
+                            "order_v": getattr(bsurface, "order_v", None),
+                            "is_rational": getattr(bsurface, "is_rational", None),
+                            "raw_struct": serialize_public_object(bsurface, depth=2),
+                        },
+                        "loop_count": loop_count[0] if isinstance(loop_count, list) else loop_count,
+                        "edge_count": total_edges if total_edges else edge_count_hint,
+                        "edges_per_loop": [value for value in edge_count if is_number(value)],
+                        "edge_sense": edge_sense,
+                        "edge_bcurve_tags": edge_bcurves,
+                        "source": "Ask2dtrimBsurf",
+                    }
+                except Exception:
+                    continue
+    bsurface = get_face_bsurface(uf_session, face_tag)
+    if bsurface is not None:
+        return {
+            "surface": bsurface,
+            "loop_count": None,
+            "edge_count": edge_count_hint,
+            "edge_sense": None,
+            "edge_bcurve_tags": None,
+            "source": "AskBsurf",
+        }
     return None
 
 
@@ -2714,12 +2853,16 @@ def summarize_faces(session, uf_session, body):
 
         face_measurement = get_face_measurement(session, face)
         face_tag = get_nx_tag(face)
+        facet_count = safe_call(face.GetNumberOfFacets)
         analytic_data = get_face_analytic_data(uf_session, face)
         uv_bounds = get_face_uv_bounds(uf_session, face_tag)
         periodicity = get_face_periodicity(uf_session, face_tag)
         topology = get_face_topology(uf_session, face_tag)
         local_properties = get_face_local_properties(uf_session, face_tag, uv_bounds)
         trimmed_bsurface = get_face_trimmed_bsurface(uf_session, face_tag, len(edges))
+        facet_mesh = None
+        if facet_count and facet_count > 0:
+            facet_mesh = get_face_facet_mesh(uf_session, face_tag, facet_count)
         blend_radius = None
         is_blend = None
         if hasattr(face, "GetBlendData"):
@@ -2732,7 +2875,7 @@ def summarize_faces(session, uf_session, body):
                 "index": face_index,
                 "type": face_type_name,
                 "edge_count": len(edges),
-                "facet_count": safe_call(face.GetNumberOfFacets),
+                "facet_count": facet_count,
                 "vertex_count": safe_call(face.GetNumberOfVertices),
                 "tag": face_tag,
                 "attributes": get_user_attributes(face),
@@ -2748,6 +2891,7 @@ def summarize_faces(session, uf_session, body):
                 "topology": topology,
                 "local_properties": local_properties,
                 "trimmed_bsurface": trimmed_bsurface,
+                "facet_mesh": facet_mesh,
                 "edge_tags": [get_nx_tag(edge) for edge in edges],
                 "blend_radius": blend_radius,
                 "is_blend_face": is_blend,
@@ -3116,6 +3260,7 @@ def analyze_part_to_md(output_path="report.md"):
                     "topology": face["topology"],
                     "local_properties": serialize_face_local_properties(face["local_properties"]),
                     "trimmed_bsurface": face["trimmed_bsurface"],
+                    "facet_mesh": face.get("facet_mesh"),
                     "edge_indices": face["edge_indices"],
                     "loops": face["loops"],
                     "adjacent_face_indices": face["adjacent_face_indices"],
@@ -3178,6 +3323,10 @@ def analyze_part_to_md(output_path="report.md"):
             if face.get("trimmed_bsurface") is not None:
                 md_lines.append(
                     f"-   Trimmed Surface Source: {format_source_label(face['trimmed_bsurface'].get('source'))}"
+                )
+            if face.get("facet_mesh") is not None:
+                md_lines.append(
+                    f"-   Facet Mesh: {face['facet_mesh'].get('triangle_count')} triangle(s) [{format_source_label(face['facet_mesh'].get('source'))}]"
                 )
             if face.get("edge_indices"):
                 md_lines.append(f"-   Face Edge Indices: {', '.join(str(index) for index in face['edge_indices'])}")

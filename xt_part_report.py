@@ -1283,37 +1283,50 @@ def _stitch_loop_polyline(loop_payload: dict[str, Any], edge_polyline_lookup: di
     return _closed_ring_from_polyline(stitched)
 
 
+def _facet_meshes_from_payload(
+    face_payload: dict[str, Any],
+    surface_payload: dict[str, Any],
+    base_metadata: dict[str, Any],
+    *,
+    scale: float,
+) -> list[dict[str, Any]]:
+    facet_mesh = face_payload.get("facet_mesh") or {}
+    triangles = facet_mesh.get("triangles") or []
+    meshes: list[dict[str, Any]] = []
+    face_index = face_payload.get("index", "?")
+    for triangle_index, triangle in enumerate(triangles, start=1):
+        vertices = []
+        for point_payload in triangle.get("vertices") or []:
+            point = _point_from_mapping(point_payload, scale)
+            if point is not None:
+                vertices.append(_round_triplet(point))
+        if len(vertices) != 3:
+            continue
+        normal = _vector_from_payload(triangle.get("normal"))
+        meshes.append(
+            {
+                "name": f"Face {face_index} facet {triangle_index}",
+                "surface": surface_payload,
+                "vertices": vertices,
+                "normal": _normalize_vector(normal) or _face_normal_from_vertices(vertices),
+                "loops": [],
+                "metadata": {
+                    **base_metadata,
+                    "kind": "facet_triangle",
+                    "triangle_index": triangle_index,
+                    "facet_mesh_source": facet_mesh.get("source"),
+                },
+            }
+        )
+    return meshes
+
+
 def _face_meshes_from_payload(
     face_payload: dict[str, Any],
     edge_polyline_lookup: dict[int, list[list[float]]],
     *,
     scale: float,
 ) -> list[dict[str, Any]]:
-    loop_rings: list[tuple[dict[str, Any], list[list[float]]]] = []
-
-    for loop_payload in face_payload.get("loops", []):
-        has_closed_coedge = False
-        for coedge in loop_payload.get("coedges", []):
-            edge_index = coedge.get("edge_index")
-            if edge_index is None:
-                continue
-            polyline = edge_polyline_lookup.get(int(edge_index))
-            if not polyline:
-                continue
-            oriented = polyline if coedge.get("sense") != "backward" else list(reversed(polyline))
-            ring = _closed_ring_from_polyline(oriented)
-            if ring:
-                loop_rings.append((loop_payload, ring))
-                has_closed_coedge = True
-        if not has_closed_coedge:
-            stitched = _stitch_loop_polyline(loop_payload, edge_polyline_lookup)
-            if stitched:
-                loop_rings.append((loop_payload, stitched))
-
-    if not loop_rings:
-        return []
-
-    rings = [ring for _, ring in loop_rings]
     face_index = face_payload.get("index", "?")
     surface_payload = _surface_payload_from_face(face_payload, scale)
     analytic_data = face_payload.get("analytic_data") or {}
@@ -1336,9 +1349,39 @@ def _face_meshes_from_payload(
         "periodicity": face_payload.get("periodicity"),
         "topology": face_payload.get("topology"),
         "trimmed_bsurface": face_payload.get("trimmed_bsurface"),
+        "facet_mesh": face_payload.get("facet_mesh"),
         "adjacent_face_indices": face_payload.get("adjacent_face_indices", []),
-        "loop_count": len(loop_rings),
+        "loop_count": 0,
     }
+    facet_meshes = _facet_meshes_from_payload(face_payload, surface_payload, base_metadata, scale=scale)
+    if facet_meshes and surface_payload["kind"] in {"parametric", "blend", "surface_of_revolution", "sphere", "cone"}:
+        return facet_meshes
+
+    loop_rings: list[tuple[dict[str, Any], list[list[float]]]] = []
+    for loop_payload in face_payload.get("loops", []):
+        has_closed_coedge = False
+        for coedge in loop_payload.get("coedges", []):
+            edge_index = coedge.get("edge_index")
+            if edge_index is None:
+                continue
+            polyline = edge_polyline_lookup.get(int(edge_index))
+            if not polyline:
+                continue
+            oriented = polyline if coedge.get("sense") != "backward" else list(reversed(polyline))
+            ring = _closed_ring_from_polyline(oriented)
+            if ring:
+                loop_rings.append((loop_payload, ring))
+                has_closed_coedge = True
+        if not has_closed_coedge:
+            stitched = _stitch_loop_polyline(loop_payload, edge_polyline_lookup)
+            if stitched:
+                loop_rings.append((loop_payload, stitched))
+
+    if not loop_rings:
+        return facet_meshes
+
+    rings = [ring for _, ring in loop_rings]
+    base_metadata["loop_count"] = len(loop_rings)
     meshes: list[dict[str, Any]] = []
 
     if surface_payload["kind"] == "plane":

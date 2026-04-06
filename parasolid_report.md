@@ -122,15 +122,15 @@
 - Radius Of Gyration: 0.3448
 - Centroid: (0.9069, 3.1628, 0.3683)
 ### Bounding Box
-- X Min: 0.8609
-- Y Min: 2.8315
-- Z Min: -0.0496
-- X Max: 0.9541
-- Y Max: 3.5181
-- Z Max: 0.9785
-- Dx (Length): 0.0932
-- Dy (Width): 0.6866
-- Dz (Height): 1.0281
+- X Min: -0.5866
+- Y Min: 3.7441
+- Z Min: -0.5866
+- X Max: 0.5866
+- Y Max: 3.8661
+- Z Max: 0.5866
+- Dx (Length): 1.1732
+- Dy (Width): 0.1220
+- Dz (Height): 1.1732
 
 ### Features
 - Total Features: 1
@@ -2125,15 +2125,15 @@
 - Radius Of Gyration: 1.3711
 - Centroid: (-0.0000, 3.5379, -0.9916)
 ### Bounding Box
-- X Min: 0.8609
-- Y Min: 2.8315
-- Z Min: -0.0496
-- X Max: 0.9541
-- Y Max: 3.5181
-- Z Max: 0.9785
-- Dx (Length): 0.0932
-- Dy (Width): 0.6866
-- Dz (Height): 1.0281
+- X Min: -0.5866
+- Y Min: 3.7441
+- Z Min: -0.5866
+- X Max: 0.5866
+- Y Max: 3.8661
+- Z Max: 0.5866
+- Dx (Length): 1.1732
+- Dy (Width): 0.1220
+- Dz (Height): 1.1732
 
 ### Features
 - Total Features: 1
@@ -6497,15 +6497,15 @@
 - Radius Of Gyration: 0.2201
 - Centroid: (-0.6614, 4.1555, -2.3803)
 ### Bounding Box
-- X Min: 0.8609
-- Y Min: 2.8315
-- Z Min: -0.0496
-- X Max: 0.9541
-- Y Max: 3.5181
-- Z Max: 0.9785
-- Dx (Length): 0.0932
-- Dy (Width): 0.6866
-- Dz (Height): 1.0281
+- X Min: -0.5866
+- Y Min: 3.7441
+- Z Min: -0.5866
+- X Max: 0.5866
+- Y Max: 3.8661
+- Z Max: 0.5866
+- Dx (Length): 1.1732
+- Dy (Width): 0.1220
+- Dz (Height): 1.1732
 
 ### Features
 - Total Features: 1
@@ -6756,15 +6756,15 @@
 - Radius Of Gyration: 0.2201
 - Centroid: (0.6614, 4.1555, -2.3803)
 ### Bounding Box
-- X Min: 0.8609
-- Y Min: 2.8315
-- Z Min: -0.0496
-- X Max: 0.9541
-- Y Max: 3.5181
-- Z Max: 0.9785
-- Dx (Length): 0.0932
-- Dy (Width): 0.6866
-- Dz (Height): 1.0281
+- X Min: 0.6358
+- Y Min: 3.8799
+- Z Min: -2.6559
+- X Max: 0.6870
+- Y Max: 4.4311
+- Z Max: -2.1047
+- Dx (Length): 0.0512
+- Dy (Width): 0.5512
+- Dz (Height): 0.5512
 
 ### Features
 - Total Features: 1
@@ -7015,15 +7015,15 @@
 - Radius Of Gyration: 0.5478
 - Centroid: (-0.0000, 4.1555, -2.3803)
 ### Bounding Box
-- X Min: 0.8609
-- Y Min: 2.8315
-- Z Min: -0.0496
-- X Max: 0.9541
-- Y Max: 3.5181
-- Z Max: 0.9785
-- Dx (Length): 0.0932
-- Dy (Width): 0.6866
-- Dz (Height): 1.0281
+- X Min: 0.6358
+- Y Min: 3.8799
+- Z Min: -2.6559
+- X Max: 0.6870
+- Y Max: 4.4311
+- Z Max: -2.1047
+- Dx (Length): 0.0512
+- Dy (Width): 0.5512
+- Dz (Height): 0.5512
 
 ### Features
 - Total Features: 1
@@ -7338,15 +7338,15 @@
 - Radius Of Gyration: 0.9624
 - Centroid: (0.0000, 0.2264, 0.0000)
 ### Bounding Box
-- X Min: 0.8609
-- Y Min: 2.8315
-- Z Min: -0.0496
-- X Max: 0.9541
-- Y Max: 3.5181
-- Z Max: 0.9785
-- Dx (Length): 0.0932
-- Dy (Width): 0.6866
-- Dz (Height): 1.0281
+- X Min: 0.6358
+- Y Min: 3.8799
+- Z Min: -2.6559
+- X Max: 0.6870
+- Y Max: 4.4311
+- Z Max: -2.1047
+- Dx (Length): 0.0512
+- Dy (Width): 0.5512
+- Dz (Height): 0.5512
 
 ### Features
 - Total Features: 1
@@ -7597,15 +7597,15 @@
 - Radius Of Gyration: 0.9268
 - Centroid: (0.0000, -3.4331, -0.0000)
 ### Bounding Box
-- X Min: -1.0177
-- Y Min: -3.5315
-- Z Min: -1.0177
-- X Max: 1.0177
-- Y Max: -3.3346
-- Z Max: 1.0177
-- Dx (Length): 2.0354
-- Dy (Width): 0.1969
-- Dz (Height): 2.0354
+- X Min: 0.6358
+- Y Min: 3.8799
+- Z Min: -2.6559
+- X Max: 0.6870
+- Y Max: 4.4311
+- Z Max: -2.1047
+- Dx (Length): 0.0512
+- Dy (Width): 0.5512
+- Dz (Height): 0.5512
 
 ### Features
 - Total Features: 1
@@ -7856,15 +7856,15 @@
 - Radius Of Gyration: 0.5158
 - Centroid: (0.0000, -2.7953, 0.0000)
 ### Bounding Box
-- X Min: -1.0177
-- Y Min: -3.5315
-- Z Min: -1.0177
-- X Max: 1.0177
-- Y Max: -3.3346
-- Z Max: 1.0177
-- Dx (Length): 2.0354
-- Dy (Width): 0.1969
-- Dz (Height): 2.0354
+- X Min: 0.6358
+- Y Min: 3.8799
+- Z Min: -2.6559
+- X Max: 0.6870
+- Y Max: 4.4311
+- Z Max: -2.1047
+- Dx (Length): 0.0512
+- Dy (Width): 0.5512
+- Dz (Height): 0.5512
 
 ### Features
 - Total Features: 1
@@ -8115,15 +8115,15 @@
 - Radius Of Gyration: 0.7052
 - Centroid: (0.0143, 3.1402, 0.3231)
 ### Bounding Box
-- X Min: -1.0177
-- Y Min: -3.5315
-- Z Min: -1.0177
-- X Max: 1.0177
-- Y Max: -3.3346
-- Z Max: 1.0177
-- Dx (Length): 2.0354
-- Dy (Width): 0.1969
-- Dz (Height): 2.0354
+- X Min: 0.6358
+- Y Min: 3.8799
+- Z Min: -2.6559
+- X Max: 0.6870
+- Y Max: 4.4311
+- Z Max: -2.1047
+- Dx (Length): 0.0512
+- Dy (Width): 0.5512
+- Dz (Height): 0.5512
 
 ### Features
 - Total Features: 1
@@ -9022,15 +9022,15 @@
 - Radius Of Gyration: 0.4246
 - Centroid: (0.0000, 4.1137, 0.0000)
 ### Bounding Box
-- X Min: -1.0177
-- Y Min: -3.5315
-- Z Min: -1.0177
-- X Max: 1.0177
-- Y Max: -3.3346
-- Z Max: 1.0177
-- Dx (Length): 2.0354
-- Dy (Width): 0.1969
-- Dz (Height): 2.0354
+- X Min: -0.4998
+- Y Min: 3.8661
+- Z Min: -0.5246
+- X Max: 0.4998
+- Y Max: 4.3622
+- Z Max: 0.5246
+- Dx (Length): 0.9996
+- Dy (Width): 0.4961
+- Dz (Height): 1.0492
 
 ### Features
 - Total Features: 1
@@ -10047,15 +10047,15 @@
 - Radius Of Gyration: 0.4759
 - Centroid: (-0.0000, 3.8051, -0.0000)
 ### Bounding Box
-- X Min: -1.0177
-- Y Min: -3.5315
-- Z Min: -1.0177
-- X Max: 1.0177
-- Y Max: -3.3346
-- Z Max: 1.0177
-- Dx (Length): 2.0354
-- Dy (Width): 0.1969
-- Dz (Height): 2.0354
+- X Min: -0.4998
+- Y Min: 3.8661
+- Z Min: -0.5246
+- X Max: 0.4998
+- Y Max: 4.3622
+- Z Max: 0.5246
+- Dx (Length): 0.9996
+- Dy (Width): 0.4961
+- Dz (Height): 1.0492
 
 ### Features
 - Total Features: 1
@@ -10306,15 +10306,15 @@
 - Radius Of Gyration: 2.4422
 - Centroid: (-0.0000, -1.0302, -0.0208)
 ### Bounding Box
-- X Min: -1.0177
-- Y Min: -3.5315
-- Z Min: -1.0177
-- X Max: 1.0177
-- Y Max: -3.3346
-- Z Max: 1.0177
-- Dx (Length): 2.0354
-- Dy (Width): 0.1969
-- Dz (Height): 2.0354
+- X Min: -0.4998
+- Y Min: 3.8661
+- Z Min: -0.5246
+- X Max: 0.4998
+- Y Max: 4.3622
+- Z Max: 0.5246
+- Dx (Length): 0.9996
+- Dy (Width): 0.4961
+- Dz (Height): 1.0492
 
 ### Features
 - Total Features: 1
@@ -11820,15 +11820,15 @@
 - Radius Of Gyration: 1.3041
 - Centroid: (0.0001, 1.7373, -0.0330)
 ### Bounding Box
-- X Min: -1.1594
-- Y Min: 0.0000
-- Z Min: -1.1594
-- X Max: 1.1594
-- Y Max: 3.7441
-- Z Max: 1.1594
-- Dx (Length): 2.3189
-- Dy (Width): 3.7441
-- Dz (Height): 2.3189
+- X Min: -0.4998
+- Y Min: 3.8661
+- Z Min: -0.5246
+- X Max: 0.4998
+- Y Max: 4.3622
+- Z Max: 0.5246
+- Dx (Length): 0.9996
+- Dy (Width): 0.4961
+- Dz (Height): 1.0492
 
 ### Features
 - Total Features: 1
@@ -12988,7 +12988,9 @@
 - Ask2dtrimBsurf: api_unavailable x1 | reason: Ask2dtrimBsurf_missing
 - AskArcData: arc_attrs x1
 - AskArcData: call_succeeded x326
+- AskBsurf: api_unavailable x1 | reason: AskBsurf_missing
 - AskConicData: call_failed x28 | example error: Input parameter must be the tag of a conic object
+- AskCurvePoints: api_unavailable x1
 - AskEdgeVerts: call_succeeded x712
 - AskFaceData: call_succeeded x360
 - AskFacePeriodicity: call_succeeded x360
