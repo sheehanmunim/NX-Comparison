@@ -387,6 +387,24 @@ HTML = """<!doctype html>
       line-height: 1.45;
       color: var(--text-main);
     }
+    .compare-change-row td {
+      background: rgba(30,136,229,0.08);
+    }
+    .compare-change-cell {
+      display: grid;
+      gap: 8px;
+    }
+    .compare-change-pill {
+      padding: 8px 10px;
+      border: 1px solid rgba(30,136,229,0.28);
+      background: rgba(255,255,255,0.94);
+      color: var(--text-main);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .compare-table-row-changed td {
+      background: rgba(30,136,229,0.05);
+    }
     .compare-controls {
       display: flex;
       align-items: center;
@@ -982,6 +1000,80 @@ HTML = """<!doctype html>
       return axisDimensionEndpoints(component.bounds, property.axis || "z");
     }
 
+    function measurementLineForProperty(component, property) {
+      const endpoints = annotationEndpointsForProperty(component, property);
+      const axis = property.axis || "z";
+      const axisIndex = AXES.indexOf(axis);
+      if (!endpoints || axisIndex < 0) return null;
+      const start = endpoints[0].map(Number);
+      const end = endpoints[1].map(Number);
+      return {
+        axis,
+        axisIndex,
+        start,
+        end,
+        minCoord: Math.min(start[axisIndex], end[axisIndex]),
+        maxCoord: Math.max(start[axisIndex], end[axisIndex]),
+      };
+    }
+
+    function pointOnMeasurementLine(line, coordinate) {
+      const point = line.start.map(Number);
+      point[line.axisIndex] = Number(coordinate);
+      return point;
+    }
+
+    function measurementDifferenceSegments(referenceLine, changedLine) {
+      if (!referenceLine || !changedLine) return [];
+      const overlapMin = Math.max(referenceLine.minCoord, changedLine.minCoord);
+      const overlapMax = Math.min(referenceLine.maxCoord, changedLine.maxCoord);
+
+      if (overlapMax - overlapMin <= DIMENSION_TOLERANCE) {
+        return [{ start: changedLine.start, end: changedLine.end }];
+      }
+
+      const segments = [];
+      if (changedLine.minCoord < overlapMin - DIMENSION_TOLERANCE) {
+        segments.push({
+          start: pointOnMeasurementLine(changedLine, changedLine.minCoord),
+          end: pointOnMeasurementLine(changedLine, overlapMin),
+        });
+      }
+      if (changedLine.maxCoord > overlapMax + DIMENSION_TOLERANCE) {
+        segments.push({
+          start: pointOnMeasurementLine(changedLine, overlapMax),
+          end: pointOnMeasurementLine(changedLine, changedLine.maxCoord),
+        });
+      }
+      return segments;
+    }
+
+    function focusSegmentsForProperty(leftComponent, rightComponent, property) {
+      const leftLine = measurementLineForProperty(leftComponent, property);
+      const rightLine = measurementLineForProperty(rightComponent, property);
+      if (!leftLine || !rightLine) {
+        return { left: [], right: [] };
+      }
+
+      const leftSpan = leftLine.maxCoord - leftLine.minCoord;
+      const rightSpan = rightLine.maxCoord - rightLine.minCoord;
+      if (Math.abs(rightSpan - leftSpan) <= DIMENSION_TOLERANCE) {
+        return { left: [], right: [] };
+      }
+
+      if (rightSpan > leftSpan) {
+        return {
+          left: [],
+          right: measurementDifferenceSegments(leftLine, rightLine),
+        };
+      }
+
+      return {
+        left: measurementDifferenceSegments(rightLine, leftLine),
+        right: [],
+      };
+    }
+
     function summarizeComponentChange(change) {
       const propertyDescriptions = change.properties.map((property) =>
         `${property.label} ${changeVerb(property.delta)} from ${formatLength(property.leftValue)} to ${formatLength(property.rightValue)} (${formatSignedInches(property.delta)})`
@@ -1110,11 +1202,14 @@ HTML = """<!doctype html>
           change.properties.forEach((property) => {
             const leftEndpoints = annotationEndpointsForProperty(change.left, property);
             const rightEndpoints = annotationEndpointsForProperty(change.right, property);
+            const focusSegments = focusSegmentsForProperty(change.left, change.right, property);
             if (leftEndpoints) {
               info.annotations.left.push({
                 start: leftEndpoints[0],
                 end: leftEndpoints[1],
                 lines: [`${change.label} ${property.label}: ${formatInches(property.leftValue)}`],
+                focusSegments: focusSegments.left,
+                deltaLabel: focusSegments.left.length ? formatSignedInches(property.delta) : null,
               });
             }
             if (rightEndpoints) {
@@ -1122,6 +1217,8 @@ HTML = """<!doctype html>
                 start: rightEndpoints[0],
                 end: rightEndpoints[1],
                 lines: [`${change.label} ${property.label}: ${formatInches(property.rightValue)} (${formatSignedInches(property.delta)})`],
+                focusSegments: focusSegments.right,
+                deltaLabel: focusSegments.right.length ? formatSignedInches(property.delta) : null,
               });
             }
           });
@@ -1140,12 +1237,21 @@ HTML = """<!doctype html>
           );
           const leftBounds = left?.geometry_hints?.bounds;
           const rightBounds = right?.geometry_hints?.bounds;
+          const focusSegments = leftBounds && rightBounds
+            ? focusSegmentsForProperty(
+                { bounds: leftBounds },
+                { bounds: rightBounds },
+                { kind: "size", axis: item.axis }
+              )
+            : { left: [], right: [] };
           if (leftBounds) {
             const leftEndpoints = axisDimensionEndpoints(leftBounds, item.axis);
             info.annotations.left.push({
               start: leftEndpoints[0],
               end: leftEndpoints[1],
               lines: [`${item.axis.toUpperCase()} span: ${formatInches(item.leftValue)}`],
+              focusSegments: focusSegments.left,
+              deltaLabel: focusSegments.left.length ? formatSignedInches(item.delta) : null,
             });
           }
           if (rightBounds) {
@@ -1154,6 +1260,8 @@ HTML = """<!doctype html>
               start: rightEndpoints[0],
               end: rightEndpoints[1],
               lines: [`${item.axis.toUpperCase()} span: ${formatInches(item.rightValue)} (${formatSignedInches(item.delta)})`],
+              focusSegments: focusSegments.right,
+              deltaLabel: focusSegments.right.length ? formatSignedInches(item.delta) : null,
             });
           }
         });
@@ -1242,6 +1350,7 @@ HTML = """<!doctype html>
     function drawCompareAnnotations(ctx2d, canvasEl, preview, viewer, scale, compareAnnotation) {
       if (!compareAnnotation?.annotations?.length || !preview) return;
       const color = "#ef6c00";
+      const focusColor = "#1e88e5";
       const shadow = "rgba(255,255,255,0.94)";
       const labelStack = [];
 
@@ -1271,6 +1380,59 @@ HTML = """<!doctype html>
         ctx2d.moveTo(end[0], end[1]);
         ctx2d.lineTo(arrowEnd[0], arrowEnd[1]);
         ctx2d.stroke();
+
+        if (annotation.focusSegments?.length) {
+          for (const segment of annotation.focusSegments) {
+            const segmentStart = projectModelPoint(segment.start, preview, viewer, scale, canvasEl);
+            const segmentEnd = projectModelPoint(segment.end, preview, viewer, scale, canvasEl);
+            const highlightedStart = [segmentStart[0] + nx * offset, segmentStart[1] + ny * offset];
+            const highlightedEnd = [segmentEnd[0] + nx * offset, segmentEnd[1] + ny * offset];
+            const highlightedLength = Math.hypot(highlightedEnd[0] - highlightedStart[0], highlightedEnd[1] - highlightedStart[1]);
+            if (highlightedLength < 8) continue;
+
+            ctx2d.strokeStyle = "rgba(30,136,229,0.24)";
+            ctx2d.lineWidth = 10;
+            ctx2d.lineCap = "round";
+            ctx2d.beginPath();
+            ctx2d.moveTo(highlightedStart[0], highlightedStart[1]);
+            ctx2d.lineTo(highlightedEnd[0], highlightedEnd[1]);
+            ctx2d.stroke();
+
+            ctx2d.strokeStyle = focusColor;
+            ctx2d.lineWidth = 4;
+            ctx2d.beginPath();
+            ctx2d.moveTo(highlightedStart[0], highlightedStart[1]);
+            ctx2d.lineTo(highlightedEnd[0], highlightedEnd[1]);
+            ctx2d.stroke();
+          }
+
+          if (annotation.deltaLabel) {
+            const labelX = (arrowStart[0] + arrowEnd[0]) / 2;
+            const labelY = (arrowStart[1] + arrowEnd[1]) / 2 - 22;
+            ctx2d.save();
+            ctx2d.font = "bold 11px 'Segoe UI'";
+            ctx2d.textAlign = "center";
+            ctx2d.textBaseline = "middle";
+            const deltaText = annotation.focusSegments.length > 1
+              ? `${annotation.deltaLabel} total`
+              : annotation.deltaLabel;
+            const horizontalPadding = 8;
+            const verticalPadding = 6;
+            const deltaWidth = ctx2d.measureText(deltaText).width + horizontalPadding * 2;
+            const deltaHeight = 11 + verticalPadding * 2;
+
+            ctx2d.fillStyle = "rgba(255,255,255,0.96)";
+            ctx2d.fillRect(labelX - deltaWidth / 2, labelY, deltaWidth, deltaHeight);
+            ctx2d.strokeStyle = focusColor;
+            ctx2d.lineWidth = 1;
+            ctx2d.strokeRect(labelX - deltaWidth / 2, labelY, deltaWidth, deltaHeight);
+            ctx2d.fillStyle = focusColor;
+            ctx2d.fillText(deltaText, labelX, labelY + deltaHeight / 2);
+            ctx2d.restore();
+          }
+
+          ctx2d.lineCap = "butt";
+        }
 
         labelStack.push(...(annotation.lines || []));
       }
@@ -1859,6 +2021,9 @@ HTML = """<!doctype html>
 
       const [left, right] = reports;
       const diff = compareDiffInfo(left, right);
+      const changeLines = diff.summary.length
+        ? diff.summary
+        : ["No geometric size change was inferred from the current preview data."];
       const rows = [
         ["Decoded Names", left.decoded_names?.join(", ") || "None", right.decoded_names?.join(", ") || "None"],
         ["Inferred Shape", topologyLabel(left), topologyLabel(right)],
@@ -1869,13 +2034,20 @@ HTML = """<!doctype html>
         ["Preview Points", String(left.geometry_hints?.point_count || 0), String(right.geometry_hints?.point_count || 0)],
         ["Object State IDs", String(left.object_state_ids?.length || 0), String(right.object_state_ids?.length || 0)]
       ];
+      const rowMarkup = rows.map(([label, a, b]) => {
+        const rowClass = a !== b ? ' class="compare-table-row-changed"' : "";
+        return `<tr${rowClass}><td>${escapeHtml(label)}</td><td>${escapeHtml(a)}</td><td>${escapeHtml(b)}</td></tr>`;
+      }).join("");
+      const changeMarkup = changeLines
+        .map((line) => `<div class="compare-change-pill">${escapeHtml(line)}</div>`)
+        .join("");
 
       root.innerHTML = `
         <div class="compare-layout">
           <div class="compare-summary">
-            <h3>Detected changes</h3>
+            <h3>What Changed</h3>
             <div class="compare-summary-list">
-              ${diff.summary.map((line) => `<div class="compare-summary-item">${escapeHtml(line)}</div>`).join("")}
+              ${changeLines.map((line) => `<div class="compare-summary-item">${escapeHtml(line)}</div>`).join("")}
             </div>
           </div>
           <div class="compare-controls">
@@ -1892,7 +2064,7 @@ HTML = """<!doctype html>
               <div class="canvas-frame">
                 <canvas id="compare-left-canvas" class="compare-canvas"></canvas>
               </div>
-              <div class="compare-note">Orbit with drag. Pan with Shift + drag or right-drag. Orange callouts stay attached to the changed feature on this model.</div>
+              <div class="compare-note">Orbit with drag. Pan with Shift + drag or right-drag. Blue callouts stay attached to the changed feature on this model.</div>
             </div>
             <div class="compare-preview-card">
               <h3>${escapeHtml(right.file_name)}</h3>
@@ -1910,7 +2082,15 @@ HTML = """<!doctype html>
                 <th>${escapeHtml(right.file_name)}</th>
               </tr>
             </thead>
-            <tbody>${rows.map(([label, a, b]) => `<tr><td>${escapeHtml(label)}</td><td>${escapeHtml(a)}</td><td>${escapeHtml(b)}</td></tr>`).join("")}</tbody>
+            <tbody>
+              <tr class="compare-change-row">
+                <td>What Changed</td>
+                <td colspan="2">
+                  <div class="compare-change-cell">${changeMarkup}</div>
+                </td>
+              </tr>
+              ${rowMarkup}
+            </tbody>
           </table>
         </div>
       `;
