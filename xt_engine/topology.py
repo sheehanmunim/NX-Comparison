@@ -117,34 +117,55 @@ def build_topology_from_kernel_body(body_dict: dict[str, Any] | None) -> dict[st
         edge_index[key] = edge_id
         return edge_id
 
-    for face_index, face in enumerate(body_dict.get("faces", []), start=1):
-        vertex_ids = [
-            _find_or_add_vertex(vertices, Vec3(*map(float, vertex)))
-            for vertex in face.get("vertices", [])
+    def vertex_ids_from_points(points: list[list[float]]) -> list[str]:
+        return [
+            _find_or_add_vertex(vertices, Vec3(*map(float, point)))
+            for point in points
         ]
-        loop_edge_ids: list[str] = []
-        if len(vertex_ids) >= 2:
-            for index in range(len(vertex_ids)):
-                start = vertex_ids[index]
-                end = vertex_ids[(index + 1) % len(vertex_ids)]
-                loop_edge_ids.append(edge_id_for([start, end]))
-        elif face.get("surface", {}).get("kind") in {"cylinder", "sphere"}:
-            loop_edge_ids.append(
-                edge_id_for(
-                    [f"implicit-{face_index}"],
-                    kind=face["surface"]["kind"],
-                    data=face.get("surface", {}),
-                )
-            )
 
-        loop_id = f"L{len(loops) + 1}"
-        loops.append(TopologyLoop(id=loop_id, edge_ids=loop_edge_ids))
+    for face_index, face in enumerate(body_dict.get("faces", []), start=1):
+        loop_ids: list[str] = []
+        explicit_loops = face.get("loops") or []
+
+        if explicit_loops:
+            for loop_index, loop in enumerate(explicit_loops, start=1):
+                vertex_ids = vertex_ids_from_points(loop.get("vertices", []))
+                loop_edge_ids: list[str] = []
+                if len(vertex_ids) >= 2:
+                    for index in range(len(vertex_ids)):
+                        start = vertex_ids[index]
+                        end = vertex_ids[(index + 1) % len(vertex_ids)]
+                        loop_edge_ids.append(edge_id_for([start, end]))
+                loop_id = loop.get("id") or f"L{len(loops) + 1}"
+                loops.append(TopologyLoop(id=loop_id, edge_ids=loop_edge_ids))
+                loop_ids.append(loop_id)
+        else:
+            vertex_ids = vertex_ids_from_points(face.get("vertices", []))
+            loop_edge_ids: list[str] = []
+            if len(vertex_ids) >= 2:
+                for index in range(len(vertex_ids)):
+                    start = vertex_ids[index]
+                    end = vertex_ids[(index + 1) % len(vertex_ids)]
+                    loop_edge_ids.append(edge_id_for([start, end]))
+            elif face.get("surface", {}).get("kind") in {"cylinder", "sphere"}:
+                loop_edge_ids.append(
+                    edge_id_for(
+                        [f"implicit-{face_index}"],
+                        kind=face["surface"]["kind"],
+                        data=face.get("surface", {}),
+                    )
+                )
+
+            loop_id = f"L{len(loops) + 1}"
+            loops.append(TopologyLoop(id=loop_id, edge_ids=loop_edge_ids))
+            loop_ids.append(loop_id)
+
         faces.append(
             TopologyFace(
                 id=f"F{face_index}",
                 name=face.get("name", f"Face {face_index}"),
                 surface_kind=face.get("surface", {}).get("kind", "unknown"),
-                loop_ids=[loop_id],
+                loop_ids=loop_ids,
                 data={
                     "metadata": face.get("metadata", {}),
                     "surface": face.get("surface", {}),

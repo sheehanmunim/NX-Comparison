@@ -1147,6 +1147,15 @@ def _vector_from_payload(payload: dict[str, Any] | list[float] | None) -> list[f
     return None
 
 
+def _normalize_vector(vector: list[float] | None) -> list[float] | None:
+    if not vector:
+        return None
+    magnitude = math.sqrt(sum(component * component for component in vector))
+    if magnitude <= 1e-9:
+        return None
+    return [component / magnitude for component in vector]
+
+
 def _face_normal_from_vertices(vertices: list[list[float]]) -> list[float] | None:
     if len(vertices) < 3:
         return None
@@ -1164,6 +1173,45 @@ def _face_normal_from_vertices(vertices: list[list[float]]) -> list[float] | Non
         if magnitude > 1e-9:
             return [component / magnitude for component in normal]
     return None
+
+
+def _surface_kind_from_face_payload(face_payload: dict[str, Any]) -> str:
+    face_type = str(face_payload.get("type") or "unknown").lower()
+    return {
+        "planar": "plane",
+        "cylindrical": "cylinder",
+        "conical": "cone",
+        "surfaceofrevolution": "surface_of_revolution",
+        "spherical": "sphere",
+        "parametric": "parametric",
+        "blending": "blend",
+    }.get(face_type, face_type)
+
+
+def _scaled_mapping(point_payload: dict[str, Any] | None, scale: float) -> dict[str, float] | None:
+    point = _point_from_mapping(point_payload, scale)
+    if point is None:
+        return None
+    return {"x": point[0], "y": point[1], "z": point[2]}
+
+
+def _surface_payload_from_face(face_payload: dict[str, Any], scale: float) -> dict[str, Any]:
+    surface_definition = dict(face_payload.get("surface_definition") or {})
+    if not surface_definition:
+        surface_definition = {"type": face_payload.get("type") or "Unknown"}
+
+    surface_definition["kind"] = _surface_kind_from_face_payload(face_payload)
+    for key in ("reference_point", "direction", "axis_point", "axis_direction", "sampled_normal"):
+        scaled_value = _scaled_mapping(surface_definition.get(key), scale)
+        if scaled_value is not None:
+            surface_definition[key] = scaled_value
+
+    if surface_definition.get("radius") is not None:
+        surface_definition["radius"] = float(surface_definition["radius"]) * scale
+    if surface_definition.get("radius_data") is not None and surface_definition.get("kind") not in {"cone", "surface_of_revolution"}:
+        surface_definition["radius_data"] = float(surface_definition["radius_data"]) * scale
+
+    return surface_definition
 
 
 def _shift_ring(ring: list[list[float]], offset: int) -> list[list[float]]:
@@ -1232,8 +1280,10 @@ def _stitch_loop_polyline(loop_payload: dict[str, Any], edge_polyline_lookup: di
 def _face_meshes_from_payload(
     face_payload: dict[str, Any],
     edge_polyline_lookup: dict[int, list[list[float]]],
+    *,
+    scale: float,
 ) -> list[dict[str, Any]]:
-    rings: list[list[list[float]]] = []
+    loop_rings: list[tuple[dict[str, Any], list[list[float]]]] = []
 
     for loop_payload in face_payload.get("loops", []):
         has_closed_coedge = False
@@ -1247,32 +1297,52 @@ def _face_meshes_from_payload(
             oriented = polyline if coedge.get("sense") != "backward" else list(reversed(polyline))
             ring = _closed_ring_from_polyline(oriented)
             if ring:
-                rings.append(ring)
+                loop_rings.append((loop_payload, ring))
                 has_closed_coedge = True
         if not has_closed_coedge:
             stitched = _stitch_loop_polyline(loop_payload, edge_polyline_lookup)
             if stitched:
-                rings.append(stitched)
+                loop_rings.append((loop_payload, stitched))
 
-    if not rings:
+    if not loop_rings:
         return []
 
-    face_type = str(face_payload.get("type") or "Unknown")
+    rings = [ring for _, ring in loop_rings]
+    face_index = face_payload.get("index", "?")
+    surface_payload = _surface_payload_from_face(face_payload, scale)
     analytic_data = face_payload.get("analytic_data") or {}
-    face_normal = _vector_from_payload(analytic_data.get("direction"))
+    face_normal = (
+        _normalize_vector(_vector_from_payload(surface_payload.get("sampled_normal")))
+        or _normalize_vector(_vector_from_payload(surface_payload.get("direction")))
+        or _normalize_vector(_vector_from_payload(analytic_data.get("direction")))
+    )
     axis = _dominant_axis_label(face_normal)
+    base_metadata = {
+        "kind": "nx_imported_face",
+        "axis": axis,
+        "source_face_index": face_payload.get("index"),
+        "source_face_type": face_payload.get("type"),
+        "surface_definition": surface_payload,
+        "uv_bounds": face_payload.get("uv_bounds"),
+        "periodicity": face_payload.get("periodicity"),
+        "topology": face_payload.get("topology"),
+        "trimmed_bsurface": face_payload.get("trimmed_bsurface"),
+        "adjacent_face_indices": face_payload.get("adjacent_face_indices", []),
+        "loop_count": len(loop_rings),
+    }
     meshes: list[dict[str, Any]] = []
 
-    if face_type == "Planar":
+    if surface_payload["kind"] == "plane":
         if len(rings) == 1:
             ring = rings[0]
             meshes.append(
                 {
-                    "name": f"Face {face_payload.get('index', '?')}",
-                    "surface": {"kind": "plane"},
+                    "name": f"Face {face_index}",
+                    "surface": surface_payload,
                     "vertices": ring,
                     "normal": face_normal or _face_normal_from_vertices(ring),
-                    "metadata": {"kind": "planar_loop", "axis": axis},
+                    "loops": [{"id": f"L{face_index}-1", "vertices": ring}],
+                    "metadata": {**base_metadata, "kind": "planar_loop"},
                 }
             )
             return meshes
@@ -1285,31 +1355,52 @@ def _face_meshes_from_payload(
             quad = [outer[index], outer[next_index], inner[next_index], inner[index]]
             meshes.append(
                 {
-                    "name": f"Face {face_payload.get('index', '?')} patch {index + 1}",
-                    "surface": {"kind": "plane"},
+                    "name": f"Face {face_index} patch {index + 1}",
+                    "surface": surface_payload,
                     "vertices": quad,
                     "normal": patch_normal,
-                    "metadata": {"kind": "planar_ring_patch", "axis": axis},
+                    "loops": [
+                        {"id": f"L{face_index}-outer", "vertices": outer},
+                        {"id": f"L{face_index}-inner", "vertices": inner},
+                    ],
+                    "metadata": {**base_metadata, "kind": "planar_ring_patch", "patch_index": index + 1},
                 }
             )
         return meshes
 
-    if face_type in {"Cylindrical", "Conical", "SurfaceOfRevolution"} and len(rings) >= 2:
+    if surface_payload["kind"] in {"cylinder", "cone", "surface_of_revolution", "sphere", "parametric", "blend"} and len(rings) >= 2:
         ordered_rings = sorted(rings, key=_polyline_length, reverse=True)
         outer, inner = _align_ring_pair(ordered_rings[0], ordered_rings[1])
-        surface_kind = face_type.lower()
         for index in range(len(outer)):
             next_index = (index + 1) % len(outer)
             quad = [outer[index], outer[next_index], inner[next_index], inner[index]]
             meshes.append(
                 {
-                    "name": f"Face {face_payload.get('index', '?')} patch {index + 1}",
-                    "surface": {"kind": surface_kind},
+                    "name": f"Face {face_index} patch {index + 1}",
+                    "surface": surface_payload,
                     "vertices": quad,
-                    "normal": _face_normal_from_vertices(quad),
-                    "metadata": {"kind": "revolved_patch", "axis": axis},
+                    "normal": face_normal or _face_normal_from_vertices(quad),
+                    "loops": [
+                        {"id": f"L{face_index}-outer", "vertices": outer},
+                        {"id": f"L{face_index}-inner", "vertices": inner},
+                    ],
+                    "metadata": {**base_metadata, "kind": "trimmed_surface_patch", "patch_index": index + 1},
                 }
             )
+        return meshes
+
+    if len(rings) == 1:
+        ring = rings[0]
+        meshes.append(
+            {
+                "name": f"Face {face_index}",
+                "surface": surface_payload,
+                "vertices": ring,
+                "normal": face_normal or _face_normal_from_vertices(ring),
+                "loops": [{"id": f"L{face_index}-1", "vertices": ring}],
+                "metadata": {**base_metadata, "kind": "trim_boundary_polygon"},
+            }
+        )
         return meshes
 
     return meshes
@@ -1353,26 +1444,27 @@ def _build_nx_wireframe_body(
 
     preview_faces: list[dict[str, Any]] = []
     for face_payload in body_payload.get("faces", []):
-        preview_faces.extend(_face_meshes_from_payload(face_payload, edge_polyline_lookup))
+        preview_faces.extend(_face_meshes_from_payload(face_payload, edge_polyline_lookup, scale=scale))
 
     label = (
-        "Surface-enhanced topology preview reconstructed from NX face loops, edge curves, and vertices."
+        "Surface-enhanced topology preview reconstructed from NX face loops, exact edge curves, and imported surface definitions."
         if preview_faces
         else "Topology wireframe preview reconstructed from NX edge and vertex data."
     )
     kernel_body = {
-        "kind": "wireframe",
+        "kind": "solid" if preview_faces else "wireframe",
         "name": body_payload.get("metadata", {}).get("name") or f"Body {body_index}",
         "faces": preview_faces,
         "edges": edge_polylines,
         "vertices": topology_vertices,
         "metadata": {
-            "primitive": "wireframe",
+            "primitive": "nx_brep_import" if preview_faces else "wireframe",
             "source": "nx_surface_topology_preview" if preview_faces else "nx_topology_wireframe",
             "nx_body_index": body_index,
             "edge_count": len(edge_polylines),
             "vertex_count": len(topology_vertices),
             "face_patch_count": len(preview_faces),
+            "source_face_count": len(body_payload.get("faces", [])),
         },
     }
     return kernel_body, bounds, preview_points, label

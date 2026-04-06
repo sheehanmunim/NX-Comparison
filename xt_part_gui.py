@@ -501,7 +501,7 @@ HTML = """<!doctype html>
               <canvas id="preview-canvas"></canvas>
             </div>
             <div class="viewport-footer">
-              <div class="preview-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. Double-click fits the model. Solid mode uses inferred faces when the part can be reconstructed confidently; otherwise the app falls back to decoded points and edge geometry.</div>
+              <div class="preview-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. Double-click fits the model. Solid mode renders imported or reconstructed kernel faces from loops, curves, and surface definitions when available; otherwise the app falls back to decoded points and edge geometry.</div>
               <div class="viewport-badges">
                 <div class="viewport-badge">Orbit</div>
                 <div class="viewport-badge">Pan</div>
@@ -1307,6 +1307,33 @@ HTML = """<!doctype html>
       return face?.side || null;
     }
 
+    function normalFromVertices(vertices) {
+      if (!Array.isArray(vertices) || vertices.length < 3) return null;
+      const anchor = vertices[0];
+      for (let index = 1; index < vertices.length - 1; index++) {
+        const u = [
+          vertices[index][0] - anchor[0],
+          vertices[index][1] - anchor[1],
+          vertices[index][2] - anchor[2],
+        ];
+        const v = [
+          vertices[index + 1][0] - anchor[0],
+          vertices[index + 1][1] - anchor[1],
+          vertices[index + 1][2] - anchor[2],
+        ];
+        const normal = [
+          u[1] * v[2] - u[2] * v[1],
+          u[2] * v[0] - u[0] * v[2],
+          u[0] * v[1] - u[1] * v[0],
+        ];
+        const magnitude = Math.hypot(normal[0], normal[1], normal[2]);
+        if (magnitude > 1e-8) {
+          return normal.map((value) => value / magnitude);
+        }
+      }
+      return null;
+    }
+
     function faceMatchesHighlight(face, highlightFaces, highlightComponents) {
       if (highlightComponents?.length && face.componentId && highlightComponents.includes(face.componentId)) {
         return true;
@@ -1898,7 +1925,7 @@ HTML = """<!doctype html>
       const panel = byId("topology-panel");
       const report = activeReport();
       if (!report) {
-        panel.textContent = "Select a part to inspect inferred faces and edges.";
+        panel.textContent = "Select a part to inspect imported or reconstructed faces and edges.";
         return;
       }
 
@@ -2286,12 +2313,13 @@ HTML = """<!doctype html>
           hudText: "#333333",
           secondaryText: "#4a4a4a",
           point: "#444444",
-          faceStroke: "rgba(80, 80, 80, 0.82)",
+          faceStroke: "rgba(58, 62, 70, 0.34)",
           bounds: "rgba(110, 110, 110, 0.5)",
           wireframe: "rgba(70, 70, 70, 0.68)",
           emptyText: "rgba(70, 70, 70, 0.92)",
-          surfaceBase: 210,
-          surfaceRange: 30,
+          surfaceShadow: [76, 80, 88],
+          surfaceHighlight: [156, 162, 172],
+          surfaceAmbient: 0.36,
         };
       }
       if (state.viewportBackground === "dark") {
@@ -2302,12 +2330,13 @@ HTML = """<!doctype html>
           hudText: "rgba(242, 242, 242, 0.95)",
           secondaryText: "rgba(241, 241, 241, 0.92)",
           point: "rgba(241, 241, 241, 0.86)",
-          faceStroke: "rgba(215, 215, 215, 0.5)",
+          faceStroke: "rgba(208, 214, 224, 0.18)",
           bounds: "rgba(215, 215, 215, 0.4)",
           wireframe: "rgba(226, 226, 226, 0.6)",
           emptyText: "rgba(241, 241, 241, 0.92)",
-          surfaceBase: 150,
-          surfaceRange: 52,
+          surfaceShadow: [68, 72, 80],
+          surfaceHighlight: [146, 152, 164],
+          surfaceAmbient: 0.3,
         };
       }
       return {
@@ -2317,12 +2346,13 @@ HTML = """<!doctype html>
         hudText: "#323232",
         secondaryText: "#404040",
         point: "#404040",
-        faceStroke: "rgba(65, 65, 65, 0.76)",
+        faceStroke: "rgba(54, 58, 66, 0.3)",
         bounds: "rgba(95, 95, 95, 0.45)",
         wireframe: "rgba(70, 70, 70, 0.62)",
         emptyText: "rgba(55, 55, 55, 0.92)",
-        surfaceBase: 188,
-        surfaceRange: 36,
+        surfaceShadow: [72, 76, 84],
+        surfaceHighlight: [148, 154, 164],
+        surfaceAmbient: 0.34,
       };
     }
 
@@ -2672,14 +2702,20 @@ HTML = """<!doctype html>
     }
 
     function shadeForNormal(normal, theme) {
-      const light = [0.45, -0.35, 0.82];
+      const light = [0.38, -0.28, 0.88];
       const len = Math.hypot(...light) || 1;
       const unitLight = light.map((value) => value / len);
-      const dot = Math.max(0, normal[0] * unitLight[0] + normal[1] * unitLight[1] + normal[2] * unitLight[2]);
-      const base = theme?.surfaceBase ?? 170;
-      const range = theme?.surfaceRange ?? 50;
-      const shade = Math.round(base + dot * range);
-      return `rgb(${shade}, ${shade}, ${shade})`;
+      const nLen = Math.hypot(normal[0], normal[1], normal[2]) || 1;
+      const unitNormal = normal.map((value) => value / nLen);
+      const diffuse = Math.max(0, unitNormal[0] * unitLight[0] + unitNormal[1] * unitLight[1] + unitNormal[2] * unitLight[2]);
+      const ambient = theme?.surfaceAmbient ?? 0.38;
+      const mix = Math.min(1, ambient + diffuse * (1 - ambient));
+      const shadow = theme?.surfaceShadow ?? [160, 168, 180];
+      const highlight = theme?.surfaceHighlight ?? [232, 236, 242];
+      const rgb = shadow.map((value, index) => {
+        return Math.round(value + (highlight[index] - value) * mix);
+      });
+      return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
     }
 
     function drawModelPreview(canvasEl, report, viewer, options = {}) {
@@ -2703,7 +2739,7 @@ HTML = """<!doctype html>
         if (report?.decoded_names?.length) {
           ctx2d.fillText(`Named entities: ${report.decoded_names.join(", ")}`, 16, 48);
         }
-        ctx2d.fillText("This app currently renders inferred geometry, not the full Parasolid B-rep.", 16, 72);
+        ctx2d.fillText("This viewport renders the app's imported/custom-kernel geometry from the available B-rep data.", 16, 72);
         drawCornerTriad(canvasEl, ctx2d, viewer);
         return;
       }
@@ -2728,8 +2764,11 @@ HTML = """<!doctype html>
           ], viewer);
         });
         const projectedVertices = rotatedVertices.map((point) => projectPoint(point, scale, canvasEl, viewer));
-        const rotatedNormal = face.normal ? rotatePoint(face.normal.map(Number), viewer) : null;
+        const sourceNormal = face.normal ? face.normal.map(Number) : normalFromVertices(face.vertices.map((vertex) => vertex.map(Number)));
+        const rotatedNormal = sourceNormal ? rotatePoint(sourceNormal, viewer) : normalFromVertices(rotatedVertices);
         const averageDepth = rotatedVertices.reduce((sum, point) => sum + point[2], 0) / rotatedVertices.length;
+        const minDepth = rotatedVertices.reduce((value, point) => Math.min(value, point[2]), Infinity);
+        const maxDepth = rotatedVertices.reduce((value, point) => Math.max(value, point[2]), -Infinity);
         let inferredAxis = face.axis;
         if (!inferredAxis && face.vertices.length >= 2) {
           const xs = face.vertices.map((vertex) => vertex[0]);
@@ -2745,17 +2784,20 @@ HTML = """<!doctype html>
           side: face.side || inferFaceSide(face),
           rotatedNormal,
           averageDepth,
+          minDepth,
+          maxDepth,
           projectedVertices
         };
-      // Painter's algorithm: draw farther faces first so nearer caps/walls
-      // remain visible instead of being painted over by back faces.
-      }).sort((a, b) => b.averageDepth - a.averageDepth);
+      // Use a more stable back-to-front ordering for trimmed patches by
+      // preferring the farthest depth extent first, then average depth.
+      }).sort((a, b) => {
+        if (Math.abs(b.maxDepth - a.maxDepth) > 1e-6) return b.maxDepth - a.maxDepth;
+        if (Math.abs(b.averageDepth - a.averageDepth) > 1e-6) return b.averageDepth - a.averageDepth;
+        return b.minDepth - a.minDepth;
+      });
 
       if (forceMode === "solid" && projectedFaces.length) {
         for (const face of projectedFaces) {
-          if (face.rotatedNormal && face.rotatedNormal[2] >= 0.15) {
-            continue;
-          }
           ctx2d.beginPath();
           ctx2d.moveTo(face.projectedVertices[0][0], face.projectedVertices[0][1]);
           for (const vertex of face.projectedVertices.slice(1)) {
@@ -2768,16 +2810,18 @@ HTML = """<!doctype html>
             ? "#ffbf66"
             : (face.rotatedNormal ? shadeForNormal(face.rotatedNormal, theme) : shadeForNormal([0, 0, -0.1], theme));
           ctx2d.fillStyle = fillColor;
-          ctx2d.globalAlpha = faceHighlighted ? 0.96 : 0.9;
+          ctx2d.globalAlpha = faceHighlighted ? 0.98 : 0.94;
           ctx2d.fill();
           ctx2d.globalAlpha = 1;
-          ctx2d.strokeStyle = faceHighlighted ? "#ef6c00" : theme.faceStroke;
-          ctx2d.lineWidth = faceHighlighted ? 2.3 : 1;
-          ctx2d.stroke();
+          if (faceHighlighted) {
+            ctx2d.strokeStyle = "#ef6c00";
+            ctx2d.lineWidth = 2.2;
+            ctx2d.stroke();
+          }
         }
       }
 
-      if (preview.bounds && forceMode !== "points") {
+      if (preview.bounds && forceMode !== "points" && (forceMode !== "solid" || !projectedFaces.length)) {
         const min = preview.bounds.min.map(Number);
         const max = preview.bounds.max.map(Number);
         const corners = [
@@ -2819,6 +2863,10 @@ HTML = """<!doctype html>
 
       if (preview.kernelGeometry?.edges?.length && forceMode !== "points") {
         for (const edge of preview.kernelGeometry.edges) {
+          const edgeHighlighted = highlightComponents.includes(edge.componentId) || highlightAxes.includes(edge.axis);
+          if (forceMode === "solid" && projectedFaces.length && !edgeHighlighted) {
+            continue;
+          }
           const projectedEdge = edge.points.map((point) =>
             projectPoint(
               rotatePoint(
@@ -2834,15 +2882,16 @@ HTML = """<!doctype html>
               viewer
             )
           );
-          const edgeHighlighted = highlightComponents.includes(edge.componentId) || highlightAxes.includes(edge.axis);
           ctx2d.strokeStyle = edgeHighlighted ? "#ef6c00" : theme.wireframe;
-          ctx2d.lineWidth = edgeHighlighted ? 2 : 1.5;
+          ctx2d.lineWidth = edgeHighlighted ? 2 : (forceMode === "solid" ? 0.9 : 1.5);
+          ctx2d.globalAlpha = edgeHighlighted ? 1 : (forceMode === "solid" ? 0.35 : 1);
           ctx2d.beginPath();
           ctx2d.moveTo(projectedEdge[0][0], projectedEdge[0][1]);
           for (const point of projectedEdge.slice(1)) {
             ctx2d.lineTo(point[0], point[1]);
           }
           ctx2d.stroke();
+          ctx2d.globalAlpha = 1;
         }
       }
 
