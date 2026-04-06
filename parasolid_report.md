@@ -122,15 +122,15 @@
 - Radius Of Gyration: 0.3448
 - Centroid: (0.9069, 3.1628, 0.3683)
 ### Bounding Box
-- X Min: -1.1594
-- Y Min: 0.0000
-- Z Min: -1.1594
-- X Max: 1.1594
-- Y Max: 3.7441
-- Z Max: 1.1594
-- Dx (Length): 2.3189
-- Dy (Width): 3.7441
-- Dz (Height): 2.3189
+- X Min: -0.5866
+- Y Min: 3.7441
+- Z Min: -0.5866
+- X Max: 0.5866
+- Y Max: 3.8661
+- Z Max: 0.5866
+- Dx (Length): 1.1732
+- Dy (Width): 0.1220
+- Dz (Height): 1.1732
 
 ### Features
 - Total Features: 1
@@ -153,36 +153,50 @@
 -   Face Tags: 60936, 60958
 -   Face Indices: 33, 47
 -   Topology Vertices: 1 -> 2
+-   Identity: {'tag': 61020, 'journal_identifier': 'EDGE * 35 * 46 {(0.9476727558535,3.1173695071368,-0.0322635021628)(0.9071294204448,3.1477353911448,0.0010981831362)(0.8660773736084,3.1186301422382,-0.0324035840298) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 2: Intersection | Length: 0.0034 | Connected Faces: 2 | Tag: 61230
 -   Endpoints: (0.9431, 2.8363, 0.1159) -> (0.9436, 2.8348, 0.1130)
 -   Face Tags: 60950, 60978
 -   Face Indices: 13, 36
 -   Topology Vertices: 3 -> 4
+-   Identity: {'tag': 61230, 'journal_identifier': 'EDGE * 42 * 56 {(0.9430768140814,2.8362720207897,0.1159224329722)(0.9434680000306,2.8355341639785,0.1144609934474)(0.9435935282152,2.834782151019,0.1129626150429) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 3: SpCurve | Length: 0.4693 | Connected Faces: 2 | Tag: 61108
 -   Endpoints: (0.8646, 3.1435, 0.7570) -> (0.8660, 3.2324, 0.7458)
 -   Face Tags: 60906, 60908
 -   Face Indices: 51, 20
 -   Topology Vertices: 5 -> 6
+-   Identity: {'tag': 61108, 'journal_identifier': 'EDGE * 20 * 21 {(0.8645706267804,3.1435198224749,0.7570394281918)(0.8652877664593,3.2110908405339,0.9474153193692)(0.8659634916254,3.2324247609379,0.7458005861193) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 4: Intersection | Length: 0.0083 | Connected Faces: 2 | Tag: 61040
 -   Endpoints: (0.8661, 3.1186, -0.0324) -> (0.8655, 3.1148, -0.0397)
 -   Face Tags: 60938, 60962
 -   Face Indices: 56, 32
 -   Topology Vertices: 7 -> 8
+-   Identity: {'tag': 61040, 'journal_identifier': 'EDGE * 36 * 48 {(0.8660759393482,3.1186257792147,-0.0324086179439)(0.8656491450406,3.1167034612596,-0.0360607311139)(0.8654943763256,3.1147756685237,-0.039731807341) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 5: Spline | Length: 0.4546 | Connected Faces: 2 | Tag: 61200
 -   Endpoints: (0.8656, 3.1212, -0.0472) -> (0.8714, 3.5181, 0.1289)
 -   Face Tags: 60870, 60880
 -   Face Indices: 16, 6
 -   Topology Vertices: 9 -> 10
+-   Identity: {'tag': 61200, 'journal_identifier': 'EDGE * 2 * 7 {(0.8656058065439,3.1211536595905,-0.0472408458436)(0.8689736998671,3.3430356746483,-0.012198993829)(0.8714364877414,3.5181136022793,0.128851113202) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 6: SpCurve | Length: 0.4486 | Connected Faces: 2 | Tag: 61192
 -   Endpoints: (0.9482, 3.1157, -0.0399) -> (0.9540, 3.5091, 0.1299)
 -   Face Tags: 60872, 60874
 -   Face Indices: 10, 3
 -   Topology Vertices: 11 -> 12
+-   Identity: {'tag': 61192, 'journal_identifier': 'EDGE * 3 * 4 1 {(0.9481965007706,3.1157310546573,-0.0398540093429)(0.9515290234121,3.3350084979525,-0.0076487333888)(0.9539824383229,3.5090856156984,0.1298542691666) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 7: SpCurve | Length: 0.4486 | Connected Faces: 2 | Tag: 61180
 -   Endpoints: (0.8655, 3.1170, -0.0400) -> (0.8713, 3.5104, 0.1297)
 -   Face Tags: 60878, 60880
 -   Face Indices: 48, 6
 -   Topology Vertices: 13 -> 14
+-   Identity: {'tag': 61180, 'journal_identifier': 'EDGE * 6 * 7 1 {(0.8655293229097,3.1170082527519,-0.0399959267988)(0.8688618455511,3.336285696047,-0.0077906508447)(0.8713152604619,3.5103628137929,0.1297123517108) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 8: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61194
 -   Endpoints: (0.9541, 3.5168, 0.1290) -> (0.9540, 3.5091, 0.1299)
 -   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -191,6 +205,8 @@
 -   Face Indices: 34, 10
 -   Topology Vertices: 15 -> 12
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61194, 'journal_identifier': 'EDGE * 1 * 3 {(0.9541036656023,3.5168364041847,0.1289930306578)(0.9540430519626,3.5129610099416,0.1294236499122)(0.9539824383229,3.5090856156984,0.1298542691666) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 9: Circular | Length: 0.1004 | Connected Faces: 2 | Tag: 61096
 -   Endpoints: (0.9486, 3.2311, 0.7459) -> (0.9482, 3.1908, 0.6558)
 -   Curve Props: Arc Length 0.1004 | Radius 0.1589 | Diameter 0.3178 | Min Curvature Radius 0.1589
@@ -199,6 +215,8 @@
 -   Face Indices: 31, 25
 -   Topology Vertices: 16 -> 17
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61096, 'journal_identifier': 'EDGE * 23 * 24 {(0.9486306694863,3.2311475628433,0.7459425035751)(0.9482797349441,3.2037844629479,0.7041059951726)(0.9481615541865,3.1907717910884,0.6558378666546) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 10: Linear | Length: 0.6964 | Connected Faces: 2 | Tag: 61176
 -   Endpoints: (0.8652, 3.0944, -0.0285) -> (0.8652, 3.1713, 0.6637)
 -   Curve Props: Arc Length 0.6964 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -207,6 +225,8 @@
 -   Face Indices: 35, 44
 -   Topology Vertices: 18 -> 19
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61176, 'journal_identifier': 'EDGE * 33 * 8 {(0.8651595539677,3.094350711506,-0.0285132915092)(0.8651595539677,3.132807441588,0.3175812893456)(0.8651595539677,3.1712641716701,0.6636758702005) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 11: Circular | Length: 0.0067 | Connected Faces: 2 | Tag: 61206
 -   Endpoints: (0.9477, 3.1174, -0.0323) -> (0.9477, 3.1215, -0.0374)
 -   Curve Props: Arc Length 0.0067 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -215,6 +235,8 @@
 -   Face Indices: 1, 45
 -   Topology Vertices: 20 -> 21
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61206, 'journal_identifier': 'EDGE * 44 * 45 {(0.9476740730824,3.1173650977252,-0.0322685357512)(0.9473149906325,3.119380562533,-0.0349229854558)(0.9477482636917,3.1215405134443,-0.0374496489372) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 12: Circular | Length: 0.0067 | Connected Faces: 2 | Tag: 61208
 -   Endpoints: (0.9477, 3.1174, -0.0323) -> (0.9477, 3.1215, -0.0374)
 -   Curve Props: Arc Length 0.0067 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -223,6 +245,8 @@
 -   Face Indices: 45, 47
 -   Topology Vertices: 1 -> 22
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61208, 'journal_identifier': 'EDGE * 45 * 46 {(0.9476727542561,3.117369512261,-0.0322634980576)(0.9473135639435,3.1193855553091,-0.0349197869448)(0.9477475609226,3.1215463023428,-0.0374480544906) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 13: Linear | Length: 0.6964 | Connected Faces: 2 | Tag: 61174
 -   Endpoints: (0.9478, 3.0931, -0.0284) -> (0.9478, 3.1700, 0.6638)
 -   Curve Props: Arc Length 0.6964 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -231,6 +255,8 @@
 -   Face Indices: 35, 29
 -   Topology Vertices: 23 -> 24
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61174, 'journal_identifier': 'EDGE * 8 * 9 {(0.9478267318287,3.0930735134114,-0.0283713740534)(0.9478267318287,3.1315302434935,0.3177232068014)(0.9478267318287,3.1699869735755,0.6638177876563) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 14: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61198
 -   Endpoints: (0.8714, 3.5181, 0.1289) -> (0.9541, 3.5168, 0.1290)
 -   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -239,6 +265,8 @@
 -   Face Indices: 34, 16
 -   Topology Vertices: 10 -> 15
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61198, 'journal_identifier': 'EDGE * 1 * 2 {(0.8714364877414,3.5181136022793,0.128851113202)(0.9127700766718,3.517475003232,0.1289220719299)(0.9541036656023,3.5168364041847,0.1289930306578) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 15: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61002
 -   Endpoints: (0.9478, 3.0931, -0.0284) -> (0.8652, 3.0944, -0.0285)
 -   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -247,11 +275,15 @@
 -   Face Indices: 35, 28
 -   Topology Vertices: 23 -> 18
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61002, 'journal_identifier': 'EDGE * 54 * 8 {(0.9478267318287,3.0930735134114,-0.0283713740534)(0.9064931428982,3.0937121124587,-0.0284423327813)(0.8651595539677,3.094350711506,-0.0285132915092) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 16: Spline | Length: 0.2911 | Connected Faces: 2 | Tag: 61062
 -   Endpoints: (0.9436, 2.8315, 0.1064) -> (0.9476, 3.0766, -0.0403)
 -   Face Tags: 60942, 60952
 -   Face Indices: 49, 53
 -   Topology Vertices: 25 -> 26
+-   Identity: {'tag': 61062, 'journal_identifier': 'EDGE * 38 * 43 {(0.9435539271327,2.8314873596256,0.1063785654681)(0.9454180613446,2.9416950717562,0.0123405598445)(0.9475923417437,3.0765725755719,-0.0403403000242) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 17: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61150
 -   Endpoints: (0.8646, 3.1474, 0.7638) -> (0.9473, 3.1461, 0.7640)
 -   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -260,6 +292,8 @@
 -   Face Indices: 23, 27
 -   Topology Vertices: 27 -> 28
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61150, 'journal_identifier': 'EDGE * 10 * 16 {(0.8646185410188,3.1473744767849,0.7638195826413)(0.9059521299493,3.1467358777376,0.7638905413692)(0.9472857188798,3.1460972786903,0.7639615000971) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 18: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61082
 -   Endpoints: (0.8655, 3.1920, 0.6557) -> (0.8654, 3.1849, 0.6525)
 -   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -268,6 +302,8 @@
 -   Face Indices: 8, 38
 -   Topology Vertices: 29 -> 30
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61082, 'journal_identifier': 'EDGE * 27 * 29 {(0.8654943763256,3.1920489891829,0.6556959491988)(0.8654421593093,3.188491745231,0.6540987402752)(0.8653899422931,3.1849345012791,0.6525015313516) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 19: Circular | Length: 0.1085 | Connected Faces: 2 | Tag: 61186
 -   Endpoints: (0.9534, 3.5056, 0.1302) -> (0.8718, 3.5069, 0.1301)
 -   Curve Props: Arc Length 0.1085 | Radius 0.0427 | Diameter 0.0855 | Min Curvature Radius 0.0427
@@ -276,6 +312,8 @@
 -   Face Indices: 34, 54
 -   Topology Vertices: 31 -> 32
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61186, 'journal_identifier': 'EDGE * 1 * 5 {(0.9533933109995,3.5056026315703,0.1302412852827)(0.9121275473851,3.4763942446448,0.1334868115471)(0.8717951772652,3.5068633130599,0.1301012030901) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 20: Linear | Length: 0.6900 | Connected Faces: 2 | Tag: 61170
 -   Endpoints: (0.9471, 3.0835, -0.0266) -> (0.9471, 3.1597, 0.6592)
 -   Curve Props: Arc Length 0.6900 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -284,11 +322,15 @@
 -   Face Indices: 24, 19
 -   Topology Vertices: 33 -> 34
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61170, 'journal_identifier': 'EDGE * 31 * 32 {(0.9471407347735,3.0834791327748,-0.0265575893947)(0.9471407347735,3.1215776238432,0.316312989289)(0.9471407347735,3.1596761149116,0.6591835679726) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 21: SpCurve | Length: 0.0022 | Connected Faces: 2 | Tag: 61204
 -   Endpoints: (0.9482, 3.1135, -0.0396) -> (0.9482, 3.1157, -0.0399)
 -   Face Tags: 60872, 60874
 -   Face Indices: 10, 3
 -   Topology Vertices: 35 -> 11
+-   Identity: {'tag': 61204, 'journal_identifier': 'EDGE * 3 * 4 {(0.9481615541831,3.1134984702074,-0.0395898898589)(0.9481790200834,3.1146142585359,-0.0397221777764)(0.9481965007706,3.1157310546576,-0.039854009343) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 22: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61126
 -   Endpoints: (0.8658, 3.2248, 0.7474) -> (0.9485, 3.2235, 0.7476)
 -   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -297,6 +339,8 @@
 -   Face Indices: 27, 40
 -   Topology Vertices: 36 -> 37
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61126, 'journal_identifier': 'EDGE * 16 * 22 {(0.8658428603101,3.2247973794197,0.747425285859)(0.9071764492406,3.2241587803724,0.7474962445869)(0.948510038171,3.2235201813251,0.7475672033148) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 23: Circular | Length: 0.0110 | Connected Faces: 2 | Tag: 60992
 -   Endpoints: (0.9481, 3.1105, -0.0420) -> (0.9483, 3.1199, -0.0471)
 -   Curve Props: Arc Length 0.0110 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -305,11 +349,15 @@
 -   Face Indices: 10, 52
 -   Topology Vertices: 38 -> 39
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 60992, 'journal_identifier': 'EDGE * 3 * 55 {(0.9481193905138,3.1105052296933,-0.0419673953969)(0.9481898134595,3.1146732293785,-0.0454786260572)(0.9482729844048,3.119876461496,-0.0470989283878) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 24: SpCurve | Length: 0.0007 | Connected Faces: 2 | Tag: 61052
 -   Endpoints: (0.9477, 3.0849, -0.0351) -> (0.9477, 3.0855, -0.0352)
 -   Face Tags: 60950, 60952
 -   Face Indices: 13, 53
 -   Topology Vertices: 40 -> 41
+-   Identity: {'tag': 61052, 'journal_identifier': 'EDGE * 42 * 43 1 {(0.9477114239817,3.0848606372668,-0.0351168125684)(0.9477168540021,3.0852047431084,-0.0351829998827)(0.9477222792869,3.0855485302394,-0.0352492969386) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 25: Circular | Length: 0.1004 | Connected Faces: 2 | Tag: 61084
 -   Endpoints: (0.8660, 3.2324, 0.7458) -> (0.8655, 3.1920, 0.6557)
 -   Curve Props: Arc Length 0.1004 | Radius 0.1589 | Diameter 0.3178 | Min Curvature Radius 0.1589
@@ -318,16 +366,22 @@
 -   Face Indices: 37, 8
 -   Topology Vertices: 6 -> 29
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61084, 'journal_identifier': 'EDGE * 26 * 27 {(0.8659634916254,3.2324247609379,0.7458005861193)(0.8656125570832,3.2050616610424,0.7039640777168)(0.8654943763256,3.1920489891829,0.6556959491988) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 26: Spline | Length: 0.4826 | Connected Faces: 2 | Tag: 61112
 -   Endpoints: (0.8651, 3.1418, 0.7540) -> (0.8666, 3.2359, 0.7451)
 -   Face Tags: 60904, 60906
 -   Face Indices: 42, 51
 -   Topology Vertices: 42 -> 43
+-   Identity: {'tag': 61112, 'journal_identifier': 'EDGE * 19 * 20 {(0.8650835664947,3.1417752849917,0.7539863129413)(0.8657945597906,3.2096439525923,0.95062120563)(0.8665523505045,3.2358521579932,0.7450696787658) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 27: Intersection | Length: 0.0090 | Connected Faces: 2 | Tag: 61030
 -   Endpoints: (0.8655, 3.0791, -0.0308) -> (0.8651, 3.0868, -0.0354)
 -   Face Tags: 60946, 60972
 -   Face Indices: 39, 2
 -   Topology Vertices: 44 -> 45
+-   Identity: {'tag': 61030, 'journal_identifier': 'EDGE * 40 * 53 {(0.8654619741246,3.0791197442343,-0.0307686646633)(0.8651233709686,3.0829588516627,-0.0330919213223)(0.8650551199352,3.0868269011981,-0.0353914408009) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 28: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61160
 -   Endpoints: (0.9477, 3.1629, 0.6606) -> (0.9471, 3.1597, 0.6592)
 -   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
@@ -336,6 +390,8 @@
 -   Face Indices: 11, 19
 -   Topology Vertices: 46 -> 34
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61160, 'journal_identifier': 'EDGE * 12 * 32 {(0.9477222977961,3.1628724856717,0.6606233698091)(0.947564111332,3.1612538030151,0.6598954153652)(0.9471407347735,3.1596761149116,0.6591835679726) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 29: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61178
 -   Endpoints: (0.8713, 3.5104, 0.1297) -> (0.8714, 3.5181, 0.1289)
 -   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -344,6 +400,8 @@
 -   Face Indices: 34, 6
 -   Topology Vertices: 14 -> 10
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61178, 'journal_identifier': 'EDGE * 1 * 7 {(0.871315260462,3.5103628137929,0.1297123517108)(0.8713758741017,3.5142382080361,0.1292817324564)(0.8714364877414,3.5181136022793,0.128851113202) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 30: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61098
 -   Endpoints: (0.9481, 3.1837, 0.6526) -> (0.9482, 3.1908, 0.6558)
 -   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -352,26 +410,36 @@
 -   Face Indices: 31, 46
 -   Topology Vertices: 47 -> 17
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61098, 'journal_identifier': 'EDGE * 23 * 37 {(0.948057120154,3.1836573031846,0.6526434488074)(0.9481093371703,3.1872145471365,0.654240657731)(0.9481615541865,3.1907717910884,0.6558378666546) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 31: SpCurve | Length: 0.0022 | Connected Faces: 2 | Tag: 61202
 -   Endpoints: (0.8655, 3.1148, -0.0397) -> (0.8655, 3.1170, -0.0400)
 -   Face Tags: 60878, 60880
 -   Face Indices: 48, 6
 -   Topology Vertices: 8 -> 13
+-   Identity: {'tag': 61202, 'journal_identifier': 'EDGE * 6 * 7 {(0.8654943763221,3.1147756683133,-0.0397318072192)(0.8655118496159,3.1158919605327,-0.039863867009)(0.8655293229097,3.1170082527522,-0.0399959267988) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 32: SpCurve | Length: 0.7002 | Connected Faces: 2 | Tag: 61172
 -   Endpoints: (0.9477, 3.0855, -0.0352) -> (0.9477, 3.1629, 0.6606)
 -   Face Tags: 60884, 60930
 -   Face Indices: 29, 19
 -   Topology Vertices: 48 -> 46
+-   Identity: {'tag': 61172, 'journal_identifier': 'EDGE * 32 * 9 {(0.9477222977961,3.0855497031179,-0.0352495232161)(0.9477222977961,3.1242110943948,0.3126869232965)(0.9477222977961,3.1628724856717,0.6606233698091) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 33: Spline | Length: 0.4826 | Connected Faces: 2 | Tag: 61116
 -   Endpoints: (0.9467, 3.1405, 0.7541) -> (0.9482, 3.2346, 0.7452)
 -   Face Tags: 60902, 60904
 -   Face Indices: 18, 42
 -   Topology Vertices: 49 -> 50
+-   Identity: {'tag': 61116, 'journal_identifier': 'EDGE * 18 * 19 {(0.946681700229,3.1405146035022,0.7541263951339)(0.9473926935248,3.2083832711027,0.9507612878227)(0.9481504842387,3.2345914765036,0.7452097609585) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 34: Intersection | Length: 0.0000 | Connected Faces: 2 | Tag: 61012
 -   Endpoints: (0.8655, 3.0847, -0.0267) -> (0.8655, 3.0847, -0.0267)
 -   Face Tags: 60928, 60970
 -   Face Indices: 24, 9
 -   Topology Vertices: 51 -> 52
+-   Identity: {'tag': 61012, 'journal_identifier': 'EDGE * 31 * 52 {(0.8655426010393,3.0847398142644,-0.0266976715869)(0.8655432974991,3.0847381493548,-0.0266943332218)(0.865543994188,3.0847364841821,-0.0266909950358) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 35: Circular | Length: 0.0985 | Connected Faces: 2 | Tag: 61092
 -   Endpoints: (0.9482, 3.2346, 0.7452) -> (0.9477, 3.1940, 0.6573)
 -   Curve Props: Arc Length 0.0985 | Radius 0.1559 | Diameter 0.3118 | Min Curvature Radius 0.1559
@@ -380,6 +448,8 @@
 -   Face Indices: 25, 21
 -   Topology Vertices: 50 -> 53
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61092, 'journal_identifier': 'EDGE * 24 * 25 {(0.9481504842387,3.2345914765036,0.7452097609585)(0.9477985408439,3.207285723955,0.7044770133816)(0.9476740730824,3.1939846784535,0.657275833228) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 36: Circular | Length: 0.0985 | Connected Faces: 2 | Tag: 61088
 -   Endpoints: (0.8666, 3.2359, 0.7451) -> (0.8661, 3.1952, 0.6571)
 -   Curve Props: Arc Length 0.0985 | Radius 0.1559 | Diameter 0.3118 | Min Curvature Radius 0.1559
@@ -388,6 +458,8 @@
 -   Face Indices: 21, 37
 -   Topology Vertices: 43 -> 54
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61088, 'journal_identifier': 'EDGE * 25 * 26 {(0.8665523505045,3.2358521579932,0.7450696787658)(0.8662004071096,3.2085464054446,0.704336931189)(0.8660759393482,3.195245359943,0.6571357510353) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 37: Circular | Length: 0.0116 | Connected Faces: 2 | Tag: 60998
 -   Endpoints: (0.8651, 3.0888, -0.0381) -> (0.8649, 3.0778, -0.0405)
 -   Curve Props: Arc Length 0.0116 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -396,6 +468,8 @@
 -   Face Indices: 15, 28
 -   Topology Vertices: 55 -> 56
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 60998, 'journal_identifier': 'EDGE * 39 * 54 {(0.865090507148,3.0888170056806,-0.0380944441603)(0.8650137657873,3.083587496134,-0.0404558725699)(0.8649251638827,3.0778497736664,-0.04048221748) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 38: Circular | Length: 0.1047 | Connected Faces: 2 | Tag: 61148
 -   Endpoints: (0.9478, 3.1700, 0.6638) -> (0.9473, 3.1461, 0.7640)
 -   Curve Props: Arc Length 0.1047 | Radius 0.1657 | Diameter 0.3314 | Min Curvature Radius 0.1657
@@ -404,6 +478,8 @@
 -   Face Indices: 23, 17
 -   Topology Vertices: 24 -> 28
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61148, 'journal_identifier': 'EDGE * 10 * 11 {(0.9478267318287,3.1699869735755,0.6638177876563)(0.947676167873,3.1660169172258,0.7157927110967)(0.9472857188798,3.1460972786903,0.7639615000971) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 39: Circular | Length: 0.0114 | Connected Faces: 2 | Tag: 61004
 -   Endpoints: (0.9478, 3.0875, -0.0380) -> (0.9478, 3.0931, -0.0284)
 -   Curve Props: Arc Length 0.0114 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -412,11 +488,15 @@
 -   Face Indices: 29, 28
 -   Topology Vertices: 57 -> 23
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61004, 'journal_identifier': 'EDGE * 54 * 9 {(0.9477576780617,3.0875393179312,-0.0379528866472)(0.9478087101807,3.091310282756,-0.0337420739007)(0.9478267318287,3.0930735134114,-0.0283713740534) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 40: Spline | Length: 0.2911 | Connected Faces: 2 | Tag: 61064
 -   Endpoints: (0.8609, 2.8328, 0.1062) -> (0.8649, 3.0778, -0.0405)
 -   Face Tags: 60942, 60944
 -   Face Indices: 49, 15
 -   Topology Vertices: 58 -> 56
+-   Identity: {'tag': 61064, 'journal_identifier': 'EDGE * 38 * 39 {(0.8608867492718,2.8327645577201,0.1062366480123)(0.8627508834836,2.9429722698507,0.0121986423887)(0.8649251638827,3.0778497736664,-0.04048221748) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 41: Linear | Length: 0.6938 | Connected Faces: 2 | Tag: 61074
 -   Endpoints: (0.9477, 3.1940, 0.6573) -> (0.9477, 3.1174, -0.0323)
 -   Curve Props: Arc Length 0.6938 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -425,6 +505,8 @@
 -   Face Indices: 7, 33
 -   Topology Vertices: 53 -> 20
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61074, 'journal_identifier': 'EDGE * 34 * 35 {(0.9476740730824,3.1939846784535,0.657275833228)(0.9476740730824,3.1556748880893,0.3125036487384)(0.9476740730824,3.1173650977252,-0.0322685357512) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 42: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61182
 -   Endpoints: (0.8718, 3.5069, 0.1301) -> (0.8713, 3.5104, 0.1297)
 -   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
@@ -433,6 +515,8 @@
 -   Face Indices: 34, 48
 -   Topology Vertices: 32 -> 14
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61182, 'journal_identifier': 'EDGE * 1 * 6 {(0.8717951772652,3.5068633130599,0.1301012030901)(0.871422038783,3.5085950220437,0.1299087820911)(0.871315260462,3.5103628137929,0.1297123517108) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 43: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61102
 -   Endpoints: (0.8654, 3.1849, 0.6525) -> (0.9481, 3.1837, 0.6526)
 -   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -441,11 +525,15 @@
 -   Face Indices: 40, 50
 -   Topology Vertices: 30 -> 47
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61102, 'journal_identifier': 'EDGE * 22 * 28 {(0.8653899422931,3.1849345012791,0.6525015313516)(0.9067235312235,3.1842959022318,0.6525724900795)(0.948057120154,3.1836573031846,0.6526434488074) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 44: SpCurve | Length: 0.4693 | Connected Faces: 2 | Tag: 61120
 -   Endpoints: (0.9472, 3.1422, 0.7572) -> (0.9486, 3.2311, 0.7459)
 -   Face Tags: 60900, 60902
 -   Face Indices: 12, 18
 -   Topology Vertices: 59 -> 16
+-   Identity: {'tag': 61120, 'journal_identifier': 'EDGE * 17 * 18 {(0.9472378046413,3.1422426243803,0.7571813456476)(0.9479549443203,3.2098136424393,0.947557236825)(0.9486306694863,3.2311475628433,0.7459425035751) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 45: Circular | Length: 0.0108 | Connected Faces: 2 | Tag: 60994
 -   Endpoints: (0.9481, 3.1076, -0.0319) -> (0.9481, 3.1105, -0.0420)
 -   Curve Props: Arc Length 0.0108 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -454,11 +542,15 @@
 -   Face Indices: 46, 52
 -   Topology Vertices: 60 -> 38
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 60994, 'journal_identifier': 'EDGE * 37 * 55 {(0.9480571201541,3.1075966791527,-0.0318705423386)(0.9480732988025,3.108050864884,-0.0372071519582)(0.9481193905138,3.1105052296933,-0.0419673953969) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 46: SpCurve | Length: 0.2965 | Connected Faces: 2 | Tag: 61054
 -   Endpoints: (0.8609, 2.8361, 0.1128) -> (0.8650, 3.0861, -0.0353)
 -   Face Tags: 60944, 60946
 -   Face Indices: 15, 39
 -   Topology Vertices: 61 -> 62
+-   Identity: {'tag': 61054, 'journal_identifier': 'EDGE * 39 * 40 {(0.8609263480501,2.8360591848818,0.112820561723)(0.8628238475247,2.9482199105214,0.0169235390213)(0.8650442461208,3.0861378353614,-0.0352587300243) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 47: Circular | Length: 0.0985 | Connected Faces: 2 | Tag: 61136
 -   Endpoints: (0.8655, 3.1609, 0.6590) -> (0.8651, 3.1418, 0.7540)
 -   Curve Props: Arc Length 0.0985 | Radius 0.1559 | Diameter 0.3118 | Min Curvature Radius 0.1559
@@ -467,6 +559,8 @@
 -   Face Indices: 4, 55
 -   Topology Vertices: 63 -> 42
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61136, 'journal_identifier': 'EDGE * 13 * 14 {(0.8655426010393,3.1609367964012,0.6590434857799)(0.8654272739333,3.1589166598932,0.708041347567)(0.8650835664947,3.1417752849917,0.7539863129413) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 48: Circular | Length: 0.1004 | Connected Faces: 2 | Tag: 61144
 -   Endpoints: (0.9477, 3.1629, 0.6606) -> (0.9472, 3.1422, 0.7572)
 -   Curve Props: Arc Length 0.1004 | Radius 0.1589 | Diameter 0.3178 | Min Curvature Radius 0.1589
@@ -475,6 +569,8 @@
 -   Face Indices: 17, 11
 -   Topology Vertices: 46 -> 59
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61144, 'journal_identifier': 'EDGE * 11 * 12 {(0.9477222977961,3.1628724856717,0.6606233698091)(0.9475960277933,3.1602467964004,0.7105457659654)(0.9472378046413,3.1422426243803,0.7571813456476) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 49: Linear | Length: 0.0074 | Connected Faces: 2 | Tag: 61224
 -   Endpoints: (0.8609, 2.8328, 0.1062) -> (0.8609, 2.8361, 0.1128)
 -   Curve Props: Arc Length 0.0074 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -483,11 +579,15 @@
 -   Face Indices: 15, 36
 -   Topology Vertices: 58 -> 64
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61224, 'journal_identifier': 'EDGE * 39 * 56 {(0.8608867492774,2.8327645580637,0.1062366478403)(0.8609065491891,2.8344119014465,0.1095285685169)(0.8609263491008,2.8360592448292,0.1128204891936) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 50: Intersection | Length: 0.0090 | Connected Faces: 2 | Tag: 61032
 -   Endpoints: (0.8651, 3.0868, -0.0354) -> (0.8655, 3.0847, -0.0267)
 -   Face Tags: 60926, 60972
 -   Face Indices: 30, 2
 -   Topology Vertices: 45 -> 51
+-   Identity: {'tag': 61032, 'journal_identifier': 'EDGE * 30 * 53 {(0.8650551199352,3.0868269011981,-0.0353914408009)(0.8651628716768,3.085786790656,-0.0310359130724)(0.8655426010392,3.0847398142644,-0.0266976715874) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 51: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61162
 -   Endpoints: (0.9478, 3.1700, 0.6638) -> (0.9477, 3.1629, 0.6606)
 -   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -496,11 +596,15 @@
 -   Face Indices: 29, 17
 -   Topology Vertices: 24 -> 46
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61162, 'journal_identifier': 'EDGE * 11 * 9 {(0.9478267318287,3.1699869735755,0.6638177876563)(0.9477745148124,3.1664297296236,0.6622205787327)(0.9477222977961,3.1628724856717,0.6606233698091) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 52: Intersection | Length: 0.0000 | Connected Faces: 2 | Tag: 61044
 -   Endpoints: (0.8661, 3.1228, -0.0376) -> (0.8661, 3.1228, -0.0376)
 -   Face Tags: 60878, 60960
 -   Face Indices: 48, 41
 -   Topology Vertices: 65 -> 66
+-   Identity: {'tag': 61044, 'journal_identifier': 'EDGE * 47 * 6 {(0.8661485576482,3.1228012192259,-0.0375897338292)(0.8661489937385,3.1228040883736,-0.0375889381508)(0.8661494299177,3.1228069575555,-0.0375881426445) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 53: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61118
 -   Endpoints: (0.9486, 3.2311, 0.7459) -> (0.9482, 3.2346, 0.7452)
 -   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
@@ -509,11 +613,15 @@
 -   Face Indices: 18, 25
 -   Topology Vertices: 16 -> 50
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61118, 'journal_identifier': 'EDGE * 18 * 24 {(0.9486306694863,3.2311475628433,0.7459425035751)(0.9485237553981,3.23288724112,0.7455721482808)(0.9481504842387,3.2345914765036,0.7452097609585) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 54: Intersection | Length: 0.0000 | Connected Faces: 2 | Tag: 61022
 -   Endpoints: (0.8661, 3.1186, -0.0324) -> (0.8661, 3.1186, -0.0324)
 -   Face Tags: 60936, 60960
 -   Face Indices: 33, 41
 -   Topology Vertices: 2 -> 7
+-   Identity: {'tag': 61022, 'journal_identifier': 'EDGE * 35 * 47 {(0.8660773848632,3.1186301691018,-0.0324036108369)(0.8660766619962,3.1186279740585,-0.0324061142713)(0.8660759393482,3.1186257792147,-0.0324086179439) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 55: Circular | Length: 0.1047 | Connected Faces: 2 | Tag: 61152
 -   Endpoints: (0.8652, 3.1713, 0.6637) -> (0.8646, 3.1474, 0.7638)
 -   Curve Props: Arc Length 0.1047 | Radius 0.1657 | Diameter 0.3314 | Min Curvature Radius 0.1657
@@ -522,16 +630,22 @@
 -   Face Indices: 23, 43
 -   Topology Vertices: 19 -> 27
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61152, 'journal_identifier': 'EDGE * 10 * 15 {(0.8651595539677,3.1712641716701,0.6636758702005)(0.865008990012,3.1672941153203,0.7156507936409)(0.8646185410188,3.1473744767849,0.7638195826413) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 56: Intersection | Length: 0.1355 | Connected Faces: 2 | Tag: 61014
 -   Endpoints: (0.8655, 3.0847, -0.0267) -> (0.9471, 3.0835, -0.0266)
 -   Face Tags: 60928, 60968
 -   Face Indices: 24, 14
 -   Topology Vertices: 67 -> 68
+-   Identity: {'tag': 61014, 'journal_identifier': 'EDGE * 31 * 51 {(0.8655439679612,3.0847365659648,-0.0266909487625)(0.9059549836625,3.0628346926811,0.0161027498758)(0.9471392450876,3.0834759286095,-0.0265508714738) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 57: Intersection | Length: 0.0083 | Connected Faces: 2 | Tag: 61042
 -   Endpoints: (0.8655, 3.1148, -0.0397) -> (0.8661, 3.1228, -0.0376)
 -   Face Tags: 60878, 60962
 -   Face Indices: 48, 32
 -   Topology Vertices: 8 -> 65
+-   Identity: {'tag': 61042, 'journal_identifier': 'EDGE * 48 * 6 {(0.8654943763256,3.1147756685237,-0.0397318073409)(0.8656867167543,3.1188030548268,-0.0386740059275)(0.8661485576482,3.1228012192259,-0.0375897338292) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 58: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61222
 -   Endpoints: (0.9436, 2.8315, 0.1064) -> (0.8609, 2.8328, 0.1062)
 -   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -540,11 +654,15 @@
 -   Face Indices: 49, 36
 -   Topology Vertices: 25 -> 58
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61222, 'journal_identifier': 'EDGE * 38 * 56 {(0.9435539271374,2.8314873598946,0.1063785651471)(0.902220338207,2.8321259589419,0.1063076064192)(0.8608867492765,2.8327645579892,0.1062366476913) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 59: SpCurve | Length: 0.4403 | Connected Faces: 2 | Tag: 61128
 -   Endpoints: (0.8646, 3.1474, 0.7638) -> (0.8658, 3.2248, 0.7474)
 -   Face Tags: 60898, 60908
 -   Face Indices: 27, 20
 -   Topology Vertices: 27 -> 36
+-   Identity: {'tag': 61128, 'journal_identifier': 'EDGE * 16 * 21 {(0.8646185410188,3.1473744767849,0.7638195826413)(0.8653493260736,3.2142846932282,0.9403000776049)(0.8658428603101,3.2247973794197,0.747425285859) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 60: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61142
 -   Endpoints: (0.9472, 3.1422, 0.7572) -> (0.9467, 3.1405, 0.7541)
 -   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
@@ -553,11 +671,15 @@
 -   Face Indices: 11, 18
 -   Topology Vertices: 59 -> 49
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61142, 'journal_identifier': 'EDGE * 12 * 18 {(0.9472378046413,3.1422426243803,0.7571813456476)(0.9470924940115,3.1413665678776,0.7556365207392)(0.946681700229,3.1405146035022,0.7541263951339) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 61: SpCurve | Length: 0.4403 | Connected Faces: 2 | Tag: 61124
 -   Endpoints: (0.9473, 3.1461, 0.7640) -> (0.9485, 3.2235, 0.7476)
 -   Face Tags: 60898, 60900
 -   Face Indices: 27, 12
 -   Topology Vertices: 28 -> 37
+-   Identity: {'tag': 61124, 'journal_identifier': 'EDGE * 16 * 17 {(0.9472857188798,3.1460972786903,0.7639615000971)(0.9480165039346,3.2130074951336,0.9404419950607)(0.948510038171,3.2235201813251,0.7475672033148) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 62: Circular | Length: 0.1085 | Connected Faces: 2 | Tag: 61114
 -   Endpoints: (0.9482, 3.2346, 0.7452) -> (0.8666, 3.2359, 0.7451)
 -   Curve Props: Arc Length 0.1085 | Radius 0.0427 | Diameter 0.0855 | Min Curvature Radius 0.0427
@@ -566,6 +688,8 @@
 -   Face Indices: 42, 21
 -   Topology Vertices: 50 -> 43
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61114, 'journal_identifier': 'EDGE * 19 * 25 {(0.9481504842387,3.2345914765036,0.7452097609585)(0.9078158197961,3.2645854568781,0.738885004853)(0.8665523505045,3.2358521579932,0.7450696787658) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 63: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61130
 -   Endpoints: (0.8646, 3.1435, 0.7570) -> (0.8646, 3.1474, 0.7638)
 -   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -574,6 +698,8 @@
 -   Face Indices: 43, 20
 -   Topology Vertices: 5 -> 27
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61130, 'journal_identifier': 'EDGE * 15 * 21 {(0.8645706267804,3.1435198224749,0.7570394281918)(0.8645945838996,3.1454471496299,0.7604295054165)(0.8646185410188,3.1473744767849,0.7638195826413) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 64: Circular | Length: 0.0116 | Connected Faces: 2 | Tag: 61006
 -   Endpoints: (0.9476, 3.0766, -0.0403) -> (0.9478, 3.0875, -0.0380)
 -   Curve Props: Arc Length 0.0116 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -582,6 +708,8 @@
 -   Face Indices: 53, 28
 -   Topology Vertices: 26 -> 57
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61006, 'journal_identifier': 'EDGE * 43 * 54 {(0.9475923417437,3.0765725755719,-0.0403403000242)(0.9476809391722,3.0823100011482,-0.0403140197495)(0.9477576780617,3.0875393179312,-0.0379528866472) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 65: Linear | Length: 0.0038 | Connected Faces: 2 | Tag: 61066
 -   Endpoints: (0.9482, 3.1135, -0.0396) -> (0.9481, 3.1105, -0.0420)
 -   Curve Props: Arc Length 0.0038 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -590,6 +718,8 @@
 -   Face Indices: 10, 46
 -   Topology Vertices: 35 -> 38
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61066, 'journal_identifier': 'EDGE * 3 * 37 {(0.9481615541865,3.1134984704292,-0.0395898898851)(0.9481404723502,3.1120018500612,-0.040778642641)(0.9481193905138,3.1105052296933,-0.0419673953969) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 66: Circular | Length: 0.0070 | Connected Faces: 2 | Tag: 61220
 -   Endpoints: (0.8655, 3.0791, -0.0308) -> (0.8655, 3.0847, -0.0267)
 -   Curve Props: Arc Length 0.0070 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -598,11 +728,15 @@
 -   Face Indices: 9, 2
 -   Topology Vertices: 44 -> 51
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61220, 'journal_identifier': 'EDGE * 52 * 53 {(0.8654619741247,3.0791197442341,-0.030768664663)(0.8659348331845,3.0819846196143,-0.0288174427733)(0.8655426010393,3.0847398142643,-0.026697671587) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 67: Intersection | Length: 0.0034 | Connected Faces: 2 | Tag: 61226
 -   Endpoints: (0.8609, 2.8361, 0.1128) -> (0.8615, 2.8375, 0.1158)
 -   Face Tags: 60946, 60978
 -   Face Indices: 39, 36
 -   Topology Vertices: 69 -> 70
+-   Identity: {'tag': 61226, 'journal_identifier': 'EDGE * 40 * 56 {(0.8609263503514,2.8360593489417,0.1128206976731)(0.8610702359144,2.8368080840394,0.1143213054251)(0.8614786804035,2.8375327024461,0.1157823506854) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 68: Circular | Length: 0.0985 | Connected Faces: 2 | Tag: 61140
 -   Endpoints: (0.9471, 3.1597, 0.6592) -> (0.9467, 3.1405, 0.7541)
 -   Curve Props: Arc Length 0.0985 | Radius 0.1559 | Diameter 0.3118 | Min Curvature Radius 0.1559
@@ -611,6 +745,8 @@
 -   Face Indices: 11, 4
 -   Topology Vertices: 34 -> 49
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61140, 'journal_identifier': 'EDGE * 12 * 13 {(0.9471407347735,3.1596761149116,0.6591835679726)(0.9470254076675,3.1576559784037,0.7081814297597)(0.946681700229,3.1405146035022,0.7541263951339) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 69: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61190
 -   Endpoints: (0.9540, 3.5091, 0.1299) -> (0.9534, 3.5056, 0.1302)
 -   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
@@ -619,6 +755,8 @@
 -   Face Indices: 34, 3
 -   Topology Vertices: 12 -> 31
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61190, 'journal_identifier': 'EDGE * 1 * 4 {(0.9539824383229,3.5090856156984,0.1298542691666)(0.9538204261714,3.5073219767301,0.1300502381055)(0.9533933109995,3.5056026315703,0.1302412852827) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 70: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 60996
 -   Endpoints: (0.8654, 3.1089, -0.0320) -> (0.9481, 3.1076, -0.0319)
 -   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -627,11 +765,15 @@
 -   Face Indices: 50, 52
 -   Topology Vertices: 71 -> 60
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 60996, 'journal_identifier': 'EDGE * 28 * 55 {(0.8653899422931,3.1088738772443,-0.0320124597941)(0.9067235312235,3.108235278197,-0.0319415010662)(0.948057120154,3.1075966791498,-0.0318705423383) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 71: SpCurve | Length: 0.2880 | Connected Faces: 2 | Tag: 61056
 -   Endpoints: (0.8615, 2.8375, 0.1158) -> (0.8655, 3.0791, -0.0308)
 -   Face Tags: 60946, 60948
 -   Face Indices: 39, 5
 -   Topology Vertices: 70 -> 72
+-   Identity: {'tag': 61056, 'journal_identifier': 'EDGE * 40 * 41 {(0.8614786803491,2.8375327023745,0.1157823505405)(0.863313386334,2.9458494236958,0.0218682099431)(0.8654626662621,3.0791140288838,-0.0307652468093) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 72: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61164
 -   Endpoints: (0.8652, 3.1713, 0.6637) -> (0.9478, 3.1700, 0.6638)
 -   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -640,6 +782,8 @@
 -   Face Indices: 35, 23
 -   Topology Vertices: 19 -> 24
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61164, 'journal_identifier': 'EDGE * 10 * 8 {(0.8651595539677,3.1712641716701,0.6636758702005)(0.9064931428982,3.1706255726228,0.6637468289284)(0.9478267318287,3.1699869735755,0.6638177876563) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 73: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61146
 -   Endpoints: (0.9473, 3.1461, 0.7640) -> (0.9472, 3.1422, 0.7572)
 -   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -648,16 +792,22 @@
 -   Face Indices: 17, 12
 -   Topology Vertices: 28 -> 59
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61146, 'journal_identifier': 'EDGE * 11 * 17 {(0.9472857188798,3.1460972786903,0.7639615000971)(0.9472617617605,3.1441699515353,0.7605714228723)(0.9472378046413,3.1422426243803,0.7571813456476) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 74: Intersection | Length: 0.0083 | Connected Faces: 2 | Tag: 61034
 -   Endpoints: (0.9482, 3.1135, -0.0396) -> (0.9477, 3.1174, -0.0323)
 -   Face Tags: 60934, 60954
 -   Face Indices: 7, 1
 -   Topology Vertices: 35 -> 20
+-   Identity: {'tag': 61034, 'journal_identifier': 'EDGE * 34 * 44 {(0.9481615541865,3.1134984704292,-0.0395898898851)(0.9480538132601,3.1154303176625,-0.0359192661452)(0.9476740730824,3.1173650977252,-0.0322685357512) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 75: SpCurve | Length: 0.0070 | Connected Faces: 2 | Tag: 61218
 -   Endpoints: (0.8655, 3.0791, -0.0308) -> (0.8655, 3.0847, -0.0267)
 -   Face Tags: 60968, 60970
 -   Face Indices: 14, 9
 -   Topology Vertices: 73 -> 74
+-   Identity: {'tag': 61218, 'journal_identifier': 'EDGE * 51 * 52 {(0.8654627113375,3.0791141287624,-0.0307651445275)(0.865933993339,3.0819799614436,-0.0288121088587)(0.8655439645351,3.0847365550502,-0.0266911370942) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 76: Circular | Length: 0.0108 | Connected Faces: 2 | Tag: 60986
 -   Endpoints: (0.8655, 3.1118, -0.0421) -> (0.8654, 3.1089, -0.0320)
 -   Curve Props: Arc Length 0.0108 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -666,11 +816,15 @@
 -   Face Indices: 38, 52
 -   Topology Vertices: 75 -> 71
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 60986, 'journal_identifier': 'EDGE * 29 * 55 {(0.8654522126529,3.1117824277878,-0.0421093128527)(0.8654061209416,3.1093280629786,-0.037349069414)(0.8653899422931,3.1088738772473,-0.0320124597944) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 77: SpCurve | Length: 0.0034 | Connected Faces: 2 | Tag: 61046
 -   Endpoints: (0.9477, 3.0855, -0.0352) -> (0.9478, 3.0875, -0.0380)
 -   Face Tags: 60884, 60952
 -   Face Indices: 29, 53
 -   Topology Vertices: 48 -> 76
+-   Identity: {'tag': 61046, 'journal_identifier': 'EDGE * 43 * 9 {(0.9477222977961,3.0855497031179,-0.0352495232161)(0.9477399913999,3.0865447552056,-0.0366010247557)(0.9477576850037,3.0875398072933,-0.0379525262953) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 78: Circular | Length: 0.1085 | Connected Faces: 2 | Tag: 61138
 -   Endpoints: (0.9467, 3.1405, 0.7541) -> (0.8651, 3.1418, 0.7540)
 -   Curve Props: Arc Length 0.1085 | Radius 0.0427 | Diameter 0.0855 | Min Curvature Radius 0.0427
@@ -679,11 +833,15 @@
 -   Face Indices: 4, 42
 -   Topology Vertices: 49 -> 42
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61138, 'journal_identifier': 'EDGE * 13 * 19 {(0.946681700229,3.1405146035022,0.7541263951339)(0.9056981747207,3.1263054243165,0.7279543409926)(0.8650835664947,3.1417752849917,0.7539863129413) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 79: Intersection | Length: 0.1320 | Connected Faces: 2 | Tag: 61024
 -   Endpoints: (0.8661, 3.1228, -0.0376) -> (0.9477, 3.1215, -0.0374)
 -   Face Tags: 60876, 60958
 -   Face Indices: 54, 47
 -   Topology Vertices: 66 -> 22
+-   Identity: {'tag': 61024, 'journal_identifier': 'EDGE * 46 * 5 {(0.8661494304661,3.122806999958,-0.0375880804898)(0.9074400950219,3.1612698153946,-0.0142014719663)(0.9477475642003,3.1215463184685,-0.0374479982971) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 80: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61154
 -   Endpoints: (0.8651, 3.1641, 0.6605) -> (0.8652, 3.1713, 0.6637)
 -   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -692,16 +850,22 @@
 -   Face Indices: 43, 44
 -   Topology Vertices: 77 -> 19
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61154, 'journal_identifier': 'EDGE * 15 * 33 {(0.8650551199352,3.1641496837663,0.6604814523533)(0.8651073369515,3.1677069277182,0.6620786612769)(0.8651595539677,3.1712641716701,0.6636758702005) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 81: Intersection | Length: 0.0000 | Connected Faces: 2 | Tag: 61016
 -   Endpoints: (0.9471, 3.0835, -0.0266) -> (0.9471, 3.0835, -0.0266)
 -   Face Tags: 60928, 60966
 -   Face Indices: 24, 22
 -   Topology Vertices: 78 -> 33
+-   Identity: {'tag': 61016, 'journal_identifier': 'EDGE * 31 * 50 {(0.9471392165057,3.0834758476733,-0.0265509178414)(0.9471399757579,3.0834774903521,-0.0265542535278)(0.9471407347735,3.0834791327749,-0.0265575893942) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 82: Spline | Length: 0.4546 | Connected Faces: 2 | Tag: 61196
 -   Endpoints: (0.9483, 3.1199, -0.0471) -> (0.9541, 3.5168, 0.1290)
 -   Face Tags: 60870, 60872
 -   Face Indices: 16, 10
 -   Topology Vertices: 39 -> 15
+-   Identity: {'tag': 61196, 'journal_identifier': 'EDGE * 2 * 3 {(0.9482729844048,3.119876461496,-0.0470989283878)(0.951640877728,3.3417584765538,-0.0120570763732)(0.9541036656023,3.5168364041847,0.1289930306578) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 83: Linear | Length: 0.6887 | Connected Faces: 2 | Tag: 61078
 -   Endpoints: (0.9481, 3.1837, 0.6526) -> (0.9481, 3.1076, -0.0319)
 -   Curve Props: Arc Length 0.6887 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -710,6 +874,8 @@
 -   Face Indices: 50, 46
 -   Topology Vertices: 47 -> 60
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61078, 'journal_identifier': 'EDGE * 28 * 37 {(0.948057120154,3.1836573031846,0.6526434488074)(0.948057120154,3.1456269911672,0.3103864532346)(0.948057120154,3.1075966791498,-0.0318705423383) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 84: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61106
 -   Endpoints: (0.8660, 3.2324, 0.7458) -> (0.8658, 3.2248, 0.7474)
 -   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -718,6 +884,8 @@
 -   Face Indices: 20, 8
 -   Topology Vertices: 6 -> 36
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61106, 'journal_identifier': 'EDGE * 21 * 27 {(0.8659634916254,3.2324247609379,0.7458005861193)(0.8659031759677,3.2286110701788,0.7466129359891)(0.8658428603101,3.2247973794197,0.747425285859) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 85: Circular | Length: 0.0067 | Connected Faces: 2 | Tag: 61212
 -   Endpoints: (0.8661, 3.1186, -0.0324) -> (0.8661, 3.1228, -0.0376)
 -   Curve Props: Arc Length 0.0067 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -726,6 +894,8 @@
 -   Face Indices: 41, 32
 -   Topology Vertices: 7 -> 65
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61212, 'journal_identifier': 'EDGE * 47 * 48 {(0.8660759393482,3.1186257792147,-0.0324086179439)(0.8665062223974,3.1206290484192,-0.0350617125188)(0.8661485576482,3.1228012192259,-0.0375897338292) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 86: Circular | Length: 0.1004 | Connected Faces: 2 | Tag: 61132
 -   Endpoints: (0.8651, 3.1641, 0.6605) -> (0.8646, 3.1435, 0.7570)
 -   Curve Props: Arc Length 0.1004 | Radius 0.1589 | Diameter 0.3178 | Min Curvature Radius 0.1589
@@ -734,6 +904,8 @@
 -   Face Indices: 55, 43
 -   Topology Vertices: 77 -> 5
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61132, 'journal_identifier': 'EDGE * 14 * 15 {(0.8650551199352,3.1641496837663,0.6604814523533)(0.8649288499324,3.1615239944949,0.7104038485096)(0.8645706267804,3.1435198224749,0.7570394281918) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 87: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 61008
 -   Endpoints: (0.8649, 3.0778, -0.0405) -> (0.9476, 3.0766, -0.0403)
 -   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -742,6 +914,8 @@
 -   Face Indices: 49, 28
 -   Topology Vertices: 56 -> 26
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61008, 'journal_identifier': 'EDGE * 38 * 54 {(0.8649251638827,3.0778497736664,-0.04048221748)(0.9062587528132,3.0772111746191,-0.0404112587521)(0.9475923417437,3.0765725755719,-0.0403403000242) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 88: Linear | Length: 0.0038 | Connected Faces: 2 | Tag: 61068
 -   Endpoints: (0.8655, 3.1148, -0.0397) -> (0.8655, 3.1118, -0.0421)
 -   Curve Props: Arc Length 0.0038 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -750,11 +924,15 @@
 -   Face Indices: 6, 38
 -   Topology Vertices: 8 -> 75
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61068, 'journal_identifier': 'EDGE * 29 * 7 {(0.8654943763256,3.1147756685237,-0.0397318073409)(0.8654732944892,3.1132790481558,-0.0409205600968)(0.8654522126529,3.1117824277878,-0.0421093128527) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 89: Intersection | Length: 0.1059 | Connected Faces: 2 | Tag: 61228
 -   Endpoints: (0.8615, 2.8375, 0.1158) -> (0.9431, 2.8363, 0.1159)
 -   Face Tags: 60948, 60978
 -   Face Indices: 5, 36
 -   Topology Vertices: 70 -> 3
+-   Identity: {'tag': 61228, 'journal_identifier': 'EDGE * 41 * 56 {(0.8614786803472,2.8375327022793,0.1157823507795)(0.9024471748001,2.8494948922825,0.141016897499)(0.9430768140355,2.8362720209514,0.1159224328646) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 90: Linear | Length: 0.0074 | Connected Faces: 2 | Tag: 60980
 -   Endpoints: (0.9436, 2.8348, 0.1130) -> (0.9436, 2.8315, 0.1064)
 -   Curve Props: Arc Length 0.0074 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -763,6 +941,8 @@
 -   Face Indices: 53, 36
 -   Topology Vertices: 79 -> 25
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 60980, 'journal_identifier': 'EDGE * 43 * 56 {(0.943593524051,2.8347818045621,0.1129619227109)(0.9435737255947,2.8331345822656,0.1096702440035)(0.9435539271383,2.8314873599692,0.1063785652961) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 91: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61086
 -   Endpoints: (0.8661, 3.1952, 0.6571) -> (0.8655, 3.1920, 0.6557)
 -   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
@@ -771,11 +951,15 @@
 -   Face Indices: 37, 56
 -   Topology Vertices: 54 -> 29
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61086, 'journal_identifier': 'EDGE * 26 * 36 {(0.8660759393482,3.195245359943,0.6571357510353)(0.8656525627897,3.1936676718395,0.6564239036427)(0.8654943763256,3.1920489891829,0.6556959491988) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 92: SpCurve | Length: 0.2880 | Connected Faces: 2 | Tag: 61058
 -   Endpoints: (0.9431, 2.8363, 0.1159) -> (0.9471, 3.0779, -0.0306)
 -   Face Tags: 60948, 60950
 -   Face Indices: 5, 13
 -   Topology Vertices: 3 -> 80
+-   Identity: {'tag': 61058, 'journal_identifier': 'EDGE * 41 * 42 {(0.9430768140833,2.8362720208849,0.1159224327332)(0.9449115209082,2.9445887931368,0.0220082612394)(0.9470608002536,3.0778533827666,-0.0306249961163) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 93: Circular | Length: 0.0070 | Connected Faces: 2 | Tag: 61214
 -   Endpoints: (0.9471, 3.0779, -0.0306) -> (0.9471, 3.0835, -0.0266)
 -   Curve Props: Arc Length 0.0070 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -784,16 +968,22 @@
 -   Face Indices: 26, 22
 -   Topology Vertices: 81 -> 33
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61214, 'journal_identifier': 'EDGE * 49 * 50 {(0.947061680092,3.0778590384537,-0.0306285797713)(0.9466708542546,3.080737257663,-0.0286788405978)(0.9471407347734,3.0834791327747,-0.0265575893945) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 94: Intersection | Length: 0.0083 | Connected Faces: 2 | Tag: 61036
 -   Endpoints: (0.9477, 3.1215, -0.0374) -> (0.9482, 3.1135, -0.0396)
 -   Face Tags: 60874, 60954
 -   Face Indices: 3, 1
 -   Topology Vertices: 21 -> 35
+-   Identity: {'tag': 61036, 'journal_identifier': 'EDGE * 4 * 44 {(0.9477482636917,3.1215405134443,-0.0374496489372)(0.9480900907543,3.1175299438151,-0.0385325383831)(0.9481615541865,3.1134984704291,-0.0395898898851) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 95: SpCurve | Length: 0.7002 | Connected Faces: 2 | Tag: 61166
 -   Endpoints: (0.8651, 3.0868, -0.0354) -> (0.8651, 3.1641, 0.6605)
 -   Face Tags: 60926, 60932
 -   Face Indices: 30, 44
 -   Topology Vertices: 45 -> 77
+-   Identity: {'tag': 61166, 'journal_identifier': 'EDGE * 30 * 33 {(0.8650551199352,3.0868269012108,-0.0353914406872)(0.8650551199352,3.1254882924885,0.312545005833)(0.8650551199352,3.1641496837663,0.6604814523533) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 96: Linear | Length: 0.6938 | Connected Faces: 2 | Tag: 61072
 -   Endpoints: (0.8661, 3.1952, 0.6571) -> (0.8661, 3.1186, -0.0324)
 -   Curve Props: Arc Length 0.6938 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -802,6 +992,8 @@
 -   Face Indices: 33, 56
 -   Topology Vertices: 54 -> 7
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61072, 'journal_identifier': 'EDGE * 35 * 36 {(0.8660759393482,3.195245359943,0.6571357510353)(0.8660759393482,3.1569355695789,0.3123635665457)(0.8660759393482,3.1186257792147,-0.0324086179439) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 97: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61134
 -   Endpoints: (0.8651, 3.1418, 0.7540) -> (0.8646, 3.1435, 0.7570)
 -   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
@@ -810,6 +1002,8 @@
 -   Face Indices: 55, 51
 -   Topology Vertices: 42 -> 5
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61134, 'journal_identifier': 'EDGE * 14 * 20 {(0.8650835664947,3.1417752849917,0.7539863129413)(0.8646941066231,3.1426396131912,0.7554950647249)(0.8645706267804,3.1435198224749,0.7570394281918) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 98: Circular | Length: 0.0110 | Connected Faces: 2 | Tag: 60988
 -   Endpoints: (0.8656, 3.1212, -0.0472) -> (0.8655, 3.1118, -0.0421)
 -   Curve Props: Arc Length 0.0110 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -818,11 +1012,15 @@
 -   Face Indices: 6, 52
 -   Topology Vertices: 9 -> 75
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 60988, 'journal_identifier': 'EDGE * 55 * 7 {(0.8656058065439,3.1211536595905,-0.0472408458436)(0.8655226355986,3.1159504274731,-0.045620543513)(0.8654522126529,3.1117824277878,-0.0421093128527) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 99: SpCurve | Length: 0.0034 | Connected Faces: 2 | Tag: 61048
 -   Endpoints: (0.8651, 3.0868, -0.0354) -> (0.8651, 3.0888, -0.0381)
 -   Face Tags: 60932, 60944
 -   Face Indices: 44, 15
 -   Topology Vertices: 82 -> 83
+-   Identity: {'tag': 61048, 'journal_identifier': 'EDGE * 33 * 39 {(0.8650551012417,3.0868257002393,-0.03539135995)(0.8650728007245,3.0878211083151,-0.0367430822745)(0.8650905002073,3.088816516391,-0.038094804599) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 100: Circular | Length: 0.1047 | Connected Faces: 2 | Tag: 61100
 -   Endpoints: (0.9485, 3.2235, 0.7476) -> (0.9481, 3.1837, 0.6526)
 -   Curve Props: Arc Length 0.1047 | Radius 0.1657 | Diameter 0.3314 | Min Curvature Radius 0.1657
@@ -831,11 +1029,15 @@
 -   Face Indices: 40, 31
 -   Topology Vertices: 37 -> 47
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61100, 'journal_identifier': 'EDGE * 22 * 23 {(0.948510038171,3.2235201813251,0.7475672033148)(0.9481613433484,3.1960297665369,0.7032802730728)(0.948057120154,3.1836573031846,0.6526434488074) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 101: Intersection | Length: 0.0090 | Connected Faces: 2 | Tag: 61026
 -   Endpoints: (0.9477, 3.0855, -0.0352) -> (0.9471, 3.0779, -0.0306)
 -   Face Tags: 60950, 60964
 -   Face Indices: 13, 26
 -   Topology Vertices: 48 -> 81
+-   Identity: {'tag': 61026, 'journal_identifier': 'EDGE * 42 * 49 {(0.9477222977961,3.0855497031036,-0.0352495233451)(0.9475266937398,3.081685740682,-0.0329504632251)(0.947061680092,3.0778590384537,-0.0306285797713) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 102: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61156
 -   Endpoints: (0.8655, 3.1609, 0.6590) -> (0.8651, 3.1641, 0.6605)
 -   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
@@ -844,16 +1046,22 @@
 -   Face Indices: 55, 30
 -   Topology Vertices: 63 -> 77
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61156, 'journal_identifier': 'EDGE * 14 * 30 {(0.8655426010393,3.1609367964012,0.6590434857799)(0.8651657239436,3.1625268483287,0.6597539593509)(0.8650551199352,3.1641496837663,0.6604814523533) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 103: Intersection | Length: 0.0000 | Connected Faces: 2 | Tag: 61018
 -   Endpoints: (0.9477, 3.1174, -0.0323) -> (0.9477, 3.1174, -0.0323)
 -   Face Tags: 60936, 60956
 -   Face Indices: 33, 45
 -   Topology Vertices: 20 -> 1
+-   Identity: {'tag': 61018, 'journal_identifier': 'EDGE * 35 * 45 {(0.9476740730824,3.1173650977252,-0.0322685357512)(0.9476734094104,3.1173673159262,-0.0322660322594)(0.947672745526,3.1173695343338,-0.032263529007) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 104: Intersection | Length: 0.0000 | Connected Faces: 2 | Tag: 61038
 -   Endpoints: (0.9477, 3.1215, -0.0374) -> (0.9477, 3.1215, -0.0374)
 -   Face Tags: 60874, 60956
 -   Face Indices: 3, 45
 -   Topology Vertices: 22 -> 21
+-   Identity: {'tag': 61038, 'journal_identifier': 'EDGE * 4 * 45 {(0.9477475636519,3.121546276066,-0.0374480604518)(0.9477479137154,3.1215433947367,-0.0374488546083)(0.9477482636917,3.1215405134443,-0.0374496489372) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 105: Circular | Length: 0.0114 | Connected Faces: 2 | Tag: 61000
 -   Endpoints: (0.8652, 3.0944, -0.0285) -> (0.8651, 3.0888, -0.0381)
 -   Curve Props: Arc Length 0.0114 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -862,6 +1070,8 @@
 -   Face Indices: 44, 28
 -   Topology Vertices: 18 -> 55
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61000, 'journal_identifier': 'EDGE * 33 * 54 {(0.8651595539677,3.094350711506,-0.0285132915092)(0.8651415342162,3.0925876328315,-0.0338837282208)(0.865090507148,3.0888170056806,-0.0380944441603) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 106: Linear | Length: 0.6887 | Connected Faces: 2 | Tag: 61080
 -   Endpoints: (0.8654, 3.1849, 0.6525) -> (0.8654, 3.1089, -0.0320)
 -   Curve Props: Arc Length 0.6887 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -870,11 +1080,15 @@
 -   Face Indices: 50, 38
 -   Topology Vertices: 30 -> 71
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61080, 'journal_identifier': 'EDGE * 28 * 29 {(0.8653899422931,3.1849345012791,0.6525015313516)(0.8653899422931,3.1469041892617,0.3102445357788)(0.8653899422931,3.1088738772443,-0.0320124597941) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 107: Spline | Length: 0.4382 | Connected Faces: 2 | Tag: 61184
 -   Endpoints: (0.8661, 3.1228, -0.0376) -> (0.8718, 3.5069, 0.1301)
 -   Face Tags: 60876, 60878
 -   Face Indices: 54, 48
 -   Topology Vertices: 66 -> 32
+-   Identity: {'tag': 61184, 'journal_identifier': 'EDGE * 5 * 6 {(0.8661494299083,3.1228069569524,-0.0375881425823)(0.8693981432997,3.3367833317326,-0.0042712375271)(0.8717951772652,3.5068633130599,0.1301012030901) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 108: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61094
 -   Endpoints: (0.9482, 3.1908, 0.6558) -> (0.9477, 3.1940, 0.6573)
 -   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
@@ -883,21 +1097,29 @@
 -   Face Indices: 25, 7
 -   Topology Vertices: 17 -> 53
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61094, 'journal_identifier': 'EDGE * 24 * 34 {(0.9481615541865,3.1907717910884,0.6558378666546)(0.9480509501782,3.1923946265259,0.6565653596571)(0.9476740730824,3.1939846784535,0.657275833228) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 109: SpCurve | Length: 0.6997 | Connected Faces: 2 | Tag: 61076
 -   Endpoints: (0.9482, 3.1908, 0.6558) -> (0.9482, 3.1135, -0.0396)
 -   Face Tags: 60934, 60940
 -   Face Indices: 7, 46
 -   Topology Vertices: 17 -> 35
+-   Identity: {'tag': 61076, 'journal_identifier': 'EDGE * 34 * 37 {(0.9481615541865,3.1907717910884,0.6558378666546)(0.9481615541865,3.1521351307588,0.3081239883847)(0.9481615541865,3.1134984704292,-0.0395898898851) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 110: Intersection | Length: 0.1369 | Connected Faces: 2 | Tag: 61010
 -   Endpoints: (0.9471, 3.0779, -0.0306) -> (0.8655, 3.0791, -0.0308)
 -   Face Tags: 60948, 60968
 -   Face Indices: 5, 14
 -   Topology Vertices: 84 -> 85
+-   Identity: {'tag': 61010, 'journal_identifier': 'EDGE * 41 * 51 {(0.9470607969679,3.0778531749501,-0.0306249524791)(0.9057302321228,3.0449751012569,0.0044880727774)(0.8654626632337,3.0791138564397,-0.0307650346718) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 111: SpCurve | Length: 0.6997 | Connected Faces: 2 | Tag: 61070
 -   Endpoints: (0.8655, 3.1920, 0.6557) -> (0.8655, 3.1148, -0.0397)
 -   Face Tags: 60924, 60938
 -   Face Indices: 38, 56
 -   Topology Vertices: 29 -> 8
+-   Identity: {'tag': 61070, 'journal_identifier': 'EDGE * 29 * 36 {(0.8654943763256,3.1920489891829,0.6556959491988)(0.8654943763256,3.1534123288533,0.3079820709289)(0.8654943763256,3.1147756685237,-0.0397318073409) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 112: Circular | Length: 0.1047 | Connected Faces: 2 | Tag: 61104
 -   Endpoints: (0.8658, 3.2248, 0.7474) -> (0.8654, 3.1849, 0.6525)
 -   Curve Props: Arc Length 0.1047 | Radius 0.1657 | Diameter 0.3314 | Min Curvature Radius 0.1657
@@ -906,6 +1128,8 @@
 -   Face Indices: 40, 8
 -   Topology Vertices: 36 -> 30
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61104, 'journal_identifier': 'EDGE * 22 * 27 {(0.8658428603101,3.2247973794197,0.747425285859)(0.8654941654875,3.1973069646314,0.703138355617)(0.8653899422931,3.1849345012791,0.6525015313516) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 113: Circular | Length: 0.0036 | Connected Faces: 2 | Tag: 61110
 -   Endpoints: (0.8666, 3.2359, 0.7451) -> (0.8660, 3.2324, 0.7458)
 -   Curve Props: Arc Length 0.0036 | Radius 0.0118 | Diameter 0.0236 | Min Curvature Radius 0.0118
@@ -914,11 +1138,15 @@
 -   Face Indices: 51, 37
 -   Topology Vertices: 43 -> 6
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61110, 'journal_identifier': 'EDGE * 20 * 26 {(0.8665523505045,3.2358521579932,0.7450696787658)(0.8661253680097,3.2341602864336,0.7454306922664)(0.8659634916254,3.2324247609379,0.7458005861193) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 114: SpCurve | Length: 0.0070 | Connected Faces: 2 | Tag: 61216
 -   Endpoints: (0.9471, 3.0779, -0.0306) -> (0.9471, 3.0835, -0.0266)
 -   Face Tags: 60966, 60968
 -   Face Indices: 22, 14
 -   Topology Vertices: 84 -> 68
+-   Identity: {'tag': 61216, 'journal_identifier': 'EDGE * 50 * 51 {(0.9470607969679,3.0778531749501,-0.0306249524791)(0.9466715144332,3.0807324457842,-0.0286733633272)(0.9471392450876,3.0834759286095,-0.0265508714738) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 115: Circular | Length: 0.0067 | Connected Faces: 2 | Tag: 61210
 -   Endpoints: (0.8661, 3.1186, -0.0324) -> (0.8661, 3.1228, -0.0376)
 -   Curve Props: Arc Length 0.0067 | Radius 0.0138 | Diameter 0.0276 | Min Curvature Radius 0.0138
@@ -927,11 +1155,15 @@
 -   Face Indices: 47, 41
 -   Topology Vertices: 2 -> 66
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61210, 'journal_identifier': 'EDGE * 46 * 47 {(0.8660773831223,3.1186301640292,-0.0324036149478)(0.8665077781572,3.1206339980112,-0.0350585223812)(0.866149413283,3.1228069713553,-0.0375881242186) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 116: SpCurve | Length: 0.2965 | Connected Faces: 2 | Tag: 61060
 -   Endpoints: (0.9436, 2.8348, 0.1130) -> (0.9477, 3.0849, -0.0351)
 -   Face Tags: 60950, 60952
 -   Face Indices: 13, 53
 -   Topology Vertices: 86 -> 40
+-   Identity: {'tag': 61060, 'journal_identifier': 'EDGE * 42 * 43 {(0.9435935317064,2.8347823501914,0.1129623738522)(0.945490827469,2.9469306870031,0.0170725194554)(0.9477114239817,3.0848606372669,-0.0351168125684) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 117: Linear | Length: 0.0078 | Connected Faces: 2 | Tag: 61122
 -   Endpoints: (0.9485, 3.2235, 0.7476) -> (0.9486, 3.2311, 0.7459)
 -   Curve Props: Arc Length 0.0078 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -940,6 +1172,8 @@
 -   Face Indices: 12, 31
 -   Topology Vertices: 37 -> 16
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61122, 'journal_identifier': 'EDGE * 17 * 23 {(0.948510038171,3.2235201813251,0.7475672033148)(0.9485703538287,3.2273338720842,0.7467548534449)(0.9486306694863,3.2311475628433,0.7459425035751) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 118: Circular | Length: 0.1085 | Connected Faces: 2 | Tag: 61090
 -   Endpoints: (0.9477, 3.1940, 0.6573) -> (0.8661, 3.1952, 0.6571)
 -   Curve Props: Arc Length 0.1085 | Radius 0.0427 | Diameter 0.0855 | Min Curvature Radius 0.0427
@@ -948,6 +1182,8 @@
 -   Face Indices: 21, 33
 -   Topology Vertices: 53 -> 54
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61090, 'journal_identifier': 'EDGE * 25 * 35 {(0.9476740730824,3.1939846784535,0.657275833228)(0.9072770528795,3.2220041380535,0.6695035556913)(0.8660759393482,3.195245359943,0.6571357510353) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 119: Linear | Length: 0.6900 | Connected Faces: 2 | Tag: 61168
 -   Endpoints: (0.8655, 3.0847, -0.0267) -> (0.8655, 3.1609, 0.6590)
 -   Curve Props: Arc Length 0.6900 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -956,6 +1192,8 @@
 -   Face Indices: 30, 24
 -   Topology Vertices: 51 -> 63
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61168, 'journal_identifier': 'EDGE * 30 * 31 {(0.8655426010393,3.0847398142644,-0.0266976715869)(0.8655426010393,3.1228383053328,0.3161729070965)(0.8655426010393,3.1609367964012,0.6590434857799) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 120: Linear | Length: 0.0827 | Connected Faces: 2 | Tag: 60990
 -   Endpoints: (0.9483, 3.1199, -0.0471) -> (0.8656, 3.1212, -0.0472)
 -   Curve Props: Arc Length 0.0827 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -964,21 +1202,29 @@
 -   Face Indices: 16, 52
 -   Topology Vertices: 39 -> 9
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 60990, 'journal_identifier': 'EDGE * 2 * 55 {(0.9482729844048,3.119876461496,-0.0470989283878)(0.9069393954744,3.1205150605432,-0.0471698871157)(0.8656058065439,3.1211536595905,-0.0472408458436) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 121: SpCurve | Length: 0.0007 | Connected Faces: 2 | Tag: 61050
 -   Endpoints: (0.8650, 3.0861, -0.0353) -> (0.8651, 3.0868, -0.0354)
 -   Face Tags: 60944, 60946
 -   Face Indices: 15, 39
 -   Topology Vertices: 62 -> 87
+-   Identity: {'tag': 61050, 'journal_identifier': 'EDGE * 39 * 40 1 {(0.8650442461208,3.0861378353614,-0.0352587300243)(0.8650496735892,3.0864817537532,-0.035325117765)(0.8650551010576,3.086825672145,-0.0353915055057) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 122: Spline | Length: 0.4382 | Connected Faces: 2 | Tag: 61188
 -   Endpoints: (0.9477, 3.1215, -0.0374) -> (0.9534, 3.5056, 0.1302)
 -   Face Tags: 60874, 60876
 -   Face Indices: 3, 54
 -   Topology Vertices: 22 -> 31
+-   Identity: {'tag': 61188, 'journal_identifier': 'EDGE * 4 * 5 {(0.9477475639127,3.1215462927512,-0.0374480621747)(0.950996277151,3.3355226582114,-0.0041311518551)(0.9533933109995,3.5056026315703,0.1302412852827) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 123: Intersection | Length: 0.0090 | Connected Faces: 2 | Tag: 61028
 -   Endpoints: (0.9471, 3.0835, -0.0266) -> (0.9477, 3.0855, -0.0352)
 -   Face Tags: 60930, 60964
 -   Face Indices: 19, 26
 -   Topology Vertices: 33 -> 48
+-   Identity: {'tag': 61028, 'journal_identifier': 'EDGE * 32 * 49 {(0.9471407347735,3.0834791327749,-0.0265575893942)(0.9475675156353,3.084513650183,-0.0308944525081)(0.9477222977961,3.0855497031036,-0.0352495233451) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 124: Circular | Length: 0.1085 | Connected Faces: 2 | Tag: 61158
 -   Endpoints: (0.9471, 3.1597, 0.6592) -> (0.8655, 3.1609, 0.6590)
 -   Curve Props: Arc Length 0.1085 | Radius 0.0427 | Diameter 0.0855 | Min Curvature Radius 0.0427
@@ -987,6 +1233,8 @@
 -   Face Indices: 4, 24
 -   Topology Vertices: 34 -> 63
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61158, 'journal_identifier': 'EDGE * 13 * 31 {(0.9471407347735,3.1596761149116,0.6591835679726)(0.9059396212422,3.1329173368011,0.6468157633166)(0.8655426010393,3.1609367964012,0.6590434857799) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ### Faces
 - Total Faces: 56
@@ -1009,6 +1257,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 7, 3, 45
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60954, 'journal_identifier': 'FACE 44 {(0.9479694041278,3.1164763944259,-0.0372276808519) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 2: Blending | Edges: 3 | Facets: None | Vertices: 3 | Tag: 60972
 -   Measure: Area 0.0000 | Perimeter 0.0250 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.8654, 3.0836, -0.0310) | Anchor (0.8654, 3.0836, -0.0310)
@@ -1021,6 +1271,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 39, 30, 9
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60972, 'journal_identifier': 'FACE 53 {(0.8652546203375,3.0843764604672,-0.0320673256694) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 3: Parametric | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60874
 -   Measure: Area 0.0014 | Perimeter 0.9009 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.9512, 3.3273, 0.0114) | Anchor (0.9512, 3.3273, 0.0114)
@@ -1034,6 +1286,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 1, 45, 54, 34, 10
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60874, 'journal_identifier': 'FACE 4 {(0.9513372130606,3.3313035821551,-0.0075659427108) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 4: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60892
 -   Measure: Area 0.0090 | Perimeter 0.4139 | Radius/Diameter N/A | Min Curvature Radius 0.0323
 -   Points: Center (0.9060, 3.1417, 0.6948) | Anchor (0.9060, 3.1417, 0.6948)
@@ -1047,6 +1301,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 55, 42, 11, 24
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60892, 'journal_identifier': 'FACE 13 {(0.9059178201877,3.1360726999487,0.6879118738465) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 5: Parametric | Edges: 4 | Facets: None | Vertices: 6 | Tag: 60948
 -   Measure: Area 0.0264 | Perimeter 0.8189 | Radius/Diameter N/A | Min Curvature Radius 0.0328
 -   Points: Center (0.9040, 2.9434, 0.0507) | Anchor (0.9040, 2.9434, 0.0507)
@@ -1060,6 +1316,8 @@
 -   Loop Count: 4
 -   Adjacent Faces: 14, 39, 13, 36
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60948, 'journal_identifier': 'FACE 41 {(0.9040657253283,2.945530761749,0.051962302093) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 6: Planar | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60880
 -   Measure: Area 0.0031 | Perimeter 0.9281 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8687, 3.3296, 0.0072) | Anchor (0.8687, 3.3296, 0.0072)
@@ -1074,6 +1332,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 52, 38, 34, 48, 16
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60880, 'journal_identifier': 'FACE 7 {(0.8684443501971,3.3146510085646,0.0406979654459) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 7: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60934
 -   Measure: Area 0.0022 | Perimeter 1.4054 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.9480, 3.1539, 0.3103) | Anchor (0.9480, 3.1539, 0.3103)
@@ -1087,6 +1347,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 1, 33, 46, 25
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60934, 'journal_identifier': 'FACE 34 {(0.9480509501782,3.1535261462343,0.3067651981176) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 8: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60920
 -   Measure: Area 0.0007 | Perimeter 0.2207 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8656, 3.2036, 0.7025) | Anchor (0.8656, 3.2036, 0.7025)
@@ -1101,6 +1363,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 38, 37, 40, 20
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60920, 'journal_identifier': 'FACE 27 {(0.8656761769278,3.2086877553566,0.6995387428743) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 9: Blending | Edges: 3 | Facets: None | Vertices: 5 | Tag: 60970
 -   Measure: Area 0.0000 | Perimeter 0.0140 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.8658, 3.0820, -0.0288) | Anchor (0.8658, 3.0820, -0.0288)
@@ -1114,6 +1378,8 @@
 -   Loop Count: 3
 -   Adjacent Faces: 24, 14, 2
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60970, 'journal_identifier': 'FACE 52 {(0.8659355978445,3.0819823884746,-0.02881497058) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 10: Planar | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60872
 -   Measure: Area 0.0031 | Perimeter 0.9281 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9514, 3.3283, 0.0074) | Anchor (0.9514, 3.3283, 0.0074)
@@ -1128,6 +1394,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 52, 46, 3, 34, 16
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60872, 'journal_identifier': 'FACE 3 {(0.951111528058,3.31337381047,0.0408398829017) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 11: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60890
 -   Measure: Area 0.0003 | Perimeter 0.2060 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.9474, 3.1564, 0.7088) | Anchor (0.9474, 3.1564, 0.7088)
@@ -1141,6 +1409,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 4, 18, 17, 19
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60890, 'journal_identifier': 'FACE 12 {(0.9474433757604,3.158934375436,0.7093502231005) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 12: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60900
 -   Measure: Area 0.0030 | Perimeter 0.9252 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9479, 3.1995, 0.8581) | Anchor (0.9479, 3.1995, 0.8581)
@@ -1155,6 +1425,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 18, 31, 27, 17
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60900, 'journal_identifier': 'FACE 17 {(0.947942144715,3.198063381592,0.8492655683435) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 13: Parametric | Edges: 5 | Facets: None | Vertices: 8 | Tag: 60950
 -   Measure: Area 0.0009 | Perimeter 0.5976 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.9453, 2.9501, 0.0266) | Anchor (0.9453, 2.9501, 0.0266)
@@ -1168,6 +1440,8 @@
 -   Loop Count: 5
 -   Adjacent Faces: 26, 53, 5, 36
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60950, 'journal_identifier': 'FACE 42 {(0.9453584509734,2.9472409548903,0.0186699639372) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 14: Blending | Edges: 4 | Facets: None | Vertices: 6 | Tag: 60968
 -   Measure: Area 0.0022 | Perimeter 0.2865 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9060, 3.0632, -0.0032) | Anchor (0.9060, 3.0632, -0.0032)
@@ -1180,6 +1454,8 @@
 -   Loop Count: 3
 -   Adjacent Faces: 5, 24, 22, 9
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60968, 'journal_identifier': 'FACE 51 {(0.905860206935,3.0566506754374,0.0060716279415) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 15: Planar | Edges: 6 | Facets: None | Vertices: 9 | Tag: 60944
 -   Measure: Area 0.0020 | Perimeter 0.6106 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8629, 2.9517, 0.0208) | Anchor (0.8629, 2.9517, 0.0208)
@@ -1194,6 +1470,8 @@
 -   Loop Count: 4
 -   Adjacent Faces: 28, 44, 39, 49, 36
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60944, 'journal_identifier': 'FACE 39 {(0.8629886282099,2.9609708833468,0.03569194186) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 16: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60870
 -   Measure: Area 0.0376 | Perimeter 1.0746 | Radius/Diameter N/A | Min Curvature Radius 0.2462
 -   Points: Center (0.9102, 3.3346, 0.0057) | Anchor (0.9102, 3.3346, 0.0057)
@@ -1207,6 +1485,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 52, 10, 34, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60870, 'journal_identifier': 'FACE 2 {(0.9103072887975,3.3423970756011,-0.0121280351011) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 17: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60888
 -   Measure: Area 0.0007 | Perimeter 0.2207 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9476, 3.1605, 0.7126) | Anchor (0.9476, 3.1605, 0.7126)
@@ -1221,6 +1501,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 11, 12, 23, 29
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60888, 'journal_identifier': 'FACE 11 {(0.947532268235,3.1562917072272,0.7120916673394) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 18: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60902
 -   Measure: Area 0.0015 | Perimeter 0.9590 | Radius/Diameter N/A | Min Curvature Radius 0.0086
 -   Points: Center (0.9478, 3.1993, 0.8604) | Anchor (0.9478, 3.1993, 0.8604)
@@ -1234,6 +1516,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 42, 25, 12, 11
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60902, 'journal_identifier': 'FACE 18 {(0.9478065251229,3.2090881238547,0.9491779368891) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 19: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60930
 -   Measure: Area 0.0021 | Perimeter 1.4026 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.9475, 3.1229, 0.3145) | Anchor (0.9475, 3.1229, 0.3145)
@@ -1247,6 +1531,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 26, 11, 24, 29
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60930, 'journal_identifier': 'FACE 32 {(0.947564111332,3.1223604433833,0.3098713501087) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 20: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60908
 -   Measure: Area 0.0030 | Perimeter 0.9252 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8653, 3.2008, 0.8579) | Anchor (0.8653, 3.2008, 0.8579)
@@ -1261,6 +1547,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 8, 51, 27, 43
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60908, 'journal_identifier': 'FACE 21 {(0.8652749644109,3.1993405371356,0.8491246910731) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 21: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60916
 -   Measure: Area 0.0090 | Perimeter 0.4139 | Radius/Diameter N/A | Min Curvature Radius 0.0323
 -   Points: Center (0.9073, 3.2292, 0.7053) | Anchor (0.9073, 3.2292, 0.7053)
@@ -1274,6 +1562,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 37, 33, 25, 42
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60916, 'journal_identifier': 'FACE 25 {(0.9074552540034,3.2377698369683,0.7075858097559) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 22: Blending | Edges: 3 | Facets: None | Vertices: 5 | Tag: 60966
 -   Measure: Area 0.0000 | Perimeter 0.0140 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9468, 3.0808, -0.0286) | Anchor (0.9468, 3.0808, -0.0286)
@@ -1287,6 +1577,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 24, 26, 14
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60966, 'journal_identifier': 'FACE 50 {(0.9466700082591,3.0807350400873,-0.0286763585669) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 23: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60886
 -   Measure: Area 0.0087 | Perimeter 0.3747 | Radius/Diameter 0.1657 | Min Curvature Radius 0.1657
 -   Points: Center (0.9063, 3.1640, 0.7151) | Anchor (0.9063, 3.1640, 0.7151)
@@ -1301,6 +1593,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 17, 27, 43, 35
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60886, 'journal_identifier': 'FACE 10 {(0.9063425789425,3.1666555162731,0.7157217523688) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 24: Parametric | Edges: 6 | Facets: None | Vertices: 8 | Tag: 60928
 -   Measure: Area 0.0671 | Perimeter 1.6239 | Radius/Diameter N/A | Min Curvature Radius 0.0332
 -   Points: Center (0.9061, 3.1063, 0.3262) | Anchor (0.9061, 3.1063, 0.3262)
@@ -1314,6 +1608,8 @@
 -   Loop Count: 3
 -   Adjacent Faces: 9, 14, 22, 4, 30, 19
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60928, 'journal_identifier': 'FACE 31 {(0.9059396212422,3.0945902547864,0.3018879611618) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 25: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60914
 -   Measure: Area 0.0003 | Perimeter 0.2060 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.9482, 3.2079, 0.7032) | Anchor (0.9482, 3.2079, 0.7032)
@@ -1327,6 +1623,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 21, 7, 31, 18
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60914, 'journal_identifier': 'FACE 24 {(0.9481723106231,3.2055531449655,0.7042938730807) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 26: Blending | Edges: 3 | Facets: None | Vertices: 3 | Tag: 60964
 -   Measure: Area 0.0000 | Perimeter 0.0250 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9473, 3.0823, -0.0308) | Anchor (0.9473, 3.0823, -0.0308)
@@ -1339,6 +1637,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 13, 19, 22
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60964, 'journal_identifier': 'FACE 49 {(0.947435788215,3.0831067925394,-0.0319262716447) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 27: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60898
 -   Measure: Area 0.0364 | Perimeter 1.0460 | Radius/Diameter N/A | Min Curvature Radius 0.0357
 -   Points: Center (0.9066, 3.2004, 0.8571) | Anchor (0.9066, 3.2004, 0.8571)
@@ -1352,6 +1652,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 12, 40, 20, 23
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60898, 'journal_identifier': 'FACE 16 {(0.9066829150041,3.2136460941809,0.9403710363328) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 28: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60974
 -   Measure: Area 0.0019 | Perimeter 0.2112 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9064, 3.0872, -0.0368) | Anchor (0.9064, 3.0872, -0.0368)
@@ -1366,6 +1668,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 15, 44, 35, 29, 53, 49
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60974, 'journal_identifier': 'FACE 54 {(0.9064230883865,3.0881074237958,-0.038075319029) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 29: Planar | Edges: 5 | Facets: None | Vertices: 6 | Tag: 60884
 -   Measure: Area 0.0047 | Perimeter 1.4191 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9478, 3.1277, 0.3133) | Anchor (0.9478, 3.1277, 0.3133)
@@ -1380,6 +1684,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 28, 53, 17, 19, 35
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60884, 'journal_identifier': 'FACE 9 {(0.9477745148124,3.1276321092545,0.3130581270327) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 30: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60926
 -   Measure: Area 0.0021 | Perimeter 1.4026 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.8652, 3.1242, 0.3144) | Anchor (0.8652, 3.1242, 0.3144)
@@ -1393,6 +1699,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 2, 55, 44, 24
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60926, 'journal_identifier': 'FACE 30 {(0.8651657239436,3.123633488697,0.3097298940943) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 31: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60912
 -   Measure: Area 0.0007 | Perimeter 0.2207 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9483, 3.2023, 0.7026) | Anchor (0.9483, 3.2023, 0.7026)
@@ -1407,6 +1715,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 25, 46, 40, 12
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60912, 'journal_identifier': 'FACE 23 {(0.9483433547887,3.2074105572621,0.6996806603301) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 32: Blending | Edges: 3 | Facets: None | Vertices: 3 | Tag: 60962
 -   Measure: Area 0.0000 | Perimeter 0.0234 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.8659, 3.1187, -0.0366) | Anchor (0.8659, 3.1187, -0.0366)
@@ -1419,6 +1729,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 56, 48, 41
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60962, 'journal_identifier': 'FACE 48 {(0.8657703180501,3.1177463500967,-0.0373688030385) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 33: Parametric | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60936
 -   Measure: Area 0.0698 | Perimeter 1.6268 | Radius/Diameter N/A | Min Curvature Radius 0.0332
 -   Points: Center (0.9071, 3.1751, 0.3275) | Anchor (0.9071, 3.1751, 0.3275)
@@ -1432,6 +1744,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 45, 47, 41, 56, 7, 21
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60936, 'journal_identifier': 'FACE 35 {(0.9072770528795,3.1834644889472,0.3226627380948) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 34: Planar | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60864
 -   Measure: Area 0.0027 | Perimeter 0.2139 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9125, 3.5000, 0.1309) | Anchor (0.9125, 3.5000, 0.1309)
@@ -1446,6 +1760,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6, 48, 54, 3, 10, 16
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60864, 'journal_identifier': 'FACE 1 {(0.9124468844406,3.4968113816627,0.1312181359573) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 35: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60882
 -   Measure: Area 0.0576 | Perimeter 1.5583 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9065, 3.1322, 0.3177) | Anchor (0.9065, 3.1322, 0.3177)
@@ -1460,6 +1776,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 28, 23, 29, 44
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60882, 'journal_identifier': 'FACE 8 {(0.9064931428982,3.1321688425407,0.3176522480735) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 36: Planar | Edges: 6 | Facets: None | Vertices: 8 | Tag: 60978
 -   Measure: Area 0.0026 | Perimeter 0.2100 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9023, 2.8395, 0.1211) | Anchor (0.9023, 2.8395, 0.1211)
@@ -1474,6 +1792,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 53, 49, 15, 39, 5, 13
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60978, 'journal_identifier': 'FACE 56 {(0.9023258610093,2.8409054066898,0.1238517601602) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 37: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60918
 -   Measure: Area 0.0003 | Perimeter 0.2060 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.8659, 3.2092, 0.7031) | Anchor (0.8659, 3.2092, 0.7031)
@@ -1487,6 +1807,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 8, 56, 21, 51
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60918, 'journal_identifier': 'FACE 26 {(0.8657739232346,3.2068261902791,0.7041524170663) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 38: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 60924
 -   Measure: Area 0.0047 | Perimeter 1.4108 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8654, 3.1500, 0.3072) | Anchor (0.8654, 3.1500, 0.3072)
@@ -1501,6 +1823,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 52, 6, 56, 50, 8
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60924, 'journal_identifier': 'FACE 29 {(0.8654421593093,3.1499250493267,0.3070145127429) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 39: Parametric | Edges: 5 | Facets: None | Vertices: 8 | Tag: 60946
 -   Measure: Area 0.0009 | Perimeter 0.5976 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.8630, 2.9514, 0.0265) | Anchor (0.8630, 2.9514, 0.0265)
@@ -1514,6 +1838,8 @@
 -   Loop Count: 5
 -   Adjacent Faces: 2, 15, 5, 36
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60946, 'journal_identifier': 'FACE 40 {(0.8629616634572,2.9485140076568,0.0185391097872) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 40: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60910
 -   Measure: Area 0.0087 | Perimeter 0.3747 | Radius/Diameter 0.1657 | Min Curvature Radius 0.1657
 -   Points: Center (0.9069, 3.1992, 0.7021) | Anchor (0.9069, 3.1992, 0.7021)
@@ -1528,6 +1854,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 31, 50, 8, 27
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60910, 'journal_identifier': 'FACE 22 {(0.9068277544179,3.1966683655841,0.7032093143449) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 41: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60960
 -   Measure: Area 0.0000 | Perimeter 0.0135 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.8664, 3.1206, -0.0350) | Anchor (0.8664, 3.1206, -0.0350)
@@ -1541,6 +1869,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 33, 48, 47, 32
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60960, 'journal_identifier': 'FACE 47 {(0.8665070090443,3.1206315313378,-0.0350601103836) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 42: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60904
 -   Measure: Area 0.0582 | Perimeter 1.1821 | Radius/Diameter N/A | Min Curvature Radius 0.0340
 -   Points: Center (0.9066, 3.1982, 0.8683) | Anchor (0.9066, 3.1982, 0.8683)
@@ -1554,6 +1884,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 51, 21, 18, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60904, 'journal_identifier': 'FACE 19 {(0.9063566365027,3.1967180240048,0.9780832677697) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 43: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60896
 -   Measure: Area 0.0007 | Perimeter 0.2207 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8649, 3.1618, 0.7125) | Anchor (0.8649, 3.1618, 0.7125)
@@ -1568,6 +1900,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 20, 55, 23, 44
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60896, 'journal_identifier': 'FACE 15 {(0.8648650903741,3.1575689053218,0.7119497498836) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 44: Planar | Edges: 5 | Facets: None | Vertices: 7 | Tag: 60932
 -   Measure: Area 0.0047 | Perimeter 1.4191 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8651, 3.1289, 0.3132) | Anchor (0.8651, 3.1289, 0.3132)
@@ -1582,6 +1916,8 @@
 -   Loop Count: 4
 -   Adjacent Faces: 28, 15, 43, 30, 35
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60932, 'journal_identifier': 'FACE 33 {(0.8651073369515,3.1289093300854,0.3129164141949) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 45: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60956
 -   Measure: Area 0.0000 | Perimeter 0.0135 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9474, 3.1193, -0.0348) | Anchor (0.9474, 3.1193, -0.0348)
@@ -1595,6 +1931,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 33, 3, 1, 47
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60956, 'journal_identifier': 'FACE 45 {(0.9473142749459,3.1193830708373,-0.0349213845045) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 46: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 60940
 -   Measure: Area 0.0047 | Perimeter 1.4108 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9481, 3.1487, 0.3073) | Anchor (0.9481, 3.1487, 0.3073)
@@ -1609,6 +1947,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 52, 10, 7, 50, 31
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60940, 'journal_identifier': 'FACE 37 {(0.9481093371703,3.1486478512322,0.3071564301987) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 47: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60958
 -   Measure: Area 0.0021 | Perimeter 0.2762 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9072, 3.1429, -0.0163) | Anchor (0.9072, 3.1429, -0.0163)
@@ -1621,6 +1961,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 33, 54, 45, 41
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60958, 'journal_identifier': 'FACE 46 {(0.9074214911356,3.1511068940652,-0.0095535062386) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 48: Parametric | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60878
 -   Measure: Area 0.0014 | Perimeter 0.9009 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.8689, 3.3285, 0.0112) | Anchor (0.8689, 3.3285, 0.0112)
@@ -1634,6 +1976,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 32, 41, 6, 34, 54
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60878, 'journal_identifier': 'FACE 6 {(0.8689388256722,3.3325766274687,-0.0077073987252) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 49: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60942
 -   Measure: Area 0.0241 | Perimeter 0.7475 | Radius/Diameter N/A | Min Curvature Radius 0.4333
 -   Points: Center (0.9041, 2.9464, 0.0192) | Anchor (0.9041, 2.9464, 0.0192)
@@ -1647,6 +1991,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 28, 53, 15, 36
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60942, 'journal_identifier': 'FACE 38 {(0.9040844724153,2.942333670879,0.0122696010714) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 50: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60922
 -   Measure: Area 0.0569 | Perimeter 1.5428 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9067, 3.1463, 0.3103) | Anchor (0.9067, 3.1463, 0.3103)
@@ -1661,6 +2007,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 52, 46, 38, 40
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60922, 'journal_identifier': 'FACE 28 {(0.9067235312235,3.1462655902144,0.3103154945067) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 51: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60906
 -   Measure: Area 0.0015 | Perimeter 0.9590 | Radius/Diameter N/A | Min Curvature Radius 0.0086
 -   Points: Center (0.8655, 3.2005, 0.8603) | Anchor (0.8655, 3.2005, 0.8603)
@@ -1674,6 +2022,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 20, 37, 42, 55
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60906, 'journal_identifier': 'FACE 20 {(0.8654081377345,3.2103611691683,0.9490364808747) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 52: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60976
 -   Measure: Area 0.0018 | Perimeter 0.2089 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9068, 3.1123, -0.0412) | Anchor (0.9068, 3.1123, -0.0412)
@@ -1688,6 +2038,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 38, 6, 16, 10, 46, 50
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60976, 'journal_identifier': 'FACE 55 {(0.9067868599627,3.1112039840377,-0.0421134893703) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 53: Planar | Edges: 6 | Facets: None | Vertices: 9 | Tag: 60952
 -   Measure: Area 0.0020 | Perimeter 0.6106 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9455, 2.9504, 0.0210) | Anchor (0.9455, 2.9504, 0.0210)
@@ -1702,6 +2054,8 @@
 -   Loop Count: 4
 -   Adjacent Faces: 36, 28, 29, 13, 49
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60952, 'journal_identifier': 'FACE 43 {(0.9456558025977,2.9596934315441,0.0358335991615) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 54: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60876
 -   Measure: Area 0.0395 | Perimeter 1.1167 | Radius/Diameter N/A | Min Curvature Radius 0.0328
 -   Points: Center (0.9100, 3.3297, 0.0275) | Anchor (0.9100, 3.3297, 0.0275)
@@ -1715,6 +2069,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 47, 48, 34, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60876, 'journal_identifier': 'FACE 5 {(0.9097737269,3.3106431950691,0.0129010257786) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 55: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60894
 -   Measure: Area 0.0003 | Perimeter 0.2060 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.8651, 3.1577, 0.7087) | Anchor (0.8651, 3.1577, 0.7087)
@@ -1728,6 +2084,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 43, 51, 4, 30
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60894, 'journal_identifier': 'FACE 14 {(0.8650449883719,3.1602074207496,0.7092087670862) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 56: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60938
 -   Measure: Area 0.0022 | Perimeter 1.4054 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.8657, 3.1552, 0.3102) | Anchor (0.8657, 3.1552, 0.3102)
@@ -1741,6 +2099,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 32, 38, 33, 37
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 60938, 'journal_identifier': 'FACE 36 {(0.8656525627897,3.1547991915479,0.3066237421032) UNPARAMETERIZED_FEATURE(1)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 80, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ---
 ## Body 2
@@ -1765,15 +2125,15 @@
 - Radius Of Gyration: 1.3711
 - Centroid: (-0.0000, 3.5379, -0.9916)
 ### Bounding Box
-- X Min: -1.1594
-- Y Min: 0.0000
-- Z Min: -1.1594
-- X Max: 1.1594
-- Y Max: 3.7441
-- Z Max: 1.1594
-- Dx (Length): 2.3189
-- Dy (Width): 3.7441
-- Dz (Height): 2.3189
+- X Min: -0.5866
+- Y Min: 3.7441
+- Z Min: -0.5866
+- X Max: 0.5866
+- Y Max: 3.8661
+- Z Max: 0.5866
+- Dx (Length): 1.1732
+- Dy (Width): 0.1220
+- Dz (Height): 1.1732
 
 ### Features
 - Total Features: 1
@@ -1798,6 +2158,8 @@
 -   Face Indices: 96, 47
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62072, 'journal_identifier': 'EDGE * 4 * 41 {(0.4862204724409,4.051995303985,-2.2924093123828)(0.4862204724409,4.2834332071328,-2.3346376521561)(0.4862204724409,4.1311434405556,-2.5139545857941) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 2: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62146
 -   Endpoints: (-0.6358, 4.3107, -1.4982) -> (-0.6260, 4.3200, -1.4949)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -1806,6 +2168,8 @@
 -   Face Indices: 41, 13
 -   Topology Vertices: 2 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62146, 'journal_identifier': 'EDGE * 95 * 97 {(-0.6358267716535,4.3107141246459,-1.498220090886)(-0.6329439643818,4.3172681448727,-1.495878634984)(-0.6259842519685,4.3199829089387,-1.4949087721936) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 3: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62136
 -   Endpoints: (0.8425, 3.7405, 0.1988) -> (0.8524, 3.7314, 0.2024)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -1814,6 +2178,8 @@
 -   Face Indices: 107, 71
 -   Topology Vertices: 4 -> 5
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62136, 'journal_identifier': 'EDGE * 90 * 92 {(0.8425196850394,3.7405349231696,0.1987961562081)(0.8494793974526,3.737849765646,0.1998452066549)(0.8523622047244,3.7313672219355,0.2023778384709) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 4: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61850
 -   Endpoints: (0.7028, 2.8134, 0.7020) -> (0.8524, 2.8134, 0.7020)
 -   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -1822,6 +2188,8 @@
 -   Face Indices: 25, 6
 -   Topology Vertices: 6 -> 7
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61850, 'journal_identifier': 'EDGE * 32 * 61 {(0.7027559055118,2.8134496665364,0.7019877562684)(0.7775590551181,2.8134496665364,0.7019877562684)(0.8523622047244,2.8134496665364,0.7019877562684) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 5: Linear | Length: 0.9872 | Connected Faces: 2 | Tag: 61944
 -   Endpoints: (0.6358, 3.2854, -1.3957) -> (0.6358, 3.6175, -2.3254)
 -   Curve Props: Arc Length 0.9872 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -1830,6 +2198,8 @@
 -   Face Indices: 43, 76
 -   Topology Vertices: 8 -> 9
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61944, 'journal_identifier': 'EDGE * 34 * 37 {(0.6358267716535,3.2853537267802,-1.3957077527448)(0.6358267716535,3.4514169634666,-1.860538976439)(0.6358267716535,3.6174802001529,-2.3253702001333) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 6: Circular | Length: 1.3915 | Connected Faces: 2 | Tag: 61706
 -   Endpoints: (-0.6358, 4.5726, -2.2313) -> (-0.6358, 3.7384, -2.5293)
 -   Curve Props: Arc Length 1.3915 | Radius 0.4429 | Diameter 0.8858 | Min Curvature Radius 0.4429
@@ -1838,6 +2208,8 @@
 -   Face Indices: 91, 109
 -   Topology Vertices: 10 -> 11
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61706, 'journal_identifier': 'EDGE * 35 * 99 {(-0.6358267716535,4.5726192770706,-2.2313245089537)(-0.6358267716535,4.3045333250485,-2.7974291432904)(-0.6358267716535,3.7384286907118,-2.5293431912683) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 7: Circular | Length: 0.2801 | Connected Faces: 2 | Tag: 61820
 -   Endpoints: (0.6337, 3.2599, -1.4106) -> (0.4390, 3.1018, -1.4670)
 -   Curve Props: Arc Length 0.2801 | Radius 0.1969 | Diameter 0.3937 | Min Curvature Radius 0.1969
@@ -1846,6 +2218,8 @@
 -   Face Indices: 76, 29
 -   Topology Vertices: 12 -> 13
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61820, 'journal_identifier': 'EDGE * 37 * 66 {(0.6336774939498,3.2598570341979,-1.4105669516584)(0.567505634862,3.1467684078544,-1.4509684186119)(0.4389763779528,3.1017998704668,-1.4670336493601) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 8: Circular | Length: 0.0542 | Connected Faces: 2 | Tag: 61878
 -   Endpoints: (-0.4862, 3.2995, -1.3361) -> (-0.4862, 3.2817, -1.3856)
 -   Curve Props: Arc Length 0.0542 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
@@ -1854,16 +2228,22 @@
 -   Face Indices: 103, 73
 -   Topology Vertices: 14 -> 15
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61878, 'journal_identifier': 'EDGE * 42 * 54 {(-0.4862204724409,3.2994783428929,-1.3360771858725)(-0.4862204724409,3.2960120780789,-1.3627587858663)(-0.4862204724409,3.2817284298831,-1.3855601052186) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 9: Intersection | Length: 0.0246 | Connected Faces: 2 | Tag: 61638
 -   Endpoints: (-0.6239, 3.5930, -2.3388) -> (-0.6260, 3.6170, -2.3352)
 -   Face Tags: 61524, 61624
 -   Face Indices: 99, 5
 -   Topology Vertices: 16 -> 17
+-   Identity: {'tag': 61638, 'journal_identifier': 'EDGE * 105 * 55 {(-0.62394243815,3.5930170932812,-2.3388111539972)(-0.6254857946636,3.604793884918,-2.3358531642959)(-0.6259842519685,3.6170382180934,-2.3352027911249) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 10: Elliptical | Length: 0.3248 | Connected Faces: 2 | Tag: 61934
 -   Endpoints: (0.4862, 4.3304, -1.5242) -> (0.6486, 4.2433, -1.2802)
 -   Face Tags: 61460, 61508
 -   Face Indices: 90, 18
 -   Topology Vertices: 18 -> 19
+-   Identity: {'tag': 61934, 'journal_identifier': 'EDGE * 23 * 47 {(0.4862204724409,4.3304429839155,-1.5241877959463)(0.5310804911887,4.2766404234617,-1.3735878768271)(0.6486220472441,4.2432728731126,-1.2801880396931) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 11: Circular | Length: 0.0106 | Connected Faces: 2 | Tag: 62104
 -   Endpoints: (0.6869, 3.2625, -1.2264) -> (0.6900, 3.2701, -1.2323)
 -   Curve Props: Arc Length 0.0106 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -1872,11 +2252,15 @@
 -   Face Indices: 95, 82
 -   Topology Vertices: 20 -> 21
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62104, 'journal_identifier': 'EDGE * 74 * 76 {(0.6868848425197,3.2625047959852,-1.2264300237083)(0.6886756601425,3.2653998959523,-1.2304018577746)(0.6899606299213,3.2700953548359,-1.2323164376157) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 12: Intersection | Length: 0.0246 | Connected Faces: 2 | Tag: 61810
 -   Endpoints: (0.6260, 3.6170, -2.3352) -> (0.6239, 3.5930, -2.3388)
 -   Face Tags: 61526, 61630
 -   Face Indices: 48, 14
 -   Topology Vertices: 22 -> 23
+-   Identity: {'tag': 61810, 'journal_identifier': 'EDGE * 108 * 56 {(0.6259842519685,3.6170382180934,-2.3352027911249)(0.6254885543373,3.6048251163675,-2.3358484621309)(0.62394243815,3.5930170932812,-2.3388111539972) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 13: Circular | Length: 0.0203 | Connected Faces: 2 | Tag: 62142
 -   Endpoints: (-0.6900, 4.2763, -1.4159) -> (-0.6869, 4.2873, -1.4034)
 -   Curve Props: Arc Length 0.0203 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -1885,6 +2269,8 @@
 -   Face Indices: 34, 41
 -   Topology Vertices: 24 -> 25
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62142, 'journal_identifier': 'EDGE * 93 * 95 {(-0.6899606299213,4.2763471076525,-1.4159179148908)(-0.6898863861248,4.2854326699497,-1.4124645090971)(-0.6868848425197,4.2872941173876,-1.4034088635987) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 14: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61964
 -   Endpoints: (0.8425, 2.5569, 0.2162) -> (0.7028, 2.5569, 0.2162)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -1893,6 +2279,8 @@
 -   Face Indices: 85, 16
 -   Topology Vertices: 26 -> 27
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61964, 'journal_identifier': 'EDGE * 28 * 29 {(0.8425196850394,2.5569125523344,0.2161534974292)(0.7726377952756,2.5569125523344,0.2161534974292)(0.7027559055118,2.5569125523344,0.2161534974292) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 15: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62118
 -   Endpoints: (-0.8524, 2.2897, 0.9933) -> (-0.8425, 2.2805, 0.9900)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -1901,6 +2289,8 @@
 -   Face Indices: 36, 97
 -   Topology Vertices: 28 -> 29
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62118, 'journal_identifier': 'EDGE * 81 * 83 {(-0.8523622047244,2.2897363958516,0.9932678725291)(-0.8494793974526,2.2831823756248,0.990926416627)(-0.8425196850394,2.2804676115588,0.9899565538367) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 16: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61968
 -   Endpoints: (0.8425, 2.8480, -0.1252) -> (0.7028, 2.8480, -0.1252)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -1909,11 +2299,15 @@
 -   Face Indices: 16, 60
 -   Topology Vertices: 30 -> 31
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61968, 'journal_identifier': 'EDGE * 29 * 30 {(0.8425196850394,2.8480248825627,-0.1252480631483)(0.7726377952756,2.8480248825627,-0.1252480631483)(0.7027559055118,2.8480248825627,-0.1252480631483) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 17: Elliptical | Length: 0.1106 | Connected Faces: 2 | Tag: 61782
 -   Endpoints: (0.6358, 4.3107, -1.4982) -> (0.6900, 4.2763, -1.4159)
 -   Face Tags: 61516, 61610
 -   Face Indices: 72, 55
 -   Topology Vertices: 32 -> 33
+-   Identity: {'tag': 61782, 'journal_identifier': 'EDGE * 51 * 98 {(0.6358267716535,4.3107141246459,-1.498220090886)(0.6507801112361,4.2895023412448,-1.4474220850251)(0.6899606299213,4.2763471076525,-1.4159179148908) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 18: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61754
 -   Endpoints: (0.8425, 2.4570, 1.1979) -> (0.8425, 3.2654, 1.0504)
 -   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -1922,6 +2316,8 @@
 -   Face Indices: 4, 11
 -   Topology Vertices: 34 -> 35
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61754, 'journal_identifier': 'EDGE * 26 * 88 {(0.8425196850394,2.4570354568657,1.1978602450112)(0.8425196850394,2.861213244247,1.124113651639)(0.8425196850394,3.2653910316284,1.0503670582668) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 19: Linear | Length: 0.1654 | Connected Faces: 2 | Tag: 61800
 -   Endpoints: (0.6358, 3.6828, -2.3736) -> (0.6358, 3.7384, -2.5293)
 -   Curve Props: Arc Length 0.1654 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -1930,11 +2326,15 @@
 -   Face Indices: 43, 101
 -   Topology Vertices: 36 -> 37
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61800, 'journal_identifier': 'EDGE * 104 * 34 {(0.6358267716535,3.6827985366797,-2.373627615148)(0.6358267716535,3.7106136136957,-2.4514854032081)(0.6358267716535,3.7384286907118,-2.5293431912683) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 20: Elliptical | Length: 0.1083 | Connected Faces: 2 | Tag: 61914
 -   Endpoints: (-0.6486, 3.2147, -1.0925) -> (-0.7028, 3.1856, -1.0112)
 -   Face Tags: 61458, 61514
 -   Face Indices: 24, 45
 -   Topology Vertices: 38 -> 39
+-   Identity: {'tag': 61914, 'journal_identifier': 'EDGE * 22 * 50 {(-0.6486220472441,3.2146599702333,-1.0925065295897)(-0.6878025659292,3.2035374534503,-1.061373250545)(-0.7027559055118,3.1856032666324,-1.0111732775053) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 21: Circular | Length: 0.4515 | Connected Faces: 2 | Tag: 61772
 -   Endpoints: (0.8524, 2.5662, 0.2195) -> (0.8524, 2.8528, -0.1166)
 -   Curve Props: Arc Length 0.4515 | Radius 0.6220 | Diameter 1.2441 | Min Curvature Radius 0.6220
@@ -1943,6 +2343,8 @@
 -   Face Indices: 49, 42
 -   Topology Vertices: 40 -> 41
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61772, 'journal_identifier': 'EDGE * 24 * 82 {(0.8523622047244,2.5661813366273,0.2194648161216)(0.8523622047244,2.6786369476739,0.0251314215353)(0.8523622047244,2.8527592068832,-0.1166189631385) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 22: Circular | Length: 0.2801 | Connected Faces: 2 | Tag: 61716
 -   Endpoints: (-0.4390, 3.1018, -1.4670) -> (-0.6337, 3.2599, -1.4106)
 -   Curve Props: Arc Length 0.2801 | Radius 0.1969 | Diameter 0.3937 | Min Curvature Radius 0.1969
@@ -1951,6 +2353,8 @@
 -   Face Indices: 56, 104
 -   Topology Vertices: 42 -> 43
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61716, 'journal_identifier': 'EDGE * 36 * 63 {(-0.4389763779528,3.1017998704668,-1.4670336493601)(-0.567505634862,3.1467684078544,-1.4509684186119)(-0.6336774939498,3.2598570341979,-1.4105669516584) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 23: Circular | Length: 0.8534 | Connected Faces: 2 | Tag: 62074
 -   Endpoints: (-0.4862, 4.0276, -2.4260) -> (-0.4862, 4.0276, -2.4260)
 -   Curve Props: Arc Length 0.8534 | Radius 0.1358 | Diameter 0.2717 | Min Curvature Radius 0.1358
@@ -1959,6 +2363,8 @@
 -   Face Indices: 74, 103
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62074, 'journal_identifier': 'EDGE * 20 * 42 {(-0.4862204724409,4.1799045272267,-2.2467131144279)(-0.4862204724409,4.0276147606495,-2.4260300480659)(-0.4862204724409,4.2590526637973,-2.4682583878392) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 24: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62126
 -   Endpoints: (-0.8524, 3.2636, 1.0407) -> (-0.8425, 3.2654, 1.0504)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -1967,11 +2373,15 @@
 -   Face Indices: 84, 88
 -   Topology Vertices: 44 -> 45
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62126, 'journal_identifier': 'EDGE * 85 * 87 {(-0.8523622047244,3.2636243255896,1.0406843962608)(-0.8494793974526,3.26487357541,1.0475310722252)(-0.8425196850394,3.2653910316284,1.0503670582668) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 25: Elliptical | Length: 0.3113 | Connected Faces: 2 | Tag: 61790
 -   Endpoints: (0.8425, 4.2038, -1.1696) -> (0.6869, 4.2873, -1.4034)
 -   Face Tags: 61460, 61606
 -   Face Indices: 90, 69
 -   Topology Vertices: 46 -> 47
+-   Identity: {'tag': 61790, 'journal_identifier': 'EDGE * 23 * 96 {(0.8425196850394,4.2037560945348,-1.169575763856)(0.7995288337394,4.2553168816364,-1.3139006863453)(0.6868848425197,4.2872941173876,-1.4034088635987) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 26: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61990
 -   Endpoints: (-0.7028, 3.7405, 0.1988) -> (-0.8425, 3.7405, 0.1988)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -1980,6 +2390,8 @@
 -   Face Indices: 22, 98
 -   Topology Vertices: 48 -> 49
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61990, 'journal_identifier': 'EDGE * 13 * 7 {(-0.7027559055118,3.7405349231696,0.1987961562081)(-0.7726377952756,3.7405349231696,0.1987961562081)(-0.8425196850394,3.7405349231696,0.1987961562081) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 27: Linear | Length: 1.0229 | Connected Faces: 2 | Tag: 61904
 -   Endpoints: (-0.6358, 3.3045, -1.3146) -> (-0.6358, 4.3107, -1.4982)
 -   Curve Props: Arc Length 1.0229 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -1988,6 +2400,8 @@
 -   Face Indices: 91, 15
 -   Topology Vertices: 50 -> 2
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61904, 'journal_identifier': 'EDGE * 35 * 52 {(-0.6358267716535,3.3044623718292,-1.3146186136109)(-0.6358267716535,3.8075882482375,-1.4064193522485)(-0.6358267716535,4.3107141246459,-1.498220090886) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 28: Circular | Length: 0.0775 | Connected Faces: 2 | Tag: 61762
 -   Endpoints: (0.8524, 3.7303, 0.1266) -> (0.8524, 3.7314, 0.2024)
 -   Curve Props: Arc Length 0.0775 | Radius 0.1083 | Diameter 0.2165 | Min Curvature Radius 0.1083
@@ -1996,6 +2410,8 @@
 -   Face Indices: 49, 71
 -   Topology Vertices: 51 -> 5
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61762, 'journal_identifier': 'EDGE * 24 * 92 {(0.8523622047244,3.7302553082895,0.1265548279638)(0.8523622047244,3.7239558586014,0.1645668649689)(0.8523622047244,3.7313672219355,0.2023778384709) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 29: Linear | Length: 1.3799 | Connected Faces: 2 | Tag: 61682
 -   Endpoints: (-0.8524, 3.7303, 0.1266) -> (-0.8524, 4.1945, -1.1729)
 -   Curve Props: Arc Length 1.3799 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2004,6 +2420,8 @@
 -   Face Indices: 70, 44
 -   Topology Vertices: 52 -> 53
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61682, 'journal_identifier': 'EDGE * 21 * 91 {(-0.8523622047244,3.7302553082895,0.1265548279638)(-0.8523622047244,3.9623713092657,-0.5231661272923)(-0.8523622047244,4.194487310242,-1.1728870825484) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 30: Linear | Length: 1.0456 | Connected Faces: 2 | Tag: 61924
 -   Endpoints: (0.6486, 3.2147, -1.0925) -> (0.6486, 4.2433, -1.2802)
 -   Curve Props: Arc Length 1.0456 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2012,6 +2430,8 @@
 -   Face Indices: 18, 108
 -   Topology Vertices: 54 -> 19
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61924, 'journal_identifier': 'EDGE * 47 * 49 {(0.6486220472441,3.2146599702333,-1.0925065295897)(0.6486220472441,3.728966421673,-1.1863472846414)(0.6486220472441,4.2432728731126,-1.2801880396931) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 31: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61834
 -   Endpoints: (0.7028, 2.8344, 0.7106) -> (0.7028, 2.8134, 0.7020)
 -   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
@@ -2020,6 +2440,8 @@
 -   Face Indices: 3, 6
 -   Topology Vertices: 55 -> 6
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61834, 'journal_identifier': 'EDGE * 40 * 61 {(0.7027559055118,2.8344395176563,0.710628337886)(0.7027559055118,2.8228387350384,0.7089944142725)(0.7027559055118,2.8134496665364,0.7019877562684) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 32: Circular | Length: 0.3298 | Connected Faces: 2 | Tag: 61752
 -   Endpoints: (0.8425, 2.2805, 0.9900) -> (0.8425, 2.4570, 1.1979)
 -   Curve Props: Arc Length 0.3298 | Radius 0.1575 | Diameter 0.3150 | Min Curvature Radius 0.1575
@@ -2028,11 +2450,15 @@
 -   Face Indices: 77, 23
 -   Topology Vertices: 56 -> 34
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61752, 'journal_identifier': 'EDGE * 27 * 86 {(0.8425196850394,2.2804676115588,0.9899565538367)(0.8425196850394,2.3087349081797,1.144879145933)(0.8425196850394,2.4570354568657,1.1978602450112) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 33: Elliptical | Length: 0.3113 | Connected Faces: 2 | Tag: 61696
 -   Endpoints: (-0.8425, 3.1790, -0.9926) -> (-0.6869, 3.2625, -1.2264)
 -   Face Tags: 61458, 61560
 -   Face Indices: 24, 79
 -   Topology Vertices: 57 -> 58
+-   Identity: {'tag': 61696, 'journal_identifier': 'EDGE * 22 * 73 {(-0.8425196850394,3.1789667731324,-0.9925969239657)(-0.7995288337394,3.230527560234,-1.1369218464549)(-0.6868848425197,3.2625047959852,-1.2264300237083) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 34: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61672
 -   Endpoints: (-0.8524, 2.5662, 0.2195) -> (-0.8524, 2.2897, 0.9933)
 -   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2041,6 +2467,8 @@
 -   Face Indices: 70, 36
 -   Topology Vertices: 59 -> 28
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61672, 'journal_identifier': 'EDGE * 21 * 81 {(-0.8523622047244,2.5661813366273,0.2194648161216)(-0.8523622047244,2.4279588662395,0.6063663443253)(-0.8523622047244,2.2897363958516,0.9932678725291) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 35: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62128
 -   Endpoints: (0.8425, 2.4570, 1.1979) -> (0.8524, 2.4553, 1.1882)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2049,6 +2477,8 @@
 -   Face Indices: 23, 11
 -   Topology Vertices: 34 -> 60
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62128, 'journal_identifier': 'EDGE * 86 * 88 {(0.8425196850394,2.4570354568657,1.1978602450112)(0.8494793974526,2.4565180006473,1.1950242589695)(0.8523622047244,2.4552687508269,1.1881775830051) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 36: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61956
 -   Endpoints: (0.8425, 2.4570, 1.1979) -> (0.7028, 2.4570, 1.1979)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2057,11 +2487,15 @@
 -   Face Indices: 4, 77
 -   Topology Vertices: 34 -> 61
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61956, 'journal_identifier': 'EDGE * 26 * 27 {(0.8425196850394,2.4570354568657,1.1978602450111)(0.7726377952756,2.4570354568657,1.1978602450111)(0.7027559055118,2.4570354568657,1.1978602450111) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 37: Elliptical | Length: 0.3225 | Connected Faces: 2 | Tag: 61686
 -   Endpoints: (-0.8524, 4.1945, -1.1729) -> (-0.6900, 4.2763, -1.4159)
 -   Face Tags: 61504, 61600
 -   Face Indices: 27, 34
 -   Topology Vertices: 53 -> 24
+-   Identity: {'tag': 61686, 'journal_identifier': 'EDGE * 45 * 93 {(-0.8523622047244,4.194487310242,-1.1728870825484)(-0.8075021859766,4.2450122741126,-1.3228889688464)(-0.6899606299213,4.2763471076525,-1.4159179148908) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 38: Circular | Length: 0.4587 | Connected Faces: 2 | Tag: 61662
 -   Endpoints: (-0.8425, 2.5569, 0.2162) -> (-0.8425, 2.8480, -0.1252)
 -   Curve Props: Arc Length 0.4587 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
@@ -2070,6 +2504,8 @@
 -   Face Indices: 57, 9
 -   Topology Vertices: 62 -> 63
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61662, 'journal_identifier': 'EDGE * 11 * 79 {(-0.8425196850394,2.5569125523344,0.2161534974292)(-0.8425196850394,2.6711475243153,0.018745207359)(-0.8425196850394,2.8480248825627,-0.1252480631483) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 39: Circular | Length: 0.8534 | Connected Faces: 2 | Tag: 61862
 -   Endpoints: (0.6260, 4.2834, -2.3346) -> (0.6260, 4.2834, -2.3346)
 -   Curve Props: Arc Length 0.8534 | Radius 0.1358 | Diameter 0.2717 | Min Curvature Radius 0.1358
@@ -2078,6 +2514,8 @@
 -   Face Indices: 96, 80
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61862, 'journal_identifier': 'EDGE * 4 * 58 {(0.6259842519685,4.051995303985,-2.2924093123828)(0.6259842519685,4.2834332071328,-2.3346376521561)(0.6259842519685,4.1311434405556,-2.5139545857941) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 40: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61972
 -   Endpoints: (0.8425, 2.8843, -0.1678) -> (0.7028, 2.8843, -0.1678)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2086,6 +2524,8 @@
 -   Face Indices: 31, 60
 -   Topology Vertices: 64 -> 65
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61972, 'journal_identifier': 'EDGE * 30 * 5 {(0.8425196850394,2.8843005623419,-0.1677903136875)(0.7726377952756,2.8843005623419,-0.1677903136875)(0.7027559055118,2.8843005623419,-0.1677903136875) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 41: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62172
 -   Endpoints: (0.6239, 3.5930, -2.3388) -> (0.6337, 3.5883, -2.3300)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2094,6 +2534,8 @@
 -   Face Indices: 14, 110
 -   Topology Vertices: 23 -> 66
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62172, 'journal_identifier': 'EDGE * 108 * 110 {(0.62394243815,3.5930170932812,-2.3388111539972)(0.6308261621213,3.5910813748785,-2.3364414465904)(0.6336774939498,3.5883398484825,-2.3300303535116) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 42: Circular | Length: 0.0704 | Connected Faces: 2 | Tag: 62022
 -   Endpoints: (0.7028, 3.7395, 0.1299) -> (0.7028, 3.7405, 0.1988)
 -   Curve Props: Arc Length 0.0704 | Radius 0.0984 | Diameter 0.1969 | Min Curvature Radius 0.0984
@@ -2102,6 +2544,8 @@
 -   Face Indices: 2, 3
 -   Topology Vertices: 67 -> 68
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62022, 'journal_identifier': 'EDGE * 31 * 40 {(0.7027559055118,3.7395240925824,0.1298661466562)(0.7027559055118,3.7337973201387,0.1644225439335)(0.7027559055118,3.7405349231696,0.1987961562081) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 43: Linear | Length: 0.9764 | Connected Faces: 2 | Tag: 61946
 -   Endpoints: (-0.4390, 3.1018, -1.4670) -> (-0.4390, 3.4303, -2.3865)
 -   Curve Props: Arc Length 0.9764 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2110,6 +2554,8 @@
 -   Face Indices: 37, 56
 -   Topology Vertices: 42 -> 69
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61946, 'journal_identifier': 'EDGE * 17 * 36 {(-0.4389763779528,3.1017998704668,-1.4670336493601)(-0.4389763779528,3.2660412776091,-1.9267653502867)(-0.4389763779528,3.4302826847513,-2.3864970512134) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 44: Circular | Length: 1.8613 | Connected Faces: 2 | Tag: 61998
 -   Endpoints: (-0.8524, 2.8134, 0.7020) -> (-0.8524, 3.5422, 0.6210)
 -   Curve Props: Arc Length 1.8613 | Radius 0.4350 | Diameter 0.8701 | Min Curvature Radius 0.4350
@@ -2118,6 +2564,8 @@
 -   Face Indices: 33, 70
 -   Topology Vertices: 70 -> 71
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61998, 'journal_identifier': 'EDGE * 14 * 21 {(-0.8523622047244,2.8134496665364,0.7019877562684)(-0.8523622047244,3.1039242498797,-0.003638152765)(-0.8523622047244,3.5422139145066,0.6210102098751) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 45: Circular | Length: 0.0704 | Connected Faces: 2 | Tag: 61652
 -   Endpoints: (-0.8425, 3.7395, 0.1299) -> (-0.8425, 3.7405, 0.1988)
 -   Curve Props: Arc Length 0.0704 | Radius 0.0984 | Diameter 0.1969 | Min Curvature Radius 0.0984
@@ -2126,6 +2574,8 @@
 -   Face Indices: 98, 54
 -   Topology Vertices: 72 -> 49
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61652, 'journal_identifier': 'EDGE * 13 * 89 {(-0.8425196850394,3.7395240925824,0.1298661466562)(-0.8425196850394,3.7337973201387,0.1644225439335)(-0.8425196850394,3.7405349231696,0.1987961562081) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 46: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61858
 -   Endpoints: (-0.8524, 2.8134, 0.7020) -> (-0.7028, 2.8134, 0.7020)
 -   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2134,6 +2584,8 @@
 -   Face Indices: 33, 51
 -   Topology Vertices: 70 -> 73
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61858, 'journal_identifier': 'EDGE * 14 * 62 {(-0.8523622047244,2.8134496665364,0.7019877562684)(-0.7775590551181,2.8134496665364,0.7019877562684)(-0.7027559055118,2.8134496665364,0.7019877562684) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 47: Circular | Length: 1.1139 | Connected Faces: 2 | Tag: 62038
 -   Endpoints: (0.7028, 3.7405, 0.1988) -> (0.7028, 3.2654, 1.0504)
 -   Curve Props: Arc Length 1.1139 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
@@ -2142,6 +2594,8 @@
 -   Face Indices: 105, 3
 -   Topology Vertices: 68 -> 74
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62038, 'journal_identifier': 'EDGE * 25 * 40 {(0.7027559055118,3.7405349231696,0.1987961562081)(0.7027559055118,3.7037749652159,0.7366269919832)(0.7027559055118,3.2653910316284,1.0503670582668) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 48: Linear | Length: 0.8780 | Connected Faces: 2 | Tag: 62020
 -   Endpoints: (0.4390, 3.5745, -2.3454) -> (-0.4390, 3.5745, -2.3454)
 -   Curve Props: Arc Length 0.8780 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2150,6 +2604,8 @@
 -   Face Indices: 12, 75
 -   Topology Vertices: 75 -> 76
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62020, 'journal_identifier': 'EDGE * 1 * 38 {(0.4389763779528,3.5744795246954,-2.345433791382)(-0,3.5744795246954,-2.345433791382)(-0.4389763779528,3.5744795246954,-2.345433791382) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 49: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61830
 -   Endpoints: (-0.8524, 2.8344, 0.7106) -> (-0.8524, 2.8134, 0.7020)
 -   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
@@ -2158,6 +2614,8 @@
 -   Face Indices: 70, 51
 -   Topology Vertices: 77 -> 70
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61830, 'journal_identifier': 'EDGE * 21 * 62 {(-0.8523622047244,2.8344395176563,0.710628337886)(-0.8523622047244,2.8228387350384,0.7089944142725)(-0.8523622047244,2.8134496665364,0.7019877562684) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 50: Circular | Length: 1.8613 | Connected Faces: 2 | Tag: 61994
 -   Endpoints: (0.8524, 2.8134, 0.7020) -> (0.8524, 3.5422, 0.6210)
 -   Curve Props: Arc Length 1.8613 | Radius 0.4350 | Diameter 0.8701 | Min Curvature Radius 0.4350
@@ -2166,6 +2624,8 @@
 -   Face Indices: 49, 25
 -   Topology Vertices: 7 -> 78
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61994, 'journal_identifier': 'EDGE * 24 * 32 {(0.8523622047244,2.8134496665364,0.7019877562684)(0.8523622047244,3.1039242498797,-0.003638152765)(0.8523622047244,3.5422139145066,0.6210102098751) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 51: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61986
 -   Endpoints: (-0.7028, 3.7395, 0.1299) -> (-0.8425, 3.7395, 0.1299)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2174,6 +2634,8 @@
 -   Face Indices: 83, 98
 -   Topology Vertices: 79 -> 72
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61986, 'journal_identifier': 'EDGE * 13 * 6 {(-0.7027559055118,3.7395240925824,0.1298661466562)(-0.7726377952756,3.7395240925824,0.1298661466562)(-0.8425196850394,3.7395240925824,0.1298661466562) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 52: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62170
 -   Endpoints: (-0.4390, 3.4303, -2.3865) -> (-0.4390, 3.4429, -2.3925)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2182,6 +2644,8 @@
 -   Face Indices: 106, 58
 -   Topology Vertices: 69 -> 80
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62170, 'journal_identifier': 'EDGE * 107 * 109 {(-0.4389763779528,3.4302826847513,-2.3864970512134)(-0.4389763779528,3.4353389047194,-2.3920812086499)(-0.4389763779528,3.4428627877366,-2.3924545168138) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 53: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62154
 -   Endpoints: (-0.6358, 3.7384, -2.5293) -> (-0.6260, 3.7292, -2.5327)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2190,6 +2654,8 @@
 -   Face Indices: 109, 21
 -   Topology Vertices: 11 -> 81
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62154, 'journal_identifier': 'EDGE * 101 * 99 {(-0.6358267716535,3.7384286907118,-2.5293431912683)(-0.6329439643818,3.7318746704849,-2.5316846471703)(-0.6259842519685,3.7291599064189,-2.5326545099607) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 54: Linear | Length: 0.9764 | Connected Faces: 2 | Tag: 61948
 -   Endpoints: (0.4390, 3.4303, -2.3865) -> (0.4390, 3.1018, -1.4670)
 -   Curve Props: Arc Length 0.9764 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2198,6 +2664,8 @@
 -   Face Indices: 37, 76
 -   Topology Vertices: 82 -> 13
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61948, 'journal_identifier': 'EDGE * 17 * 37 {(0.4389763779528,3.4302826847513,-2.3864970512134)(0.4389763779528,3.2660412776091,-1.9267653502867)(0.4389763779528,3.1017998704668,-1.4670336493601) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 55: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62130
 -   Endpoints: (-0.8524, 3.7314, 0.2024) -> (-0.8425, 3.7405, 0.1988)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2206,6 +2674,8 @@
 -   Face Indices: 88, 54
 -   Topology Vertices: 83 -> 49
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62130, 'journal_identifier': 'EDGE * 87 * 89 {(-0.8523622047244,3.7313672219355,0.2023778384709)(-0.8494793974526,3.737849765646,0.1998452066549)(-0.8425196850394,3.7405349231696,0.1987961562081) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 56: Circular | Length: 0.8534 | Connected Faces: 2 | Tag: 61866
 -   Endpoints: (-0.6260, 4.0276, -2.4260) -> (-0.6260, 4.0276, -2.4260)
 -   Curve Props: Arc Length 0.8534 | Radius 0.1358 | Diameter 0.2717 | Min Curvature Radius 0.1358
@@ -2214,11 +2684,15 @@
 -   Face Indices: 74, 28
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61866, 'journal_identifier': 'EDGE * 20 * 57 {(-0.6259842519685,4.1799045272267,-2.2467131144279)(-0.6259842519685,4.0276147606495,-2.4260300480659)(-0.6259842519685,4.2590526637973,-2.4682583878392) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 57: Intersection | Length: 0.0162 | Connected Faces: 2 | Tag: 61882
 -   Endpoints: (0.4862, 3.2995, -1.3361) -> (0.4867, 3.2960, -1.3203)
 -   Face Tags: 61508, 61520
 -   Face Indices: 18, 59
 -   Topology Vertices: 84 -> 85
+-   Identity: {'tag': 61882, 'journal_identifier': 'EDGE * 47 * 53 {(0.4862204724409,3.2994783428929,-1.3360771858725)(0.486345436453,3.2982637831476,-1.3280742537864)(0.4866912474546,3.296039421455,-1.3202975244526) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 58: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62084
 -   Endpoints: (0.4390, 3.1078, -1.4545) -> (0.4390, 3.1018, -1.4670)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2227,6 +2701,8 @@
 -   Face Indices: 39, 29
 -   Topology Vertices: 86 -> 13
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62084, 'journal_identifier': 'EDGE * 64 * 66 {(0.4389763779528,3.1077573360673,-1.4544535463749)(0.4389763779528,3.1021731786308,-1.4595097663429)(0.4389763779528,3.1017998704668,-1.4670336493601) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 59: Circular | Length: 1.4224 | Connected Faces: 2 | Tag: 61642
 -   Endpoints: (-0.6260, 3.7292, -2.5327) -> (-0.6260, 4.5819, -2.2280)
 -   Curve Props: Arc Length 1.4224 | Radius 0.4528 | Diameter 0.9055 | Min Curvature Radius 0.4528
@@ -2235,6 +2711,8 @@
 -   Face Indices: 40, 109
 -   Topology Vertices: 81 -> 87
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61642, 'journal_identifier': 'EDGE * 3 * 99 {(-0.6259842519685,3.7291599064189,-2.5326545099607)(-0.6259842519685,4.3078446437408,-2.8066979275833)(-0.6259842519685,4.5818880613634,-2.2280131902613) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 60: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61852
 -   Endpoints: (-0.8524, 3.5236, 0.6340) -> (-0.7028, 3.5236, 0.6340)
 -   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2243,11 +2721,15 @@
 -   Face Indices: 68, 19
 -   Topology Vertices: 88 -> 89
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61852, 'journal_identifier': 'EDGE * 15 * 59 {(-0.8523622047244,3.5236328562344,0.6340477623376)(-0.7775590551181,3.5236328562344,0.6340477623376)(-0.7027559055118,3.5236328562344,0.6340477623376) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 61: Elliptical | Length: 0.3076 | Connected Faces: 2 | Tag: 61938
 -   Endpoints: (0.6486, 3.2147, -1.0925) -> (0.4867, 3.2960, -1.3203)
 -   Face Tags: 61424, 61508
 -   Face Indices: 31, 18
 -   Topology Vertices: 54 -> 85
+-   Identity: {'tag': 61938, 'journal_identifier': 'EDGE * 47 * 5 {(0.6486220472441,3.2146599702333,-1.0925065295897)(0.535547773948,3.2457076790016,-1.1794128476142)(0.4866912474546,3.296039421455,-1.3202975244526) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 62: Circular | Length: 0.2661 | Connected Faces: 2 | Tag: 61824
 -   Endpoints: (-0.4390, 3.4429, -2.3925) -> (-0.6239, 3.5930, -2.3388)
 -   Curve Props: Arc Length 0.2661 | Radius 0.1870 | Diameter 0.3740 | Min Curvature Radius 0.1870
@@ -2256,11 +2738,15 @@
 -   Face Indices: 12, 106
 -   Topology Vertices: 80 -> 16
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61824, 'journal_identifier': 'EDGE * 1 * 107 {(-0.4389763779528,3.4428627877366,-2.3924545168138)(-0.5610791720165,3.4855828982548,-2.377192547603)(-0.62394243815,3.5930170932812,-2.3388111539972) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 63: Elliptical | Length: 0.3113 | Connected Faces: 2 | Tag: 61740
 -   Endpoints: (0.6869, 3.2625, -1.2264) -> (0.8425, 3.1790, -0.9926)
 -   Face Tags: 61424, 61566
 -   Face Indices: 31, 82
 -   Topology Vertices: 20 -> 90
+-   Identity: {'tag': 61740, 'journal_identifier': 'EDGE * 5 * 76 {(0.6868848425197,3.2625047959852,-1.2264300237083)(0.7995288337394,3.230527560234,-1.1369218464549)(0.8425196850394,3.1789667731324,-0.9925969239657) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 64: Circular | Length: 0.2801 | Connected Faces: 2 | Tag: 61814
 -   Endpoints: (0.4390, 3.4303, -2.3865) -> (0.6337, 3.5883, -2.3300)
 -   Curve Props: Arc Length 0.2801 | Radius 0.1969 | Diameter 0.3937 | Min Curvature Radius 0.1969
@@ -2269,6 +2755,8 @@
 -   Face Indices: 76, 110
 -   Topology Vertices: 82 -> 66
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61814, 'journal_identifier': 'EDGE * 110 * 37 {(0.4389763779528,3.4302826847513,-2.3864970512134)(0.567505634862,3.4752512221389,-2.3704318204651)(0.6336774939498,3.5883398484825,-2.3300303535116) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 65: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62162
 -   Endpoints: (-0.6358, 3.6175, -2.3254) -> (-0.6260, 3.6170, -2.3352)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2277,6 +2765,8 @@
 -   Face Indices: 17, 5
 -   Topology Vertices: 91 -> 17
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62162, 'journal_identifier': 'EDGE * 103 * 105 {(-0.6358267716535,3.6174802001529,-2.3253702001333)(-0.6329439643818,3.6171676716415,-2.3323228919001)(-0.6259842519685,3.6170382180934,-2.3352027911249) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 66: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61978
 -   Endpoints: (-0.4862, 3.7292, -2.5327) -> (-0.6260, 3.7292, -2.5327)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2285,11 +2775,15 @@
 -   Face Indices: 7, 40
 -   Topology Vertices: 92 -> 81
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61978, 'journal_identifier': 'EDGE * 2 * 3 {(-0.4862204724409,3.7291599064189,-2.5326545099607)(-0.5561023622047,3.7291599064189,-2.5326545099607)(-0.6259842519685,3.7291599064189,-2.5326545099607) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 67: Elliptical | Length: 0.3248 | Connected Faces: 2 | Tag: 61928
 -   Endpoints: (-0.6486, 4.2433, -1.2802) -> (-0.4862, 4.3304, -1.5242)
 -   Face Tags: 61426, 61510
 -   Face Indices: 83, 62
 -   Topology Vertices: 93 -> 94
+-   Identity: {'tag': 61928, 'journal_identifier': 'EDGE * 48 * 6 {(-0.6486220472441,4.2432728731126,-1.2801880396931)(-0.5310804911887,4.2766404234617,-1.3735878768271)(-0.4862204724409,4.3304429839155,-1.5241877959463) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 68: Linear | Length: 0.8780 | Connected Faces: 2 | Tag: 61730
 -   Endpoints: (-0.4390, 3.1078, -1.4545) -> (0.4390, 3.1078, -1.4545)
 -   Curve Props: Arc Length 0.8780 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2298,6 +2792,8 @@
 -   Face Indices: 100, 39
 -   Topology Vertices: 95 -> 86
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61730, 'journal_identifier': 'EDGE * 16 * 64 {(-0.4389763779528,3.1077573360673,-1.4544535463749)(-0,3.1077573360673,-1.4544535463749)(0.4389763779528,3.1077573360673,-1.4544535463749) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 69: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62138
 -   Endpoints: (-0.8524, 4.1945, -1.1729) -> (-0.8425, 4.2038, -1.1696)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2306,6 +2802,8 @@
 -   Face Indices: 44, 34
 -   Topology Vertices: 53 -> 96
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62138, 'journal_identifier': 'EDGE * 91 * 93 {(-0.8523622047244,4.194487310242,-1.1728870825484)(-0.8494793974526,4.2010413304688,-1.1705456266464)(-0.8425196850394,4.2037560945348,-1.169575763856) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 70: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61828
 -   Endpoints: (-0.7028, 2.8134, 0.7020) -> (-0.7028, 2.8344, 0.7106)
 -   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
@@ -2314,6 +2812,8 @@
 -   Face Indices: 61, 51
 -   Topology Vertices: 73 -> 97
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61828, 'journal_identifier': 'EDGE * 39 * 62 {(-0.7027559055118,2.8134496665364,0.7019877562684)(-0.7027559055118,2.8228387350384,0.7089944142725)(-0.7027559055118,2.8344395176563,0.710628337886) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 71: Circular | Length: 0.3298 | Connected Faces: 2 | Tag: 62052
 -   Endpoints: (-0.7028, 2.4570, 1.1979) -> (-0.7028, 2.2805, 0.9900)
 -   Curve Props: Arc Length 0.3298 | Radius 0.1575 | Diameter 0.3150 | Min Curvature Radius 0.1575
@@ -2322,6 +2822,8 @@
 -   Face Indices: 10, 61
 -   Topology Vertices: 98 -> 99
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62052, 'journal_identifier': 'EDGE * 39 * 9 {(-0.7027559055118,2.4570354568657,1.1978602450112)(-0.7027559055118,2.3087349081797,1.144879145933)(-0.7027559055118,2.2804676115588,0.9899565538367) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 72: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62150
 -   Endpoints: (-0.6358, 4.5726, -2.2313) -> (-0.6260, 4.5819, -2.2280)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2330,6 +2832,8 @@
 -   Face Indices: 13, 109
 -   Topology Vertices: 10 -> 87
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62150, 'journal_identifier': 'EDGE * 97 * 99 {(-0.6358267716535,4.5726192770706,-2.2313245089537)(-0.6329439643818,4.5791732972974,-2.2289830530516)(-0.6259842519685,4.5818880613634,-2.2280131902613) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 73: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 62036
 -   Endpoints: (0.7028, 3.2654, 1.0504) -> (0.7028, 2.4570, 1.1979)
 -   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2338,6 +2842,8 @@
 -   Face Indices: 4, 3
 -   Topology Vertices: 74 -> 61
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62036, 'journal_identifier': 'EDGE * 26 * 40 {(0.7027559055118,3.2653910316284,1.0503670582668)(0.7027559055118,2.861213244247,1.124113651639)(0.7027559055118,2.4570354568657,1.1978602450112) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 74: Linear | Length: 0.8759 | Connected Faces: 2 | Tag: 61776
 -   Endpoints: (0.8524, 2.8936, -0.1645) -> (0.8524, 3.1882, -0.9893)
 -   Curve Props: Arc Length 0.8759 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2346,6 +2852,8 @@
 -   Face Indices: 49, 66
 -   Topology Vertices: 100 -> 101
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61776, 'journal_identifier': 'EDGE * 24 * 78 {(0.8523622047244,2.8935693466348,-0.1644789949951)(0.8523622047244,3.04090245203,-0.5768823001342)(0.8523622047244,3.1882355574253,-0.9892856052733) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 75: Circular | Length: 0.0704 | Connected Faces: 2 | Tag: 62040
 -   Endpoints: (-0.7028, 3.7395, 0.1299) -> (-0.7028, 3.7405, 0.1988)
 -   Curve Props: Arc Length 0.0704 | Radius 0.0984 | Diameter 0.1969 | Min Curvature Radius 0.0984
@@ -2354,6 +2862,8 @@
 -   Face Indices: 98, 61
 -   Topology Vertices: 79 -> 48
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62040, 'journal_identifier': 'EDGE * 13 * 39 {(-0.7027559055118,3.7395240925824,0.1298661466562)(-0.7027559055118,3.7337973201387,0.1644225439335)(-0.7027559055118,3.7405349231696,0.1987961562081) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 76: Circular | Length: 1.4224 | Connected Faces: 2 | Tag: 61794
 -   Endpoints: (0.6260, 4.5819, -2.2280) -> (0.6260, 3.7292, -2.5327)
 -   Curve Props: Arc Length 1.4224 | Radius 0.4528 | Diameter 0.9055 | Min Curvature Radius 0.4528
@@ -2362,6 +2872,8 @@
 -   Face Indices: 26, 87
 -   Topology Vertices: 102 -> 103
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61794, 'journal_identifier': 'EDGE * 102 * 19 {(0.6259842519685,4.5818880613634,-2.2280131902613)(0.6259842519685,4.3078446437408,-2.8066979275833)(0.6259842519685,3.7291599064189,-2.5326545099607) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 77: Circular | Length: 0.0448 | Connected Faces: 2 | Tag: 62004
 -   Endpoints: (0.4773, 3.5930, -2.3388) -> (0.4390, 3.5745, -2.3454)
 -   Curve Props: Arc Length 0.0448 | Radius 0.0472 | Diameter 0.0945 | Min Curvature Radius 0.0472
@@ -2370,6 +2882,8 @@
 -   Face Indices: 12, 92
 -   Topology Vertices: 104 -> 75
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62004, 'journal_identifier': 'EDGE * 1 * 44 {(0.4773495840347,3.5930170932812,-2.3388111539972)(0.4605402581695,3.5793842752227,-2.3436815451769)(0.4389763779528,3.5744795246954,-2.345433791382) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 78: Linear | Length: 1.0229 | Connected Faces: 2 | Tag: 61908
 -   Endpoints: (0.6900, 3.2701, -1.2323) -> (0.6900, 4.2763, -1.4159)
 -   Curve Props: Arc Length 1.0229 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2378,6 +2892,8 @@
 -   Face Indices: 78, 72
 -   Topology Vertices: 21 -> 33
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61908, 'journal_identifier': 'EDGE * 46 * 51 {(0.6899606299213,3.2700953548359,-1.2323164376157)(0.6899606299213,3.7732212312442,-1.3241171762532)(0.6899606299213,4.2763471076525,-1.4159179148908) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 79: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61766
 -   Endpoints: (0.8524, 3.2636, 1.0407) -> (0.8524, 2.4553, 1.1882)
 -   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2386,6 +2902,8 @@
 -   Face Indices: 49, 11
 -   Topology Vertices: 105 -> 60
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61766, 'journal_identifier': 'EDGE * 24 * 88 {(0.8523622047244,3.2636243255896,1.0406843962608)(0.8523622047244,2.8594465382082,1.114430989633)(0.8523622047244,2.4552687508269,1.1881775830051) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 80: Circular | Length: 0.0861 | Connected Faces: 2 | Tag: 61710
 -   Endpoints: (-0.6358, 3.6828, -2.3736) -> (-0.6358, 3.6175, -2.3254)
 -   Curve Props: Arc Length 0.0861 | Radius 0.0728 | Diameter 0.1457 | Min Curvature Radius 0.0728
@@ -2394,6 +2912,8 @@
 -   Face Indices: 91, 17
 -   Topology Vertices: 106 -> 91
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61710, 'journal_identifier': 'EDGE * 103 * 35 {(-0.6358267716535,3.6827985366797,-2.373627615148)(-0.6358267716535,3.6574894082047,-2.3395503355459)(-0.6358267716535,3.6174802001529,-2.3253702001333) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 81: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61974
 -   Endpoints: (-0.7028, 2.8843, -0.1678) -> (-0.8425, 2.8843, -0.1678)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2402,6 +2922,8 @@
 -   Face Indices: 93, 24
 -   Topology Vertices: 107 -> 108
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61974, 'journal_identifier': 'EDGE * 12 * 22 {(-0.7027559055118,2.8843005623419,-0.1677903136875)(-0.7726377952756,2.8843005623419,-0.1677903136875)(-0.8425196850394,2.8843005623419,-0.1677903136875) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 82: Linear | Length: 1.0456 | Connected Faces: 2 | Tag: 61926
 -   Endpoints: (0.7028, 4.2142, -1.1989) -> (0.7028, 3.1856, -1.0112)
 -   Curve Props: Arc Length 1.0456 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2410,6 +2932,8 @@
 -   Face Indices: 3, 108
 -   Topology Vertices: 109 -> 110
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61926, 'journal_identifier': 'EDGE * 40 * 49 {(0.7027559055118,4.2142161695116,-1.1988547876087)(0.7027559055118,3.699909718072,-1.105014032557)(0.7027559055118,3.1856032666324,-1.0111732775053) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 83: Linear | Length: 0.8780 | Connected Faces: 2 | Tag: 62018
 -   Endpoints: (0.4390, 3.2394, -1.4074) -> (-0.4390, 3.2394, -1.4074)
 -   Curve Props: Arc Length 0.8780 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2418,6 +2942,8 @@
 -   Face Indices: 100, 75
 -   Topology Vertices: 111 -> 112
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62018, 'journal_identifier': 'EDGE * 16 * 38 {(0.4389763779528,3.2393740730261,-1.407432820943)(-0,3.2393740730261,-1.407432820943)(-0.4389763779528,3.2393740730261,-1.407432820943) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 84: Linear | Length: 0.1393 | Connected Faces: 2 | Tag: 61898
 -   Endpoints: (0.4867, 3.2960, -1.3203) -> (0.6260, 3.2960, -1.3203)
 -   Curve Props: Arc Length 0.1393 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2426,6 +2952,8 @@
 -   Face Indices: 31, 59
 -   Topology Vertices: 85 -> 113
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61898, 'journal_identifier': 'EDGE * 5 * 53 {(0.4866912474546,3.296039421455,-1.3202975244526)(0.5563377497115,3.296039421455,-1.3202975244526)(0.6259842519685,3.296039421455,-1.3202975244526) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 85: Circular | Length: 1.1139 | Connected Faces: 2 | Tag: 61756
 -   Endpoints: (0.8425, 3.2654, 1.0504) -> (0.8425, 3.7405, 0.1988)
 -   Curve Props: Arc Length 1.1139 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
@@ -2434,6 +2962,8 @@
 -   Face Indices: 105, 107
 -   Topology Vertices: 35 -> 4
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61756, 'journal_identifier': 'EDGE * 25 * 90 {(0.8425196850394,3.2653910316284,1.0503670582668)(0.8425196850394,3.7037749652159,0.7366269919832)(0.8425196850394,3.7405349231696,0.1987961562081) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 86: Circular | Length: 0.0861 | Connected Faces: 2 | Tag: 61700
 -   Endpoints: (-0.6358, 3.2854, -1.3957) -> (-0.6358, 3.3053, -1.3170)
 -   Curve Props: Arc Length 0.0861 | Radius 0.0728 | Diameter 0.1457 | Min Curvature Radius 0.0728
@@ -2442,6 +2972,8 @@
 -   Face Indices: 91, 81
 -   Topology Vertices: 114 -> 115
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61700, 'journal_identifier': 'EDGE * 35 * 67 {(-0.6358267716535,3.2853537267802,-1.3957077527448)(-0.6358267716535,3.307320968264,-1.3593862264713)(-0.6358267716535,3.3053082057479,-1.3169862057602) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 87: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61988
 -   Endpoints: (0.8425, 3.7405, 0.1988) -> (0.7028, 3.7405, 0.1988)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2450,6 +2982,8 @@
 -   Face Indices: 105, 2
 -   Topology Vertices: 4 -> 68
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61988, 'journal_identifier': 'EDGE * 25 * 31 {(0.8425196850394,3.7405349231696,0.1987961562081)(0.7726377952756,3.7405349231696,0.1987961562081)(0.7027559055118,3.7405349231696,0.1987961562081) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 88: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61676
 -   Endpoints: (-0.8524, 2.4553, 1.1882) -> (-0.8524, 3.2636, 1.0407)
 -   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2458,11 +2992,15 @@
 -   Face Indices: 70, 84
 -   Topology Vertices: 116 -> 44
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61676, 'journal_identifier': 'EDGE * 21 * 85 {(-0.8523622047244,2.4552687508269,1.1881775830051)(-0.8523622047244,2.8594465382082,1.114430989633)(-0.8523622047244,3.2636243255896,1.0406843962608) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 89: Intersection | Length: 0.0298 | Connected Faces: 2 | Tag: 61720
 -   Endpoints: (-0.6358, 3.6175, -2.3254) -> (-0.6337, 3.5883, -2.3300)
 -   Face Tags: 61486, 61624
 -   Face Indices: 56, 5
 -   Topology Vertices: 91 -> 117
+-   Identity: {'tag': 61720, 'journal_identifier': 'EDGE * 105 * 36 {(-0.6358267716535,3.6174802001529,-2.3253702001333)(-0.6353019144255,3.6026386837337,-2.3263629791454)(-0.6336774939498,3.5883398484825,-2.3300303535116) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 90: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62110
 -   Endpoints: (-0.8524, 2.8528, -0.1166) -> (-0.8425, 2.8480, -0.1252)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2471,6 +3009,8 @@
 -   Face Indices: 1, 9
 -   Topology Vertices: 118 -> 63
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62110, 'journal_identifier': 'EDGE * 77 * 79 {(-0.8523622047244,2.8527592068832,-0.1166189631385)(-0.8494793974526,2.8494115340518,-0.1227206582709)(-0.8425196850394,2.8480248825627,-0.1252480631483) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 91: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61888
 -   Endpoints: (0.6260, 3.6735, -2.3769) -> (0.4862, 3.6735, -2.3769)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2479,6 +3019,8 @@
 -   Face Indices: 89, 48
 -   Topology Vertices: 119 -> 120
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61888, 'journal_identifier': 'EDGE * 18 * 56 {(0.6259842519685,3.6735297523868,-2.3769389338404)(0.5561023622047,3.6735297523868,-2.3769389338404)(0.4862204724409,3.6735297523868,-2.3769389338404) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 92: Circular | Length: 0.0572 | Connected Faces: 2 | Tag: 61746
 -   Endpoints: (0.8425, 2.8843, -0.1678) -> (0.8425, 2.8480, -0.1252)
 -   Curve Props: Arc Length 0.0572 | Radius 0.0787 | Diameter 0.1575 | Min Curvature Radius 0.0787
@@ -2487,11 +3029,15 @@
 -   Face Indices: 60, 52
 -   Topology Vertices: 64 -> 30
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61746, 'journal_identifier': 'EDGE * 30 * 80 {(0.8425196850394,2.8843005623419,-0.1677903136875)(0.8425196850394,2.8700656748676,-0.1431911498158)(0.8425196850394,2.8480248825627,-0.1252480631483) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 93: Elliptical | Length: 0.1106 | Connected Faces: 2 | Tag: 61690
 -   Endpoints: (-0.6900, 4.2763, -1.4159) -> (-0.6358, 4.3107, -1.4982)
 -   Face Tags: 61518, 61604
 -   Face Indices: 15, 41
 -   Topology Vertices: 24 -> 2
+-   Identity: {'tag': 61690, 'journal_identifier': 'EDGE * 52 * 95 {(-0.6899606299213,4.2763471076525,-1.4159179148908)(-0.6507801112361,4.2895023412448,-1.4474220850251)(-0.6358267716535,4.3107141246459,-1.498220090886) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 94: Linear | Length: 0.8759 | Connected Faces: 2 | Tag: 61666
 -   Endpoints: (-0.8524, 3.1882, -0.9893) -> (-0.8524, 2.8936, -0.1645)
 -   Curve Props: Arc Length 0.8759 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2500,6 +3046,8 @@
 -   Face Indices: 70, 30
 -   Topology Vertices: 121 -> 122
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61666, 'journal_identifier': 'EDGE * 21 * 75 {(-0.8523622047244,3.1882355574253,-0.9892856052733)(-0.8523622047244,3.04090245203,-0.5768823001342)(-0.8523622047244,2.8935693466348,-0.1644789949951) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 95: Circular | Length: 1.8613 | Connected Faces: 2 | Tag: 62060
 -   Endpoints: (0.7028, 2.8134, 0.7020) -> (0.7028, 3.5422, 0.6210)
 -   Curve Props: Arc Length 1.8613 | Radius 0.4350 | Diameter 0.8701 | Min Curvature Radius 0.4350
@@ -2508,6 +3056,8 @@
 -   Face Indices: 25, 3
 -   Topology Vertices: 6 -> 123
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62060, 'journal_identifier': 'EDGE * 32 * 40 {(0.7027559055118,2.8134496665364,0.7019877562684)(0.7027559055118,3.1039242498797,-0.003638152765)(0.7027559055118,3.5422139145066,0.6210102098751) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 96: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 62050
 -   Endpoints: (-0.7028, 2.2805, 0.9900) -> (-0.7028, 2.5569, 0.2162)
 -   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2516,11 +3066,15 @@
 -   Face Indices: 53, 61
 -   Topology Vertices: 99 -> 124
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62050, 'journal_identifier': 'EDGE * 10 * 39 {(-0.7027559055118,2.2804676115588,0.9899565538367)(-0.7027559055118,2.4186900819466,0.603055025633)(-0.7027559055118,2.5569125523344,0.2161534974292) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 97: Elliptical | Length: 0.3225 | Connected Faces: 2 | Tag: 61684
 -   Endpoints: (-0.6900, 3.2701, -1.2323) -> (-0.8524, 3.1882, -0.9893)
 -   Face Tags: 61504, 61560
 -   Face Indices: 27, 79
 -   Topology Vertices: 125 -> 121
+-   Identity: {'tag': 61684, 'journal_identifier': 'EDGE * 45 * 73 {(-0.6899606299213,3.2700953548359,-1.2323164376157)(-0.8075021859766,3.238760521296,-1.1392874915713)(-0.8523622047244,3.1882355574253,-0.9892856052733) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 98: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61656
 -   Endpoints: (-0.8425, 3.2654, 1.0504) -> (-0.8425, 2.4570, 1.1979)
 -   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2529,6 +3083,8 @@
 -   Face Indices: 67, 84
 -   Topology Vertices: 45 -> 126
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61656, 'journal_identifier': 'EDGE * 8 * 85 {(-0.8425196850394,3.2653910316284,1.0503670582668)(-0.8425196850394,2.861213244247,1.124113651639)(-0.8425196850394,2.4570354568657,1.1978602450112) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 99: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62132
 -   Endpoints: (0.8425, 3.2654, 1.0504) -> (0.8524, 3.2636, 1.0407)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2537,11 +3093,15 @@
 -   Face Indices: 11, 107
 -   Topology Vertices: 35 -> 105
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62132, 'journal_identifier': 'EDGE * 88 * 90 {(0.8425196850394,3.2653910316284,1.0503670582668)(0.8494793974526,3.26487357541,1.0475310722252)(0.8523622047244,3.2636243255896,1.0406843962608) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 100: Elliptical | Length: 0.1083 | Connected Faces: 2 | Tag: 61916
 -   Endpoints: (0.6486, 4.2433, -1.2802) -> (0.7028, 4.2142, -1.1989)
 -   Face Tags: 61460, 61512
 -   Face Indices: 90, 108
 -   Topology Vertices: 19 -> 109
+-   Identity: {'tag': 61916, 'journal_identifier': 'EDGE * 23 * 49 {(0.6486220472441,4.2432728731126,-1.2801880396931)(0.6878025659292,4.2321503563295,-1.2490547606484)(0.7027559055118,4.2142161695116,-1.1988547876087) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 101: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62094
 -   Endpoints: (-0.6358, 3.3045, -1.3146) -> (-0.6260, 3.2952, -1.3179)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2550,16 +3110,22 @@
 -   Face Indices: 65, 63
 -   Topology Vertices: 50 -> 127
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62094, 'journal_identifier': 'EDGE * 69 * 71 {(-0.6358267716535,3.3044623718292,-1.3146186136109)(-0.6329439643818,3.2979083516024,-1.316960069513)(-0.6259842519685,3.2951935875363,-1.3179299323033) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 102: Intersection | Length: 0.0304 | Connected Faces: 2 | Tag: 61868
 -   Endpoints: (0.4862, 3.6211, -2.3355) -> (0.4773, 3.5930, -2.3388)
 -   Face Tags: 61502, 61526
 -   Face Indices: 92, 48
 -   Topology Vertices: 128 -> 104
+-   Identity: {'tag': 61868, 'journal_identifier': 'EDGE * 44 * 56 {(0.4862204724409,3.6211054970501,-2.3355178476595)(0.4840671662422,3.6061838280011,-2.3356533103464)(0.4773495840347,3.5930170932812,-2.3388111539972) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 103: Elliptical | Length: 0.1218 | Connected Faces: 2 | Tag: 61742
 -   Endpoints: (0.6260, 3.2952, -1.3179) -> (0.6869, 3.2625, -1.2264)
 -   Face Tags: 61424, 61562
 -   Face Indices: 31, 95
 -   Topology Vertices: 129 -> 20
+-   Identity: {'tag': 61742, 'journal_identifier': 'EDGE * 5 * 74 {(0.6259842519685,3.2951935875363,-1.3179299323033)(0.6428067589989,3.2750176273662,-1.2614549626336)(0.6868848425197,3.2625047959852,-1.2264300237083) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 104: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62134
 -   Endpoints: (-0.8524, 3.7303, 0.1266) -> (-0.8425, 3.7395, 0.1299)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2568,11 +3134,15 @@
 -   Face Indices: 54, 44
 -   Topology Vertices: 52 -> 72
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62134, 'journal_identifier': 'EDGE * 89 * 91 {(-0.8523622047244,3.7302553082895,0.1265548279638)(-0.8494793974526,3.7368093285164,0.1288962838659)(-0.8425196850394,3.7395240925824,0.1298661466562) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 105: Elliptical | Length: 0.3113 | Connected Faces: 2 | Tag: 61646
 -   Endpoints: (-0.6869, 4.2873, -1.4034) -> (-0.8425, 4.2038, -1.1696)
 -   Face Tags: 61426, 61600
 -   Face Indices: 83, 34
 -   Topology Vertices: 25 -> 96
+-   Identity: {'tag': 61646, 'journal_identifier': 'EDGE * 6 * 93 {(-0.6868848425197,4.2872941173876,-1.4034088635987)(-0.7995288337394,4.2553168816364,-1.3139006863453)(-0.8425196850394,4.2037560945348,-1.169575763856) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 106: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62088
 -   Endpoints: (0.6239, 3.2579, -1.4008) -> (0.6337, 3.2599, -1.4106)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2581,6 +3151,8 @@
 -   Face Indices: 29, 20
 -   Topology Vertices: 130 -> 12
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62088, 'journal_identifier': 'EDGE * 66 * 68 {(0.62394243815,3.2579116416119,-1.4008101835582)(0.6308261621213,3.2579156487898,-1.4038700042835)(0.6336774939498,3.2598570341979,-1.4105669516584) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 107: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62116
 -   Endpoints: (0.8425, 2.8480, -0.1252) -> (0.8524, 2.8528, -0.1166)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2589,6 +3161,8 @@
 -   Face Indices: 52, 42
 -   Topology Vertices: 30 -> 41
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62116, 'journal_identifier': 'EDGE * 80 * 82 {(0.8425196850394,2.8480248825627,-0.1252480631483)(0.8494793974526,2.8494115340518,-0.1227206582709)(0.8523622047244,2.8527592068832,-0.1166189631385) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 108: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62168
 -   Endpoints: (0.6260, 3.6170, -2.3352) -> (0.6358, 3.6175, -2.3254)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2597,6 +3171,8 @@
 -   Face Indices: 50, 14
 -   Topology Vertices: 22 -> 9
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62168, 'journal_identifier': 'EDGE * 106 * 108 {(0.6259842519685,3.6170382180934,-2.3352027911249)(0.6329439643818,3.6171676716415,-2.3323228919001)(0.6358267716535,3.6174802001529,-2.3253702001333) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 109: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62144
 -   Endpoints: (0.8425, 4.2038, -1.1696) -> (0.8524, 4.1945, -1.1729)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2605,6 +3181,8 @@
 -   Face Indices: 86, 69
 -   Topology Vertices: 46 -> 131
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62144, 'journal_identifier': 'EDGE * 94 * 96 {(0.8425196850394,4.2037560945348,-1.169575763856)(0.8494793974526,4.2010413304688,-1.1705456266464)(0.8523622047244,4.194487310242,-1.1728870825484) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 110: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61854
 -   Endpoints: (-0.7028, 2.8344, 0.7106) -> (-0.8524, 2.8344, 0.7106)
 -   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2613,6 +3191,8 @@
 -   Face Indices: 68, 51
 -   Topology Vertices: 97 -> 77
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61854, 'journal_identifier': 'EDGE * 15 * 62 {(-0.7027559055118,2.8344395176563,0.710628337886)(-0.7775590551181,2.8344395176563,0.710628337886)(-0.8523622047244,2.8344395176563,0.710628337886) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 111: Circular | Length: 0.0448 | Connected Faces: 2 | Tag: 62010
 -   Endpoints: (-0.4773, 3.2579, -1.4008) -> (-0.4390, 3.2394, -1.4074)
 -   Curve Props: Arc Length 0.0448 | Radius 0.0472 | Diameter 0.0945 | Min Curvature Radius 0.0472
@@ -2621,6 +3201,8 @@
 -   Face Indices: 100, 38
 -   Topology Vertices: 132 -> 112
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62010, 'journal_identifier': 'EDGE * 16 * 43 {(-0.4773495840347,3.2579116416119,-1.4008101835582)(-0.4605402581695,3.2442788235534,-1.405680574738)(-0.4389763779528,3.2393740730261,-1.407432820943) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 112: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61848
 -   Endpoints: (0.8524, 3.5422, 0.6210) -> (0.7028, 3.5422, 0.6210)
 -   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2629,6 +3211,8 @@
 -   Face Indices: 25, 64
 -   Topology Vertices: 78 -> 123
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61848, 'journal_identifier': 'EDGE * 32 * 60 {(0.8523622047244,3.5422139145066,0.6210102098751)(0.7775590551181,3.5422139145066,0.6210102098751)(0.7027559055118,3.5422139145066,0.6210102098751) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 113: Linear | Length: 0.0025 | Connected Faces: 2 | Tag: 61806
 -   Endpoints: (0.6358, 3.3045, -1.3146) -> (0.6358, 3.3053, -1.3170)
 -   Curve Props: Arc Length 0.0025 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2637,6 +3221,8 @@
 -   Face Indices: 43, 35
 -   Topology Vertices: 133 -> 134
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61806, 'journal_identifier': 'EDGE * 34 * 72 {(0.6358267716535,3.3044623718292,-1.3146186136109)(0.6358267716535,3.3048852887886,-1.3158024096855)(0.6358267716535,3.3053082057479,-1.3169862057602) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 114: Linear | Length: 1.0229 | Connected Faces: 2 | Tag: 61942
 -   Endpoints: (-0.8524, 4.1945, -1.1729) -> (-0.8524, 3.1882, -0.9893)
 -   Curve Props: Arc Length 1.0229 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2645,6 +3231,8 @@
 -   Face Indices: 70, 27
 -   Topology Vertices: 53 -> 121
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61942, 'journal_identifier': 'EDGE * 21 * 45 {(-0.8523622047244,4.194487310242,-1.1728870825484)(-0.8523622047244,3.6913614338336,-1.0810863439109)(-0.8523622047244,3.1882355574253,-0.9892856052733) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 115: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62124
 -   Endpoints: (0.8425, 2.2805, 0.9900) -> (0.8524, 2.2897, 0.9933)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2653,11 +3241,15 @@
 -   Face Indices: 32, 23
 -   Topology Vertices: 56 -> 135
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62124, 'journal_identifier': 'EDGE * 84 * 86 {(0.8425196850394,2.2804676115588,0.9899565538367)(0.8494793974526,2.2831823756248,0.990926416627)(0.8523622047244,2.2897363958516,0.9932678725291) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 116: Intersection | Length: 0.0298 | Connected Faces: 2 | Tag: 61818
 -   Endpoints: (0.6358, 3.2854, -1.3957) -> (0.6337, 3.2599, -1.4106)
 -   Face Tags: 61488, 61550
 -   Face Indices: 76, 20
 -   Topology Vertices: 8 -> 12
+-   Identity: {'tag': 61818, 'journal_identifier': 'EDGE * 37 * 68 {(0.6358267716535,3.2853537267802,-1.3957077527448)(0.6353019144255,3.2732428258778,-1.4043438571398)(0.6336774939498,3.2598570341979,-1.4105669516584) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 117: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62120
 -   Endpoints: (0.8425, 2.5569, 0.2162) -> (0.8524, 2.5662, 0.2195)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2666,11 +3258,15 @@
 -   Face Indices: 42, 32
 -   Topology Vertices: 26 -> 40
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62120, 'journal_identifier': 'EDGE * 82 * 84 {(0.8425196850394,2.5569125523344,0.2161534974292)(0.8494793974526,2.5596273164004,0.2171233602196)(0.8523622047244,2.5661813366273,0.2194648161216) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 118: Intersection | Length: 0.0304 | Connected Faces: 2 | Tag: 61876
 -   Endpoints: (-0.4862, 3.2817, -1.3856) -> (-0.4773, 3.2579, -1.4008)
 -   Face Tags: 61500, 61522
 -   Face Indices: 38, 73
 -   Topology Vertices: 15 -> 132
+-   Identity: {'tag': 61876, 'journal_identifier': 'EDGE * 43 * 54 {(-0.4862204724409,3.2817284298831,-1.3855601052186)(-0.4840671662422,3.2700987486655,-1.3949102427644)(-0.4773495840347,3.2579116416119,-1.4008101835582) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 119: Circular | Length: 0.0203 | Connected Faces: 2 | Tag: 62148
 -   Endpoints: (0.6869, 4.2873, -1.4034) -> (0.6900, 4.2763, -1.4159)
 -   Curve Props: Arc Length 0.0203 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2679,6 +3275,8 @@
 -   Face Indices: 69, 55
 -   Topology Vertices: 47 -> 33
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62148, 'journal_identifier': 'EDGE * 96 * 98 {(0.6868848425197,4.2872941173876,-1.4034088635987)(0.6898863861248,4.2854326699497,-1.4124645090971)(0.6899606299213,4.2763471076525,-1.4159179148908) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 120: Circular | Length: 0.0745 | Connected Faces: 2 | Tag: 61636
 -   Endpoints: (-0.6260, 3.6170, -2.3352) -> (-0.6260, 3.6735, -2.3769)
 -   Curve Props: Arc Length 0.0745 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
@@ -2687,6 +3285,8 @@
 -   Face Indices: 99, 17
 -   Topology Vertices: 17 -> 136
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61636, 'journal_identifier': 'EDGE * 103 * 55 {(-0.6259842519685,3.6170382180934,-2.3352027911249)(-0.6259842519685,3.6516407764084,-2.3474666920223)(-0.6259842519685,3.6735297523868,-2.3769389338404) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 121: Linear | Length: 0.1654 | Connected Faces: 2 | Tag: 62076
 -   Endpoints: (-0.4862, 3.7292, -2.5327) -> (-0.4862, 3.6735, -2.3769)
 -   Curve Props: Arc Length 0.1654 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2695,6 +3295,8 @@
 -   Face Indices: 7, 103
 -   Topology Vertices: 92 -> 137
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62076, 'journal_identifier': 'EDGE * 2 * 42 {(-0.4862204724409,3.7291599064189,-2.5326545099607)(-0.4862204724409,3.7013448294029,-2.4547967219005)(-0.4862204724409,3.6735297523868,-2.3769389338404) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 122: Linear | Length: 1.0480 | Connected Faces: 2 | Tag: 61932
 -   Endpoints: (-0.4862, 4.3304, -1.5242) -> (-0.4862, 3.2995, -1.3361)
 -   Curve Props: Arc Length 1.0480 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2703,6 +3305,8 @@
 -   Face Indices: 103, 62
 -   Topology Vertices: 94 -> 14
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61932, 'journal_identifier': 'EDGE * 42 * 48 {(-0.4862204724409,4.3304429839155,-1.5241877959463)(-0.4862204724409,3.8149606634042,-1.4301324909094)(-0.4862204724409,3.2994783428929,-1.3360771858725) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 123: Linear | Length: 0.9961 | Connected Faces: 2 | Tag: 62008
 -   Endpoints: (0.4390, 3.5745, -2.3454) -> (0.4390, 3.2394, -1.4074)
 -   Curve Props: Arc Length 0.9961 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2711,6 +3315,8 @@
 -   Face Indices: 75, 92
 -   Topology Vertices: 75 -> 111
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62008, 'journal_identifier': 'EDGE * 38 * 44 {(0.4389763779528,3.5744795246954,-2.345433791382)(0.4389763779528,3.4069267988608,-1.8764333061625)(0.4389763779528,3.2393740730261,-1.407432820943) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 124: Circular | Length: 0.0745 | Connected Faces: 2 | Tag: 61734
 -   Endpoints: (0.6260, 3.2788, -1.3884) -> (0.6260, 3.2960, -1.3203)
 -   Curve Props: Arc Length 0.0745 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
@@ -2719,6 +3325,8 @@
 -   Face Indices: 59, 8
 -   Topology Vertices: 138 -> 113
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61734, 'journal_identifier': 'EDGE * 53 * 70 {(0.6259842519685,3.2787814936992,-1.3883810245474)(0.6259842519685,3.2977801890365,-1.3569678126351)(0.6259842519685,3.296039421455,-1.3202975244526) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 125: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62160
 -   Endpoints: (0.6260, 3.7292, -2.5327) -> (0.6358, 3.7384, -2.5293)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2727,6 +3335,8 @@
 -   Face Indices: 87, 101
 -   Topology Vertices: 103 -> 37
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62160, 'journal_identifier': 'EDGE * 102 * 104 {(0.6259842519685,3.7291599064189,-2.5326545099607)(0.6329439643818,3.7318746704849,-2.5316846471703)(0.6358267716535,3.7384286907118,-2.5293431912683) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 126: Linear | Length: 0.6934 | Connected Faces: 2 | Tag: 62062
 -   Endpoints: (-0.7028, 3.5236, 0.6340) -> (-0.7028, 2.8344, 0.7106)
 -   Curve Props: Arc Length 0.6934 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2735,11 +3345,15 @@
 -   Face Indices: 68, 61
 -   Topology Vertices: 89 -> 97
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62062, 'journal_identifier': 'EDGE * 15 * 39 {(-0.7027559055118,3.5236328562344,0.6340477623376)(-0.7027559055118,3.1790361869454,0.6723380501118)(-0.7027559055118,2.8344395176563,0.710628337886) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 127: Intersection | Length: 0.0298 | Connected Faces: 2 | Tag: 61816
 -   Endpoints: (0.6337, 3.5883, -2.3300) -> (0.6358, 3.6175, -2.3254)
 -   Face Tags: 61488, 61630
 -   Face Indices: 76, 14
 -   Topology Vertices: 66 -> 9
+-   Identity: {'tag': 61816, 'journal_identifier': 'EDGE * 108 * 37 {(0.6336774939498,3.5883398484825,-2.3300303535116)(0.6353044553332,3.6026723343002,-2.3263576203605)(0.6358267716535,3.6174802001529,-2.3253702001333) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 128: Linear | Length: 1.0456 | Connected Faces: 2 | Tag: 61922
 -   Endpoints: (-0.6486, 4.2433, -1.2802) -> (-0.6486, 3.2147, -1.0925)
 -   Curve Props: Arc Length 1.0456 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2748,11 +3362,15 @@
 -   Face Indices: 62, 45
 -   Topology Vertices: 93 -> 38
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61922, 'journal_identifier': 'EDGE * 48 * 50 {(-0.6486220472441,4.2432728731126,-1.2801880396931)(-0.6486220472441,3.728966421673,-1.1863472846414)(-0.6486220472441,3.2146599702333,-1.0925065295897) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 129: Elliptical | Length: 0.3225 | Connected Faces: 2 | Tag: 61780
 -   Endpoints: (0.8524, 3.1882, -0.9893) -> (0.6900, 3.2701, -1.2323)
 -   Face Tags: 61506, 61566
 -   Face Indices: 78, 82
 -   Topology Vertices: 101 -> 21
+-   Identity: {'tag': 61780, 'journal_identifier': 'EDGE * 46 * 76 {(0.8523622047244,3.1882355574253,-0.9892856052733)(0.8075021859766,3.238760521296,-1.1392874915713)(0.6899606299213,3.2700953548359,-1.2323164376157) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 130: Linear | Length: 0.8780 | Connected Faces: 2 | Tag: 61724
 -   Endpoints: (0.4390, 3.1018, -1.4670) -> (-0.4390, 3.1018, -1.4670)
 -   Curve Props: Arc Length 0.8780 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2761,6 +3379,8 @@
 -   Face Indices: 37, 39
 -   Topology Vertices: 13 -> 42
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61724, 'journal_identifier': 'EDGE * 17 * 64 {(0.4389763779528,3.1017998704668,-1.4670336493601)(-0,3.1017998704668,-1.4670336493601)(-0.4389763779528,3.1017998704668,-1.4670336493601) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 131: Linear | Length: 1.4110 | Connected Faces: 2 | Tag: 62042
 -   Endpoints: (-0.7028, 4.2142, -1.1989) -> (-0.7028, 3.7395, 0.1299)
 -   Curve Props: Arc Length 1.4110 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2769,6 +3389,8 @@
 -   Face Indices: 83, 61
 -   Topology Vertices: 139 -> 79
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62042, 'journal_identifier': 'EDGE * 39 * 6 {(-0.7027559055118,4.2142161695116,-1.1988547876087)(-0.7027559055118,3.976870131047,-0.5344943204762)(-0.7027559055118,3.7395240925824,0.1298661466562) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 132: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61838
 -   Endpoints: (0.7028, 3.5422, 0.6210) -> (0.7028, 3.5236, 0.6340)
 -   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
@@ -2777,6 +3399,8 @@
 -   Face Indices: 3, 64
 -   Topology Vertices: 123 -> 140
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61838, 'journal_identifier': 'EDGE * 40 * 60 {(0.7027559055118,3.5422139145066,0.6210102098751)(0.7027559055118,3.5345919847827,0.629907066118)(0.7027559055118,3.5236328562344,0.6340477623376) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 133: Circular | Length: 0.0861 | Connected Faces: 2 | Tag: 61798
 -   Endpoints: (0.6358, 3.6175, -2.3254) -> (0.6358, 3.6828, -2.3736)
 -   Curve Props: Arc Length 0.0861 | Radius 0.0728 | Diameter 0.1457 | Min Curvature Radius 0.0728
@@ -2785,11 +3409,15 @@
 -   Face Indices: 43, 50
 -   Topology Vertices: 9 -> 36
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61798, 'journal_identifier': 'EDGE * 106 * 34 {(0.6358267716535,3.6174802001529,-2.3253702001333)(0.6358267716535,3.6574894082047,-2.3395503355459)(0.6358267716535,3.6827985366797,-2.373627615148) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 134: Elliptical | Length: 0.1083 | Connected Faces: 2 | Tag: 61912
 -   Endpoints: (-0.7028, 4.2142, -1.1989) -> (-0.6486, 4.2433, -1.2802)
 -   Face Tags: 61426, 61514
 -   Face Indices: 83, 45
 -   Topology Vertices: 139 -> 93
+-   Identity: {'tag': 61912, 'journal_identifier': 'EDGE * 50 * 6 {(-0.7027559055118,4.2142161695116,-1.1988547876087)(-0.6878025659292,4.2321503563295,-1.2490547606484)(-0.6486220472441,4.2432728731126,-1.2801880396931) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 135: Circular | Length: 0.0704 | Connected Faces: 2 | Tag: 61870
 -   Endpoints: (0.4862, 3.6735, -2.3769) -> (0.4862, 3.6211, -2.3355)
 -   Curve Props: Arc Length 0.0704 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
@@ -2798,6 +3426,8 @@
 -   Face Indices: 47, 48
 -   Topology Vertices: 120 -> 128
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61870, 'journal_identifier': 'EDGE * 41 * 56 {(0.4862204724409,3.6735297523868,-2.3769389338404)(0.4862204724409,3.6532617074759,-2.3487053115419)(0.4862204724409,3.6211054970501,-2.3355178476595) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 136: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61770
 -   Endpoints: (0.8524, 2.2897, 0.9933) -> (0.8524, 2.5662, 0.2195)
 -   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2806,6 +3436,8 @@
 -   Face Indices: 49, 32
 -   Topology Vertices: 135 -> 40
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61770, 'journal_identifier': 'EDGE * 24 * 84 {(0.8523622047244,2.2897363958516,0.9932678725291)(0.8523622047244,2.4279588662395,0.6063663443253)(0.8523622047244,2.5661813366273,0.2194648161216) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 137: Circular | Length: 0.0745 | Connected Faces: 2 | Tag: 61714
 -   Endpoints: (-0.6260, 3.2960, -1.3203) -> (-0.6260, 3.2788, -1.3884)
 -   Curve Props: Arc Length 0.0745 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
@@ -2814,6 +3446,8 @@
 -   Face Indices: 73, 81
 -   Topology Vertices: 141 -> 142
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61714, 'journal_identifier': 'EDGE * 54 * 67 {(-0.6259842519685,3.296039421455,-1.3202975244526)(-0.6259842519685,3.2977801890365,-1.3569678126351)(-0.6259842519685,3.2787814936992,-1.3883810245474) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 138: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61840
 -   Endpoints: (-0.7028, 3.5236, 0.6340) -> (-0.7028, 3.5422, 0.6210)
 -   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
@@ -2822,6 +3456,8 @@
 -   Face Indices: 61, 19
 -   Topology Vertices: 89 -> 143
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61840, 'journal_identifier': 'EDGE * 39 * 59 {(-0.7027559055118,3.5236328562344,0.6340477623376)(-0.7027559055118,3.5345919847827,0.629907066118)(-0.7027559055118,3.5422139145066,0.6210102098751) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 139: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61962
 -   Endpoints: (-0.7028, 2.2805, 0.9900) -> (-0.8425, 2.2805, 0.9900)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2830,6 +3466,8 @@
 -   Face Indices: 10, 53
 -   Topology Vertices: 99 -> 29
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61962, 'journal_identifier': 'EDGE * 10 * 9 {(-0.7027559055118,2.2804676115588,0.9899565538367)(-0.7726377952756,2.2804676115588,0.9899565538367)(-0.8425196850394,2.2804676115588,0.9899565538367) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 140: Linear | Length: 0.1466 | Connected Faces: 2 | Tag: 61902
 -   Endpoints: (-0.4773, 3.2579, -1.4008) -> (-0.6239, 3.2579, -1.4008)
 -   Curve Props: Arc Length 0.1466 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2838,6 +3476,8 @@
 -   Face Indices: 100, 73
 -   Topology Vertices: 132 -> 144
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61902, 'journal_identifier': 'EDGE * 16 * 54 {(-0.4773495840347,3.2579116416119,-1.4008101835582)(-0.5506460110923,3.2579116416119,-1.4008101835582)(-0.62394243815,3.2579116416119,-1.4008101835582) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 141: Linear | Length: 1.3799 | Connected Faces: 2 | Tag: 61760
 -   Endpoints: (0.8524, 4.1945, -1.1729) -> (0.8524, 3.7303, 0.1266)
 -   Curve Props: Arc Length 1.3799 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2846,11 +3486,15 @@
 -   Face Indices: 49, 86
 -   Topology Vertices: 131 -> 51
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61760, 'journal_identifier': 'EDGE * 24 * 94 {(0.8523622047244,4.194487310242,-1.1728870825484)(0.8523622047244,3.9623713092657,-0.5231661272923)(0.8523622047244,3.7302553082895,0.1265548279638) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 142: Elliptical | Length: 0.3076 | Connected Faces: 2 | Tag: 61930
 -   Endpoints: (-0.4867, 3.2960, -1.3203) -> (-0.6486, 3.2147, -1.0925)
 -   Face Tags: 61458, 61510
 -   Face Indices: 24, 62
 -   Topology Vertices: 145 -> 38
+-   Identity: {'tag': 61930, 'journal_identifier': 'EDGE * 22 * 48 {(-0.4866912474546,3.296039421455,-1.3202975244526)(-0.535547773948,3.2457076790016,-1.1794128476142)(-0.6486220472441,3.2146599702333,-1.0925065295897) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 143: Circular | Length: 0.0775 | Connected Faces: 2 | Tag: 61680
 -   Endpoints: (-0.8524, 3.7314, 0.2024) -> (-0.8524, 3.7303, 0.1266)
 -   Curve Props: Arc Length 0.0775 | Radius 0.1083 | Diameter 0.2165 | Min Curvature Radius 0.1083
@@ -2859,6 +3503,8 @@
 -   Face Indices: 70, 54
 -   Topology Vertices: 83 -> 52
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61680, 'journal_identifier': 'EDGE * 21 * 89 {(-0.8523622047244,3.7313672219355,0.2023778384709)(-0.8523622047244,3.7239558586014,0.1645668649689)(-0.8523622047244,3.7302553082895,0.1265548279638) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 144: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61894
 -   Endpoints: (-0.4862, 3.6735, -2.3769) -> (-0.6260, 3.6735, -2.3769)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2867,6 +3513,8 @@
 -   Face Indices: 7, 99
 -   Topology Vertices: 137 -> 136
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61894, 'journal_identifier': 'EDGE * 2 * 55 {(-0.4862204724409,3.6735297523868,-2.3769389338404)(-0.5561023622047,3.6735297523868,-2.3769389338404)(-0.6259842519685,3.6735297523868,-2.3769389338404) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 145: Linear | Length: 0.1466 | Connected Faces: 2 | Tag: 61892
 -   Endpoints: (0.4773, 3.5930, -2.3388) -> (0.6239, 3.5930, -2.3388)
 -   Curve Props: Arc Length 0.1466 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2875,6 +3523,8 @@
 -   Face Indices: 12, 48
 -   Topology Vertices: 104 -> 23
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61892, 'journal_identifier': 'EDGE * 1 * 56 {(0.4773495840347,3.5930170932812,-2.3388111539972)(0.5506460110923,3.5930170932812,-2.3388111539972)(0.62394243815,3.5930170932812,-2.3388111539972) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 146: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62112
 -   Endpoints: (0.8425, 2.8843, -0.1678) -> (0.8524, 2.8936, -0.1645)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2883,6 +3533,8 @@
 -   Face Indices: 66, 52
 -   Topology Vertices: 64 -> 100
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62112, 'journal_identifier': 'EDGE * 78 * 80 {(0.8425196850394,2.8843005623419,-0.1677903136875)(0.8494793974526,2.8870153264079,-0.1668204508972)(0.8523622047244,2.8935693466348,-0.1644789949951) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 147: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61750
 -   Endpoints: (0.8425, 2.5569, 0.2162) -> (0.8425, 2.2805, 0.9900)
 -   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2891,11 +3543,15 @@
 -   Face Indices: 85, 32
 -   Topology Vertices: 26 -> 56
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61750, 'journal_identifier': 'EDGE * 28 * 84 {(0.8425196850394,2.5569125523344,0.2161534974292)(0.8425196850394,2.4186900819466,0.603055025633)(0.8425196850394,2.2804676115588,0.9899565538367) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 148: Elliptical | Length: 0.1218 | Connected Faces: 2 | Tag: 61694
 -   Endpoints: (-0.6869, 3.2625, -1.2264) -> (-0.6260, 3.2952, -1.3179)
 -   Face Tags: 61458, 61556
 -   Face Indices: 24, 63
 -   Topology Vertices: 58 -> 127
+-   Identity: {'tag': 61694, 'journal_identifier': 'EDGE * 22 * 71 {(-0.6868848425197,3.2625047959852,-1.2264300237083)(-0.6428067589989,3.2750176273662,-1.2614549626336)(-0.6259842519685,3.2951935875363,-1.3179299323033) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 149: Circular | Length: 0.0572 | Connected Faces: 2 | Tag: 62028
 -   Endpoints: (0.7028, 2.8480, -0.1252) -> (0.7028, 2.8843, -0.1678)
 -   Curve Props: Arc Length 0.0572 | Radius 0.0787 | Diameter 0.1575 | Min Curvature Radius 0.0787
@@ -2904,6 +3560,8 @@
 -   Face Indices: 60, 3
 -   Topology Vertices: 31 -> 65
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62028, 'journal_identifier': 'EDGE * 30 * 40 {(0.7027559055118,2.8480248825627,-0.1252480631483)(0.7027559055118,2.8700656748676,-0.1431911498158)(0.7027559055118,2.8843005623419,-0.1677903136875) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 150: Circular | Length: 0.4515 | Connected Faces: 2 | Tag: 61670
 -   Endpoints: (-0.8524, 2.8528, -0.1166) -> (-0.8524, 2.5662, 0.2195)
 -   Curve Props: Arc Length 0.4515 | Radius 0.6220 | Diameter 1.2441 | Min Curvature Radius 0.6220
@@ -2912,6 +3570,8 @@
 -   Face Indices: 70, 9
 -   Topology Vertices: 118 -> 59
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61670, 'journal_identifier': 'EDGE * 21 * 79 {(-0.8523622047244,2.8527592068832,-0.1166189631385)(-0.8523622047244,2.6786369476739,0.0251314215353)(-0.8523622047244,2.5661813366273,0.2194648161216) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 151: Circular | Length: 0.9153 | Connected Faces: 2 | Tag: 61864
 -   Endpoints: (-0.6358, 4.0183, -2.4293) -> (-0.6358, 4.0183, -2.4293)
 -   Curve Props: Arc Length 0.9153 | Radius 0.1457 | Diameter 0.2913 | Min Curvature Radius 0.1457
@@ -2920,6 +3580,8 @@
 -   Face Indices: 91, 28
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61864, 'journal_identifier': 'EDGE * 35 * 57 {(-0.6358267716535,4.2665547420514,-2.4746297311528)(-0.6358267716535,4.0183459763566,-2.4293413667583)(-0.6358267716535,4.1816712332655,-2.2370304524219) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 152: Linear | Length: 1.4110 | Connected Faces: 2 | Tag: 62024
 -   Endpoints: (0.7028, 4.2142, -1.1989) -> (0.7028, 3.7395, 0.1299)
 -   Curve Props: Arc Length 1.4110 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2928,6 +3590,8 @@
 -   Face Indices: 90, 3
 -   Topology Vertices: 109 -> 67
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62024, 'journal_identifier': 'EDGE * 23 * 40 {(0.7027559055118,4.2142161695116,-1.1988547876087)(0.7027559055118,3.976870131047,-0.5344943204762)(0.7027559055118,3.7395240925824,0.1298661466562) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 153: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62106
 -   Endpoints: (-0.8524, 2.8936, -0.1645) -> (-0.8425, 2.8843, -0.1678)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2936,6 +3600,8 @@
 -   Face Indices: 30, 1
 -   Topology Vertices: 122 -> 108
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62106, 'journal_identifier': 'EDGE * 75 * 77 {(-0.8523622047244,2.8935693466348,-0.1644789949951)(-0.8494793974526,2.8870153264079,-0.1668204508972)(-0.8425196850394,2.8843005623419,-0.1677903136875) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 154: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62174
 -   Endpoints: (0.4390, 3.4303, -2.3865) -> (0.4390, 3.4429, -2.3925)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2944,6 +3610,8 @@
 -   Face Indices: 58, 110
 -   Topology Vertices: 82 -> 146
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62174, 'journal_identifier': 'EDGE * 109 * 110 {(0.4389763779528,3.4302826847513,-2.3864970512134)(0.4389763779528,3.4353389047194,-2.3920812086499)(0.4389763779528,3.4428627877366,-2.3924545168138) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 155: Circular | Length: 0.4587 | Connected Faces: 2 | Tag: 62030
 -   Endpoints: (0.7028, 2.5569, 0.2162) -> (0.7028, 2.8480, -0.1252)
 -   Curve Props: Arc Length 0.4587 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
@@ -2952,6 +3620,8 @@
 -   Face Indices: 16, 3
 -   Topology Vertices: 27 -> 31
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62030, 'journal_identifier': 'EDGE * 29 * 40 {(0.7027559055118,2.5569125523344,0.2161534974292)(0.7027559055118,2.6711475243153,0.018745207359)(0.7027559055118,2.8480248825627,-0.1252480631483) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 156: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 61660
 -   Endpoints: (-0.8425, 2.2805, 0.9900) -> (-0.8425, 2.5569, 0.2162)
 -   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2960,6 +3630,8 @@
 -   Face Indices: 53, 36
 -   Topology Vertices: 29 -> 62
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61660, 'journal_identifier': 'EDGE * 10 * 81 {(-0.8425196850394,2.2804676115588,0.9899565538367)(-0.8425196850394,2.4186900819466,0.603055025633)(-0.8425196850394,2.5569125523344,0.2161534974292) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 157: Circular | Length: 0.0106 | Connected Faces: 2 | Tag: 62098
 -   Endpoints: (-0.6900, 3.2701, -1.2323) -> (-0.6869, 3.2625, -1.2264)
 -   Curve Props: Arc Length 0.0106 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2968,6 +3640,8 @@
 -   Face Indices: 63, 79
 -   Topology Vertices: 125 -> 58
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62098, 'journal_identifier': 'EDGE * 71 * 73 {(-0.6899606299213,3.2700953548359,-1.2323164376157)(-0.6886756601425,3.2653998959523,-1.2304018577746)(-0.6868848425197,3.2625047959852,-1.2264300237083) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 158: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 62054
 -   Endpoints: (-0.7028, 3.2654, 1.0504) -> (-0.7028, 2.4570, 1.1979)
 -   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -2976,6 +3650,8 @@
 -   Face Indices: 67, 61
 -   Topology Vertices: 147 -> 98
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62054, 'journal_identifier': 'EDGE * 39 * 8 {(-0.7027559055118,3.2653910316284,1.0503670582668)(-0.7027559055118,2.861213244247,1.124113651639)(-0.7027559055118,2.4570354568657,1.1978602450112) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 159: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62086
 -   Endpoints: (-0.6358, 3.2854, -1.3957) -> (-0.6260, 3.2788, -1.3884)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -2984,6 +3660,8 @@
 -   Face Indices: 94, 81
 -   Topology Vertices: 114 -> 142
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62086, 'journal_identifier': 'EDGE * 65 * 67 {(-0.6358267716535,3.2853537267802,-1.3957077527448)(-0.6329439643818,3.2807064562011,-1.3905269735525)(-0.6259842519685,3.2787814936992,-1.3883810245474) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 160: Circular | Length: 0.0704 | Connected Faces: 2 | Tag: 61872
 -   Endpoints: (-0.4862, 3.6211, -2.3355) -> (-0.4862, 3.6735, -2.3769)
 -   Curve Props: Arc Length 0.0704 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
@@ -2992,6 +3670,8 @@
 -   Face Indices: 103, 99
 -   Topology Vertices: 148 -> 137
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61872, 'journal_identifier': 'EDGE * 42 * 55 {(-0.4862204724409,3.6211054970501,-2.3355178476595)(-0.4862204724409,3.6532617074759,-2.3487053115419)(-0.4862204724409,3.6735297523868,-2.3769389338404) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 161: Linear | Length: 0.7785 | Connected Faces: 2 | Tag: 61650
 -   Endpoints: (-0.6260, 4.5819, -2.2280) -> (-0.6260, 4.3200, -1.4949)
 -   Curve Props: Arc Length 0.7785 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3000,6 +3680,8 @@
 -   Face Indices: 83, 13
 -   Topology Vertices: 87 -> 3
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61650, 'journal_identifier': 'EDGE * 6 * 97 {(-0.6259842519685,4.5818880613634,-2.2280131902613)(-0.6259842519685,4.4509354851511,-1.8614609812275)(-0.6259842519685,4.3199829089387,-1.4949087721936) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 162: Linear | Length: 1.0229 | Connected Faces: 2 | Tag: 61910
 -   Endpoints: (0.6358, 4.3107, -1.4982) -> (0.6358, 3.3045, -1.3146)
 -   Curve Props: Arc Length 1.0229 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3008,6 +3690,8 @@
 -   Face Indices: 43, 72
 -   Topology Vertices: 32 -> 133
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61910, 'journal_identifier': 'EDGE * 34 * 51 {(0.6358267716535,4.3107141246459,-1.498220090886)(0.6358267716535,3.8075882482375,-1.4064193522485)(0.6358267716535,3.3044623718292,-1.3146186136109) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 163: Linear | Length: 0.9961 | Connected Faces: 2 | Tag: 62006
 -   Endpoints: (-0.4390, 3.2394, -1.4074) -> (-0.4390, 3.5745, -2.3454)
 -   Curve Props: Arc Length 0.9961 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3016,6 +3700,8 @@
 -   Face Indices: 75, 38
 -   Topology Vertices: 112 -> 76
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62006, 'journal_identifier': 'EDGE * 38 * 43 {(-0.4389763779528,3.2393740730261,-1.407432820943)(-0.4389763779528,3.4069267988608,-1.8764333061625)(-0.4389763779528,3.5744795246954,-2.345433791382) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 164: Circular | Length: 0.0542 | Connected Faces: 2 | Tag: 61884
 -   Endpoints: (0.4862, 3.2817, -1.3856) -> (0.4862, 3.2995, -1.3361)
 -   Curve Props: Arc Length 0.0542 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
@@ -3024,6 +3710,8 @@
 -   Face Indices: 47, 59
 -   Topology Vertices: 149 -> 84
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61884, 'journal_identifier': 'EDGE * 41 * 53 {(0.4862204724409,3.2817284298831,-1.3855601052186)(0.4862204724409,3.2960120780789,-1.3627587858663)(0.4862204724409,3.2994783428929,-1.3360771858725) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 165: Circular | Length: 0.0861 | Connected Faces: 2 | Tag: 61808
 -   Endpoints: (0.6358, 3.3053, -1.3170) -> (0.6358, 3.2854, -1.3957)
 -   Curve Props: Arc Length 0.0861 | Radius 0.0728 | Diameter 0.1457 | Min Curvature Radius 0.0728
@@ -3032,6 +3720,8 @@
 -   Face Indices: 43, 8
 -   Topology Vertices: 134 -> 8
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61808, 'journal_identifier': 'EDGE * 34 * 70 {(0.6358267716535,3.3053082057479,-1.3169862057602)(0.6358267716535,3.307320968264,-1.3593862264713)(0.6358267716535,3.2853537267802,-1.3957077527448) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 166: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62114
 -   Endpoints: (-0.8524, 2.5662, 0.2195) -> (-0.8425, 2.5569, 0.2162)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3040,6 +3730,8 @@
 -   Face Indices: 9, 36
 -   Topology Vertices: 59 -> 62
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62114, 'journal_identifier': 'EDGE * 79 * 81 {(-0.8523622047244,2.5661813366273,0.2194648161216)(-0.8494793974526,2.5596273164004,0.2171233602196)(-0.8425196850394,2.5569125523344,0.2161534974292) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 167: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61984
 -   Endpoints: (0.8425, 3.7395, 0.1299) -> (0.7028, 3.7395, 0.1299)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3048,6 +3740,8 @@
 -   Face Indices: 90, 2
 -   Topology Vertices: 150 -> 67
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61984, 'journal_identifier': 'EDGE * 23 * 31 {(0.8425196850394,3.7395240925824,0.1298661466562)(0.7726377952756,3.7395240925824,0.1298661466562)(0.7027559055118,3.7395240925824,0.1298661466562) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 168: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62164
 -   Endpoints: (0.6260, 3.6735, -2.3769) -> (0.6358, 3.6828, -2.3736)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3056,6 +3750,8 @@
 -   Face Indices: 101, 50
 -   Topology Vertices: 119 -> 36
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62164, 'journal_identifier': 'EDGE * 104 * 106 {(0.6259842519685,3.6735297523868,-2.3769389338404)(0.6329439643818,3.6762445164529,-2.37596907105)(0.6358267716535,3.6827985366797,-2.373627615148) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 169: Linear | Length: 0.8956 | Connected Faces: 2 | Tag: 62026
 -   Endpoints: (0.7028, 2.8843, -0.1678) -> (0.7028, 3.1856, -1.0112)
 -   Curve Props: Arc Length 0.8956 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3064,6 +3760,8 @@
 -   Face Indices: 31, 3
 -   Topology Vertices: 65 -> 110
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62026, 'journal_identifier': 'EDGE * 40 * 5 {(0.7027559055118,2.8843005623419,-0.1677903136875)(0.7027559055118,3.0349519144871,-0.5894817955964)(0.7027559055118,3.1856032666324,-1.0111732775053) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 170: Linear | Length: 1.0229 | Connected Faces: 2 | Tag: 61940
 -   Endpoints: (0.8524, 3.1882, -0.9893) -> (0.8524, 4.1945, -1.1729)
 -   Curve Props: Arc Length 1.0229 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3072,6 +3770,8 @@
 -   Face Indices: 49, 78
 -   Topology Vertices: 101 -> 131
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61940, 'journal_identifier': 'EDGE * 24 * 46 {(0.8523622047244,3.1882355574253,-0.9892856052733)(0.8523622047244,3.6913614338336,-1.0810863439109)(0.8523622047244,4.194487310242,-1.1728870825484) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 171: Circular | Length: 0.2661 | Connected Faces: 2 | Tag: 61822
 -   Endpoints: (0.6239, 3.5930, -2.3388) -> (0.4390, 3.4429, -2.3925)
 -   Curve Props: Arc Length 0.2661 | Radius 0.1870 | Diameter 0.3740 | Min Curvature Radius 0.1870
@@ -3080,11 +3780,15 @@
 -   Face Indices: 12, 110
 -   Topology Vertices: 23 -> 146
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61822, 'journal_identifier': 'EDGE * 1 * 110 {(0.62394243815,3.5930170932812,-2.3388111539972)(0.5610791720165,3.4855828982548,-2.377192547603)(0.4389763779528,3.4428627877366,-2.3924545168138) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 172: Intersection | Length: 0.0162 | Connected Faces: 2 | Tag: 61880
 -   Endpoints: (-0.4867, 3.2960, -1.3203) -> (-0.4862, 3.2995, -1.3361)
 -   Face Tags: 61510, 61522
 -   Face Indices: 62, 73
 -   Topology Vertices: 145 -> 14
+-   Identity: {'tag': 61880, 'journal_identifier': 'EDGE * 48 * 54 {(-0.4866912474546,3.296039421455,-1.3202975244526)(-0.486345436453,3.2982637831476,-1.3280742537864)(-0.4862204724409,3.2994783428929,-1.3360771858725) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 173: Linear | Length: 0.1654 | Connected Faces: 2 | Tag: 61640
 -   Endpoints: (-0.6260, 3.6735, -2.3769) -> (-0.6260, 3.7292, -2.5327)
 -   Curve Props: Arc Length 0.1654 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3093,6 +3797,8 @@
 -   Face Indices: 7, 21
 -   Topology Vertices: 136 -> 81
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61640, 'journal_identifier': 'EDGE * 101 * 2 {(-0.6259842519685,3.6735297523868,-2.3769389338404)(-0.6259842519685,3.7013448294029,-2.4547967219005)(-0.6259842519685,3.7291599064189,-2.5326545099607) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 174: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61842
 -   Endpoints: (-0.8524, 3.5422, 0.6210) -> (-0.8524, 3.5236, 0.6340)
 -   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
@@ -3101,6 +3807,8 @@
 -   Face Indices: 70, 19
 -   Topology Vertices: 71 -> 88
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61842, 'journal_identifier': 'EDGE * 21 * 59 {(-0.8523622047244,3.5422139145066,0.6210102098751)(-0.8523622047244,3.5345919847827,0.629907066118)(-0.8523622047244,3.5236328562344,0.6340477623376) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 175: Linear | Length: 1.0480 | Connected Faces: 2 | Tag: 61936
 -   Endpoints: (0.4862, 3.2995, -1.3361) -> (0.4862, 4.3304, -1.5242)
 -   Curve Props: Arc Length 1.0480 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3109,6 +3817,8 @@
 -   Face Indices: 47, 18
 -   Topology Vertices: 84 -> 18
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61936, 'journal_identifier': 'EDGE * 41 * 47 {(0.4862204724409,3.2994783428929,-1.3360771858725)(0.4862204724409,3.8149606634042,-1.4301324909094)(0.4862204724409,4.3304429839155,-1.5241877959463) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 176: Linear | Length: 0.8217 | Connected Faces: 2 | Tag: 62032
 -   Endpoints: (0.7028, 2.2805, 0.9900) -> (0.7028, 2.5569, 0.2162)
 -   Curve Props: Arc Length 0.8217 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3117,6 +3827,8 @@
 -   Face Indices: 85, 3
 -   Topology Vertices: 151 -> 27
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62032, 'journal_identifier': 'EDGE * 28 * 40 {(0.7027559055118,2.2804676115588,0.9899565538367)(0.7027559055118,2.4186900819466,0.603055025633)(0.7027559055118,2.5569125523344,0.2161534974292) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 177: Linear | Length: 0.8759 | Connected Faces: 2 | Tag: 61738
 -   Endpoints: (0.8425, 3.1790, -0.9926) -> (0.8425, 2.8843, -0.1678)
 -   Curve Props: Arc Length 0.8759 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3125,6 +3837,8 @@
 -   Face Indices: 31, 66
 -   Topology Vertices: 90 -> 64
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61738, 'journal_identifier': 'EDGE * 5 * 78 {(0.8425196850394,3.1789667731324,-0.9925969239657)(0.8425196850394,3.0316336677372,-0.5801936188266)(0.8425196850394,2.8843005623419,-0.1677903136875) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 178: Circular | Length: 0.0745 | Connected Faces: 2 | Tag: 61812
 -   Endpoints: (0.6260, 3.6735, -2.3769) -> (0.6260, 3.6170, -2.3352)
 -   Curve Props: Arc Length 0.0745 | Radius 0.0630 | Diameter 0.1260 | Min Curvature Radius 0.0630
@@ -3133,16 +3847,22 @@
 -   Face Indices: 48, 50
 -   Topology Vertices: 119 -> 22
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61812, 'journal_identifier': 'EDGE * 106 * 56 {(0.6259842519685,3.6735297523868,-2.3769389338404)(0.6259842519685,3.6516407764084,-2.3474666920223)(0.6259842519685,3.6170382180934,-2.3352027911249) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 179: Elliptical | Length: 0.1218 | Connected Faces: 2 | Tag: 61788
 -   Endpoints: (0.6869, 4.2873, -1.4034) -> (0.6260, 4.3200, -1.4949)
 -   Face Tags: 61460, 61610
 -   Face Indices: 90, 55
 -   Topology Vertices: 47 -> 152
+-   Identity: {'tag': 61788, 'journal_identifier': 'EDGE * 23 * 98 {(0.6868848425197,4.2872941173876,-1.4034088635987)(0.6428067589989,4.2998069487686,-1.4384338025239)(0.6259842519685,4.3199829089387,-1.4949087721936) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 180: Elliptical | Length: 0.1106 | Connected Faces: 2 | Tag: 61784
 -   Endpoints: (0.6900, 3.2701, -1.2323) -> (0.6358, 3.3045, -1.3146)
 -   Face Tags: 61516, 61562
 -   Face Indices: 72, 95
 -   Topology Vertices: 21 -> 133
+-   Identity: {'tag': 61784, 'journal_identifier': 'EDGE * 51 * 74 {(0.6899606299213,3.2700953548359,-1.2323164376157)(0.6507801112361,3.2832505884281,-1.26382060775)(0.6358267716535,3.3044623718292,-1.3146186136109) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 181: Circular | Length: 0.2661 | Connected Faces: 2 | Tag: 61728
 -   Endpoints: (0.4390, 3.1078, -1.4545) -> (0.6239, 3.2579, -1.4008)
 -   Curve Props: Arc Length 0.2661 | Radius 0.1870 | Diameter 0.3740 | Min Curvature Radius 0.1870
@@ -3151,6 +3871,8 @@
 -   Face Indices: 100, 29
 -   Topology Vertices: 86 -> 130
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61728, 'journal_identifier': 'EDGE * 16 * 66 {(0.4389763779528,3.1077573360673,-1.4544535463749)(0.5610791720165,3.1504774465855,-1.439191577164)(0.62394243815,3.2579116416119,-1.4008101835582) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 182: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61970
 -   Endpoints: (-0.7028, 2.8480, -0.1252) -> (-0.8425, 2.8480, -0.1252)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3159,6 +3881,8 @@
 -   Face Indices: 57, 93
 -   Topology Vertices: 153 -> 63
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61970, 'journal_identifier': 'EDGE * 11 * 12 {(-0.7027559055118,2.8480248825627,-0.1252480631483)(-0.7726377952756,2.8480248825627,-0.1252480631483)(-0.8425196850394,2.8480248825627,-0.1252480631483) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 183: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62108
 -   Endpoints: (0.8425, 3.1790, -0.9926) -> (0.8524, 3.1882, -0.9893)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3167,6 +3891,8 @@
 -   Face Indices: 82, 66
 -   Topology Vertices: 90 -> 101
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62108, 'journal_identifier': 'EDGE * 76 * 78 {(0.8425196850394,3.1789667731324,-0.9925969239657)(0.8494793974526,3.1816815371985,-0.9916270611754)(0.8523622047244,3.1882355574253,-0.9892856052733) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 184: Circular | Length: 0.0643 | Connected Faces: 2 | Tag: 61774
 -   Endpoints: (0.8524, 2.8528, -0.1166) -> (0.8524, 2.8936, -0.1645)
 -   Curve Props: Arc Length 0.0643 | Radius 0.0886 | Diameter 0.1772 | Min Curvature Radius 0.0886
@@ -3175,11 +3901,15 @@
 -   Face Indices: 49, 52
 -   Topology Vertices: 41 -> 100
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61774, 'journal_identifier': 'EDGE * 24 * 80 {(0.8523622047244,2.8527592068832,-0.1166189631385)(0.8523622047244,2.8775550982262,-0.1368049356395)(0.8523622047244,2.8935693466348,-0.1644789949951) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 185: Intersection | Length: 0.0298 | Connected Faces: 2 | Tag: 61718
 -   Endpoints: (-0.6337, 3.2599, -1.4106) -> (-0.6358, 3.2854, -1.3957)
 -   Face Tags: 61486, 61544
 -   Face Indices: 56, 94
 -   Topology Vertices: 43 -> 114
+-   Identity: {'tag': 61718, 'journal_identifier': 'EDGE * 36 * 65 {(-0.6336774939498,3.2598570341979,-1.4105669516584)(-0.6353044553332,3.2732722544862,-1.4043266805799)(-0.6358267716535,3.2853537267802,-1.3957077527448) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 186: Linear | Length: 1.3799 | Connected Faces: 2 | Tag: 61792
 -   Endpoints: (0.8425, 3.7395, 0.1299) -> (0.8425, 4.2038, -1.1696)
 -   Curve Props: Arc Length 1.3799 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3188,6 +3918,8 @@
 -   Face Indices: 90, 86
 -   Topology Vertices: 150 -> 46
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61792, 'journal_identifier': 'EDGE * 23 * 94 {(0.8425196850394,3.7395240925824,0.1298661466562)(0.8425196850394,3.9716400935586,-0.5198548085999)(0.8425196850394,4.2037560945348,-1.169575763856) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 187: Circular | Length: 0.0448 | Connected Faces: 2 | Tag: 62002
 -   Endpoints: (-0.4390, 3.5745, -2.3454) -> (-0.4773, 3.5930, -2.3388)
 -   Curve Props: Arc Length 0.0448 | Radius 0.0472 | Diameter 0.0945 | Min Curvature Radius 0.0472
@@ -3196,6 +3928,8 @@
 -   Face Indices: 12, 38
 -   Topology Vertices: 76 -> 154
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62002, 'journal_identifier': 'EDGE * 1 * 43 {(-0.4389763779528,3.5744795246954,-2.345433791382)(-0.4605402581695,3.5793842752227,-2.3436815451769)(-0.4773495840347,3.5930170932812,-2.3388111539972) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 188: Linear | Length: 1.0229 | Connected Faces: 2 | Tag: 61906
 -   Endpoints: (-0.6900, 4.2763, -1.4159) -> (-0.6900, 3.2701, -1.2323)
 -   Curve Props: Arc Length 1.0229 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3204,6 +3938,8 @@
 -   Face Indices: 27, 15
 -   Topology Vertices: 24 -> 125
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61906, 'journal_identifier': 'EDGE * 45 * 52 {(-0.6899606299213,4.2763471076525,-1.4159179148908)(-0.6899606299213,3.7732212312442,-1.3241171762532)(-0.6899606299213,3.2700953548359,-1.2323164376157) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 189: Circular | Length: 1.0965 | Connected Faces: 2 | Tag: 61764
 -   Endpoints: (0.8524, 3.7314, 0.2024) -> (0.8524, 3.2636, 1.0407)
 -   Curve Props: Arc Length 1.0965 | Radius 0.6220 | Diameter 1.2441 | Min Curvature Radius 0.6220
@@ -3212,6 +3948,8 @@
 -   Face Indices: 49, 107
 -   Topology Vertices: 5 -> 105
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61764, 'journal_identifier': 'EDGE * 24 * 90 {(0.8523622047244,3.7313672219355,0.2023778384709)(0.8523622047244,3.6951798489966,0.7318312468975)(0.8523622047244,3.2636243255896,1.0406843962608) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 190: Linear | Length: 0.1654 | Connected Faces: 2 | Tag: 61708
 -   Endpoints: (-0.6358, 3.7384, -2.5293) -> (-0.6358, 3.6828, -2.3736)
 -   Curve Props: Arc Length 0.1654 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3220,6 +3958,8 @@
 -   Face Indices: 91, 21
 -   Topology Vertices: 11 -> 106
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61708, 'journal_identifier': 'EDGE * 101 * 35 {(-0.6358267716535,3.7384286907118,-2.5293431912683)(-0.6358267716535,3.7106136136957,-2.4514854032081)(-0.6358267716535,3.6827985366797,-2.373627615148) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 191: Circular | Length: 1.4224 | Connected Faces: 2 | Tag: 62068
 -   Endpoints: (0.4862, 3.7292, -2.5327) -> (0.4862, 4.5819, -2.2280)
 -   Curve Props: Arc Length 1.4224 | Radius 0.4528 | Diameter 0.9055 | Min Curvature Radius 0.4528
@@ -3228,6 +3968,8 @@
 -   Face Indices: 26, 47
 -   Topology Vertices: 155 -> 156
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62068, 'journal_identifier': 'EDGE * 19 * 41 {(0.4862204724409,3.7291599064189,-2.5326545099607)(0.4862204724409,4.3078446437408,-2.8066979275833)(0.4862204724409,4.5818880613634,-2.2280131902613) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 192: Circular | Length: 0.0448 | Connected Faces: 2 | Tag: 62012
 -   Endpoints: (0.4390, 3.2394, -1.4074) -> (0.4773, 3.2579, -1.4008)
 -   Curve Props: Arc Length 0.0448 | Radius 0.0472 | Diameter 0.0945 | Min Curvature Radius 0.0472
@@ -3236,6 +3978,8 @@
 -   Face Indices: 100, 92
 -   Topology Vertices: 111 -> 157
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62012, 'journal_identifier': 'EDGE * 16 * 44 {(0.4389763779528,3.2393740730261,-1.407432820943)(0.4605402581695,3.2442788235534,-1.405680574738)(0.4773495840347,3.2579116416119,-1.4008101835582) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 193: Linear | Length: 0.1393 | Connected Faces: 2 | Tag: 61896
 -   Endpoints: (-0.6260, 3.2960, -1.3203) -> (-0.4867, 3.2960, -1.3203)
 -   Curve Props: Arc Length 0.1393 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3244,6 +3988,8 @@
 -   Face Indices: 24, 73
 -   Topology Vertices: 141 -> 145
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61896, 'journal_identifier': 'EDGE * 22 * 54 {(-0.6259842519685,3.296039421455,-1.3202975244526)(-0.5563377497115,3.296039421455,-1.3202975244526)(-0.4866912474546,3.296039421455,-1.3202975244526) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 194: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61958
 -   Endpoints: (-0.7028, 2.4570, 1.1979) -> (-0.8425, 2.4570, 1.1979)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3252,6 +3998,8 @@
 -   Face Indices: 67, 10
 -   Topology Vertices: 98 -> 126
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61958, 'journal_identifier': 'EDGE * 8 * 9 {(-0.7027559055118,2.4570354568657,1.1978602450111)(-0.7726377952756,2.4570354568657,1.1978602450111)(-0.8425196850394,2.4570354568657,1.1978602450111) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 195: Circular | Length: 0.3092 | Connected Faces: 2 | Tag: 61674
 -   Endpoints: (-0.8524, 2.2897, 0.9933) -> (-0.8524, 2.4553, 1.1882)
 -   Curve Props: Arc Length 0.3092 | Radius 0.1476 | Diameter 0.2953 | Min Curvature Radius 0.1476
@@ -3260,6 +4008,8 @@
 -   Face Indices: 70, 97
 -   Topology Vertices: 28 -> 116
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61674, 'journal_identifier': 'EDGE * 21 * 83 {(-0.8523622047244,2.2897363958516,0.9932678725291)(-0.8523622047244,2.3162369864337,1.1385078026194)(-0.8523622047244,2.4552687508269,1.1881775830051) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 196: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61952
 -   Endpoints: (0.8425, 3.2654, 1.0504) -> (0.7028, 3.2654, 1.0504)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3268,6 +4018,8 @@
 -   Face Indices: 105, 4
 -   Topology Vertices: 35 -> 74
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61952, 'journal_identifier': 'EDGE * 25 * 26 {(0.8425196850394,3.2653910316284,1.0503670582668)(0.7726377952756,3.2653910316284,1.0503670582668)(0.7027559055118,3.2653910316284,1.0503670582668) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 197: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61844
 -   Endpoints: (0.7028, 3.5236, 0.6340) -> (0.8524, 3.5236, 0.6340)
 -   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3276,11 +4028,15 @@
 -   Face Indices: 102, 64
 -   Topology Vertices: 140 -> 158
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61844, 'journal_identifier': 'EDGE * 33 * 60 {(0.7027559055118,3.5236328562344,0.6340477623376)(0.7775590551181,3.5236328562344,0.6340477623376)(0.8523622047244,3.5236328562344,0.6340477623376) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 198: Intersection | Length: 0.0304 | Connected Faces: 2 | Tag: 61886
 -   Endpoints: (0.4773, 3.2579, -1.4008) -> (0.4862, 3.2817, -1.3856)
 -   Face Tags: 61502, 61520
 -   Face Indices: 92, 59
 -   Topology Vertices: 157 -> 149
+-   Identity: {'tag': 61886, 'journal_identifier': 'EDGE * 44 * 53 {(0.4773495840347,3.2579116416119,-1.4008101835582)(0.4840560118686,3.2700676328461,-1.3949295191211)(0.4862204724409,3.2817284298831,-1.3855601052186) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 199: Linear | Length: 0.0025 | Connected Faces: 2 | Tag: 61744
 -   Endpoints: (0.6260, 3.2960, -1.3203) -> (0.6260, 3.2952, -1.3179)
 -   Curve Props: Arc Length 0.0025 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3289,11 +4045,15 @@
 -   Face Indices: 31, 35
 -   Topology Vertices: 113 -> 129
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61744, 'journal_identifier': 'EDGE * 5 * 72 {(0.6259842519685,3.296039421455,-1.3202975244526)(0.6259842519685,3.2956165044957,-1.3191137283779)(0.6259842519685,3.2951935875363,-1.3179299323033) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 200: Elliptical | Length: 0.1106 | Connected Faces: 2 | Tag: 61688
 -   Endpoints: (-0.6358, 3.3045, -1.3146) -> (-0.6900, 3.2701, -1.2323)
 -   Face Tags: 61518, 61556
 -   Face Indices: 15, 63
 -   Topology Vertices: 50 -> 125
+-   Identity: {'tag': 61688, 'journal_identifier': 'EDGE * 52 * 71 {(-0.6358267716535,3.3044623718292,-1.3146186136109)(-0.6507801112361,3.2832505884281,-1.26382060775)(-0.6899606299213,3.2700953548359,-1.2323164376157) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 201: Circular | Length: 0.3298 | Connected Faces: 2 | Tag: 62034
 -   Endpoints: (0.7028, 2.4570, 1.1979) -> (0.7028, 2.2805, 0.9900)
 -   Curve Props: Arc Length 0.3298 | Radius 0.1575 | Diameter 0.3150 | Min Curvature Radius 0.1575
@@ -3302,6 +4062,8 @@
 -   Face Indices: 77, 3
 -   Topology Vertices: 61 -> 151
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62034, 'journal_identifier': 'EDGE * 27 * 40 {(0.7027559055118,2.4570354568657,1.1978602450112)(0.7027559055118,2.3087349081797,1.144879145933)(0.7027559055118,2.2804676115588,0.9899565538367) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 202: Circular | Length: 0.0572 | Connected Faces: 2 | Tag: 61664
 -   Endpoints: (-0.8425, 2.8480, -0.1252) -> (-0.8425, 2.8843, -0.1678)
 -   Curve Props: Arc Length 0.0572 | Radius 0.0787 | Diameter 0.1575 | Min Curvature Radius 0.0787
@@ -3310,6 +4072,8 @@
 -   Face Indices: 93, 1
 -   Topology Vertices: 63 -> 108
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61664, 'journal_identifier': 'EDGE * 12 * 77 {(-0.8425196850394,2.8480248825627,-0.1252480631483)(-0.8425196850394,2.8700656748676,-0.1431911498158)(-0.8425196850394,2.8843005623419,-0.1677903136875) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 203: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62080
 -   Endpoints: (-0.4390, 3.1078, -1.4545) -> (-0.4390, 3.1018, -1.4670)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3318,6 +4082,8 @@
 -   Face Indices: 104, 39
 -   Topology Vertices: 95 -> 42
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62080, 'journal_identifier': 'EDGE * 63 * 64 {(-0.4389763779528,3.1077573360673,-1.4544535463749)(-0.4389763779528,3.1021731786308,-1.4595097663429)(-0.4389763779528,3.1017998704668,-1.4670336493601) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 204: Linear | Length: 0.6934 | Connected Faces: 2 | Tag: 61996
 -   Endpoints: (-0.8524, 3.5236, 0.6340) -> (-0.8524, 2.8344, 0.7106)
 -   Curve Props: Arc Length 0.6934 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3326,6 +4092,8 @@
 -   Face Indices: 68, 70
 -   Topology Vertices: 88 -> 77
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61996, 'journal_identifier': 'EDGE * 15 * 21 {(-0.8523622047244,3.5236328562344,0.6340477623376)(-0.8523622047244,3.1790361869454,0.6723380501118)(-0.8523622047244,2.8344395176563,0.710628337886) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 205: Linear | Length: 0.6934 | Connected Faces: 2 | Tag: 62058
 -   Endpoints: (0.7028, 3.5236, 0.6340) -> (0.7028, 2.8344, 0.7106)
 -   Curve Props: Arc Length 0.6934 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3334,6 +4102,8 @@
 -   Face Indices: 102, 3
 -   Topology Vertices: 140 -> 55
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62058, 'journal_identifier': 'EDGE * 33 * 40 {(0.7027559055118,3.5236328562344,0.6340477623376)(0.7027559055118,3.1790361869454,0.6723380501118)(0.7027559055118,2.8344395176563,0.710628337886) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 206: Linear | Length: 1.0088 | Connected Faces: 2 | Tag: 62000
 -   Endpoints: (0.4862, 3.2817, -1.3856) -> (0.4862, 3.6211, -2.3355)
 -   Curve Props: Arc Length 1.0088 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3342,6 +4112,8 @@
 -   Face Indices: 47, 92
 -   Topology Vertices: 149 -> 128
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62000, 'journal_identifier': 'EDGE * 41 * 44 {(0.4862204724409,3.2817284298831,-1.3855601052186)(0.4862204724409,3.4514169634666,-1.860538976439)(0.4862204724409,3.6211054970501,-2.3355178476595) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 207: Circular | Length: 1.1139 | Connected Faces: 2 | Tag: 61654
 -   Endpoints: (-0.8425, 3.7405, 0.1988) -> (-0.8425, 3.2654, 1.0504)
 -   Curve Props: Arc Length 1.1139 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
@@ -3350,6 +4122,8 @@
 -   Face Indices: 22, 88
 -   Topology Vertices: 49 -> 45
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61654, 'journal_identifier': 'EDGE * 7 * 87 {(-0.8425196850394,3.7405349231696,0.1987961562081)(-0.8425196850394,3.7037749652159,0.7366269919832)(-0.8425196850394,3.2653910316284,1.0503670582668) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 208: Linear | Length: 0.7474 | Connected Faces: 2 | Tag: 62070
 -   Endpoints: (0.4862, 4.5819, -2.2280) -> (0.4862, 4.3304, -1.5242)
 -   Curve Props: Arc Length 0.7474 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3358,6 +4132,8 @@
 -   Face Indices: 90, 47
 -   Topology Vertices: 156 -> 18
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62070, 'journal_identifier': 'EDGE * 23 * 41 {(0.4862204724409,4.5818880613634,-2.2280131902613)(0.4862204724409,4.4561655226395,-1.8761004931038)(0.4862204724409,4.3304429839155,-1.5241877959463) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 209: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61966
 -   Endpoints: (-0.7028, 2.5569, 0.2162) -> (-0.8425, 2.5569, 0.2162)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3366,6 +4142,8 @@
 -   Face Indices: 53, 57
 -   Topology Vertices: 124 -> 62
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61966, 'journal_identifier': 'EDGE * 10 * 11 {(-0.7027559055118,2.5569125523344,0.2161534974292)(-0.7726377952756,2.5569125523344,0.2161534974292)(-0.8425196850394,2.5569125523344,0.2161534974292) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 210: Linear | Length: 1.0088 | Connected Faces: 2 | Tag: 62014
 -   Endpoints: (-0.4862, 3.6211, -2.3355) -> (-0.4862, 3.2817, -1.3856)
 -   Curve Props: Arc Length 1.0088 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3374,6 +4152,8 @@
 -   Face Indices: 103, 38
 -   Topology Vertices: 148 -> 15
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62014, 'journal_identifier': 'EDGE * 42 * 43 {(-0.4862204724409,3.6211054970501,-2.3355178476595)(-0.4862204724409,3.4514169634666,-1.860538976439)(-0.4862204724409,3.2817284298831,-1.3855601052186) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 211: Linear | Length: 1.3799 | Connected Faces: 2 | Tag: 61644
 -   Endpoints: (-0.8425, 4.2038, -1.1696) -> (-0.8425, 3.7395, 0.1299)
 -   Curve Props: Arc Length 1.3799 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3382,6 +4162,8 @@
 -   Face Indices: 83, 44
 -   Topology Vertices: 96 -> 72
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61644, 'journal_identifier': 'EDGE * 6 * 91 {(-0.8425196850394,4.2037560945348,-1.169575763856)(-0.8425196850394,3.9716400935586,-0.5198548085999)(-0.8425196850394,3.7395240925824,0.1298661466562) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 212: Linear | Length: 0.8956 | Connected Faces: 2 | Tag: 62044
 -   Endpoints: (-0.7028, 2.8843, -0.1678) -> (-0.7028, 3.1856, -1.0112)
 -   Curve Props: Arc Length 0.8956 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3390,6 +4172,8 @@
 -   Face Indices: 24, 61
 -   Topology Vertices: 107 -> 39
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62044, 'journal_identifier': 'EDGE * 22 * 39 {(-0.7027559055118,2.8843005623419,-0.1677903136875)(-0.7027559055118,3.0349519144871,-0.5894817955964)(-0.7027559055118,3.1856032666324,-1.0111732775053) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 213: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61856
 -   Endpoints: (-0.7028, 3.5422, 0.6210) -> (-0.8524, 3.5422, 0.6210)
 -   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3398,6 +4182,8 @@
 -   Face Indices: 33, 19
 -   Topology Vertices: 143 -> 71
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61856, 'journal_identifier': 'EDGE * 14 * 59 {(-0.7027559055118,3.5422139145066,0.6210102098751)(-0.7775590551181,3.5422139145066,0.6210102098751)(-0.8523622047244,3.5422139145066,0.6210102098751) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 214: Circular | Length: 1.1139 | Connected Faces: 2 | Tag: 62056
 -   Endpoints: (-0.7028, 3.7405, 0.1988) -> (-0.7028, 3.2654, 1.0504)
 -   Curve Props: Arc Length 1.1139 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
@@ -3406,6 +4192,8 @@
 -   Face Indices: 22, 61
 -   Topology Vertices: 48 -> 147
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62056, 'journal_identifier': 'EDGE * 39 * 7 {(-0.7027559055118,3.7405349231696,0.1987961562081)(-0.7027559055118,3.7037749652159,0.7366269919832)(-0.7027559055118,3.2653910316284,1.0503670582668) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 215: Linear | Length: 0.9872 | Connected Faces: 2 | Tag: 61950
 -   Endpoints: (-0.6358, 3.6175, -2.3254) -> (-0.6358, 3.2854, -1.3957)
 -   Curve Props: Arc Length 0.9872 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3414,6 +4202,8 @@
 -   Face Indices: 91, 56
 -   Topology Vertices: 91 -> 114
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61950, 'journal_identifier': 'EDGE * 35 * 36 {(-0.6358267716535,3.6174802001529,-2.3253702001333)(-0.6358267716535,3.4514169634666,-1.860538976439)(-0.6358267716535,3.2853537267802,-1.3957077527448) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 216: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62102
 -   Endpoints: (-0.8524, 3.1882, -0.9893) -> (-0.8425, 3.1790, -0.9926)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3422,6 +4212,8 @@
 -   Face Indices: 79, 30
 -   Topology Vertices: 121 -> 57
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62102, 'journal_identifier': 'EDGE * 73 * 75 {(-0.8523622047244,3.1882355574253,-0.9892856052733)(-0.8494793974526,3.1816815371985,-0.9916270611754)(-0.8425196850394,3.1789667731324,-0.9925969239657) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 217: Linear | Length: 0.8759 | Connected Faces: 2 | Tag: 61698
 -   Endpoints: (-0.8425, 2.8843, -0.1678) -> (-0.8425, 3.1790, -0.9926)
 -   Curve Props: Arc Length 0.8759 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3430,11 +4222,15 @@
 -   Face Indices: 24, 30
 -   Topology Vertices: 108 -> 57
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61698, 'journal_identifier': 'EDGE * 22 * 75 {(-0.8425196850394,2.8843005623419,-0.1677903136875)(-0.8425196850394,3.0316336677372,-0.5801936188266)(-0.8425196850394,3.1789667731324,-0.9925969239657) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 218: Intersection | Length: 0.0246 | Connected Faces: 2 | Tag: 61736
 -   Endpoints: (0.6239, 3.2579, -1.4008) -> (0.6260, 3.2788, -1.3884)
 -   Face Tags: 61520, 61550
 -   Face Indices: 59, 20
 -   Topology Vertices: 130 -> 138
+-   Identity: {'tag': 61736, 'journal_identifier': 'EDGE * 53 * 68 {(0.62394243815,3.2579116416119,-1.4008101835582)(0.6254857946636,3.2688968123188,-1.3956363504657)(0.6259842519685,3.2787814936992,-1.3883810245474) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 219: Linear | Length: 0.1496 | Connected Faces: 2 | Tag: 61846
 -   Endpoints: (0.8524, 2.8344, 0.7106) -> (0.7028, 2.8344, 0.7106)
 -   Curve Props: Arc Length 0.1496 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3443,6 +4239,8 @@
 -   Face Indices: 102, 6
 -   Topology Vertices: 159 -> 55
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61846, 'journal_identifier': 'EDGE * 33 * 61 {(0.8523622047244,2.8344395176563,0.710628337886)(0.7775590551181,2.8344395176563,0.710628337886)(0.7027559055118,2.8344395176563,0.710628337886) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 220: Linear | Length: 0.7785 | Connected Faces: 2 | Tag: 61804
 -   Endpoints: (0.6358, 4.5726, -2.2313) -> (0.6358, 4.3107, -1.4982)
 -   Curve Props: Arc Length 0.7785 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3451,6 +4249,8 @@
 -   Face Indices: 43, 46
 -   Topology Vertices: 160 -> 32
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61804, 'journal_identifier': 'EDGE * 100 * 34 {(0.6358267716535,4.5726192770706,-2.2313245089537)(0.6358267716535,4.4416667008582,-1.8647722999199)(0.6358267716535,4.3107141246459,-1.498220090886) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 221: Linear | Length: 0.8780 | Connected Faces: 2 | Tag: 61826
 -   Endpoints: (0.4390, 3.4429, -2.3925) -> (-0.4390, 3.4429, -2.3925)
 -   Curve Props: Arc Length 0.8780 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3459,6 +4259,8 @@
 -   Face Indices: 12, 58
 -   Topology Vertices: 146 -> 80
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61826, 'journal_identifier': 'EDGE * 1 * 109 {(0.4389763779528,3.4428627877366,-2.3924545168138)(-0,3.4428627877366,-2.3924545168138)(-0.4389763779528,3.4428627877366,-2.3924545168138) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 222: Linear | Length: 0.7785 | Connected Faces: 2 | Tag: 61704
 -   Endpoints: (-0.6358, 4.3107, -1.4982) -> (-0.6358, 4.5726, -2.2313)
 -   Curve Props: Arc Length 0.7785 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3467,11 +4269,15 @@
 -   Face Indices: 91, 13
 -   Topology Vertices: 2 -> 10
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61704, 'journal_identifier': 'EDGE * 35 * 97 {(-0.6358267716535,4.3107141246459,-1.498220090886)(-0.6358267716535,4.4416667008582,-1.8647722999198)(-0.6358267716535,4.5726192770706,-2.2313245089537) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 223: Intersection | Length: 0.0304 | Connected Faces: 2 | Tag: 61874
 -   Endpoints: (-0.4773, 3.5930, -2.3388) -> (-0.4862, 3.6211, -2.3355)
 -   Face Tags: 61500, 61524
 -   Face Indices: 38, 99
 -   Topology Vertices: 154 -> 148
+-   Identity: {'tag': 61874, 'journal_identifier': 'EDGE * 43 * 55 {(-0.4773495840347,3.5930170932812,-2.3388111539972)(-0.4840560118686,3.6061475416471,-2.3356581137471)(-0.4862204724409,3.6211054970501,-2.3355178476595) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 224: Circular | Length: 1.3915 | Connected Faces: 2 | Tag: 61802
 -   Endpoints: (0.6358, 3.7384, -2.5293) -> (0.6358, 4.5726, -2.2313)
 -   Curve Props: Arc Length 1.3915 | Radius 0.4429 | Diameter 0.8858 | Min Curvature Radius 0.4429
@@ -3480,6 +4286,8 @@
 -   Face Indices: 43, 87
 -   Topology Vertices: 37 -> 160
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61802, 'journal_identifier': 'EDGE * 102 * 34 {(0.6358267716535,3.7384286907118,-2.5293431912683)(0.6358267716535,4.3045333250485,-2.7974291432904)(0.6358267716535,4.5726192770706,-2.2313245089537) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 225: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62082
 -   Endpoints: (-0.6337, 3.2599, -1.4106) -> (-0.6239, 3.2579, -1.4008)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3488,11 +4296,15 @@
 -   Face Indices: 104, 94
 -   Topology Vertices: 43 -> 144
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62082, 'journal_identifier': 'EDGE * 63 * 65 {(-0.6336774939498,3.2598570341979,-1.4105669516584)(-0.6308261621213,3.2579156487898,-1.4038700042835)(-0.62394243815,3.2579116416119,-1.4008101835582) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 226: Elliptical | Length: 0.1083 | Connected Faces: 2 | Tag: 61918
 -   Endpoints: (0.7028, 3.1856, -1.0112) -> (0.6486, 3.2147, -1.0925)
 -   Face Tags: 61424, 61512
 -   Face Indices: 31, 108
 -   Topology Vertices: 110 -> 54
+-   Identity: {'tag': 61918, 'journal_identifier': 'EDGE * 49 * 5 {(0.7027559055118,3.1856032666324,-1.0111732775053)(0.6878025659292,3.2035374534503,-1.061373250545)(0.6486220472441,3.2146599702333,-1.0925065295897) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 227: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61982
 -   Endpoints: (-0.4862, 4.5819, -2.2280) -> (-0.6260, 4.5819, -2.2280)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3501,6 +4313,8 @@
 -   Face Indices: 40, 83
 -   Topology Vertices: 161 -> 87
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61982, 'journal_identifier': 'EDGE * 3 * 6 {(-0.4862204724409,4.5818880613634,-2.2280131902613)(-0.5561023622047,4.5818880613634,-2.2280131902613)(-0.6259842519685,4.5818880613634,-2.2280131902613) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 228: Circular | Length: 0.2661 | Connected Faces: 2 | Tag: 61732
 -   Endpoints: (-0.6239, 3.2579, -1.4008) -> (-0.4390, 3.1078, -1.4545)
 -   Curve Props: Arc Length 0.2661 | Radius 0.1870 | Diameter 0.3740 | Min Curvature Radius 0.1870
@@ -3509,6 +4323,8 @@
 -   Face Indices: 100, 104
 -   Topology Vertices: 144 -> 95
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61732, 'journal_identifier': 'EDGE * 16 * 63 {(-0.62394243815,3.2579116416119,-1.4008101835582)(-0.5610791720165,3.1504774465855,-1.439191577164)(-0.4389763779528,3.1077573360673,-1.4544535463749) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 229: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62140
 -   Endpoints: (0.8425, 3.7395, 0.1299) -> (0.8524, 3.7303, 0.1266)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3517,6 +4333,8 @@
 -   Face Indices: 71, 86
 -   Topology Vertices: 150 -> 51
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62140, 'journal_identifier': 'EDGE * 92 * 94 {(0.8425196850394,3.7395240925824,0.1298661466562)(0.8494793974526,3.7368093285164,0.1288962838659)(0.8523622047244,3.7302553082895,0.1265548279638) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 230: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61980
 -   Endpoints: (0.6260, 4.5819, -2.2280) -> (0.4862, 4.5819, -2.2280)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3525,6 +4343,8 @@
 -   Face Indices: 26, 90
 -   Topology Vertices: 102 -> 156
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61980, 'journal_identifier': 'EDGE * 19 * 23 {(0.6259842519685,4.5818880613634,-2.2280131902613)(0.5561023622047,4.5818880613634,-2.2280131902613)(0.4862204724409,4.5818880613634,-2.2280131902613) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 231: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62166
 -   Endpoints: (-0.6337, 3.5883, -2.3300) -> (-0.6239, 3.5930, -2.3388)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3533,6 +4353,8 @@
 -   Face Indices: 5, 106
 -   Topology Vertices: 117 -> 16
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62166, 'journal_identifier': 'EDGE * 105 * 107 {(-0.6336774939498,3.5883398484825,-2.3300303535116)(-0.6308261621213,3.5910813748785,-2.3364414465904)(-0.62394243815,3.5930170932812,-2.3388111539972) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 232: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61960
 -   Endpoints: (0.8425, 2.2805, 0.9900) -> (0.7028, 2.2805, 0.9900)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3541,6 +4363,8 @@
 -   Face Indices: 77, 85
 -   Topology Vertices: 56 -> 151
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61960, 'journal_identifier': 'EDGE * 27 * 28 {(0.8425196850394,2.2804676115588,0.9899565538367)(0.7726377952756,2.2804676115588,0.9899565538367)(0.7027559055118,2.2804676115588,0.9899565538367) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 233: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62152
 -   Endpoints: (0.6260, 4.3200, -1.4949) -> (0.6358, 4.3107, -1.4982)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3549,6 +4373,8 @@
 -   Face Indices: 55, 46
 -   Topology Vertices: 152 -> 32
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62152, 'journal_identifier': 'EDGE * 100 * 98 {(0.6259842519685,4.3199829089387,-1.4949087721936)(0.6329439643818,4.3172681448727,-1.495878634984)(0.6358267716535,4.3107141246459,-1.498220090886) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 234: Linear | Length: 1.0456 | Connected Faces: 2 | Tag: 61920
 -   Endpoints: (-0.7028, 3.1856, -1.0112) -> (-0.7028, 4.2142, -1.1989)
 -   Curve Props: Arc Length 1.0456 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3557,11 +4383,15 @@
 -   Face Indices: 61, 45
 -   Topology Vertices: 39 -> 139
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61920, 'journal_identifier': 'EDGE * 39 * 50 {(-0.7027559055118,3.1856032666324,-1.0111732775053)(-0.7027559055118,3.699909718072,-1.105014032557)(-0.7027559055118,4.2142161695116,-1.1988547876087) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 235: Elliptical | Length: 0.3225 | Connected Faces: 2 | Tag: 61778
 -   Endpoints: (0.6900, 4.2763, -1.4159) -> (0.8524, 4.1945, -1.1729)
 -   Face Tags: 61506, 61606
 -   Face Indices: 78, 69
 -   Topology Vertices: 33 -> 131
+-   Identity: {'tag': 61778, 'journal_identifier': 'EDGE * 46 * 96 {(0.6899606299213,4.2763471076525,-1.4159179148908)(0.8075021859766,4.2450122741126,-1.3228889688464)(0.8523622047244,4.194487310242,-1.1728870825484) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 236: Circular | Length: 0.2801 | Connected Faces: 2 | Tag: 61722
 -   Endpoints: (-0.6337, 3.5883, -2.3300) -> (-0.4390, 3.4303, -2.3865)
 -   Curve Props: Arc Length 0.2801 | Radius 0.1969 | Diameter 0.3937 | Min Curvature Radius 0.1969
@@ -3570,6 +4400,8 @@
 -   Face Indices: 56, 106
 -   Topology Vertices: 117 -> 69
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61722, 'journal_identifier': 'EDGE * 107 * 36 {(-0.6336774939498,3.5883398484825,-2.3300303535116)(-0.567505634862,3.4752512221389,-2.3704318204651)(-0.4389763779528,3.4302826847513,-2.3864970512134) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 237: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61836
 -   Endpoints: (0.8524, 3.5236, 0.6340) -> (0.8524, 3.5422, 0.6210)
 -   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
@@ -3578,6 +4410,8 @@
 -   Face Indices: 49, 64
 -   Topology Vertices: 158 -> 78
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61836, 'journal_identifier': 'EDGE * 24 * 60 {(0.8523622047244,3.5236328562344,0.6340477623376)(0.8523622047244,3.5345919847827,0.629907066118)(0.8523622047244,3.5422139145066,0.6210102098751) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 238: Circular | Length: 1.4224 | Connected Faces: 2 | Tag: 62078
 -   Endpoints: (-0.4862, 4.5819, -2.2280) -> (-0.4862, 3.7292, -2.5327)
 -   Curve Props: Arc Length 1.4224 | Radius 0.4528 | Diameter 0.9055 | Min Curvature Radius 0.4528
@@ -3586,6 +4420,8 @@
 -   Face Indices: 40, 103
 -   Topology Vertices: 161 -> 92
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62078, 'journal_identifier': 'EDGE * 3 * 42 {(-0.4862204724409,4.5818880613634,-2.2280131902613)(-0.4862204724409,4.3078446437408,-2.8066979275833)(-0.4862204724409,3.7291599064189,-2.5326545099607) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 239: Linear | Length: 0.1654 | Connected Faces: 2 | Tag: 61796
 -   Endpoints: (0.6260, 3.7292, -2.5327) -> (0.6260, 3.6735, -2.3769)
 -   Curve Props: Arc Length 0.1654 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3594,6 +4430,8 @@
 -   Face Indices: 89, 101
 -   Topology Vertices: 103 -> 119
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61796, 'journal_identifier': 'EDGE * 104 * 18 {(0.6259842519685,3.7291599064189,-2.5326545099607)(0.6259842519685,3.7013448294029,-2.4547967219005)(0.6259842519685,3.6735297523868,-2.3769389338404) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 240: Linear | Length: 0.7785 | Connected Faces: 2 | Tag: 61786
 -   Endpoints: (0.6260, 4.3200, -1.4949) -> (0.6260, 4.5819, -2.2280)
 -   Curve Props: Arc Length 0.7785 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3602,6 +4440,8 @@
 -   Face Indices: 90, 46
 -   Topology Vertices: 152 -> 102
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61786, 'journal_identifier': 'EDGE * 100 * 23 {(0.6259842519685,4.3199829089387,-1.4949087721936)(0.6259842519685,4.4509354851511,-1.8614609812275)(0.6259842519685,4.5818880613634,-2.2280131902613) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 241: Linear | Length: 0.8780 | Connected Faces: 2 | Tag: 61726
 -   Endpoints: (-0.4390, 3.4303, -2.3865) -> (0.4390, 3.4303, -2.3865)
 -   Curve Props: Arc Length 0.8780 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3610,6 +4450,8 @@
 -   Face Indices: 37, 58
 -   Topology Vertices: 69 -> 82
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61726, 'journal_identifier': 'EDGE * 109 * 17 {(-0.4389763779528,3.4302826847513,-2.3864970512134)(-0,3.4302826847513,-2.3864970512134)(0.4389763779528,3.4302826847513,-2.3864970512134) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 242: Circular | Length: 0.3092 | Connected Faces: 2 | Tag: 61768
 -   Endpoints: (0.8524, 2.4553, 1.1882) -> (0.8524, 2.2897, 0.9933)
 -   Curve Props: Arc Length 0.3092 | Radius 0.1476 | Diameter 0.2953 | Min Curvature Radius 0.1476
@@ -3618,11 +4460,15 @@
 -   Face Indices: 49, 23
 -   Topology Vertices: 60 -> 135
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61768, 'journal_identifier': 'EDGE * 24 * 86 {(0.8523622047244,2.4552687508269,1.1881775830051)(0.8523622047244,2.3162369864337,1.1385078026194)(0.8523622047244,2.2897363958516,0.9932678725291) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 243: Intersection | Length: 0.0246 | Connected Faces: 2 | Tag: 61712
 -   Endpoints: (-0.6260, 3.2788, -1.3884) -> (-0.6239, 3.2579, -1.4008)
 -   Face Tags: 61522, 61544
 -   Face Indices: 73, 94
 -   Topology Vertices: 142 -> 144
+-   Identity: {'tag': 61712, 'journal_identifier': 'EDGE * 54 * 65 {(-0.6259842519685,3.2787814936992,-1.3883810245474)(-0.6254885543373,3.268923953367,-1.3956201987693)(-0.62394243815,3.2579116416119,-1.4008101835582) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 244: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61976
 -   Endpoints: (0.6260, 3.7292, -2.5327) -> (0.4862, 3.7292, -2.5327)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3631,6 +4477,8 @@
 -   Face Indices: 89, 26
 -   Topology Vertices: 103 -> 155
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61976, 'journal_identifier': 'EDGE * 18 * 19 {(0.6259842519685,3.7291599064189,-2.5326545099607)(0.5561023622047,3.7291599064189,-2.5326545099607)(0.4862204724409,3.7291599064189,-2.5326545099607) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 245: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62100
 -   Endpoints: (0.6260, 3.2952, -1.3179) -> (0.6358, 3.3045, -1.3146)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3639,6 +4487,8 @@
 -   Face Indices: 35, 95
 -   Topology Vertices: 129 -> 133
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62100, 'journal_identifier': 'EDGE * 72 * 74 {(0.6259842519685,3.2951935875363,-1.3179299323033)(0.6329439643818,3.2979083516024,-1.316960069513)(0.6358267716535,3.3044623718292,-1.3146186136109) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 246: Linear | Length: 0.1466 | Connected Faces: 2 | Tag: 61900
 -   Endpoints: (0.6239, 3.2579, -1.4008) -> (0.4773, 3.2579, -1.4008)
 -   Curve Props: Arc Length 0.1466 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3647,6 +4497,8 @@
 -   Face Indices: 100, 59
 -   Topology Vertices: 130 -> 157
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61900, 'journal_identifier': 'EDGE * 16 * 53 {(0.62394243815,3.2579116416119,-1.4008101835582)(0.5506460110923,3.2579116416119,-1.4008101835582)(0.4773495840347,3.2579116416119,-1.4008101835582) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 247: Circular | Length: 0.0704 | Connected Faces: 2 | Tag: 61758
 -   Endpoints: (0.8425, 3.7405, 0.1988) -> (0.8425, 3.7395, 0.1299)
 -   Curve Props: Arc Length 0.0704 | Radius 0.0984 | Diameter 0.1969 | Min Curvature Radius 0.0984
@@ -3655,6 +4507,8 @@
 -   Face Indices: 2, 71
 -   Topology Vertices: 4 -> 150
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61758, 'journal_identifier': 'EDGE * 31 * 92 {(0.8425196850394,3.7405349231696,0.1987961562081)(0.8425196850394,3.7337973201387,0.1644225439335)(0.8425196850394,3.7395240925824,0.1298661466562) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 248: Linear | Length: 0.0025 | Connected Faces: 2 | Tag: 61702
 -   Endpoints: (-0.6358, 3.3053, -1.3170) -> (-0.6358, 3.3045, -1.3146)
 -   Curve Props: Arc Length 0.0025 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3663,6 +4517,8 @@
 -   Face Indices: 91, 65
 -   Topology Vertices: 115 -> 50
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61702, 'journal_identifier': 'EDGE * 35 * 69 {(-0.6358267716535,3.3053082057479,-1.3169862057602)(-0.6358267716535,3.3048852887886,-1.3158024096855)(-0.6358267716535,3.3044623718292,-1.3146186136109) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 249: Linear | Length: 0.1398 | Connected Faces: 2 | Tag: 61954
 -   Endpoints: (-0.7028, 3.2654, 1.0504) -> (-0.8425, 3.2654, 1.0504)
 -   Curve Props: Arc Length 0.1398 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3671,6 +4527,8 @@
 -   Face Indices: 22, 67
 -   Topology Vertices: 147 -> 45
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61954, 'journal_identifier': 'EDGE * 7 * 8 {(-0.7027559055118,3.2653910316284,1.0503670582668)(-0.7726377952756,3.2653910316284,1.0503670582668)(-0.8425196850394,3.2653910316284,1.0503670582668) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 250: Circular | Length: 1.0965 | Connected Faces: 2 | Tag: 61678
 -   Endpoints: (-0.8524, 3.2636, 1.0407) -> (-0.8524, 3.7314, 0.2024)
 -   Curve Props: Arc Length 1.0965 | Radius 0.6220 | Diameter 1.2441 | Min Curvature Radius 0.6220
@@ -3679,6 +4537,8 @@
 -   Face Indices: 70, 88
 -   Topology Vertices: 44 -> 83
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61678, 'journal_identifier': 'EDGE * 21 * 87 {(-0.8523622047244,3.2636243255896,1.0406843962608)(-0.8523622047244,3.6951798489966,0.7318312468975)(-0.8523622047244,3.7313672219355,0.2023778384709) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 251: Circular | Length: 0.4587 | Connected Faces: 2 | Tag: 62048
 -   Endpoints: (-0.7028, 2.5569, 0.2162) -> (-0.7028, 2.8480, -0.1252)
 -   Curve Props: Arc Length 0.4587 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
@@ -3687,6 +4547,8 @@
 -   Face Indices: 57, 61
 -   Topology Vertices: 124 -> 153
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62048, 'journal_identifier': 'EDGE * 11 * 39 {(-0.7027559055118,2.5569125523344,0.2161534974292)(-0.7027559055118,2.6711475243153,0.018745207359)(-0.7027559055118,2.8480248825627,-0.1252480631483) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 252: Linear | Length: 0.1466 | Connected Faces: 2 | Tag: 61890
 -   Endpoints: (-0.6239, 3.5930, -2.3388) -> (-0.4773, 3.5930, -2.3388)
 -   Curve Props: Arc Length 0.1466 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3695,6 +4557,8 @@
 -   Face Indices: 12, 99
 -   Topology Vertices: 16 -> 154
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61890, 'journal_identifier': 'EDGE * 1 * 55 {(-0.62394243815,3.5930170932812,-2.3388111539972)(-0.5506460110923,3.5930170932812,-2.3388111539972)(-0.4773495840347,3.5930170932812,-2.3388111539972) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 253: Circular | Length: 0.4587 | Connected Faces: 2 | Tag: 61748
 -   Endpoints: (0.8425, 2.8480, -0.1252) -> (0.8425, 2.5569, 0.2162)
 -   Curve Props: Arc Length 0.4587 | Radius 0.6319 | Diameter 1.2638 | Min Curvature Radius 0.6319
@@ -3703,6 +4567,8 @@
 -   Face Indices: 16, 42
 -   Topology Vertices: 30 -> 26
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61748, 'journal_identifier': 'EDGE * 29 * 82 {(0.8425196850394,2.8480248825627,-0.1252480631483)(0.8425196850394,2.6711475243153,0.018745207359)(0.8425196850394,2.5569125523344,0.2161534974292) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 254: Linear | Length: 0.0025 | Connected Faces: 2 | Tag: 61692
 -   Endpoints: (-0.6260, 3.2952, -1.3179) -> (-0.6260, 3.2960, -1.3203)
 -   Curve Props: Arc Length 0.0025 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3711,6 +4577,8 @@
 -   Face Indices: 24, 65
 -   Topology Vertices: 127 -> 141
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61692, 'journal_identifier': 'EDGE * 22 * 69 {(-0.6259842519685,3.2951935875363,-1.3179299323033)(-0.6259842519685,3.2956165044957,-1.3191137283779)(-0.6259842519685,3.296039421455,-1.3202975244526) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 255: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62122
 -   Endpoints: (-0.8524, 2.4553, 1.1882) -> (-0.8425, 2.4570, 1.1979)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3719,6 +4587,8 @@
 -   Face Indices: 97, 84
 -   Topology Vertices: 116 -> 126
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62122, 'journal_identifier': 'EDGE * 83 * 85 {(-0.8523622047244,2.4552687508269,1.1881775830051)(-0.8494793974526,2.4565180006473,1.1950242589695)(-0.8425196850394,2.4570354568657,1.1978602450112) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 256: Circular | Length: 0.0643 | Connected Faces: 2 | Tag: 61668
 -   Endpoints: (-0.8524, 2.8936, -0.1645) -> (-0.8524, 2.8528, -0.1166)
 -   Curve Props: Arc Length 0.0643 | Radius 0.0886 | Diameter 0.1772 | Min Curvature Radius 0.0886
@@ -3727,6 +4597,8 @@
 -   Face Indices: 70, 1
 -   Topology Vertices: 122 -> 118
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61668, 'journal_identifier': 'EDGE * 21 * 77 {(-0.8523622047244,2.8935693466348,-0.1644789949951)(-0.8523622047244,2.8775550982262,-0.1368049356395)(-0.8523622047244,2.8527592068832,-0.1166189631385) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 257: Linear | Length: 0.1654 | Connected Faces: 2 | Tag: 62066
 -   Endpoints: (0.4862, 3.6735, -2.3769) -> (0.4862, 3.7292, -2.5327)
 -   Curve Props: Arc Length 0.1654 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3735,6 +4607,8 @@
 -   Face Indices: 89, 47
 -   Topology Vertices: 120 -> 155
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62066, 'journal_identifier': 'EDGE * 18 * 41 {(0.4862204724409,3.6735297523868,-2.3769389338404)(0.4862204724409,3.7013448294029,-2.4547967219005)(0.4862204724409,3.7291599064189,-2.5326545099607) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 258: Linear | Length: 0.6934 | Connected Faces: 2 | Tag: 61992
 -   Endpoints: (0.8524, 3.5236, 0.6340) -> (0.8524, 2.8344, 0.7106)
 -   Curve Props: Arc Length 0.6934 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3743,6 +4617,8 @@
 -   Face Indices: 49, 102
 -   Topology Vertices: 158 -> 159
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 61992, 'journal_identifier': 'EDGE * 24 * 33 {(0.8523622047244,3.5236328562344,0.6340477623376)(0.8523622047244,3.1790361869454,0.6723380501118)(0.8523622047244,2.8344395176563,0.710628337886) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 259: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62156
 -   Endpoints: (0.6260, 4.5819, -2.2280) -> (0.6358, 4.5726, -2.2313)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3751,6 +4627,8 @@
 -   Face Indices: 46, 87
 -   Topology Vertices: 102 -> 160
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62156, 'journal_identifier': 'EDGE * 100 * 102 {(0.6259842519685,4.5818880613634,-2.2280131902613)(0.6329439643818,4.5791732972974,-2.2289830530516)(0.6358267716535,4.5726192770706,-2.2313245089537) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 260: Circular | Length: 0.3298 | Connected Faces: 2 | Tag: 61658
 -   Endpoints: (-0.8425, 2.4570, 1.1979) -> (-0.8425, 2.2805, 0.9900)
 -   Curve Props: Arc Length 0.3298 | Radius 0.1575 | Diameter 0.3150 | Min Curvature Radius 0.1575
@@ -3759,6 +4637,8 @@
 -   Face Indices: 10, 97
 -   Topology Vertices: 126 -> 29
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61658, 'journal_identifier': 'EDGE * 83 * 9 {(-0.8425196850394,2.4570354568657,1.1978602450112)(-0.8425196850394,2.3087349081797,1.144879145933)(-0.8425196850394,2.2804676115588,0.9899565538367) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 261: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62092
 -   Endpoints: (0.6260, 3.2788, -1.3884) -> (0.6358, 3.2854, -1.3957)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3767,6 +4647,8 @@
 -   Face Indices: 20, 8
 -   Topology Vertices: 138 -> 8
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62092, 'journal_identifier': 'EDGE * 68 * 70 {(0.6259842519685,3.2787814936992,-1.3883810245474)(0.6329439643818,3.2807064562011,-1.3905269735525)(0.6358267716535,3.2853537267802,-1.3957077527448) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 262: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62096
 -   Endpoints: (0.6260, 3.2960, -1.3203) -> (0.6358, 3.3053, -1.3170)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3775,6 +4657,8 @@
 -   Face Indices: 8, 35
 -   Topology Vertices: 113 -> 134
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62096, 'journal_identifier': 'EDGE * 70 * 72 {(0.6259842519685,3.296039421455,-1.3202975244526)(0.6329439643818,3.298754185521,-1.3193276616622)(0.6358267716535,3.3053082057479,-1.3169862057602) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 263: Circular | Length: 0.9153 | Connected Faces: 2 | Tag: 61860
 -   Endpoints: (0.6358, 4.2927, -2.3313) -> (0.6358, 4.2927, -2.3313)
 -   Curve Props: Arc Length 0.9153 | Radius 0.1457 | Diameter 0.2913 | Min Curvature Radius 0.1457
@@ -3783,6 +4667,8 @@
 -   Face Indices: 43, 80
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61860, 'journal_identifier': 'EDGE * 34 * 58 {(0.6358267716535,4.1293767345168,-2.5236372478001)(0.6358267716535,4.2927019914257,-2.3313263334637)(0.6358267716535,4.0444932257309,-2.2860379690692) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 264: Linear | Length: 0.7474 | Connected Faces: 2 | Tag: 62016
 -   Endpoints: (-0.4862, 4.3304, -1.5242) -> (-0.4862, 4.5819, -2.2280)
 -   Curve Props: Arc Length 0.7474 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -3791,6 +4677,8 @@
 -   Face Indices: 83, 103
 -   Topology Vertices: 94 -> 161
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62016, 'journal_identifier': 'EDGE * 42 * 6 {(-0.4862204724409,4.3304429839155,-1.5241877959463)(-0.4862204724409,4.4561655226395,-1.8761004931038)(-0.4862204724409,4.5818880613634,-2.2280131902613) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 265: Circular | Length: 0.0572 | Connected Faces: 2 | Tag: 62046
 -   Endpoints: (-0.7028, 2.8480, -0.1252) -> (-0.7028, 2.8843, -0.1678)
 -   Curve Props: Arc Length 0.0572 | Radius 0.0787 | Diameter 0.1575 | Min Curvature Radius 0.0787
@@ -3799,11 +4687,15 @@
 -   Face Indices: 93, 61
 -   Topology Vertices: 153 -> 107
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62046, 'journal_identifier': 'EDGE * 12 * 39 {(-0.7027559055118,2.8480248825627,-0.1252480631483)(-0.7027559055118,2.8700656748676,-0.1431911498158)(-0.7027559055118,2.8843005623419,-0.1677903136875) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 266: Elliptical | Length: 0.1218 | Connected Faces: 2 | Tag: 61648
 -   Endpoints: (-0.6260, 4.3200, -1.4949) -> (-0.6869, 4.2873, -1.4034)
 -   Face Tags: 61426, 61604
 -   Face Indices: 83, 41
 -   Topology Vertices: 3 -> 25
+-   Identity: {'tag': 61648, 'journal_identifier': 'EDGE * 6 * 95 {(-0.6259842519685,4.3199829089387,-1.4949087721936)(-0.6428067589989,4.2998069487686,-1.4384338025239)(-0.6868848425197,4.2872941173876,-1.4034088635987) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 267: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62158
 -   Endpoints: (-0.6358, 3.6828, -2.3736) -> (-0.6260, 3.6735, -2.3769)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3812,6 +4704,8 @@
 -   Face Indices: 21, 17
 -   Topology Vertices: 106 -> 136
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62158, 'journal_identifier': 'EDGE * 101 * 103 {(-0.6358267716535,3.6827985366797,-2.373627615148)(-0.6329439643818,3.6762445164529,-2.37596907105)(-0.6259842519685,3.6735297523868,-2.3769389338404) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 268: Circular | Length: 1.8613 | Connected Faces: 2 | Tag: 62064
 -   Endpoints: (-0.7028, 2.8134, 0.7020) -> (-0.7028, 3.5422, 0.6210)
 -   Curve Props: Arc Length 1.8613 | Radius 0.4350 | Diameter 0.8701 | Min Curvature Radius 0.4350
@@ -3820,6 +4714,8 @@
 -   Face Indices: 33, 61
 -   Topology Vertices: 73 -> 143
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62064, 'journal_identifier': 'EDGE * 14 * 39 {(-0.7027559055118,2.8134496665364,0.7019877562684)(-0.7027559055118,3.1039242498797,-0.003638152765)(-0.7027559055118,3.5422139145066,0.6210102098751) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 269: Circular | Length: 0.0155 | Connected Faces: 2 | Tag: 62090
 -   Endpoints: (-0.6358, 3.3053, -1.3170) -> (-0.6260, 3.2960, -1.3203)
 -   Curve Props: Arc Length 0.0155 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -3828,6 +4724,8 @@
 -   Face Indices: 81, 65
 -   Topology Vertices: 115 -> 141
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62090, 'journal_identifier': 'EDGE * 67 * 69 {(-0.6358267716535,3.3053082057479,-1.3169862057602)(-0.6329439643818,3.298754185521,-1.3193276616622)(-0.6259842519685,3.296039421455,-1.3202975244526) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 270: Circular | Length: 0.0237 | Connected Faces: 2 | Tag: 61832
 -   Endpoints: (0.8524, 2.8134, 0.7020) -> (0.8524, 2.8344, 0.7106)
 -   Curve Props: Arc Length 0.0237 | Radius 0.0236 | Diameter 0.0472 | Min Curvature Radius 0.0236
@@ -3836,6 +4734,8 @@
 -   Face Indices: 49, 6
 -   Topology Vertices: 7 -> 159
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 61832, 'journal_identifier': 'EDGE * 24 * 61 {(0.8523622047244,2.8134496665364,0.7019877562684)(0.8523622047244,2.8228387350384,0.7089944142725)(0.8523622047244,2.8344395176563,0.710628337886) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ### Faces
 - Total Faces: 110
@@ -3860,6 +4760,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 30, 9, 93, 70
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61568, 'journal_identifier': 'FACE 77 {(-0.8494793974526,2.8722592761822,-0.1413206709897) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 2: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61476
 -   Measure: Area 0.0098 | Perimeter 0.4204 | Radius/Diameter 0.0984 | Min Curvature Radius 0.0984
 -   Points: Center (0.7726, 3.7359, 0.1644) | Anchor (0.7726, 3.7359, 0.1644)
@@ -3874,6 +4776,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 90, 105, 3, 71
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61476, 'journal_identifier': 'FACE 31 {(0.7726377952756,3.7337973201387,0.1644225439335) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 3: Planar | Edges: 14 | Facets: None | Vertices: 14 | Tag: 61494
 -   Measure: Area 1.9688 | Perimeter 9.6276 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.7028, 3.2752, 0.0081) | Anchor (0.7028, 3.2752, 0.0081)
@@ -3888,6 +4792,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 64, 108, 2, 90, 31, 60, 16, 85, 77, 4, 105, 102, 25, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61494, 'journal_identifier': 'FACE 40 {(0.7027559055118,3.3087676137709,0.001109677518) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 4: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61466
 -   Measure: Area 0.1148 | Perimeter 1.9229 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.7726, 2.8612, 1.1241) | Anchor (0.7726, 2.8612, 1.1241)
@@ -3902,6 +4808,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 105, 77, 3, 11
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61466, 'journal_identifier': 'FACE 26 {(0.7726377952756,2.861213244247,1.124113651639) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 5: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61624
 -   Measure: Area 0.0004 | Perimeter 0.0853 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6317, 3.6039, -2.3327) | Anchor (-0.6317, 3.6039, -2.3327)
@@ -3915,6 +4823,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 17, 106, 99, 56
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61624, 'journal_identifier': 'FACE 105 {(-0.6323833408825,3.6038775300906,-2.3331188056104) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 6: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61536
 -   Measure: Area 0.0035 | Perimeter 0.3466 | Radius/Diameter 0.0236 | Min Curvature Radius 0.0236
 -   Points: Center (0.7776, 2.8232, 0.7081) | Anchor (0.7776, 2.8232, 0.7081)
@@ -3929,6 +4839,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 102, 25, 49, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61536, 'journal_identifier': 'FACE 61 {(0.7775590551181,2.8228387350384,0.7089944142725) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 7: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61418
 -   Measure: Area 0.0231 | Perimeter 0.6102 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.5561, 3.7013, -2.4548) | Anchor (-0.5561, 3.7013, -2.4548)
@@ -3943,6 +4855,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 99, 40, 103, 21
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61418, 'journal_identifier': 'FACE 2 {(-0.5561023622047,3.7013448294029,-2.4547967219005) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 8: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61554
 -   Measure: Area 0.0012 | Perimeter 0.1916 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.6324, 3.2977, -1.3569) | Anchor (0.6324, 3.2977, -1.3569)
@@ -3956,6 +4870,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 20, 35, 59, 43
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61554, 'journal_identifier': 'FACE 70 {(0.6329439643818,3.3005746185744,-1.357676149648) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 9: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61572
 -   Measure: Area 0.0071 | Perimeter 0.9411 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.8488, 2.6843, 0.0299) | Anchor (-0.8488, 2.6843, 0.0299)
@@ -3969,6 +4885,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 1, 36, 57, 70
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61572, 'journal_identifier': 'FACE 79 {(-0.8494793974526,2.6733411256299,0.0206156861851) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 10: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61432
 -   Measure: Area 0.0461 | Perimeter 0.9392 | Radius/Diameter 0.1575 | Min Curvature Radius 0.1575
 -   Points: Center (-0.7726, 2.3295, 1.1272) | Anchor (-0.7726, 2.3295, 1.1272)
@@ -3983,6 +4901,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 67, 53, 61, 97
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61432, 'journal_identifier': 'FACE 9 {(-0.7726377952756,2.3087349081797,1.144879145933) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 11: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61590
 -   Measure: Area 0.0127 | Perimeter 1.6743 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.8488, 2.8606, 1.1206) | Anchor (0.8488, 2.8606, 1.1206)
@@ -3997,6 +4917,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 23, 107, 4, 49
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61590, 'journal_identifier': 'FACE 88 {(0.8494793974526,2.8606957880286,1.1212776655974) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 12: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 61416
 -   Measure: Area 0.1663 | Perimeter 2.6708 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 3.5139, -2.3671) | Anchor (0.0000, 3.5139, -2.3671)
@@ -4011,6 +4933,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 99, 48, 38, 92, 75, 110, 106, 58
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61416, 'journal_identifier': 'FACE 1 {(0,3.5179399405089,-2.3656328354055) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 13: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61608
 -   Measure: Area 0.0120 | Perimeter 1.5879 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6323, 4.4476, -1.8627) | Anchor (-0.6323, 4.4476, -1.8627)
@@ -4025,6 +4949,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 41, 109, 83, 91
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61608, 'journal_identifier': 'FACE 97 {(-0.6329439643818,4.4482207210851,-1.8624308440178) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 14: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61630
 -   Measure: Area 0.0004 | Perimeter 0.0853 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6317, 3.6039, -2.3327) | Anchor (0.6317, 3.6039, -2.3327)
@@ -4038,6 +4964,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 50, 110, 48, 76
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61630, 'journal_identifier': 'FACE 108 {(0.6323886038959,3.6039435612666,-2.3331083578433) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 15: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61518
 -   Measure: Area 0.1009 | Perimeter 2.2670 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
 -   Points: Center (-0.6549, 3.7877, -1.3589) | Anchor (-0.6549, 3.7877, -1.3589)
@@ -4052,6 +4980,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 91, 27, 63, 41
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61518, 'journal_identifier': 'FACE 52 {(-0.6507801112361,3.7919784238192,-1.3566434841796) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 16: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61472
 -   Measure: Area 0.0641 | Perimeter 1.1969 | Radius/Diameter 0.6319 | Min Curvature Radius 0.6319
 -   Points: Center (0.7726, 2.6816, 0.0277) | Anchor (0.7726, 2.6816, 0.0277)
@@ -4066,6 +4996,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 85, 60, 3, 42
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61472, 'journal_identifier': 'FACE 29 {(0.7726377952756,2.6711475243153,0.018745207359) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 17: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61620
 -   Measure: Area 0.0012 | Perimeter 0.1916 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.6324, 3.6516, -2.3476) | Anchor (-0.6324, 3.6516, -2.3476)
@@ -4079,6 +5011,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 21, 5, 99, 91
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61620, 'journal_identifier': 'FACE 103 {(-0.6329439643818,3.6533538010009,-2.3451480448927) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 18: Cylindrical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 61508
 -   Measure: Area 0.3095 | Perimeter 2.7421 | Radius/Diameter 0.2362 | Min Curvature Radius 0.2362
 -   Points: Center (0.5434, 3.7658, -1.2894) | Anchor (0.5434, 3.7658, -1.2894)
@@ -4093,6 +5027,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 59, 108, 90, 47, 31
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61508, 'journal_identifier': 'FACE 47 {(0.5310804911887,3.7772725293096,-1.2824728225542) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 19: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61532
 -   Measure: Area 0.0035 | Perimeter 0.3466 | Radius/Diameter 0.0236 | Min Curvature Radius 0.0236
 -   Points: Center (-0.7776, 3.5340, 0.6291) | Anchor (-0.7776, 3.5340, 0.6291)
@@ -4107,6 +5043,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 61, 70, 68, 33
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61532, 'journal_identifier': 'FACE 59 {(-0.7775590551181,3.5345919847827,0.629907066118) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 20: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61550
 -   Measure: Area 0.0004 | Perimeter 0.0853 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6317, 3.2702, -1.3987) | Anchor (0.6317, 3.2702, -1.3987)
@@ -4120,6 +5058,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 29, 8, 59, 76
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61550, 'journal_identifier': 'FACE 68 {(0.6323833408825,3.2699204863546,-1.3983323688371) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 21: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61616
 -   Measure: Area 0.0026 | Perimeter 0.3616 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6323, 3.7047, -2.4536) | Anchor (-0.6323, 3.7047, -2.4536)
@@ -4134,6 +5074,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 109, 17, 7, 91
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61616, 'journal_identifier': 'FACE 101 {(-0.6329439643818,3.7040595934689,-2.4538268591102) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 22: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61428
 -   Measure: Area 0.1557 | Perimeter 2.5073 | Radius/Diameter 0.6319 | Min Curvature Radius 0.6319
 -   Points: Center (-0.7726, 3.6351, 0.6983) | Anchor (-0.7726, 3.6351, 0.6983)
@@ -4148,6 +5090,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 67, 98, 61, 88
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61428, 'journal_identifier': 'FACE 7 {(-0.7726377952756,3.7037749652159,0.7366269919832) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 23: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61586
 -   Measure: Area 0.0050 | Perimeter 0.6700 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.8487, 2.3317, 1.1254) | Anchor (0.8487, 2.3317, 1.1254)
@@ -4161,6 +5105,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 32, 11, 77, 49
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61586, 'journal_identifier': 'FACE 86 {(0.8494793974526,2.3109322160273,1.1430130226817) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 24: Planar | Edges: 9 | Facets: None | Vertices: 9 | Tag: 61458
 -   Measure: Area 0.1831 | Perimeter 2.9019 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.7378, 3.0999, -0.7714) | Anchor (-0.7378, 3.0999, -0.7714)
@@ -4175,6 +5121,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 73, 45, 62, 93, 61, 65, 63, 79, 30
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61458, 'journal_identifier': 'FACE 22 {(-0.6635379809342,3.0901699918985,-0.74404391907) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 25: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61478
 -   Measure: Area 0.2785 | Perimeter 4.0218 | Radius/Diameter 0.4350 | Min Curvature Radius 0.4350
 -   Points: Center (0.7776, 3.1330, 0.2584) | Anchor (0.7776, 3.1330, 0.2584)
@@ -4189,6 +5137,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 64, 6, 49, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61478, 'journal_identifier': 'FACE 32 {(0.7775590551181,3.1039242498797,-0.003638152765) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 26: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61452
 -   Measure: Area 0.1988 | Perimeter 3.1243 | Radius/Diameter 0.4528 | Min Curvature Radius 0.4528
 -   Points: Center (0.5561, 4.2525, -2.6518) | Anchor (0.5561, 4.2525, -2.6518)
@@ -4203,6 +5153,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 89, 90, 47, 87
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61452, 'journal_identifier': 'FACE 19 {(0.5561023622047,4.3078446437408,-2.8066979275833) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 27: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61504
 -   Measure: Area 0.3027 | Perimeter 2.6908 | Radius/Diameter 0.2362 | Min Curvature Radius 0.2362
 -   Points: Center (-0.7952, 3.7386, -1.2215) | Anchor (-0.7952, 3.7386, -1.2215)
@@ -4217,6 +5169,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 15, 70, 79, 34
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61504, 'journal_identifier': 'FACE 45 {(-0.8075021859766,3.7275702803037,-1.2284761002958) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 28: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 61528
 -   Measure: Area 0.0123 | Perimeter 1.7687 | Radius/Diameter N/A | Min Curvature Radius 0.1921
 -   Points: Center (-0.6310, 4.1555, -2.3803) | Anchor (-0.6310, 4.1555, -2.3803)
@@ -4230,6 +5184,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 91, 74
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61528, 'journal_identifier': 'FACE 57 {(-0.630905511811,4.2880675992793,-2.3329819928099) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 29: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61546
 -   Measure: Area 0.0043 | Perimeter 0.5771 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.5548, 3.1585, -1.4402) | Anchor (0.5548, 3.1585, -1.4402)
@@ -4243,6 +5199,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 39, 20, 100, 76
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61546, 'journal_identifier': 'FACE 66 {(0.5656233674736,3.1464831670353,-1.443679805452) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 30: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61564
 -   Measure: Area 0.0135 | Perimeter 1.7826 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.8488, 3.0350, -0.5790) | Anchor (-0.8488, 3.0350, -0.5790)
@@ -4257,6 +5215,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 79, 1, 70, 24
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61564, 'journal_identifier': 'FACE 75 {(-0.8494793974526,3.0343484318032,-0.5792237560363) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 31: Planar | Edges: 9 | Facets: None | Vertices: 9 | Tag: 61424
 -   Measure: Area 0.1831 | Perimeter 2.9019 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.7378, 3.0999, -0.7714) | Anchor (0.7378, 3.0999, -0.7714)
@@ -4271,6 +5231,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 59, 108, 18, 60, 3, 66, 82, 95, 35
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61424, 'journal_identifier': 'FACE 5 {(0.6635379809342,3.0901699918985,-0.74404391907) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 32: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61582
 -   Measure: Area 0.0127 | Perimeter 1.6743 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.8488, 2.4221, 0.6043) | Anchor (0.8488, 2.4221, 0.6043)
@@ -4285,6 +5247,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 42, 23, 85, 49
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61582, 'journal_identifier': 'FACE 84 {(0.8494793974526,2.4214048460126,0.6040248884233) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 33: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61442
 -   Measure: Area 0.2785 | Perimeter 4.0218 | Radius/Diameter 0.4350 | Min Curvature Radius 0.4350
 -   Points: Center (-0.7776, 3.1330, 0.2584) | Anchor (-0.7776, 3.1330, 0.2584)
@@ -4299,6 +5263,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 19, 51, 70, 61
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61442, 'journal_identifier': 'FACE 14 {(-0.7775590551181,3.1039242498797,-0.003638152765) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 34: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61600
 -   Measure: Area 0.0058 | Perimeter 0.6696 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.7912, 4.2498, -1.3128) | Anchor (-0.7912, 4.2498, -1.3128)
@@ -4312,6 +5278,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 44, 41, 83, 27
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61600, 'journal_identifier': 'FACE 93 {(-0.8062348194527,4.2529724269877,-1.3192016302142) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 35: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61558
 -   Measure: Area 0.0000 | Perimeter 0.0359 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6323, 3.2990, -1.3179) | Anchor (0.6323, 3.2990, -1.3179)
@@ -4326,6 +5294,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 8, 95, 31, 43
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61558, 'journal_identifier': 'FACE 72 {(0.6329439643818,3.2983312685617,-1.3181438655876) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 36: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61576
 -   Measure: Area 0.0127 | Perimeter 1.6743 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.8488, 2.4221, 0.6043) | Anchor (-0.8488, 2.4221, 0.6043)
@@ -4340,6 +5310,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 9, 97, 53, 70
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61576, 'journal_identifier': 'FACE 81 {(-0.8494793974526,2.4214048460126,0.6040248884233) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 37: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61448
 -   Measure: Area 0.8572 | Perimeter 3.7087 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 3.2660, -1.9268) | Anchor (0.0000, 3.2660, -1.9268)
@@ -4354,6 +5326,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 56, 76, 39, 58
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61448, 'journal_identifier': 'FACE 17 {(0,3.2660412776091,-1.9267653502867) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 38: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61500
 -   Measure: Area 0.0740 | Perimeter 2.1551 | Radius/Diameter 0.0472 | Min Curvature Radius 0.0472
 -   Points: Center (-0.4691, 3.4231, -1.8706) | Anchor (-0.4691, 3.4231, -1.8706)
@@ -4368,6 +5342,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 99, 73, 12, 75, 100, 103
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61500, 'journal_identifier': 'FACE 43 {(-0.4723829975364,3.4199576663777,-1.8717779647689) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 39: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61542
 -   Measure: Area 0.0136 | Perimeter 1.7868 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.0000, 3.1031, -1.4599) | Anchor (-0.0000, 3.1031, -1.4599)
@@ -4382,6 +5358,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 104, 29, 37, 100
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61542, 'journal_identifier': 'FACE 64 {(-0,3.1021731786308,-1.4595097663429) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 40: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61420
 -   Measure: Area 0.1988 | Perimeter 3.1243 | Radius/Diameter 0.4528 | Min Curvature Radius 0.4528
 -   Points: Center (-0.5561, 4.2525, -2.6518) | Anchor (-0.5561, 4.2525, -2.6518)
@@ -4396,6 +5374,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 7, 83, 103, 109
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61420, 'journal_identifier': 'FACE 3 {(-0.5561023622047,4.3078446437408,-2.8066979275833) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 41: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61604
 -   Measure: Area 0.0021 | Perimeter 0.2682 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6530, 4.2976, -1.4461) | Anchor (-0.6530, 4.2976, -1.4461)
@@ -4409,6 +5389,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 34, 13, 83, 15
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61604, 'journal_identifier': 'FACE 95 {(-0.6495127447122,4.2974624941198,-1.4437347463929) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 42: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61578
 -   Measure: Area 0.0071 | Perimeter 0.9411 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.8488, 2.6843, 0.0299) | Anchor (0.8488, 2.6843, 0.0299)
@@ -4422,6 +5404,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 52, 32, 16, 49
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61578, 'journal_identifier': 'FACE 82 {(0.8494793974526,2.6733411256299,0.0206156861851) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 43: Planar | Edges: 9 | Facets: None | Vertices: 9 | Tag: 61482
 -   Measure: Area 1.2040 | Perimeter 5.4354 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.6358, 3.9842, -2.0366) | Anchor (0.6358, 3.9842, -2.0366)
@@ -4436,6 +5420,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 80, 72, 76, 50, 101, 87, 46, 35, 8
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61482, 'journal_identifier': 'FACE 34 {(0.6358267716535,3.9917272911549,-1.9891352408645) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 44: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61596
 -   Measure: Area 0.0213 | Perimeter 2.7907 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.8488, 3.9683, -0.5211) | Anchor (-0.8488, 3.9683, -0.5211)
@@ -4450,6 +5436,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 54, 34, 83, 70
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61596, 'journal_identifier': 'FACE 91 {(-0.8494793974526,3.9689253294926,-0.5208246713902) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 45: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61514
 -   Measure: Area 0.1032 | Perimeter 2.3077 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
 -   Points: Center (-0.6837, 3.7167, -1.1520) | Anchor (-0.6837, 3.7167, -1.1520)
@@ -4464,6 +5452,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 83, 24, 61, 62
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61514, 'journal_identifier': 'FACE 50 {(-0.6878025659292,3.7128643857941,-1.1543054386704) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 46: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61614
 -   Measure: Area 0.0120 | Perimeter 1.5879 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6323, 4.4476, -1.8627) | Anchor (0.6323, 4.4476, -1.8627)
@@ -4478,6 +5468,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 55, 87, 90, 43
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61614, 'journal_identifier': 'FACE 100 {(0.6329439643818,4.4482207210851,-1.8624308440178) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 47: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 61496
 -   Measure: Area 1.2144 | Perimeter 5.3699 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.4862, 3.9936, -2.0570) | Anchor (0.4862, 3.9936, -2.0570)
@@ -4492,6 +5484,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 48, 59, 18, 92, 89, 26, 90, 96
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61496, 'journal_identifier': 'FACE 41 {(0.4862204724409,4.0011345249984,-2.0008393466944) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 48: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61526
 -   Measure: Area 0.0139 | Perimeter 0.4862 | Radius/Diameter 0.0630 | Min Curvature Radius 0.0630
 -   Points: Center (0.5556, 3.6383, -2.3468) | Anchor (0.5556, 3.6383, -2.3468)
@@ -4506,6 +5500,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 92, 47, 89, 12, 14, 50
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61526, 'journal_identifier': 'FACE 56 {(0.5512210139978,3.6411699445911,-2.3412003262466) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 49: Planar | Edges: 14 | Facets: None | Vertices: 14 | Tag: 61462
 -   Measure: Area 1.8876 | Perimeter 9.5231 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8524, 3.2724, 0.0148) | Anchor (0.8524, 3.2724, 0.0148)
@@ -4520,6 +5516,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 64, 78, 102, 25, 86, 71, 107, 11, 23, 32, 42, 52, 66, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61462, 'journal_identifier': 'FACE 24 {(0.8523622047244,3.3051376229229,0.0110949293357) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 50: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61626
 -   Measure: Area 0.0012 | Perimeter 0.1916 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.6324, 3.6516, -2.3476) | Anchor (0.6324, 3.6516, -2.3476)
@@ -4533,6 +5531,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 101, 14, 43, 48
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61626, 'journal_identifier': 'FACE 106 {(0.6329439643818,3.6533538010009,-2.3451480448927) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 51: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61538
 -   Measure: Area 0.0035 | Perimeter 0.3466 | Radius/Diameter 0.0236 | Min Curvature Radius 0.0236
 -   Points: Center (-0.7776, 2.8232, 0.7081) | Anchor (-0.7776, 2.8232, 0.7081)
@@ -4547,6 +5547,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 68, 33, 61, 70
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61538, 'journal_identifier': 'FACE 62 {(-0.7775590551181,2.8228387350384,0.7089944142725) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 52: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61574
 -   Measure: Area 0.0009 | Perimeter 0.1524 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.8489, 2.8715, -0.1420) | Anchor (0.8489, 2.8715, -0.1420)
@@ -4560,6 +5562,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 66, 42, 60, 49
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61574, 'journal_identifier': 'FACE 80 {(0.8494793974526,2.8722592761822,-0.1413206709897) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 53: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61434
 -   Measure: Area 0.1148 | Perimeter 1.9229 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.7726, 2.4187, 0.6031) | Anchor (-0.7726, 2.4187, 0.6031)
@@ -4574,6 +5578,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 10, 57, 61, 36
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61434, 'journal_identifier': 'FACE 10 {(-0.7726377952756,2.4186900819466,0.603055025633) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 54: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61592
 -   Measure: Area 0.0011 | Perimeter 0.1788 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.8489, 3.7323, 0.1644) | Anchor (-0.8489, 3.7323, 0.1644)
@@ -4587,6 +5593,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 88, 44, 98, 70
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61592, 'journal_identifier': 'FACE 89 {(-0.8494793974526,3.7309148227912,0.1644648145861) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 55: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61610
 -   Measure: Area 0.0021 | Perimeter 0.2682 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6530, 4.2976, -1.4461) | Anchor (0.6530, 4.2976, -1.4461)
@@ -4600,6 +5608,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 69, 46, 72, 90
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61610, 'journal_identifier': 'FACE 98 {(0.6495127447122,4.2974624941198,-1.4437347463929) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 56: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61486
 -   Measure: Area 0.3020 | Perimeter 2.5833 | Radius/Diameter 0.1969 | Min Curvature Radius 0.1969
 -   Points: Center (-0.5643, 3.3334, -1.9027) | Anchor (-0.5643, 3.3334, -1.9027)
@@ -4614,6 +5624,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 37, 91, 104, 94, 5, 106
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61486, 'journal_identifier': 'FACE 36 {(-0.5781706262178,3.3203365589296,-1.9073680944801) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 57: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61436
 -   Measure: Area 0.0641 | Perimeter 1.1969 | Radius/Diameter 0.6319 | Min Curvature Radius 0.6319
 -   Points: Center (-0.7726, 2.6816, 0.0277) | Anchor (-0.7726, 2.6816, 0.0277)
@@ -4628,6 +5640,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 53, 93, 61, 9
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61436, 'journal_identifier': 'FACE 11 {(-0.7726377952756,2.6711475243153,0.018745207359) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 58: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61632
 -   Measure: Area 0.0136 | Perimeter 1.7868 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.0000, 3.4358, -2.3912) | Anchor (-0.0000, 3.4358, -2.3912)
@@ -4642,6 +5656,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 106, 110, 37, 12
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61632, 'journal_identifier': 'FACE 109 {(-0,3.4353389047194,-2.3920812086499) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 59: Cylindrical | Edges: 7 | Facets: None | Vertices: 7 | Tag: 61520
 -   Measure: Area 0.0139 | Perimeter 0.4858 | Radius/Diameter 0.0630 | Min Curvature Radius 0.0630
 -   Points: Center (0.5556, 3.2879, -1.3659) | Anchor (0.5556, 3.2879, -1.3659)
@@ -4656,6 +5672,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 18, 47, 92, 31, 100, 8, 20
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61520, 'journal_identifier': 'FACE 53 {(0.5512210139978,3.2936502492056,-1.3684503757625) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 60: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61474
 -   Measure: Area 0.0080 | Perimeter 0.3938 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
 -   Points: Center (0.7726, 2.8688, -0.1443) | Anchor (0.7726, 2.8688, -0.1443)
@@ -4670,6 +5688,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 16, 31, 3, 52
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61474, 'journal_identifier': 'FACE 30 {(0.7726377952756,2.8700656748676,-0.1431911498158) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 61: Planar | Edges: 14 | Facets: None | Vertices: 14 | Tag: 61492
 -   Measure: Area 1.9688 | Perimeter 9.6276 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.7028, 3.2752, 0.0081) | Anchor (-0.7028, 3.2752, 0.0081)
@@ -4684,6 +5704,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 19, 45, 98, 83, 24, 93, 57, 53, 10, 67, 22, 68, 33, 51
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61492, 'journal_identifier': 'FACE 39 {(-0.7027559055118,3.3087676137709,0.001109677518) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 62: Cylindrical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 61510
 -   Measure: Area 0.3095 | Perimeter 2.7421 | Radius/Diameter 0.2362 | Min Curvature Radius 0.2362
 -   Points: Center (-0.5434, 3.7658, -1.2894) | Anchor (-0.5434, 3.7658, -1.2894)
@@ -4698,6 +5720,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 73, 45, 83, 24, 103
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61510, 'journal_identifier': 'FACE 48 {(-0.5310804911887,3.7772725293096,-1.2824728225542) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 63: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61556
 -   Measure: Area 0.0015 | Perimeter 0.2585 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6492, 3.2811, -1.2708) | Anchor (-0.6492, 3.2811, -1.2708)
@@ -4711,6 +5735,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 65, 79, 15, 24
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61556, 'journal_identifier': 'FACE 71 {(-0.6477646997779,3.2778788640763,-1.2637326824058) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 64: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61534
 -   Measure: Area 0.0035 | Perimeter 0.3466 | Radius/Diameter 0.0236 | Min Curvature Radius 0.0236
 -   Points: Center (0.7776, 3.5340, 0.6291) | Anchor (0.7776, 3.5340, 0.6291)
@@ -4725,6 +5751,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 49, 3, 102, 25
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61534, 'journal_identifier': 'FACE 60 {(0.7775590551181,3.5345919847827,0.629907066118) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 65: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61552
 -   Measure: Area 0.0000 | Perimeter 0.0359 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6323, 3.2990, -1.3179) | Anchor (-0.6323, 3.2990, -1.3179)
@@ -4739,6 +5767,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 81, 63, 24, 91
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61552, 'journal_identifier': 'FACE 69 {(-0.6329439643818,3.2983312685617,-1.3181438655876) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 66: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61570
 -   Measure: Area 0.0135 | Perimeter 1.7826 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.8488, 3.0350, -0.5790) | Anchor (0.8488, 3.0350, -0.5790)
@@ -4753,6 +5783,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 82, 52, 31, 49
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61570, 'journal_identifier': 'FACE 78 {(0.8494793974526,3.0343484318032,-0.5792237560363) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 67: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61430
 -   Measure: Area 0.1148 | Perimeter 1.9229 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.7726, 2.8612, 1.1241) | Anchor (-0.7726, 2.8612, 1.1241)
@@ -4767,6 +5799,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 22, 10, 61, 84
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61430, 'journal_identifier': 'FACE 8 {(-0.7726377952756,2.861213244247,1.124113651639) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 68: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61444
 -   Measure: Area 0.1037 | Perimeter 1.6861 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.7776, 3.1790, 0.6723) | Anchor (-0.7776, 3.1790, 0.6723)
@@ -4781,6 +5815,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 19, 51, 70, 61
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61444, 'journal_identifier': 'FACE 15 {(-0.7775590551181,3.1790361869454,0.6723380501118) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 69: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61606
 -   Measure: Area 0.0058 | Perimeter 0.6696 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.7912, 4.2498, -1.3128) | Anchor (0.7912, 4.2498, -1.3128)
@@ -4794,6 +5830,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 86, 55, 78, 90
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61606, 'journal_identifier': 'FACE 96 {(0.8062348194527,4.2529724269877,-1.3192016302142) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 70: Planar | Edges: 14 | Facets: None | Vertices: 14 | Tag: 61456
 -   Measure: Area 1.8876 | Perimeter 9.5231 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.8524, 3.2724, 0.0148) | Anchor (-0.8524, 3.2724, 0.0148)
@@ -4808,6 +5846,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 19, 27, 68, 33, 30, 1, 9, 36, 97, 84, 88, 54, 44, 51
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61456, 'journal_identifier': 'FACE 21 {(-0.8523622047244,3.3051376229229,0.0110949293357) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 71: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61598
 -   Measure: Area 0.0011 | Perimeter 0.1788 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.8489, 3.7323, 0.1644) | Anchor (0.8489, 3.7323, 0.1644)
@@ -4821,6 +5861,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 107, 86, 2, 49
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61598, 'journal_identifier': 'FACE 92 {(0.8494793974526,3.7309148227912,0.1644648145861) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 72: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61516
 -   Measure: Area 0.1009 | Perimeter 2.2670 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
 -   Points: Center (0.6549, 3.7877, -1.3589) | Anchor (0.6549, 3.7877, -1.3589)
@@ -4835,6 +5877,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 78, 43, 55, 95
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61516, 'journal_identifier': 'FACE 51 {(0.6507801112361,3.7919784238192,-1.3566434841796) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 73: Cylindrical | Edges: 7 | Facets: None | Vertices: 7 | Tag: 61522
 -   Measure: Area 0.0139 | Perimeter 0.4858 | Radius/Diameter 0.0630 | Min Curvature Radius 0.0630
 -   Points: Center (-0.5556, 3.2879, -1.3659) | Anchor (-0.5556, 3.2879, -1.3659)
@@ -4849,6 +5893,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 38, 103, 62, 24, 100, 94, 81
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61522, 'journal_identifier': 'FACE 54 {(-0.5512210139978,3.2936502492056,-1.3684503757625) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 74: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 61454
 -   Measure: Area 0.1193 | Perimeter 1.7068 | Radius/Diameter 0.1358 | Min Curvature Radius 0.1358
 -   Points: Center (-0.5561, 4.1555, -2.3803) | Anchor (-0.5561, 4.1555, -2.3803)
@@ -4863,6 +5909,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 28, 103
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61454, 'journal_identifier': 'FACE 20 {(-0.5561023622047,4.2834332071328,-2.3346376521561) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 75: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61490
 -   Measure: Area 0.8745 | Perimeter 3.7480 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 3.4069, -1.8764) | Anchor (0.0000, 3.4069, -1.8764)
@@ -4877,6 +5925,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 38, 92, 100, 12
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61490, 'journal_identifier': 'FACE 38 {(0,3.4069267988608,-1.8764333061625) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 76: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61488
 -   Measure: Area 0.3020 | Perimeter 2.5833 | Radius/Diameter 0.1969 | Min Curvature Radius 0.1969
 -   Points: Center (0.5643, 3.3334, -1.9027) | Anchor (0.5643, 3.3334, -1.9027)
@@ -4891,6 +5941,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 43, 37, 110, 14, 20, 29
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61488, 'journal_identifier': 'FACE 37 {(0.5781706262178,3.3203365589296,-1.9073680944801) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 77: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61468
 -   Measure: Area 0.0461 | Perimeter 0.9392 | Radius/Diameter 0.1575 | Min Curvature Radius 0.1575
 -   Points: Center (0.7726, 2.3295, 1.1272) | Anchor (0.7726, 2.3295, 1.1272)
@@ -4905,6 +5957,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 4, 85, 3, 23
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61468, 'journal_identifier': 'FACE 27 {(0.7726377952756,2.3087349081797,1.144879145933) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 78: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61506
 -   Measure: Area 0.3027 | Perimeter 2.6908 | Radius/Diameter 0.2362 | Min Curvature Radius 0.2362
 -   Points: Center (0.7952, 3.7386, -1.2215) | Anchor (0.7952, 3.7386, -1.2215)
@@ -4919,6 +5973,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 72, 49, 69, 82
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61506, 'journal_identifier': 'FACE 46 {(0.8075021859766,3.7275702803037,-1.2284761002958) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 79: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61560
 -   Measure: Area 0.0041 | Perimeter 0.6598 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.7994, 3.2267, -1.1184) | Anchor (-0.7994, 3.2267, -1.1184)
@@ -4932,6 +5988,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 63, 30, 27, 24
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61560, 'journal_identifier': 'FACE 73 {(-0.8044867745184,3.2333887969442,-1.1391995662271) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 80: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 61530
 -   Measure: Area 0.0123 | Perimeter 1.7687 | Radius/Diameter N/A | Min Curvature Radius 0.1921
 -   Points: Center (0.6310, 4.1555, -2.3803) | Anchor (0.6310, 4.1555, -2.3803)
@@ -4945,6 +6003,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 43, 96
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61530, 'journal_identifier': 'FACE 58 {(0.630905511811,4.022980368503,-2.4276857074121) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 81: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61548
 -   Measure: Area 0.0012 | Perimeter 0.1916 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.6324, 3.2977, -1.3569) | Anchor (-0.6324, 3.2977, -1.3569)
@@ -4958,6 +6018,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 94, 65, 91, 73
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61548, 'journal_identifier': 'FACE 67 {(-0.6329439643818,3.3005746185744,-1.357676149648) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 82: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61566
 -   Measure: Area 0.0041 | Perimeter 0.6598 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.7994, 3.2267, -1.1184) | Anchor (0.7994, 3.2267, -1.1184)
@@ -4971,6 +6033,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 95, 66, 31, 78
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61566, 'journal_identifier': 'FACE 76 {(0.8044867745184,3.2333887969442,-1.1391995662271) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 83: Planar | Edges: 10 | Facets: None | Vertices: 10 | Tag: 61426
 -   Measure: Area 0.3595 | Perimeter 5.4623 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.6908, 4.1635, -1.0569) | Anchor (-0.6908, 4.1635, -1.0569)
@@ -4985,6 +6049,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 45, 62, 40, 98, 103, 61, 44, 34, 41, 13
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61426, 'journal_identifier': 'FACE 6 {(-0.6643700787402,4.1607060769729,-1.0490735218025) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 84: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61584
 -   Measure: Area 0.0127 | Perimeter 1.6743 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.8488, 2.8606, 1.1206) | Anchor (-0.8488, 2.8606, 1.1206)
@@ -4999,6 +6065,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 97, 88, 67, 70
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61584, 'journal_identifier': 'FACE 85 {(-0.8494793974526,2.8606957880286,1.1212776655974) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 85: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61470
 -   Measure: Area 0.1148 | Perimeter 1.9229 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.7726, 2.4187, 0.6031) | Anchor (0.7726, 2.4187, 0.6031)
@@ -5013,6 +6081,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 77, 16, 3, 32
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61470, 'journal_identifier': 'FACE 28 {(0.7726377952756,2.4186900819466,0.603055025633) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 86: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61602
 -   Measure: Area 0.0213 | Perimeter 2.7907 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.8488, 3.9683, -0.5211) | Anchor (0.8488, 3.9683, -0.5211)
@@ -5027,6 +6097,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 71, 69, 49, 90
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61602, 'journal_identifier': 'FACE 94 {(0.8494793974526,3.9689253294926,-0.5208246713902) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 87: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61618
 -   Measure: Area 0.0218 | Perimeter 2.8447 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.6322, 4.2517, -2.6496) | Anchor (0.6322, 4.2517, -2.6496)
@@ -5040,6 +6112,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 46, 101, 26, 43
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61618, 'journal_identifier': 'FACE 102 {(0.6329439643818,4.3068747809505,-2.8039831635172) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 88: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61588
 -   Measure: Area 0.0171 | Perimeter 2.2413 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.8488, 3.6323, 0.6968) | Anchor (-0.8488, 3.6323, 0.6968)
@@ -5053,6 +6127,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 84, 54, 22, 70
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61588, 'journal_identifier': 'FACE 87 {(-0.8494793974526,3.7012575139603,0.7352223507685) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 89: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61450
 -   Measure: Area 0.0231 | Perimeter 0.6102 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.5561, 3.7013, -2.4548) | Anchor (0.5561, 3.7013, -2.4548)
@@ -5067,6 +6143,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 48, 26, 47, 101
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61450, 'journal_identifier': 'FACE 18 {(0.5561023622047,3.7013448294029,-2.4547967219005) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 90: Planar | Edges: 10 | Facets: None | Vertices: 10 | Tag: 61460
 -   Measure: Area 0.3595 | Perimeter 5.4623 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.6908, 4.1635, -1.0569) | Anchor (0.6908, 4.1635, -1.0569)
@@ -5081,6 +6159,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 108, 18, 26, 2, 3, 47, 46, 55, 69, 86
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61460, 'journal_identifier': 'FACE 23 {(0.6643700787402,4.1607060769729,-1.0490735218025) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 91: Planar | Edges: 9 | Facets: None | Vertices: 9 | Tag: 61484
 -   Measure: Area 1.2040 | Perimeter 5.4354 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.6358, 3.9842, -2.0366) | Anchor (-0.6358, 3.9842, -2.0366)
@@ -5095,6 +6175,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 28, 15, 56, 81, 65, 13, 109, 21, 17
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61484, 'journal_identifier': 'FACE 35 {(-0.6358267716535,3.9917272911549,-1.9891352408645) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 92: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61502
 -   Measure: Area 0.0740 | Perimeter 2.1551 | Radius/Diameter 0.0472 | Min Curvature Radius 0.0472
 -   Points: Center (0.4691, 3.4231, -1.8706) | Anchor (0.4691, 3.4231, -1.8706)
@@ -5109,6 +6191,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 48, 59, 47, 12, 75, 100
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61502, 'journal_identifier': 'FACE 44 {(0.4723829975364,3.4199576663777,-1.8717779647689) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 93: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61438
 -   Measure: Area 0.0080 | Perimeter 0.3938 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
 -   Points: Center (-0.7726, 2.8688, -0.1443) | Anchor (-0.7726, 2.8688, -0.1443)
@@ -5123,6 +6207,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 57, 24, 61, 1
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61438, 'journal_identifier': 'FACE 12 {(-0.7726377952756,2.8700656748676,-0.1431911498158) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 94: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61544
 -   Measure: Area 0.0004 | Perimeter 0.0853 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6317, 3.2702, -1.3987) | Anchor (-0.6317, 3.2702, -1.3987)
@@ -5136,6 +6222,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 104, 81, 73, 56
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61544, 'journal_identifier': 'FACE 65 {(-0.6323886038959,3.2699781901376,-1.3982986116827) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 95: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61562
 -   Measure: Area 0.0015 | Perimeter 0.2585 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6492, 3.2811, -1.2708) | Anchor (0.6492, 3.2811, -1.2708)
@@ -5149,6 +6237,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 35, 82, 31, 72
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61562, 'journal_identifier': 'FACE 74 {(0.6477646997779,3.2778788640763,-1.2637326824058) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 96: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 61422
 -   Measure: Area 0.1193 | Perimeter 1.7068 | Radius/Diameter 0.1358 | Min Curvature Radius 0.1358
 -   Points: Center (0.5561, 4.1555, -2.3803) | Anchor (0.5561, 4.1555, -2.3803)
@@ -5163,6 +6253,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 80, 47
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61422, 'journal_identifier': 'FACE 4 {(0.5561023622047,4.2834332071328,-2.3346376521561) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 97: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61580
 -   Measure: Area 0.0050 | Perimeter 0.6700 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.8487, 2.3317, 1.1254) | Anchor (-0.8487, 2.3317, 1.1254)
@@ -5176,6 +6268,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 36, 84, 10, 70
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61580, 'journal_identifier': 'FACE 83 {(-0.8494793974526,2.3109322160273,1.1430130226817) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 98: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61440
 -   Measure: Area 0.0098 | Perimeter 0.4204 | Radius/Diameter 0.0984 | Min Curvature Radius 0.0984
 -   Points: Center (-0.7726, 3.7359, 0.1644) | Anchor (-0.7726, 3.7359, 0.1644)
@@ -5190,6 +6284,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 83, 22, 61, 54
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61440, 'journal_identifier': 'FACE 13 {(-0.7726377952756,3.7337973201387,0.1644225439335) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 99: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61524
 -   Measure: Area 0.0139 | Perimeter 0.4862 | Radius/Diameter 0.0630 | Min Curvature Radius 0.0630
 -   Points: Center (-0.5556, 3.6383, -2.3468) | Anchor (-0.5556, 3.6383, -2.3468)
@@ -5204,6 +6300,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 103, 38, 12, 7, 17, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61524, 'journal_identifier': 'FACE 55 {(-0.5512210139978,3.6411699445911,-2.3412003262466) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 100: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 61446
 -   Measure: Area 0.1663 | Perimeter 2.6708 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 3.1788, -1.4291) | Anchor (0.0000, 3.1788, -1.4291)
@@ -5218,6 +6316,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 59, 73, 38, 92, 75, 29, 39, 104
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61446, 'journal_identifier': 'FACE 16 {(0,3.1828344888396,-1.4276318649665) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 101: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61622
 -   Measure: Area 0.0026 | Perimeter 0.3616 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6323, 3.7047, -2.4536) | Anchor (0.6323, 3.7047, -2.4536)
@@ -5232,6 +6332,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 87, 50, 89, 43
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61622, 'journal_identifier': 'FACE 104 {(0.6329439643818,3.7040595934689,-2.4538268591102) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 102: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61480
 -   Measure: Area 0.1037 | Perimeter 1.6861 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.7776, 3.1790, 0.6723) | Anchor (0.7776, 3.1790, 0.6723)
@@ -5246,6 +6348,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 64, 6, 49, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61480, 'journal_identifier': 'FACE 33 {(0.7775590551181,3.1790361869454,0.6723380501118) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 103: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 61498
 -   Measure: Area 1.2144 | Perimeter 5.3699 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.4862, 3.9936, -2.0570) | Anchor (-0.4862, 3.9936, -2.0570)
@@ -5260,6 +6364,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 99, 73, 62, 38, 83, 74, 7, 40
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61498, 'journal_identifier': 'FACE 42 {(-0.4862204724409,4.0011345249984,-2.0008393466944) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 104: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61540
 -   Measure: Area 0.0043 | Perimeter 0.5771 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.5548, 3.1585, -1.4402) | Anchor (-0.5548, 3.1585, -1.4402)
@@ -5273,6 +6379,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 39, 94, 56, 100
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61540, 'journal_identifier': 'FACE 63 {(-0.5656233674736,3.1464831670353,-1.443679805452) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 105: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61464
 -   Measure: Area 0.1557 | Perimeter 2.5073 | Radius/Diameter 0.6319 | Min Curvature Radius 0.6319
 -   Points: Center (0.7726, 3.6351, 0.6983) | Anchor (0.7726, 3.6351, 0.6983)
@@ -5287,6 +6395,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 4, 2, 3, 107
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61464, 'journal_identifier': 'FACE 25 {(0.7726377952756,3.7037749652159,0.7366269919832) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 106: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61628
 -   Measure: Area 0.0043 | Perimeter 0.5771 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.5548, 3.4912, -2.3713) | Anchor (-0.5548, 3.4912, -2.3713)
@@ -5300,6 +6410,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 58, 56, 12
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61628, 'journal_identifier': 'FACE 107 {(-0.5656233674736,3.4796488931239,-2.3762512477589) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 107: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61594
 -   Measure: Area 0.0171 | Perimeter 2.2413 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.8488, 3.6323, 0.6968) | Anchor (0.8488, 3.6323, 0.6968)
@@ -5313,6 +6425,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 11, 71, 105, 49
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61594, 'journal_identifier': 'FACE 90 {(0.8494793974526,3.7012575139603,0.7352223507685) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 108: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61512
 -   Measure: Area 0.1032 | Perimeter 2.3077 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
 -   Points: Center (0.6837, 3.7167, -1.1520) | Anchor (0.6837, 3.7167, -1.1520)
@@ -5327,6 +6441,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 90, 31, 18, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61512, 'journal_identifier': 'FACE 49 {(0.6878025659292,3.7128643857941,-1.1543054386704) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 109: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61612
 -   Measure: Area 0.0218 | Perimeter 2.8447 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.6322, 4.2517, -2.6496) | Anchor (-0.6322, 4.2517, -2.6496)
@@ -5340,6 +6456,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 13, 21, 40, 91
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61612, 'journal_identifier': 'FACE 99 {(-0.6329439643818,4.3068747809505,-2.8039831635172) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 110: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61634
 -   Measure: Area 0.0043 | Perimeter 0.5771 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.5548, 3.4912, -2.3713) | Anchor (0.5548, 3.4912, -2.3713)
@@ -5353,6 +6471,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 14, 58, 76, 12
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 61634, 'journal_identifier': 'FACE 110 {(0.5656233674736,3.4796488931239,-2.3762512477589) UNPARAMETERIZED_FEATURE(2)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ---
 ## Body 3
@@ -5377,15 +6497,15 @@
 - Radius Of Gyration: 0.2201
 - Centroid: (-0.6614, 4.1555, -2.3803)
 ### Bounding Box
-- X Min: -1.1594
-- Y Min: 0.0000
-- Z Min: -1.1594
-- X Max: 1.1594
-- Y Max: 3.7441
-- Z Max: 1.1594
-- Dx (Length): 2.3189
-- Dy (Width): 3.7441
-- Dz (Height): 2.3189
+- X Min: -0.5866
+- Y Min: 3.7441
+- Z Min: -0.5866
+- X Max: 0.5866
+- Y Max: 3.8661
+- Z Max: 0.5866
+- Dx (Length): 1.1732
+- Dy (Width): 0.1220
+- Dz (Height): 1.1732
 
 ### Features
 - Total Features: 1
@@ -5407,6 +6527,8 @@
 -   Face Indices: 7, 1
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62590, 'journal_identifier': 'EDGE * 2 * 8 {(-0.6358267716535,4.3920813730887,-2.2483904215025)(-0.6358267716535,4.1515116503298,-2.6511702729133)(-0.6358267716535,3.922978928255,-2.2414408559173) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 2: Circular | Length: 1.7316 | Connected Faces: 2 | Tag: 62576
 -   Endpoints: (-0.6823, 4.1514, -2.6559) -> (-0.6823, 4.1514, -2.6559)
 -   Curve Props: Arc Length 1.7316 | Radius 0.2756 | Diameter 0.5512 | Min Curvature Radius 0.2756
@@ -5415,6 +6537,8 @@
 -   Face Indices: 3, 8
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62576, 'journal_identifier': 'EDGE * 3 * 7 {(-0.6822834645669,4.3962073740631,-2.2460890826314)(-0.6822834645669,4.1514416677677,-2.6558941640086)(-0.6822834645669,3.9189229098427,-2.239018303693) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 3: Circular | Length: 0.9326 | Connected Faces: 2 | Tag: 62580
 -   Endpoints: (-0.6870, 4.1533, -2.5287) -> (-0.6870, 4.1533, -2.5287)
 -   Curve Props: Arc Length 0.9326 | Radius 0.1484 | Diameter 0.2969 | Min Curvature Radius 0.1484
@@ -5423,6 +6547,8 @@
 -   Face Indices: 2, 6
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62580, 'journal_identifier': 'EDGE * 1 * 6 {(-0.6870078740157,4.2851491811695,-2.3080334539113)(-0.6870078740157,4.1533253650647,-2.5287427620244)(-0.6870078740157,4.0280974054394,-2.3042253343973) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 4: Circular | Length: 0.9029 | Connected Faces: 2 | Tag: 62584
 -   Endpoints: (-0.6406, 4.1534, -2.5240) -> (-0.6406, 4.1534, -2.5240)
 -   Curve Props: Arc Length 0.9029 | Radius 0.1437 | Diameter 0.2874 | Min Curvature Radius 0.1437
@@ -5431,6 +6557,8 @@
 -   Face Indices: 4, 5
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62584, 'journal_identifier': 'EDGE * 4 * 5 {(-0.6405511811024,4.2810231801951,-2.3103347927823)(-0.6405511811024,4.1533953476268,-2.5240188709291)(-0.6405511811024,4.0321534238516,-2.3066478866216) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 5: Circular | Length: 0.9326 | Connected Faces: 2 | Tag: 62588
 -   Endpoints: (-0.6358, 4.1533, -2.5287) -> (-0.6358, 4.1533, -2.5287)
 -   Curve Props: Arc Length 0.9326 | Radius 0.1484 | Diameter 0.2969 | Min Curvature Radius 0.1484
@@ -5439,6 +6567,8 @@
 -   Face Indices: 7, 5
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62588, 'journal_identifier': 'EDGE * 2 * 5 {(-0.6358267716535,4.0280974054394,-2.3042253343973)(-0.6358267716535,4.1533253650647,-2.5287427620244)(-0.6358267716535,4.2851491811695,-2.3080334539113) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 6: Circular | Length: 1.7316 | Connected Faces: 2 | Tag: 62578
 -   Endpoints: (-0.6406, 4.1514, -2.6559) -> (-0.6406, 4.1514, -2.6559)
 -   Curve Props: Arc Length 1.7316 | Radius 0.2756 | Diameter 0.5512 | Min Curvature Radius 0.2756
@@ -5447,6 +6577,8 @@
 -   Face Indices: 3, 1
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62578, 'journal_identifier': 'EDGE * 3 * 8 {(-0.6405511811024,3.9189229098427,-2.239018303693)(-0.6405511811024,4.1514416677677,-2.6558941640086)(-0.6405511811024,4.3962073740631,-2.2460890826314) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 7: Circular | Length: 1.7019 | Connected Faces: 2 | Tag: 62582
 -   Endpoints: (-0.6870, 4.1515, -2.6512) -> (-0.6870, 4.1515, -2.6512)
 -   Curve Props: Arc Length 1.7019 | Radius 0.2709 | Diameter 0.5417 | Min Curvature Radius 0.2709
@@ -5455,6 +6587,8 @@
 -   Face Indices: 2, 8
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62582, 'journal_identifier': 'EDGE * 1 * 7 {(-0.6870078740157,3.922978928255,-2.2414408559173)(-0.6870078740157,4.1515116503298,-2.6511702729133)(-0.6870078740157,4.3920813730887,-2.2483904215025) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 8: Circular | Length: 0.9029 | Connected Faces: 2 | Tag: 62586
 -   Endpoints: (-0.6823, 4.1534, -2.5240) -> (-0.6823, 4.1534, -2.5240)
 -   Curve Props: Arc Length 0.9029 | Radius 0.1437 | Diameter 0.2874 | Min Curvature Radius 0.1437
@@ -5463,6 +6597,8 @@
 -   Face Indices: 4, 6
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62586, 'journal_identifier': 'EDGE * 4 * 6 {(-0.6822834645669,4.0321534238516,-2.3066478866216)(-0.6822834645669,4.1533953476268,-2.5240188709291)(-0.6822834645669,4.2810231801951,-2.3103347927823) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ### Faces
 - Total Faces: 8
@@ -5485,6 +6621,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 3, 7
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62574, 'journal_identifier': 'FACE 8 {(-0.638188976378,4.1595713087336,-2.107135481761) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 2: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62560
 -   Measure: Area 0.1613 | Perimeter 2.6345 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.6870, 4.1555, -2.3803) | Anchor (-0.6870, 4.1555, -2.3803)
@@ -5499,6 +6637,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6, 8
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62560, 'journal_identifier': 'FACE 1 {(-0.6870078740157,4.1555239838912,-2.380333850111) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 3: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62564
 -   Measure: Area 0.0723 | Perimeter 3.4632 | Radius/Diameter 0.2756 | Min Curvature Radius 0.2756
 -   Points: Center (-0.6614, 4.1555, -2.3803) | Anchor (-0.6614, 4.1555, -2.3803)
@@ -5513,6 +6653,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 8, 1
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62564, 'journal_identifier': 'FACE 3 {(-0.6614173228346,4.1514416677677,-2.6558941640086) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 4: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62566
 -   Measure: Area 0.0377 | Perimeter 1.8058 | Radius/Diameter 0.1437 | Min Curvature Radius 0.1437
 -   Points: Center (-0.6614, 4.1555, -2.3803) | Anchor (-0.6614, 4.1555, -2.3803)
@@ -5527,6 +6669,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62566, 'journal_identifier': 'FACE 4 {(-0.6614173228346,4.1533953476268,-2.5240188709291) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 5: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62568
 -   Measure: Area 0.0061 | Perimeter 1.8355 | Radius/Diameter N/A | Min Curvature Radius 0.2032
 -   Points: Center (-0.6382, 4.1555, -2.3803) | Anchor (-0.6382, 4.1555, -2.3803)
@@ -5540,6 +6684,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 4, 7
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62568, 'journal_identifier': 'FACE 5 {(-0.638188976378,4.1533603563457,-2.5263808164767) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 6: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62570
 -   Measure: Area 0.0061 | Perimeter 1.8355 | Radius/Diameter N/A | Min Curvature Radius 0.2032
 -   Points: Center (-0.6847, 4.1555, -2.3803) | Anchor (-0.6847, 4.1555, -2.3803)
@@ -5553,6 +6699,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 2, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62570, 'journal_identifier': 'FACE 6 {(-0.6846456692913,4.1576876114366,-2.2342868837452) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 7: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62562
 -   Measure: Area 0.1613 | Perimeter 2.6345 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.6358, 4.1555, -2.3803) | Anchor (-0.6358, 4.1555, -2.3803)
@@ -5567,6 +6715,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 1
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62562, 'journal_identifier': 'FACE 2 {(-0.6358267716535,4.1555239838912,-2.380333850111) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 8: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62572
 -   Measure: Area 0.0115 | Perimeter 3.4335 | Radius/Diameter N/A | Min Curvature Radius 0.3831
 -   Points: Center (-0.6846, 4.1555, -2.3803) | Anchor (-0.6846, 4.1555, -2.3803)
@@ -5580,6 +6730,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 3, 2
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62572, 'journal_identifier': 'FACE 7 {(-0.6846456692913,4.1514766590488,-2.6535322184609) UNPARAMETERIZED_FEATURE(3)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ---
 ## Body 4
@@ -5604,15 +6756,15 @@
 - Radius Of Gyration: 0.2201
 - Centroid: (0.6614, 4.1555, -2.3803)
 ### Bounding Box
-- X Min: -1.1594
-- Y Min: 0.0000
-- Z Min: -1.1594
-- X Max: 1.1594
-- Y Max: 3.7441
-- Z Max: 1.1594
-- Dx (Length): 2.3189
-- Dy (Width): 3.7441
-- Dz (Height): 2.3189
+- X Min: 0.6358
+- Y Min: 3.8799
+- Z Min: -2.6559
+- X Max: 0.6870
+- Y Max: 4.4311
+- Z Max: -2.1047
+- Dx (Length): 0.0512
+- Dy (Width): 0.5512
+- Dz (Height): 0.5512
 
 ### Features
 - Total Features: 1
@@ -5634,6 +6786,8 @@
 -   Face Indices: 8, 1
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62636, 'journal_identifier': 'EDGE * 4 * 5 {(0.6822834645669,4.279917060356,-2.3083874893452)(0.6822834645669,4.1556348217917,-2.5240345947673)(0.6822834645669,4.0310200695258,-2.3085794662204) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 2: Circular | Length: 1.7316 | Connected Faces: 2 | Tag: 62630
 -   Endpoints: (0.6823, 4.1557, -2.6559) -> (0.6823, 4.1557, -2.6559)
 -   Curve Props: Arc Length 1.7316 | Radius 0.2756 | Diameter 0.5512 | Min Curvature Radius 0.2756
@@ -5642,6 +6796,8 @@
 -   Face Indices: 7, 4
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62630, 'journal_identifier': 'EDGE * 3 * 8 {(0.6822834645669,3.9167493536013,-2.2427227029235)(0.6822834645669,4.1557365497278,-2.655924319315)(0.6822834645669,4.3940860483444,-2.2423545280945) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 3: Circular | Length: 1.7316 | Connected Faces: 2 | Tag: 62628
 -   Endpoints: (0.6406, 4.1557, -2.6559) -> (0.6406, 4.1557, -2.6559)
 -   Curve Props: Arc Length 1.7316 | Radius 0.2756 | Diameter 0.5512 | Min Curvature Radius 0.2756
@@ -5650,6 +6806,8 @@
 -   Face Indices: 7, 3
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62628, 'journal_identifier': 'EDGE * 3 * 7 {(0.6405511811024,4.3940860483444,-2.2423545280945)(0.6405511811024,4.1557365497278,-2.655924319315)(0.6405511811024,3.9167493536013,-2.2427227029235) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 4: Circular | Length: 1.7019 | Connected Faces: 2 | Tag: 62634
 -   Endpoints: (0.6358, 4.1557, -2.6512) -> (0.6358, 4.1557, -2.6512)
 -   Curve Props: Arc Length 1.7019 | Radius 0.2709 | Diameter 0.5417 | Min Curvature Radius 0.2709
@@ -5658,6 +6816,8 @@
 -   Face Indices: 5, 3
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62634, 'journal_identifier': 'EDGE * 1 * 7 {(0.6358267716535,3.9208426329777,-2.245081751161)(0.6358267716535,4.155732905742,-2.6511999112715)(0.6358267716535,4.3899964129537,-2.2447198879005) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 5: Circular | Length: 0.9029 | Connected Faces: 2 | Tag: 62638
 -   Endpoints: (0.6406, 4.1556, -2.5240) -> (0.6406, 4.1556, -2.5240)
 -   Curve Props: Arc Length 0.9029 | Radius 0.1437 | Diameter 0.2874 | Min Curvature Radius 0.1437
@@ -5666,6 +6826,8 @@
 -   Face Indices: 8, 2
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62638, 'journal_identifier': 'EDGE * 4 * 6 {(0.6405511811024,4.0310200695258,-2.3085794662204)(0.6405511811024,4.1556348217917,-2.5240345947673)(0.6405511811024,4.279917060356,-2.3083874893452) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 6: Circular | Length: 0.9326 | Connected Faces: 2 | Tag: 62632
 -   Endpoints: (0.6358, 4.1556, -2.5288) -> (0.6358, 4.1556, -2.5288)
 -   Curve Props: Arc Length 0.9326 | Radius 0.1484 | Diameter 0.2969 | Min Curvature Radius 0.1484
@@ -5674,6 +6836,8 @@
 -   Face Indices: 5, 2
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62632, 'journal_identifier': 'EDGE * 1 * 6 {(0.6358267716535,4.2840066957467,-2.3060221295392)(0.6358267716535,4.1556384657775,-2.5287590028108)(0.6358267716535,4.0269267901494,-2.3062204179829) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 7: Circular | Length: 0.9326 | Connected Faces: 2 | Tag: 62640
 -   Endpoints: (0.6870, 4.1556, -2.5288) -> (0.6870, 4.1556, -2.5288)
 -   Curve Props: Arc Length 0.9326 | Radius 0.1484 | Diameter 0.2969 | Min Curvature Radius 0.1484
@@ -5682,6 +6846,8 @@
 -   Face Indices: 6, 1
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62640, 'journal_identifier': 'EDGE * 2 * 5 {(0.6870078740157,4.0269267901494,-2.3062204179829)(0.6870078740157,4.1556384657775,-2.5287590028108)(0.6870078740157,4.2840066957467,-2.3060221295392) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 8: Circular | Length: 1.7019 | Connected Faces: 2 | Tag: 62642
 -   Endpoints: (0.6870, 4.1557, -2.6512) -> (0.6870, 4.1557, -2.6512)
 -   Curve Props: Arc Length 1.7019 | Radius 0.2709 | Diameter 0.5417 | Min Curvature Radius 0.2709
@@ -5690,6 +6856,8 @@
 -   Face Indices: 6, 4
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62642, 'journal_identifier': 'EDGE * 2 * 8 {(0.6870078740157,4.3899964129537,-2.2447198879005)(0.6870078740157,4.155732905742,-2.6511999112715)(0.6870078740157,3.9208426329777,-2.245081751161) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ### Faces
 - Total Faces: 8
@@ -5712,6 +6880,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 8, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62620, 'journal_identifier': 'FACE 5 {(0.6846456692913,4.1556366437846,-2.5263967987891) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 2: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62622
 -   Measure: Area 0.0061 | Perimeter 1.8355 | Radius/Diameter N/A | Min Curvature Radius 0.2032
 -   Points: Center (0.6382, 4.1555, -2.3803) | Anchor (0.6382, 4.1555, -2.3803)
@@ -5725,6 +6895,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 8
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62622, 'journal_identifier': 'FACE 6 {(0.638188976378,4.1554113239977,-2.2342709014329) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 3: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62624
 -   Measure: Area 0.0115 | Perimeter 3.4335 | Radius/Diameter N/A | Min Curvature Radius 0.3831
 -   Points: Center (0.6382, 4.1555, -2.3803) | Anchor (0.6382, 4.1555, -2.3803)
@@ -5738,6 +6910,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 7, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62624, 'journal_identifier': 'FACE 7 {(0.638188976378,4.1557347277349,-2.6535621152932) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 4: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62626
 -   Measure: Area 0.0115 | Perimeter 3.4335 | Radius/Diameter N/A | Min Curvature Radius 0.3831
 -   Points: Center (0.6846, 4.1555, -2.3803) | Anchor (0.6846, 4.1555, -2.3803)
@@ -5751,6 +6925,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 7, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62626, 'journal_identifier': 'FACE 8 {(0.6846456692913,4.1553132400474,-2.1071055849288) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 5: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62612
 -   Measure: Area 0.1613 | Perimeter 2.6345 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.6358, 4.1555, -2.3803) | Anchor (0.6358, 4.1555, -2.3803)
@@ -5765,6 +6941,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 2, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62612, 'journal_identifier': 'FACE 1 {(0.6358267716535,4.1555239838912,-2.380333850111) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 6: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62614
 -   Measure: Area 0.1613 | Perimeter 2.6345 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.6870, 4.1555, -2.3803) | Anchor (0.6870, 4.1555, -2.3803)
@@ -5779,6 +6957,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 1, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62614, 'journal_identifier': 'FACE 2 {(0.6870078740157,4.1555239838912,-2.380333850111) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 7: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62616
 -   Measure: Area 0.0723 | Perimeter 3.4632 | Radius/Diameter 0.2756 | Min Curvature Radius 0.2756
 -   Points: Center (0.6614, 4.1555, -2.3803) | Anchor (0.6614, 4.1555, -2.3803)
@@ -5793,6 +6973,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 3, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62616, 'journal_identifier': 'FACE 3 {(0.6614173228346,4.1557365497278,-2.655924319315) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 8: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62618
 -   Measure: Area 0.0377 | Perimeter 1.8058 | Radius/Diameter 0.1437 | Min Curvature Radius 0.1437
 -   Points: Center (0.6614, 4.1555, -2.3803) | Anchor (0.6614, 4.1555, -2.3803)
@@ -5807,6 +6989,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 1, 2
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62618, 'journal_identifier': 'FACE 4 {(0.6614173228346,4.1556348217917,-2.5240345947673) UNPARAMETERIZED_FEATURE(4)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 50, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ---
 ## Body 5
@@ -5831,15 +7015,15 @@
 - Radius Of Gyration: 0.5478
 - Centroid: (-0.0000, 4.1555, -2.3803)
 ### Bounding Box
-- X Min: -0.9508
-- Y Min: 4.0197
-- Z Min: -2.5162
-- X Max: 0.9508
-- Y Max: 4.2914
-- Z Max: -2.2445
-- Dx (Length): 1.9016
-- Dy (Width): 0.2717
-- Dz (Height): 0.2717
+- X Min: 0.6358
+- Y Min: 3.8799
+- Z Min: -2.6559
+- X Max: 0.6870
+- Y Max: 4.4311
+- Z Max: -2.1047
+- Dx (Length): 0.0512
+- Dy (Width): 0.5512
+- Dz (Height): 0.5512
 
 ### Features
 - Total Features: 1
@@ -5862,6 +7046,8 @@
 -   Face Indices: 10, 6
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62702, 'journal_identifier': 'EDGE * 2 * 5 {(-0.9507874015748,4.0849448261533,-2.2880978242273)(-0.9507874015748,4.1109348212007,-2.4875752066315)(-0.9507874015748,4.2706923043195,-2.3653285194742) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 2: Circular | Length: 0.8534 | Connected Faces: 2 | Tag: 62706
 -   Endpoints: (0.9311, 4.1034, -2.5058) -> (0.9311, 4.1034, -2.5058)
 -   Curve Props: Arc Length 0.8534 | Radius 0.1358 | Diameter 0.2717 | Min Curvature Radius 0.1358
@@ -5870,16 +7056,22 @@
 -   Face Indices: 3, 5
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62706, 'journal_identifier': 'EDGE * 1 * 4 {(0.9311023622047,4.0729822570452,-2.2724645995012)(0.9311023622047,4.1033773359989,-2.5057517077367)(0.9311023622047,4.2902123586294,-2.362785243095) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 3: SpCurve | Length: 0.2879 | Connected Faces: 2 | Tag: 62690
 -   Endpoints: (0.7087, 4.2047, -2.2620) -> (0.7087, 4.2047, -2.2620)
 -   Face Tags: 62676, 62678
 -   Face Indices: 9, 11
 -   Topology Vertices: 1 -> 1
+-   Identity: {'tag': 62690, 'journal_identifier': 'EDGE * 7 * 8 {(0.7766655541629,4.1657413574016,-2.2537667926156)(0.7086614173228,4.2047144499961,-2.2620259027384)(0.7766666378919,4.2380538886648,-2.2838328709763) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 4: SpCurve | Length: 0.3232 | Connected Faces: 2 | Tag: 62700
 -   Endpoints: (-0.7045, 4.1034, -2.5058) -> (-0.7045, 4.1034, -2.5058)
 -   Face Tags: 62664, 62684
 -   Face Indices: 3, 4
 -   Topology Vertices: 1 -> 1
+-   Identity: {'tag': 62700, 'journal_identifier': 'EDGE * 1 * 11 {(-0.7792671567329,4.147845753122,-2.5159434246092)(-0.7045264311526,4.1033773359989,-2.5057517077367)(-0.7792671946438,4.064791854578,-2.4814110118445) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 5: Circular | Length: 0.8534 | Connected Faces: 2 | Tag: 62708
 -   Endpoints: (-0.9311, 4.1034, -2.5058) -> (-0.9311, 4.1034, -2.5058)
 -   Curve Props: Arc Length 0.8534 | Radius 0.1358 | Diameter 0.2717 | Min Curvature Radius 0.1358
@@ -5888,21 +7080,29 @@
 -   Face Indices: 3, 6
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62708, 'journal_identifier': 'EDGE * 1 * 5 {(-0.9311023622047,4.2902123586294,-2.362785243095)(-0.9311023622047,4.1033773359989,-2.5057517077367)(-0.9311023622047,4.0729822570452,-2.2724645995012) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 6: SpCurve | Length: 0.2879 | Connected Faces: 2 | Tag: 62686
 -   Endpoints: (-0.7992, 4.2047, -2.2620) -> (-0.7992, 4.2047, -2.2620)
 -   Face Tags: 62674, 62682
 -   Face Indices: 7, 2
 -   Topology Vertices: 1 -> 1
+-   Identity: {'tag': 62686, 'journal_identifier': 'EDGE * 10 * 6 {(-0.7312084615851,4.1657413574016,-2.2537667926156)(-0.7992125984252,4.2047144499961,-2.2620259027384)(-0.7312073778562,4.2380538886648,-2.2838328709763) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 7: SpCurve | Length: 0.3232 | Connected Faces: 2 | Tag: 62696
 -   Endpoints: (0.8033, 4.1034, -2.5058) -> (0.8033, 4.1034, -2.5058)
 -   Face Tags: 62664, 62680
 -   Face Indices: 3, 1
 -   Topology Vertices: 1 -> 1
+-   Identity: {'tag': 62696, 'journal_identifier': 'EDGE * 1 * 9 {(0.7286068590152,4.147845753122,-2.5159434246092)(0.8033475845954,4.1033773359989,-2.5057517077367)(0.7286068211043,4.064791854578,-2.4814110118445) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 8: SpCurve | Length: 0.3232 | Connected Faces: 2 | Tag: 62694
 -   Endpoints: (0.7045, 4.2077, -2.2549) -> (0.7045, 4.2077, -2.2549)
 -   Face Tags: 62664, 62678
 -   Face Indices: 3, 11
 -   Topology Vertices: 1 -> 1
+-   Identity: {'tag': 62694, 'journal_identifier': 'EDGE * 1 * 8 {(0.7792671582189,4.2462561320164,-2.2792567052173)(0.7045264311526,4.2076706317834,-2.2549159924853)(0.7792671939961,4.1632022404273,-2.2447242771034) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 9: Circular | Length: 0.7297 | Connected Faces: 2 | Tag: 62704
 -   Endpoints: (0.9508, 4.1109, -2.4876) -> (0.9508, 4.1109, -2.4876)
 -   Curve Props: Arc Length 0.7297 | Radius 0.1161 | Diameter 0.2323 | Min Curvature Radius 0.1161
@@ -5911,21 +7111,29 @@
 -   Face Indices: 8, 5
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62704, 'journal_identifier': 'EDGE * 3 * 4 {(0.9507874015748,4.2706923043195,-2.3653285194742)(0.9507874015748,4.1109348212007,-2.4875752066315)(0.9507874015748,4.0849448261533,-2.2880978242273) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 10: SpCurve | Length: 0.2879 | Connected Faces: 2 | Tag: 62688
 -   Endpoints: (-0.7087, 4.1063, -2.4986) -> (-0.7087, 4.1063, -2.4986)
 -   Face Tags: 62674, 62684
 -   Face Indices: 7, 4
 -   Topology Vertices: 1 -> 1
+-   Identity: {'tag': 62688, 'journal_identifier': 'EDGE * 11 * 6 {(-0.776665552561,4.0729935909008,-2.4768343629771)(-0.7086614173228,4.1063335177862,-2.4986417974836)(-0.7766666362899,4.1453059374945,-2.5069008903301) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 11: SpCurve | Length: 0.3232 | Connected Faces: 2 | Tag: 62698
 -   Endpoints: (-0.8033, 4.2077, -2.2549) -> (-0.8033, 4.2077, -2.2549)
 -   Face Tags: 62664, 62682
 -   Face Indices: 3, 2
 -   Topology Vertices: 1 -> 1
+-   Identity: {'tag': 62698, 'journal_identifier': 'EDGE * 1 * 10 {(-0.7286068575291,4.2462561320164,-2.2792567052173)(-0.8033475845954,4.2076706317834,-2.2549159924853)(-0.728606821752,4.1632022404273,-2.2447242771034) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 12: SpCurve | Length: 0.2879 | Connected Faces: 2 | Tag: 62692
 -   Endpoints: (0.7992, 4.1063, -2.4986) -> (0.7992, 4.1063, -2.4986)
 -   Face Tags: 62676, 62680
 -   Face Indices: 9, 1
 -   Topology Vertices: 1 -> 1
+-   Identity: {'tag': 62692, 'journal_identifier': 'EDGE * 7 * 9 {(0.7312084631871,4.0729935909008,-2.4768343629771)(0.7992125984252,4.1063335177862,-2.4986417974836)(0.7312073794581,4.1453059374945,-2.5069008903301) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ### Faces
 - Total Faces: 11
@@ -5949,6 +7157,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 9, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62680, 'journal_identifier': 'FACE 9 {(0.7065939244168,4.1048593484142,-2.5021983830329) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 15, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 2: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62682
 -   Measure: Area 0.0029 | Perimeter 0.6111 | Radius/Diameter N/A | Min Curvature Radius 0.0438
 -   Points: Center (-0.7540, 4.2042, -2.2632) | Anchor (-0.7540, 4.2042, -2.2632)
@@ -5962,6 +7172,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 7, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62682, 'journal_identifier': 'FACE 10 {(-0.7065939244168,4.2061964623544,-2.2584725781716) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 15, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 3: Cylindrical | Edges: 6 | Facets: None | Vertices: 1 | Tag: 62664
 -   Measure: Area 1.5561 | Perimeter 2.9998 | Radius/Diameter 0.1358 | Min Curvature Radius 0.1358
 -   Points: Center (0.0000, 4.1555, -2.3803) | Anchor (0.0000, 4.1555, -2.3803)
@@ -5976,6 +7188,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 11, 1, 2, 4, 5, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62664, 'journal_identifier': 'FACE 1 {(0,4.1033773359989,-2.5057517077367) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 15, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 4: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62684
 -   Measure: Area 0.0029 | Perimeter 0.6111 | Radius/Diameter N/A | Min Curvature Radius 0.0438
 -   Points: Center (-0.7539, 4.1068, -2.4975) | Anchor (-0.7539, 4.1068, -2.4975)
@@ -5989,6 +7203,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 7, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62684, 'journal_identifier': 'FACE 11 {(-0.8012800913312,4.1048593484142,-2.5021983830329) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 15, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 5: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62670
 -   Measure: Area 0.0220 | Perimeter 1.5832 | Radius/Diameter N/A | Min Curvature Radius 0.1642
 -   Points: Center (0.9407, 4.1555, -2.3803) | Anchor (0.9407, 4.1555, -2.3803)
@@ -6002,6 +7218,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 8, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62670, 'journal_identifier': 'FACE 4 {(0.9409448818898,4.2038918891826,-2.2640042430379) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 15, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 6: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62672
 -   Measure: Area 0.0220 | Perimeter 1.5832 | Radius/Diameter N/A | Min Curvature Radius 0.1642
 -   Points: Center (-0.9407, 4.1555, -2.3803) | Anchor (-0.9407, 4.1555, -2.3803)
@@ -6015,6 +7233,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 10, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62672, 'journal_identifier': 'FACE 5 {(-0.9409448818898,4.1071560785998,-2.4966634571841) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 15, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 7: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62674
 -   Measure: Area 0.0701 | Perimeter 0.5757 | Radius/Diameter 0.0453 | Min Curvature Radius 0.0453
 -   Points: Center (-0.7539, 4.1555, -2.3803) | Anchor (-0.7539, 4.1555, -2.3803)
@@ -6029,6 +7249,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 2, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62674, 'journal_identifier': 'FACE 6 {(-0.7992125984252,4.1555239806262,-2.3803338579636) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 15, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 8: Planar | Edges: 1 | Facets: None | Vertices: 1 | Tag: 62668
 -   Measure: Area 0.0424 | Perimeter 0.7297 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9508, 4.1555, -2.3803) | Anchor (0.9508, 4.1555, -2.3803)
@@ -6043,6 +7265,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62668, 'journal_identifier': 'FACE 3 {(0.9507874015748,4.1555239838912,-2.380333850111) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 15, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 9: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62676
 -   Measure: Area 0.0701 | Perimeter 0.5757 | Radius/Diameter 0.0453 | Min Curvature Radius 0.0453
 -   Points: Center (0.7539, 4.1555, -2.3803) | Anchor (0.7539, 4.1555, -2.3803)
@@ -6057,6 +7281,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 11, 1
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62676, 'journal_identifier': 'FACE 7 {(0.7086614173228,4.1555239806262,-2.3803338579636) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 15, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 10: Planar | Edges: 1 | Facets: None | Vertices: 1 | Tag: 62666
 -   Measure: Area 0.0424 | Perimeter 0.7297 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.9508, 4.1555, -2.3803) | Anchor (-0.9508, 4.1555, -2.3803)
@@ -6071,6 +7297,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62666, 'journal_identifier': 'FACE 2 {(-0.9507874015748,4.1555239838912,-2.380333850111) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 15, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 11: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62678
 -   Measure: Area 0.0029 | Perimeter 0.6111 | Radius/Diameter N/A | Min Curvature Radius 0.0438
 -   Points: Center (0.7539, 4.2042, -2.2632) | Anchor (0.7539, 4.2042, -2.2632)
@@ -6084,6 +7312,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 9, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62678, 'journal_identifier': 'FACE 8 {(0.8012800913312,4.2061964623544,-2.2584725781716) UNPARAMETERIZED_FEATURE(5)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 15, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ---
 ## Body 6
@@ -6108,15 +7338,15 @@
 - Radius Of Gyration: 0.9624
 - Centroid: (0.0000, 0.2264, 0.0000)
 ### Bounding Box
-- X Min: -0.9508
-- Y Min: 4.0197
-- Z Min: -2.5162
-- X Max: 0.9508
-- Y Max: 4.2914
-- Z Max: -2.2445
-- Dx (Length): 1.9016
-- Dy (Width): 0.2717
-- Dz (Height): 0.2717
+- X Min: 0.6358
+- Y Min: 3.8799
+- Z Min: -2.6559
+- X Max: 0.6870
+- Y Max: 4.4311
+- Z Max: -2.1047
+- Dx (Length): 0.0512
+- Dy (Width): 0.5512
+- Dz (Height): 0.5512
 
 ### Features
 - Total Features: 1
@@ -6138,6 +7368,8 @@
 -   Face Indices: 4, 5
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62761, 'journal_identifier': 'EDGE * 5 * 6 {(0.7490778787852,0.255905511811,0.4324803149606)(0,0.255905511811,-0.8649606299213)(-0.7490778787852,0.255905511811,0.4324803149606) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 2: Circular | Length: 6.1273 | Connected Faces: 2 | Tag: 62757
 -   Endpoints: (0.0000, 0.3189, -0.9752) -> (0.0000, 0.3189, -0.9752)
 -   Curve Props: Arc Length 6.1273 | Radius 0.9752 | Diameter 1.9504 | Min Curvature Radius 0.9752
@@ -6146,6 +7378,8 @@
 -   Face Indices: 2, 3
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62757, 'journal_identifier': 'EDGE * 3 * 4 {(0.8445452461315,0.3188976377953,0.4875984251969)(0,0.3188976377953,-0.9751968503937)(-0.8445452461315,0.3188976377953,0.4875984251969) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 3: Circular | Length: 6.6221 | Connected Faces: 2 | Tag: 62755
 -   Endpoints: (0.0000, 0.2402, -1.0539) -> (0.0000, 0.2402, -1.0539)
 -   Curve Props: Arc Length 6.6221 | Radius 1.0539 | Diameter 2.1079 | Min Curvature Radius 1.0539
@@ -6154,6 +7388,8 @@
 -   Face Indices: 1, 2
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62755, 'journal_identifier': 'EDGE * 2 * 3 {(0.9127362228075,0.240157480315,0.526968503937)(0,0.240157480315,-1.053937007874)(-0.9127362228075,0.240157480315,0.526968503937) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 4: Circular | Length: 6.1273 | Connected Faces: 2 | Tag: 62767
 -   Endpoints: (0.0000, 0.1339, -0.9752) -> (0.0000, 0.1339, -0.9752)
 -   Curve Props: Arc Length 6.1273 | Radius 0.9752 | Diameter 1.9504 | Min Curvature Radius 0.9752
@@ -6162,6 +7398,8 @@
 -   Face Indices: 8, 7
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62767, 'journal_identifier': 'EDGE * 1 * 8 {(0.8445452461315,0.1338582677165,0.4875984251969)(0,0.1338582677165,-0.9751968503937)(-0.8445452461315,0.1338582677165,0.4875984251969) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 5: Circular | Length: 5.8305 | Connected Faces: 2 | Tag: 62759
 -   Endpoints: (0.0000, 0.3189, -0.9280) -> (0.0000, 0.3189, -0.9280)
 -   Curve Props: Arc Length 5.8305 | Radius 0.9280 | Diameter 1.8559 | Min Curvature Radius 0.9280
@@ -6170,6 +7408,8 @@
 -   Face Indices: 3, 4
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62759, 'journal_identifier': 'EDGE * 4 * 5 {(0.803630660126,0.3188976377953,0.4639763779528)(0,0.3188976377953,-0.9279527559055)(-0.803630660126,0.3188976377953,0.4639763779528) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 6: Circular | Length: 5.4347 | Connected Faces: 2 | Tag: 62763
 -   Endpoints: (0.0000, 0.1969, -0.8650) -> (0.0000, 0.1969, -0.8650)
 -   Curve Props: Arc Length 5.4347 | Radius 0.8650 | Diameter 1.7299 | Min Curvature Radius 0.8650
@@ -6178,6 +7418,8 @@
 -   Face Indices: 5, 6
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62763, 'journal_identifier': 'EDGE * 6 * 7 {(0.7490778787852,0.1968503937008,0.4324803149606)(0,0.1968503937008,-0.8649606299213)(-0.7490778787852,0.1968503937008,0.4324803149606) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 7: Circular | Length: 5.8305 | Connected Faces: 2 | Tag: 62765
 -   Endpoints: (0.0000, 0.1339, -0.9280) -> (0.0000, 0.1339, -0.9280)
 -   Curve Props: Arc Length 5.8305 | Radius 0.9280 | Diameter 1.8559 | Min Curvature Radius 0.9280
@@ -6186,6 +7428,8 @@
 -   Face Indices: 6, 7
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62765, 'journal_identifier': 'EDGE * 7 * 8 {(0.803630660126,0.1338582677165,0.4639763779528)(0,0.1338582677165,-0.9279527559055)(-0.803630660126,0.1338582677165,0.4639763779528) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 8: Circular | Length: 6.6221 | Connected Faces: 2 | Tag: 62753
 -   Endpoints: (0.0000, 0.2126, -1.0539) -> (0.0000, 0.2126, -1.0539)
 -   Curve Props: Arc Length 6.6221 | Radius 1.0539 | Diameter 2.1079 | Min Curvature Radius 1.0539
@@ -6194,6 +7438,8 @@
 -   Face Indices: 8, 1
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62753, 'journal_identifier': 'EDGE * 1 * 2 {(0.9127362228075,0.2125984251969,0.526968503937)(0,0.2125984251969,-1.053937007874)(-0.9127362228075,0.2125984251969,0.526968503937) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ### Faces
 - Total Faces: 8
@@ -6217,6 +7463,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 8, 2
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62739, 'journal_identifier': 'FACE 2 {(0,0.2263779527559,1.053937007874) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 2: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62741
 -   Measure: Area 0.7968 | Perimeter 12.7494 | Radius/Diameter N/A | Min Curvature Radius 0.0787
 -   Points: Center (0.0000, 0.2898, 0.0000) | Anchor (0.0000, 0.2898, 0.0000)
@@ -6230,6 +7478,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 1, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62741, 'journal_identifier': 'FACE 3 {(0,0.295835179621,1.0308745496997) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 3: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62743
 -   Measure: Area 0.2825 | Perimeter 11.9578 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 0.3189, -0.0000) | Anchor (0.0000, 0.3189, -0.0000)
@@ -6244,6 +7494,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 2, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62743, 'journal_identifier': 'FACE 4 {(0,0.3188976377953,0) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 4: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62745
 -   Measure: Area 0.5520 | Perimeter 11.2652 | Radius/Diameter N/A | Min Curvature Radius 0.0630
 -   Points: Center (0.0000, 0.2964, 0.0000) | Anchor (0.0000, 0.2964, 0.0000)
@@ -6257,6 +7509,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 3, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62745, 'journal_identifier': 'FACE 5 {(0,0.3004476712558,0.8834105964607) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 5: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62747
 -   Measure: Area 0.3209 | Perimeter 10.8694 | Radius/Diameter 0.8650 | Min Curvature Radius 0.8650
 -   Points: Center (0.0000, 0.2264, 0.0000) | Anchor (0.0000, 0.2264, 0.0000)
@@ -6271,6 +7525,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 4, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62747, 'journal_identifier': 'FACE 6 {(0,0.2263779527559,0.8649606299213) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 6: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62749
 -   Measure: Area 0.5520 | Perimeter 11.2652 | Radius/Diameter N/A | Min Curvature Radius 0.0630
 -   Points: Center (0.0000, 0.1564, 0.0000) | Anchor (0.0000, 0.1564, 0.0000)
@@ -6284,6 +7540,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 7
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62749, 'journal_identifier': 'FACE 7 {(0,0.152308234256,0.8834105964607) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 7: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62751
 -   Measure: Area 0.2825 | Perimeter 11.9578 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 0.1339, 0.0000) | Anchor (0.0000, 0.1339, 0.0000)
@@ -6298,6 +7556,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6, 8
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62751, 'journal_identifier': 'FACE 8 {(0,0.1338582677165,0) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 8: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62737
 -   Measure: Area 0.7968 | Perimeter 12.7494 | Radius/Diameter N/A | Min Curvature Radius 0.0787
 -   Points: Center (0.0000, 0.1630, 0.0000) | Anchor (0.0000, 0.1630, 0.0000)
@@ -6311,6 +7571,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 1, 7
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62737, 'journal_identifier': 'FACE 1 {(0,0.1569207258908,1.0308745496997) UNPARAMETERIZED_FEATURE(6)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ---
 ## Body 7
@@ -6335,15 +7597,15 @@
 - Radius Of Gyration: 0.9268
 - Centroid: (0.0000, -3.4331, -0.0000)
 ### Bounding Box
-- X Min: -0.9508
-- Y Min: 4.0197
-- Z Min: -2.5162
-- X Max: 0.9508
-- Y Max: 4.2914
-- Z Max: -2.2445
-- Dx (Length): 1.9016
-- Dy (Width): 0.2717
-- Dz (Height): 0.2717
+- X Min: 0.6358
+- Y Min: 3.8799
+- Z Min: -2.6559
+- X Max: 0.6870
+- Y Max: 4.4311
+- Z Max: -2.1047
+- Dx (Length): 0.0512
+- Dy (Width): 0.5512
+- Dz (Height): 0.5512
 
 ### Features
 - Total Features: 1
@@ -6365,6 +7627,8 @@
 -   Face Indices: 8, 1
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62813, 'journal_identifier': 'EDGE * 5 * 6 {(0.8813683735365,-3.4527559055118,-0.5088582677165)(0,-3.4527559055118,1.0177165354331)(-0.8813683735365,-3.4527559055118,-0.5088582677165) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 2: Circular | Length: 5.1824 | Connected Faces: 2 | Tag: 62805
 -   Endpoints: (0.0000, -3.4134, 0.8248) -> (0.0000, -3.4134, 0.8248)
 -   Curve Props: Arc Length 5.1824 | Radius 0.8248 | Diameter 1.6496 | Min Curvature Radius 0.8248
@@ -6373,6 +7637,8 @@
 -   Face Indices: 6, 2
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62805, 'journal_identifier': 'EDGE * 1 * 2 {(0.7143004806805,-3.4133858267717,-0.4124015748032)(0,-3.4133858267717,0.8248031496063)(-0.7143004806805,-3.4133858267717,-0.4124015748031) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 3: Circular | Length: 5.1824 | Connected Faces: 2 | Tag: 62807
 -   Endpoints: (0.0000, -3.4528, 0.8248) -> (0.0000, -3.4528, 0.8248)
 -   Curve Props: Arc Length 5.1824 | Radius 0.8248 | Diameter 1.6496 | Min Curvature Radius 0.8248
@@ -6381,6 +7647,8 @@
 -   Face Indices: 2, 3
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62807, 'journal_identifier': 'EDGE * 2 * 3 {(0.7143004806805,-3.4527559055118,-0.4124015748032)(0,-3.4527559055118,0.8248031496063)(-0.7143004806805,-3.4527559055118,-0.4124015748031) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 4: Circular | Length: 5.8998 | Connected Faces: 2 | Tag: 62811
 -   Endpoints: (0.0000, -3.5315, 0.9390) -> (0.0000, -3.5315, 0.9390)
 -   Curve Props: Arc Length 5.8998 | Radius 0.9390 | Diameter 1.8780 | Min Curvature Radius 0.9390
@@ -6389,6 +7657,8 @@
 -   Face Indices: 7, 8
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62811, 'journal_identifier': 'EDGE * 4 * 5 {(0.8131773968606,-3.5314960629921,-0.4694881889764)(0,-3.5314960629921,0.9389763779528)(-0.8131773968606,-3.5314960629921,-0.4694881889764) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 5: Circular | Length: 5.8998 | Connected Faces: 2 | Tag: 62817
 -   Endpoints: (0.0000, -3.3346, 0.9390) -> (0.0000, -3.3346, 0.9390)
 -   Curve Props: Arc Length 5.8998 | Radius 0.9390 | Diameter 1.8780 | Min Curvature Radius 0.9390
@@ -6397,6 +7667,8 @@
 -   Face Indices: 4, 5
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62817, 'journal_identifier': 'EDGE * 7 * 8 {(0.8131773968606,-3.3346456692913,-0.4694881889764)(0,-3.3346456692913,0.9389763779528)(-0.8131773968606,-3.3346456692913,-0.4694881889764) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 6: Circular | Length: 5.6771 | Connected Faces: 2 | Tag: 62819
 -   Endpoints: (0.0000, -3.3346, 0.9035) -> (0.0000, -3.3346, 0.9035)
 -   Curve Props: Arc Length 5.6771 | Radius 0.9035 | Diameter 1.8071 | Min Curvature Radius 0.9035
@@ -6405,6 +7677,8 @@
 -   Face Indices: 6, 5
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62819, 'journal_identifier': 'EDGE * 1 * 8 {(0.7824914573564,-3.3346456692913,-0.4517716535433)(0,-3.3346456692913,0.9035433070866)(-0.7824914573564,-3.3346456692913,-0.4517716535433) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 7: Circular | Length: 6.3945 | Connected Faces: 2 | Tag: 62815
 -   Endpoints: (0.0000, -3.4134, 1.0177) -> (0.0000, -3.4134, 1.0177)
 -   Curve Props: Arc Length 6.3945 | Radius 1.0177 | Diameter 2.0354 | Min Curvature Radius 1.0177
@@ -6413,6 +7687,8 @@
 -   Face Indices: 1, 4
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62815, 'journal_identifier': 'EDGE * 6 * 7 {(0.8813683735365,-3.4133858267717,-0.5088582677165)(0,-3.4133858267717,1.0177165354331)(-0.8813683735365,-3.4133858267717,-0.5088582677165) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 8: Circular | Length: 5.6771 | Connected Faces: 2 | Tag: 62809
 -   Endpoints: (0.0000, -3.5315, 0.9035) -> (0.0000, -3.5315, 0.9035)
 -   Curve Props: Arc Length 5.6771 | Radius 0.9035 | Diameter 1.8071 | Min Curvature Radius 0.9035
@@ -6421,6 +7697,8 @@
 -   Face Indices: 3, 7
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62809, 'journal_identifier': 'EDGE * 3 * 4 {(0.7824914573564,-3.5314960629921,-0.4517716535433)(0,-3.5314960629921,0.9035433070866)(-0.7824914573564,-3.5314960629921,-0.4517716535433) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ### Faces
 - Total Faces: 8
@@ -6444,6 +7722,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 8, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62799, 'journal_identifier': 'FACE 6 {(0,-3.4330708661417,-1.0177165354331) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 2: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62791
 -   Measure: Area 0.2040 | Perimeter 10.3648 | Radius/Diameter 0.8248 | Min Curvature Radius 0.8248
 -   Points: Center (0.0000, -3.4331, -0.0000) | Anchor (0.0000, -3.4331, -0.0000)
@@ -6458,6 +7738,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62791, 'journal_identifier': 'FACE 2 {(0,-3.4330708661417,-0.8248031496063) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 3: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62793
 -   Measure: Area 0.6632 | Perimeter 10.8595 | Radius/Diameter N/A | Min Curvature Radius 0.0787
 -   Points: Center (0.0000, -3.5035, -0.0000) | Anchor (0.0000, -3.5035, -0.0000)
@@ -6471,6 +7753,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 2, 7
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62793, 'journal_identifier': 'FACE 3 {(0,-3.5084336048178,-0.8478656077806) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 4: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62801
 -   Measure: Area 0.7687 | Perimeter 12.2943 | Radius/Diameter N/A | Min Curvature Radius 0.0787
 -   Points: Center (0.0000, -3.3638, -0.0000) | Anchor (0.0000, -3.3638, -0.0000)
@@ -6484,6 +7768,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 1, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62801, 'journal_identifier': 'FACE 7 {(0,-3.3577081274656,-0.9946540772588) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 5: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62803
 -   Measure: Area 0.2051 | Perimeter 11.5769 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, -3.3346, -0.0000) | Anchor (0.0000, -3.3346, -0.0000)
@@ -6498,6 +7784,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 4, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62803, 'journal_identifier': 'FACE 8 {(0,-3.3346456692913,-0) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 6: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62789
 -   Measure: Area 0.6632 | Perimeter 10.8595 | Radius/Diameter N/A | Min Curvature Radius 0.0787
 -   Points: Center (0.0000, -3.3626, -0.0000) | Anchor (0.0000, -3.3626, -0.0000)
@@ -6511,6 +7799,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 2, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62789, 'journal_identifier': 'FACE 1 {(0,-3.3577081274656,-0.8478656077806) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 7: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62795
 -   Measure: Area 0.2051 | Perimeter 11.5769 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, -3.5315, 0.0000) | Anchor (0.0000, -3.5315, 0.0000)
@@ -6525,6 +7815,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 3, 8
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62795, 'journal_identifier': 'FACE 4 {(0,-3.5314960629921,-0) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 8: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62797
 -   Measure: Area 0.7687 | Perimeter 12.2943 | Radius/Diameter N/A | Min Curvature Radius 0.0787
 -   Points: Center (0.0000, -3.5023, -0.0000) | Anchor (0.0000, -3.5023, -0.0000)
@@ -6538,6 +7830,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 7, 1
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62797, 'journal_identifier': 'FACE 5 {(0,-3.5084336048178,-0.9946540772588) UNPARAMETERIZED_FEATURE(7)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ---
 ## Body 8
@@ -6562,15 +7856,15 @@
 - Radius Of Gyration: 0.5158
 - Centroid: (0.0000, -2.7953, 0.0000)
 ### Bounding Box
-- X Min: -0.9508
-- Y Min: 4.0197
-- Z Min: -2.5162
-- X Max: 0.9508
-- Y Max: 4.2914
-- Z Max: -2.2445
-- Dx (Length): 1.9016
-- Dy (Width): 0.2717
-- Dz (Height): 0.2717
+- X Min: 0.6358
+- Y Min: 3.8799
+- Z Min: -2.6559
+- X Max: 0.6870
+- Y Max: 4.4311
+- Z Max: -2.1047
+- Dx (Length): 0.0512
+- Dy (Width): 0.5512
+- Dz (Height): 0.5512
 
 ### Features
 - Total Features: 1
@@ -6592,6 +7886,8 @@
 -   Face Indices: 7, 8
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62869, 'journal_identifier': 'EDGE * 7 * 8 {(-0.4517652204781,-2.8858267716535,-0.2608267716535)(0,-2.8858267716535,0.5216535433071)(0.4517652204781,-2.8858267716535,-0.2608267716535) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 2: Circular | Length: 3.1169 | Connected Faces: 2 | Tag: 62871
 -   Endpoints: (0.0000, -2.8858, 0.4961) -> (0.0000, -2.8858, 0.4961)
 -   Curve Props: Arc Length 3.1169 | Radius 0.4961 | Diameter 0.9921 | Min Curvature Radius 0.4961
@@ -6600,6 +7896,8 @@
 -   Face Indices: 3, 8
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62871, 'journal_identifier': 'EDGE * 1 * 8 {(-0.4296031530584,-2.8858267716535,-0.248031496063)(0,-2.8858267716535,0.496062992126)(0.4296031530584,-2.8858267716535,-0.248031496063) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 3: Circular | Length: 3.6734 | Connected Faces: 2 | Tag: 62865
 -   Endpoints: (0.0000, -2.7677, 0.5846) -> (0.0000, -2.7677, 0.5846)
 -   Curve Props: Arc Length 3.6734 | Radius 0.5846 | Diameter 1.1693 | Min Curvature Radius 0.5846
@@ -6608,6 +7906,8 @@
 -   Face Indices: 5, 6
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62865, 'journal_identifier': 'EDGE * 5 * 6 {(-0.5063180018188,-2.7677165354331,-0.2923228346457)(0,-2.7677165354331,0.5846456692913)(0.5063180018189,-2.7677165354331,-0.2923228346457) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 4: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 62859
 -   Endpoints: (0.0000, -2.7677, 0.4331) -> (0.0000, -2.7677, 0.4331)
 -   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
@@ -6616,6 +7916,8 @@
 -   Face Indices: 1, 2
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62859, 'journal_identifier': 'EDGE * 2 * 3 {(-0.3750503717177,-2.7677165354331,-0.2165354330709)(0,-2.7677165354331,0.4330708661417)(0.3750503717177,-2.7677165354331,-0.2165354330709) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 5: Circular | Length: 3.2776 | Connected Faces: 2 | Tag: 62863
 -   Endpoints: (0.0000, -2.7047, 0.5217) -> (0.0000, -2.7047, 0.5217)
 -   Curve Props: Arc Length 3.2776 | Radius 0.5217 | Diameter 1.0433 | Min Curvature Radius 0.5217
@@ -6624,6 +7926,8 @@
 -   Face Indices: 4, 5
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62863, 'journal_identifier': 'EDGE * 4 * 5 {(-0.4517652204781,-2.7047244094488,-0.2608267716535)(0,-2.7047244094488,0.5216535433071)(0.4517652204781,-2.7047244094488,-0.2608267716535) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 6: Circular | Length: 3.6734 | Connected Faces: 2 | Tag: 62867
 -   Endpoints: (0.0000, -2.8228, 0.5846) -> (0.0000, -2.8228, 0.5846)
 -   Curve Props: Arc Length 3.6734 | Radius 0.5846 | Diameter 1.1693 | Min Curvature Radius 0.5846
@@ -6632,6 +7936,8 @@
 -   Face Indices: 6, 7
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62867, 'journal_identifier': 'EDGE * 6 * 7 {(-0.5063180018188,-2.8228346456693,-0.2923228346457)(0,-2.8228346456693,0.5846456692913)(0.5063180018189,-2.8228346456693,-0.2923228346457) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 7: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 62857
 -   Endpoints: (0.0000, -2.8228, 0.4331) -> (0.0000, -2.8228, 0.4331)
 -   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
@@ -6640,6 +7946,8 @@
 -   Face Indices: 3, 1
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62857, 'journal_identifier': 'EDGE * 1 * 2 {(-0.3750503717177,-2.8228346456693,-0.2165354330709)(0,-2.8228346456693,0.4330708661417)(0.3750503717177,-2.8228346456693,-0.2165354330709) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 8: Circular | Length: 3.1169 | Connected Faces: 2 | Tag: 62861
 -   Endpoints: (0.0000, -2.7047, 0.4961) -> (0.0000, -2.7047, 0.4961)
 -   Curve Props: Arc Length 3.1169 | Radius 0.4961 | Diameter 0.9921 | Min Curvature Radius 0.4961
@@ -6648,6 +7956,8 @@
 -   Face Indices: 2, 4
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62861, 'journal_identifier': 'EDGE * 3 * 4 {(-0.4296031530584,-2.7047244094488,-0.248031496063)(0,-2.7047244094488,0.496062992126)(0.4296031530584,-2.7047244094488,-0.248031496063) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ### Faces
 - Total Faces: 8
@@ -6671,6 +7981,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 3, 2
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62843, 'journal_identifier': 'FACE 2 {(0,-2.7952755905512,-0.4330708661417) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 2: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62845
 -   Measure: Area 0.2835 | Perimeter 5.8379 | Radius/Diameter N/A | Min Curvature Radius 0.0630
 -   Points: Center (0.0000, -2.7269, 0.0000) | Anchor (0.0000, -2.7269, 0.0000)
@@ -6684,6 +7996,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 1, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62845, 'journal_identifier': 'FACE 3 {(0,-2.7231743759883,-0.4515208326812) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 3: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62841
 -   Measure: Area 0.2835 | Perimeter 5.8379 | Radius/Diameter N/A | Min Curvature Radius 0.0630
 -   Points: Center (0.0000, -2.8637, 0.0000) | Anchor (0.0000, -2.8637, 0.0000)
@@ -6697,6 +8011,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 1, 8
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62841, 'journal_identifier': 'FACE 1 {(0,-2.8673768051141,-0.4515208326812) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 4: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62847
 -   Measure: Area 0.0818 | Perimeter 6.3945 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, -2.7047, 0.0000) | Anchor (0.0000, -2.7047, 0.0000)
@@ -6711,6 +8027,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 2, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62847, 'journal_identifier': 'FACE 4 {(0,-2.7047244094488,0) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 5: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62849
 -   Measure: Area 0.3492 | Perimeter 6.9511 | Radius/Diameter N/A | Min Curvature Radius 0.0630
 -   Points: Center (0.0000, -2.7282, 0.0000) | Anchor (0.0000, -2.7282, 0.0000)
@@ -6724,6 +8042,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 4, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62849, 'journal_identifier': 'FACE 5 {(0,-2.7231743759883,-0.5661957027519) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 6: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62851
 -   Measure: Area 0.2025 | Perimeter 7.3469 | Radius/Diameter 0.5846 | Min Curvature Radius 0.5846
 -   Points: Center (0.0000, -2.7953, 0.0000) | Anchor (0.0000, -2.7953, 0.0000)
@@ -6738,6 +8058,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 7
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62851, 'journal_identifier': 'FACE 6 {(0,-2.7952755905512,-0.5846456692913) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 7: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62853
 -   Measure: Area 0.3492 | Perimeter 6.9511 | Radius/Diameter N/A | Min Curvature Radius 0.0630
 -   Points: Center (0.0000, -2.8623, 0.0000) | Anchor (0.0000, -2.8623, 0.0000)
@@ -6751,6 +8073,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6, 8
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62853, 'journal_identifier': 'FACE 7 {(0,-2.8673768051141,-0.5661957027519) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 8: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62855
 -   Measure: Area 0.0818 | Perimeter 6.3945 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, -2.8858, -0.0000) | Anchor (0.0000, -2.8858, -0.0000)
@@ -6765,6 +8089,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 7, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62855, 'journal_identifier': 'FACE 8 {(0,-2.8858267716535,0) UNPARAMETERIZED_FEATURE(8)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 173, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ---
 ## Body 9
@@ -6789,15 +8115,15 @@
 - Radius Of Gyration: 0.7052
 - Centroid: (0.0143, 3.1402, 0.3231)
 ### Bounding Box
-- X Min: -0.9508
-- Y Min: 4.0197
-- Z Min: -2.5162
-- X Max: 0.9508
-- Y Max: 4.2914
-- Z Max: -2.2445
-- Dx (Length): 1.9016
-- Dy (Width): 0.2717
-- Dz (Height): 0.2717
+- X Min: 0.6358
+- Y Min: 3.8799
+- Z Min: -2.6559
+- X Max: 0.6870
+- Y Max: 4.4311
+- Z Max: -2.1047
+- Dx (Length): 0.0512
+- Dy (Width): 0.5512
+- Dz (Height): 0.5512
 
 ### Features
 - Total Features: 1
@@ -6822,11 +8148,15 @@
 -   Face Indices: 4, 11
 -   Topology Vertices: 1 -> 2
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63033, 'journal_identifier': 'EDGE * 1 * 6 1 {(-0.8721318204194,3.5896505636582,0.6217420932967)(-0.8721318204194,3.5664415107278,0.6243209960978)(-0.8721318204194,3.5432324577974,0.6268998988989) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 2: Intersection | Length: 0.0181 | Connected Faces: 2 | Tag: 62959
 -   Endpoints: (-0.9804, 2.7561, 0.7144) -> (-0.9902, 2.7607, 0.7039)
 -   Face Tags: 62909, 62929
 -   Face Indices: 18, 12
 -   Topology Vertices: 3 -> 4
+-   Identity: {'tag': 62959, 'journal_identifier': 'EDGE * 19 * 9 {(-0.9803995369549,2.7560577458423,0.7143677966923)(-0.9866586041901,2.761694000815,0.7114807777395)(-0.9902420566399,2.7607184263286,0.7039468241912) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 3: Circular | Length: 0.2274 | Connected Faces: 2 | Tag: 63043
 -   Endpoints: (0.5003, 3.5795, 0.3971) -> (0.5003, 3.5368, 0.6177)
 -   Curve Props: Arc Length 0.2274 | Radius 0.4287 | Diameter 0.8575 | Min Curvature Radius 0.4287
@@ -6835,26 +8165,36 @@
 -   Face Indices: 5, 20
 -   Topology Vertices: 5 -> 6
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63043, 'journal_identifier': 'EDGE * 14 * 4 1 {(0.5003091244625,3.5795377433276,0.3970752216176)(0.5003091244625,3.5728909276313,0.5102412977639)(0.5003091244625,3.5368173886662,0.6177096221008) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 4: Intersection | Length: 0.0150 | Connected Faces: 2 | Tag: 63017
 -   Endpoints: (-0.8721, 2.7673, 0.7131) -> (-0.8820, 2.7561, 0.7144)
 -   Face Tags: 62893, 62905
 -   Face Indices: 4, 7
 -   Topology Vertices: 7 -> 8
+-   Identity: {'tag': 63017, 'journal_identifier': 'EDGE * 1 * 7 {(-0.8721318204194,2.7673307790121,0.7131151795818)(-0.8770483204952,2.7616902993672,0.7137419284974)(-0.8819743401045,2.7560577458423,0.7143677966923) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 5: Intersection | Length: 0.0170 | Connected Faces: 2 | Tag: 62975
 -   Endpoints: (-0.4784, 2.8180, 0.6976) -> (-0.4883, 2.8255, 0.7067)
 -   Face Tags: 62899, 62927
 -   Face Indices: 5, 16
 -   Topology Vertices: 9 -> 10
+-   Identity: {'tag': 62975, 'journal_identifier': 'EDGE * 18 * 4 {(-0.4784310330178,2.8179900058567,0.6975830213549)(-0.4810125381194,2.8230154209789,0.7037091602505)(-0.4882735527029,2.8254976917846,0.7066518906778) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 6: Intersection | Length: 0.0183 | Connected Faces: 2 | Tag: 62949
 -   Endpoints: (1.0515, 2.8296, 0.6963) -> (1.0416, 2.8255, 0.7067)
 -   Face Tags: 62897, 62931
 -   Face Indices: 9, 8
 -   Topology Vertices: 11 -> 12
+-   Identity: {'tag': 62949, 'journal_identifier': 'EDGE * 20 * 3 {(1.0514902268247,2.8296436337813,0.6962881139846)(1.0479100446195,2.8312543756122,0.7037491698889)(1.0416477071396,2.8254976917846,0.7066518906778) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 7: Intersection | Length: 0.0154 | Connected Faces: 2 | Tag: 63021
 -   Endpoints: (-0.8623, 2.8255, 0.7067) -> (-0.8721, 2.8137, 0.7080)
 -   Face Tags: 62893, 62901
 -   Face Indices: 4, 22
 -   Topology Vertices: 13 -> 14
+-   Identity: {'tag': 63021, 'journal_identifier': 'EDGE * 1 * 5 {(-0.8622893007344,2.8254976917846,0.7066518906778)(-0.8672031597472,2.819617371848,0.7073052897458)(-0.8721318204194,2.8137488848729,0.7079573739797) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 8: Linear | Length: 0.8574 | Connected Faces: 2 | Tag: 62991
 -   Endpoints: (0.4806, 2.7254, 0.4722) -> (0.4806, 3.5776, 0.3775)
 -   Curve Props: Arc Length 0.8574 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -6863,6 +8203,8 @@
 -   Face Indices: 1, 21
 -   Topology Vertices: 15 -> 16
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62991, 'journal_identifier': 'EDGE * 12 * 15 {(0.4806240850924,2.7254340515399,0.4721738259245)(0.4806240850924,3.1515337143075,0.4248272315957)(0.4806240850924,3.5776333770752,0.377480637267) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 9: Linear | Length: 0.7103 | Connected Faces: 2 | Tag: 62965
 -   Endpoints: (-0.4883, 2.8255, 0.7067) -> (-0.4883, 3.5315, 0.6282)
 -   Curve Props: Arc Length 0.7103 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -6871,11 +8213,15 @@
 -   Face Indices: 4, 16
 -   Topology Vertices: 10 -> 17
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62965, 'journal_identifier': 'EDGE * 1 * 18 {(-0.4882735527029,2.8254976917846,0.7066518906778)(-0.4882735527029,3.1784906713351,0.6674286364393)(-0.4882735527029,3.5314836508857,0.6282053822008) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 10: Intersection | Length: 0.0150 | Connected Faces: 2 | Tag: 63035
 -   Endpoints: (-0.8820, 3.6009, 0.6205) -> (-0.8721, 3.5897, 0.6217)
 -   Face Tags: 62893, 62905
 -   Face Indices: 4, 7
 -   Topology Vertices: 18 -> 1
+-   Identity: {'tag': 63035, 'journal_identifier': 'EDGE * 1 * 7 1 {(-0.8819743401045,3.600923596828,0.6204894761862)(-0.8770482719883,3.5952909877419,0.6211153505549)(-0.8721318204194,3.5896505636582,0.6217420932967) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 11: Linear | Length: 0.9394 | Connected Faces: 2 | Tag: 62995
 -   Endpoints: (0.4806, 2.7254, 0.4722) -> (-0.4587, 2.7254, 0.4722)
 -   Curve Props: Arc Length 0.9394 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -6884,16 +8230,22 @@
 -   Face Indices: 5, 1
 -   Topology Vertices: 15 -> 19
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62995, 'journal_identifier': 'EDGE * 12 * 4 {(0.4806240850924,2.7254340515399,0.4721738259245)(0.0109390457223,2.7254340515399,0.4721738259245)(-0.4587459936478,2.7254340515399,0.4721738259245) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 12: SpCurve | Length: 0.2849 | Connected Faces: 2 | Tag: 62943
 -   Endpoints: (0.9066, 3.1510, 0.0098) -> (0.9066, 3.1510, 0.0098)
 -   Face Tags: 62933, 62937
 -   Face Indices: 3, 15
 -   Topology Vertices: 20 -> 20
+-   Identity: {'tag': 62943, 'journal_identifier': 'EDGE * 21 * 23 {(0.9458069316854,3.0831756859562,0.0147879236168)(0.9066083370609,3.1509702831345,0.0097873854557)(0.8674098565561,3.0831755145046,0.0147879581754) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 13: Intersection | Length: 0.0309 | Connected Faces: 2 | Tag: 62981
 -   Endpoints: (-0.4587, 2.7254, 0.4722) -> (-0.4784, 2.7279, 0.4917)
 -   Face Tags: 62899, 62923
 -   Face Indices: 5, 6
 -   Topology Vertices: 19 -> 21
+-   Identity: {'tag': 62981, 'journal_identifier': 'EDGE * 16 * 4 {(-0.4587459936478,2.7254340515399,0.4721738259245)(-0.4726554234349,2.7260558445167,0.4778979680296)(-0.4784310330178,2.7278775815822,0.4917085004196) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 14: Linear | Length: 0.8501 | Connected Faces: 2 | Tag: 62955
 -   Endpoints: (-0.9804, 3.6009, 0.6205) -> (-0.9804, 2.7561, 0.7144)
 -   Curve Props: Arc Length 0.8501 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -6902,6 +8254,8 @@
 -   Face Indices: 4, 12
 -   Topology Vertices: 22 -> 3
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62955, 'journal_identifier': 'EDGE * 1 * 19 {(-0.9803995369549,3.600923596828,0.6204894761862)(-0.9803995369549,3.1784906713351,0.6674286364393)(-0.9803995369549,2.7560577458423,0.7143677966923) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 15: Circular | Length: 0.2274 | Connected Faces: 2 | Tag: 63039
 -   Endpoints: (-0.4784, 2.7279, 0.4917) -> (-0.4784, 2.8180, 0.6976)
 -   Curve Props: Arc Length 0.2274 | Radius 0.4287 | Diameter 0.8575 | Min Curvature Radius 0.4287
@@ -6910,6 +8264,8 @@
 -   Face Indices: 5, 23
 -   Topology Vertices: 21 -> 9
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63039, 'journal_identifier': 'EDGE * 13 * 4 {(-0.4784310330178,2.7278775815822,0.4917085004196)(-0.4784310330178,2.7592047185109,0.6006550535596)(-0.4784310330178,2.8179900058567,0.6975830213549) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 16: Linear | Length: 0.9394 | Connected Faces: 2 | Tag: 62997
 -   Endpoints: (-0.4587, 3.5776, 0.3775) -> (0.4806, 3.5776, 0.3775)
 -   Curve Props: Arc Length 0.9394 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -6918,6 +8274,8 @@
 -   Face Indices: 5, 1
 -   Topology Vertices: 23 -> 16
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62997, 'journal_identifier': 'EDGE * 12 * 4 1 {(-0.4587459936478,3.5776333770752,0.377480637267)(0.0109390457223,3.5776333770752,0.377480637267)(0.4806240850924,3.5776333770752,0.377480637267) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 17: Linear | Length: 0.5315 | Connected Faces: 2 | Tag: 63029
 -   Endpoints: (0.5102, 3.5315, 0.6282) -> (1.0416, 3.5315, 0.6282)
 -   Curve Props: Arc Length 0.5315 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -6926,6 +8284,8 @@
 -   Face Indices: 5, 10
 -   Topology Vertices: 24 -> 25
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63029, 'journal_identifier': 'EDGE * 11 * 4 1 {(0.5101516441475,3.5314836508857,0.6282053822008)(0.7758996756436,3.5314836508857,0.6282053822008)(1.0416477071396,3.5314836508857,0.6282053822008) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 18: Linear | Length: 0.8569 | Connected Faces: 2 | Tag: 62987
 -   Endpoints: (-0.4784, 2.7279, 0.4917) -> (-0.4784, 3.5795, 0.3971)
 -   Curve Props: Arc Length 0.8569 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -6934,6 +8294,8 @@
 -   Face Indices: 23, 6
 -   Topology Vertices: 21 -> 26
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62987, 'journal_identifier': 'EDGE * 13 * 16 {(-0.4784310330178,2.7278775815822,0.4917085004196)(-0.4784310330178,3.1537076624549,0.4443918610186)(-0.4784310330178,3.5795377433276,0.3970752216176) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 19: Linear | Length: 0.8385 | Connected Faces: 2 | Tag: 62961
 -   Endpoints: (-0.9902, 2.7607, 0.7039) -> (-0.9902, 3.5941, 0.6113)
 -   Curve Props: Arc Length 0.8385 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -6942,6 +8304,8 @@
 -   Face Indices: 14, 12
 -   Topology Vertices: 4 -> 27
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62961, 'journal_identifier': 'EDGE * 10 * 19 {(-0.9902420566399,2.7607184263286,0.7039468241912)(-0.9902420566399,3.1774036972615,0.6576463217278)(-0.9902420566399,3.5940889681943,0.6113458192645) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 20: Circular | Length: 1.8568 | Connected Faces: 2 | Tag: 63003
 -   Endpoints: (-0.8623, 3.5315, 0.6282) -> (-0.8623, 2.8255, 0.7067)
 -   Curve Props: Arc Length 1.8568 | Radius 0.4287 | Diameter 0.8575 | Min Curvature Radius 0.4287
@@ -6950,11 +8314,15 @@
 -   Face Indices: 5, 22
 -   Topology Vertices: 28 -> 13
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63003, 'journal_identifier': 'EDGE * 4 * 5 {(-0.8622893007344,3.5314836508857,0.6282053822008)(-0.8622893007344,3.1046199132869,0.0026225286503)(-0.8622893007344,2.8254976917846,0.7066518906778) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 21: SpCurve | Length: 0.3367 | Connected Faces: 2 | Tag: 62939
 -   Endpoints: (0.9066, 3.1588, 0.0001) -> (0.9066, 3.1588, 0.0001)
 -   Face Tags: 62899, 62937
 -   Face Indices: 5, 15
 -   Topology Vertices: 20 -> 20
+-   Identity: {'tag': 62939, 'journal_identifier': 'EDGE * 23 * 4 {(0.8606255451206,3.0780285613763,0.0064239188784)(0.9066083370609,3.1587571119333,0.0000537482746)(0.9525984749451,3.0780415121394,0.0064216514702) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 22: Circular | Length: 1.8037 | Connected Faces: 2 | Tag: 62999
 -   Endpoints: (1.0515, 3.5252, 0.6190) -> (1.0515, 2.8296, 0.6963)
 -   Curve Props: Arc Length 1.8037 | Radius 0.4189 | Diameter 0.8378 | Min Curvature Radius 0.4189
@@ -6963,6 +8331,8 @@
 -   Face Indices: 13, 9
 -   Topology Vertices: 29 -> 11
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62999, 'journal_identifier': 'EDGE * 2 * 3 {(1.0514902268247,3.5251637607416,0.6190045294711)(1.0514902268247,3.1057068873606,0.0124048433618)(1.0514902268247,2.8296436337813,0.6962881139846) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 23: Linear | Length: 0.7103 | Connected Faces: 2 | Tag: 62977
 -   Endpoints: (0.5102, 3.5315, 0.6282) -> (0.5102, 2.8255, 0.7067)
 -   Curve Props: Arc Length 0.7103 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -6971,16 +8341,22 @@
 -   Face Indices: 10, 17
 -   Topology Vertices: 24 -> 30
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62977, 'journal_identifier': 'EDGE * 11 * 17 {(0.5101516441475,3.5314836508857,0.6282053822008)(0.5101516441475,3.1784906713351,0.6674286364393)(0.5101516441475,2.8254976917846,0.7066518906778) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 24: Intersection | Length: 0.0309 | Connected Faces: 2 | Tag: 62979
 -   Endpoints: (-0.4784, 3.5795, 0.3971) -> (-0.4587, 3.5776, 0.3775)
 -   Face Tags: 62899, 62923
 -   Face Indices: 5, 6
 -   Topology Vertices: 26 -> 23
+-   Identity: {'tag': 62979, 'journal_identifier': 'EDGE * 16 * 4 1 {(-0.4784310330178,3.5795377433276,0.3970752216176)(-0.4726756222303,3.5782854920749,0.3832217367121)(-0.4587459936478,3.5776333770752,0.377480637267) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 25: Intersection | Length: 0.0183 | Connected Faces: 2 | Tag: 62951
 -   Endpoints: (1.0416, 3.5315, 0.6282) -> (1.0515, 3.5252, 0.6190)
 -   Face Tags: 62897, 62931
 -   Face Indices: 9, 8
 -   Topology Vertices: 25 -> 29
+-   Identity: {'tag': 62951, 'journal_identifier': 'EDGE * 20 * 3 1 {(1.0416477071396,3.5314836508857,0.6282053822008)(1.0479072047578,3.5252325483714,0.6266388004539)(1.0514902268247,3.5251637607415,0.6190045294711) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 26: Linear | Length: 0.3740 | Connected Faces: 2 | Tag: 63027
 -   Endpoints: (-0.8623, 3.5315, 0.6282) -> (-0.4883, 3.5315, 0.6282)
 -   Curve Props: Arc Length 0.3740 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -6989,6 +8365,8 @@
 -   Face Indices: 4, 5
 -   Topology Vertices: 28 -> 17
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63027, 'journal_identifier': 'EDGE * 1 * 4 1 {(-0.8622893007344,3.5314836508857,0.6282053822008)(-0.6752814267186,3.5314836508857,0.6282053822008)(-0.4882735527029,3.5314836508857,0.6282053822008) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 27: Linear | Length: 0.8574 | Connected Faces: 2 | Tag: 62993
 -   Endpoints: (-0.4587, 3.5776, 0.3775) -> (-0.4587, 2.7254, 0.4722)
 -   Curve Props: Arc Length 0.8574 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -6997,6 +8375,8 @@
 -   Face Indices: 1, 6
 -   Topology Vertices: 23 -> 19
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62993, 'journal_identifier': 'EDGE * 12 * 16 {(-0.4587459936478,3.5776333770752,0.377480637267)(-0.4587459936478,3.1515337143075,0.4248272315957)(-0.4587459936478,2.7254340515399,0.4721738259245) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 28: Linear | Length: 0.7233 | Connected Faces: 2 | Tag: 62967
 -   Endpoints: (0.5003, 2.8180, 0.6976) -> (0.5003, 3.5368, 0.6177)
 -   Curve Props: Arc Length 0.7233 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7005,6 +8385,8 @@
 -   Face Indices: 20, 17
 -   Topology Vertices: 31 -> 6
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62967, 'journal_identifier': 'EDGE * 14 * 17 {(0.5003091244625,2.8179900058567,0.6975830213549)(0.5003091244625,3.1774036972615,0.6576463217278)(0.5003091244625,3.5368173886662,0.6177096221008) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 29: Circular | Length: 1.9834 | Connected Faces: 2 | Tag: 63013
 -   Endpoints: (-0.9902, 3.5941, 0.6113) -> (-0.9902, 2.7607, 0.7039)
 -   Curve Props: Arc Length 1.9834 | Radius 0.4783 | Diameter 0.9567 | Min Curvature Radius 0.4783
@@ -7013,6 +8395,8 @@
 -   Face Indices: 18, 14
 -   Topology Vertices: 27 -> 4
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63013, 'journal_identifier': 'EDGE * 10 * 9 {(-0.9902420566399,3.5940889681943,0.6113458192645)(-0.9902420566399,3.0991415639555,-0.0466803374953)(-0.9902420566399,2.7607184263286,0.7039468241912) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 30: Circular | Length: 1.8568 | Connected Faces: 2 | Tag: 63001
 -   Endpoints: (1.0416, 3.5315, 0.6282) -> (1.0416, 2.8255, 0.7067)
 -   Curve Props: Arc Length 1.8568 | Radius 0.4287 | Diameter 0.8575 | Min Curvature Radius 0.4287
@@ -7021,6 +8405,8 @@
 -   Face Indices: 9, 5
 -   Topology Vertices: 25 -> 12
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63001, 'journal_identifier': 'EDGE * 3 * 4 {(1.0416477071396,3.5314836508857,0.6282053822008)(1.0416477071396,3.1046199132869,0.0026225286503)(1.0416477071396,2.8254976917846,0.7066518906778) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 31: Circular | Length: 0.3463 | Connected Faces: 2 | Tag: 62945
 -   Endpoints: (0.9066, 3.2333, 0.6613) -> (0.9066, 3.2333, 0.6613)
 -   Curve Props: Arc Length 0.3463 | Radius 0.0551 | Diameter 0.1102 | Min Curvature Radius 0.0551
@@ -7029,16 +8415,22 @@
 -   Face Indices: 10, 19
 -   Topology Vertices: 20 -> 20
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62945, 'journal_identifier': 'EDGE * 11 * 22 {(0.9543420207341,3.1511001901431,0.6704721638456)(0.9066083370609,3.2332716337192,0.6613415816266)(0.8588746533877,3.1511001901431,0.6704721638456) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 32: Intersection | Length: 0.0309 | Connected Faces: 2 | Tag: 62983
 -   Endpoints: (0.5003, 2.7279, 0.4917) -> (0.4806, 2.7254, 0.4722)
 -   Face Tags: 62899, 62921
 -   Face Indices: 5, 21
 -   Topology Vertices: 32 -> 15
+-   Identity: {'tag': 62983, 'journal_identifier': 'EDGE * 15 * 4 {(0.5003091244625,2.7278775815822,0.4917085004196)(0.4945537136749,2.7260581413815,0.47791803942)(0.4806240850924,2.7254340515399,0.4721738259245) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 33: Intersection | Length: 0.0181 | Connected Faces: 2 | Tag: 62957
 -   Endpoints: (-0.9902, 3.5941, 0.6113) -> (-0.9804, 3.6009, 0.6205)
 -   Face Tags: 62909, 62929
 -   Face Indices: 18, 12
 -   Topology Vertices: 27 -> 22
+-   Identity: {'tag': 62957, 'journal_identifier': 'EDGE * 19 * 9 1 {(-0.9902420566399,3.5940889681943,0.6113458192645)(-0.9866531056582,3.5947951005556,0.6189146635366)(-0.9803995369549,3.600923596828,0.6204894761862) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 34: Linear | Length: 0.3740 | Connected Faces: 2 | Tag: 63025
 -   Endpoints: (-0.4883, 2.8255, 0.7067) -> (-0.8623, 2.8255, 0.7067)
 -   Curve Props: Arc Length 0.3740 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7047,6 +8439,8 @@
 -   Face Indices: 4, 5
 -   Topology Vertices: 10 -> 13
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63025, 'journal_identifier': 'EDGE * 1 * 4 {(-0.4882735527029,2.8254976917846,0.7066518906778)(-0.6752814267186,2.8254976917846,0.7066518906778)(-0.8622893007344,2.8254976917846,0.7066518906778) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 35: Circular | Length: 0.2274 | Connected Faces: 2 | Tag: 63041
 -   Endpoints: (-0.4784, 3.5368, 0.6177) -> (-0.4784, 3.5795, 0.3971)
 -   Curve Props: Arc Length 0.2274 | Radius 0.4287 | Diameter 0.8575 | Min Curvature Radius 0.4287
@@ -7055,6 +8449,8 @@
 -   Face Indices: 5, 23
 -   Topology Vertices: 33 -> 26
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63041, 'journal_identifier': 'EDGE * 13 * 4 1 {(-0.4784310330178,3.5368173886662,0.6177096221008)(-0.4784310330178,3.5728909276313,0.5102412977639)(-0.4784310330178,3.5795377433276,0.3970752216176) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 36: Linear | Length: 0.0984 | Connected Faces: 2 | Tag: 63015
 -   Endpoints: (-0.8820, 2.7561, 0.7144) -> (-0.9804, 2.7561, 0.7144)
 -   Curve Props: Arc Length 0.0984 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7063,11 +8459,15 @@
 -   Face Indices: 4, 2
 -   Topology Vertices: 8 -> 3
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63015, 'journal_identifier': 'EDGE * 1 * 8 {(-0.8819743401045,2.7560577458423,0.7143677966923)(-0.9311869385297,2.7560577458423,0.7143677966923)(-0.9803995369549,2.7560577458423,0.7143677966923) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 37: Intersection | Length: 0.0170 | Connected Faces: 2 | Tag: 62973
 -   Endpoints: (-0.4883, 3.5315, 0.6282) -> (-0.4784, 3.5368, 0.6177)
 -   Face Tags: 62899, 62927
 -   Face Indices: 5, 16
 -   Topology Vertices: 17 -> 33
+-   Identity: {'tag': 62973, 'journal_identifier': 'EDGE * 18 * 4 1 {(-0.4882735527029,3.5314836508857,0.6282053822008)(-0.4810181792882,3.5332555171286,0.624797122783)(-0.4784310330178,3.5368173886662,0.6177096221008) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 38: Circular | Length: 0.2274 | Connected Faces: 2 | Tag: 63045
 -   Endpoints: (0.5003, 2.8180, 0.6976) -> (0.5003, 2.7279, 0.4917)
 -   Curve Props: Arc Length 0.2274 | Radius 0.4287 | Diameter 0.8575 | Min Curvature Radius 0.4287
@@ -7076,11 +8476,15 @@
 -   Face Indices: 5, 20
 -   Topology Vertices: 31 -> 32
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63045, 'journal_identifier': 'EDGE * 14 * 4 {(0.5003091244625,2.8179900058567,0.6975830213549)(0.5003091244625,2.7592047185109,0.6006550535596)(0.5003091244625,2.7278775815822,0.4917085004196) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 39: Intersection | Length: 0.0154 | Connected Faces: 2 | Tag: 63031
 -   Endpoints: (-0.8721, 3.5432, 0.6269) -> (-0.8623, 3.5315, 0.6282)
 -   Face Tags: 62893, 62901
 -   Face Indices: 4, 22
 -   Topology Vertices: 2 -> 28
+-   Identity: {'tag': 63031, 'journal_identifier': 'EDGE * 1 * 5 1 {(-0.8721318204194,3.5432324577974,0.6268998988989)(-0.8672030161091,3.5373637993415,0.627552002187)(-0.8622893007344,3.5314836508857,0.6282053822008) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 40: Circular | Length: 1.8861 | Connected Faces: 2 | Tag: 63005
 -   Endpoints: (-0.8721, 3.5432, 0.6269) -> (-0.8721, 2.8137, 0.7080)
 -   Curve Props: Arc Length 1.8861 | Radius 0.4386 | Diameter 0.8772 | Min Curvature Radius 0.4386
@@ -7089,6 +8493,8 @@
 -   Face Indices: 22, 11
 -   Topology Vertices: 2 -> 14
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63005, 'journal_identifier': 'EDGE * 5 * 6 {(-0.8721318204194,3.5432324577974,0.6268998988989)(-0.8721318204194,3.1035329392132,-0.0071597860611)(-0.8721318204194,2.8137488848729,0.7079573739797) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 41: Linear | Length: 0.8569 | Connected Faces: 2 | Tag: 62989
 -   Endpoints: (0.5003, 3.5795, 0.3971) -> (0.5003, 2.7279, 0.4917)
 -   Curve Props: Arc Length 0.8569 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7097,6 +8503,8 @@
 -   Face Indices: 20, 21
 -   Topology Vertices: 5 -> 32
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62989, 'journal_identifier': 'EDGE * 14 * 15 {(0.5003091244625,3.5795377433276,0.3970752216176)(0.5003091244625,3.1537076624549,0.4443918610186)(0.5003091244625,2.7278775815822,0.4917085004196) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 42: Circular | Length: 2.0359 | Connected Faces: 2 | Tag: 63011
 -   Endpoints: (-0.9804, 3.6009, 0.6205) -> (-0.9804, 2.7561, 0.7144)
 -   Curve Props: Arc Length 2.0359 | Radius 0.4882 | Diameter 0.9764 | Min Curvature Radius 0.4882
@@ -7105,6 +8513,8 @@
 -   Face Indices: 2, 18
 -   Topology Vertices: 22 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63011, 'journal_identifier': 'EDGE * 8 * 9 {(-0.9803995369549,3.600923596828,0.6204894761862)(-0.9803995369549,3.0980545898818,-0.0564626522067)(-0.9803995369549,2.7560577458423,0.7143677966923) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 43: Linear | Length: 0.7233 | Connected Faces: 2 | Tag: 62963
 -   Endpoints: (-0.4784, 3.5368, 0.6177) -> (-0.4784, 2.8180, 0.6976)
 -   Curve Props: Arc Length 0.7233 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7113,6 +8523,8 @@
 -   Face Indices: 23, 16
 -   Topology Vertices: 33 -> 9
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62963, 'journal_identifier': 'EDGE * 13 * 18 {(-0.4784310330178,3.5368173886662,0.6177096221008)(-0.4784310330178,3.1774036972615,0.6576463217278)(-0.4784310330178,2.8179900058567,0.6975830213549) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 44: Linear | Length: 0.5315 | Connected Faces: 2 | Tag: 63023
 -   Endpoints: (1.0416, 2.8255, 0.7067) -> (0.5102, 2.8255, 0.7067)
 -   Curve Props: Arc Length 0.5315 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7121,6 +8533,8 @@
 -   Face Indices: 5, 10
 -   Topology Vertices: 12 -> 30
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63023, 'journal_identifier': 'EDGE * 11 * 4 {(1.0416477071396,2.8254976917846,0.7066518906778)(0.7758996756436,2.8254976917846,0.7066518906778)(0.5101516441475,2.8254976917846,0.7066518906778) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 45: Circular | Length: 0.2845 | Connected Faces: 2 | Tag: 62941
 -   Endpoints: (0.9066, 3.2224, 0.6526) -> (0.9066, 3.2224, 0.6526)
 -   Curve Props: Arc Length 0.2845 | Radius 0.0453 | Diameter 0.0906 | Min Curvature Radius 0.0453
@@ -7129,6 +8543,8 @@
 -   Face Indices: 3, 19
 -   Topology Vertices: 20 -> 20
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 62941, 'journal_identifier': 'EDGE * 21 * 22 {(0.8673985254722,3.1549043734252,0.6601463620973)(0.9066083370609,3.222402344934,0.6526462409888)(0.9458181486496,3.1549043734252,0.6601463620973) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 46: Linear | Length: 0.0467 | Connected Faces: 2 | Tag: 63019
 -   Endpoints: (-0.8721, 2.8137, 0.7080) -> (-0.8721, 2.7673, 0.7131)
 -   Curve Props: Arc Length 0.0467 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7137,6 +8553,8 @@
 -   Face Indices: 4, 11
 -   Topology Vertices: 14 -> 7
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63019, 'journal_identifier': 'EDGE * 1 * 6 {(-0.8721318204194,2.8137488848729,0.7079573739797)(-0.8721318204194,2.7905398319425,0.7105362767808)(-0.8721318204194,2.7673307790121,0.7131151795818) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 47: Linear | Length: 0.7103 | Connected Faces: 2 | Tag: 62947
 -   Endpoints: (1.0416, 2.8255, 0.7067) -> (1.0416, 3.5315, 0.6282)
 -   Curve Props: Arc Length 0.7103 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7145,6 +8563,8 @@
 -   Face Indices: 10, 8
 -   Topology Vertices: 12 -> 25
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62947, 'journal_identifier': 'EDGE * 11 * 20 {(1.0416477071396,2.8254976917846,0.7066518906778)(1.0416477071396,3.1784906713351,0.6674286364393)(1.0416477071396,3.5314836508857,0.6282053822008) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 48: Linear | Length: 0.6998 | Connected Faces: 2 | Tag: 62953
 -   Endpoints: (1.0515, 3.5252, 0.6190) -> (1.0515, 2.8296, 0.6963)
 -   Curve Props: Arc Length 0.6998 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7153,6 +8573,8 @@
 -   Face Indices: 13, 8
 -   Topology Vertices: 29 -> 11
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 62953, 'journal_identifier': 'EDGE * 2 * 20 {(1.0514902268247,3.5251637607416,0.6190045294711)(1.0514902268247,3.1774036972615,0.6576463217278)(1.0514902268247,2.8296436337813,0.6962881139846) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 49: Linear | Length: 0.0984 | Connected Faces: 2 | Tag: 63037
 -   Endpoints: (-0.9804, 3.6009, 0.6205) -> (-0.8820, 3.6009, 0.6205)
 -   Curve Props: Arc Length 0.0984 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7161,11 +8583,15 @@
 -   Face Indices: 4, 2
 -   Topology Vertices: 22 -> 18
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63037, 'journal_identifier': 'EDGE * 1 * 8 1 {(-0.9803995369549,3.600923596828,0.6204894761862)(-0.9311869385297,3.600923596828,0.6204894761862)(-0.8819743401045,3.600923596828,0.6204894761862) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 50: Intersection | Length: 0.0170 | Connected Faces: 2 | Tag: 62969
 -   Endpoints: (0.5102, 2.8255, 0.7067) -> (0.5003, 2.8180, 0.6976)
 -   Face Tags: 62899, 62925
 -   Face Indices: 5, 17
 -   Topology Vertices: 30 -> 31
+-   Identity: {'tag': 62969, 'journal_identifier': 'EDGE * 17 * 4 {(0.5101516441475,2.8254976917846,0.7066518906778)(0.5028962707328,2.8230208575075,0.703715730906)(0.5003091244625,2.8179900058567,0.6975830213549) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 51: Circular | Length: 2.0359 | Connected Faces: 2 | Tag: 63009
 -   Endpoints: (-0.8820, 3.6009, 0.6205) -> (-0.8820, 2.7561, 0.7144)
 -   Curve Props: Arc Length 2.0359 | Radius 0.4882 | Diameter 0.9764 | Min Curvature Radius 0.4882
@@ -7174,11 +8600,15 @@
 -   Face Indices: 7, 2
 -   Topology Vertices: 18 -> 8
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63009, 'journal_identifier': 'EDGE * 7 * 8 {(-0.8819743401045,3.600923596828,0.6204894761862)(-0.8819743401045,3.0980545898818,-0.0564626522067)(-0.8819743401045,2.7560577458423,0.7143677966923) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 52: Intersection | Length: 0.0170 | Connected Faces: 2 | Tag: 62971
 -   Endpoints: (0.5003, 3.5368, 0.6177) -> (0.5102, 3.5315, 0.6282)
 -   Face Tags: 62899, 62925
 -   Face Indices: 5, 17
 -   Topology Vertices: 6 -> 24
+-   Identity: {'tag': 62971, 'journal_identifier': 'EDGE * 17 * 4 1 {(0.5003091244625,3.5368173886662,0.6177096221008)(0.5028906295641,3.5332593786428,0.6247895189639)(0.5101516441475,3.5314836508857,0.6282053822008) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 53: Circular | Length: 2.0060 | Connected Faces: 2 | Tag: 63007
 -   Endpoints: (-0.8721, 3.5897, 0.6217) -> (-0.8721, 2.7673, 0.7131)
 -   Curve Props: Arc Length 2.0060 | Radius 0.4783 | Diameter 0.9567 | Min Curvature Radius 0.4783
@@ -7187,11 +8617,15 @@
 -   Face Indices: 11, 7
 -   Topology Vertices: 1 -> 7
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63007, 'journal_identifier': 'EDGE * 6 * 7 {(-0.8721318204194,3.5896505636582,0.6217420932967)(-0.8721318204194,3.0991415639555,-0.0466803374953)(-0.8721318204194,2.7673307790121,0.7131151795818) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 54: Intersection | Length: 0.0309 | Connected Faces: 2 | Tag: 62985
 -   Endpoints: (0.4806, 3.5776, 0.3775) -> (0.5003, 3.5795, 0.3971)
 -   Face Tags: 62899, 62921
 -   Face Indices: 5, 21
 -   Topology Vertices: 16 -> 5
+-   Identity: {'tag': 62985, 'journal_identifier': 'EDGE * 15 * 4 1 {(0.4806240850924,3.5776333770752,0.377480637267)(0.4945335148795,3.5782833268,0.3832016507)(0.5003091244625,3.5795377433276,0.3970752216176) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ### Faces
 - Total Faces: 23
@@ -7216,6 +8650,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 21, 6, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62915, 'journal_identifier': 'FACE 12 {(0.0109390457223,3.1515337143075,0.4248272315957) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 2: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62907
 -   Measure: Area 0.2004 | Perimeter 4.2686 | Radius/Diameter 0.4882 | Min Curvature Radius 0.4882
 -   Points: Center (-0.9312, 3.1295, 0.2261) | Anchor (-0.9312, 3.1295, 0.2261)
@@ -7230,6 +8666,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 7, 18, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62907, 'journal_identifier': 'FACE 8 {(-0.9311869385297,3.0980545898818,-0.0564626522067) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 3: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62933
 -   Measure: Area 0.1844 | Perimeter 0.5693 | Radius/Diameter 0.0453 | Min Curvature Radius 0.0453
 -   Points: Center (0.9066, 3.1416, 0.3354) | Anchor (0.9066, 3.1416, 0.3354)
@@ -7244,6 +8682,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 19, 15
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62933, 'journal_identifier': 'FACE 21 {(0.9066083370609,3.0962883610259,0.3376112223206) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 4: Planar | Edges: 12 | Facets: None | Vertices: 12 | Tag: 62893
 -   Measure: Area 0.3647 | Perimeter 2.6595 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.7423, 3.1785, 0.6674) | Anchor (-0.7423, 3.1785, 0.6674)
@@ -7258,6 +8698,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 12, 16, 2, 7, 11, 22, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62893, 'journal_identifier': 'FACE 1 {(-0.7343365448289,3.1784906713351,0.6674286364393) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 5: Cylindrical | Edges: 21 | Facets: None | Vertices: 21 | Tag: 62899
 -   Measure: Area 3.0197 | Perimeter 8.8412 | Radius/Diameter 0.4287 | Min Curvature Radius 0.4287
 -   Points: Center (0.1004, 3.1286, 0.2188) | Anchor (0.1004, 3.1286, 0.2188)
@@ -7272,6 +8714,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 15, 17, 16, 6, 21, 1, 9, 22, 10, 4, 23, 20
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62899, 'journal_identifier': 'FACE 4 {(0.0896792032026,3.1046199132869,0.0026225286503) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 6: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62923
 -   Measure: Area 0.0265 | Perimeter 1.7762 | Radius/Diameter 0.0197 | Min Curvature Radius 0.0197
 -   Points: Center (-0.4713, 3.1523, 0.4319) | Anchor (-0.4713, 3.1523, 0.4319)
@@ -7286,6 +8730,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 23, 1
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62923, 'journal_identifier': 'FACE 16 {(-0.4726654184743,3.1521706904908,0.4305575520463) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 7: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62905
 -   Measure: Area 0.0281 | Perimeter 4.0719 | Radius/Diameter N/A | Min Curvature Radius 0.6765
 -   Points: Center (-0.8771, 3.1298, 0.2294) | Anchor (-0.8771, 3.1298, 0.2294)
@@ -7299,6 +8745,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 11, 2, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62905, 'journal_identifier': 'FACE 7 {(-0.8770530802619,3.0985980769186,-0.051571494851) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 8: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62931
 -   Measure: Area 0.0108 | Perimeter 1.4468 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (1.0479, 3.1781, 0.6639) | Anchor (1.0479, 3.1781, 0.6639)
@@ -7313,6 +8761,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 10, 9, 13
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62931, 'journal_identifier': 'FACE 20 {(1.0486074195529,3.1781723039999,0.664563462796) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 9: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62897
 -   Measure: Area 0.0256 | Perimeter 3.6971 | Radius/Diameter N/A | Min Curvature Radius 0.5924
 -   Points: Center (1.0465, 3.1341, 0.2679) | Anchor (1.0465, 3.1341, 0.2679)
@@ -7326,6 +8776,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 8, 13, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62897, 'journal_identifier': 'FACE 3 {(1.0465689669822,3.1051518468247,0.0075149699479) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 10: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 62913
 -   Measure: Area 0.3680 | Perimeter 2.8300 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.7725, 3.1785, 0.6674) | Anchor (0.7725, 3.1785, 0.6674)
@@ -7340,6 +8792,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 19, 8, 17, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62913, 'journal_identifier': 'FACE 11 {(0.7758996756436,3.1784906713351,0.6674286364393) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 11: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62903
 -   Measure: Area 0.0774 | Perimeter 3.9855 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.8721, 3.1316, 0.2457) | Anchor (-0.8721, 3.1316, 0.2457)
@@ -7354,6 +8808,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 22, 7, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62903, 'journal_identifier': 'FACE 6 {(-0.8721318204194,3.1385780703232,0.3082318225502) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 12: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62929
 -   Measure: Area 0.0130 | Perimeter 1.7249 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.9867, 3.1781, 0.6639) | Anchor (-0.9867, 3.1781, 0.6639)
@@ -7368,6 +8824,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 4, 18, 14
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62929, 'journal_identifier': 'FACE 19 {(-0.9873592493681,3.1781723039999,0.664563462796) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 13: Planar | Edges: 2 | Facets: None | Vertices: 2 | Tag: 62895
 -   Measure: Area 0.4584 | Perimeter 2.5035 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (1.0515, 3.1451, 0.3668) | Anchor (1.0515, 3.1451, 0.3668)
@@ -7382,6 +8840,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 8, 9
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62895, 'journal_identifier': 'FACE 2 {(1.0514902268247,3.1413402018813,0.3330898581097) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 14: Planar | Edges: 2 | Facets: None | Vertices: 2 | Tag: 62911
 -   Measure: Area 0.5709 | Perimeter 2.8219 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.9902, 3.1425, 0.3432) | Anchor (-0.9902, 3.1425, 0.3432)
@@ -7396,6 +8856,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 12, 18
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62911, 'journal_identifier': 'FACE 10 {(-0.9902420566399,3.1380378442085,0.3033700121386) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 15: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62937
 -   Measure: Area 0.0038 | Perimeter 0.6216 | Radius/Diameter N/A | Min Curvature Radius 0.0555
 -   Points: Center (0.9066, 3.1053, 0.0086) | Anchor (0.9066, 3.1053, 0.0086)
@@ -7409,6 +8871,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62937, 'journal_identifier': 'FACE 23 {(0.906662857712,3.05610619915,0.0158941249874) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 16: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62927
 -   Measure: Area 0.0111 | Perimeter 1.4676 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.4820, 3.1781, 0.6639) | Anchor (-0.4820, 3.1781, 0.6639)
@@ -7423,6 +8887,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 23, 4, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62927, 'journal_identifier': 'FACE 18 {(-0.4813138402896,3.1781723039999,0.664563462796) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 17: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62925
 -   Measure: Area 0.0111 | Perimeter 1.4676 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.5039, 3.1781, 0.6639) | Anchor (0.5039, 3.1781, 0.6639)
@@ -7437,6 +8903,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 20, 5, 10
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62925, 'journal_identifier': 'FACE 17 {(0.5031919317343,3.1781723039999,0.664563462796) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 18: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62909
 -   Measure: Area 0.0281 | Perimeter 4.0555 | Radius/Diameter N/A | Min Curvature Radius 0.6765
 -   Points: Center (-0.9853, 3.1297, 0.2283) | Anchor (-0.9853, 3.1297, 0.2283)
@@ -7450,6 +8918,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 12, 2, 14
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62909, 'journal_identifier': 'FACE 9 {(-0.9853207967974,3.0985875045638,-0.0515703199729) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 19: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62935
 -   Measure: Area 0.0044 | Perimeter 0.6308 | Radius/Diameter N/A | Min Curvature Radius 0.0640
 -   Points: Center (0.9066, 3.1780, 0.6627) | Anchor (0.9066, 3.1780, 0.6627)
@@ -7463,6 +8933,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 3, 10
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62935, 'journal_identifier': 'FACE 22 {(0.9066083370609,3.2278369893266,0.6569939113077) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 20: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62919
 -   Measure: Area 0.1740 | Perimeter 2.0349 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.5003, 3.1652, 0.5481) | Anchor (0.5003, 3.1652, 0.5481)
@@ -7477,6 +8949,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 17, 21, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62919, 'journal_identifier': 'FACE 14 {(0.5003091244625,3.1655556798582,0.5510190913732) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 21: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62921
 -   Measure: Area 0.0265 | Perimeter 1.7762 | Radius/Diameter 0.0197 | Min Curvature Radius 0.0197
 -   Points: Center (0.4932, 3.1523, 0.4319) | Anchor (0.4932, 3.1523, 0.4319)
@@ -7491,6 +8965,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 20, 1
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62921, 'journal_identifier': 'FACE 15 {(0.4945435099189,3.1521702074651,0.4305576057183) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 22: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62901
 -   Measure: Area 0.0260 | Perimeter 3.7737 | Radius/Diameter N/A | Min Curvature Radius 0.6063
 -   Points: Center (-0.8672, 3.1335, 0.2624) | Anchor (-0.8672, 3.1335, 0.2624)
@@ -7504,6 +8980,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 11, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62901, 'journal_identifier': 'FACE 5 {(-0.8672105605769,3.10407642625,-0.0022686287054) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 23: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62917
 -   Measure: Area 0.1740 | Perimeter 2.0349 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.4784, 3.1652, 0.5481) | Anchor (-0.4784, 3.1652, 0.5481)
@@ -7518,6 +8996,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 16, 6, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 62917, 'journal_identifier': 'FACE 13 {(-0.4784310330178,3.1655556798582,0.5510190913732) UNPARAMETERIZED_FEATURE(9)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ---
 ## Body 10
@@ -7542,15 +9022,15 @@
 - Radius Of Gyration: 0.4246
 - Centroid: (0.0000, 4.1137, 0.0000)
 ### Bounding Box
-- X Min: -0.9508
-- Y Min: 4.0197
-- Z Min: -2.5162
-- X Max: 0.9508
-- Y Max: 4.2914
-- Z Max: -2.2445
-- Dx (Length): 1.9016
-- Dy (Width): 0.2717
-- Dz (Height): 0.2717
+- X Min: -0.4998
+- Y Min: 3.8661
+- Z Min: -0.5246
+- X Max: 0.4998
+- Y Max: 4.3622
+- Z Max: 0.5246
+- Dx (Length): 0.9996
+- Dy (Width): 0.4961
+- Dz (Height): 1.0492
 
 ### Features
 - Total Features: 1
@@ -7572,6 +9052,8 @@
 -   Face Tags: 63144, 63168
 -   Face Indices: 18, 11
 -   Topology Vertices: 1 -> 2
+-   Identity: {'tag': 63256, 'journal_identifier': 'EDGE * 21 * 9 {(0.0557663538213,4.3224807898826,-0.5246033457943)(-0.169462622693,4.356575894777,-0.4367825326295)(-0.3961615397765,4.3224807898826,-0.3483885633011) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 2: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63214
 -   Endpoints: (0.3962, 4.3225, 0.3484) -> (0.4264, 4.3225, 0.3106)
 -   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
@@ -7580,21 +9062,29 @@
 -   Face Indices: 18, 27
 -   Topology Vertices: 3 -> 4
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63214, 'journal_identifier': 'EDGE * 14 * 9 {(0.3961615397765,4.3224807898826,0.3483885633011)(0.4117329227313,4.3224807898826,0.3298401991514)(0.4264366474575,4.3224807898826,0.3105967519829) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 3: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63282
 -   Endpoints: (0.2929, 3.8661, -0.3656) -> (0.4822, 3.9002, -0.2140)
 -   Face Tags: 63142, 63158
 -   Face Indices: 17, 4
 -   Topology Vertices: 5 -> 6
+-   Identity: {'tag': 63282, 'journal_identifier': 'EDGE * 16 * 8 {(0.2929177887986,3.8661417322835,-0.3656434164554)(0.3882312917942,3.8752913956428,-0.2892875481869)(0.4822030012789,3.9002372206214,-0.2140065938115) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 4: Spline | Length: 9.0990 | Connected Faces: 2 | Tag: 63188
 -   Endpoints: (0.2565, 3.9497, 0.0418) -> (-0.2500, 4.2786, 0.0707)
 -   Face Tags: 63176, 63180
 -   Face Indices: 25, 10
 -   Topology Vertices: 7 -> 8
+-   Identity: {'tag': 63188, 'journal_identifier': 'EDGE * 25 * 27 {(0.2564567183821,3.9497157002752,0.0418101259619)(0.0142117644835,4.1141104881635,0.2594535811789)(-0.2500457165556,4.2786307564177,0.0706772570807) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 5: Intersection | Length: 0.3998 | Connected Faces: 2 | Tag: 63298
 -   Endpoints: (0.0423, 4.3106, 0.2887) -> (-0.2500, 4.2786, 0.0707)
 -   Face Tags: 63170, 63176
 -   Face Indices: 14, 25
 -   Topology Vertices: 9 -> 8
+-   Identity: {'tag': 63298, 'journal_identifier': 'EDGE * 22 * 25 {(0.0422515773034,4.3105952765949,0.288731973859)(-0.1455133633664,4.2950753025688,0.2348625211269)(-0.2500457165556,4.2786307564177,0.0706772570807) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 6: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63244
 -   Endpoints: (-0.4822, 3.9002, 0.2140) -> (-0.4998, 3.9002, 0.1689)
 -   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
@@ -7603,6 +9093,8 @@
 -   Face Indices: 15, 2
 -   Topology Vertices: 10 -> 11
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63244, 'journal_identifier': 'EDGE * 12 * 5 {(-0.4822030012789,3.9002372206214,0.2140065938115)(-0.4915164530201,3.9002372206214,0.191651071084)(-0.499794116095,3.9002372206214,0.1688916757983) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 7: Circular | Length: 0.4906 | Connected Faces: 2 | Tag: 63230
 -   Endpoints: (-0.2929, 3.8661, 0.3656) -> (0.1702, 3.8661, 0.4365)
 -   Curve Props: Arc Length 0.4906 | Radius 0.4685 | Diameter 0.9370 | Min Curvature Radius 0.4685
@@ -7611,31 +9103,43 @@
 -   Face Indices: 6, 8
 -   Topology Vertices: 12 -> 13
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63230, 'journal_identifier': 'EDGE * 2 * 6 {(-0.2929177887986,3.8661417322835,0.3656434164554)(-0.0708525380923,3.8661417322835,0.4631153817762)(0.1701975929776,3.8661417322835,0.4364959545477) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 8: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63260
 -   Endpoints: (-0.4998, 3.9002, 0.1689) -> (-0.4631, 3.8661, -0.0709)
 -   Face Tags: 63136, 63166
 -   Face Indices: 15, 24
 -   Topology Vertices: 11 -> 14
+-   Identity: {'tag': 63260, 'journal_identifier': 'EDGE * 20 * 5 {(-0.499794116095,3.9002372206214,0.1688916757983)(-0.4816654970441,3.8753124405417,0.0503970874759)(-0.4631153817762,3.8661417322835,-0.0708525380923) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 9: Spline | Length: 12.2025 | Connected Faces: 2 | Tag: 63288
 -   Endpoints: (0.2112, 3.9178, -0.2013) -> (0.0423, 4.3106, 0.2887)
 -   Face Tags: 63176, 63178
 -   Face Indices: 25, 16
 -   Topology Vertices: 15 -> 9
+-   Identity: {'tag': 63288, 'journal_identifier': 'EDGE * 25 * 26 {(0.211217773103,3.917751180098,-0.2013415030205)(-0.276198834192,4.1142715332513,-0.0941570629539)(0.0422515773035,4.3105952765949,0.288731973859) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 10: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63272
 -   Endpoints: (0.3962, 3.9002, 0.3484) -> (0.1702, 3.8661, 0.4365)
 -   Face Tags: 63140, 63162
 -   Face Indices: 20, 23
 -   Topology Vertices: 16 -> 13
+-   Identity: {'tag': 63272, 'journal_identifier': 'EDGE * 18 * 7 {(0.3961615397765,3.9002372206214,0.3483885633011)(0.284040772832,3.8752562273363,0.3921064590982)(0.1701975929776,3.8661417322835,0.4364959545477) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 11: Intersection | Length: 0.4912 | Connected Faces: 2 | Tag: 63262
 -   Endpoints: (-0.4264, 4.3225, -0.3106) -> (-0.4998, 4.3225, 0.1689)
 -   Face Tags: 63144, 63166
 -   Face Indices: 18, 24
 -   Topology Vertices: 17 -> 18
+-   Identity: {'tag': 63262, 'journal_identifier': 'EDGE * 20 * 9 {(-0.4264366474575,4.3224807898826,-0.3105967519829)(-0.4631019180139,4.3565762733369,-0.0709405416504)(-0.499794116095,4.3224807898826,0.1688916757983) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 12: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63284
 -   Endpoints: (0.1036, 3.9002, -0.5173) -> (0.2929, 3.8661, -0.3656)
 -   Face Tags: 63134, 63158
 -   Face Indices: 21, 4
 -   Topology Vertices: 19 -> 5
+-   Identity: {'tag': 63284, 'journal_identifier': 'EDGE * 16 * 4 {(0.1036325763184,3.9002372206214,-0.5172802390994)(0.197553768151,3.8752562273363,-0.4420397545321)(0.2929177887986,3.8661417322835,-0.3656434164554) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 13: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63220
 -   Endpoints: (-0.3962, 4.3225, -0.3484) -> (-0.4264, 4.3225, -0.3106)
 -   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
@@ -7644,6 +9148,8 @@
 -   Face Indices: 18, 19
 -   Topology Vertices: 2 -> 17
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63220, 'journal_identifier': 'EDGE * 11 * 9 {(-0.3961615397765,4.3224807898826,-0.3483885633011)(-0.4117329227313,4.3224807898826,-0.3298401991514)(-0.4264366474575,4.3224807898826,-0.3105967519829) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 14: Circular | Length: 2.1577 | Connected Faces: 2 | Tag: 63304
 -   Endpoints: (-0.0519, 3.8661, 0.3395) -> (-0.0519, 3.8661, 0.3395)
 -   Curve Props: Arc Length 2.1577 | Radius 0.3434 | Diameter 0.6868 | Min Curvature Radius 0.3434
@@ -7652,6 +9158,8 @@
 -   Face Indices: 6, 7
 -   Topology Vertices: 20 -> 20
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63304, 'journal_identifier': 'EDGE * 2 * 23 {(-0.2680190450975,3.8661417322835,-0.2147106785265)(-0.051935379519,3.8661417322835,0.3394666410157)(0.3199544246164,3.8661417322835,-0.1247559624892) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 15: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63194
 -   Endpoints: (-0.4264, 4.3225, -0.3106) -> (-0.4264, 3.9002, -0.3106)
 -   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7660,11 +9168,15 @@
 -   Face Indices: 19, 24
 -   Topology Vertices: 17 -> 21
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63194, 'journal_identifier': 'EDGE * 11 * 20 {(-0.4264366474575,4.3224807898826,-0.3105967519829)(-0.4264366474575,4.111359005252,-0.3105967519829)(-0.4264366474575,3.9002372206214,-0.3105967519829) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 16: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63278
 -   Endpoints: (0.4998, 3.9002, -0.1689) -> (0.4631, 3.8661, 0.0709)
 -   Face Tags: 63142, 63160
 -   Face Indices: 17, 22
 -   Topology Vertices: 22 -> 23
+-   Identity: {'tag': 63278, 'journal_identifier': 'EDGE * 17 * 8 {(0.499794116095,3.9002372206214,-0.1688916757983)(0.4816654970441,3.8753124405417,-0.0503970874759)(0.4631153817762,3.8661417322835,0.0708525380923) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 17: Circular | Length: 0.4082 | Connected Faces: 2 | Tag: 63294
 -   Endpoints: (0.0418, 3.9497, -0.2565) -> (0.2565, 3.9497, 0.0418)
 -   Curve Props: Arc Length 0.4082 | Radius 0.2598 | Diameter 0.5197 | Min Curvature Radius 0.2598
@@ -7673,11 +9185,15 @@
 -   Face Indices: 7, 10
 -   Topology Vertices: 24 -> 7
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63294, 'journal_identifier': 'EDGE * 23 * 27 {(0.0418101213384,3.9497157002752,-0.2564567191359)(0.2109065068706,3.9497157002752,-0.1517780629601)(0.2564567183821,3.9497157002752,0.0418101259619) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 18: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63252
 -   Endpoints: (-0.1702, 3.8661, -0.4365) -> (0.0558, 3.9002, -0.5246)
 -   Face Tags: 63134, 63168
 -   Face Indices: 21, 11
 -   Topology Vertices: 25 -> 26
+-   Identity: {'tag': 63252, 'journal_identifier': 'EDGE * 21 * 4 {(-0.1701975929776,3.8661417322835,-0.4364959545477)(-0.0564147198313,3.8752913956428,-0.4808619353313)(0.0557663538213,3.9002372206214,-0.5246033457943) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 19: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63210
 -   Endpoints: (0.4822, 4.3225, -0.2140) -> (0.4822, 3.9002, -0.2140)
 -   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7686,11 +9202,15 @@
 -   Face Indices: 26, 4
 -   Topology Vertices: 27 -> 6
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63210, 'journal_identifier': 'EDGE * 15 * 16 {(0.4822030012789,4.3224807898826,-0.2140065938115)(0.4822030012789,4.111359005252,-0.2140065938115)(0.4822030012789,3.9002372206214,-0.2140065938115) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 20: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63258
 -   Endpoints: (-0.4631, 3.8661, -0.0709) -> (-0.4264, 3.9002, -0.3106)
 -   Face Tags: 63132, 63166
 -   Face Indices: 1, 24
 -   Topology Vertices: 14 -> 21
+-   Identity: {'tag': 63258, 'journal_identifier': 'EDGE * 20 * 3 {(-0.4631153817762,3.8661417322835,-0.0708525380923)(-0.4445633328823,3.8753219776637,-0.1921148024737)(-0.4264366474575,3.9002372206214,-0.3105967519829) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 21: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63248
 -   Endpoints: (0.0558, 3.9002, -0.5246) -> (0.1036, 3.9002, -0.5173)
 -   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
@@ -7699,21 +9219,29 @@
 -   Face Indices: 21, 9
 -   Topology Vertices: 26 -> 19
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63248, 'journal_identifier': 'EDGE * 10 * 4 {(0.0557663538213,3.9002372206214,-0.5246033457943)(0.0797835302888,3.9002372206214,-0.5214912702354)(0.1036325763184,3.9002372206214,-0.5172802390994) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 22: Intersection | Length: 1.4807 | Connected Faces: 2 | Tag: 63184
 -   Endpoints: (0.0707, 4.2786, 0.2500) -> (-0.1743, 4.3106, 0.2340)
 -   Face Tags: 63170, 63174
 -   Face Indices: 14, 3
 -   Topology Vertices: 28 -> 29
+-   Identity: {'tag': 63184, 'journal_identifier': 'EDGE * 22 * 24 {(0.0706772612647,4.2786307564177,0.250045715373)(0.0286101566551,4.2950732576985,-0.2747996938613)(-0.174287959834,4.3105952765949,0.2340407134882) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 23: Intersection | Length: 0.4912 | Connected Faces: 2 | Tag: 63286
 -   Endpoints: (0.4822, 4.3225, -0.2140) -> (0.1036, 4.3225, -0.5173)
 -   Face Tags: 63144, 63158
 -   Face Indices: 18, 4
 -   Topology Vertices: 27 -> 30
+-   Identity: {'tag': 63286, 'journal_identifier': 'EDGE * 16 * 9 {(0.4822030012789,4.3224807898826,-0.2140065938115)(0.2935334578399,4.356575894777,-0.3651502025588)(0.1036325763184,4.3224807898826,-0.5172802390994) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 24: Intersection | Length: 0.4912 | Connected Faces: 2 | Tag: 63268
 -   Endpoints: (-0.4822, 4.3225, 0.2140) -> (-0.1036, 4.3225, 0.5173)
 -   Face Tags: 63144, 63164
 -   Face Indices: 18, 5
 -   Topology Vertices: 31 -> 32
+-   Identity: {'tag': 63268, 'journal_identifier': 'EDGE * 19 * 9 {(-0.4822030012789,4.3224807898826,0.2140065938115)(-0.2935334578399,4.356575894777,0.3651502025588)(-0.1036325763184,4.3224807898826,0.5172802390994) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 25: Circular | Length: 0.4906 | Connected Faces: 2 | Tag: 63226
 -   Endpoints: (-0.1702, 3.8661, -0.4365) -> (-0.4631, 3.8661, -0.0709)
 -   Curve Props: Arc Length 0.4906 | Radius 0.4685 | Diameter 0.9370 | Min Curvature Radius 0.4685
@@ -7722,6 +9250,8 @@
 -   Face Indices: 6, 1
 -   Topology Vertices: 25 -> 14
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63226, 'journal_identifier': 'EDGE * 2 * 3 {(-0.1701975929776,3.8661417322835,-0.4364959545477)(-0.3656434164554,3.8661417322835,-0.2929177887986)(-0.4631153817762,3.8661417322835,-0.0708525380923) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 26: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63200
 -   Endpoints: (-0.1036, 3.9002, 0.5173) -> (-0.1036, 4.3225, 0.5173)
 -   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7730,6 +9260,8 @@
 -   Face Indices: 12, 5
 -   Topology Vertices: 33 -> 32
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63200, 'journal_identifier': 'EDGE * 13 * 19 {(-0.1036325763184,3.9002372206214,0.5172802390994)(-0.1036325763184,4.111359005252,0.5172802390994)(-0.1036325763184,4.3224807898826,0.5172802390994) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 27: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63196
 -   Endpoints: (-0.4998, 3.9002, 0.1689) -> (-0.4998, 4.3225, 0.1689)
 -   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7738,6 +9270,8 @@
 -   Face Indices: 2, 24
 -   Topology Vertices: 11 -> 18
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63196, 'journal_identifier': 'EDGE * 12 * 20 {(-0.499794116095,3.9002372206214,0.1688916757983)(-0.499794116095,4.111359005252,0.1688916757983)(-0.499794116095,4.3224807898826,0.1688916757983) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 28: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63216
 -   Endpoints: (0.4998, 4.3225, -0.1689) -> (0.4822, 4.3225, -0.2140)
 -   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
@@ -7746,6 +9280,8 @@
 -   Face Indices: 18, 26
 -   Topology Vertices: 34 -> 27
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63216, 'journal_identifier': 'EDGE * 15 * 9 {(0.499794116095,4.3224807898826,-0.1688916757983)(0.4915164530201,4.3224807898826,-0.191651071084)(0.4822030012789,4.3224807898826,-0.2140065938115) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 29: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63190
 -   Endpoints: (0.0558, 4.3225, -0.5246) -> (0.0558, 3.9002, -0.5246)
 -   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7754,6 +9290,8 @@
 -   Face Indices: 9, 11
 -   Topology Vertices: 1 -> 26
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63190, 'journal_identifier': 'EDGE * 10 * 21 {(0.0557663538213,4.3224807898826,-0.5246033457943)(0.0557663538213,4.111359005252,-0.5246033457943)(0.0557663538213,3.9002372206214,-0.5246033457943) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 30: Circular | Length: 0.4906 | Connected Faces: 2 | Tag: 63234
 -   Endpoints: (0.4631, 3.8661, 0.0709) -> (0.2929, 3.8661, -0.3656)
 -   Curve Props: Arc Length 0.4906 | Radius 0.4685 | Diameter 0.9370 | Min Curvature Radius 0.4685
@@ -7762,6 +9300,8 @@
 -   Face Indices: 6, 17
 -   Topology Vertices: 23 -> 5
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63234, 'journal_identifier': 'EDGE * 2 * 8 {(0.4631153817762,3.8661417322835,0.0708525380923)(0.4364959545477,3.8661417322835,-0.1701975929776)(0.2929177887986,3.8661417322835,-0.3656434164554) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 31: Circular | Length: 0.4906 | Connected Faces: 2 | Tag: 63232
 -   Endpoints: (0.1702, 3.8661, 0.4365) -> (0.4631, 3.8661, 0.0709)
 -   Curve Props: Arc Length 0.4906 | Radius 0.4685 | Diameter 0.9370 | Min Curvature Radius 0.4685
@@ -7770,6 +9310,8 @@
 -   Face Indices: 6, 20
 -   Topology Vertices: 13 -> 23
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63232, 'journal_identifier': 'EDGE * 2 * 7 {(0.1701975929776,3.8661417322835,0.4364959545477)(0.3656434164554,3.8661417322835,0.2929177887986)(0.4631153817762,3.8661417322835,0.0708525380923) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 32: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63206
 -   Endpoints: (0.4264, 4.3225, 0.3106) -> (0.4264, 3.9002, 0.3106)
 -   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7778,16 +9320,22 @@
 -   Face Indices: 27, 22
 -   Topology Vertices: 4 -> 35
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63206, 'journal_identifier': 'EDGE * 14 * 17 {(0.4264366474575,4.3224807898826,0.3105967519829)(0.4264366474575,4.111359005252,0.3105967519829)(0.4264366474575,3.9002372206214,0.3105967519829) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 33: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63264
 -   Endpoints: (-0.2929, 3.8661, 0.3656) -> (-0.4822, 3.9002, 0.2140)
 -   Face Tags: 63136, 63164
 -   Face Indices: 15, 5
 -   Topology Vertices: 12 -> 10
+-   Identity: {'tag': 63264, 'journal_identifier': 'EDGE * 19 * 5 {(-0.2929177887986,3.8661417322835,0.3656434164554)(-0.3882312917942,3.8752913956428,0.2892875481869)(-0.4822030012789,3.9002372206214,0.2140065938115) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 34: Spline | Length: 12.2025 | Connected Faces: 2 | Tag: 63290
 -   Endpoints: (0.2917, 3.9178, 0.0070) -> (-0.1743, 4.3106, 0.2340)
 -   Face Tags: 63174, 63178
 -   Face Indices: 3, 16
 -   Topology Vertices: 36 -> 29
+-   Identity: {'tag': 63290, 'journal_identifier': 'EDGE * 24 * 26 {(0.2917234617882,3.9177511800978,0.0069835775557)(-0.1287229708983,4.1142715332512,-0.261881166326)(-0.174287959834,4.3105952765949,0.2340407134882) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 35: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63238
 -   Endpoints: (0.4822, 3.9002, -0.2140) -> (0.4998, 3.9002, -0.1689)
 -   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
@@ -7796,11 +9344,15 @@
 -   Face Indices: 17, 26
 -   Topology Vertices: 6 -> 22
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63238, 'journal_identifier': 'EDGE * 15 * 8 {(0.4822030012789,3.9002372206214,-0.2140065938115)(0.4915164530201,3.9002372206214,-0.191651071084)(0.499794116095,3.9002372206214,-0.1688916757983) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 36: Intersection | Length: 1.4786 | Connected Faces: 2 | Tag: 63292
 -   Endpoints: (0.2565, 3.9497, 0.0418) -> (0.2112, 3.9178, -0.2013)
 -   Face Tags: 63172, 63176
 -   Face Indices: 7, 25
 -   Topology Vertices: 7 -> 15
+-   Identity: {'tag': 63292, 'journal_identifier': 'EDGE * 23 * 25 {(0.2564567183821,3.9497157002752,0.0418101259619)(-0.2695428726312,3.9332721763527,0.0606680946298)(0.211217773103,3.917751180098,-0.2013415030205) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 37: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63246
 -   Endpoints: (-0.4264, 3.9002, -0.3106) -> (-0.3962, 3.9002, -0.3484)
 -   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
@@ -7809,6 +9361,8 @@
 -   Face Indices: 1, 19
 -   Topology Vertices: 21 -> 37
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63246, 'journal_identifier': 'EDGE * 11 * 3 {(-0.4264366474575,3.9002372206214,-0.3105967519829)(-0.4117329227313,3.9002372206214,-0.3298401991514)(-0.3961615397765,3.9002372206214,-0.3483885633011) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 38: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63222
 -   Endpoints: (-0.4998, 4.3225, 0.1689) -> (-0.4822, 4.3225, 0.2140)
 -   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
@@ -7817,6 +9371,8 @@
 -   Face Indices: 18, 2
 -   Topology Vertices: 18 -> 31
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63222, 'journal_identifier': 'EDGE * 12 * 9 {(-0.499794116095,4.3224807898826,0.1688916757983)(-0.4915164530201,4.3224807898826,0.191651071084)(-0.4822030012789,4.3224807898826,0.2140065938115) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 39: Circular | Length: 2.1577 | Connected Faces: 2 | Tag: 63306
 -   Endpoints: (-0.0519, 4.3622, 0.3395) -> (-0.0519, 4.3622, 0.3395)
 -   Curve Props: Arc Length 2.1577 | Radius 0.3434 | Diameter 0.6868 | Min Curvature Radius 0.3434
@@ -7825,21 +9381,29 @@
 -   Face Indices: 13, 14
 -   Topology Vertices: 20 -> 20
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63306, 'journal_identifier': 'EDGE * 1 * 22 {(-0.2680190450975,4.3622047244094,-0.2147106785265)(-0.051935379519,4.3622047244094,0.3394666410157)(0.3199544246164,4.3622047244094,-0.1247559624892) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 40: Intersection | Length: 0.4912 | Connected Faces: 2 | Tag: 63280
 -   Endpoints: (0.4264, 4.3225, 0.3106) -> (0.4998, 4.3225, -0.1689)
 -   Face Tags: 63144, 63160
 -   Face Indices: 18, 22
 -   Topology Vertices: 4 -> 34
+-   Identity: {'tag': 63280, 'journal_identifier': 'EDGE * 17 * 9 {(0.4264366474575,4.3224807898826,0.3105967519829)(0.4631019180139,4.3565762733369,0.0709405416504)(0.499794116095,4.3224807898826,-0.1688916757983) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 41: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63266
 -   Endpoints: (-0.1036, 3.9002, 0.5173) -> (-0.2929, 3.8661, 0.3656)
 -   Face Tags: 63138, 63164
 -   Face Indices: 8, 5
 -   Topology Vertices: 33 -> 12
+-   Identity: {'tag': 63266, 'journal_identifier': 'EDGE * 19 * 6 {(-0.1036325763184,3.9002372206214,0.5172802390994)(-0.197553768151,3.8752562273363,0.4420397545321)(-0.2929177887986,3.8661417322835,0.3656434164554) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 42: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63254
 -   Endpoints: (-0.3962, 3.9002, -0.3484) -> (-0.1702, 3.8661, -0.4365)
 -   Face Tags: 63132, 63168
 -   Face Indices: 1, 11
 -   Topology Vertices: 37 -> 25
+-   Identity: {'tag': 63254, 'journal_identifier': 'EDGE * 21 * 3 {(-0.3961615397765,3.9002372206214,-0.3483885633011)(-0.284040772832,3.8752562273363,-0.3921064590982)(-0.1701975929776,3.8661417322835,-0.4364959545477) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 43: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63212
 -   Endpoints: (0.1036, 3.9002, -0.5173) -> (0.1036, 4.3225, -0.5173)
 -   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7848,21 +9412,29 @@
 -   Face Indices: 9, 4
 -   Topology Vertices: 19 -> 30
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63212, 'journal_identifier': 'EDGE * 10 * 16 {(0.1036325763184,3.9002372206214,-0.5172802390994)(0.1036325763184,4.111359005252,-0.5172802390994)(0.1036325763184,4.3224807898826,-0.5172802390994) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 44: Intersection | Length: 0.2291 | Connected Faces: 2 | Tag: 63296
 -   Endpoints: (0.2112, 3.9178, -0.2013) -> (0.2917, 3.9178, 0.0070)
 -   Face Tags: 63172, 63178
 -   Face Indices: 7, 16
 -   Topology Vertices: 15 -> 36
+-   Identity: {'tag': 63296, 'journal_identifier': 'EDGE * 23 * 26 {(0.211217773103,3.917751180098,-0.2013415030205)(0.271978042038,3.917751180098,-0.1051039055009)(0.2917234617883,3.917751180098,0.0069835775482) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 45: Spline | Length: 9.0990 | Connected Faces: 2 | Tag: 63186
 -   Endpoints: (0.0418, 3.9497, -0.2565) -> (0.0707, 4.2786, 0.2500)
 -   Face Tags: 63174, 63180
 -   Face Indices: 3, 10
 -   Topology Vertices: 24 -> 28
+-   Identity: {'tag': 63186, 'journal_identifier': 'EDGE * 24 * 27 {(0.0418101213384,3.9497157002752,-0.2564567191359)(0.2594535809292,4.1141104881687,-0.0142117690418)(0.0706772612647,4.2786307564177,0.250045715373) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 46: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63270
 -   Endpoints: (0.1702, 3.8661, 0.4365) -> (-0.0558, 3.9002, 0.5246)
 -   Face Tags: 63138, 63162
 -   Face Indices: 8, 23
 -   Topology Vertices: 13 -> 38
+-   Identity: {'tag': 63270, 'journal_identifier': 'EDGE * 18 * 6 {(0.1701975929776,3.8661417322835,0.4364959545477)(0.0564147198313,3.8752913956428,0.4808619353313)(-0.0557663538213,3.9002372206214,0.5246033457943) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 47: Circular | Length: 0.4906 | Connected Faces: 2 | Tag: 63228
 -   Endpoints: (-0.4631, 3.8661, -0.0709) -> (-0.2929, 3.8661, 0.3656)
 -   Curve Props: Arc Length 0.4906 | Radius 0.4685 | Diameter 0.9370 | Min Curvature Radius 0.4685
@@ -7871,6 +9443,8 @@
 -   Face Indices: 6, 15
 -   Topology Vertices: 14 -> 12
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63228, 'journal_identifier': 'EDGE * 2 * 5 {(-0.4631153817762,3.8661417322835,-0.0708525380923)(-0.4364959545477,3.8661417322835,0.1701975929776)(-0.2929177887986,3.8661417322835,0.3656434164554) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 48: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63240
 -   Endpoints: (0.4264, 3.9002, 0.3106) -> (0.3962, 3.9002, 0.3484)
 -   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
@@ -7879,6 +9453,8 @@
 -   Face Indices: 20, 27
 -   Topology Vertices: 35 -> 16
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63240, 'journal_identifier': 'EDGE * 14 * 7 {(0.4264366474575,3.9002372206214,0.3105967519829)(0.4117329227313,3.9002372206214,0.3298401991514)(0.3961615397765,3.9002372206214,0.3483885633011) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 49: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63202
 -   Endpoints: (-0.0558, 4.3225, 0.5246) -> (-0.0558, 3.9002, 0.5246)
 -   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7887,6 +9463,8 @@
 -   Face Indices: 12, 23
 -   Topology Vertices: 39 -> 38
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63202, 'journal_identifier': 'EDGE * 13 * 18 {(-0.0557663538213,4.3224807898826,0.5246033457943)(-0.0557663538213,4.111359005252,0.5246033457943)(-0.0557663538213,3.9002372206214,0.5246033457943) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 50: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63204
 -   Endpoints: (0.3962, 3.9002, 0.3484) -> (0.3962, 4.3225, 0.3484)
 -   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7895,6 +9473,8 @@
 -   Face Indices: 27, 23
 -   Topology Vertices: 16 -> 3
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63204, 'journal_identifier': 'EDGE * 14 * 18 {(0.3961615397765,3.9002372206214,0.3483885633011)(0.3961615397765,4.111359005252,0.3483885633011)(0.3961615397765,4.3224807898826,0.3483885633011) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 51: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63242
 -   Endpoints: (-0.0558, 3.9002, 0.5246) -> (-0.1036, 3.9002, 0.5173)
 -   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
@@ -7903,6 +9483,8 @@
 -   Face Indices: 8, 12
 -   Topology Vertices: 38 -> 33
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63242, 'journal_identifier': 'EDGE * 13 * 6 {(-0.0557663538213,3.9002372206214,0.5246033457943)(-0.0797835302888,3.9002372206214,0.5214912702354)(-0.1036325763184,3.9002372206214,0.5172802390994) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 52: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63218
 -   Endpoints: (0.1036, 4.3225, -0.5173) -> (0.0558, 4.3225, -0.5246)
 -   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
@@ -7911,11 +9493,15 @@
 -   Face Indices: 18, 9
 -   Topology Vertices: 30 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63218, 'journal_identifier': 'EDGE * 10 * 9 {(0.1036325763184,4.3224807898826,-0.5172802390994)(0.0797835302888,4.3224807898826,-0.5214912702354)(0.0557663538213,4.3224807898826,-0.5246033457943) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 53: Intersection | Length: 0.2291 | Connected Faces: 2 | Tag: 63302
 -   Endpoints: (-0.1743, 4.3106, 0.2340) -> (0.0423, 4.3106, 0.2887)
 -   Face Tags: 63170, 63178
 -   Face Indices: 14, 16
 -   Topology Vertices: 29 -> 9
+-   Identity: {'tag': 63302, 'journal_identifier': 'EDGE * 22 * 26 {(-0.174287959834,4.3105952765949,0.2340407134882)(-0.0714019736445,4.3105952765949,0.2827023955718)(0.0422515773034,4.3105952765949,0.288731973859) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 54: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63192
 -   Endpoints: (-0.3962, 3.9002, -0.3484) -> (-0.3962, 4.3225, -0.3484)
 -   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7924,11 +9510,15 @@
 -   Face Indices: 19, 11
 -   Topology Vertices: 37 -> 2
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63192, 'journal_identifier': 'EDGE * 11 * 21 {(-0.3961615397765,3.9002372206214,-0.3483885633011)(-0.3961615397765,4.111359005252,-0.3483885633011)(-0.3961615397765,4.3224807898826,-0.3483885633011) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 55: Intersection | Length: 0.2456 | Connected Faces: 2 | Tag: 63276
 -   Endpoints: (0.4631, 3.8661, 0.0709) -> (0.4264, 3.9002, 0.3106)
 -   Face Tags: 63140, 63160
 -   Face Indices: 20, 22
 -   Topology Vertices: 23 -> 35
+-   Identity: {'tag': 63276, 'journal_identifier': 'EDGE * 17 * 7 {(0.4631153817762,3.8661417322835,0.0708525380923)(0.4445633328823,3.8753219776637,0.1921148024737)(0.4264366474575,3.9002372206214,0.3105967519829) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 56: Circular | Length: 2.8824 | Connected Faces: 2 | Tag: 63250
 -   Endpoints: (-0.0694, 4.3622, 0.4535) -> (-0.0694, 4.3622, 0.4535)
 -   Curve Props: Arc Length 2.8824 | Radius 0.4588 | Diameter 0.9175 | Min Curvature Radius 0.4588
@@ -7937,11 +9527,15 @@
 -   Face Indices: 13, 18
 -   Topology Vertices: 20 -> 20
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63250, 'journal_identifier': 'EDGE * 1 * 9 {(-0.3580350108103,4.3622047244094,-0.2868226773935)(-0.0693782195991,4.3622047244094,0.4534787535027)(0.4274132304093,4.3622047244094,-0.1666560761092) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 57: Intersection | Length: 0.3977 | Connected Faces: 2 | Tag: 63182
 -   Endpoints: (0.2917, 3.9178, 0.0070) -> (0.0418, 3.9497, -0.2565)
 -   Face Tags: 63172, 63174
 -   Face Indices: 7, 3
 -   Topology Vertices: 36 -> 24
+-   Identity: {'tag': 63182, 'journal_identifier': 'EDGE * 23 * 24 {(0.2917234617882,3.9177511800978,0.0069835775557)(0.2161158479825,3.933284244958,-0.1721082494081)(0.0418101213384,3.9497157002752,-0.2564567191359) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 58: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63208
 -   Endpoints: (0.4998, 3.9002, -0.1689) -> (0.4998, 4.3225, -0.1689)
 -   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7950,6 +9544,8 @@
 -   Face Indices: 26, 22
 -   Topology Vertices: 22 -> 34
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63208, 'journal_identifier': 'EDGE * 15 * 17 {(0.499794116095,3.9002372206214,-0.1688916757983)(0.499794116095,4.111359005252,-0.1688916757983)(0.499794116095,4.3224807898826,-0.1688916757983) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 59: Circular | Length: 0.4082 | Connected Faces: 2 | Tag: 63300
 -   Endpoints: (-0.2500, 4.2786, 0.0707) -> (0.0707, 4.2786, 0.2500)
 -   Curve Props: Arc Length 0.4082 | Radius 0.2598 | Diameter 0.5197 | Min Curvature Radius 0.2598
@@ -7958,6 +9554,8 @@
 -   Face Indices: 14, 10
 -   Topology Vertices: 8 -> 28
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63300, 'journal_identifier': 'EDGE * 22 * 27 {(-0.2500457165556,4.2786307564177,0.0706772570807)(-0.1268326521283,4.2786307564177,0.2267853906017)(0.0706772612647,4.2786307564177,0.250045715373) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 60: Circular | Length: 0.4906 | Connected Faces: 2 | Tag: 63236
 -   Endpoints: (0.2929, 3.8661, -0.3656) -> (-0.1702, 3.8661, -0.4365)
 -   Curve Props: Arc Length 0.4906 | Radius 0.4685 | Diameter 0.9370 | Min Curvature Radius 0.4685
@@ -7966,6 +9564,8 @@
 -   Face Indices: 6, 21
 -   Topology Vertices: 5 -> 25
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63236, 'journal_identifier': 'EDGE * 2 * 4 {(0.2929177887986,3.8661417322835,-0.3656434164554)(0.0708525380923,3.8661417322835,-0.4631153817762)(-0.1701975929776,3.8661417322835,-0.4364959545477) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 61: Circular | Length: 0.0484 | Connected Faces: 2 | Tag: 63224
 -   Endpoints: (-0.1036, 4.3225, 0.5173) -> (-0.0558, 4.3225, 0.5246)
 -   Curve Props: Arc Length 0.0484 | Radius 0.5276 | Diameter 1.0551 | Min Curvature Radius 0.5276
@@ -7974,6 +9574,8 @@
 -   Face Indices: 18, 12
 -   Topology Vertices: 32 -> 39
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63224, 'journal_identifier': 'EDGE * 13 * 9 {(-0.1036325763184,4.3224807898826,0.5172802390994)(-0.0797835302888,4.3224807898826,0.5214912702354)(-0.0557663538213,4.3224807898826,0.5246033457943) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 62: Linear | Length: 0.4222 | Connected Faces: 2 | Tag: 63198
 -   Endpoints: (-0.4822, 4.3225, 0.2140) -> (-0.4822, 3.9002, 0.2140)
 -   Curve Props: Arc Length 0.4222 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -7982,11 +9584,15 @@
 -   Face Indices: 2, 5
 -   Topology Vertices: 31 -> 10
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63198, 'journal_identifier': 'EDGE * 12 * 19 {(-0.4822030012789,4.3224807898826,0.2140065938115)(-0.4822030012789,4.111359005252,0.2140065938115)(-0.4822030012789,3.9002372206214,0.2140065938115) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 63: Intersection | Length: 0.4912 | Connected Faces: 2 | Tag: 63274
 -   Endpoints: (-0.0558, 4.3225, 0.5246) -> (0.3962, 4.3225, 0.3484)
 -   Face Tags: 63144, 63162
 -   Face Indices: 18, 23
 -   Topology Vertices: 39 -> 3
+-   Identity: {'tag': 63274, 'journal_identifier': 'EDGE * 18 * 9 {(-0.0557663538213,4.3224807898826,0.5246033457943)(0.169462622693,4.356575894777,0.4367825326295)(0.3961615397765,4.3224807898826,0.3483885633011) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ### Faces
 - Total Faces: 27
@@ -8010,6 +9616,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6, 19, 11, 24
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63132, 'journal_identifier': 'FACE 3 {(-0.3886881695934,3.8831894764524,-0.311378993975) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 2: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63150
 -   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
 -   Points: Center (-0.4913, 4.1114, 0.1916) | Anchor (-0.4913, 4.1114, 0.1916)
@@ -8024,6 +9632,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 24, 5, 18, 15
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63150, 'journal_identifier': 'FACE 12 {(-0.4915164530201,4.111359005252,0.191651071084) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 3: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63174
 -   Measure: Area 0.3917 | Perimeter 23.1806 | Radius/Diameter N/A | Min Curvature Radius 0.5057
 -   Points: Center (-0.0028, 4.1142, -0.0053) | Anchor (-0.0028, 4.1142, -0.0053)
@@ -8037,6 +9647,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 7, 14, 10, 16
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63174, 'journal_identifier': 'FACE 24 {(-0.1216728188483,4.1234988954156,-0.2475379451532) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 4: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63158
 -   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.2929, 4.1114, -0.3656) | Anchor (0.2929, 4.1114, -0.3656)
@@ -8051,6 +9663,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 26, 9, 17, 21, 18
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63158, 'journal_identifier': 'FACE 16 {(0.2929177887986,4.1132409574671,-0.3656434164554) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 5: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63164
 -   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.2929, 4.1114, 0.3656) | Anchor (-0.2929, 4.1114, 0.3656)
@@ -8065,6 +9679,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 2, 12, 15, 8, 18
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63164, 'journal_identifier': 'FACE 19 {(-0.2929177887986,4.1132409574671,0.3656434164554) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 6: Planar | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63130
 -   Measure: Area 0.3191 | Perimeter 5.1014 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, 3.8661, 0.0000) | Anchor (-0.0000, 3.8661, 0.0000)
@@ -8079,6 +9695,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 1, 15, 8, 20, 17, 21, 7
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63130, 'journal_identifier': 'FACE 2 {(0,3.8661417322835,0) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 7: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63172
 -   Measure: Area 0.1902 | Perimeter 4.6720 | Radius/Diameter N/A | Min Curvature Radius 0.3675
 -   Points: Center (0.0103, 3.9004, 0.0162) | Anchor (0.0103, 3.9004, 0.0162)
@@ -8092,6 +9710,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 3, 25, 10, 16, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63172, 'journal_identifier': 'FACE 23 {(0.0456158725918,3.9079287162793,-0.2981602751181) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 8: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63138
 -   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
 -   Points: Center (-0.0730, 3.8781, 0.4773) | Anchor (-0.0730, 3.8781, 0.4773)
@@ -8105,6 +9725,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6, 12, 5, 23
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63138, 'journal_identifier': 'FACE 6 {(-0.0753180341905,3.8831894764524,0.4923033260058) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 9: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63146
 -   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
 -   Points: Center (0.0798, 4.1114, -0.5213) | Anchor (0.0798, 4.1114, -0.5213)
@@ -8119,6 +9741,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 11, 4, 18, 21
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63146, 'journal_identifier': 'FACE 10 {(0.0797835302888,4.111359005252,-0.5214912702354) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 10: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63180
 -   Measure: Area 0.1343 | Perimeter 19.0144 | Radius/Diameter 0.2598 | Min Curvature Radius 0.2598
 -   Points: Center (-0.0097, 4.1142, -0.0087) | Anchor (-0.0097, 4.1142, -0.0087)
@@ -8133,6 +9757,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 3, 25, 7, 14
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63180, 'journal_identifier': 'FACE 27 {(0.0392963656646,4.1141732283465,-0.2568539092204) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 11: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63168
 -   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.1702, 4.1114, -0.4365) | Anchor (-0.1702, 4.1114, -0.4365)
@@ -8147,6 +9773,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 9, 19, 21, 1, 18
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63168, 'journal_identifier': 'FACE 21 {(-0.1701975929776,4.1132409574671,-0.4364959545477) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 12: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63152
 -   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
 -   Points: Center (-0.0798, 4.1114, 0.5213) | Anchor (-0.0798, 4.1114, 0.5213)
@@ -8161,6 +9789,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 23, 18, 8
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63152, 'journal_identifier': 'FACE 13 {(-0.0797835302888,4.111359005252,0.5214912702354) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 13: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63128
 -   Measure: Area 0.2907 | Perimeter 5.0402 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 4.3622, -0.0000) | Anchor (0.0000, 4.3622, -0.0000)
@@ -8175,6 +9805,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 18, 14
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63128, 'journal_identifier': 'FACE 1 {(0,4.3622047244094,0) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 14: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63170
 -   Measure: Area 0.1902 | Perimeter 4.6763 | Radius/Diameter N/A | Min Curvature Radius 0.3675
 -   Points: Center (0.0172, 4.3279, 0.0084) | Anchor (0.0172, 4.3279, 0.0084)
@@ -8188,6 +9820,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 3, 25, 10, 16, 13
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63170, 'journal_identifier': 'FACE 22 {(-0.0456158725918,4.3204177404136,0.2981602751181) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 15: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63136
 -   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
 -   Points: Center (-0.4499, 3.8781, 0.1754) | Anchor (-0.4499, 3.8781, 0.1754)
@@ -8201,6 +9835,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6, 2, 24, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63136, 'journal_identifier': 'FACE 5 {(-0.4640062037839,3.8831894764524,0.1809243320308) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 16: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63178
 -   Measure: Area 0.0900 | Perimeter 24.8634 | Radius/Diameter N/A | Min Curvature Radius 0.2918
 -   Points: Center (-0.0090, 4.1142, -0.0080) | Anchor (-0.0090, 4.1142, -0.0080)
@@ -8214,6 +9850,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 25, 3, 7, 14
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63178, 'journal_identifier': 'FACE 26 {(-0.2184101597588,4.114163970502,-0.1935157632527) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 17: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63142
 -   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
 -   Points: Center (0.4499, 3.8781, -0.1754) | Anchor (0.4499, 3.8781, -0.1754)
@@ -8227,6 +9865,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6, 26, 22, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63142, 'journal_identifier': 'FACE 8 {(0.4640062037839,3.8831894764524,-0.1809243320308) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 18: Conical | Edges: 13 | Facets: None | Vertices: 13 | Tag: 63144
 -   Measure: Area 0.1123 | Perimeter 6.1206 | Radius/Diameter N/A | Min Curvature Radius 0.9175
 -   Points: Center (0.0000, 4.3489, -0.0000) | Anchor (0.0000, 4.3489, -0.0000)
@@ -8240,6 +9880,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 27, 26, 9, 19, 2, 12, 13, 11, 24, 5, 23, 22, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63144, 'journal_identifier': 'FACE 9 {(0.0745808749439,4.342342757146,-0.487485011869) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 19: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63148
 -   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
 -   Points: Center (-0.4116, 4.1114, -0.3297) | Anchor (-0.4116, 4.1114, -0.3297)
@@ -8254,6 +9896,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 11, 24, 18, 1
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63148, 'journal_identifier': 'FACE 11 {(-0.4117329227313,4.111359005252,-0.3298401991514) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 20: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63140
 -   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
 -   Points: Center (0.3769, 3.8781, 0.3019) | Anchor (0.3769, 3.8781, 0.3019)
@@ -8267,6 +9911,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6, 27, 23, 22
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63140, 'journal_identifier': 'FACE 7 {(0.3886881695934,3.8831894764524,0.311378993975) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 21: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63134
 -   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
 -   Points: Center (0.0730, 3.8781, -0.4773) | Anchor (0.0730, 3.8781, -0.4773)
@@ -8280,6 +9926,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6, 9, 11, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63134, 'journal_identifier': 'FACE 4 {(0.0753180341905,3.8831894764524,-0.4923033260058) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 22: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63160
 -   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.4631, 4.1114, 0.0709) | Anchor (0.4631, 4.1114, 0.0709)
@@ -8294,6 +9942,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 27, 26, 20, 17, 18
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63160, 'journal_identifier': 'FACE 17 {(0.4631153817762,4.1115972406133,0.0708525380923) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 23: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63162
 -   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.1702, 4.1114, 0.4365) | Anchor (0.1702, 4.1114, 0.4365)
@@ -8308,6 +9958,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 12, 27, 8, 20, 18
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63162, 'journal_identifier': 'FACE 18 {(0.1701975929776,4.1132409574671,0.4364959545477) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 24: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63166
 -   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.4631, 4.1114, -0.0709) | Anchor (-0.4631, 4.1114, -0.0709)
@@ -8322,6 +9974,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 19, 2, 1, 15, 18
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63166, 'journal_identifier': 'FACE 20 {(-0.4631153817762,4.1115972406133,-0.0708525380923) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 25: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63176
 -   Measure: Area 0.3916 | Perimeter 23.1806 | Radius/Diameter N/A | Min Curvature Radius 0.5057
 -   Points: Center (-0.0056, 4.1142, -0.0022) | Anchor (-0.0056, 4.1142, -0.0022)
@@ -8335,6 +9989,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 10, 16, 7, 14
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63176, 'journal_identifier': 'FACE 25 {(-0.2610714349137,4.1050441710869,-0.0890000843217) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 26: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63156
 -   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
 -   Points: Center (0.4913, 4.1114, -0.1916) | Anchor (0.4913, 4.1114, -0.1916)
@@ -8349,6 +10005,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 22, 4, 18, 17
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63156, 'journal_identifier': 'FACE 15 {(0.4915164530201,4.111359005252,-0.191651071084) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 27: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63154
 -   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
 -   Points: Center (0.4116, 4.1114, 0.3297) | Anchor (0.4116, 4.1114, 0.3297)
@@ -8363,6 +10021,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 23, 22, 18, 20
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63154, 'journal_identifier': 'FACE 14 {(0.4117329227313,4.111359005252,0.3298401991514) UNPARAMETERIZED_FEATURE(10)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ---
 ## Body 11
@@ -8387,15 +10047,15 @@
 - Radius Of Gyration: 0.4759
 - Centroid: (-0.0000, 3.8051, -0.0000)
 ### Bounding Box
-- X Min: -0.5866
-- Y Min: 3.7441
-- Z Min: -0.5866
-- X Max: 0.5866
-- Y Max: 3.8661
-- Z Max: 0.5866
-- Dx (Length): 1.1732
-- Dy (Width): 0.1220
-- Dz (Height): 1.1732
+- X Min: -0.4998
+- Y Min: 3.8661
+- Z Min: -0.5246
+- X Max: 0.4998
+- Y Max: 4.3622
+- Z Max: 0.5246
+- Dx (Length): 0.9996
+- Dy (Width): 0.4961
+- Dz (Height): 1.0492
 
 ### Features
 - Total Features: 1
@@ -8417,6 +10077,8 @@
 -   Face Indices: 3, 6
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63432, 'journal_identifier': 'EDGE * 3 * 6 {(-0.5849376462985,3.8562992125984,-0.0443185985243)(0.254087790967,3.8562992125984,0.5287301605865)(0.3308498553314,3.8562992125984,-0.4844115620622) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 2: Circular | Length: 3.6858 | Connected Faces: 2 | Tag: 63430
 -   Endpoints: (0.2541, 3.7539, 0.5287) -> (0.2541, 3.7539, 0.5287)
 -   Curve Props: Arc Length 3.6858 | Radius 0.5866 | Diameter 1.1732 | Min Curvature Radius 0.5866
@@ -8425,6 +10087,8 @@
 -   Face Indices: 3, 5
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63430, 'journal_identifier': 'EDGE * 3 * 5 {(0.3308498553314,3.753937007874,-0.4844115620622)(0.254087790967,3.753937007874,0.5287301605865)(-0.5849376462985,3.753937007874,-0.0443185985243) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 3: Circular | Length: 2.0532 | Connected Faces: 2 | Tag: 63418
 -   Endpoints: (0.1415, 3.7539, 0.2945) -> (0.1415, 3.7539, 0.2945)
 -   Curve Props: Arc Length 2.0532 | Radius 0.3268 | Diameter 0.6535 | Min Curvature Radius 0.3268
@@ -8433,6 +10097,8 @@
 -   Face Indices: 4, 7
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63418, 'journal_identifier': 'EDGE * 4 * 7 {(-0.3258377492804,3.753937007874,-0.0246875414599)(0.141538836579,3.753937007874,0.2945275391187)(0.1842989127014,3.753937007874,-0.2698399976588) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 4: Circular | Length: 3.6240 | Connected Faces: 2 | Tag: 63422
 -   Endpoints: (0.2498, 3.8661, 0.5199) -> (0.2498, 3.8661, 0.5199)
 -   Curve Props: Arc Length 3.6240 | Radius 0.5768 | Diameter 1.1535 | Min Curvature Radius 0.5768
@@ -8441,6 +10107,8 @@
 -   Face Indices: 2, 6
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63422, 'journal_identifier': 'EDGE * 1 * 6 {(0.3252986832621,3.8661417322835,-0.4762838512893)(0.2498245729978,3.8661417322835,0.5198588491673)(-0.5751232562599,3.8661417322835,-0.043574997878) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 5: Circular | Length: 3.6240 | Connected Faces: 2 | Tag: 63426
 -   Endpoints: (0.2498, 3.7441, 0.5199) -> (0.2498, 3.7441, 0.5199)
 -   Curve Props: Arc Length 3.6240 | Radius 0.5768 | Diameter 1.1535 | Min Curvature Radius 0.5768
@@ -8449,6 +10117,8 @@
 -   Face Indices: 8, 5
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63426, 'journal_identifier': 'EDGE * 2 * 5 {(-0.5751232562599,3.744094488189,-0.043574997878)(0.2498245729978,3.744094488189,0.5198588491673)(0.3252986832621,3.744094488189,-0.4762838512893) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 6: Circular | Length: 2.0532 | Connected Faces: 2 | Tag: 63420
 -   Endpoints: (0.1415, 3.8563, 0.2945) -> (0.1415, 3.8563, 0.2945)
 -   Curve Props: Arc Length 2.0532 | Radius 0.3268 | Diameter 0.6535 | Min Curvature Radius 0.3268
@@ -8457,6 +10127,8 @@
 -   Face Indices: 4, 1
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63420, 'journal_identifier': 'EDGE * 4 * 8 {(0.1842989127014,3.8562992125984,-0.2698399976588)(0.141538836579,3.8562992125984,0.2945275391187)(-0.3258377492804,3.8562992125984,-0.0246875414599) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 7: Circular | Length: 2.1150 | Connected Faces: 2 | Tag: 63424
 -   Endpoints: (0.1458, 3.8661, 0.3034) -> (0.1458, 3.8661, 0.3034)
 -   Curve Props: Arc Length 2.1150 | Radius 0.3366 | Diameter 0.6732 | Min Curvature Radius 0.3366
@@ -8465,6 +10137,8 @@
 -   Face Indices: 2, 1
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63424, 'journal_identifier': 'EDGE * 1 * 8 {(-0.3356521393189,3.8661417322835,-0.0254311421063)(0.1458020545482,3.8661417322835,0.3033988505379)(0.1898500847707,3.8661417322835,-0.2779677084317) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 8: Circular | Length: 2.1150 | Connected Faces: 2 | Tag: 63428
 -   Endpoints: (0.1458, 3.7441, 0.3034) -> (0.1458, 3.7441, 0.3034)
 -   Curve Props: Arc Length 2.1150 | Radius 0.3366 | Diameter 0.6732 | Min Curvature Radius 0.3366
@@ -8473,6 +10147,8 @@
 -   Face Indices: 8, 7
 -   Topology Vertices: 1 -> 1
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63428, 'journal_identifier': 'EDGE * 2 * 7 {(0.1898500847707,3.744094488189,-0.2779677084317)(0.1458020545482,3.744094488189,0.3033988505379)(-0.3356521393189,3.744094488189,-0.0254311421063) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ### Faces
 - Total Faces: 8
@@ -8495,6 +10171,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 4, 2
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63416, 'journal_identifier': 'FACE 8 {(-0.1436704455636,3.8612204724409,-0.2989631948283) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 2: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63402
 -   Measure: Area 0.6891 | Perimeter 5.7390 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, 3.8661, -0.0000) | Anchor (-0.0000, 3.8661, -0.0000)
@@ -8509,6 +10187,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6, 1
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63402, 'journal_identifier': 'FACE 1 {(-0,3.8661417322835,0) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 3: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63406
 -   Measure: Area 0.3773 | Perimeter 7.3716 | Radius/Diameter 0.5866 | Min Curvature Radius 0.5866
 -   Points: Center (-0.0000, 3.8051, -0.0000) | Anchor (-0.0000, 3.8051, -0.0000)
@@ -8523,6 +10203,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63406, 'journal_identifier': 'FACE 3 {(0.254087790967,3.8051181102362,0.5287301605865) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 4: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63408
 -   Measure: Area 0.2102 | Perimeter 4.1063 | Radius/Diameter 0.3268 | Min Curvature Radius 0.3268
 -   Points: Center (-0.0000, 3.8051, -0.0000) | Anchor (-0.0000, 3.8051, -0.0000)
@@ -8537,6 +10219,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 7, 1
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63408, 'journal_identifier': 'FACE 4 {(0.141538836579,3.8051181102362,0.2945275391187) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 5: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63410
 -   Measure: Area 0.0509 | Perimeter 7.3098 | Radius/Diameter N/A | Min Curvature Radius 0.8157
 -   Points: Center (-0.0000, 3.7490, -0.0000) | Anchor (-0.0000, 3.7490, -0.0000)
@@ -8550,6 +10234,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 8, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63410, 'journal_identifier': 'FACE 5 {(-0.2519561819824,3.7490157480315,-0.5242945048769) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 6: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63412
 -   Measure: Area 0.0509 | Perimeter 7.3098 | Radius/Diameter N/A | Min Curvature Radius 0.8157
 -   Points: Center (-0.0000, 3.8612, -0.0000) | Anchor (-0.0000, 3.8612, -0.0000)
@@ -8563,6 +10249,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 2, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63412, 'journal_identifier': 'FACE 6 {(0.2519561819824,3.8612204724409,0.5242945048769) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 7: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63414
 -   Measure: Area 0.0290 | Perimeter 4.1682 | Radius/Diameter N/A | Min Curvature Radius 0.4621
 -   Points: Center (-0.0000, 3.7490, -0.0000) | Anchor (-0.0000, 3.7490, -0.0000)
@@ -8576,6 +10264,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 4, 8
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63414, 'journal_identifier': 'FACE 7 {(0.1436704455636,3.7490157480315,0.2989631948283) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 8: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63404
 -   Measure: Area 0.6891 | Perimeter 5.7390 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, 3.7441, -0.0000) | Anchor (-0.0000, 3.7441, -0.0000)
@@ -8590,6 +10280,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 7
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63404, 'journal_identifier': 'FACE 2 {(-0,3.744094488189,0) UNPARAMETERIZED_FEATURE(11)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ---
 ## Body 12
@@ -8614,15 +10306,15 @@
 - Radius Of Gyration: 2.4422
 - Centroid: (-0.0000, -1.0302, -0.0208)
 ### Bounding Box
-- X Min: -0.5866
-- Y Min: 3.7441
-- Z Min: -0.5866
-- X Max: 0.5866
-- Y Max: 3.8661
-- Z Max: 0.5866
-- Dx (Length): 1.1732
-- Dy (Width): 0.1220
-- Dz (Height): 1.1732
+- X Min: -0.4998
+- Y Min: 3.8661
+- Z Min: -0.5246
+- X Max: 0.4998
+- Y Max: 4.3622
+- Z Max: 0.5246
+- Dx (Length): 0.9996
+- Dy (Width): 0.4961
+- Dz (Height): 1.0492
 
 ### Features
 - Total Features: 1
@@ -8648,6 +10340,8 @@
 -   Face Indices: 20, 42
 -   Topology Vertices: 1 -> 2
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63684, 'journal_identifier': 'EDGE * 26 * 27 {(-0.3044393466346,3.9355288923695,-0.0438151108961)(-0.2615776787108,3.9355288923695,-0.1618029595601)(-0.1751444084878,3.9355288923695,-0.2528389129418) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 2: Circular | Length: 2.7918 | Connected Faces: 2 | Tag: 63652
 -   Endpoints: (0.4443, -3.7756, 0.0000) -> (0.4443, -3.7756, 0.0000)
 -   Curve Props: Arc Length 2.7918 | Radius 0.4443 | Diameter 0.8886 | Min Curvature Radius 0.4443
@@ -8656,16 +10350,22 @@
 -   Face Indices: 30, 1
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63652, 'journal_identifier': 'EDGE * 24 * 25 {(-0.222161150347,-3.7755905511811,-0.3847943998689)(0.444322300694,-3.7755905511811,0)(-0.222161150347,-3.7755905511811,0.3847943998689) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 3: Intersection | Length: 0.0057 | Connected Faces: 2 | Tag: 63680
 -   Endpoints: (-0.3044, 3.9355, -0.0438) -> (-0.3039, 3.9355, -0.0494)
 -   Face Tags: 63504, 63512
 -   Face Indices: 20, 41
 -   Topology Vertices: 1 -> 4
+-   Identity: {'tag': 63680, 'journal_identifier': 'EDGE * 26 * 30 {(-0.3044393466346,3.9355288923695,-0.0438151108961)(-0.3041713201799,3.9355288923695,-0.0466308583849)(-0.3038776351739,3.9355288923695,-0.0494448421371) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 4: Intersection | Length: 0.0059 | Connected Faces: 2 | Tag: 63664
 -   Endpoints: (-0.3079, 4.4094, -0.0000) -> (-0.3075, 4.4094, 0.0059)
 -   Face Tags: 63512, 63518
 -   Face Indices: 41, 24
 -   Topology Vertices: 5 -> 6
+-   Identity: {'tag': 63664, 'journal_identifier': 'EDGE * 30 * 33 {(-0.307874015748,4.4094488188976,-0)(-0.3077110832224,4.4094488188976,0.0029590523606)(-0.307519297784,4.4094488188976,0.0059128007388) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 5: Circular | Length: 6.1719 | Connected Faces: 2 | Tag: 63642
 -   Endpoints: (0.9823, -3.6220, 0.0000) -> (0.9823, -3.6220, 0.0000)
 -   Curve Props: Arc Length 6.1719 | Radius 0.9823 | Diameter 1.9646 | Min Curvature Radius 0.9823
@@ -8674,6 +10374,8 @@
 -   Face Indices: 8, 4
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63642, 'journal_identifier': 'EDGE * 19 * 20 {(-0.4911417322835,-3.6220472440945,-0.8506824340324)(0.9822834645669,-3.6220472440945,0)(-0.4911417322835,-3.6220472440945,0.8506824340324) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 6: Circular | Length: 5.1824 | Connected Faces: 2 | Tag: 63632
 -   Endpoints: (0.8248, -3.3543, 0.0000) -> (0.8248, -3.3543, 0.0000)
 -   Curve Props: Arc Length 5.1824 | Radius 0.8248 | Diameter 1.6496 | Min Curvature Radius 0.8248
@@ -8682,6 +10384,8 @@
 -   Face Indices: 28, 25
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63632, 'journal_identifier': 'EDGE * 14 * 15 {(-0.4124015748031,-3.3543307086614,-0.7143004806805)(0.8248031496063,-3.3543307086614,0)(-0.4124015748032,-3.3543307086614,0.7143004806805) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 7: Linear | Length: 0.6562 | Connected Faces: 2 | Tag: 63688
 -   Endpoints: (-0.3281, -0.6591, 0.2772) -> (0.3281, -0.6591, 0.2772)
 -   Curve Props: Arc Length 0.6562 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -8690,6 +10394,8 @@
 -   Face Indices: 5, 47
 -   Topology Vertices: 7 -> 8
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63688, 'journal_identifier': 'EDGE * 37 * 38 {(-0.3281169537245,-0.6590551181102,0.2771653543307)(-0,-0.6590551181102,0.2771653543307)(0.3281169537245,-0.6590551181102,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 8: Circular | Length: 0.0083 | Connected Faces: 2 | Tag: 63706
 -   Endpoints: (0.3081, 2.7442, 0.2739) -> (0.3007, 2.7442, 0.2772)
 -   Curve Props: Arc Length 0.0083 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -8698,6 +10404,8 @@
 -   Face Indices: 6, 44
 -   Topology Vertices: 9 -> 10
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63706, 'journal_identifier': 'EDGE * 46 * 48 {(0.3080784255152,2.7441704992847,0.2738620429296)(0.3047541364242,2.7441704992847,0.2763016285516)(0.3007222071409,2.7441704992847,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 9: Linear | Length: 0.1498 | Connected Faces: 2 | Tag: 63580
 -   Endpoints: (0.3007, 2.5943, 0.2772) -> (0.3007, 2.7442, 0.2772)
 -   Curve Props: Arc Length 0.1498 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -8706,6 +10414,8 @@
 -   Face Indices: 47, 44
 -   Topology Vertices: 11 -> 10
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63580, 'journal_identifier': 'EDGE * 38 * 48 {(0.3007222071409,2.5943482917089,0.2771653543307)(0.3007222071409,2.6692593954968,0.2771653543307)(0.3007222071409,2.7441704992847,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 10: Circular | Length: 0.0118 | Connected Faces: 2 | Tag: 63702
 -   Endpoints: (0.3007, 2.7533, 0.2709) -> (0.3007, 2.7442, 0.2772)
 -   Curve Props: Arc Length 0.0118 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -8714,6 +10424,8 @@
 -   Face Indices: 16, 6
 -   Topology Vertices: 12 -> 10
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63702, 'journal_identifier': 'EDGE * 44 * 46 {(0.3007222071409,2.7533221600713,0.270945305984)(0.3007222071409,2.749703172612,0.2754631491115)(0.3007222071409,2.7441704992847,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 11: Circular | Length: 5.9245 | Connected Faces: 2 | Tag: 63622
 -   Endpoints: (0.9429, -2.8858, 0.0000) -> (0.9429, -2.8858, 0.0000)
 -   Curve Props: Arc Length 5.9245 | Radius 0.9429 | Diameter 1.8858 | Min Curvature Radius 0.9429
@@ -8722,6 +10434,8 @@
 -   Face Indices: 15, 35
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63622, 'journal_identifier': 'EDGE * 10 * 9 {(-0.4714566929134,-2.8858267716535,-0.8165869456944)(0.9429133858268,-2.8858267716535,0)(-0.4714566929134,-2.8858267716535,0.8165869456944) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 12: Circular | Length: 0.0087 | Connected Faces: 2 | Tag: 63696
 -   Endpoints: (-0.3281, -0.6591, 0.2772) -> (-0.3357, -0.6591, 0.2735)
 -   Curve Props: Arc Length 0.0087 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -8730,6 +10444,8 @@
 -   Face Indices: 32, 31
 -   Topology Vertices: 7 -> 13
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63696, 'journal_identifier': 'EDGE * 41 * 43 {(-0.3281169537245,-0.6590551181102,0.2771653543307)(-0.3323410582382,-0.6590551181102,0.2762128366034)(-0.3357475805553,-0.6590551181102,0.2735396447537) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 13: Linear | Length: 0.6014 | Connected Faces: 2 | Tag: 63570
 -   Endpoints: (-0.3007, 2.7533, 0.2709) -> (0.3007, 2.7533, 0.2709)
 -   Curve Props: Arc Length 0.6014 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -8738,6 +10454,8 @@
 -   Face Indices: 14, 16
 -   Topology Vertices: 14 -> 12
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63570, 'journal_identifier': 'EDGE * 35 * 44 {(-0.3007222071408,2.7533221600713,0.270945305984)(0,2.7533221600713,0.270945305984)(0.3007222071409,2.7533221600713,0.270945305984) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 14: Circular | Length: 2.5900 | Connected Faces: 2 | Tag: 63612
 -   Endpoints: (0.4122, 3.7205, 0.0000) -> (0.4122, 3.7205, 0.0000)
 -   Curve Props: Arc Length 2.5900 | Radius 0.4122 | Diameter 0.8244 | Min Curvature Radius 0.4122
@@ -8746,6 +10464,8 @@
 -   Face Indices: 17, 12
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63612, 'journal_identifier': 'EDGE * 4 * 5 {(-0.2061023622047,3.7204724409449,-0.3569797628985)(0.4122047244094,3.7204724409449,0)(-0.2061023622047,3.7204724409449,0.3569797628985) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 15: Circular | Length: 1.6697 | Connected Faces: 2 | Tag: 63686
 -   Endpoints: (-0.0000, 3.8937, -0.2657) -> (-0.0000, 3.8937, -0.2657)
 -   Curve Props: Arc Length 1.6697 | Radius 0.2657 | Diameter 0.5315 | Min Curvature Radius 0.2657
@@ -8754,16 +10474,22 @@
 -   Face Indices: 34, 42
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63686, 'journal_identifier': 'EDGE * 1 * 27 {(0.2301445462813,3.8937007874016,0.132874015748)(-0,3.8937007874016,-0.2657480314961)(-0.2301445462813,3.8937007874016,0.132874015748) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 16: Intersection | Length: 1.5495 | Connected Faces: 2 | Tag: 63602
 -   Endpoints: (-0.1751, 3.9355, -0.2528) -> (-0.2759, 3.9039, 0.0023)
 -   Face Tags: 63506, 63508
 -   Face Indices: 42, 40
 -   Topology Vertices: 2 -> 15
+-   Identity: {'tag': 63602, 'journal_identifier': 'EDGE * 27 * 28 {(-0.1751444084933,3.9355288923696,-0.2528389129381)(0.2684389103079,3.9201158720706,0.1153249230652)(-0.2759002978084,3.9038622514764,0.0022528682604) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 17: Intersection | Length: 0.4333 | Connected Faces: 2 | Tag: 63676
 -   Endpoints: (-0.2759, 3.9039, 0.0023) -> (-0.0023, 3.9039, -0.2759)
 -   Face Tags: 63506, 63510
 -   Face Indices: 42, 39
 -   Topology Vertices: 15 -> 16
+-   Identity: {'tag': 63676, 'journal_identifier': 'EDGE * 27 * 29 {(-0.2759002978084,3.9038622514764,0.0022528682604)(-0.1966821441082,3.9038622514764,-0.1934998292897)(-0.0022528682605,3.9038622514764,-0.2759002978084) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 18: Circular | Length: 5.8503 | Connected Faces: 2 | Tag: 63644
 -   Endpoints: (0.9311, -3.6732, 0.0000) -> (0.9311, -3.6732, 0.0000)
 -   Curve Props: Arc Length 5.8503 | Radius 0.9311 | Diameter 1.8622 | Min Curvature Radius 0.9311
@@ -8772,11 +10498,15 @@
 -   Face Indices: 4, 46
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63644, 'journal_identifier': 'EDGE * 20 * 21 {(-0.4655511811024,-3.6732283464567,-0.806358299193)(0.9311023622047,-3.6732283464567,0)(-0.4655511811024,-3.6732283464567,0.806358299193) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 19: Intersection | Length: 1.1137 | Connected Faces: 2 | Tag: 63554
 -   Endpoints: (-0.3281, -0.6591, 0.2772) -> (0.3281, -0.6591, 0.2772)
 -   Face Tags: 63526, 63538
 -   Face Indices: 5, 31
 -   Topology Vertices: 7 -> 8
+-   Identity: {'tag': 63554, 'journal_identifier': 'EDGE * 37 * 43 {(-0.3281169537245,-0.6590551181102,0.2771653543307)(0.0001930968867,-0.9868628944757,0.4295720458853)(0.3281169537246,-0.6590551181102,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 20: Linear | Length: 0.1461 | Connected Faces: 2 | Tag: 63592
 -   Endpoints: (-0.3081, 2.5980, 0.2739) -> (-0.3081, 2.7442, 0.2739)
 -   Curve Props: Arc Length 0.1461 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -8785,6 +10515,8 @@
 -   Face Indices: 12, 37
 -   Topology Vertices: 17 -> 18
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63592, 'journal_identifier': 'EDGE * 40 * 5 {(-0.3080784255152,2.5980293528422,0.2738620429296)(-0.3080784255152,2.6710999260635,0.2738620429296)(-0.3080784255152,2.7441704992849,0.2738620429296) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 21: Circular | Length: 0.2418 | Connected Faces: 2 | Tag: 63666
 -   Endpoints: (-0.3079, 4.4094, -0.0000) -> (-0.2177, 4.4094, -0.2177)
 -   Curve Props: Arc Length 0.2418 | Radius 0.3079 | Diameter 0.6157 | Min Curvature Radius 0.3079
@@ -8793,6 +10525,8 @@
 -   Face Indices: 22, 24
 -   Topology Vertices: 5 -> 19
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63666, 'journal_identifier': 'EDGE * 31 * 33 {(-0.307874015748,4.4094488188976,0)(-0.2844464863933,4.4094488188976,-0.1177990065804)(-0.2177293121256,4.4094488188976,-0.2176702924474) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 22: Circular | Length: 5.1824 | Connected Faces: 2 | Tag: 63634
 -   Endpoints: (0.8248, -3.5118, 0.0000) -> (0.8248, -3.5118, 0.0000)
 -   Curve Props: Arc Length 5.1824 | Radius 0.8248 | Diameter 1.6496 | Min Curvature Radius 0.8248
@@ -8801,6 +10535,8 @@
 -   Face Indices: 25, 11
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63634, 'journal_identifier': 'EDGE * 15 * 16 {(-0.4124015748031,-3.511811023622,-0.7143004806805)(0.8248031496063,-3.511811023622,0)(-0.4124015748032,-3.511811023622,0.7143004806805) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 23: Linear | Length: 3.2363 | Connected Faces: 2 | Tag: 63566
 -   Endpoints: (-0.3357, -0.6591, 0.2735) -> (-0.3357, 2.5772, 0.2735)
 -   Curve Props: Arc Length 3.2363 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -8809,11 +10545,15 @@
 -   Face Indices: 3, 32
 -   Topology Vertices: 13 -> 20
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63566, 'journal_identifier': 'EDGE * 41 * 7 {(-0.3357475805553,-0.6590551181102,0.2735396447537)(-0.3357475805553,0.95908118119,0.2735396447537)(-0.3357475805553,2.5772174804901,0.2735396447537) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 24: Intersection | Length: 0.0091 | Connected Faces: 2 | Tag: 63708
 -   Endpoints: (0.3007, 2.5943, 0.2772) -> (0.3081, 2.5980, 0.2739)
 -   Face Tags: 63546, 63548
 -   Face Indices: 48, 44
 -   Topology Vertices: 11 -> 21
+-   Identity: {'tag': 63708, 'journal_identifier': 'EDGE * 47 * 48 {(0.3007222071409,2.5943482917089,0.2771653543307)(0.3047013508806,2.5963406290428,0.2763248109158)(0.3080784255152,2.5980293528422,0.2738620429296) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 25: Linear | Length: 0.6014 | Connected Faces: 2 | Tag: 63582
 -   Endpoints: (0.3007, 2.7442, 0.2772) -> (-0.3007, 2.7442, 0.2772)
 -   Curve Props: Arc Length 0.6014 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -8822,6 +10562,8 @@
 -   Face Indices: 47, 16
 -   Topology Vertices: 10 -> 22
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63582, 'journal_identifier': 'EDGE * 38 * 44 {(0.3007222071409,2.7441704992847,0.2771653543307)(0,2.7441704992847,0.2771653543307)(-0.3007222071409,2.7441704992847,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 26: Circular | Length: 6.1719 | Connected Faces: 2 | Tag: 63624
 -   Endpoints: (0.9823, -2.9252, 0.0000) -> (0.9823, -2.9252, 0.0000)
 -   Curve Props: Arc Length 6.1719 | Radius 0.9823 | Diameter 1.9646 | Min Curvature Radius 0.9823
@@ -8830,6 +10572,8 @@
 -   Face Indices: 35, 29
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63624, 'journal_identifier': 'EDGE * 10 * 11 {(-0.4911417322835,-2.9251968503937,-0.8506824340324)(0.9822834645669,-2.9251968503937,0)(-0.4911417322835,-2.9251968503937,0.8506824340324) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 27: Circular | Length: 0.0118 | Connected Faces: 2 | Tag: 63698
 -   Endpoints: (-0.3007, 2.7533, 0.2709) -> (-0.3007, 2.7442, 0.2772)
 -   Curve Props: Arc Length 0.0118 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -8838,21 +10582,29 @@
 -   Face Indices: 26, 16
 -   Topology Vertices: 14 -> 22
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63698, 'journal_identifier': 'EDGE * 42 * 44 {(-0.3007222071409,2.7533221600713,0.270945305984)(-0.3007222071409,2.749703172612,0.2754631491115)(-0.3007222071409,2.7441704992847,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 28: Intersection | Length: 0.0024 | Connected Faces: 2 | Tag: 63560
 -   Endpoints: (0.3372, 2.5776, 0.2717) -> (0.3357, 2.5772, 0.2735)
 -   Face Tags: 63466, 63546
 -   Face Indices: 3, 48
 -   Topology Vertices: 23 -> 24
+-   Identity: {'tag': 63560, 'journal_identifier': 'EDGE * 47 * 7 {(0.337246851803,2.5775590551181,0.2716890429328)(0.3364900411957,2.5774770231337,0.2726257692557)(0.3357475805553,2.5772174804896,0.2735396447537) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 29: Intersection | Length: 0.4164 | Connected Faces: 2 | Tag: 63674
 -   Endpoints: (-0.0023, 3.9039, -0.2759) -> (-0.3044, 3.9355, -0.0438)
 -   Face Tags: 63506, 63512
 -   Face Indices: 42, 41
 -   Topology Vertices: 16 -> 1
+-   Identity: {'tag': 63674, 'journal_identifier': 'EDGE * 27 * 30 {(-0.0022528682605,3.9038622514764,-0.2759002978084)(-0.1964120336038,3.920130161945,-0.2163098464139)(-0.3044393466347,3.9355288923695,-0.0438151108955) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 30: Intersection | Length: 0.0345 | Connected Faces: 2 | Tag: 63558
 -   Endpoints: (-0.3372, 2.5776, 0.2717) -> (-0.3098, 2.5984, 0.2719)
 -   Face Tags: 63464, 63530
 -   Face Indices: 7, 43
 -   Topology Vertices: 25 -> 26
+-   Identity: {'tag': 63558, 'journal_identifier': 'EDGE * 39 * 6 {(-0.337246851803,2.5775590551181,0.2716890429328)(-0.3235689399912,2.588052467635,0.2717992798823)(-0.3097992699554,2.5984251968504,0.271913859817) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 31: Circular | Length: 1.8889 | Connected Faces: 2 | Tag: 63614
 -   Endpoints: (0.3098, 2.5984, 0.2719) -> (-0.3098, 2.5984, 0.2719)
 -   Curve Props: Arc Length 1.8889 | Radius 0.4122 | Diameter 0.8244 | Min Curvature Radius 0.4122
@@ -8861,16 +10613,22 @@
 -   Face Indices: 12, 7
 -   Topology Vertices: 27 -> 26
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63614, 'journal_identifier': 'EDGE * 5 * 6 {(0.3097992699554,2.5984251968504,0.271913859817)(-0,2.5984251968504,-0.4122047244094)(-0.3097992699554,2.5984251968504,0.271913859817) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 32: SpCurve | Length: 15.7793 | Connected Faces: 2 | Tag: 63656
 -   Endpoints: (-0.2251, 4.4411, 0.1595) -> (-0.2759, 3.9039, 0.0023)
 -   Face Tags: 63508, 63510
 -   Face Indices: 40, 39
 -   Topology Vertices: 28 -> 15
+-   Identity: {'tag': 63656, 'journal_identifier': 'EDGE * 28 * 29 {(-0.2251416593977,4.4411154597908,0.1594906986311)(0.2627272120009,4.1724351304435,-0.0842642380873)(-0.2759002978084,3.9038622514764,0.0022528682604) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 33: Intersection | Length: 0.0024 | Connected Faces: 2 | Tag: 63562
 -   Endpoints: (-0.3357, 2.5772, 0.2735) -> (-0.3372, 2.5776, 0.2717)
 -   Face Tags: 63466, 63530
 -   Face Indices: 3, 43
 -   Topology Vertices: 20 -> 25
+-   Identity: {'tag': 63562, 'journal_identifier': 'EDGE * 39 * 7 {(-0.3357475805553,2.5772174804902,0.2735396447537)(-0.3364900411957,2.5774770231339,0.2726257692557)(-0.337246851803,2.5775590551181,0.2716890429328) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 34: Circular | Length: 1.6697 | Connected Faces: 2 | Tag: 63606
 -   Endpoints: (0.2657, 3.7559, 0.0000) -> (0.2657, 3.7559, 0.0000)
 -   Curve Props: Arc Length 1.6697 | Radius 0.2657 | Diameter 0.5315 | Min Curvature Radius 0.2657
@@ -8879,16 +10637,22 @@
 -   Face Indices: 34, 27
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63606, 'journal_identifier': 'EDGE * 1 * 2 {(-0.132874015748,3.755905511811,-0.2301445462813)(0.2657480314961,3.755905511811,0)(-0.132874015748,3.755905511811,0.2301445462813) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 35: Intersection | Length: 0.0056 | Connected Faces: 2 | Tag: 63604
 -   Endpoints: (-0.1799, 3.9355, -0.2498) -> (-0.1751, 3.9355, -0.2528)
 -   Face Tags: 63504, 63508
 -   Face Indices: 20, 40
 -   Topology Vertices: 29 -> 2
+-   Identity: {'tag': 63604, 'journal_identifier': 'EDGE * 26 * 28 1 {(-0.1799111490201,3.9355288923695,-0.2498367227432)(-0.1775333925389,3.9355288923695,-0.2513497202618)(-0.1751444084878,3.9355288923695,-0.2528389129418) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 36: Intersection | Length: 0.4168 | Connected Faces: 2 | Tag: 63600
 -   Endpoints: (-0.2251, 4.4411, 0.1595) -> (-0.2133, 4.4094, -0.2216)
 -   Face Tags: 63508, 63516
 -   Face Indices: 40, 2
 -   Topology Vertices: 28 -> 30
+-   Identity: {'tag': 63600, 'journal_identifier': 'EDGE * 28 * 32 {(-0.2251416593977,4.4411154597908,0.1594906986311)(-0.2902810178876,4.4249037130345,-0.0327376064015)(-0.21326799533,4.4094488188976,-0.2216299661373) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 37: Circular | Length: 3.6398 | Connected Faces: 2 | Tag: 63646
 -   Endpoints: (0.5793, -3.6732, 0.0000) -> (0.5793, -3.6732, 0.0000)
 -   Curve Props: Arc Length 3.6398 | Radius 0.5793 | Diameter 1.1586 | Min Curvature Radius 0.5793
@@ -8897,11 +10661,15 @@
 -   Face Indices: 46, 38
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63646, 'journal_identifier': 'EDGE * 21 * 22 {(-0.2896498732751,-3.6732283464567,-0.5016882969183)(0.5792997465501,-3.6732283464567,0)(-0.2896498732751,-3.6732283464567,0.5016882969183) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 38: Intersection | Length: 2.8166 | Connected Faces: 2 | Tag: 63594
 -   Endpoints: (0.3007, 2.7533, 0.2709) -> (-0.3007, 2.7533, 0.2709)
 -   Face Tags: 63522, 63524
 -   Face Indices: 14, 9
 -   Topology Vertices: 12 -> 14
+-   Identity: {'tag': 63594, 'journal_identifier': 'EDGE * 35 * 36 {(0.3007222071409,2.7533221600713,0.270945305984)(-0.0000530847245,3.5799325272921,0.4029541661296)(-0.3007222071408,2.7533221600713,0.270945305984) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 39: Circular | Length: 0.2414 | Connected Faces: 2 | Tag: 63678
 -   Endpoints: (-0.1802, 3.9355, -0.2496) -> (-0.3039, 3.9355, -0.0494)
 -   Curve Props: Arc Length 0.2414 | Radius 0.3079 | Diameter 0.6157 | Min Curvature Radius 0.3079
@@ -8910,6 +10678,8 @@
 -   Face Indices: 20, 22
 -   Topology Vertices: 31 -> 4
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63678, 'journal_identifier': 'EDGE * 26 * 31 {(-0.180245942777,3.9355288923695,-0.2495952917931)(-0.26193312182,3.9355288923695,-0.1617944661182)(-0.3038776351739,3.9355288923695,-0.0494448421371) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 40: Circular | Length: 1.6852 | Connected Faces: 2 | Tag: 63668
 -   Endpoints: (-0.2682, 4.4488, 0.0000) -> (-0.2682, 4.4488, 0.0000)
 -   Curve Props: Arc Length 1.6852 | Radius 0.2682 | Diameter 0.5364 | Min Curvature Radius 0.2682
@@ -8918,6 +10688,8 @@
 -   Face Indices: 2, 19
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63668, 'journal_identifier': 'EDGE * 32 * 34 {(0.1341030288619,4.4488188976378,0.2322732594377)(-0.2682060577239,4.4488188976378,0)(0.1341030288619,4.4488188976378,-0.2322732594377) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 41: Circular | Length: 5.3061 | Connected Faces: 2 | Tag: 63636
 -   Endpoints: (0.8445, -3.5315, 0.0000) -> (0.8445, -3.5315, 0.0000)
 -   Curve Props: Arc Length 5.3061 | Radius 0.8445 | Diameter 1.6890 | Min Curvature Radius 0.8445
@@ -8926,6 +10698,8 @@
 -   Face Indices: 11, 33
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63636, 'journal_identifier': 'EDGE * 16 * 17 {(-0.4222440944882,-3.5314960629921,-0.7313482248495)(0.8444881889764,-3.5314960629921,0)(-0.4222440944882,-3.5314960629921,0.7313482248495) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 42: Linear | Length: 3.2325 | Connected Faces: 2 | Tag: 63584
 -   Endpoints: (-0.3281, 2.5735, 0.2772) -> (-0.3281, -0.6591, 0.2772)
 -   Curve Props: Arc Length 3.2325 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -8934,6 +10708,8 @@
 -   Face Indices: 47, 32
 -   Topology Vertices: 32 -> 7
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63584, 'journal_identifier': 'EDGE * 38 * 41 {(-0.3281169537245,2.5734821499766,0.2771653543307)(-0.3281169537245,0.9572135159332,0.2771653543307)(-0.3281169537245,-0.6590551181102,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 43: Circular | Length: 0.0130 | Connected Faces: 2 | Tag: 63574
 -   Endpoints: (-0.3081, 2.7442, 0.2739) -> (-0.3007, 2.7533, 0.2709)
 -   Curve Props: Arc Length 0.0130 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -8942,6 +10718,8 @@
 -   Face Indices: 9, 26
 -   Topology Vertices: 18 -> 14
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63574, 'journal_identifier': 'EDGE * 36 * 42 {(-0.3080784255152,2.7441704992847,0.2738620429296)(-0.3053849167097,2.7499712428392,0.2737637745959)(-0.3007222071409,2.7533221600713,0.270945305984) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 44: Circular | Length: 6.1719 | Connected Faces: 2 | Tag: 63626
 -   Endpoints: (0.9823, -3.3248, 0.0000) -> (0.9823, -3.3248, 0.0000)
 -   Curve Props: Arc Length 6.1719 | Radius 0.9823 | Diameter 1.9646 | Min Curvature Radius 0.9823
@@ -8950,6 +10728,8 @@
 -   Face Indices: 29, 23
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63626, 'journal_identifier': 'EDGE * 11 * 12 {(-0.4911417322835,-3.3248031496063,-0.8506824340324)(0.9822834645669,-3.3248031496063,0)(-0.4911417322835,-3.3248031496063,0.8506824340324) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 45: Circular | Length: 0.0087 | Connected Faces: 2 | Tag: 63700
 -   Endpoints: (0.3281, -0.6591, 0.2772) -> (0.3357, -0.6591, 0.2735)
 -   Curve Props: Arc Length 0.0087 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -8958,6 +10738,8 @@
 -   Face Indices: 31, 10
 -   Topology Vertices: 8 -> 33
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63700, 'journal_identifier': 'EDGE * 43 * 45 {(0.3281169537245,-0.6590551181102,0.2771653543307)(0.3323410582382,-0.6590551181102,0.2762128366034)(0.3357475805553,-0.6590551181102,0.2735396447537) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 46: Circular | Length: 1.9479 | Connected Faces: 2 | Tag: 63616
 -   Endpoints: (0.3372, 2.5776, 0.2717) -> (-0.3372, 2.5776, 0.2717)
 -   Curve Props: Arc Length 1.9479 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
@@ -8966,6 +10748,8 @@
 -   Face Indices: 7, 3
 -   Topology Vertices: 23 -> 25
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63616, 'journal_identifier': 'EDGE * 6 * 7 {(0.337246851803,2.5775590551181,0.2716890429328)(-0,2.5775590551181,-0.4330708661417)(-0.337246851803,2.5775590551181,0.2716890429328) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 47: Circular | Length: 0.2534 | Connected Faces: 2 | Tag: 63682
 -   Endpoints: (-0.3075, 4.4094, 0.0059) -> (-0.2133, 4.4094, -0.2216)
 -   Curve Props: Arc Length 0.2534 | Radius 0.3076 | Diameter 0.6152 | Min Curvature Radius 0.3076
@@ -8974,16 +10758,22 @@
 -   Face Indices: 2, 24
 -   Topology Vertices: 6 -> 30
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63682, 'journal_identifier': 'EDGE * 32 * 33 {(-0.307519297784,4.4094488188976,0.0059128007388)(-0.284163296111,4.4094488188976,-0.1177042941675)(-0.21326799533,4.4094488188976,-0.2216299661373) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 48: Intersection | Length: 0.0091 | Connected Faces: 2 | Tag: 63690
 -   Endpoints: (-0.3081, 2.5980, 0.2739) -> (-0.3007, 2.5943, 0.2772)
 -   Face Tags: 63530, 63532
 -   Face Indices: 43, 37
 -   Topology Vertices: 17 -> 34
+-   Identity: {'tag': 63690, 'journal_identifier': 'EDGE * 39 * 40 {(-0.3080784255152,2.5980293528422,0.2738620429296)(-0.3047013508806,2.5963406290428,0.2763248109158)(-0.3007222071409,2.5943482917089,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 49: Spline | Length: 15.5323 | Connected Faces: 2 | Tag: 63658
 -   Endpoints: (-0.3079, 4.4094, -0.0000) -> (-0.3039, 3.9355, -0.0494)
 -   Face Tags: 63512, 63514
 -   Face Indices: 41, 22
 -   Topology Vertices: 5 -> 4
+-   Identity: {'tag': 63658, 'journal_identifier': 'EDGE * 30 * 31 {(-0.307874015748,4.4094488188976,-0)(-0.3068859564724,4.1725031809548,-0.0246458778063)(-0.3038776351739,3.9355288923695,-0.0494448421371) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 50: Linear | Length: 3.2363 | Connected Faces: 2 | Tag: 63564
 -   Endpoints: (0.3357, 2.5772, 0.2735) -> (0.3357, -0.6591, 0.2735)
 -   Curve Props: Arc Length 3.2363 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -8992,6 +10782,8 @@
 -   Face Indices: 3, 10
 -   Topology Vertices: 24 -> 33
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63564, 'journal_identifier': 'EDGE * 45 * 7 {(0.3357475805553,2.5772174804901,0.2735396447537)(0.3357475805553,0.95908118119,0.2735396447537)(0.3357475805553,-0.6590551181102,0.2735396447537) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 51: Circular | Length: 3.4649 | Connected Faces: 2 | Tag: 63648
 -   Endpoints: (0.5515, -3.6848, 0.0000) -> (0.5515, -3.6848, 0.0000)
 -   Curve Props: Arc Length 3.4649 | Radius 0.5515 | Diameter 1.1029 | Min Curvature Radius 0.5515
@@ -9000,16 +10792,22 @@
 -   Face Indices: 38, 36
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63648, 'journal_identifier': 'EDGE * 22 * 23 {(-0.2757304484486,-3.6847595755438,-0.4775791459066)(0.5514608968971,-3.6847595755438,0)(-0.2757304484486,-3.6847595755438,0.4775791459066) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 52: Intersection | Length: 2.9027 | Connected Faces: 2 | Tag: 63596
 -   Endpoints: (-0.3081, 2.7442, 0.2739) -> (0.3081, 2.7442, 0.2739)
 -   Face Tags: 63462, 63524
 -   Face Indices: 12, 9
 -   Topology Vertices: 18 -> 9
+-   Identity: {'tag': 63596, 'journal_identifier': 'EDGE * 36 * 5 {(-0.3080784255157,2.7441704992849,0.273862042929)(-0.0000621376915,3.5897572293249,0.412204719726)(0.3080784255152,2.7441704992847,0.2738620429296) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 53: Intersection | Length: 1.5495 | Connected Faces: 2 | Tag: 63670
 -   Endpoints: (-0.3075, 4.4094, 0.0059) -> (-0.1595, 4.4411, -0.2251)
 -   Face Tags: 63512, 63516
 -   Face Indices: 41, 2
 -   Topology Vertices: 6 -> 35
+-   Identity: {'tag': 63670, 'journal_identifier': 'EDGE * 30 * 32 {(-0.307519297784,4.4094488188976,0.0059128007388)(0.2505884220705,4.4248205868697,0.1502958272541)(-0.1594906986311,4.4411154597908,-0.2251416593977) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 54: Circular | Length: 6.1100 | Connected Faces: 2 | Tag: 63638
 -   Endpoints: (0.9724, -3.5315, 0.0000) -> (0.9724, -3.5315, 0.0000)
 -   Curve Props: Arc Length 6.1100 | Radius 0.9724 | Diameter 1.9449 | Min Curvature Radius 0.9724
@@ -9018,21 +10816,29 @@
 -   Face Indices: 33, 13
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63638, 'journal_identifier': 'EDGE * 17 * 18 {(-0.4862204724409,-3.5314960629921,-0.8421585619479)(0.9724409448819,-3.5314960629921,0)(-0.4862204724409,-3.5314960629921,0.8421585619479) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 55: Intersection | Length: 0.0095 | Connected Faces: 2 | Tag: 63704
 -   Endpoints: (0.3281, 2.5735, 0.2772) -> (0.3357, 2.5772, 0.2735)
 -   Face Tags: 63542, 63546
 -   Face Indices: 10, 48
 -   Topology Vertices: 36 -> 24
+-   Identity: {'tag': 63704, 'journal_identifier': 'EDGE * 45 * 47 {(0.3281169537245,2.5734821499766,0.2771653543307)(0.33228337523,2.5755226941144,0.2762395043902)(0.3357475805553,2.5772174804901,0.2735396447537) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 56: Intersection | Length: 0.0344 | Connected Faces: 2 | Tag: 63586
 -   Endpoints: (-0.3007, 2.5943, 0.2772) -> (-0.3281, 2.5735, 0.2772)
 -   Face Tags: 63528, 63530
 -   Face Indices: 47, 43
 -   Topology Vertices: 34 -> 32
+-   Identity: {'tag': 63586, 'journal_identifier': 'EDGE * 38 * 39 {(-0.3007222071409,2.5943482917089,0.2771653543307)(-0.3144655555054,2.5839756140026,0.2771653543307)(-0.3281169537245,2.5734821499766,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 57: Intersection | Length: 0.0026 | Connected Faces: 2 | Tag: 63552
 -   Endpoints: (0.3081, 2.5980, 0.2739) -> (0.3098, 2.5984, 0.2719)
 -   Face Tags: 63462, 63546
 -   Face Indices: 12, 48
 -   Topology Vertices: 21 -> 27
+-   Identity: {'tag': 63552, 'journal_identifier': 'EDGE * 47 * 5 {(0.3080784255152,2.5980293528422,0.2738620429296)(0.3089292761208,2.5983308439148,0.2729018384062)(0.3097992699554,2.5984251968504,0.271913859817) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 58: Circular | Length: 6.1100 | Connected Faces: 2 | Tag: 63628
 -   Endpoints: (0.9724, -3.3346, 0.0000) -> (0.9724, -3.3346, 0.0000)
 -   Curve Props: Arc Length 6.1100 | Radius 0.9724 | Diameter 1.9449 | Min Curvature Radius 0.9724
@@ -9041,11 +10847,15 @@
 -   Face Indices: 23, 18
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63628, 'journal_identifier': 'EDGE * 12 * 13 {(-0.4862204724409,-3.3346456692913,-0.8421585619479)(0.9724409448819,-3.3346456692913,0)(-0.4862204724409,-3.3346456692913,0.8421585619479) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 59: SpCurve | Length: 15.7793 | Connected Faces: 2 | Tag: 63654
 -   Endpoints: (-0.1595, 4.4411, -0.2251) -> (-0.0023, 3.9039, -0.2759)
 -   Face Tags: 63510, 63512
 -   Face Indices: 39, 41
 -   Topology Vertices: 35 -> 16
+-   Identity: {'tag': 63654, 'journal_identifier': 'EDGE * 29 * 30 {(-0.1594906986311,4.4411154597908,-0.2251416593977)(0.0842642380873,4.1724351304435,0.2627272120009)(-0.0022528682605,3.9038622514764,-0.2759002978084) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 60: Linear | Length: 3.2325 | Connected Faces: 2 | Tag: 63576
 -   Endpoints: (0.3281, -0.6591, 0.2772) -> (0.3281, 2.5735, 0.2772)
 -   Curve Props: Arc Length 3.2325 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -9054,11 +10864,15 @@
 -   Face Indices: 47, 10
 -   Topology Vertices: 8 -> 36
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63576, 'journal_identifier': 'EDGE * 38 * 45 {(0.3281169537245,-0.6590551181102,0.2771653543307)(0.3281169537245,0.9572135159332,0.2771653543307)(0.3281169537245,2.5734821499766,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 61: Intersection | Length: 0.4333 | Connected Faces: 2 | Tag: 63672
 -   Endpoints: (-0.1595, 4.4411, -0.2251) -> (-0.2251, 4.4411, 0.1595)
 -   Face Tags: 63510, 63516
 -   Face Indices: 39, 2
 -   Topology Vertices: 35 -> 28
+-   Identity: {'tag': 63672, 'journal_identifier': 'EDGE * 29 * 32 {(-0.1594906986311,4.4411154597908,-0.2251416593977)(-0.2719765914453,4.4411154597908,-0.0464196451083)(-0.2251416593977,4.4411154597908,0.1594906986311) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 62: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 63618
 -   Endpoints: (0.4331, -2.8661, 0.0000) -> (0.4331, -2.8661, 0.0000)
 -   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
@@ -9067,21 +10881,29 @@
 -   Face Indices: 3, 45
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63618, 'journal_identifier': 'EDGE * 7 * 8 {(-0.2165354330709,-2.8661417322835,-0.3750503717177)(0.4330708661417,-2.8661417322835,0)(-0.2165354330709,-2.8661417322835,0.3750503717177) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 63: Intersection | Length: 0.0095 | Connected Faces: 2 | Tag: 63692
 -   Endpoints: (-0.3281, 2.5735, 0.2772) -> (-0.3357, 2.5772, 0.2735)
 -   Face Tags: 63530, 63534
 -   Face Indices: 43, 32
 -   Topology Vertices: 32 -> 20
+-   Identity: {'tag': 63692, 'journal_identifier': 'EDGE * 39 * 41 {(-0.3281169537245,2.5734821499766,0.2771653543307)(-0.33228337523,2.5755226941144,0.2762395043902)(-0.3357475805553,2.5772174804901,0.2735396447537) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 64: SpCurve | Length: 15.5314 | Connected Faces: 2 | Tag: 63660
 -   Endpoints: (-0.2177, 4.4094, -0.2177) -> (-0.1802, 3.9355, -0.2496)
 -   Face Tags: 63508, 63514
 -   Face Indices: 40, 22
 -   Topology Vertices: 37 -> 31
+-   Identity: {'tag': 63660, 'journal_identifier': 'EDGE * 28 * 31 {(-0.2177145668107,4.409448207736,-0.2176850407613)(-0.1984665198564,4.17245901728,-0.2353660458661)(-0.1802459416589,3.9355288923278,-0.2495952926005) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 65: Intersection | Length: 0.0026 | Connected Faces: 2 | Tag: 63550
 -   Endpoints: (-0.3098, 2.5984, 0.2719) -> (-0.3081, 2.5980, 0.2739)
 -   Face Tags: 63462, 63530
 -   Face Indices: 12, 43
 -   Topology Vertices: 26 -> 17
+-   Identity: {'tag': 63550, 'journal_identifier': 'EDGE * 39 * 5 {(-0.3097992699554,2.5984251968504,0.271913859817)(-0.3089292761208,2.5983308439148,0.2729018384062)(-0.3080784255152,2.5980293528422,0.2738620429296) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 66: Circular | Length: 1.7440 | Connected Faces: 2 | Tag: 63608
 -   Endpoints: (0.2776, 3.7441, 0.0000) -> (0.2776, 3.7441, 0.0000)
 -   Curve Props: Arc Length 1.7440 | Radius 0.2776 | Diameter 0.5551 | Min Curvature Radius 0.2776
@@ -9090,11 +10912,15 @@
 -   Face Indices: 27, 21
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63608, 'journal_identifier': 'EDGE * 2 * 3 {(-0.1387795275591,3.744094488189,-0.2403731927827)(0.2775590551181,3.744094488189,0)(-0.1387795275591,3.744094488189,0.2403731927827) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 67: Intersection | Length: 0.0345 | Connected Faces: 2 | Tag: 63556
 -   Endpoints: (0.3098, 2.5984, 0.2719) -> (0.3372, 2.5776, 0.2717)
 -   Face Tags: 63464, 63546
 -   Face Indices: 7, 48
 -   Topology Vertices: 27 -> 23
+-   Identity: {'tag': 63556, 'journal_identifier': 'EDGE * 47 * 6 {(0.3097992699554,2.5984251968504,0.271913859817)(0.3235689399866,2.5880524676368,0.2717992798823)(0.337246851803,2.5775590551181,0.2716890429328) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 68: Circular | Length: 2.9667 | Connected Faces: 2 | Tag: 63650
 -   Endpoints: (0.4722, -3.7641, 0.0000) -> (0.4722, -3.7641, 0.0000)
 -   Curve Props: Arc Length 2.9667 | Radius 0.4722 | Diameter 0.9443 | Min Curvature Radius 0.4722
@@ -9103,11 +10929,15 @@
 -   Face Indices: 36, 30
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63650, 'journal_identifier': 'EDGE * 23 * 24 {(-0.2360805751735,-3.764059322094,-0.4089035508806)(0.472161150347,-3.764059322094,0)(-0.2360805751735,-3.764059322094,0.4089035508806) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 69: Intersection | Length: 0.0059 | Connected Faces: 2 | Tag: 63598
 -   Endpoints: (-0.2133, 4.4094, -0.2216) -> (-0.2177, 4.4094, -0.2177)
 -   Face Tags: 63508, 63518
 -   Face Indices: 40, 24
 -   Topology Vertices: 30 -> 38
+-   Identity: {'tag': 63598, 'journal_identifier': 'EDGE * 28 * 33 {(-0.2132679953297,4.4094488188976,-0.2216299661376)(-0.2154932495439,4.4094488188976,-0.2196760536643)(-0.2176998003461,4.4094488188976,-0.217699808227) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 70: Circular | Length: 6.1719 | Connected Faces: 2 | Tag: 63640
 -   Endpoints: (0.9823, -3.5413, 0.0000) -> (0.9823, -3.5413, 0.0000)
 -   Curve Props: Arc Length 6.1719 | Radius 0.9823 | Diameter 1.9646 | Min Curvature Radius 0.9823
@@ -9116,6 +10946,8 @@
 -   Face Indices: 13, 8
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63640, 'journal_identifier': 'EDGE * 18 * 19 {(-0.4911417322835,-3.5413385826772,-0.8506824340324)(0.9822834645669,-3.5413385826772,0)(-0.4911417322835,-3.5413385826772,0.8506824340324) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 71: Linear | Length: 0.1498 | Connected Faces: 2 | Tag: 63588
 -   Endpoints: (-0.3007, 2.7442, 0.2772) -> (-0.3007, 2.5943, 0.2772)
 -   Curve Props: Arc Length 0.1498 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -9124,6 +10956,8 @@
 -   Face Indices: 47, 37
 -   Topology Vertices: 22 -> 34
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63588, 'journal_identifier': 'EDGE * 38 * 40 {(-0.3007222071409,2.7441704992847,0.2771653543307)(-0.3007222071409,2.6692593954968,0.2771653543307)(-0.3007222071409,2.5943482917089,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 72: Circular | Length: 5.3061 | Connected Faces: 2 | Tag: 63630
 -   Endpoints: (0.8445, -3.3346, 0.0000) -> (0.8445, -3.3346, 0.0000)
 -   Curve Props: Arc Length 5.3061 | Radius 0.8445 | Diameter 1.6890 | Min Curvature Radius 0.8445
@@ -9132,16 +10966,22 @@
 -   Face Indices: 18, 28
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63630, 'journal_identifier': 'EDGE * 13 * 14 {(-0.4222440944882,-3.3346456692913,-0.7313482248495)(0.8444881889764,-3.3346456692913,0)(-0.4222440944882,-3.3346456692913,0.7313482248495) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 73: SpCurve | Length: 0.0004 | Connected Faces: 2 | Tag: 63662
 -   Endpoints: (-0.1802, 3.9355, -0.2496) -> (-0.1799, 3.9355, -0.2498)
 -   Face Tags: 63504, 63508
 -   Face Indices: 20, 40
 -   Topology Vertices: 31 -> 39
+-   Identity: {'tag': 63662, 'journal_identifier': 'EDGE * 26 * 28 {(-0.1802459416589,3.9355288923695,-0.2495952926005)(-0.1800786986324,3.9355288923695,-0.2497158972832)(-0.1799114556059,3.9355288923695,-0.249836501966) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 74: Intersection | Length: 0.0344 | Connected Faces: 2 | Tag: 63578
 -   Endpoints: (0.3281, 2.5735, 0.2772) -> (0.3007, 2.5943, 0.2772)
 -   Face Tags: 63528, 63546
 -   Face Indices: 47, 48
 -   Topology Vertices: 36 -> 11
+-   Identity: {'tag': 63578, 'journal_identifier': 'EDGE * 38 * 47 {(0.3281169537245,2.5734821499766,0.2771653543307)(0.3144655555009,2.5839756140067,0.2771653543307)(0.3007222071409,2.5943482917089,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 75: Circular | Length: 2.8447 | Connected Faces: 2 | Tag: 63620
 -   Endpoints: (0.4528, -2.8858, 0.0000) -> (0.4528, -2.8858, 0.0000)
 -   Curve Props: Arc Length 2.8447 | Radius 0.4528 | Diameter 0.9055 | Min Curvature Radius 0.4528
@@ -9150,6 +10990,8 @@
 -   Face Indices: 45, 15
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63620, 'journal_identifier': 'EDGE * 8 * 9 {(-0.2263779527559,-2.8858267716535,-0.3920981158867)(0.4527559055118,-2.8858267716535,0)(-0.2263779527559,-2.8858267716535,0.3920981158867) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 76: Linear | Length: 0.1461 | Connected Faces: 2 | Tag: 63590
 -   Endpoints: (0.3081, 2.7442, 0.2739) -> (0.3081, 2.5980, 0.2739)
 -   Curve Props: Arc Length 0.1461 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -9158,6 +11000,8 @@
 -   Face Indices: 12, 44
 -   Topology Vertices: 9 -> 21
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63590, 'journal_identifier': 'EDGE * 48 * 5 {(0.3080784255152,2.7441704992847,0.2738620429296)(0.3080784255152,2.6710999260634,0.2738620429296)(0.3080784255152,2.5980293528422,0.2738620429296) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 77: Circular | Length: 0.0130 | Connected Faces: 2 | Tag: 63572
 -   Endpoints: (0.3007, 2.7533, 0.2709) -> (0.3081, 2.7442, 0.2739)
 -   Curve Props: Arc Length 0.0130 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -9166,6 +11010,8 @@
 -   Face Indices: 9, 6
 -   Topology Vertices: 12 -> 9
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63572, 'journal_identifier': 'EDGE * 36 * 46 {(0.3007222071409,2.7533221600713,0.270945305984)(0.3053849167097,2.7499712428392,0.2737637745959)(0.3080784255152,2.7441704992847,0.2738620429296) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 78: Circular | Length: 0.0083 | Connected Faces: 2 | Tag: 63694
 -   Endpoints: (-0.3081, 2.7442, 0.2739) -> (-0.3007, 2.7442, 0.2772)
 -   Curve Props: Arc Length 0.0083 | Radius 0.0098 | Diameter 0.0197 | Min Curvature Radius 0.0098
@@ -9174,11 +11020,15 @@
 -   Face Indices: 37, 26
 -   Topology Vertices: 18 -> 22
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63694, 'journal_identifier': 'EDGE * 40 * 42 {(-0.3080784255157,2.7441704992847,0.273862042929)(-0.3047541364246,2.7441704992847,0.2763016285514)(-0.3007222071409,2.7441704992847,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 79: Intersection | Length: 1.1419 | Connected Faces: 2 | Tag: 63568
 -   Endpoints: (0.3357, -0.6591, 0.2735) -> (-0.3357, -0.6591, 0.2735)
 -   Face Tags: 63466, 63538
 -   Face Indices: 3, 31
 -   Topology Vertices: 33 -> 13
+-   Identity: {'tag': 63568, 'journal_identifier': 'EDGE * 43 * 7 {(0.3357475805553,-0.6590551181102,0.2735396447537)(0.0001909954795,-0.9943883279582,0.4330708240248)(-0.3357475805553,-0.6590551181102,0.2735396447537) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 80: Circular | Length: 2.4415 | Connected Faces: 2 | Tag: 63610
 -   Endpoints: (0.3886, 3.7441, 0.0000) -> (0.3886, 3.7441, 0.0000)
 -   Curve Props: Arc Length 2.4415 | Radius 0.3886 | Diameter 0.7772 | Min Curvature Radius 0.3886
@@ -9187,6 +11037,8 @@
 -   Face Indices: 21, 17
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63610, 'journal_identifier': 'EDGE * 3 * 4 {(-0.1942913385827,3.744094488189,-0.3365224698958)(0.3885826771654,3.744094488189,0)(-0.1942913385827,3.744094488189,0.3365224698958) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ### Faces
 - Total Faces: 48
@@ -9214,6 +11066,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 30
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63502, 'journal_identifier': 'FACE 25 {(-0,-3.7755905511811,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 2: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63516
 -   Measure: Area 0.0543 | Perimeter 4.3388 | Radius/Diameter N/A | Min Curvature Radius 0.3793
 -   Points: Center (-0.0158, 4.4343, 0.0737) | Anchor (-0.0158, 4.4343, 0.0737)
@@ -9227,6 +11081,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 40, 19, 41, 39, 24
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63516, 'journal_identifier': 'FACE 32 {(-0,4.4291338582677,0.2878910970939) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 3: Cylindrical | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63466
 -   Measure: Area 12.1192 | Perimeter 12.2884 | Radius/Diameter 0.4331 | Min Curvature Radius 0.4331
 -   Points: Center (0.0000, -0.3595, -0.0843) | Anchor (0.0000, -0.3595, -0.0843)
@@ -9241,6 +11097,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 48, 43, 10, 32, 31, 7, 45
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63466, 'journal_identifier': 'FACE 7 {(-0.4330708661417,-0.1442913385827,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 4: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63492
 -   Measure: Area 0.4351 | Perimeter 12.0222 | Radius/Diameter N/A | Min Curvature Radius 1.3168
 -   Points: Center (-0.0000, -3.6474, -0.0000) | Anchor (-0.0000, -3.6474, -0.0000)
@@ -9254,6 +11112,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 8, 46
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63492, 'journal_identifier': 'FACE 20 {(-0.9566929133858,-3.6476377952756,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 5: Cylindrical | Edges: 2 | Facets: None | Vertices: 2 | Tag: 63526
 -   Measure: Area 0.1961 | Perimeter 1.7700 | Radius/Diameter 0.4287 | Min Curvature Radius 0.4287
 -   Points: Center (-0.0000, -0.8112, 0.3172) | Anchor (-0.0000, -0.8112, 0.3172)
@@ -9268,6 +11128,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 31, 47
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63526, 'journal_identifier': 'FACE 37 {(0,-0.8425777294321,0.3184296109219) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 6: Spherical | Edges: 3 | Facets: None | Vertices: 3 | Tag: 63544
 -   Measure: Area 0.0001 | Perimeter 0.0331 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.3036, 2.7481, 0.2752) | Anchor (0.3036, 2.7481, 0.2752)
@@ -9281,6 +11143,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 9, 16, 44
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63544, 'journal_identifier': 'FACE 46 {(0.3046549892287,2.7481032813725,0.2754432806833) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 7: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63464
 -   Measure: Area 0.0566 | Perimeter 3.9057 | Radius/Diameter N/A | Min Curvature Radius 0.5829
 -   Points: Center (0.0000, 2.5879, -0.1426) | Anchor (0.0000, 2.5879, -0.1426)
@@ -9294,6 +11158,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 48, 43, 12, 3
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63464, 'journal_identifier': 'FACE 6 {(-0,2.5879921259843,-0.4226377952756) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 8: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63490
 -   Measure: Area 0.4981 | Perimeter 12.3437 | Radius/Diameter 0.9823 | Min Curvature Radius 0.9823
 -   Points: Center (-0.0000, -3.5817, -0.0000) | Anchor (-0.0000, -3.5817, -0.0000)
@@ -9308,6 +11174,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 13, 4
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63490, 'journal_identifier': 'FACE 19 {(-0.9822834645669,-3.5816929133858,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 9: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63524
 -   Measure: Area 0.0403 | Perimeter 5.7458 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.0000, 3.2547, 0.1582) | Anchor (-0.0000, 3.2547, 0.1582)
@@ -9321,6 +11189,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 6, 26, 14, 12
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63524, 'journal_identifier': 'FACE 36 {(0.0001826650694,3.5830100514811,0.409528112197) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 10: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63542
 -   Measure: Area 0.0282 | Perimeter 6.4870 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.3322, 0.9582, 0.2759) | Anchor (0.3322, 0.9582, 0.2759)
@@ -9335,6 +11205,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 3, 47, 31, 48
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63542, 'journal_identifier': 'FACE 45 {(0.3323410582382,0.9687899989858,0.2762128366034) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 11: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63484
 -   Measure: Area 0.1460 | Perimeter 10.4885 | Radius/Diameter N/A | Min Curvature Radius 1.1664
 -   Points: Center (-0.0000, -3.5217, -0.0000) | Anchor (-0.0000, -3.5217, -0.0000)
@@ -9348,6 +11220,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 25, 33
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63484, 'journal_identifier': 'FACE 16 {(0.8346456692913,-3.5216535433071,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 12: Cylindrical | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63462
 -   Measure: Area 1.8480 | Perimeter 7.6793 | Radius/Diameter 0.4122 | Min Curvature Radius 0.4122
 -   Points: Center (0.0000, 3.1865, -0.1683) | Anchor (0.0000, 3.1865, -0.1683)
@@ -9362,6 +11236,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 43, 48, 44, 37, 9, 17, 7
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63462, 'journal_identifier': 'FACE 5 {(-0.4122047244094,3.1558835676292,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 13: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63488
 -   Measure: Area 0.0855 | Perimeter 12.2819 | Radius/Diameter N/A | Min Curvature Radius 1.3752
 -   Points: Center (-0.0000, -3.5364, -0.0000) | Anchor (-0.0000, -3.5364, -0.0000)
@@ -9375,6 +11251,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 33, 8
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63488, 'journal_identifier': 'FACE 18 {(0.9773622047244,-3.5364173228346,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 14: Cylindrical | Edges: 2 | Facets: None | Vertices: 2 | Tag: 63522
 -   Measure: Area 0.8402 | Perimeter 3.4183 | Radius/Diameter 0.4287 | Min Curvature Radius 0.4287
 -   Points: Center (-0.0000, 3.1800, 0.1053) | Anchor (-0.0000, 3.1800, 0.1053)
@@ -9389,6 +11267,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 16, 9
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63522, 'journal_identifier': 'FACE 35 {(0.0000047016363,3.2244085748947,0.0061640592969) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 15: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63470
 -   Measure: Area 2.1492 | Perimeter 8.7692 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, -2.8858, 0.0000) | Anchor (-0.0000, -2.8858, 0.0000)
@@ -9403,6 +11283,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 45, 35
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63470, 'journal_identifier': 'FACE 9 {(-0,-2.8858267716535,0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 16: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63540
 -   Measure: Area 0.0071 | Perimeter 1.2264 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.0000, 2.7494, 0.2750) | Anchor (0.0000, 2.7494, 0.2750)
@@ -9417,6 +11299,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 14, 47, 26, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63540, 'journal_identifier': 'FACE 44 {(0,2.749703172612,0.2754631491115) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 17: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63460
 -   Measure: Area 0.0840 | Perimeter 5.0315 | Radius/Diameter N/A | Min Curvature Radius 0.5495
 -   Points: Center (-0.0000, 3.7322, 0.0000) | Anchor (-0.0000, 3.7322, 0.0000)
@@ -9430,6 +11314,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 21, 12
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63460, 'journal_identifier': 'FACE 4 {(0.4003937007874,3.7322834645669,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 18: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63478
 -   Measure: Area 0.7304 | Perimeter 11.4161 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, -3.3346, 0.0000) | Anchor (0.0000, -3.3346, 0.0000)
@@ -9444,6 +11330,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 23, 28
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63478, 'journal_identifier': 'FACE 13 {(-0,-3.3346456692913,0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 19: Planar | Edges: 1 | Facets: None | Vertices: 1 | Tag: 63520
 -   Measure: Area 0.2260 | Perimeter 1.6852 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, 4.4488, 0.0000) | Anchor (-0.0000, 4.4488, 0.0000)
@@ -9458,6 +11346,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 2
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63520, 'journal_identifier': 'FACE 34 {(-0,4.4488188976378,0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 20: Planar | Edges: 5 | Facets: None | Vertices: 6 | Tag: 63504
 -   Measure: Area 0.0001 | Perimeter 0.5059 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.2547, 3.9355, -0.1576) | Anchor (-0.2547, 3.9355, -0.1576)
@@ -9472,6 +11362,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 40, 22, 41, 42
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63504, 'journal_identifier': 'FACE 26 {(-0.2397918775612,3.9355288923695,-0.148327011919) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 21: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63458
 -   Measure: Area 0.2323 | Perimeter 4.1855 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, 3.7441, -0.0000) | Anchor (-0.0000, 3.7441, -0.0000)
@@ -9486,6 +11378,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 27, 17
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63458, 'journal_identifier': 'FACE 3 {(-0,3.744094488189,0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 22: Cylindrical | Edges: 4 | Facets: None | Vertices: 5 | Tag: 63514
 -   Measure: Area 0.1143 | Perimeter 31.5474 | Radius/Diameter 0.3079 | Min Curvature Radius 0.3079
 -   Points: Center (-0.0009, 4.1725, -0.0005) | Anchor (-0.0009, 4.1725, -0.0005)
@@ -9500,6 +11394,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 41, 40, 24, 20
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63514, 'journal_identifier': 'FACE 31 {(-0.307874015748,4.1724888556127,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 23: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63476
 -   Measure: Area 0.0855 | Perimeter 12.2819 | Radius/Diameter N/A | Min Curvature Radius 1.3752
 -   Points: Center (-0.0000, -3.3297, -0.0000) | Anchor (-0.0000, -3.3297, -0.0000)
@@ -9513,6 +11409,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 29, 18
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63476, 'journal_identifier': 'FACE 12 {(-0.9773622047244,-3.3297244094488,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 24: Planar | Edges: 4 | Facets: None | Vertices: 5 | Tag: 63518
 -   Measure: Area 0.0001 | Perimeter 0.5070 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.2767, 4.4094, -0.1146) | Anchor (-0.2767, 4.4094, -0.1146)
@@ -9527,6 +11425,8 @@
 -   Loop Count: 3
 -   Adjacent Faces: 40, 41, 22, 2
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63518, 'journal_identifier': 'FACE 33 {(-0.2605710055387,4.4094488188976,-0.1078585826995) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 25: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63482
 -   Measure: Area 0.8161 | Perimeter 10.3648 | Radius/Diameter 0.8248 | Min Curvature Radius 0.8248
 -   Points: Center (-0.0000, -3.4331, -0.0000) | Anchor (-0.0000, -3.4331, -0.0000)
@@ -9541,6 +11441,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 28, 11
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63482, 'journal_identifier': 'FACE 15 {(-0.8248031496063,-3.4330708661417,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 26: Spherical | Edges: 3 | Facets: None | Vertices: 3 | Tag: 63536
 -   Measure: Area 0.0001 | Perimeter 0.0331 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.3036, 2.7481, 0.2752) | Anchor (-0.3036, 2.7481, 0.2752)
@@ -9554,6 +11456,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 9, 37, 16
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63536, 'journal_identifier': 'FACE 42 {(-0.3046549892287,2.7481032813725,0.2754432806833) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 27: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63456
 -   Measure: Area 0.0285 | Perimeter 3.4137 | Radius/Diameter N/A | Min Curvature Radius 0.3758
 -   Points: Center (-0.0000, 3.7500, 0.0000) | Anchor (-0.0000, 3.7500, 0.0000)
@@ -9567,6 +11471,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 34, 21
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63456, 'journal_identifier': 'FACE 2 {(0.2716535433071,3.75,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 28: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63480
 -   Measure: Area 0.1460 | Perimeter 10.4885 | Radius/Diameter N/A | Min Curvature Radius 1.1664
 -   Points: Center (-0.0000, -3.3444, -0.0000) | Anchor (-0.0000, -3.3444, -0.0000)
@@ -9580,6 +11486,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 18, 25
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63480, 'journal_identifier': 'FACE 14 {(-0.8346456692913,-3.3444881889764,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 29: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63474
 -   Measure: Area 2.4663 | Perimeter 12.3437 | Radius/Diameter 0.9823 | Min Curvature Radius 0.9823
 -   Points: Center (-0.0000, -3.1250, -0.0000) | Anchor (-0.0000, -3.1250, -0.0000)
@@ -9594,6 +11502,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 35, 23
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63474, 'journal_identifier': 'FACE 11 {(-0.9822834645669,-3.125,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 30: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63500
 -   Measure: Area 0.0892 | Perimeter 5.7584 | Radius/Diameter N/A | Min Curvature Radius 0.0394
 -   Points: Center (-0.0000, -3.7716, -0.0000) | Anchor (-0.0000, -3.7716, -0.0000)
@@ -9607,6 +11517,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 36, 1
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63500, 'journal_identifier': 'FACE 24 {(-0.4593885775587,-3.7725936823823,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 31: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63538
 -   Measure: Area 0.0095 | Perimeter 2.2733 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.0000, -0.8761, 0.3536) | Anchor (0.0000, -0.8761, 0.3536)
@@ -9620,6 +11532,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 3, 32, 10
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63538, 'journal_identifier': 'FACE 43 {(0.0001848557033,-0.9902388249326,0.4321533729442) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 32: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63534
 -   Measure: Area 0.0282 | Perimeter 6.4870 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.3322, 0.9582, 0.2759) | Anchor (-0.3322, 0.9582, 0.2759)
@@ -9634,6 +11548,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 3, 47, 43, 31
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63534, 'journal_identifier': 'FACE 41 {(-0.3323410582382,0.9687899989858,0.2762128366034) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 33: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63486
 -   Measure: Area 0.7304 | Perimeter 11.4161 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, -3.5315, -0.0000) | Anchor (-0.0000, -3.5315, -0.0000)
@@ -9648,6 +11564,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 11, 13
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63486, 'journal_identifier': 'FACE 17 {(-0,-3.5314960629921,0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 34: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63454
 -   Measure: Area 0.2301 | Perimeter 3.3395 | Radius/Diameter 0.2657 | Min Curvature Radius 0.2657
 -   Points: Center (-0.0000, 3.8248, 0.0000) | Anchor (-0.0000, 3.8248, 0.0000)
@@ -9662,6 +11580,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 27, 42
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63454, 'journal_identifier': 'FACE 1 {(-0.2657480314961,3.8248031496063,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 35: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63472
 -   Measure: Area 0.3367 | Perimeter 12.0964 | Radius/Diameter N/A | Min Curvature Radius 1.3335
 -   Points: Center (-0.0000, -2.9056, -0.0000) | Anchor (-0.0000, -2.9056, -0.0000)
@@ -9675,6 +11595,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 15, 29
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63472, 'journal_identifier': 'FACE 10 {(0.9625984251969,-2.9055118110236,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 36: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63498
 -   Measure: Area 0.3606 | Perimeter 6.4316 | Radius/Diameter N/A | Min Curvature Radius 0.6677
 -   Points: Center (-0.0000, -3.7234, -0.0000) | Anchor (-0.0000, -3.7234, -0.0000)
@@ -9688,6 +11610,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 38, 30
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63498, 'journal_identifier': 'FACE 23 {(-0.511811023622,-3.7244094488189,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 37: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63532
 -   Measure: Area 0.0012 | Perimeter 0.3134 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.3046, 2.6702, 0.2760) | Anchor (-0.3046, 2.6702, 0.2760)
@@ -9702,6 +11626,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 47, 12, 43, 26
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63532, 'journal_identifier': 'FACE 40 {(-0.3047541364246,2.6688099288742,0.2763016285514) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 38: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63496
 -   Measure: Area 0.1097 | Perimeter 7.1048 | Radius/Diameter N/A | Min Curvature Radius 0.0394
 -   Points: Center (-0.0000, -3.6771, -0.0000) | Anchor (-0.0000, -3.6771, -0.0000)
@@ -9715,6 +11641,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 46, 36
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63496, 'journal_identifier': 'FACE 22 {(-0.5642334696854,-3.6762252152555,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 39: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63510
 -   Measure: Area 0.2327 | Perimeter 32.4253 | Radius/Diameter N/A | Min Curvature Radius 0.2759
 -   Points: Center (-0.0023, 4.1725, -0.0012) | Anchor (-0.0023, 4.1725, -0.0012)
@@ -9728,6 +11656,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 41, 40, 2, 42
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63510, 'journal_identifier': 'FACE 29 {(0.2453600073711,4.1724351304435,0.126192379045) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 40: Parametric | Edges: 7 | Facets: None | Vertices: 9 | Tag: 63508
 -   Measure: Area 0.5784 | Perimeter 33.2900 | Radius/Diameter N/A | Min Curvature Radius 0.5379
 -   Points: Center (0.0008, 4.1725, -0.0059) | Anchor (0.0008, 4.1725, -0.0059)
@@ -9741,6 +11671,8 @@
 -   Loop Count: 5
 -   Adjacent Faces: 24, 2, 42, 20, 39, 22
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63508, 'journal_identifier': 'FACE 28 {(0.2779458786359,4.1632077682791,-0.0891453059407) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 41: Parametric | Edges: 6 | Facets: None | Vertices: 6 | Tag: 63512
 -   Measure: Area 0.5785 | Perimeter 33.2894 | Radius/Diameter N/A | Min Curvature Radius 0.5379
 -   Points: Center (-0.0043, 4.1725, 0.0041) | Anchor (-0.0043, 4.1725, 0.0041)
@@ -9754,6 +11686,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 39, 22, 24, 2, 42, 20
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63512, 'journal_identifier': 'FACE 30 {(0.0891453059407,4.181662492608,0.2779458786359) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 42: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63506
 -   Measure: Area 0.0601 | Perimeter 4.3223 | Radius/Diameter N/A | Min Curvature Radius 0.3758
 -   Points: Center (0.0454, 3.9091, -0.0507) | Anchor (0.0454, 3.9091, -0.0507)
@@ -9767,6 +11701,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 40, 41, 39, 20, 34
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63506, 'journal_identifier': 'FACE 27 {(-0,3.9146148398855,-0.28666208398) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 43: Blending | Edges: 6 | Facets: None | Vertices: 6 | Tag: 63530
 -   Measure: Area 0.0004 | Perimeter 0.0926 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.3194, 2.5863, 0.2753) | Anchor (-0.3194, 2.5863, 0.2753)
@@ -9780,6 +11716,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 12, 7, 3, 47, 37, 32
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63530, 'journal_identifier': 'FACE 39 {(-0.319446814775,2.5866295581185,0.2757219387198) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 44: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63548
 -   Measure: Area 0.0012 | Perimeter 0.3134 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.3046, 2.6702, 0.2760) | Anchor (0.3046, 2.6702, 0.2760)
@@ -9794,6 +11732,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 47, 12, 6, 48
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63548, 'journal_identifier': 'FACE 48 {(0.3047541364242,2.6688099288741,0.2763016285516) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 45: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63468
 -   Measure: Area 0.0775 | Perimeter 5.5658 | Radius/Diameter N/A | Min Curvature Radius 0.6125
 -   Points: Center (-0.0000, -2.8761, -0.0000) | Anchor (-0.0000, -2.8761, -0.0000)
@@ -9807,6 +11747,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 3, 15
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63468, 'journal_identifier': 'FACE 8 {(0.4429133858268,-2.8759842519685,-0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 46: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63494
 -   Measure: Area 1.6693 | Perimeter 9.4901 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, -3.6732, 0.0000) | Anchor (-0.0000, -3.6732, 0.0000)
@@ -9821,6 +11763,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 4, 38
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63494, 'journal_identifier': 'FACE 21 {(-0,-3.6732283464567,0) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 47: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 63528
 -   Measure: Area 2.2245 | Perimeter 8.0913 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 1.0362, 0.2772) | Anchor (0.0000, 1.0362, 0.2772)
@@ -9835,6 +11779,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 10, 48, 44, 16, 32, 43, 37, 5
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63528, 'journal_identifier': 'FACE 38 {(-0,1.0425576905872,0.2771653543307) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 48: Blending | Edges: 6 | Facets: None | Vertices: 6 | Tag: 63546
 -   Measure: Area 0.0004 | Perimeter 0.0926 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.3194, 2.5863, 0.2753) | Anchor (0.3194, 2.5863, 0.2753)
@@ -9848,6 +11794,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 12, 7, 3, 47, 10, 44
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63546, 'journal_identifier': 'FACE 47 {(0.319446814301,2.5866295584782,0.275721938721) UNPARAMETERIZED_FEATURE(12)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 44, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ---
 ## Body 13
@@ -9872,15 +11820,15 @@
 - Radius Of Gyration: 1.3041
 - Centroid: (0.0001, 1.7373, -0.0330)
 ### Bounding Box
-- X Min: -0.5866
-- Y Min: 3.7441
-- Z Min: -0.5866
-- X Max: 0.5866
-- Y Max: 3.8661
-- Z Max: 0.5866
-- Dx (Length): 1.1732
-- Dy (Width): 0.1220
-- Dz (Height): 1.1732
+- X Min: -0.4998
+- Y Min: 3.8661
+- Z Min: -0.5246
+- X Max: 0.4998
+- Y Max: 4.3622
+- Z Max: 0.5246
+- Dx (Length): 0.9996
+- Dy (Width): 0.4961
+- Dz (Height): 1.0492
 
 ### Features
 - Total Features: 1
@@ -9906,6 +11854,8 @@
 -   Face Indices: 32, 27
 -   Topology Vertices: 1 -> 2
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63940, 'journal_identifier': 'EDGE * 25 * 27 {(0.7007874015748,1.9724409448819,-0.9236983173294)(0.7007874015748,1.9724409448819,-0)(0.7007874015748,1.9724409448819,0.9236983173294) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 2: Circular | Length: 2.7829 | Connected Faces: 2 | Tag: 63918
 -   Endpoints: (0.6811, 3.1520, -0.0142) -> (0.6811, 3.1520, -0.0142)
 -   Curve Props: Arc Length 2.7829 | Radius 0.4429 | Diameter 0.8858 | Min Curvature Radius 0.4429
@@ -9914,11 +11864,15 @@
 -   Face Indices: 22, 3
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63918, 'journal_identifier': 'EDGE * 26 * 36 {(0.6811023622047,2.7683942601348,0.6501968503937)(0.6811023622047,3.151968503937,-0.0141732283465)(0.6811023622047,3.5355427477392,0.6501968503937) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 3: Intersection | Length: 0.1011 | Connected Faces: 2 | Tag: 64000
 -   Endpoints: (0.6811, 3.7441, -0.8593) -> (0.6811, 3.6811, -0.9383)
 -   Face Tags: 63844, 63892
 -   Face Indices: 6, 22
 -   Topology Vertices: 4 -> 5
+-   Identity: {'tag': 64000, 'journal_identifier': 'EDGE * 2 * 26 {(0.6811023622047,3.744094488189,-0.8592536596569)(0.6811023622047,3.7127532796004,-0.8989039638856)(0.6811023622047,3.6811023622047,-0.9383075912739) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 4: Linear | Length: 1.7185 | Connected Faces: 2 | Tag: 63950
 -   Endpoints: (-0.6811, 3.7441, -0.8593) -> (-0.6811, 3.7441, 0.8593)
 -   Curve Props: Arc Length 1.7185 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -9927,6 +11881,8 @@
 -   Face Indices: 15, 37
 -   Topology Vertices: 6 -> 7
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63950, 'journal_identifier': 'EDGE * 23 * 4 {(-0.6811023622047,3.744094488189,-0.8592536596569)(-0.6811023622047,3.744094488189,0)(-0.6811023622047,3.744094488189,0.8592536596569) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 5: Circular | Length: 5.4347 | Connected Faces: 2 | Tag: 63970
 -   Endpoints: (0.0000, 0.3091, -0.8650) -> (0.0000, 0.3091, -0.8650)
 -   Curve Props: Arc Length 5.4347 | Radius 0.8650 | Diameter 1.7299 | Min Curvature Radius 0.8650
@@ -9935,11 +11891,15 @@
 -   Face Indices: 33, 16
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63970, 'journal_identifier': 'EDGE * 12 * 13 {(0.7490778787852,0.3090551181102,0.4324803149606)(0,0.3090551181102,-0.8649606299213)(-0.7490778787852,0.3090551181102,0.4324803149606) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 6: Elliptical | Length: 0.0314 | Connected Faces: 2 | Tag: 63934
 -   Endpoints: (0.6811, 1.9921, -0.9383) -> (0.7008, 1.9724, -0.9237)
 -   Face Tags: 63846, 63894
 -   Face Indices: 23, 27
 -   Topology Vertices: 8 -> 1
+-   Identity: {'tag': 63934, 'journal_identifier': 'EDGE * 27 * 3 {(0.6811023622047,1.992125984252,-0.9383075912739)(0.6909834929511,1.9822448535056,-0.9310549801769)(0.7007874015748,1.9724409448819,-0.9236983173294) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 7: Circular | Length: 6.4440 | Connected Faces: 2 | Tag: 63962
 -   Endpoints: (0.0000, 1.7559, -1.0256) -> (0.0000, 1.7559, -1.0256)
 -   Curve Props: Arc Length 6.4440 | Radius 1.0256 | Diameter 2.0512 | Min Curvature Radius 1.0256
@@ -9948,11 +11908,15 @@
 -   Face Indices: 26, 18
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63962, 'journal_identifier': 'EDGE * 7 * 8 {(0.8881874712041,1.755905511811,0.5127952755906)(0,1.755905511811,-1.0255905511811)(-0.8881874712041,1.755905511811,0.5127952755906) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 8: Intersection | Length: 5.7992 | Connected Faces: 2 | Tag: 64028
 -   Endpoints: (1.0716, 1.4685, 0.2319) -> (0.4546, 1.5005, 0.9625)
 -   Face Tags: 63898, 63906
 -   Face Indices: 35, 24
 -   Topology Vertices: 9 -> 10
+-   Identity: {'tag': 64028, 'journal_identifier': 'EDGE * 29 * 33 {(1.0716431608714,1.4685039370079,0.2319444226362)(-0.8330276081085,1.4843370640408,-0.6883402467277)(0.4546499278282,1.500468457185,0.9625159889282) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 9: Circular | Length: 1.4698 | Connected Faces: 2 | Tag: 63992
 -   Endpoints: (0.6811, 3.7441, 0.8593) -> (-0.6811, 3.7441, 0.8593)
 -   Curve Props: Arc Length 1.4698 | Radius 1.0965 | Diameter 2.1929 | Min Curvature Radius 1.0965
@@ -9961,6 +11925,8 @@
 -   Face Indices: 14, 15
 -   Topology Vertices: 11 -> 7
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63992, 'journal_identifier': 'EDGE * 1 * 4 {(0.6811023622047,3.744094488189,0.8592536596569)(0,3.744094488189,1.0964566929134)(-0.6811023622047,3.744094488189,0.8592536596569) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 10: Circular | Length: 6.3623 | Connected Faces: 2 | Tag: 63966
 -   Endpoints: (0.0000, 0.3189, -1.0126) -> (0.0000, 0.3189, -1.0126)
 -   Curve Props: Arc Length 6.3623 | Radius 1.0126 | Diameter 2.0252 | Min Curvature Radius 1.0126
@@ -9969,6 +11935,8 @@
 -   Face Indices: 5, 34
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63966, 'journal_identifier': 'EDGE * 10 * 11 {(0.8769359600526,0.3188976377953,0.5062992125984)(0,0.3188976377953,-1.0125984251969)(-0.8769359600526,0.3188976377953,0.5062992125984) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 11: Linear | Length: 1.7185 | Connected Faces: 2 | Tag: 63948
 -   Endpoints: (0.6811, 3.7441, 0.8593) -> (0.6811, 3.7441, -0.8593)
 -   Curve Props: Arc Length 1.7185 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -9977,6 +11945,8 @@
 -   Face Indices: 15, 22
 -   Topology Vertices: 11 -> 4
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63948, 'journal_identifier': 'EDGE * 26 * 4 {(0.6811023622047,3.744094488189,0.8592536596569)(0.6811023622047,3.744094488189,-0)(0.6811023622047,3.744094488189,-0.8592536596569) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 12: Circular | Length: 6.4242 | Connected Faces: 2 | Tag: 63978
 -   Endpoints: (0.0000, 0.1142, -1.0224) -> (0.0000, 0.1142, -1.0224)
 -   Curve Props: Arc Length 6.4242 | Radius 1.0224 | Diameter 2.0449 | Min Curvature Radius 1.0224
@@ -9985,11 +11955,15 @@
 -   Face Indices: 25, 8
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63978, 'journal_identifier': 'EDGE * 16 * 17 {(0.8854598321371,0.1141732283465,0.5112204724409)(0,0.1141732283465,-1.0224409448819)(-0.8854598321371,0.1141732283465,0.5112204724409) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 13: Intersection | Length: 0.1011 | Connected Faces: 2 | Tag: 64008
 -   Endpoints: (-0.6811, 3.7441, 0.8593) -> (-0.6811, 3.6811, 0.9383)
 -   Face Tags: 63842, 63886
 -   Face Indices: 14, 37
 -   Topology Vertices: 7 -> 12
+-   Identity: {'tag': 64008, 'journal_identifier': 'EDGE * 1 * 23 {(-0.6811023622047,3.744094488189,0.8592536596569)(-0.6811023622047,3.7127532796004,0.8989039638856)(-0.6811023622047,3.6811023622047,0.9383075912739) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 14: Circular | Length: 6.3005 | Connected Faces: 2 | Tag: 63982
 -   Endpoints: (0.0000, 0.0000, -1.0028) -> (0.0000, 0.0000, -1.0028)
 -   Curve Props: Arc Length 6.3005 | Radius 1.0028 | Diameter 2.0055 | Min Curvature Radius 1.0028
@@ -9998,11 +11972,15 @@
 -   Face Indices: 29, 2
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63982, 'journal_identifier': 'EDGE * 18 * 19 {(0.8684120879681,0,0.5013779527559)(0,0,-1.0027559055118)(-0.8684120879681,0,0.5013779527559) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 15: Intersection | Length: 1.6721 | Connected Faces: 2 | Tag: 64024
 -   Endpoints: (1.0281, 0.8491, -0.2758) -> (0.2758, 0.8491, 1.0281)
 -   Face Tags: 63900, 63904
 -   Face Indices: 13, 36
 -   Topology Vertices: 13 -> 14
+-   Identity: {'tag': 64024, 'journal_identifier': 'EDGE * 30 * 32 {(1.0281324473059,0.8491378420274,-0.2758391861452)(0.922031635958,0.8491378420276,0.5319786162144)(0.2758391861749,0.8491378420276,1.028132447298) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 16: Circular | Length: 6.5677 | Connected Faces: 2 | Tag: 63960
 -   Endpoints: (0.0000, 1.7756, -1.0453) -> (0.0000, 1.7756, -1.0453)
 -   Curve Props: Arc Length 6.5677 | Radius 1.0453 | Diameter 2.0906 | Min Curvature Radius 1.0453
@@ -10011,6 +11989,8 @@
 -   Face Indices: 1, 26
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63960, 'journal_identifier': 'EDGE * 6 * 7 {(0.9052352153731,1.7755905511811,0.5226377952756)(0,1.7755905511811,-1.0452755905512)(-0.9052352153731,1.7755905511811,0.5226377952756) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 17: Linear | Length: 1.6890 | Connected Faces: 2 | Tag: 63998
 -   Endpoints: (0.6811, 1.9921, 0.9383) -> (0.6811, 3.6811, 0.9383)
 -   Curve Props: Arc Length 1.6890 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -10019,6 +11999,8 @@
 -   Face Indices: 23, 22
 -   Topology Vertices: 15 -> 16
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63998, 'journal_identifier': 'EDGE * 26 * 3 1 {(0.6811023622047,1.992125984252,0.9383075912739)(0.6811023622047,2.8366141732283,0.9383075912739)(0.6811023622047,3.6811023622047,0.9383075912739) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 18: Circular | Length: 5.4347 | Connected Faces: 2 | Tag: 63972
 -   Endpoints: (0.0000, 0.1437, -0.8650) -> (0.0000, 0.1437, -0.8650)
 -   Curve Props: Arc Length 5.4347 | Radius 0.8650 | Diameter 1.7299 | Min Curvature Radius 0.8650
@@ -10027,21 +12009,29 @@
 -   Face Indices: 16, 10
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63972, 'journal_identifier': 'EDGE * 13 * 14 {(0.7490778787852,0.1437007874016,0.4324803149606)(0,0.1437007874016,-0.8649606299213)(-0.7490778787852,0.1437007874016,0.4324803149606) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 19: Intersection | Length: 5.7973 | Connected Faces: 2 | Tag: 63924
 -   Endpoints: (0.8689, 0.8811, 0.6687) -> (1.0281, 0.8491, -0.2758)
 -   Face Tags: 63900, 63902
 -   Face Indices: 13, 7
 -   Topology Vertices: 17 -> 13
+-   Identity: {'tag': 63924, 'journal_identifier': 'EDGE * 30 * 31 {(0.8689050887017,0.8811023622047,0.6687460102781)(-1.0636291792434,0.8652787560368,-0.1909472105872)(1.0281324473066,0.8491378420275,-0.2758391861414) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 20: Spline | Length: 73.7660 | Connected Faces: 2 | Tag: 64012
 -   Endpoints: (0.4546, 1.5005, 0.9625) -> (0.2758, 0.8491, 1.0281)
 -   Face Tags: 63904, 63906
 -   Face Indices: 36, 24
 -   Topology Vertices: 10 -> 14
+-   Identity: {'tag': 64012, 'journal_identifier': 'EDGE * 32 * 33 {(0.4546499278282,1.500468457185,0.9625159889282)(-0.3666327827505,1.1748007706751,-0.999361790559)(0.2758391861754,0.8491378420276,1.0281324472979) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 21: Elliptical | Length: 0.0314 | Connected Faces: 2 | Tag: 63930
 -   Endpoints: (-0.6811, 1.9921, 0.9383) -> (-0.7008, 1.9724, 0.9237)
 -   Face Tags: 63846, 63896
 -   Face Indices: 23, 19
 -   Topology Vertices: 18 -> 19
+-   Identity: {'tag': 63930, 'journal_identifier': 'EDGE * 28 * 3 1 {(-0.6811023622047,1.992125984252,0.9383075912739)(-0.6909834929511,1.9822448535056,0.9310549801769)(-0.7007874015748,1.9724409448819,0.9236983173294) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 22: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 63986
 -   Endpoints: (0.0000, 0.0472, -0.4331) -> (0.0000, 0.0472, -0.4331)
 -   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
@@ -10050,6 +12040,8 @@
 -   Face Indices: 28, 21
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63986, 'journal_identifier': 'EDGE * 20 * 21 {(0.3750503717177,0.0472440944882,0.2165354330709)(0,0.0472440944882,-0.4330708661417)(-0.3750503717177,0.0472440944882,0.2165354330709) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 23: Circular | Length: 7.2850 | Connected Faces: 2 | Tag: 63956
 -   Endpoints: (0.0000, 1.8150, -1.1594) -> (0.0000, 1.8150, -1.1594)
 -   Curve Props: Arc Length 7.2850 | Radius 1.1594 | Diameter 2.3189 | Min Curvature Radius 1.1594
@@ -10058,11 +12050,15 @@
 -   Face Indices: 23, 9
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63956, 'journal_identifier': 'EDGE * 3 * 5 {(1.0041121315532,1.8149606299213,0.5797244094488)(0,1.8149606299213,-1.1594488188976)(-1.0041121315532,1.8149606299213,0.5797244094488) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 24: Intersection | Length: 0.1011 | Connected Faces: 2 | Tag: 63996
 -   Endpoints: (0.6811, 3.6811, 0.9383) -> (0.6811, 3.7441, 0.8593)
 -   Face Tags: 63842, 63892
 -   Face Indices: 14, 22
 -   Topology Vertices: 16 -> 11
+-   Identity: {'tag': 63996, 'journal_identifier': 'EDGE * 1 * 26 {(0.6811023622047,3.6811023622047,0.9383075912739)(0.6811023622047,3.7127604500739,0.8988949552543)(0.6811023622047,3.744094488189,0.8592536596569) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 25: Circular | Length: 2.1375 | Connected Faces: 2 | Tag: 63946
 -   Endpoints: (-0.7008, 1.9724, 0.9237) -> (-0.7008, 1.9724, -0.9237)
 -   Curve Props: Arc Length 2.1375 | Radius 1.1594 | Diameter 2.3189 | Min Curvature Radius 1.1594
@@ -10071,11 +12067,15 @@
 -   Face Indices: 23, 31
 -   Topology Vertices: 19 -> 20
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63946, 'journal_identifier': 'EDGE * 24 * 3 {(-0.7007874015748,1.9724409448819,0.9236983173294)(-1.1594488188976,1.9724409448819,0)(-0.7007874015748,1.9724409448819,-0.9236983173294) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 26: Intersection | Length: 1.6721 | Connected Faces: 2 | Tag: 64030
 -   Endpoints: (0.4546, 1.5005, 0.9625) -> (0.9625, 1.5005, -0.4546)
 -   Face Tags: 63898, 63904
 -   Face Indices: 35, 36
 -   Topology Vertices: 10 -> 21
+-   Identity: {'tag': 64030, 'journal_identifier': 'EDGE * 29 * 32 {(0.4546499278282,1.500468457185,0.9625159889282)(1.0020981257812,1.500468457185,0.3590862460782)(0.9625159889282,1.500468457185,-0.4546499278282) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 27: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 63920
 -   Endpoints: (0.6713, 3.1520, -0.0043) -> (0.6713, 3.1520, -0.0043)
 -   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
@@ -10084,6 +12084,8 @@
 -   Face Indices: 11, 3
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63920, 'journal_identifier': 'EDGE * 35 * 36 {(0.6712598425197,3.5270188756547,0.6452755905512)(0.6712598425197,3.151968503937,-0.0043307086614)(0.6712598425197,2.7769181322193,0.6452755905512) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 28: Circular | Length: 7.0377 | Connected Faces: 2 | Tag: 63958
 -   Endpoints: (0.0000, 1.7756, -1.1201) -> (0.0000, 1.7756, -1.1201)
 -   Curve Props: Arc Length 7.0377 | Radius 1.1201 | Diameter 2.2402 | Min Curvature Radius 1.1201
@@ -10092,6 +12094,8 @@
 -   Face Indices: 9, 1
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63958, 'journal_identifier': 'EDGE * 5 * 6 {(0.9700166432152,1.7755905511811,0.5600393700787)(0,1.7755905511811,-1.1200787401575)(-0.9700166432152,1.7755905511811,0.5600393700787) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 29: Circular | Length: 0.8612 | Connected Faces: 2 | Tag: 64020
 -   Endpoints: (1.0873, 0.8811, -0.1415) -> (0.8689, 0.8811, 0.6687)
 -   Curve Props: Arc Length 0.8612 | Radius 1.0965 | Diameter 2.1929 | Min Curvature Radius 1.0965
@@ -10100,6 +12104,8 @@
 -   Face Indices: 13, 17
 -   Topology Vertices: 22 -> 17
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 64020, 'journal_identifier': 'EDGE * 30 * 34 {(1.0872835167363,0.8811023622047,-0.1415338605006)(1.0586816482109,0.8811023622047,0.2853251604328)(0.8689050887016,0.8811023622047,0.6687460102782) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 30: Linear | Length: 1.8474 | Connected Faces: 2 | Tag: 63936
 -   Endpoints: (-0.7008, 1.9724, 0.9237) -> (-0.7008, 1.9724, -0.9237)
 -   Curve Props: Arc Length 1.8474 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -10108,6 +12114,8 @@
 -   Face Indices: 31, 19
 -   Topology Vertices: 19 -> 20
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63936, 'journal_identifier': 'EDGE * 24 * 28 {(-0.7007874015748,1.9724409448819,0.9236983173294)(-0.7007874015748,1.9724409448819,-0)(-0.7007874015748,1.9724409448819,-0.9236983173294) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 31: Circular | Length: 1.4560 | Connected Faces: 2 | Tag: 63954
 -   Endpoints: (-0.6811, 3.6811, -0.9383) -> (0.6811, 3.6811, -0.9383)
 -   Curve Props: Arc Length 1.4560 | Radius 1.1594 | Diameter 2.3189 | Min Curvature Radius 1.1594
@@ -10116,6 +12124,8 @@
 -   Face Indices: 6, 23
 -   Topology Vertices: 23 -> 5
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63954, 'journal_identifier': 'EDGE * 2 * 3 {(-0.6811023622047,3.6811023622047,-0.9383075912739)(-0,3.6811023622047,-1.1594488188976)(0.6811023622047,3.6811023622047,-0.9383075912739) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 32: Circular | Length: 1.4698 | Connected Faces: 2 | Tag: 63994
 -   Endpoints: (-0.6811, 3.7441, -0.8593) -> (0.6811, 3.7441, -0.8593)
 -   Curve Props: Arc Length 1.4698 | Radius 1.0965 | Diameter 2.1929 | Min Curvature Radius 1.0965
@@ -10124,6 +12134,8 @@
 -   Face Indices: 6, 15
 -   Topology Vertices: 6 -> 4
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63994, 'journal_identifier': 'EDGE * 2 * 4 {(-0.6811023622047,3.744094488189,-0.8592536596569)(-0,3.744094488189,-1.0964566929134)(0.6811023622047,3.744094488189,-0.8592536596569) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 33: Circular | Length: 5.4966 | Connected Faces: 2 | Tag: 63968
 -   Endpoints: (0.0000, 0.3189, -0.8748) -> (0.0000, 0.3189, -0.8748)
 -   Curve Props: Arc Length 5.4966 | Radius 0.8748 | Diameter 1.7496 | Min Curvature Radius 0.8748
@@ -10132,21 +12144,29 @@
 -   Face Indices: 34, 33
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63968, 'journal_identifier': 'EDGE * 11 * 12 {(0.7576017508697,0.3188976377953,0.4374015748031)(0,0.3188976377953,-0.8748031496063)(-0.7576017508697,0.3188976377953,0.4374015748032) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 34: Intersection | Length: 3.7104 | Connected Faces: 2 | Tag: 64036
 -   Endpoints: (-0.0000, 3.5850, 0.4331) -> (-0.0000, 3.5850, 0.4331)
 -   Face Tags: 63882, 63910
 -   Face Indices: 21, 11
 -   Topology Vertices: 3 -> 3
+-   Identity: {'tag': 64036, 'journal_identifier': 'EDGE * 21 * 35 {(0.4213823642699,2.8701989213767,0.0999116651588)(0,3.5850177159941,0.4330708661417)(-0.4207967738238,2.8673169501094,0.1023806684683) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 35: Intersection | Length: 1.5564 | Connected Faces: 2 | Tag: 63926
 -   Endpoints: (0.9625, 1.5005, -0.4546) -> (0.5938, 1.4685, 0.9218)
 -   Face Tags: 63898, 63902
 -   Face Indices: 35, 7
 -   Topology Vertices: 21 -> 24
+-   Identity: {'tag': 63926, 'journal_identifier': 'EDGE * 29 * 31 {(0.9625159889283,1.500468457185,-0.4546499278282)(1.0373419622669,1.4843729859405,0.3026405617959)(0.5937566562933,1.4685039370079,0.9217756302604) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 36: Spline | Length: 68.5193 | Connected Faces: 2 | Tag: 64018
 -   Endpoints: (0.5938, 1.4685, 0.9218) -> (0.8689, 0.8811, 0.6687)
 -   Face Tags: 63902, 63908
 -   Face Indices: 7, 17
 -   Topology Vertices: 24 -> 17
+-   Identity: {'tag': 64018, 'journal_identifier': 'EDGE * 31 * 34 {(0.5937566562933,1.4685039370079,0.9217756302604)(0.7429428018618,1.1748291992855,0.8063828325282)(0.8689050887016,0.8811023622047,0.6687460102782) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 37: Linear | Length: 1.6890 | Connected Faces: 2 | Tag: 64010
 -   Endpoints: (-0.6811, 3.6811, 0.9383) -> (-0.6811, 1.9921, 0.9383)
 -   Curve Props: Arc Length 1.6890 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -10155,6 +12175,8 @@
 -   Face Indices: 23, 37
 -   Topology Vertices: 12 -> 18
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 64010, 'journal_identifier': 'EDGE * 23 * 3 1 {(-0.6811023622047,3.6811023622047,0.9383075912739)(-0.6811023622047,2.8366141732283,0.9383075912739)(-0.6811023622047,1.992125984252,0.9383075912739) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 38: Circular | Length: 3.0179 | Connected Faces: 2 | Tag: 63984
 -   Endpoints: (0.0000, 0.0000, -0.4803) -> (0.0000, 0.0000, -0.4803)
 -   Curve Props: Arc Length 3.0179 | Radius 0.4803 | Diameter 0.9606 | Min Curvature Radius 0.4803
@@ -10163,6 +12185,8 @@
 -   Face Indices: 2, 28
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63984, 'journal_identifier': 'EDGE * 19 * 20 {(0.4159649577232,0,0.240157480315)(0,0,-0.4803149606299)(-0.4159649577232,0,0.240157480315) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 39: Linear | Length: 1.8766 | Connected Faces: 2 | Tag: 63942
 -   Endpoints: (0.6811, 1.9921, 0.9383) -> (0.6811, 1.9921, -0.9383)
 -   Curve Props: Arc Length 1.8766 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -10171,6 +12195,8 @@
 -   Face Indices: 22, 27
 -   Topology Vertices: 15 -> 8
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63942, 'journal_identifier': 'EDGE * 26 * 27 {(0.6811023622047,1.992125984252,0.9383075912739)(0.6811023622047,1.992125984252,0)(0.6811023622047,1.992125984252,-0.9383075912739) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 40: Circular | Length: 0.8612 | Connected Faces: 2 | Tag: 64026
 -   Endpoints: (0.5938, 1.4685, 0.9218) -> (1.0716, 1.4685, 0.2319)
 -   Curve Props: Arc Length 0.8612 | Radius 1.0965 | Diameter 2.1929 | Min Curvature Radius 1.0965
@@ -10179,6 +12205,8 @@
 -   Face Indices: 35, 17
 -   Topology Vertices: 24 -> 9
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 64026, 'journal_identifier': 'EDGE * 29 * 34 {(0.5937566562933,1.4685039370079,0.9217756302604)(0.9013078894064,1.4685039370079,0.624388795486)(1.0716431608714,1.4685039370079,0.2319444226362) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 41: Circular | Length: 2.7829 | Connected Faces: 2 | Tag: 63916
 -   Endpoints: (-0.6811, 3.1520, 0.8717) -> (-0.6811, 3.1520, 0.8717)
 -   Curve Props: Arc Length 2.7829 | Radius 0.4429 | Diameter 0.8858 | Min Curvature Radius 0.4429
@@ -10187,6 +12215,8 @@
 -   Face Indices: 37, 30
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63916, 'journal_identifier': 'EDGE * 23 * 37 {(-0.6811023622047,2.7683942601348,0.2072834645669)(-0.6811023622047,3.151968503937,0.8716535433071)(-0.6811023622047,3.5355427477392,0.2072834645669) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 42: Circular | Length: 6.4242 | Connected Faces: 2 | Tag: 63980
 -   Endpoints: (0.0000, 0.0197, -1.0224) -> (0.0000, 0.0197, -1.0224)
 -   Curve Props: Arc Length 6.4242 | Radius 1.0224 | Diameter 2.0449 | Min Curvature Radius 1.0224
@@ -10195,6 +12225,8 @@
 -   Face Indices: 8, 29
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63980, 'journal_identifier': 'EDGE * 17 * 18 {(0.8854598321371,0.0196850393701,0.5112204724409)(0,0.0196850393701,-1.0224409448819)(-0.8854598321371,0.0196850393701,0.5112204724409) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 43: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 63988
 -   Endpoints: (0.0000, 3.6969, -0.4331) -> (0.0000, 3.6969, -0.4331)
 -   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
@@ -10203,6 +12235,8 @@
 -   Face Indices: 21, 4
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63988, 'journal_identifier': 'EDGE * 21 * 22 {(0.3750503717177,3.6968503937008,0.2165354330709)(0,3.6968503937008,-0.4330708661417)(-0.3750503717177,3.6968503937008,0.2165354330709) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 44: Circular | Length: 5.4966 | Connected Faces: 2 | Tag: 63974
 -   Endpoints: (0.0000, 0.1339, -0.8748) -> (0.0000, 0.1339, -0.8748)
 -   Curve Props: Arc Length 5.4966 | Radius 0.8748 | Diameter 1.7496 | Min Curvature Radius 0.8748
@@ -10211,6 +12245,8 @@
 -   Face Indices: 10, 20
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63974, 'journal_identifier': 'EDGE * 14 * 15 {(0.7576017508697,0.1338582677165,0.4374015748031)(0,0.1338582677165,-0.8748031496063)(-0.7576017508697,0.1338582677165,0.4374015748032) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 45: Circular | Length: 6.4440 | Connected Faces: 2 | Tag: 64034
 -   Endpoints: (0.0000, 1.5394, -1.0256) -> (0.0000, 1.5394, -1.0256)
 -   Curve Props: Arc Length 6.4440 | Radius 1.0256 | Diameter 2.0512 | Min Curvature Radius 1.0256
@@ -10219,21 +12255,29 @@
 -   Face Indices: 18, 35
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 64034, 'journal_identifier': 'EDGE * 29 * 8 {(0.8881874712041,1.5393700787402,0.5127952755906)(0,1.5393700787402,-1.0255905511811)(-0.8881874712041,1.5393700787402,0.5127952755906) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 46: Elliptical | Length: 0.0314 | Connected Faces: 2 | Tag: 63932
 -   Endpoints: (0.7008, 1.9724, 0.9237) -> (0.6811, 1.9921, 0.9383)
 -   Face Tags: 63846, 63894
 -   Face Indices: 23, 27
 -   Topology Vertices: 2 -> 15
+-   Identity: {'tag': 63932, 'journal_identifier': 'EDGE * 27 * 3 1 {(0.7007874015748,1.9724409448819,0.9236983173294)(0.6909834929511,1.9822448535056,0.9310549801769)(0.6811023622047,1.992125984252,0.9383075912739) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 47: Intersection | Length: 0.1011 | Connected Faces: 2 | Tag: 64004
 -   Endpoints: (-0.6811, 3.6811, -0.9383) -> (-0.6811, 3.7441, -0.8593)
 -   Face Tags: 63844, 63886
 -   Face Indices: 6, 37
 -   Topology Vertices: 23 -> 6
+-   Identity: {'tag': 64004, 'journal_identifier': 'EDGE * 2 * 23 {(-0.6811023622047,3.6811023622047,-0.9383075912739)(-0.6811023622047,3.7127604500739,-0.8988949552543)(-0.6811023622047,3.744094488189,-0.8592536596569) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 48: Spline | Length: 68.5193 | Connected Faces: 2 | Tag: 64016
 -   Endpoints: (1.0716, 1.4685, 0.2319) -> (1.0873, 0.8811, -0.1415)
 -   Face Tags: 63906, 63908
 -   Face Indices: 24, 17
 -   Topology Vertices: 9 -> 22
+-   Identity: {'tag': 64016, 'journal_identifier': 'EDGE * 33 * 34 {(1.0716431608714,1.4685039370079,0.2319444226362)(1.0955386630991,1.1748291992768,0.044858857427)(1.0872835167363,0.8811023622047,-0.1415338605005) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 49: Circular | Length: 3.0179 | Connected Faces: 2 | Tag: 63990
 -   Endpoints: (0.0000, 3.7441, -0.4803) -> (0.0000, 3.7441, -0.4803)
 -   Curve Props: Arc Length 3.0179 | Radius 0.4803 | Diameter 0.9606 | Min Curvature Radius 0.4803
@@ -10242,6 +12286,8 @@
 -   Face Indices: 15, 4
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63990, 'journal_identifier': 'EDGE * 22 * 4 {(0.4159649577232,3.744094488189,0.240157480315)(0,3.744094488189,-0.4803149606299)(-0.4159649577232,3.744094488189,0.240157480315) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 50: Circular | Length: 6.4242 | Connected Faces: 2 | Tag: 63964
 -   Endpoints: (0.0000, 0.3287, -1.0224) -> (0.0000, 0.3287, -1.0224)
 -   Curve Props: Arc Length 6.4242 | Radius 1.0224 | Diameter 2.0449 | Min Curvature Radius 1.0224
@@ -10250,6 +12296,8 @@
 -   Face Indices: 12, 5
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63964, 'journal_identifier': 'EDGE * 10 * 9 {(0.8854598321371,0.3287401574803,0.5112204724409)(0,0.3287401574803,-1.0224409448819)(-0.8854598321371,0.3287401574803,0.5112204724409) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 51: Circular | Length: 6.4242 | Connected Faces: 2 | Tag: 64032
 -   Endpoints: (0.0000, 0.8071, -1.0224) -> (0.0000, 0.8071, -1.0224)
 -   Curve Props: Arc Length 6.4242 | Radius 1.0224 | Diameter 2.0449 | Min Curvature Radius 1.0224
@@ -10258,6 +12306,8 @@
 -   Face Indices: 12, 13
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 64032, 'journal_identifier': 'EDGE * 30 * 9 {(0.8854598321371,0.8070866141732,0.5112204724409)(0,0.8070866141732,-1.0224409448819)(-0.8854598321371,0.8070866141732,0.5112204724409) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 52: Circular | Length: 2.7211 | Connected Faces: 2 | Tag: 63922
 -   Endpoints: (-0.6713, 3.1520, 0.8618) -> (-0.6713, 3.1520, 0.8618)
 -   Curve Props: Arc Length 2.7211 | Radius 0.4331 | Diameter 0.8661 | Min Curvature Radius 0.4331
@@ -10266,6 +12316,8 @@
 -   Face Indices: 11, 30
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63922, 'journal_identifier': 'EDGE * 35 * 37 {(-0.6712598425197,3.5270188756547,0.2122047244094)(-0.6712598425197,3.151968503937,0.861811023622)(-0.6712598425197,2.7769181322193,0.2122047244094) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 53: Linear | Length: 1.6890 | Connected Faces: 2 | Tag: 64006
 -   Endpoints: (-0.6811, 1.9921, -0.9383) -> (-0.6811, 3.6811, -0.9383)
 -   Curve Props: Arc Length 1.6890 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -10274,6 +12326,8 @@
 -   Face Indices: 23, 37
 -   Topology Vertices: 25 -> 23
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 64006, 'journal_identifier': 'EDGE * 23 * 3 {(-0.6811023622047,1.992125984252,-0.9383075912739)(-0.6811023622047,2.8366141732283,-0.9383075912739)(-0.6811023622047,3.6811023622047,-0.9383075912739) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 54: Linear | Length: 1.8766 | Connected Faces: 2 | Tag: 63938
 -   Endpoints: (-0.6811, 1.9921, -0.9383) -> (-0.6811, 1.9921, 0.9383)
 -   Curve Props: Arc Length 1.8766 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -10282,11 +12336,15 @@
 -   Face Indices: 37, 19
 -   Topology Vertices: 25 -> 18
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 63938, 'journal_identifier': 'EDGE * 23 * 28 {(-0.6811023622047,1.992125984252,-0.9383075912739)(-0.6811023622047,1.992125984252,0)(-0.6811023622047,1.992125984252,0.9383075912739) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 55: Intersection | Length: 1.5546 | Connected Faces: 2 | Tag: 64022
 -   Endpoints: (0.2758, 0.8491, 1.0281) -> (1.0873, 0.8811, -0.1415)
 -   Face Tags: 63900, 63906
 -   Face Indices: 13, 24
 -   Topology Vertices: 14 -> 22
+-   Identity: {'tag': 64022, 'journal_identifier': 'EDGE * 30 * 33 {(0.2758391861749,0.8491378420276,1.028132447298)(0.9017353319913,0.8652447224867,0.5954558798141)(1.0872835167363,0.8811023622047,-0.1415338605006) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 56: Linear | Length: 1.6890 | Connected Faces: 2 | Tag: 64002
 -   Endpoints: (0.6811, 3.6811, -0.9383) -> (0.6811, 1.9921, -0.9383)
 -   Curve Props: Arc Length 1.6890 | Radius N/A | Diameter N/A | Min Curvature Radius N/A
@@ -10295,6 +12353,8 @@
 -   Face Indices: 23, 22
 -   Topology Vertices: 5 -> 8
 -   Analytic Curve Type: Line
+-   Identity: {'tag': 64002, 'journal_identifier': 'EDGE * 26 * 3 {(0.6811023622047,3.6811023622047,-0.9383075912739)(0.6811023622047,2.8366141732283,-0.9383075912739)(0.6811023622047,1.992125984252,-0.9383075912739) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 57: Circular | Length: 1.4560 | Connected Faces: 2 | Tag: 63952
 -   Endpoints: (0.6811, 3.6811, 0.9383) -> (-0.6811, 3.6811, 0.9383)
 -   Curve Props: Arc Length 1.4560 | Radius 1.1594 | Diameter 2.3189 | Min Curvature Radius 1.1594
@@ -10303,16 +12363,22 @@
 -   Face Indices: 14, 23
 -   Topology Vertices: 16 -> 12
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63952, 'journal_identifier': 'EDGE * 1 * 3 {(0.6811023622047,3.6811023622047,0.9383075912739)(0,3.6811023622047,1.1594488188976)(-0.6811023622047,3.6811023622047,0.9383075912739) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 58: Spline | Length: 73.7660 | Connected Faces: 2 | Tag: 64014
 -   Endpoints: (0.9625, 1.5005, -0.4546) -> (1.0281, 0.8491, -0.2758)
 -   Face Tags: 63902, 63904
 -   Face Indices: 7, 36
 -   Topology Vertices: 21 -> 13
+-   Identity: {'tag': 64014, 'journal_identifier': 'EDGE * 31 * 32 {(0.9625159889283,1.500468457185,-0.4546499278282)(-0.999361790565,1.1748007706749,0.3666327827342)(1.0281324473069,0.8491378420273,-0.275839186142) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 59: Elliptical | Length: 0.0314 | Connected Faces: 2 | Tag: 63928
 -   Endpoints: (-0.7008, 1.9724, -0.9237) -> (-0.6811, 1.9921, -0.9383)
 -   Face Tags: 63846, 63896
 -   Face Indices: 23, 19
 -   Topology Vertices: 20 -> 25
+-   Identity: {'tag': 63928, 'journal_identifier': 'EDGE * 28 * 3 {(-0.7007874015748,1.9724409448819,-0.9236983173294)(-0.6909834929511,1.9822448535056,-0.9310549801769)(-0.6811023622047,1.992125984252,-0.9383075912739) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 60: Circular | Length: 6.3005 | Connected Faces: 2 | Tag: 63976
 -   Endpoints: (0.0000, 0.1339, -1.0028) -> (0.0000, 0.1339, -1.0028)
 -   Curve Props: Arc Length 6.3005 | Radius 1.0028 | Diameter 2.0055 | Min Curvature Radius 1.0028
@@ -10321,6 +12387,8 @@
 -   Face Indices: 20, 25
 -   Topology Vertices: 3 -> 3
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63976, 'journal_identifier': 'EDGE * 15 * 16 {(0.8684120879681,0.1338582677165,0.5013779527559)(0,0.1338582677165,-1.0027559055118)(-0.8684120879681,0.1338582677165,0.5013779527559) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Edge 61: Circular | Length: 2.1375 | Connected Faces: 2 | Tag: 63944
 -   Endpoints: (0.7008, 1.9724, -0.9237) -> (0.7008, 1.9724, 0.9237)
 -   Curve Props: Arc Length 2.1375 | Radius 1.1594 | Diameter 2.3189 | Min Curvature Radius 1.1594
@@ -10329,6 +12397,8 @@
 -   Face Indices: 23, 32
 -   Topology Vertices: 1 -> 2
 -   Analytic Curve Type: Arc
+-   Identity: {'tag': 63944, 'journal_identifier': 'EDGE * 25 * 3 {(0.7007874015748,1.9724409448819,-0.9236983173294)(1.1594488188976,1.9724409448819,-0)(0.7007874015748,1.9724409448819,0.9236983173294) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Edge', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 129, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ### Faces
 - Total Faces: 37
@@ -10353,6 +12423,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 9, 26
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63852, 'journal_identifier': 'FACE 6 {(0,1.7755905511811,0) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 2: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63878
 -   Measure: Area 2.4342 | Perimeter 9.3184 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 0.0000, 0.0000) | Anchor (0.0000, 0.0000, 0.0000)
@@ -10367,6 +12439,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 29, 28
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63878, 'journal_identifier': 'FACE 19 {(-0,0,0) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 3: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63912
 -   Measure: Area 0.0383 | Perimeter 5.5040 | Radius/Diameter N/A | Min Curvature Radius 0.6125
 -   Points: Center (0.6762, 3.1520, 0.4287) | Anchor (0.6762, 3.1520, 0.4287)
@@ -10380,6 +12454,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 22, 11
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63912, 'journal_identifier': 'FACE 36 {(0.6761811023622,3.151968503937,0.8667322834646) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 4: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63884
 -   Measure: Area 0.1917 | Perimeter 5.7390 | Radius/Diameter N/A | Min Curvature Radius 0.6125
 -   Points: Center (0.0000, 3.7209, 0.0000) | Anchor (0.0000, 3.7209, 0.0000)
@@ -10393,6 +12469,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 21, 15
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63884, 'journal_identifier': 'FACE 22 {(0,3.7204724409449,-0.4566929133858) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 5: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63860
 -   Measure: Area 0.0890 | Perimeter 12.7865 | Radius/Diameter N/A | Min Curvature Radius 1.4320
 -   Points: Center (0.0000, 0.3238, 0.0000) | Anchor (0.0000, 0.3238, 0.0000)
@@ -10406,6 +12484,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 12, 34
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63860, 'journal_identifier': 'FACE 10 {(0,0.3238188976378,-1.0175196850394) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 6: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63844
 -   Measure: Area 0.1303 | Perimeter 3.1280 | Radius/Diameter N/A | Min Curvature Radius 1.5506
 -   Points: Center (-0.0000, 3.7126, -1.0505) | Anchor (-0.0000, 3.7126, -1.0505)
@@ -10419,6 +12499,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 23, 15, 22, 37
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63844, 'journal_identifier': 'FACE 2 {(-0,3.7125984251969,-1.1279527559055) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 7: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63902
 -   Measure: Area 2.6262 | Perimeter 149.6389 | Radius/Diameter N/A | Min Curvature Radius 2.1159
 -   Points: Center (-0.0046, 1.1748, 0.0171) | Anchor (-0.0046, 1.1748, 0.0171)
@@ -10432,6 +12514,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 13, 35, 36, 17
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63902, 'journal_identifier': 'FACE 31 {(-1.0143661846492,1.1655734085106,0.372137398588) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 8: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63874
 -   Measure: Area 0.6070 | Perimeter 12.8484 | Radius/Diameter 1.0224 | Min Curvature Radius 1.0224
 -   Points: Center (0.0000, 0.0669, 0.0000) | Anchor (0.0000, 0.0669, 0.0000)
@@ -10446,6 +12530,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 25, 29
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63874, 'journal_identifier': 'FACE 17 {(0,0.0669291338583,1.0224409448819) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 9: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63850
 -   Measure: Area 0.3987 | Perimeter 14.3227 | Radius/Diameter N/A | Min Curvature Radius 1.5840
 -   Points: Center (0.0000, 1.7954, 0.0000) | Anchor (0.0000, 1.7954, 0.0000)
@@ -10459,6 +12545,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 23, 1
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63850, 'journal_identifier': 'FACE 5 {(0,1.7952755905512,-1.1397637795276) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 10: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63868
 -   Measure: Area 0.0761 | Perimeter 10.9313 | Radius/Diameter N/A | Min Curvature Radius 1.2232
 -   Points: Center (0.0000, 0.1388, 0.0000) | Anchor (0.0000, 0.1388, 0.0000)
@@ -10472,6 +12560,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 16, 20
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63868, 'journal_identifier': 'FACE 14 {(0,0.1387795275591,0.8698818897638) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 11: Cylindrical | Edges: 3 | Facets: None | Vertices: 1 | Tag: 63910
 -   Measure: Area 2.6376 | Perimeter 9.1527 | Radius/Diameter 0.4331 | Min Curvature Radius 0.4331
 -   Points: Center (-0.0000, 3.1520, 0.5455) | Anchor (-0.0000, 3.1520, 0.5455)
@@ -10486,6 +12576,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 3, 30, 21
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63910, 'journal_identifier': 'FACE 35 {(0,3.151968503937,-0.0043307086614) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 12: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63858
 -   Measure: Area 3.0730 | Perimeter 12.8484 | Radius/Diameter 1.0224 | Min Curvature Radius 1.0224
 -   Points: Center (0.0000, 0.5679, 0.0000) | Anchor (0.0000, 0.5679, 0.0000)
@@ -10500,6 +12592,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 13
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63858, 'journal_identifier': 'FACE 9 {(0,0.5679133858268,1.0224409448819) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 13: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63900
 -   Measure: Area 0.5235 | Perimeter 16.3092 | Radius/Diameter N/A | Min Curvature Radius 1.4459
 -   Points: Center (-0.0532, 0.8367, 0.0935) | Anchor (-0.0532, 0.8367, 0.0935)
@@ -10513,6 +12607,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 7, 17, 24, 36, 12
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63900, 'journal_identifier': 'FACE 30 {(0,0.844094488189,-1.0594488188976) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 14: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63842
 -   Measure: Area 0.1303 | Perimeter 3.1280 | Radius/Diameter N/A | Min Curvature Radius 1.5506
 -   Points: Center (0.0000, 3.7126, 1.0505) | Anchor (0.0000, 3.7126, 1.0505)
@@ -10526,6 +12622,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 23, 15, 22, 37
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63842, 'journal_identifier': 'FACE 1 {(0,3.7125984251969,1.1279527559055) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 15: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63848
 -   Measure: Area 2.0573 | Perimeter 9.3945 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 3.7441, 0.0000) | Anchor (0.0000, 3.7441, 0.0000)
@@ -10540,6 +12638,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 22, 37, 4, 14, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63848, 'journal_identifier': 'FACE 4 {(0,3.744094488189,0) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 16: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63866
 -   Measure: Area 0.8987 | Perimeter 10.8694 | Radius/Diameter 0.8650 | Min Curvature Radius 0.8650
 -   Points: Center (0.0000, 0.2264, 0.0000) | Anchor (0.0000, 0.2264, 0.0000)
@@ -10554,6 +12654,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 33, 10
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63866, 'journal_identifier': 'FACE 13 {(0,0.2263779527559,0.8649606299213) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 17: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63908
 -   Measure: Area 0.5055 | Perimeter 138.7609 | Radius/Diameter 1.0965 | Min Curvature Radius 1.0965
 -   Points: Center (-0.0051, 1.1748, -0.0025) | Anchor (-0.0051, 1.1748, -0.0025)
@@ -10568,6 +12670,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 24, 7, 13, 35
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63908, 'journal_identifier': 'FACE 34 {(0,1.1748031496063,1.0964566929134) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 18: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63856
 -   Measure: Area 1.3953 | Perimeter 12.8880 | Radius/Diameter 1.0256 | Min Curvature Radius 1.0256
 -   Points: Center (0.0000, 1.6476, 0.0000) | Anchor (0.0000, 1.6476, 0.0000)
@@ -10582,6 +12686,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 26, 35
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63856, 'journal_identifier': 'FACE 8 {(0,1.6476377952756,1.0255905511811) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 19: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63896
 -   Measure: Area 0.0518 | Perimeter 3.7869 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.6909, 1.9823, -0.0000) | Anchor (-0.6909, 1.9823, -0.0000)
@@ -10596,6 +12702,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 23, 31, 37
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63896, 'journal_identifier': 'FACE 28 {(-0.6909448818898,1.9822834645669,0) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 20: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63870
 -   Measure: Area 0.7547 | Perimeter 11.7971 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 0.1339, -0.0000) | Anchor (0.0000, 0.1339, -0.0000)
@@ -10610,6 +12718,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 10, 25
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63870, 'journal_identifier': 'FACE 15 {(0,0.1338582677165,0) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 21: Cylindrical | Edges: 3 | Facets: None | Vertices: 1 | Tag: 63882
 -   Measure: Area 8.9155 | Perimeter 9.1527 | Radius/Diameter 0.4331 | Min Curvature Radius 0.4331
 -   Points: Center (-0.0000, 1.7262, -0.0345) | Anchor (-0.0000, 1.7262, -0.0345)
@@ -10624,6 +12734,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 28, 4, 11
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63882, 'journal_identifier': 'FACE 21 {(0,1.8720472440945,0.4330708661417) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 22: Planar | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63892
 -   Measure: Area 2.6665 | Perimeter 9.9581 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.6811, 2.8009, -0.0991) | Anchor (0.6811, 2.8009, -0.0991)
@@ -10638,6 +12750,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 3, 27, 15, 14, 23, 6
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63892, 'journal_identifier': 'FACE 26 {(0.6811023622047,2.8681102362205,0) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 23: Cylindrical | Edges: 13 | Facets: None | Vertices: 13 | Tag: 63846
 -   Measure: Area 6.1239 | Perimeter 21.3537 | Radius/Diameter 1.1594 | Min Curvature Radius 1.1594
 -   Points: Center (0.0000, 2.6518, -0.0000) | Anchor (0.0000, 2.6518, -0.0000)
@@ -10652,6 +12766,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 19, 27, 32, 31, 14, 6, 9, 22, 37
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63846, 'journal_identifier': 'FACE 3 {(0,2.748031496063,1.1594488188976) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 24: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63906
 -   Measure: Area 2.6262 | Perimeter 149.6389 | Radius/Diameter N/A | Min Curvature Radius 2.1159
 -   Points: Center (0.0101, 1.1748, -0.0145) | Anchor (0.0101, 1.1748, -0.0145)
@@ -10665,6 +12781,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 36, 17, 13, 35
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63906, 'journal_identifier': 'FACE 33 {(-0.3721373986046,1.1840281328395,-1.0143661846433) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 25: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63872
 -   Measure: Area 0.1771 | Perimeter 12.7247 | Radius/Diameter N/A | Min Curvature Radius 1.4181
 -   Points: Center (0.0000, 0.1240, 0.0000) | Anchor (0.0000, 0.1240, 0.0000)
@@ -10678,6 +12796,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 20, 8
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63872, 'journal_identifier': 'FACE 16 {(0,0.1240157480315,1.0125984251969) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 26: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63854
 -   Measure: Area 0.1811 | Perimeter 13.0116 | Radius/Diameter N/A | Min Curvature Radius 1.4504
 -   Points: Center (0.0000, 1.7658, 0.0000) | Anchor (0.0000, 1.7658, 0.0000)
@@ -10691,6 +12811,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 1, 18
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63854, 'journal_identifier': 'FACE 7 {(0,1.7657480314961,-1.0354330708661) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 27: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63894
 -   Measure: Area 0.0518 | Perimeter 3.7869 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.6909, 1.9823, 0.0000) | Anchor (0.6909, 1.9823, 0.0000)
@@ -10705,6 +12827,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 23, 32, 22
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63894, 'journal_identifier': 'FACE 27 {(0.6909448818898,1.9822834645669,-0) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 28: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63880
 -   Measure: Area 0.1917 | Perimeter 5.7390 | Radius/Diameter N/A | Min Curvature Radius 0.6125
 -   Points: Center (0.0000, 0.0232, 0.0000) | Anchor (0.0000, 0.0232, 0.0000)
@@ -10718,6 +12842,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 2, 21
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63880, 'journal_identifier': 'FACE 20 {(0,0.0236220472441,0.4566929133858) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 29: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63876
 -   Measure: Area 0.1771 | Perimeter 12.7247 | Radius/Diameter N/A | Min Curvature Radius 1.4181
 -   Points: Center (0.0000, 0.0099, 0.0000) | Anchor (0.0000, 0.0099, 0.0000)
@@ -10731,6 +12857,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 8, 2
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63876, 'journal_identifier': 'FACE 18 {(0,0.009842519685,-1.0125984251969) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 30: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63914
 -   Measure: Area 0.0383 | Perimeter 5.5040 | Radius/Diameter N/A | Min Curvature Radius 0.6125
 -   Points: Center (-0.6762, 3.1520, 0.4287) | Anchor (-0.6762, 3.1520, 0.4287)
@@ -10744,6 +12872,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 37, 11
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63914, 'journal_identifier': 'FACE 37 {(-0.6761811023622,3.151968503937,-0.0092519685039) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 31: Planar | Edges: 2 | Facets: None | Vertices: 2 | Tag: 63888
 -   Measure: Area 0.5918 | Perimeter 3.9849 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.8878, 1.9724, 0.0000) | Anchor (-0.8878, 1.9724, 0.0000)
@@ -10758,6 +12888,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 19, 23
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63888, 'journal_identifier': 'FACE 24 {(-0.9314940944882,1.9724409448819,0) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 32: Planar | Edges: 2 | Facets: None | Vertices: 2 | Tag: 63890
 -   Measure: Area 0.5918 | Perimeter 3.9849 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8878, 1.9724, 0.0000) | Anchor (0.8878, 1.9724, 0.0000)
@@ -10772,6 +12904,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 27, 23
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63890, 'journal_identifier': 'FACE 25 {(0.9314940944882,1.9724409448819,0) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 33: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63864
 -   Measure: Area 0.0761 | Perimeter 10.9313 | Radius/Diameter N/A | Min Curvature Radius 1.2232
 -   Points: Center (0.0000, 0.3140, 0.0000) | Anchor (0.0000, 0.3140, 0.0000)
@@ -10785,6 +12919,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 34, 16
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63864, 'journal_identifier': 'FACE 12 {(0,0.3139763779528,-0.8698818897638) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 34: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63862
 -   Measure: Area 0.8170 | Perimeter 11.8589 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 0.3189, -0.0000) | Anchor (0.0000, 0.3189, -0.0000)
@@ -10799,6 +12935,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 5, 33
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63862, 'journal_identifier': 'FACE 11 {(0,0.3188976377953,0) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 35: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63898
 -   Measure: Area 0.4949 | Perimeter 16.3327 | Radius/Diameter N/A | Min Curvature Radius 1.4504
 -   Points: Center (0.0392, 1.5113, -0.1068) | Anchor (0.0392, 1.5113, -0.1068)
@@ -10812,6 +12950,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 7, 17, 24, 36, 18
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63898, 'journal_identifier': 'FACE 29 {(0,1.503937007874,1.0610236220472) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 36: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63904
 -   Measure: Area 1.0886 | Perimeter 150.8762 | Radius/Diameter N/A | Min Curvature Radius 1.0645
 -   Points: Center (0.0023, 1.1748, 0.0011) | Anchor (0.0023, 1.1748, 0.0011)
@@ -10825,6 +12965,8 @@
 -   Loop Count: 1
 -   Adjacent Faces: 24, 7, 13, 35
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63904, 'journal_identifier': 'FACE 32 {(-0.9659040258511,1.1748007706751,-0.4474069720751) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 - Face 37: Planar | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63886
 -   Measure: Area 2.6665 | Perimeter 9.9581 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.6811, 2.8009, -0.0991) | Anchor (-0.6811, 2.8009, -0.0991)
@@ -10839,6 +12981,8 @@
 -   Loop Count: 2
 -   Adjacent Faces: 30, 19, 15, 6, 23, 14
 -   Blend Data: Is Blend False | Radius 0.0000
+-   Identity: {'tag': 63886, 'journal_identifier': 'FACE 23 {(-0.6811023622047,2.8681102362205,0) UNPARAMETERIZED_FEATURE(13)}', 'class_name': 'Face', 'owning_part_name': 'model8', 'owning_part_full_path': 'C:\\Program Files\\Siemens\\NX2306\\NXBIN\\model8.prt'}
+-   Display: {'color_index': 151, 'layer': 1, 'line_font': 1, 'line_width': 8, 'is_blanked': False}
 
 ## Runtime Diagnostics Summary
 - Ask2dtrimBsurf: api_unavailable x1 | reason: Ask2dtrimBsurf_missing

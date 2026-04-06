@@ -408,6 +408,104 @@ def serialize_attributes(attrs):
     return rows
 
 
+def get_member_value(obj, *candidate_names):
+    member = resolve_member_relaxed(obj, *candidate_names)
+    if member is None:
+        return None
+    if callable(member):
+        return safe_call(member)
+    return member
+
+
+def serialize_display_properties(obj):
+    if obj is None:
+        return None
+
+    payload = {}
+    integer_fields = {
+        "color_index": ("Color", "ColorIndex", "ColorNumber"),
+        "layer": ("Layer", "LayerIndex"),
+        "translucency": ("Translucency", "TranslucencyValue"),
+        "line_font": ("LineFont", "Font", "LineFontIndex"),
+        "line_width": ("LineWidth", "Width", "LineWidthIndex"),
+    }
+    for key, candidate_names in integer_fields.items():
+        value = get_member_value(obj, *candidate_names)
+        if value is None:
+            continue
+        coerced = enum_key(value)
+        if coerced is None:
+            try:
+                coerced = int(value)
+            except Exception:
+                continue
+        payload[key] = coerced
+
+    blanked = get_member_value(obj, "IsBlanked", "Blanked", "BlankStatus")
+    if blanked is not None:
+        payload["is_blanked"] = bool(blanked)
+
+    name = clean_text(get_member_value(obj, "Name"), "")
+    if name:
+        payload["name"] = name
+
+    return payload or None
+
+
+def serialize_component_context(nx_object):
+    if nx_object is None:
+        return None
+
+    component = get_member_value(nx_object, "OwningComponent")
+    if component is None:
+        return None
+
+    payload = {
+        "name": clean_text(get_member_value(component, "Name"), ""),
+        "display_name": clean_text(get_member_value(component, "DisplayName"), ""),
+        "journal_identifier": clean_text(get_member_value(component, "JournalIdentifier"), ""),
+        "display_properties": serialize_display_properties(component),
+    }
+
+    prototype = get_member_value(component, "Prototype")
+    if prototype is not None:
+        payload["prototype_name"] = clean_text(get_member_value(prototype, "Name"), "")
+        payload["prototype_full_path"] = clean_text(get_member_value(prototype, "FullPath"), "")
+
+    owning_part = get_member_value(component, "OwningPart")
+    if owning_part is not None:
+        payload["owning_part_name"] = clean_text(get_member_value(owning_part, "Name"), "")
+        payload["owning_part_full_path"] = clean_text(get_member_value(owning_part, "FullPath"), "")
+
+    payload = {key: value for key, value in payload.items() if value not in (None, "", {})}
+    return payload or None
+
+
+def serialize_object_identity(nx_object):
+    if nx_object is None:
+        return None
+
+    payload = {
+        "tag": get_nx_tag(nx_object),
+        "journal_identifier": clean_text(get_member_value(nx_object, "JournalIdentifier"), ""),
+        "name": clean_text(get_member_value(nx_object, "Name"), ""),
+        "class_name": clean_text(type(nx_object).__name__, ""),
+    }
+
+    owning_part = get_member_value(nx_object, "OwningPart")
+    if owning_part is not None:
+        payload["owning_part_name"] = clean_text(get_member_value(owning_part, "Name"), "")
+        payload["owning_part_full_path"] = clean_text(get_member_value(owning_part, "FullPath"), "")
+
+    prototype = get_member_value(nx_object, "Prototype")
+    if prototype is not None:
+        payload["prototype_name"] = clean_text(get_member_value(prototype, "Name"), "")
+        payload["prototype_full_path"] = clean_text(get_member_value(prototype, "FullPath"), "")
+
+    payload = {key: value for key, value in payload.items() if value not in (None, "", {})}
+    return payload or None
+
+
 def serialize_xyz(values):
     if values is None:
         return None
@@ -2385,6 +2483,9 @@ def summarize_edges(session, work_part, uf_session, body):
                 "curve_measurement": curve_measurement,
                 "is_reference": getattr(edge, "IsReference", None),
                 "attributes": get_user_attributes(edge),
+                "object_identity": serialize_object_identity(edge),
+                "display_properties": serialize_display_properties(edge),
+                "component_context": serialize_component_context(edge),
                 "connected_face_tags": connected_face_tags,
                 "connected_face_indices": [face_lookup.get(tag, tag) for tag in connected_face_tags],
                 "exact_vertices": exact_vertices,
@@ -2441,6 +2542,9 @@ def summarize_faces(session, uf_session, body):
                 "vertex_count": safe_call(face.GetNumberOfVertices),
                 "tag": face_tag,
                 "attributes": get_user_attributes(face),
+                "object_identity": serialize_object_identity(face),
+                "display_properties": serialize_display_properties(face),
+                "component_context": serialize_component_context(face),
                 "adjacent_faces": adjacent_faces,
                 "measurement": face_measurement,
                 "analytic_data": analytic_data,
@@ -2535,6 +2639,9 @@ def analyze_part_to_md(output_path="report.md"):
             "fully_loaded": getattr(work_part, "IsFullyLoaded", None),
             "has_write_access": getattr(work_part, "HasWriteAccess", None),
             "unique_identifier": clean_text(getattr(work_part, "UniqueIdentifier", None)),
+            "object_identity": serialize_object_identity(work_part),
+            "display_properties": serialize_display_properties(work_part),
+            "component_context": serialize_component_context(work_part),
         },
         "part_attributes": serialize_attributes(part_attributes),
         "body_count": 0,
@@ -2622,6 +2729,9 @@ def analyze_part_to_md(output_path="report.md"):
                 "facet_count": safe_call(body.GetNumberOfFacets),
                 "vertex_count": safe_call(body.GetNumberOfVertices) or len(body_vertices),
                 "shape_summary": classify_body(body, face_counts, edge_counts, body_measurement),
+                "object_identity": serialize_object_identity(body),
+                "display_properties": serialize_display_properties(body),
+                "component_context": serialize_component_context(body),
             },
             "measurement": None,
             "bounding_box": serialize_box(body_box),
@@ -2727,6 +2837,9 @@ def analyze_part_to_md(output_path="report.md"):
                     "curve_measurement": serialize_curve_measurement(edge["curve_measurement"]),
                     "is_reference": edge["is_reference"],
                     "attributes": serialize_attributes(edge["attributes"]),
+                    "object_identity": edge.get("object_identity"),
+                    "display_properties": edge.get("display_properties"),
+                    "component_context": edge.get("component_context"),
                     "connected_face_tags": edge["connected_face_tags"],
                     "connected_face_indices": edge["connected_face_indices"],
                     "exact_vertices": edge["exact_vertices"],
@@ -2775,6 +2888,12 @@ def analyze_part_to_md(output_path="report.md"):
                     )
                 if analytic_curve is not None:
                     md_lines.append(f"-   Analytic Curve Type: {analytic_curve.get('type')}")
+            if edge.get("object_identity"):
+                md_lines.append(f"-   Identity: {serialize_generic(edge['object_identity'])}")
+            if edge.get("display_properties"):
+                md_lines.append(f"-   Display: {serialize_generic(edge['display_properties'])}")
+            if edge.get("component_context"):
+                md_lines.append(f"-   Component: {serialize_generic(edge['component_context'])}")
             if edge["attributes"]:
                 md_lines.append(f"-   Edge {edge['index']} Attributes")
                 append_attribute_list(md_lines, edge["attributes"], prefix="-     ")
@@ -2809,6 +2928,9 @@ def analyze_part_to_md(output_path="report.md"):
                     "is_blend_face": face["is_blend_face"],
                     "blend_radius": face["blend_radius"],
                     "attributes": serialize_attributes(face["attributes"]),
+                    "object_identity": face.get("object_identity"),
+                    "display_properties": face.get("display_properties"),
+                    "component_context": face.get("component_context"),
                 }
             )
             md_lines.append(
@@ -2875,6 +2997,12 @@ def analyze_part_to_md(output_path="report.md"):
                 md_lines.append(
                     f"-   Blend Data: Is Blend {format_bool(face['is_blend_face'])} | Radius {format_float(face['blend_radius'])}"
                 )
+            if face.get("object_identity"):
+                md_lines.append(f"-   Identity: {serialize_generic(face['object_identity'])}")
+            if face.get("display_properties"):
+                md_lines.append(f"-   Display: {serialize_generic(face['display_properties'])}")
+            if face.get("component_context"):
+                md_lines.append(f"-   Component: {serialize_generic(face['component_context'])}")
             if face["attributes"]:
                 md_lines.append(f"-   Face {face['index']} Attributes")
                 append_attribute_list(md_lines, face["attributes"], prefix="-     ")

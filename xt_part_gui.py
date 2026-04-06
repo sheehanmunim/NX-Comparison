@@ -769,11 +769,90 @@ HTML = """<!doctype html>
     }
 
     function componentLabel(component, identity, siblingCount = 1) {
+      const componentContext = component?.metadata?.component_context || {};
+      const explicitName = componentContext.display_name || componentContext.name || component?.name;
+      if (explicitName) return capitalizeLabel(explicitName);
       const primitive = identity.primitive;
       if (primitive === "box") return siblingCount > 1 ? "Base block" : "Block";
       if (primitive === "cylinder") return "Cylinder";
       if (primitive === "sphere") return "Sphere";
       return component?.name ? capitalizeLabel(component.name) : `Component ${identity.componentIndex + 1}`;
+    }
+
+    function hashString(value) {
+      let hash = 0;
+      for (const char of String(value || "")) {
+        hash = ((hash << 5) - hash) + char.charCodeAt(0);
+        hash |= 0;
+      }
+      return Math.abs(hash);
+    }
+
+    function inferredComponentColor(component, componentName, identity) {
+      const text = `${componentName || ""} ${component?.name || ""} ${identity?.primitive || ""}`.toLowerCase();
+
+      if (/(seal|o-ring|oring|gasket)/.test(text)) return [42, 42, 46];
+      if (/(body|housing|case|barrel)/.test(text)) return [188, 154, 126];
+      if (/(lever|arm|bracket|link)/.test(text)) return [206, 210, 216];
+      if (/(piston|pin|rod|shaft|cotter)/.test(text)) return [214, 217, 222];
+      if (/(washer|spacer|bushing)/.test(text)) return [196, 199, 205];
+      if (/(spring|clip)/.test(text)) return [122, 128, 138];
+
+      const palette = [
+        [206, 210, 216],
+        [188, 154, 126],
+        [214, 217, 222],
+        [176, 182, 192],
+        [158, 166, 178],
+      ];
+      return palette[hashString(text) % palette.length];
+    }
+
+    function nxColorIndexToRgb(index) {
+      const palette = {
+        1: [0, 0, 255],
+        2: [255, 0, 0],
+        3: [0, 255, 0],
+        4: [0, 255, 255],
+        5: [255, 255, 0],
+        6: [255, 0, 255],
+        7: [255, 255, 255],
+        8: [80, 80, 80],
+        9: [168, 168, 168],
+        10: [122, 184, 255],
+        11: [255, 160, 122],
+        12: [144, 238, 144],
+        13: [255, 214, 102],
+        14: [214, 170, 122],
+        15: [196, 199, 205],
+        16: [160, 164, 172],
+        17: [92, 96, 104],
+        18: [42, 42, 46],
+        186: [188, 154, 126],
+      };
+      return palette[index] || null;
+    }
+
+    function displayColorFromProperties(displayProperties, fallback = null) {
+      if (!displayProperties) return fallback;
+      if (Array.isArray(displayProperties.rgb) && displayProperties.rgb.length >= 3) {
+        return displayProperties.rgb.slice(0, 3).map((value) => Number(value));
+      }
+      if (Number.isFinite(Number(displayProperties.color_index))) {
+        return nxColorIndexToRgb(Number(displayProperties.color_index)) || fallback;
+      }
+      return fallback;
+    }
+
+    function displayOpacityFromProperties(displayProperties, fallback = 1) {
+      if (!displayProperties) return fallback;
+      const translucency = Number(displayProperties.translucency);
+      if (!Number.isFinite(translucency)) return fallback;
+      return Math.max(0.16, Math.min(1, 1 - (translucency / 100)));
+    }
+
+    function isBlankedFromDisplay(displayProperties) {
+      return Boolean(displayProperties?.is_blanked);
     }
 
     function boundsFromCenterSize(center, size) {
@@ -2361,6 +2440,24 @@ HTML = """<!doctype html>
       ctx2d.fillRect(0, 0, canvasEl.width, canvasEl.height);
     }
 
+    function hexToRgb(value) {
+      const text = String(value || "").trim();
+      if (/^#([0-9a-f]{3})$/i.test(text)) {
+        const [, short] = text.match(/^#([0-9a-f]{3})$/i);
+        return short.split("").map((char) => parseInt(char + char, 16));
+      }
+      if (/^#([0-9a-f]{6})$/i.test(text)) {
+        const [, full] = text.match(/^#([0-9a-f]{6})$/i);
+        return [0, 2, 4].map((index) => parseInt(full.slice(index, index + 2), 16));
+      }
+      return [200, 200, 200];
+    }
+
+    function rgbCss(rgb) {
+      if (typeof rgb === "string") return rgb;
+      return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+    }
+
     function drawViewportHud(ctx2d, canvasEl, report, preview, viewer, options = {}) {
       const theme = currentViewportTheme();
       const lines = [
@@ -2443,6 +2540,12 @@ HTML = """<!doctype html>
     function previewGeometryFromKernelBody(body, context = {}) {
       if (!body) return { faces: [], points: [], edges: [] };
 
+      const bodyDisplay = body?.metadata?.display_properties || null;
+      const componentDisplay = body?.metadata?.component_context?.display_properties || null;
+      if (isBlankedFromDisplay(bodyDisplay) || isBlankedFromDisplay(componentDisplay)) {
+        return { faces: [], points: [], edges: [] };
+      }
+
       if (body.metadata?.primitive === "compound" && Array.isArray(body.metadata?.components)) {
         return body.metadata.components
           .map((component, componentIndex) =>
@@ -2468,10 +2571,21 @@ HTML = """<!doctype html>
       );
       const componentId = identity.id;
       const componentName = componentLabel(body, identity, 1);
+      const baseColor = displayColorFromProperties(
+        bodyDisplay,
+        displayColorFromProperties(
+          componentDisplay,
+          inferredComponentColor(body, componentName, identity)
+        )
+      );
+      const baseOpacity = displayOpacityFromProperties(
+        bodyDisplay,
+        displayOpacityFromProperties(componentDisplay, 1)
+      );
 
       if (body.faces?.some((face) => face.vertices?.length)) {
         const faces = body.faces
-          .filter((face) => face.vertices?.length)
+          .filter((face) => face.vertices?.length && !isBlankedFromDisplay(face.metadata?.display_properties))
           .map((face) => ({
             name: face.name,
             axis: face.metadata?.axis || null,
@@ -2480,15 +2594,21 @@ HTML = """<!doctype html>
             vertices: face.vertices.map((vertex) => vertex.map(Number)),
             componentId,
             componentName,
+            // Face-level NX color indices often vary across analytic/trim patches.
+            // Keep the preview visually coherent by preferring the body/component color.
+            baseColor,
+            opacity: displayOpacityFromProperties(face.metadata?.display_properties, baseOpacity),
           }));
         const edges = (body.edges || [])
-          .filter((edge) => edge.points?.length >= 2)
+          .filter((edge) => edge.points?.length >= 2 && !isBlankedFromDisplay(edge.display_properties))
           .map((edge) => ({
             kind: edge.kind || "edge",
             axis: edge.axis || null,
             points: edge.points.map((point) => point.map(Number)),
             componentId,
             componentName,
+            strokeColor: displayColorFromProperties(edge.display_properties, baseColor),
+            opacity: displayOpacityFromProperties(edge.display_properties, 1),
           }));
         const points = faces.flatMap((face) => face.vertices);
         return { faces, points, edges };
@@ -2516,6 +2636,8 @@ HTML = """<!doctype html>
             vertices: [startRing[i], startRing[next], endRing[next], endRing[i]],
             componentId,
             componentName,
+            baseColor,
+            opacity: baseOpacity,
           });
         }
 
@@ -2527,6 +2649,8 @@ HTML = """<!doctype html>
           vertices: [...startRing].reverse(),
           componentId,
           componentName,
+          baseColor,
+          opacity: baseOpacity,
         });
         faces.push({
           name: "End cap",
@@ -2536,6 +2660,8 @@ HTML = """<!doctype html>
           vertices: endRing,
           componentId,
           componentName,
+          baseColor,
+          opacity: baseOpacity,
         });
 
         return {
@@ -2580,6 +2706,8 @@ HTML = """<!doctype html>
               vertices: quad,
               componentId,
               componentName,
+              baseColor,
+              opacity: baseOpacity,
             });
             points.push(...quad);
           }
@@ -2606,6 +2734,9 @@ HTML = """<!doctype html>
             axis,
             points: [points[i], points[(i + 1) % points.length]],
             componentId,
+            componentName,
+            strokeColor: baseColor,
+            opacity: 1,
           });
         }
         return { faces: [], points, edges };
@@ -2613,13 +2744,15 @@ HTML = """<!doctype html>
 
       if (body.metadata?.primitive === "wireframe" || body.edges?.some((edge) => edge.points?.length >= 2)) {
         const edges = (body.edges || [])
-          .filter((edge) => edge.points?.length >= 2)
+          .filter((edge) => edge.points?.length >= 2 && !isBlankedFromDisplay(edge.display_properties))
           .map((edge) => ({
             kind: edge.kind || "edge",
             axis: edge.axis || null,
             points: edge.points.map((point) => point.map(Number)),
             componentId,
             componentName,
+            strokeColor: displayColorFromProperties(edge.display_properties, baseColor),
+            opacity: displayOpacityFromProperties(edge.display_properties, 1),
           }));
         const points = [
           ...(body.vertices || []).map((point) => point.map(Number)),
@@ -2701,7 +2834,7 @@ HTML = """<!doctype html>
       };
     }
 
-    function shadeForNormal(normal, theme) {
+    function shadeRgbForNormal(normal, theme, baseColor = null) {
       const light = [0.38, -0.28, 0.88];
       const len = Math.hypot(...light) || 1;
       const unitLight = light.map((value) => value / len);
@@ -2710,12 +2843,96 @@ HTML = """<!doctype html>
       const diffuse = Math.max(0, unitNormal[0] * unitLight[0] + unitNormal[1] * unitLight[1] + unitNormal[2] * unitLight[2]);
       const ambient = theme?.surfaceAmbient ?? 0.38;
       const mix = Math.min(1, ambient + diffuse * (1 - ambient));
-      const shadow = theme?.surfaceShadow ?? [160, 168, 180];
-      const highlight = theme?.surfaceHighlight ?? [232, 236, 242];
-      const rgb = shadow.map((value, index) => {
+      const shadow = Array.isArray(baseColor)
+        ? baseColor.map((value) => Math.max(0, Math.round(value * 0.48)))
+        : (theme?.surfaceShadow ?? [160, 168, 180]);
+      const highlight = Array.isArray(baseColor)
+        ? baseColor.map((value) => Math.min(255, Math.round(value * 1.06 + 22)))
+        : (theme?.surfaceHighlight ?? [232, 236, 242]);
+      return shadow.map((value, index) => {
         return Math.round(value + (highlight[index] - value) * mix);
       });
-      return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+    }
+
+    function shadeForNormal(normal, theme) {
+      return rgbCss(shadeRgbForNormal(normal, theme));
+    }
+
+    function edgeFunction(ax, ay, bx, by, px, py) {
+      return (px - ax) * (by - ay) - (py - ay) * (bx - ax);
+    }
+
+    function triangulateProjectedFace(face) {
+      if (!face?.projectedVertices || face.projectedVertices.length < 3) return [];
+      const triangles = [];
+      for (let index = 1; index < face.projectedVertices.length - 1; index++) {
+        triangles.push([
+          face.projectedVertices[0],
+          face.projectedVertices[index],
+          face.projectedVertices[index + 1],
+        ]);
+      }
+      return triangles;
+    }
+
+    function rasterizeSolidFaces(ctx2d, canvasEl, faces, theme) {
+      if (!faces.length) return;
+      const width = canvasEl.width;
+      const height = canvasEl.height;
+      const imageData = ctx2d.getImageData(0, 0, width, height);
+      const pixels = imageData.data;
+      const depthBuffer = new Float32Array(width * height);
+      depthBuffer.fill(-Infinity);
+
+      for (const face of faces) {
+        const fillRgb = face.highlighted
+          ? [255, 191, 102]
+          : shadeRgbForNormal(face.rotatedNormal || [0, 0, -1], theme, face.baseColor);
+        const fillAlpha = Math.max(0.18, Math.min(1, Number(face.opacity ?? 1)));
+
+        for (const triangle of triangulateProjectedFace(face)) {
+          const [a, b, c] = triangle;
+          const area = edgeFunction(a[0], a[1], b[0], b[1], c[0], c[1]);
+          if (Math.abs(area) <= 1e-5) continue;
+
+          const minX = Math.max(0, Math.floor(Math.min(a[0], b[0], c[0])));
+          const maxX = Math.min(width - 1, Math.ceil(Math.max(a[0], b[0], c[0])));
+          const minY = Math.max(0, Math.floor(Math.min(a[1], b[1], c[1])));
+          const maxY = Math.min(height - 1, Math.ceil(Math.max(a[1], b[1], c[1])));
+
+          for (let y = minY; y <= maxY; y++) {
+            for (let x = minX; x <= maxX; x++) {
+              const px = x + 0.5;
+              const py = y + 0.5;
+              const w0 = edgeFunction(b[0], b[1], c[0], c[1], px, py);
+              const w1 = edgeFunction(c[0], c[1], a[0], a[1], px, py);
+              const w2 = edgeFunction(a[0], a[1], b[0], b[1], px, py);
+
+              const inside = area < 0
+                ? (w0 <= 0 && w1 <= 0 && w2 <= 0)
+                : (w0 >= 0 && w1 >= 0 && w2 >= 0);
+              if (!inside) continue;
+
+              const depth = (w0 * a[2] + w1 * b[2] + w2 * c[2]) / area;
+              const offset = (y * width + x);
+              if (depth <= depthBuffer[offset]) continue;
+              depthBuffer[offset] = depth;
+
+              const pixelOffset = offset * 4;
+              const existingAlpha = pixels[pixelOffset + 3] / 255;
+              const blendedAlpha = fillAlpha + existingAlpha * (1 - fillAlpha);
+              const existingWeight = blendedAlpha > 0 ? (existingAlpha * (1 - fillAlpha)) / blendedAlpha : 0;
+              const fillWeight = blendedAlpha > 0 ? fillAlpha / blendedAlpha : 0;
+              pixels[pixelOffset] = Math.round((pixels[pixelOffset] * existingWeight) + (fillRgb[0] * fillWeight));
+              pixels[pixelOffset + 1] = Math.round((pixels[pixelOffset + 1] * existingWeight) + (fillRgb[1] * fillWeight));
+              pixels[pixelOffset + 2] = Math.round((pixels[pixelOffset + 2] * existingWeight) + (fillRgb[2] * fillWeight));
+              pixels[pixelOffset + 3] = Math.round(blendedAlpha * 255);
+            }
+          }
+        }
+      }
+
+      ctx2d.putImageData(imageData, 0, 0);
     }
 
     function drawModelPreview(canvasEl, report, viewer, options = {}) {
@@ -2786,6 +3003,8 @@ HTML = """<!doctype html>
           averageDepth,
           minDepth,
           maxDepth,
+          highlighted: faceMatchesHighlight(face, highlightFaces, highlightComponents)
+            || (!highlightFaces.length && !highlightComponents.length && highlightAxes.includes(inferredAxis)),
           projectedVertices
         };
       // Use a more stable back-to-front ordering for trimmed patches by
@@ -2797,6 +3016,7 @@ HTML = """<!doctype html>
       });
 
       if (forceMode === "solid" && projectedFaces.length) {
+        rasterizeSolidFaces(ctx2d, canvasEl, projectedFaces, theme);
         for (const face of projectedFaces) {
           ctx2d.beginPath();
           ctx2d.moveTo(face.projectedVertices[0][0], face.projectedVertices[0][1]);
@@ -2804,16 +3024,7 @@ HTML = """<!doctype html>
             ctx2d.lineTo(vertex[0], vertex[1]);
           }
           ctx2d.closePath();
-          const faceHighlighted = faceMatchesHighlight(face, highlightFaces, highlightComponents)
-            || (!highlightFaces.length && !highlightComponents.length && highlightAxes.includes(face.axis));
-          const fillColor = faceHighlighted
-            ? "#ffbf66"
-            : (face.rotatedNormal ? shadeForNormal(face.rotatedNormal, theme) : shadeForNormal([0, 0, -0.1], theme));
-          ctx2d.fillStyle = fillColor;
-          ctx2d.globalAlpha = faceHighlighted ? 0.98 : 0.94;
-          ctx2d.fill();
-          ctx2d.globalAlpha = 1;
-          if (faceHighlighted) {
+          if (face.highlighted) {
             ctx2d.strokeStyle = "#ef6c00";
             ctx2d.lineWidth = 2.2;
             ctx2d.stroke();
@@ -2882,9 +3093,9 @@ HTML = """<!doctype html>
               viewer
             )
           );
-          ctx2d.strokeStyle = edgeHighlighted ? "#ef6c00" : theme.wireframe;
+          ctx2d.strokeStyle = edgeHighlighted ? "#ef6c00" : rgbCss(edge.strokeColor || theme.wireframe);
           ctx2d.lineWidth = edgeHighlighted ? 2 : (forceMode === "solid" ? 0.9 : 1.5);
-          ctx2d.globalAlpha = edgeHighlighted ? 1 : (forceMode === "solid" ? 0.35 : 1);
+          ctx2d.globalAlpha = edgeHighlighted ? 1 : ((forceMode === "solid" ? 0.35 : 1) * Math.max(0.2, Math.min(1, Number(edge.opacity ?? 1))));
           ctx2d.beginPath();
           ctx2d.moveTo(projectedEdge[0][0], projectedEdge[0][1]);
           for (const point of projectedEdge.slice(1)) {

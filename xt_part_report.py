@@ -749,6 +749,9 @@ def _build_nx_box_body(
             },
             "source": "nx_json_import",
             "nx_body_index": body_index,
+            "object_identity": (body_payload.get("metadata") or {}).get("object_identity"),
+            "display_properties": (body_payload.get("metadata") or {}).get("display_properties"),
+            "component_context": (body_payload.get("metadata") or {}).get("component_context"),
         },
     }
     return kernel_body, bounds, points, label
@@ -832,6 +835,9 @@ def _build_nx_cylinder_body(
             "center": _round_triplet(center),
             "source": "nx_json_import",
             "nx_body_index": body_index,
+            "object_identity": (body_payload.get("metadata") or {}).get("object_identity"),
+            "display_properties": (body_payload.get("metadata") or {}).get("display_properties"),
+            "component_context": (body_payload.get("metadata") or {}).get("component_context"),
         },
     }
     return kernel_body, bounds, points, label
@@ -1322,6 +1328,9 @@ def _face_meshes_from_payload(
         "axis": axis,
         "source_face_index": face_payload.get("index"),
         "source_face_type": face_payload.get("type"),
+        "object_identity": face_payload.get("object_identity"),
+        "display_properties": face_payload.get("display_properties"),
+        "component_context": face_payload.get("component_context"),
         "surface_definition": surface_payload,
         "uv_bounds": face_payload.get("uv_bounds"),
         "periodicity": face_payload.get("periodicity"),
@@ -1430,6 +1439,9 @@ def _build_nx_wireframe_body(
                 "kind": edge_kind,
                 "name": f"Edge {edge_identifier}",
                 "points": polyline,
+                "object_identity": edge_payload.get("object_identity"),
+                "display_properties": edge_payload.get("display_properties"),
+                "component_context": edge_payload.get("component_context"),
             }
         )
         polyline_points.extend(polyline)
@@ -1461,6 +1473,9 @@ def _build_nx_wireframe_body(
             "primitive": "nx_brep_import" if preview_faces else "wireframe",
             "source": "nx_surface_topology_preview" if preview_faces else "nx_topology_wireframe",
             "nx_body_index": body_index,
+            "object_identity": (body_payload.get("metadata") or {}).get("object_identity"),
+            "display_properties": (body_payload.get("metadata") or {}).get("display_properties"),
+            "component_context": (body_payload.get("metadata") or {}).get("component_context"),
             "edge_count": len(edge_polylines),
             "vertex_count": len(topology_vertices),
             "face_patch_count": len(preview_faces),
@@ -1597,6 +1612,13 @@ def _build_exact_compound_from_rich_body(
         body_index=body_index,
         source="nx_exact_topology_preview",
     )
+    inherited_metadata = {
+        "object_identity": (body_payload.get("metadata") or {}).get("object_identity"),
+        "display_properties": (body_payload.get("metadata") or {}).get("display_properties"),
+        "component_context": (body_payload.get("metadata") or {}).get("component_context"),
+    }
+    box_body["metadata"].update(inherited_metadata)
+    cylinder_body["metadata"].update(inherited_metadata)
 
     points = box_points + cylinder_points
     merged_bounds = bounds or _merge_bounds(
@@ -1624,6 +1646,9 @@ def _build_exact_compound_from_rich_body(
             "components": [box_body, cylinder_body],
             "source": "nx_exact_topology_preview",
             "nx_body_index": body_index,
+            "object_identity": (body_payload.get("metadata") or {}).get("object_identity"),
+            "display_properties": (body_payload.get("metadata") or {}).get("display_properties"),
+            "component_context": (body_payload.get("metadata") or {}).get("component_context"),
         },
     }
     return compound_body, merged_bounds, points, label
@@ -1701,6 +1726,14 @@ def _build_nx_compound_block_cylinder_body(
         box_points = [_round_triplet([point[i] + delta[i] for i in range(3)]) for point in box_points]
         cylinder_points = [_round_triplet([point[i] + delta[i] for i in range(3)]) for point in cylinder_points]
 
+    inherited_metadata = {
+        "object_identity": (body_payload.get("metadata") or {}).get("object_identity"),
+        "display_properties": (body_payload.get("metadata") or {}).get("display_properties"),
+        "component_context": (body_payload.get("metadata") or {}).get("component_context"),
+    }
+    box_body["metadata"].update(inherited_metadata)
+    cylinder_body["metadata"].update(inherited_metadata)
+
     points = box_points + cylinder_points
     bounds = _merge_bounds(
         [
@@ -1726,6 +1759,9 @@ def _build_nx_compound_block_cylinder_body(
             "components": [box_body, cylinder_body],
             "source": "nx_json_compound_preview",
             "nx_body_index": body_index,
+            "object_identity": (body_payload.get("metadata") or {}).get("object_identity"),
+            "display_properties": (body_payload.get("metadata") or {}).get("display_properties"),
+            "component_context": (body_payload.get("metadata") or {}).get("component_context"),
         },
     }
     return compound_body, bounds, points, label
