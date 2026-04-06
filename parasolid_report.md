@@ -122,15 +122,15 @@
 - Radius Of Gyration: 0.3448
 - Centroid: (0.9069, 3.1628, 0.3683)
 ### Bounding Box
-- X Min: -0.5866
-- Y Min: 3.7441
-- Z Min: -0.5866
-- X Max: 0.5866
-- Y Max: 3.8661
-- Z Max: 0.5866
-- Dx (Length): 1.1732
-- Dy (Width): 0.1220
-- Dz (Height): 1.1732
+- X Min: -0.4998
+- Y Min: 3.8661
+- Z Min: -0.5246
+- X Max: 0.4998
+- Y Max: 4.3622
+- Z Max: 0.5246
+- Dx (Length): 0.9996
+- Dy (Width): 0.4961
+- Dz (Height): 1.0492
 
 ### Features
 - Total Features: 1
@@ -1248,10 +1248,10 @@
 - Face 1: Blending | Edges: 3 | Facets: None | Vertices: 3 | Tag: 60954
 -   Measure: Area 0.0000 | Perimeter 0.0234 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9478, 3.1174, -0.0365) | Anchor (0.9478, 3.1174, -0.0365)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
--   Surface Definition Source: native
--   Periodicity: U status -4 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status -4 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 74, 94, 11
 -   Loop Count: 1
@@ -1262,10 +1262,10 @@
 - Face 2: Blending | Edges: 3 | Facets: None | Vertices: 3 | Tag: 60972
 -   Measure: Area 0.0000 | Perimeter 0.0250 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.8654, 3.0836, -0.0310) | Anchor (0.8654, 3.0836, -0.0310)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
--   Surface Definition Source: native
--   Periodicity: U status -4 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status -4 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 27, 50, 66
 -   Loop Count: 1
@@ -1276,11 +1276,11 @@
 - Face 3: Parametric | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60874
 -   Measure: Area 0.0014 | Perimeter 0.9009 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.9512, 3.3273, 0.0114) | Anchor (0.9512, 3.3273, 0.0114)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 94, 104, 122, 69, 6, 21
 -   Loop Count: 1
@@ -1291,11 +1291,11 @@
 - Face 4: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60892
 -   Measure: Area 0.0090 | Perimeter 0.4139 | Radius/Diameter N/A | Min Curvature Radius 0.0323
 -   Points: Center (0.9060, 3.1417, 0.6948) | Anchor (0.9060, 3.1417, 0.6948)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 47, 78, 68, 124
 -   Loop Count: 1
@@ -1306,11 +1306,11 @@
 - Face 5: Parametric | Edges: 4 | Facets: None | Vertices: 6 | Tag: 60948
 -   Measure: Area 0.0264 | Perimeter 0.8189 | Radius/Diameter N/A | Min Curvature Radius 0.0328
 -   Points: Center (0.9040, 2.9434, 0.0507) | Anchor (0.9040, 2.9434, 0.0507)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 110, 71, 92, 89
 -   Loop Count: 4
@@ -1321,12 +1321,12 @@
 - Face 6: Planar | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60880
 -   Measure: Area 0.0031 | Perimeter 0.9281 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8687, 3.3296, 0.0072) | Anchor (0.8687, 3.3296, 0.0072)
--   Analytic: Ref Point (0.8684, 3.3149, 0.0449) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.8684, 3.3149, 0.0449) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.1129, 0.1059] | V[-0.1923, 0.1927] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 98, 88, 29, 7, 5, 31
 -   Loop Count: 1
@@ -1337,11 +1337,11 @@
 - Face 7: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60934
 -   Measure: Area 0.0022 | Perimeter 1.4054 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.9480, 3.1539, 0.3103) | Anchor (0.9480, 3.1539, 0.3103)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 74, 41, 109, 108
 -   Loop Count: 1
@@ -1352,12 +1352,12 @@
 - Face 8: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60920
 -   Measure: Area 0.0007 | Perimeter 0.2207 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8656, 3.2036, 0.7025) | Anchor (0.8656, 3.2036, 0.7025)
--   Analytic: Ref Point (0.8657, 3.2087, 0.7000) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.8657, 3.2087, 0.7000) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0498, 0.0489] | V[-0.0184, 0.0185] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 18, 25, 112, 84
 -   Loop Count: 1
@@ -1368,11 +1368,11 @@
 - Face 9: Blending | Edges: 3 | Facets: None | Vertices: 5 | Tag: 60970
 -   Measure: Area 0.0000 | Perimeter 0.0140 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.8658, 3.0820, -0.0288) | Anchor (0.8658, 3.0820, -0.0288)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 34, 75, 66
 -   Loop Count: 3
@@ -1383,12 +1383,12 @@
 - Face 10: Planar | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60872
 -   Measure: Area 0.0031 | Perimeter 0.9281 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9514, 3.3283, 0.0074) | Anchor (0.9514, 3.3283, 0.0074)
--   Analytic: Ref Point (0.9511, 3.3137, 0.0450) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9511, 3.3137, 0.0450) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.1059, 0.1129] | V[-0.1923, 0.1927] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 23, 65, 6, 8, 82, 21
 -   Loop Count: 1
@@ -1399,11 +1399,11 @@
 - Face 11: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60890
 -   Measure: Area 0.0003 | Perimeter 0.2060 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.9474, 3.1564, 0.7088) | Anchor (0.9474, 3.1564, 0.7088)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 68, 60, 48, 28
 -   Loop Count: 1
@@ -1414,12 +1414,12 @@
 - Face 12: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60900
 -   Measure: Area 0.0030 | Perimeter 0.9252 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9479, 3.1995, 0.8581) | Anchor (0.9479, 3.1995, 0.8581)
--   Analytic: Ref Point (0.9479, 3.1981, 0.8493) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9479, 3.1981, 0.8493) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0905, 0.0990] | V[-0.0453, 0.0443] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 44, 117, 61, 73
 -   Loop Count: 1
@@ -1430,11 +1430,11 @@
 - Face 13: Parametric | Edges: 5 | Facets: None | Vertices: 8 | Tag: 60950
 -   Measure: Area 0.0009 | Perimeter 0.5976 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.9453, 2.9501, 0.0266) | Anchor (0.9453, 2.9501, 0.0266)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 101, 24, 92, 116, 2
 -   Loop Count: 5
@@ -1445,10 +1445,10 @@
 - Face 14: Blending | Edges: 4 | Facets: None | Vertices: 6 | Tag: 60968
 -   Measure: Area 0.0022 | Perimeter 0.2865 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9060, 3.0632, -0.0032) | Anchor (0.9060, 3.0632, -0.0032)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 110, 56, 114, 75
 -   Loop Count: 3
@@ -1459,12 +1459,12 @@
 - Face 15: Planar | Edges: 6 | Facets: None | Vertices: 9 | Tag: 60944
 -   Measure: Area 0.0020 | Perimeter 0.6106 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8629, 2.9517, 0.0208) | Anchor (0.8629, 2.9517, 0.0208)
--   Analytic: Ref Point (0.8630, 2.9611, 0.0360) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.8630, 2.9611, 0.0360) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0632, 0.0625] | V[-0.1353, 0.1351] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 37, 99, 121, 46, 40, 49
 -   Loop Count: 4
@@ -1475,11 +1475,11 @@
 - Face 16: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60870
 -   Measure: Area 0.0376 | Perimeter 1.0746 | Radius/Diameter N/A | Min Curvature Radius 0.2462
 -   Points: Center (0.9102, 3.3346, 0.0057) | Anchor (0.9102, 3.3346, 0.0057)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 120, 82, 14, 5
 -   Loop Count: 1
@@ -1490,12 +1490,12 @@
 - Face 17: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60888
 -   Measure: Area 0.0007 | Perimeter 0.2207 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9476, 3.1605, 0.7126) | Anchor (0.9476, 3.1605, 0.7126)
--   Analytic: Ref Point (0.9475, 3.1564, 0.7123) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9475, 3.1564, 0.7123) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0502, 0.0506] | V[-0.0190, 0.0189] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 48, 73, 38, 51
 -   Loop Count: 1
@@ -1506,11 +1506,11 @@
 - Face 18: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60902
 -   Measure: Area 0.0015 | Perimeter 0.9590 | Radius/Diameter N/A | Min Curvature Radius 0.0086
 -   Points: Center (0.9478, 3.1993, 0.8604) | Anchor (0.9478, 3.1993, 0.8604)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 33, 53, 44, 60
 -   Loop Count: 1
@@ -1521,11 +1521,11 @@
 - Face 19: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60930
 -   Measure: Area 0.0021 | Perimeter 1.4026 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.9475, 3.1229, 0.3145) | Anchor (0.9475, 3.1229, 0.3145)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 123, 28, 20, 32
 -   Loop Count: 1
@@ -1536,12 +1536,12 @@
 - Face 20: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60908
 -   Measure: Area 0.0030 | Perimeter 0.9252 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8653, 3.2008, 0.8579) | Anchor (0.8653, 3.2008, 0.8579)
--   Analytic: Ref Point (0.8653, 3.1993, 0.8491) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.8653, 3.1993, 0.8491) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0990, -0.0905] | V[-0.0453, 0.0443] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 84, 3, 59, 63
 -   Loop Count: 1
@@ -1552,11 +1552,11 @@
 - Face 21: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60916
 -   Measure: Area 0.0090 | Perimeter 0.4139 | Radius/Diameter N/A | Min Curvature Radius 0.0323
 -   Points: Center (0.9073, 3.2292, 0.7053) | Anchor (0.9073, 3.2292, 0.7053)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 36, 118, 35, 62
 -   Loop Count: 1
@@ -1567,11 +1567,11 @@
 - Face 22: Blending | Edges: 3 | Facets: None | Vertices: 5 | Tag: 60966
 -   Measure: Area 0.0000 | Perimeter 0.0140 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9468, 3.0808, -0.0286) | Anchor (0.9468, 3.0808, -0.0286)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 81, 93, 114
 -   Loop Count: 2
@@ -1582,12 +1582,12 @@
 - Face 23: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60886
 -   Measure: Area 0.0087 | Perimeter 0.3747 | Radius/Diameter 0.1657 | Min Curvature Radius 0.1657
 -   Points: Center (0.9063, 3.1640, 0.7151) | Anchor (0.9063, 3.1640, 0.7151)
--   Analytic: Ref Point (0.9039, 3.0055, 0.6773) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.1657 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9039, 3.0055, 0.6773) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.1657 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0413, 0.0413] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 38, 17, 55, 72
 -   Loop Count: 1
@@ -1598,11 +1598,11 @@
 - Face 24: Parametric | Edges: 6 | Facets: None | Vertices: 8 | Tag: 60928
 -   Measure: Area 0.0671 | Perimeter 1.6239 | Radius/Diameter N/A | Min Curvature Radius 0.0332
 -   Points: Center (0.9061, 3.1063, 0.3262) | Anchor (0.9061, 3.1063, 0.3262)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 34, 56, 81, 124, 119, 20
 -   Loop Count: 3
@@ -1613,11 +1613,11 @@
 - Face 25: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60914
 -   Measure: Area 0.0003 | Perimeter 0.2060 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.9482, 3.2079, 0.7032) | Anchor (0.9482, 3.2079, 0.7032)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 35, 108, 9, 53
 -   Loop Count: 1
@@ -1628,10 +1628,10 @@
 - Face 26: Blending | Edges: 3 | Facets: None | Vertices: 3 | Tag: 60964
 -   Measure: Area 0.0000 | Perimeter 0.0250 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9473, 3.0823, -0.0308) | Anchor (0.9473, 3.0823, -0.0308)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
--   Surface Definition Source: native
--   Periodicity: U status -4 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status -4 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 101, 123, 93
 -   Loop Count: 1
@@ -1642,11 +1642,11 @@
 - Face 27: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60898
 -   Measure: Area 0.0364 | Perimeter 1.0460 | Radius/Diameter N/A | Min Curvature Radius 0.0357
 -   Points: Center (0.9066, 3.2004, 0.8571) | Anchor (0.9066, 3.2004, 0.8571)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 61, 22, 59, 17
 -   Loop Count: 1
@@ -1657,12 +1657,12 @@
 - Face 28: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60974
 -   Measure: Area 0.0019 | Perimeter 0.2112 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9064, 3.0872, -0.0368) | Anchor (0.9064, 3.0872, -0.0368)
--   Analytic: Ref Point (0.9063, 3.0800, -0.0269) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0138 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9063, 3.0800, -0.0269) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0138 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0413, 0.0413] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 37, 105, 15, 39, 64, 87
 -   Loop Count: 1
@@ -1673,12 +1673,12 @@
 - Face 29: Planar | Edges: 5 | Facets: None | Vertices: 6 | Tag: 60884
 -   Measure: Area 0.0047 | Perimeter 1.4191 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9478, 3.1277, 0.3133) | Anchor (0.9478, 3.1277, 0.3133)
--   Analytic: Ref Point (0.9478, 3.1276, 0.3129) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9478, 3.1276, 0.3129) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.3534, 0.3531] | V[-0.0034, 0.0034] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 39, 77, 51, 32, 13
 -   Loop Count: 1
@@ -1689,11 +1689,11 @@
 - Face 30: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60926
 -   Measure: Area 0.0021 | Perimeter 1.4026 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.8652, 3.1242, 0.3144) | Anchor (0.8652, 3.1242, 0.3144)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 50, 102, 95, 119
 -   Loop Count: 1
@@ -1704,12 +1704,12 @@
 - Face 31: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60912
 -   Measure: Area 0.0007 | Perimeter 0.2207 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9483, 3.2023, 0.7026) | Anchor (0.9483, 3.2023, 0.7026)
--   Analytic: Ref Point (0.9483, 3.2074, 0.7001) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9483, 3.2074, 0.7001) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0489, 0.0498] | V[-0.0184, 0.0185] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 9, 30, 100, 117
 -   Loop Count: 1
@@ -1720,10 +1720,10 @@
 - Face 32: Blending | Edges: 3 | Facets: None | Vertices: 3 | Tag: 60962
 -   Measure: Area 0.0000 | Perimeter 0.0234 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.8659, 3.1187, -0.0366) | Anchor (0.8659, 3.1187, -0.0366)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
--   Surface Definition Source: native
--   Periodicity: U status -4 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status -4 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 4, 57, 85
 -   Loop Count: 1
@@ -1734,11 +1734,11 @@
 - Face 33: Parametric | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60936
 -   Measure: Area 0.0698 | Perimeter 1.6268 | Radius/Diameter N/A | Min Curvature Radius 0.0332
 -   Points: Center (0.9071, 3.1751, 0.3275) | Anchor (0.9071, 3.1751, 0.3275)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 103, 1, 54, 96, 41, 118
 -   Loop Count: 1
@@ -1749,12 +1749,12 @@
 - Face 34: Planar | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60864
 -   Measure: Area 0.0027 | Perimeter 0.2139 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9125, 3.5000, 0.1309) | Anchor (0.9125, 3.5000, 0.1309)
--   Analytic: Ref Point (0.9127, 3.4973, 0.1312) | Direction (0.0000, 0.1104, 0.9939) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9127, 3.4973, 0.1312) | Direction (0.0000, 0.1104, 0.9939) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0210, -0.0084] | V[-0.0414, 0.0414] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 29, 42, 19, 69, 8, 14
 -   Loop Count: 1
@@ -1765,12 +1765,12 @@
 - Face 35: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60882
 -   Measure: Area 0.0576 | Perimeter 1.5583 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9065, 3.1322, 0.3177) | Anchor (0.9065, 3.1322, 0.3177)
--   Analytic: Ref Point (0.9065, 3.1322, 0.3177) | Direction (0.0155, 0.9938, -0.1104) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9065, 3.1322, 0.3177) | Direction (0.0155, 0.9938, -0.1104) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.3482, 0.3482] | V[-0.0413, 0.0413] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 15, 72, 13, 10
 -   Loop Count: 1
@@ -1781,12 +1781,12 @@
 - Face 36: Planar | Edges: 6 | Facets: None | Vertices: 8 | Tag: 60978
 -   Measure: Area 0.0026 | Perimeter 0.2100 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9023, 2.8395, 0.1211) | Anchor (0.9023, 2.8395, 0.1211)
--   Analytic: Ref Point (0.9023, 2.8415, 0.1251) | Direction (-0.0146, -0.8941, 0.4475) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9023, 2.8415, 0.1251) | Direction (-0.0146, -0.8941, 0.4475) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0101, 0.0213] | V[-0.0414, 0.0413] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 90, 58, 49, 67, 89, 2
 -   Loop Count: 2
@@ -1797,11 +1797,11 @@
 - Face 37: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60918
 -   Measure: Area 0.0003 | Perimeter 0.2060 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.8659, 3.2092, 0.7031) | Anchor (0.8659, 3.2092, 0.7031)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 25, 91, 36, 113
 -   Loop Count: 1
@@ -1812,12 +1812,12 @@
 - Face 38: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 60924
 -   Measure: Area 0.0047 | Perimeter 1.4108 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8654, 3.1500, 0.3072) | Anchor (0.8654, 3.1500, 0.3072)
--   Analytic: Ref Point (0.8655, 3.1504, 0.3068) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.8655, 3.1504, 0.3068) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.3510, 0.3514] | V[-0.0039, 0.0028] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 76, 88, 111, 106, 18
 -   Loop Count: 1
@@ -1828,11 +1828,11 @@
 - Face 39: Parametric | Edges: 5 | Facets: None | Vertices: 8 | Tag: 60946
 -   Measure: Area 0.0009 | Perimeter 0.5976 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.8630, 2.9514, 0.0265) | Anchor (0.8630, 2.9514, 0.0265)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 27, 121, 46, 71, 67
 -   Loop Count: 5
@@ -1843,12 +1843,12 @@
 - Face 40: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60910
 -   Measure: Area 0.0087 | Perimeter 0.3747 | Radius/Diameter 0.1657 | Min Curvature Radius 0.1657
 -   Points: Center (0.9069, 3.1992, 0.7021) | Anchor (0.9069, 3.1992, 0.7021)
--   Analytic: Ref Point (0.9093, 3.3494, 0.6391) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.1657 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9093, 3.3494, 0.6391) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.1657 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0413, 0.0413] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 100, 43, 112, 22
 -   Loop Count: 1
@@ -1859,11 +1859,11 @@
 - Face 41: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60960
 -   Measure: Area 0.0000 | Perimeter 0.0135 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.8664, 3.1206, -0.0350) | Anchor (0.8664, 3.1206, -0.0350)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 54, 52, 115, 85
 -   Loop Count: 1
@@ -1874,11 +1874,11 @@
 - Face 42: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60904
 -   Measure: Area 0.0582 | Perimeter 1.1821 | Radius/Diameter N/A | Min Curvature Radius 0.0340
 -   Points: Center (0.9066, 3.1982, 0.8683) | Anchor (0.9066, 3.1982, 0.8683)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 26, 62, 33, 78
 -   Loop Count: 1
@@ -1889,12 +1889,12 @@
 - Face 43: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60896
 -   Measure: Area 0.0007 | Perimeter 0.2207 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8649, 3.1618, 0.7125) | Anchor (0.8649, 3.1618, 0.7125)
--   Analytic: Ref Point (0.8649, 3.1577, 0.7121) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.8649, 3.1577, 0.7121) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0506, 0.0502] | V[-0.0190, 0.0189] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 63, 86, 55, 80
 -   Loop Count: 1
@@ -1905,12 +1905,12 @@
 - Face 44: Planar | Edges: 5 | Facets: None | Vertices: 7 | Tag: 60932
 -   Measure: Area 0.0047 | Perimeter 1.4191 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8651, 3.1289, 0.3132) | Anchor (0.8651, 3.1289, 0.3132)
--   Analytic: Ref Point (0.8651, 3.1289, 0.3128) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.8651, 3.1289, 0.3128) | Direction (-0.9999, 0.0154, -0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.3531, 0.3534] | V[-0.0034, 0.0034] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 105, 99, 80, 95, 10
 -   Loop Count: 4
@@ -1921,11 +1921,11 @@
 - Face 45: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60956
 -   Measure: Area 0.0000 | Perimeter 0.0135 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9474, 3.1193, -0.0348) | Anchor (0.9474, 3.1193, -0.0348)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 103, 104, 11, 12
 -   Loop Count: 1
@@ -1936,12 +1936,12 @@
 - Face 46: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 60940
 -   Measure: Area 0.0047 | Perimeter 1.4108 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9481, 3.1487, 0.3073) | Anchor (0.9481, 3.1487, 0.3073)
--   Analytic: Ref Point (0.9481, 3.1492, 0.3069) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9481, 3.1492, 0.3069) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.3514, 0.3510] | V[-0.0039, 0.0028] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 45, 65, 109, 83, 30
 -   Loop Count: 1
@@ -1952,10 +1952,10 @@
 - Face 47: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60958
 -   Measure: Area 0.0021 | Perimeter 0.2762 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9072, 3.1429, -0.0163) | Anchor (0.9072, 3.1429, -0.0163)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0138 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 1, 79, 12, 115
 -   Loop Count: 1
@@ -1966,11 +1966,11 @@
 - Face 48: Parametric | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60878
 -   Measure: Area 0.0014 | Perimeter 0.9009 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.8689, 3.3285, 0.0112) | Anchor (0.8689, 3.3285, 0.0112)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 57, 52, 7, 42, 107, 31
 -   Loop Count: 1
@@ -1981,11 +1981,11 @@
 - Face 49: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60942
 -   Measure: Area 0.0241 | Perimeter 0.7475 | Radius/Diameter N/A | Min Curvature Radius 0.4333
 -   Points: Center (0.9041, 2.9464, 0.0192) | Anchor (0.9041, 2.9464, 0.0192)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 87, 16, 40, 58
 -   Loop Count: 1
@@ -1996,12 +1996,12 @@
 - Face 50: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60922
 -   Measure: Area 0.0569 | Perimeter 1.5428 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9067, 3.1463, 0.3103) | Anchor (0.9067, 3.1463, 0.3103)
--   Analytic: Ref Point (0.9067, 3.1463, 0.3103) | Direction (-0.0155, -0.9938, 0.1104) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9067, 3.1463, 0.3103) | Direction (-0.0155, -0.9938, 0.1104) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.3444, 0.3444] | V[-0.0413, 0.0413] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 70, 83, 106, 43
 -   Loop Count: 1
@@ -2012,11 +2012,11 @@
 - Face 51: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60906
 -   Measure: Area 0.0015 | Perimeter 0.9590 | Radius/Diameter N/A | Min Curvature Radius 0.0086
 -   Points: Center (0.8655, 3.2005, 0.8603) | Anchor (0.8655, 3.2005, 0.8603)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 3, 113, 26, 97
 -   Loop Count: 1
@@ -2027,12 +2027,12 @@
 - Face 52: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 60976
 -   Measure: Area 0.0018 | Perimeter 0.2089 | Radius/Diameter 0.0138 | Min Curvature Radius 0.0138
 -   Points: Center (0.9068, 3.1123, -0.0412) | Anchor (0.9068, 3.1123, -0.0412)
--   Analytic: Ref Point (0.9069, 3.1219, -0.0335) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0138 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9069, 3.1219, -0.0335) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0138 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0413, 0.0413] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 76, 98, 120, 23, 45, 70
 -   Loop Count: 1
@@ -2043,12 +2043,12 @@
 - Face 53: Planar | Edges: 6 | Facets: None | Vertices: 9 | Tag: 60952
 -   Measure: Area 0.0020 | Perimeter 0.6106 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9455, 2.9504, 0.0210) | Anchor (0.9455, 2.9504, 0.0210)
--   Analytic: Ref Point (0.9457, 2.9598, 0.0362) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9457, 2.9598, 0.0362) | Direction (0.9999, -0.0154, 0.0017) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0625, 0.0632] | V[-0.1353, 0.1351] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 90, 64, 77, 24, 116, 16
 -   Loop Count: 4
@@ -2059,11 +2059,11 @@
 - Face 54: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60876
 -   Measure: Area 0.0395 | Perimeter 1.1167 | Radius/Diameter N/A | Min Curvature Radius 0.0328
 -   Points: Center (0.9100, 3.3297, 0.0275) | Anchor (0.9100, 3.3297, 0.0275)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 79, 107, 19, 122
 -   Loop Count: 1
@@ -2074,11 +2074,11 @@
 - Face 55: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60894
 -   Measure: Area 0.0003 | Perimeter 0.2060 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.8651, 3.1577, 0.7087) | Anchor (0.8651, 3.1577, 0.7087)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 86, 97, 47, 102
 -   Loop Count: 1
@@ -2089,11 +2089,11 @@
 - Face 56: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 60938
 -   Measure: Area 0.0022 | Perimeter 1.4054 | Radius/Diameter N/A | Min Curvature Radius 0.0088
 -   Points: Center (0.8657, 3.1552, 0.3102) | Anchor (0.8657, 3.1552, 0.3102)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (-0.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 4, 111, 96, 91
 -   Loop Count: 1
@@ -2125,15 +2125,15 @@
 - Radius Of Gyration: 1.3711
 - Centroid: (-0.0000, 3.5379, -0.9916)
 ### Bounding Box
-- X Min: -0.5866
-- Y Min: 3.7441
-- Z Min: -0.5866
-- X Max: 0.5866
-- Y Max: 3.8661
-- Z Max: 0.5866
-- Dx (Length): 1.1732
-- Dy (Width): 0.1220
-- Dz (Height): 1.1732
+- X Min: -0.4998
+- Y Min: 3.8661
+- Z Min: -0.5246
+- X Max: 0.4998
+- Y Max: 4.3622
+- Z Max: 0.5246
+- Dx (Length): 0.9996
+- Dy (Width): 0.4961
+- Dz (Height): 1.0492
 
 ### Features
 - Total Features: 1
@@ -4750,11 +4750,11 @@
 - Face 1: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61568
 -   Measure: Area 0.0009 | Perimeter 0.1524 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.8489, 2.8715, -0.1420) | Anchor (-0.8489, 2.8715, -0.1420)
--   Analytic: Ref Point (-0.8474, 2.8102, -0.1943) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0886 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.8474, 2.8102, -0.1943) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0886 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 153, 90, 202, 256
 -   Loop Count: 1
@@ -4765,12 +4765,12 @@
 - Face 2: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61476
 -   Measure: Area 0.0098 | Perimeter 0.4204 | Radius/Diameter 0.0984 | Min Curvature Radius 0.0984
 -   Points: Center (0.7726, 3.7359, 0.1644) | Anchor (0.7726, 3.7359, 0.1644)
--   Analytic: Ref Point (0.7726, 3.8322, 0.1630) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0984 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7726, 3.8322, 0.1630) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0984 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 167, 87, 42, 247
 -   Loop Count: 1
@@ -4781,12 +4781,12 @@
 - Face 3: Planar | Edges: 14 | Facets: None | Vertices: 14 | Tag: 61494
 -   Measure: Area 1.9688 | Perimeter 9.6276 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.7028, 3.2752, 0.0081) | Anchor (0.7028, 3.2752, 0.0081)
--   Analytic: Ref Point (0.7028, 3.2428, 0.0008) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7028, 3.2428, 0.0008) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.5420, 0.5999] | V[-1.4454, 1.3842] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 132, 82, 42, 152, 169, 149, 155, 176, 201, 73, 47, 205, 95, 31
 -   Loop Count: 2
@@ -4797,12 +4797,12 @@
 - Face 4: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61466
 -   Measure: Area 0.1148 | Perimeter 1.9229 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.7726, 2.8612, 1.1241) | Anchor (0.7726, 2.8612, 1.1241)
--   Analytic: Ref Point (0.7726, 2.8612, 1.1241) | Direction (0.0000, 0.1795, 0.9838) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7726, 2.8612, 1.1241) | Direction (0.0000, 0.1795, 0.9838) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.4109, 0.4109] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 196, 36, 73, 18
 -   Loop Count: 1
@@ -4813,11 +4813,11 @@
 - Face 5: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61624
 -   Measure: Area 0.0004 | Perimeter 0.0853 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6317, 3.6039, -2.3327) | Anchor (-0.6317, 3.6039, -2.3327)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 65, 231, 9, 89
 -   Loop Count: 1
@@ -4828,12 +4828,12 @@
 - Face 6: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61536
 -   Measure: Area 0.0035 | Perimeter 0.3466 | Radius/Diameter 0.0236 | Min Curvature Radius 0.0236
 -   Points: Center (0.7776, 2.8232, 0.7081) | Anchor (0.7776, 2.8232, 0.7081)
--   Analytic: Ref Point (0.7776, 2.8318, 0.6872) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0236 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7776, 2.8318, 0.6872) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0236 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 219, 4, 270, 31
 -   Loop Count: 1
@@ -4844,12 +4844,12 @@
 - Face 7: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61418
 -   Measure: Area 0.0231 | Perimeter 0.6102 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.5561, 3.7013, -2.4548) | Anchor (-0.5561, 3.7013, -2.4548)
--   Analytic: Ref Point (-0.5561, 3.7013, -2.4548) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.5561, 3.7013, -2.4548) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0827, 0.0827] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 144, 66, 121, 173
 -   Loop Count: 1
@@ -4860,11 +4860,11 @@
 - Face 8: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61554
 -   Measure: Area 0.0012 | Perimeter 0.1916 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.6324, 3.2977, -1.3569) | Anchor (0.6324, 3.2977, -1.3569)
--   Analytic: Ref Point (0.6309, 3.2367, -1.3415) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0728 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.6309, 3.2367, -1.3415) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0728 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 261, 262, 124, 165
 -   Loop Count: 1
@@ -4875,11 +4875,11 @@
 - Face 9: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61572
 -   Measure: Area 0.0071 | Perimeter 0.9411 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.8488, 2.6843, 0.0299) | Anchor (-0.8488, 2.6843, 0.0299)
--   Analytic: Ref Point (-0.8474, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.6220 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.8474, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.6220 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 90, 166, 38, 150
 -   Loop Count: 1
@@ -4890,12 +4890,12 @@
 - Face 10: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61432
 -   Measure: Area 0.0461 | Perimeter 0.9392 | Radius/Diameter 0.1575 | Min Curvature Radius 0.1575
 -   Points: Center (-0.7726, 2.3295, 1.1272) | Anchor (-0.7726, 2.3295, 1.1272)
--   Analytic: Ref Point (-0.7726, 2.4288, 1.0429) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1575 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7726, 2.4288, 1.0429) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1575 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 194, 139, 71, 260
 -   Loop Count: 1
@@ -4906,12 +4906,12 @@
 - Face 11: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61590
 -   Measure: Area 0.0127 | Perimeter 1.6743 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.8488, 2.8606, 1.1206) | Anchor (0.8488, 2.8606, 1.1206)
--   Analytic: Ref Point (0.8425, 2.8594, 1.1144) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.8425, 2.8594, 1.1144) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.4109, 0.4109] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 35, 99, 18, 79
 -   Loop Count: 1
@@ -4922,12 +4922,12 @@
 - Face 12: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 61416
 -   Measure: Area 0.1663 | Perimeter 2.6708 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 3.5139, -2.3671) | Anchor (0.0000, 3.5139, -2.3671)
--   Analytic: Ref Point (-0.0000, 3.5179, -2.3656) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 3.5179, -2.3656) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0797, 0.0797] | V[-0.6239, 0.6239] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 252, 145, 187, 77, 48, 171, 62, 221
 -   Loop Count: 1
@@ -4938,12 +4938,12 @@
 - Face 13: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61608
 -   Measure: Area 0.0120 | Perimeter 1.5879 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6323, 4.4476, -1.8627) | Anchor (-0.6323, 4.4476, -1.8627)
--   Analytic: Ref Point (-0.6260, 4.4417, -1.8648) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6260, 4.4417, -1.8648) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.3892, 0.3892] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 2, 72, 161, 222
 -   Loop Count: 1
@@ -4954,11 +4954,11 @@
 - Face 14: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61630
 -   Measure: Area 0.0004 | Perimeter 0.0853 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6317, 3.6039, -2.3327) | Anchor (0.6317, 3.6039, -2.3327)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 108, 41, 12, 127
 -   Loop Count: 1
@@ -4969,12 +4969,12 @@
 - Face 15: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61518
 -   Measure: Area 0.1009 | Perimeter 2.2670 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
 -   Points: Center (-0.6549, 3.7877, -1.3589) | Anchor (-0.6549, 3.7877, -1.3589)
--   Analytic: Ref Point (-0.7146, 3.7837, -1.4021) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.0787 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7146, 3.7837, -1.4021) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.0787 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.5357, 0.5357] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 27, 188, 200, 93
 -   Loop Count: 1
@@ -4985,12 +4985,12 @@
 - Face 16: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61472
 -   Measure: Area 0.0641 | Perimeter 1.1969 | Radius/Diameter 0.6319 | Min Curvature Radius 0.6319
 -   Points: Center (0.7726, 2.6816, 0.0277) | Anchor (0.7726, 2.6816, 0.0277)
--   Analytic: Ref Point (0.7726, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.6319 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7726, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.6319 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 14, 16, 155, 253
 -   Loop Count: 1
@@ -5001,11 +5001,11 @@
 - Face 17: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61620
 -   Measure: Area 0.0012 | Perimeter 0.1916 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.6324, 3.6516, -2.3476) | Anchor (-0.6324, 3.6516, -2.3476)
--   Analytic: Ref Point (-0.6309, 3.6142, -2.3981) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0728 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.6309, 3.6142, -2.3981) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0728 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 267, 65, 120, 80
 -   Loop Count: 1
@@ -5016,12 +5016,12 @@
 - Face 18: Cylindrical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 61508
 -   Measure: Area 0.3095 | Perimeter 2.7421 | Radius/Diameter 0.2362 | Min Curvature Radius 0.2362
 -   Points: Center (0.5434, 3.7658, -1.2894) | Anchor (0.5434, 3.7658, -1.2894)
--   Analytic: Ref Point (0.7224, 3.7524, -1.4187) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.2362 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7224, 3.7524, -1.4187) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.2362 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.5876, 0.5876] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 57, 30, 10, 175, 61
 -   Loop Count: 1
@@ -5032,12 +5032,12 @@
 - Face 19: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61532
 -   Measure: Area 0.0035 | Perimeter 0.3466 | Radius/Diameter 0.0236 | Min Curvature Radius 0.0236
 -   Points: Center (-0.7776, 3.5340, 0.6291) | Anchor (-0.7776, 3.5340, 0.6291)
--   Analytic: Ref Point (-0.7776, 3.5210, 0.6106) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0236 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7776, 3.5210, 0.6106) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0236 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 138, 174, 60, 213
 -   Loop Count: 1
@@ -5048,11 +5048,11 @@
 - Face 20: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61550
 -   Measure: Area 0.0004 | Perimeter 0.0853 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6317, 3.2702, -1.3987) | Anchor (0.6317, 3.2702, -1.3987)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 106, 261, 218, 116
 -   Loop Count: 1
@@ -5063,12 +5063,12 @@
 - Face 21: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61616
 -   Measure: Area 0.0026 | Perimeter 0.3616 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6323, 3.7047, -2.4536) | Anchor (-0.6323, 3.7047, -2.4536)
--   Analytic: Ref Point (-0.6260, 3.7106, -2.4515) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6260, 3.7106, -2.4515) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0827, 0.0827] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 53, 267, 173, 190
 -   Loop Count: 1
@@ -5079,12 +5079,12 @@
 - Face 22: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61428
 -   Measure: Area 0.1557 | Perimeter 2.5073 | Radius/Diameter 0.6319 | Min Curvature Radius 0.6319
 -   Points: Center (-0.7726, 3.6351, 0.6983) | Anchor (-0.7726, 3.6351, 0.6983)
--   Analytic: Ref Point (-0.7726, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.6319 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7726, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.6319 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 249, 26, 214, 207
 -   Loop Count: 1
@@ -5095,11 +5095,11 @@
 - Face 23: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61586
 -   Measure: Area 0.0050 | Perimeter 0.6700 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.8487, 2.3317, 1.1254) | Anchor (0.8487, 2.3317, 1.1254)
--   Analytic: Ref Point (0.8474, 2.4288, 1.0429) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1476 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.8474, 2.4288, 1.0429) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1476 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 115, 35, 32, 242
 -   Loop Count: 1
@@ -5110,12 +5110,12 @@
 - Face 24: Planar | Edges: 9 | Facets: None | Vertices: 9 | Tag: 61458
 -   Measure: Area 0.1831 | Perimeter 2.9019 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.7378, 3.0999, -0.7714) | Anchor (-0.7378, 3.0999, -0.7714)
--   Analytic: Ref Point (-0.6646, 3.0902, -0.7440) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6646, 3.0902, -0.7440) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.6119, 0.6119] | V[-0.1779, 0.1779] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 193, 20, 142, 81, 212, 254, 148, 33, 217
 -   Loop Count: 1
@@ -5126,12 +5126,12 @@
 - Face 25: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61478
 -   Measure: Area 0.2785 | Perimeter 4.0218 | Radius/Diameter 0.4350 | Min Curvature Radius 0.4350
 -   Points: Center (0.7776, 3.1330, 0.2584) | Anchor (0.7776, 3.1330, 0.2584)
--   Analytic: Ref Point (0.7776, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.4350 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7776, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.4350 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 112, 4, 50, 95
 -   Loop Count: 1
@@ -5142,12 +5142,12 @@
 - Face 26: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61452
 -   Measure: Area 0.1988 | Perimeter 3.1243 | Radius/Diameter 0.4528 | Min Curvature Radius 0.4528
 -   Points: Center (0.5561, 4.2525, -2.6518) | Anchor (0.5561, 4.2525, -2.6518)
--   Analytic: Ref Point (0.5561, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.4528 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.5561, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.4528 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 244, 230, 191, 76
 -   Loop Count: 1
@@ -5158,12 +5158,12 @@
 - Face 27: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61504
 -   Measure: Area 0.3027 | Perimeter 2.6908 | Radius/Diameter 0.2362 | Min Curvature Radius 0.2362
 -   Points: Center (-0.7952, 3.7386, -1.2215) | Anchor (-0.7952, 3.7386, -1.2215)
--   Analytic: Ref Point (-0.6161, 3.7524, -1.0922) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.2362 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6161, 3.7524, -1.0922) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.2362 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.5735, 0.5735] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 188, 114, 97, 37
 -   Loop Count: 1
@@ -5174,11 +5174,11 @@
 - Face 28: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 61528
 -   Measure: Area 0.0123 | Perimeter 1.7687 | Radius/Diameter N/A | Min Curvature Radius 0.1921
 -   Points: Center (-0.6310, 4.1555, -2.3803) | Anchor (-0.6310, 4.1555, -2.3803)
--   Analytic: Ref Point (-0.6309, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1407 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.6309, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1407 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 151, 56
 -   Loop Count: 1
@@ -5189,11 +5189,11 @@
 - Face 29: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61546
 -   Measure: Area 0.0043 | Perimeter 0.5771 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.5548, 3.1585, -1.4402) | Anchor (0.5548, 3.1585, -1.4402)
--   Analytic: Ref Point (0.4390, 3.2856, -1.3964) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.1870 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.4390, 3.2856, -1.3964) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.1870 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 58, 106, 181, 7
 -   Loop Count: 1
@@ -5204,12 +5204,12 @@
 - Face 30: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61564
 -   Measure: Area 0.0135 | Perimeter 1.7826 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.8488, 3.0350, -0.5790) | Anchor (-0.8488, 3.0350, -0.5790)
--   Analytic: Ref Point (-0.8425, 3.0409, -0.5769) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.8425, 3.0409, -0.5769) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.4379, 0.4379] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 216, 153, 94, 217
 -   Loop Count: 1
@@ -5220,12 +5220,12 @@
 - Face 31: Planar | Edges: 9 | Facets: None | Vertices: 9 | Tag: 61424
 -   Measure: Area 0.1831 | Perimeter 2.9019 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.7378, 3.0999, -0.7714) | Anchor (0.7378, 3.0999, -0.7714)
--   Analytic: Ref Point (0.6646, 3.0902, -0.7440) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6646, 3.0902, -0.7440) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.6119, 0.6119] | V[-0.1779, 0.1779] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 84, 226, 61, 40, 169, 177, 63, 103, 199
 -   Loop Count: 1
@@ -5236,12 +5236,12 @@
 - Face 32: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61582
 -   Measure: Area 0.0127 | Perimeter 1.6743 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.8488, 2.4221, 0.6043) | Anchor (0.8488, 2.4221, 0.6043)
--   Analytic: Ref Point (0.8425, 2.4280, 0.6064) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.8425, 2.4280, 0.6064) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.4109, 0.4109] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 117, 115, 147, 136
 -   Loop Count: 1
@@ -5252,12 +5252,12 @@
 - Face 33: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61442
 -   Measure: Area 0.2785 | Perimeter 4.0218 | Radius/Diameter 0.4350 | Min Curvature Radius 0.4350
 -   Points: Center (-0.7776, 3.1330, 0.2584) | Anchor (-0.7776, 3.1330, 0.2584)
--   Analytic: Ref Point (-0.7776, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.4350 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7776, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.4350 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 213, 46, 44, 268
 -   Loop Count: 1
@@ -5268,11 +5268,11 @@
 - Face 34: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61600
 -   Measure: Area 0.0058 | Perimeter 0.6696 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.7912, 4.2498, -1.3128) | Anchor (-0.7912, 4.2498, -1.3128)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 69, 13, 105, 37
 -   Loop Count: 1
@@ -5283,12 +5283,12 @@
 - Face 35: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61558
 -   Measure: Area 0.0000 | Perimeter 0.0359 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6323, 3.2990, -1.3179) | Anchor (0.6323, 3.2990, -1.3179)
--   Analytic: Ref Point (0.6260, 3.3049, -1.3158) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6260, 3.3049, -1.3158) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0013, 0.0013] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 262, 245, 199, 113
 -   Loop Count: 1
@@ -5299,12 +5299,12 @@
 - Face 36: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61576
 -   Measure: Area 0.0127 | Perimeter 1.6743 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.8488, 2.4221, 0.6043) | Anchor (-0.8488, 2.4221, 0.6043)
--   Analytic: Ref Point (-0.8425, 2.4280, 0.6064) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.8425, 2.4280, 0.6064) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.4109, 0.4109] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 166, 15, 156, 34
 -   Loop Count: 1
@@ -5315,12 +5315,12 @@
 - Face 37: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61448
 -   Measure: Area 0.8572 | Perimeter 3.7087 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 3.2660, -1.9268) | Anchor (0.0000, 3.2660, -1.9268)
--   Analytic: Ref Point (-0.0000, 3.2660, -1.9268) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 3.2660, -1.9268) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.4882, 0.4882] | V[-0.4390, 0.4390] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 43, 54, 130, 241
 -   Loop Count: 1
@@ -5331,12 +5331,12 @@
 - Face 38: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61500
 -   Measure: Area 0.0740 | Perimeter 2.1551 | Radius/Diameter 0.0472 | Min Curvature Radius 0.0472
 -   Points: Center (-0.4691, 3.4231, -1.8706) | Anchor (-0.4691, 3.4231, -1.8706)
--   Analytic: Ref Point (-0.4390, 3.4502, -1.8572) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0472 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.4390, 3.4502, -1.8572) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0472 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.5079, 0.5008] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 223, 118, 187, 163, 111, 210
 -   Loop Count: 1
@@ -5347,12 +5347,12 @@
 - Face 39: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61542
 -   Measure: Area 0.0136 | Perimeter 1.7868 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.0000, 3.1031, -1.4599) | Anchor (-0.0000, 3.1031, -1.4599)
--   Analytic: Ref Point (-0.0000, 3.1111, -1.4637) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 3.1111, -1.4637) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.4390, 0.4390] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 203, 58, 130, 68
 -   Loop Count: 1
@@ -5363,12 +5363,12 @@
 - Face 40: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61420
 -   Measure: Area 0.1988 | Perimeter 3.1243 | Radius/Diameter 0.4528 | Min Curvature Radius 0.4528
 -   Points: Center (-0.5561, 4.2525, -2.6518) | Anchor (-0.5561, 4.2525, -2.6518)
--   Analytic: Ref Point (-0.5561, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.4528 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.5561, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.4528 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 66, 227, 238, 59
 -   Loop Count: 1
@@ -5379,11 +5379,11 @@
 - Face 41: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61604
 -   Measure: Area 0.0021 | Perimeter 0.2682 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6530, 4.2976, -1.4461) | Anchor (-0.6530, 4.2976, -1.4461)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 13, 2, 266, 93
 -   Loop Count: 1
@@ -5394,11 +5394,11 @@
 - Face 42: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61578
 -   Measure: Area 0.0071 | Perimeter 0.9411 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.8488, 2.6843, 0.0299) | Anchor (0.8488, 2.6843, 0.0299)
--   Analytic: Ref Point (0.8474, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.6220 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.8474, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.6220 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 107, 117, 253, 21
 -   Loop Count: 1
@@ -5409,12 +5409,12 @@
 - Face 43: Planar | Edges: 9 | Facets: None | Vertices: 9 | Tag: 61482
 -   Measure: Area 1.2040 | Perimeter 5.4354 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.6358, 3.9842, -2.0366) | Anchor (0.6358, 3.9842, -2.0366)
--   Analytic: Ref Point (0.6358, 3.9419, -2.0689) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6358, 3.9419, -2.0689) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-3.0848, 0.5469] | V[-0.3724, 3.2098] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 263, 162, 5, 133, 19, 224, 220, 113, 165
 -   Loop Count: 2
@@ -5425,12 +5425,12 @@
 - Face 44: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61596
 -   Measure: Area 0.0213 | Perimeter 2.7907 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.8488, 3.9683, -0.5211) | Anchor (-0.8488, 3.9683, -0.5211)
--   Analytic: Ref Point (-0.8425, 3.9624, -0.5232) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.8425, 3.9624, -0.5232) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.6899, 0.6899] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 104, 69, 211, 29
 -   Loop Count: 1
@@ -5441,12 +5441,12 @@
 - Face 45: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61514
 -   Measure: Area 0.1032 | Perimeter 2.3077 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
 -   Points: Center (-0.6837, 3.7167, -1.1520) | Anchor (-0.6837, 3.7167, -1.1520)
--   Analytic: Ref Point (-0.6240, 3.7212, -1.1089) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.0787 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6240, 3.7212, -1.1089) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.0787 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.5444, 0.5444] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 134, 20, 234, 128
 -   Loop Count: 1
@@ -5457,12 +5457,12 @@
 - Face 46: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61614
 -   Measure: Area 0.0120 | Perimeter 1.5879 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6323, 4.4476, -1.8627) | Anchor (0.6323, 4.4476, -1.8627)
--   Analytic: Ref Point (0.6260, 4.4417, -1.8648) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6260, 4.4417, -1.8648) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.3892, 0.3892] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 233, 259, 240, 220
 -   Loop Count: 1
@@ -5473,12 +5473,12 @@
 - Face 47: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 61496
 -   Measure: Area 1.2144 | Perimeter 5.3699 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.4862, 3.9936, -2.0570) | Anchor (0.4862, 3.9936, -2.0570)
--   Analytic: Ref Point (0.4862, 3.9450, -2.0846) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.4862, 3.9450, -2.0846) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.5588, 3.0828] | V[-0.3568, 3.2256] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 135, 164, 175, 206, 257, 191, 208, 1
 -   Loop Count: 2
@@ -5489,12 +5489,12 @@
 - Face 48: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61526
 -   Measure: Area 0.0139 | Perimeter 0.4862 | Radius/Diameter 0.0630 | Min Curvature Radius 0.0630
 -   Points: Center (0.5556, 3.6383, -2.3468) | Anchor (0.5556, 3.6383, -2.3468)
--   Analytic: Ref Point (0.5522, 3.6142, -2.3981) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0630 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.5522, 3.6142, -2.3981) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0630 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0738, 0.0749] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 102, 135, 91, 145, 12, 178
 -   Loop Count: 1
@@ -5505,12 +5505,12 @@
 - Face 49: Planar | Edges: 14 | Facets: None | Vertices: 14 | Tag: 61462
 -   Measure: Area 1.8876 | Perimeter 9.5231 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8524, 3.2724, 0.0148) | Anchor (0.8524, 3.2724, 0.0148)
--   Analytic: Ref Point (0.8524, 3.2378, 0.0088) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.8524, 3.2378, 0.0088) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.5879, 0.5337] | V[-1.4237, 1.3663] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 237, 170, 258, 50, 141, 28, 189, 79, 242, 136, 21, 184, 74, 270
 -   Loop Count: 2
@@ -5521,11 +5521,11 @@
 - Face 50: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61626
 -   Measure: Area 0.0012 | Perimeter 0.1916 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.6324, 3.6516, -2.3476) | Anchor (0.6324, 3.6516, -2.3476)
--   Analytic: Ref Point (0.6309, 3.6142, -2.3981) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0728 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.6309, 3.6142, -2.3981) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0728 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 168, 108, 133, 178
 -   Loop Count: 1
@@ -5536,12 +5536,12 @@
 - Face 51: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61538
 -   Measure: Area 0.0035 | Perimeter 0.3466 | Radius/Diameter 0.0236 | Min Curvature Radius 0.0236
 -   Points: Center (-0.7776, 2.8232, 0.7081) | Anchor (-0.7776, 2.8232, 0.7081)
--   Analytic: Ref Point (-0.7776, 2.8318, 0.6872) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0236 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7776, 2.8318, 0.6872) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0236 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 110, 46, 70, 49
 -   Loop Count: 1
@@ -5552,11 +5552,11 @@
 - Face 52: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61574
 -   Measure: Area 0.0009 | Perimeter 0.1524 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.8489, 2.8715, -0.1420) | Anchor (0.8489, 2.8715, -0.1420)
--   Analytic: Ref Point (0.8474, 2.8102, -0.1943) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0886 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.8474, 2.8102, -0.1943) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0886 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 146, 107, 92, 184
 -   Loop Count: 1
@@ -5567,12 +5567,12 @@
 - Face 53: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61434
 -   Measure: Area 0.1148 | Perimeter 1.9229 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.7726, 2.4187, 0.6031) | Anchor (-0.7726, 2.4187, 0.6031)
--   Analytic: Ref Point (-0.7726, 2.4187, 0.6031) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7726, 2.4187, 0.6031) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.4109, 0.4109] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 139, 209, 96, 156
 -   Loop Count: 1
@@ -5583,11 +5583,11 @@
 - Face 54: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61592
 -   Measure: Area 0.0011 | Perimeter 0.1788 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.8489, 3.7323, 0.1644) | Anchor (-0.8489, 3.7323, 0.1644)
--   Analytic: Ref Point (-0.8474, 3.8322, 0.1630) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1083 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.8474, 3.8322, 0.1630) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1083 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 55, 104, 45, 143
 -   Loop Count: 1
@@ -5598,11 +5598,11 @@
 - Face 55: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61610
 -   Measure: Area 0.0021 | Perimeter 0.2682 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6530, 4.2976, -1.4461) | Anchor (0.6530, 4.2976, -1.4461)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 119, 233, 17, 179
 -   Loop Count: 1
@@ -5613,12 +5613,12 @@
 - Face 56: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61486
 -   Measure: Area 0.3020 | Perimeter 2.5833 | Radius/Diameter 0.1969 | Min Curvature Radius 0.1969
 -   Points: Center (-0.5643, 3.3334, -1.9027) | Anchor (-0.5643, 3.3334, -1.9027)
--   Analytic: Ref Point (-0.4390, 3.4507, -1.8586) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.1969 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.4390, 3.4507, -1.8586) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.1969 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.4915, 0.4957] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 43, 215, 22, 185, 89, 236
 -   Loop Count: 1
@@ -5629,12 +5629,12 @@
 - Face 57: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61436
 -   Measure: Area 0.0641 | Perimeter 1.1969 | Radius/Diameter 0.6319 | Min Curvature Radius 0.6319
 -   Points: Center (-0.7726, 2.6816, 0.0277) | Anchor (-0.7726, 2.6816, 0.0277)
--   Analytic: Ref Point (-0.7726, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.6319 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7726, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.6319 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 209, 182, 251, 38
 -   Loop Count: 1
@@ -5645,12 +5645,12 @@
 - Face 58: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61632
 -   Measure: Area 0.0136 | Perimeter 1.7868 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.0000, 3.4358, -2.3912) | Anchor (-0.0000, 3.4358, -2.3912)
--   Analytic: Ref Point (-0.0000, 3.4396, -2.3832) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 3.4396, -2.3832) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.4390, 0.4390] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 52, 154, 241, 221
 -   Loop Count: 1
@@ -5661,12 +5661,12 @@
 - Face 59: Cylindrical | Edges: 7 | Facets: None | Vertices: 7 | Tag: 61520
 -   Measure: Area 0.0139 | Perimeter 0.4858 | Radius/Diameter 0.0630 | Min Curvature Radius 0.0630
 -   Points: Center (0.5556, 3.2879, -1.3659) | Anchor (0.5556, 3.2879, -1.3659)
--   Analytic: Ref Point (0.5522, 3.2367, -1.3415) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0630 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.5522, 3.2367, -1.3415) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0630 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0738, 0.0749] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 57, 164, 198, 84, 246, 124, 218
 -   Loop Count: 1
@@ -5677,12 +5677,12 @@
 - Face 60: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61474
 -   Measure: Area 0.0080 | Perimeter 0.3938 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
 -   Points: Center (0.7726, 2.8688, -0.1443) | Anchor (0.7726, 2.8688, -0.1443)
--   Analytic: Ref Point (0.7726, 2.8102, -0.1943) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0787 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7726, 2.8102, -0.1943) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0787 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 16, 40, 149, 92
 -   Loop Count: 1
@@ -5693,12 +5693,12 @@
 - Face 61: Planar | Edges: 14 | Facets: None | Vertices: 14 | Tag: 61492
 -   Measure: Area 1.9688 | Perimeter 9.6276 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.7028, 3.2752, 0.0081) | Anchor (-0.7028, 3.2752, 0.0081)
--   Analytic: Ref Point (-0.7028, 3.2428, 0.0008) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7028, 3.2428, 0.0008) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.5999, 0.5420] | V[-1.4454, 1.3842] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 138, 234, 75, 131, 212, 265, 251, 96, 71, 158, 214, 126, 268, 70
 -   Loop Count: 2
@@ -5709,12 +5709,12 @@
 - Face 62: Cylindrical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 61510
 -   Measure: Area 0.3095 | Perimeter 2.7421 | Radius/Diameter 0.2362 | Min Curvature Radius 0.2362
 -   Points: Center (-0.5434, 3.7658, -1.2894) | Anchor (-0.5434, 3.7658, -1.2894)
--   Analytic: Ref Point (-0.7224, 3.7524, -1.4187) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.2362 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7224, 3.7524, -1.4187) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.2362 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.5876, 0.5876] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 172, 128, 67, 142, 122
 -   Loop Count: 1
@@ -5725,11 +5725,11 @@
 - Face 63: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61556
 -   Measure: Area 0.0015 | Perimeter 0.2585 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6492, 3.2811, -1.2708) | Anchor (-0.6492, 3.2811, -1.2708)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 101, 157, 200, 148
 -   Loop Count: 1
@@ -5740,12 +5740,12 @@
 - Face 64: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61534
 -   Measure: Area 0.0035 | Perimeter 0.3466 | Radius/Diameter 0.0236 | Min Curvature Radius 0.0236
 -   Points: Center (0.7776, 3.5340, 0.6291) | Anchor (0.7776, 3.5340, 0.6291)
--   Analytic: Ref Point (0.7776, 3.5210, 0.6106) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0236 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7776, 3.5210, 0.6106) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0236 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 237, 132, 197, 112
 -   Loop Count: 1
@@ -5756,12 +5756,12 @@
 - Face 65: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61552
 -   Measure: Area 0.0000 | Perimeter 0.0359 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6323, 3.2990, -1.3179) | Anchor (-0.6323, 3.2990, -1.3179)
--   Analytic: Ref Point (-0.6260, 3.3049, -1.3158) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6260, 3.3049, -1.3158) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0013, 0.0013] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 269, 101, 254, 248
 -   Loop Count: 1
@@ -5772,12 +5772,12 @@
 - Face 66: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61570
 -   Measure: Area 0.0135 | Perimeter 1.7826 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.8488, 3.0350, -0.5790) | Anchor (0.8488, 3.0350, -0.5790)
--   Analytic: Ref Point (0.8425, 3.0409, -0.5769) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.8425, 3.0409, -0.5769) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.4379, 0.4379] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 183, 146, 177, 74
 -   Loop Count: 1
@@ -5788,12 +5788,12 @@
 - Face 67: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61430
 -   Measure: Area 0.1148 | Perimeter 1.9229 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.7726, 2.8612, 1.1241) | Anchor (-0.7726, 2.8612, 1.1241)
--   Analytic: Ref Point (-0.7726, 2.8612, 1.1241) | Direction (0.0000, 0.1795, 0.9838) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7726, 2.8612, 1.1241) | Direction (0.0000, 0.1795, 0.9838) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.4109, 0.4109] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 249, 194, 158, 98
 -   Loop Count: 1
@@ -5804,12 +5804,12 @@
 - Face 68: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61444
 -   Measure: Area 0.1037 | Perimeter 1.6861 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.7776, 3.1790, 0.6723) | Anchor (-0.7776, 3.1790, 0.6723)
--   Analytic: Ref Point (-0.7776, 3.1790, 0.6723) | Direction (-0.0000, -0.1104, -0.9939) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7776, 3.1790, 0.6723) | Direction (-0.0000, -0.1104, -0.9939) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.3467, 0.3467] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 60, 110, 204, 126
 -   Loop Count: 1
@@ -5820,11 +5820,11 @@
 - Face 69: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61606
 -   Measure: Area 0.0058 | Perimeter 0.6696 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.7912, 4.2498, -1.3128) | Anchor (0.7912, 4.2498, -1.3128)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 109, 119, 235, 25
 -   Loop Count: 1
@@ -5835,12 +5835,12 @@
 - Face 70: Planar | Edges: 14 | Facets: None | Vertices: 14 | Tag: 61456
 -   Measure: Area 1.8876 | Perimeter 9.5231 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.8524, 3.2724, 0.0148) | Anchor (-0.8524, 3.2724, 0.0148)
--   Analytic: Ref Point (-0.8524, 3.2378, 0.0088) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.8524, 3.2378, 0.0088) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.5337, 0.5879] | V[-1.4237, 1.3663] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 174, 114, 204, 44, 94, 256, 150, 34, 195, 88, 250, 143, 29, 49
 -   Loop Count: 2
@@ -5851,11 +5851,11 @@
 - Face 71: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61598
 -   Measure: Area 0.0011 | Perimeter 0.1788 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.8489, 3.7323, 0.1644) | Anchor (0.8489, 3.7323, 0.1644)
--   Analytic: Ref Point (0.8474, 3.8322, 0.1630) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1083 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.8474, 3.8322, 0.1630) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1083 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 3, 229, 247, 28
 -   Loop Count: 1
@@ -5866,12 +5866,12 @@
 - Face 72: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61516
 -   Measure: Area 0.1009 | Perimeter 2.2670 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
 -   Points: Center (0.6549, 3.7877, -1.3589) | Anchor (0.6549, 3.7877, -1.3589)
--   Analytic: Ref Point (0.7146, 3.7837, -1.4021) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.0787 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7146, 3.7837, -1.4021) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.0787 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.5357, 0.5357] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 78, 162, 17, 180
 -   Loop Count: 1
@@ -5882,12 +5882,12 @@
 - Face 73: Cylindrical | Edges: 7 | Facets: None | Vertices: 7 | Tag: 61522
 -   Measure: Area 0.0139 | Perimeter 0.4858 | Radius/Diameter 0.0630 | Min Curvature Radius 0.0630
 -   Points: Center (-0.5556, 3.2879, -1.3659) | Anchor (-0.5556, 3.2879, -1.3659)
--   Analytic: Ref Point (-0.5522, 3.2367, -1.3415) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0630 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.5522, 3.2367, -1.3415) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0630 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0749, 0.0738] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 118, 8, 172, 193, 140, 243, 137
 -   Loop Count: 1
@@ -5898,12 +5898,12 @@
 - Face 74: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 61454
 -   Measure: Area 0.1193 | Perimeter 1.7068 | Radius/Diameter 0.1358 | Min Curvature Radius 0.1358
 -   Points: Center (-0.5561, 4.1555, -2.3803) | Anchor (-0.5561, 4.1555, -2.3803)
--   Analytic: Ref Point (-0.5561, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1358 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.5561, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1358 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[0.5561, 0.5561] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 56, 23
 -   Loop Count: 1
@@ -5914,12 +5914,12 @@
 - Face 75: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61490
 -   Measure: Area 0.8745 | Perimeter 3.7480 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 3.4069, -1.8764) | Anchor (0.0000, 3.4069, -1.8764)
--   Analytic: Ref Point (-0.0000, 3.4069, -1.8764) | Direction (0.0000, 0.9417, 0.3364) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 3.4069, -1.8764) | Direction (0.0000, 0.9417, 0.3364) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.4980, 0.4980] | V[-0.4390, 0.4390] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 163, 123, 83, 48
 -   Loop Count: 1
@@ -5930,12 +5930,12 @@
 - Face 76: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61488
 -   Measure: Area 0.3020 | Perimeter 2.5833 | Radius/Diameter 0.1969 | Min Curvature Radius 0.1969
 -   Points: Center (0.5643, 3.3334, -1.9027) | Anchor (0.5643, 3.3334, -1.9027)
--   Analytic: Ref Point (0.4390, 3.4507, -1.8586) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.1969 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.4390, 3.4507, -1.8586) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.1969 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.4957, 0.4915] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 5, 54, 64, 127, 116, 7
 -   Loop Count: 1
@@ -5946,12 +5946,12 @@
 - Face 77: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61468
 -   Measure: Area 0.0461 | Perimeter 0.9392 | Radius/Diameter 0.1575 | Min Curvature Radius 0.1575
 -   Points: Center (0.7726, 2.3295, 1.1272) | Anchor (0.7726, 2.3295, 1.1272)
--   Analytic: Ref Point (0.7726, 2.4288, 1.0429) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1575 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7726, 2.4288, 1.0429) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1575 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 36, 232, 201, 32
 -   Loop Count: 1
@@ -5962,12 +5962,12 @@
 - Face 78: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61506
 -   Measure: Area 0.3027 | Perimeter 2.6908 | Radius/Diameter 0.2362 | Min Curvature Radius 0.2362
 -   Points: Center (0.7952, 3.7386, -1.2215) | Anchor (0.7952, 3.7386, -1.2215)
--   Analytic: Ref Point (0.6161, 3.7524, -1.0922) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.2362 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6161, 3.7524, -1.0922) | Direction (-0.0000, 0.9838, -0.1795) | Radius 0.2362 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.5735, 0.5735] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 78, 170, 235, 129
 -   Loop Count: 1
@@ -5978,11 +5978,11 @@
 - Face 79: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61560
 -   Measure: Area 0.0041 | Perimeter 0.6598 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.7994, 3.2267, -1.1184) | Anchor (-0.7994, 3.2267, -1.1184)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 157, 216, 97, 33
 -   Loop Count: 1
@@ -5993,11 +5993,11 @@
 - Face 80: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 61530
 -   Measure: Area 0.0123 | Perimeter 1.7687 | Radius/Diameter N/A | Min Curvature Radius 0.1921
 -   Points: Center (0.6310, 4.1555, -2.3803) | Anchor (0.6310, 4.1555, -2.3803)
--   Analytic: Ref Point (0.6309, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1407 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.6309, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1407 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 263, 39
 -   Loop Count: 1
@@ -6008,11 +6008,11 @@
 - Face 81: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61548
 -   Measure: Area 0.0012 | Perimeter 0.1916 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.6324, 3.2977, -1.3569) | Anchor (-0.6324, 3.2977, -1.3569)
--   Analytic: Ref Point (-0.6309, 3.2367, -1.3415) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0728 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.6309, 3.2367, -1.3415) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0728 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 159, 269, 86, 137
 -   Loop Count: 1
@@ -6023,11 +6023,11 @@
 - Face 82: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61566
 -   Measure: Area 0.0041 | Perimeter 0.6598 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.7994, 3.2267, -1.1184) | Anchor (0.7994, 3.2267, -1.1184)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 11, 183, 63, 129
 -   Loop Count: 1
@@ -6038,12 +6038,12 @@
 - Face 83: Planar | Edges: 10 | Facets: None | Vertices: 10 | Tag: 61426
 -   Measure: Area 0.3595 | Perimeter 5.4623 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.6908, 4.1635, -1.0569) | Anchor (-0.6908, 4.1635, -1.0569)
--   Analytic: Ref Point (-0.6644, 4.1607, -1.0491) | Direction (0.0000, 0.9417, 0.3364) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6644, 4.1607, -1.0491) | Direction (0.0000, 0.9417, 0.3364) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-1.2519, 1.2519] | V[-0.1781, 0.1781] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 134, 67, 227, 51, 264, 131, 211, 105, 266, 161
 -   Loop Count: 1
@@ -6054,12 +6054,12 @@
 - Face 84: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61584
 -   Measure: Area 0.0127 | Perimeter 1.6743 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.8488, 2.8606, 1.1206) | Anchor (-0.8488, 2.8606, 1.1206)
--   Analytic: Ref Point (-0.8425, 2.8594, 1.1144) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.8425, 2.8594, 1.1144) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.4109, 0.4109] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 255, 24, 98, 88
 -   Loop Count: 1
@@ -6070,12 +6070,12 @@
 - Face 85: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61470
 -   Measure: Area 0.1148 | Perimeter 1.9229 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.7726, 2.4187, 0.6031) | Anchor (0.7726, 2.4187, 0.6031)
--   Analytic: Ref Point (0.7726, 2.4187, 0.6031) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7726, 2.4187, 0.6031) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.4109, 0.4109] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 232, 14, 176, 147
 -   Loop Count: 1
@@ -6086,12 +6086,12 @@
 - Face 86: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61602
 -   Measure: Area 0.0213 | Perimeter 2.7907 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.8488, 3.9683, -0.5211) | Anchor (0.8488, 3.9683, -0.5211)
--   Analytic: Ref Point (0.8425, 3.9624, -0.5232) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.8425, 3.9624, -0.5232) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.6899, 0.6899] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 229, 109, 141, 186
 -   Loop Count: 1
@@ -6102,11 +6102,11 @@
 - Face 87: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61618
 -   Measure: Area 0.0218 | Perimeter 2.8447 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.6322, 4.2517, -2.6496) | Anchor (0.6322, 4.2517, -2.6496)
--   Analytic: Ref Point (0.6309, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.4429 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.6309, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.4429 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 259, 125, 76, 224
 -   Loop Count: 1
@@ -6117,11 +6117,11 @@
 - Face 88: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61588
 -   Measure: Area 0.0171 | Perimeter 2.2413 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.8488, 3.6323, 0.6968) | Anchor (-0.8488, 3.6323, 0.6968)
--   Analytic: Ref Point (-0.8474, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.6220 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.8474, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.6220 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 24, 55, 207, 250
 -   Loop Count: 1
@@ -6132,12 +6132,12 @@
 - Face 89: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61450
 -   Measure: Area 0.0231 | Perimeter 0.6102 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.5561, 3.7013, -2.4548) | Anchor (0.5561, 3.7013, -2.4548)
--   Analytic: Ref Point (0.5561, 3.7013, -2.4548) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.5561, 3.7013, -2.4548) | Direction (-0.0000, -0.9417, -0.3364) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0827, 0.0827] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 91, 244, 257, 239
 -   Loop Count: 1
@@ -6148,12 +6148,12 @@
 - Face 90: Planar | Edges: 10 | Facets: None | Vertices: 10 | Tag: 61460
 -   Measure: Area 0.3595 | Perimeter 5.4623 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.6908, 4.1635, -1.0569) | Anchor (0.6908, 4.1635, -1.0569)
--   Analytic: Ref Point (0.6644, 4.1607, -1.0491) | Direction (0.0000, 0.9417, 0.3364) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6644, 4.1607, -1.0491) | Direction (0.0000, 0.9417, 0.3364) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-1.2519, 1.2519] | V[-0.1781, 0.1781] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 100, 10, 230, 167, 152, 208, 240, 179, 25, 186
 -   Loop Count: 1
@@ -6164,12 +6164,12 @@
 - Face 91: Planar | Edges: 9 | Facets: None | Vertices: 9 | Tag: 61484
 -   Measure: Area 1.2040 | Perimeter 5.4354 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.6358, 3.9842, -2.0366) | Anchor (-0.6358, 3.9842, -2.0366)
--   Analytic: Ref Point (-0.6358, 3.9419, -2.0689) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6358, 3.9419, -2.0689) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.5469, 3.0848] | V[-0.3724, 3.2098] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 151, 27, 215, 86, 248, 222, 6, 190, 80
 -   Loop Count: 2
@@ -6180,12 +6180,12 @@
 - Face 92: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61502
 -   Measure: Area 0.0740 | Perimeter 2.1551 | Radius/Diameter 0.0472 | Min Curvature Radius 0.0472
 -   Points: Center (0.4691, 3.4231, -1.8706) | Anchor (0.4691, 3.4231, -1.8706)
--   Analytic: Ref Point (0.4390, 3.4502, -1.8572) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0472 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.4390, 3.4502, -1.8572) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.0472 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.5008, 0.5079] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 102, 198, 206, 77, 123, 192
 -   Loop Count: 1
@@ -6196,12 +6196,12 @@
 - Face 93: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61438
 -   Measure: Area 0.0080 | Perimeter 0.3938 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
 -   Points: Center (-0.7726, 2.8688, -0.1443) | Anchor (-0.7726, 2.8688, -0.1443)
--   Analytic: Ref Point (-0.7726, 2.8102, -0.1943) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0787 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7726, 2.8102, -0.1943) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0787 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 182, 81, 265, 202
 -   Loop Count: 1
@@ -6212,11 +6212,11 @@
 - Face 94: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61544
 -   Measure: Area 0.0004 | Perimeter 0.0853 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.6317, 3.2702, -1.3987) | Anchor (-0.6317, 3.2702, -1.3987)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 225, 159, 243, 185
 -   Loop Count: 1
@@ -6227,11 +6227,11 @@
 - Face 95: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61562
 -   Measure: Area 0.0015 | Perimeter 0.2585 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6492, 3.2811, -1.2708) | Anchor (0.6492, 3.2811, -1.2708)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 245, 11, 103, 180
 -   Loop Count: 1
@@ -6242,12 +6242,12 @@
 - Face 96: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 61422
 -   Measure: Area 0.1193 | Perimeter 1.7068 | Radius/Diameter 0.1358 | Min Curvature Radius 0.1358
 -   Points: Center (0.5561, 4.1555, -2.3803) | Anchor (0.5561, 4.1555, -2.3803)
--   Analytic: Ref Point (0.5561, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1358 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.5561, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1358 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.5561, -0.5561] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 39, 1
 -   Loop Count: 1
@@ -6258,11 +6258,11 @@
 - Face 97: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61580
 -   Measure: Area 0.0050 | Perimeter 0.6700 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.8487, 2.3317, 1.1254) | Anchor (-0.8487, 2.3317, 1.1254)
--   Analytic: Ref Point (-0.8474, 2.4288, 1.0429) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1476 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.8474, 2.4288, 1.0429) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1476 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 15, 255, 260, 195
 -   Loop Count: 1
@@ -6273,12 +6273,12 @@
 - Face 98: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61440
 -   Measure: Area 0.0098 | Perimeter 0.4204 | Radius/Diameter 0.0984 | Min Curvature Radius 0.0984
 -   Points: Center (-0.7726, 3.7359, 0.1644) | Anchor (-0.7726, 3.7359, 0.1644)
--   Analytic: Ref Point (-0.7726, 3.8322, 0.1630) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0984 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7726, 3.8322, 0.1630) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0984 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 51, 26, 75, 45
 -   Loop Count: 1
@@ -6289,12 +6289,12 @@
 - Face 99: Cylindrical | Edges: 6 | Facets: None | Vertices: 6 | Tag: 61524
 -   Measure: Area 0.0139 | Perimeter 0.4862 | Radius/Diameter 0.0630 | Min Curvature Radius 0.0630
 -   Points: Center (-0.5556, 3.6383, -2.3468) | Anchor (-0.5556, 3.6383, -2.3468)
--   Analytic: Ref Point (-0.5522, 3.6142, -2.3981) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0630 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.5522, 3.6142, -2.3981) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0630 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0749, 0.0738] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 160, 223, 252, 144, 120, 9
 -   Loop Count: 1
@@ -6305,12 +6305,12 @@
 - Face 100: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 61446
 -   Measure: Area 0.1663 | Perimeter 2.6708 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 3.1788, -1.4291) | Anchor (0.0000, 3.1788, -1.4291)
--   Analytic: Ref Point (-0.0000, 3.1828, -1.4276) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 3.1828, -1.4276) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0797, 0.0797] | V[-0.6239, 0.6239] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 246, 140, 111, 192, 83, 181, 68, 228
 -   Loop Count: 1
@@ -6321,12 +6321,12 @@
 - Face 101: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61622
 -   Measure: Area 0.0026 | Perimeter 0.3616 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.6323, 3.7047, -2.4536) | Anchor (0.6323, 3.7047, -2.4536)
--   Analytic: Ref Point (0.6260, 3.7106, -2.4515) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6260, 3.7106, -2.4515) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0827, 0.0827] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 125, 168, 239, 19
 -   Loop Count: 1
@@ -6337,12 +6337,12 @@
 - Face 102: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61480
 -   Measure: Area 0.1037 | Perimeter 1.6861 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.7776, 3.1790, 0.6723) | Anchor (0.7776, 3.1790, 0.6723)
--   Analytic: Ref Point (0.7776, 3.1790, 0.6723) | Direction (-0.0000, -0.1104, -0.9939) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7776, 3.1790, 0.6723) | Direction (-0.0000, -0.1104, -0.9939) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.3467, 0.3467] | V[-0.0748, 0.0748] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 197, 219, 258, 205
 -   Loop Count: 1
@@ -6353,12 +6353,12 @@
 - Face 103: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 61498
 -   Measure: Area 1.2144 | Perimeter 5.3699 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.4862, 3.9936, -2.0570) | Anchor (-0.4862, 3.9936, -2.0570)
--   Analytic: Ref Point (-0.4862, 3.9450, -2.0846) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.4862, 3.9450, -2.0846) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-3.0828, 0.5588] | V[-0.3568, 3.2256] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 160, 8, 122, 210, 264, 23, 121, 238
 -   Loop Count: 2
@@ -6369,11 +6369,11 @@
 - Face 104: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61540
 -   Measure: Area 0.0043 | Perimeter 0.5771 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.5548, 3.1585, -1.4402) | Anchor (-0.5548, 3.1585, -1.4402)
--   Analytic: Ref Point (-0.4390, 3.2856, -1.3964) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.1870 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.4390, 3.2856, -1.3964) | Direction (-0.0000, 0.3364, -0.9417) | Radius 0.1870 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 203, 225, 22, 228
 -   Loop Count: 1
@@ -6384,12 +6384,12 @@
 - Face 105: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61464
 -   Measure: Area 0.1557 | Perimeter 2.5073 | Radius/Diameter 0.6319 | Min Curvature Radius 0.6319
 -   Points: Center (0.7726, 3.6351, 0.6983) | Anchor (0.7726, 3.6351, 0.6983)
--   Analytic: Ref Point (0.7726, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.6319 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7726, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.6319 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0699, 0.0699] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 196, 87, 47, 85
 -   Loop Count: 1
@@ -6400,11 +6400,11 @@
 - Face 106: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61628
 -   Measure: Area 0.0043 | Perimeter 0.5771 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.5548, 3.4912, -2.3713) | Anchor (-0.5548, 3.4912, -2.3713)
--   Analytic: Ref Point (-0.4390, 3.6170, -2.3239) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.1870 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.4390, 3.6170, -2.3239) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.1870 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 231, 52, 236, 62
 -   Loop Count: 1
@@ -6415,11 +6415,11 @@
 - Face 107: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61594
 -   Measure: Area 0.0171 | Perimeter 2.2413 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.8488, 3.6323, 0.6968) | Anchor (0.8488, 3.6323, 0.6968)
--   Analytic: Ref Point (0.8474, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.6220 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.8474, 3.1520, 0.4287) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.6220 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 99, 3, 85, 189
 -   Loop Count: 1
@@ -6430,12 +6430,12 @@
 - Face 108: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61512
 -   Measure: Area 0.1032 | Perimeter 2.3077 | Radius/Diameter 0.0787 | Min Curvature Radius 0.0787
 -   Points: Center (0.6837, 3.7167, -1.1520) | Anchor (0.6837, 3.7167, -1.1520)
--   Analytic: Ref Point (0.6240, 3.7212, -1.1089) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.0787 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6240, 3.7212, -1.1089) | Direction (0.0000, -0.9838, 0.1795) | Radius 0.0787 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.5444, 0.5444] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 100, 226, 30, 82
 -   Loop Count: 1
@@ -6446,11 +6446,11 @@
 - Face 109: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61612
 -   Measure: Area 0.0218 | Perimeter 2.8447 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (-0.6322, 4.2517, -2.6496) | Anchor (-0.6322, 4.2517, -2.6496)
--   Analytic: Ref Point (-0.6309, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.4429 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.6309, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.4429 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 72, 53, 59, 6
 -   Loop Count: 1
@@ -6461,11 +6461,11 @@
 - Face 110: SurfaceOfRevolution | Edges: 4 | Facets: None | Vertices: 4 | Tag: 61634
 -   Measure: Area 0.0043 | Perimeter 0.5771 | Radius/Diameter N/A | Min Curvature Radius 0.0098
 -   Points: Center (0.5548, 3.4912, -2.3713) | Anchor (0.5548, 3.4912, -2.3713)
--   Analytic: Ref Point (0.4390, 3.6170, -2.3239) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.1870 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.4390, 3.6170, -2.3239) | Direction (0.0000, -0.3364, 0.9417) | Radius 0.1870 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 41, 154, 64, 171
 -   Loop Count: 1
@@ -6497,15 +6497,15 @@
 - Radius Of Gyration: 0.2201
 - Centroid: (-0.6614, 4.1555, -2.3803)
 ### Bounding Box
-- X Min: -0.5866
-- Y Min: 3.7441
-- Z Min: -0.5866
-- X Max: 0.5866
-- Y Max: 3.8661
-- Z Max: 0.5866
-- Dx (Length): 1.1732
-- Dy (Width): 0.1220
-- Dz (Height): 1.1732
+- X Min: -0.6870
+- Y Min: 3.8799
+- Z Min: -2.6559
+- X Max: -0.6358
+- Y Max: 4.4311
+- Z Max: -2.1047
+- Dx (Length): 0.0512
+- Dy (Width): 0.5512
+- Dz (Height): 0.5512
 
 ### Features
 - Total Features: 1
@@ -6611,11 +6611,11 @@
 - Face 1: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62574
 -   Measure: Area 0.0115 | Perimeter 3.4335 | Radius/Diameter N/A | Min Curvature Radius 0.3831
 -   Points: Center (-0.6382, 4.1555, -2.3803) | Anchor (-0.6382, 4.1555, -2.3803)
--   Analytic: Ref Point (-0.6382, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.2732 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.6382, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.2732 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 6, 1
 -   Loop Count: 1
@@ -6626,12 +6626,12 @@
 - Face 2: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62560
 -   Measure: Area 0.1613 | Perimeter 2.6345 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.6870, 4.1555, -2.3803) | Anchor (-0.6870, 4.1555, -2.3803)
--   Analytic: Ref Point (-0.6870, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6870, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 3, 7
 -   Loop Count: 1
@@ -6642,12 +6642,12 @@
 - Face 3: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62564
 -   Measure: Area 0.0723 | Perimeter 3.4632 | Radius/Diameter 0.2756 | Min Curvature Radius 0.2756
 -   Points: Center (-0.6614, 4.1555, -2.3803) | Anchor (-0.6614, 4.1555, -2.3803)
--   Analytic: Ref Point (-0.6614, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.2756 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6614, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.2756 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[0.6614, 0.6614] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 2, 6
 -   Loop Count: 1
@@ -6658,12 +6658,12 @@
 - Face 4: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62566
 -   Measure: Area 0.0377 | Perimeter 1.8058 | Radius/Diameter 0.1437 | Min Curvature Radius 0.1437
 -   Points: Center (-0.6614, 4.1555, -2.3803) | Anchor (-0.6614, 4.1555, -2.3803)
--   Analytic: Ref Point (-0.6614, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1437 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6614, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1437 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.6614, -0.6614] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 4, 8
 -   Loop Count: 1
@@ -6674,11 +6674,11 @@
 - Face 5: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62568
 -   Measure: Area 0.0061 | Perimeter 1.8355 | Radius/Diameter N/A | Min Curvature Radius 0.2032
 -   Points: Center (-0.6382, 4.1555, -2.3803) | Anchor (-0.6382, 4.1555, -2.3803)
--   Analytic: Ref Point (-0.6382, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1461 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.6382, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1461 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 4, 5
 -   Loop Count: 1
@@ -6689,11 +6689,11 @@
 - Face 6: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62570
 -   Measure: Area 0.0061 | Perimeter 1.8355 | Radius/Diameter N/A | Min Curvature Radius 0.2032
 -   Points: Center (-0.6847, 4.1555, -2.3803) | Anchor (-0.6847, 4.1555, -2.3803)
--   Analytic: Ref Point (-0.6846, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1461 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.6846, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1461 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 3, 8
 -   Loop Count: 1
@@ -6704,12 +6704,12 @@
 - Face 7: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62562
 -   Measure: Area 0.1613 | Perimeter 2.6345 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.6358, 4.1555, -2.3803) | Anchor (-0.6358, 4.1555, -2.3803)
--   Analytic: Ref Point (-0.6358, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6358, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 5, 1
 -   Loop Count: 1
@@ -6720,11 +6720,11 @@
 - Face 8: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62572
 -   Measure: Area 0.0115 | Perimeter 3.4335 | Radius/Diameter N/A | Min Curvature Radius 0.3831
 -   Points: Center (-0.6846, 4.1555, -2.3803) | Anchor (-0.6846, 4.1555, -2.3803)
--   Analytic: Ref Point (-0.6846, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.2732 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.6846, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.2732 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 2, 7
 -   Loop Count: 1
@@ -6756,10 +6756,10 @@
 - Radius Of Gyration: 0.2201
 - Centroid: (0.6614, 4.1555, -2.3803)
 ### Bounding Box
-- X Min: 0.6358
+- X Min: -0.6870
 - Y Min: 3.8799
 - Z Min: -2.6559
-- X Max: 0.6870
+- X Max: -0.6358
 - Y Max: 4.4311
 - Z Max: -2.1047
 - Dx (Length): 0.0512
@@ -6870,11 +6870,11 @@
 - Face 1: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62620
 -   Measure: Area 0.0061 | Perimeter 1.8355 | Radius/Diameter N/A | Min Curvature Radius 0.2032
 -   Points: Center (0.6847, 4.1555, -2.3803) | Anchor (0.6847, 4.1555, -2.3803)
--   Analytic: Ref Point (0.6846, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1461 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.6846, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1461 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 1, 7
 -   Loop Count: 1
@@ -6885,11 +6885,11 @@
 - Face 2: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62622
 -   Measure: Area 0.0061 | Perimeter 1.8355 | Radius/Diameter N/A | Min Curvature Radius 0.2032
 -   Points: Center (0.6382, 4.1555, -2.3803) | Anchor (0.6382, 4.1555, -2.3803)
--   Analytic: Ref Point (0.6382, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1461 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.6382, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1461 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 6, 5
 -   Loop Count: 1
@@ -6900,11 +6900,11 @@
 - Face 3: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62624
 -   Measure: Area 0.0115 | Perimeter 3.4335 | Radius/Diameter N/A | Min Curvature Radius 0.3831
 -   Points: Center (0.6382, 4.1555, -2.3803) | Anchor (0.6382, 4.1555, -2.3803)
--   Analytic: Ref Point (0.6382, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.2732 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.6382, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.2732 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 3, 4
 -   Loop Count: 1
@@ -6915,11 +6915,11 @@
 - Face 4: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62626
 -   Measure: Area 0.0115 | Perimeter 3.4335 | Radius/Diameter N/A | Min Curvature Radius 0.3831
 -   Points: Center (0.6846, 4.1555, -2.3803) | Anchor (0.6846, 4.1555, -2.3803)
--   Analytic: Ref Point (0.6846, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.2732 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.6846, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.2732 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 2, 8
 -   Loop Count: 1
@@ -6930,12 +6930,12 @@
 - Face 5: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62612
 -   Measure: Area 0.1613 | Perimeter 2.6345 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.6358, 4.1555, -2.3803) | Anchor (0.6358, 4.1555, -2.3803)
--   Analytic: Ref Point (0.6358, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6358, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 6, 4
 -   Loop Count: 1
@@ -6946,12 +6946,12 @@
 - Face 6: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62614
 -   Measure: Area 0.1613 | Perimeter 2.6345 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.6870, 4.1555, -2.3803) | Anchor (0.6870, 4.1555, -2.3803)
--   Analytic: Ref Point (0.6870, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6870, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 7, 8
 -   Loop Count: 1
@@ -6962,12 +6962,12 @@
 - Face 7: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62616
 -   Measure: Area 0.0723 | Perimeter 3.4632 | Radius/Diameter 0.2756 | Min Curvature Radius 0.2756
 -   Points: Center (0.6614, 4.1555, -2.3803) | Anchor (0.6614, 4.1555, -2.3803)
--   Analytic: Ref Point (0.6614, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.2756 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6614, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.2756 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.6614, -0.6614] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 3, 2
 -   Loop Count: 1
@@ -6978,12 +6978,12 @@
 - Face 8: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62618
 -   Measure: Area 0.0377 | Perimeter 1.8058 | Radius/Diameter 0.1437 | Min Curvature Radius 0.1437
 -   Points: Center (0.6614, 4.1555, -2.3803) | Anchor (0.6614, 4.1555, -2.3803)
--   Analytic: Ref Point (0.6614, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1437 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6614, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1437 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[0.6614, 0.6614] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 1, 5
 -   Loop Count: 1
@@ -7015,10 +7015,10 @@
 - Radius Of Gyration: 0.5478
 - Centroid: (-0.0000, 4.1555, -2.3803)
 ### Bounding Box
-- X Min: 0.6358
+- X Min: -0.6870
 - Y Min: 3.8799
 - Z Min: -2.6559
-- X Max: 0.6870
+- X Max: -0.6358
 - Y Max: 4.4311
 - Z Max: -2.1047
 - Dx (Length): 0.0512
@@ -7147,11 +7147,11 @@
 - Face 1: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62680
 -   Measure: Area 0.0029 | Perimeter 0.6111 | Radius/Diameter N/A | Min Curvature Radius 0.0438
 -   Points: Center (0.7540, 4.1068, -2.4975) | Anchor (0.7540, 4.1068, -2.4975)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0079 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0079 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 12, 7
 -   Loop Count: 1
@@ -7162,11 +7162,11 @@
 - Face 2: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62682
 -   Measure: Area 0.0029 | Perimeter 0.6111 | Radius/Diameter N/A | Min Curvature Radius 0.0438
 -   Points: Center (-0.7540, 4.2042, -2.2632) | Anchor (-0.7540, 4.2042, -2.2632)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0079 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0079 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 6, 11
 -   Loop Count: 1
@@ -7177,12 +7177,12 @@
 - Face 3: Cylindrical | Edges: 6 | Facets: None | Vertices: 1 | Tag: 62664
 -   Measure: Area 1.5561 | Perimeter 2.9998 | Radius/Diameter 0.1358 | Min Curvature Radius 0.1358
 -   Points: Center (0.0000, 4.1555, -2.3803) | Anchor (0.0000, 4.1555, -2.3803)
--   Analytic: Ref Point (0.0000, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1358 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1358 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0000, -0.0000] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 8, 7, 11, 4, 2, 5
 -   Loop Count: 1
@@ -7193,11 +7193,11 @@
 - Face 4: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62684
 -   Measure: Area 0.0029 | Perimeter 0.6111 | Radius/Diameter N/A | Min Curvature Radius 0.0438
 -   Points: Center (-0.7539, 4.1068, -2.4975) | Anchor (-0.7539, 4.1068, -2.4975)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0079 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0079 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 10, 4
 -   Loop Count: 1
@@ -7208,11 +7208,11 @@
 - Face 5: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62670
 -   Measure: Area 0.0220 | Perimeter 1.5832 | Radius/Diameter N/A | Min Curvature Radius 0.1642
 -   Points: Center (0.9407, 4.1555, -2.3803) | Anchor (0.9407, 4.1555, -2.3803)
--   Analytic: Ref Point (0.9409, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1260 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.9409, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.1260 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 9, 2
 -   Loop Count: 1
@@ -7223,11 +7223,11 @@
 - Face 6: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62672
 -   Measure: Area 0.0220 | Perimeter 1.5832 | Radius/Diameter N/A | Min Curvature Radius 0.1642
 -   Points: Center (-0.9407, 4.1555, -2.3803) | Anchor (-0.9407, 4.1555, -2.3803)
--   Analytic: Ref Point (-0.9409, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1260 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.9409, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.1260 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 1, 5
 -   Loop Count: 1
@@ -7238,12 +7238,12 @@
 - Face 7: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62674
 -   Measure: Area 0.0701 | Perimeter 0.5757 | Radius/Diameter 0.0453 | Min Curvature Radius 0.0453
 -   Points: Center (-0.7539, 4.1555, -2.3803) | Anchor (-0.7539, 4.1555, -2.3803)
--   Analytic: Ref Point (-0.7539, 4.1555, -2.3803) | Direction (0.0000, 0.3839, 0.9234) | Radius 0.0453 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7539, 4.1555, -2.3803) | Direction (0.0000, 0.3839, 0.9234) | Radius 0.0453 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[0.6025, 0.6025] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 6, 10
 -   Loop Count: 1
@@ -7254,12 +7254,12 @@
 - Face 8: Planar | Edges: 1 | Facets: None | Vertices: 1 | Tag: 62668
 -   Measure: Area 0.0424 | Perimeter 0.7297 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.9508, 4.1555, -2.3803) | Anchor (0.9508, 4.1555, -2.3803)
--   Analytic: Ref Point (0.9508, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9508, 4.1555, -2.3803) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 9
 -   Loop Count: 1
@@ -7270,12 +7270,12 @@
 - Face 9: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62676
 -   Measure: Area 0.0701 | Perimeter 0.5757 | Radius/Diameter 0.0453 | Min Curvature Radius 0.0453
 -   Points: Center (0.7539, 4.1555, -2.3803) | Anchor (0.7539, 4.1555, -2.3803)
--   Analytic: Ref Point (0.7539, 4.1555, -2.3803) | Direction (0.0000, 0.3839, 0.9234) | Radius 0.0453 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7539, 4.1555, -2.3803) | Direction (0.0000, 0.3839, 0.9234) | Radius 0.0453 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[0.6025, 0.6025] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 3, 12
 -   Loop Count: 1
@@ -7286,12 +7286,12 @@
 - Face 10: Planar | Edges: 1 | Facets: None | Vertices: 1 | Tag: 62666
 -   Measure: Area 0.0424 | Perimeter 0.7297 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.9508, 4.1555, -2.3803) | Anchor (-0.9508, 4.1555, -2.3803)
--   Analytic: Ref Point (-0.9508, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.9508, 4.1555, -2.3803) | Direction (-1.0000, -0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 1
 -   Loop Count: 1
@@ -7302,11 +7302,11 @@
 - Face 11: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62678
 -   Measure: Area 0.0029 | Perimeter 0.6111 | Radius/Diameter N/A | Min Curvature Radius 0.0438
 -   Points: Center (0.7539, 4.2042, -2.2632) | Anchor (0.7539, 4.2042, -2.2632)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0079 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0079 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 3, 8
 -   Loop Count: 1
@@ -7338,10 +7338,10 @@
 - Radius Of Gyration: 0.9624
 - Centroid: (0.0000, 0.2264, 0.0000)
 ### Bounding Box
-- X Min: 0.6358
+- X Min: -0.6870
 - Y Min: 3.8799
 - Z Min: -2.6559
-- X Max: 0.6870
+- X Max: -0.6358
 - Y Max: 4.4311
 - Z Max: -2.1047
 - Dx (Length): 0.0512
@@ -7452,12 +7452,12 @@
 - Face 1: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62739
 -   Measure: Area 0.1825 | Perimeter 13.2442 | Radius/Diameter 1.0539 | Min Curvature Radius 1.0539
 -   Points: Center (0.0000, 0.2264, 0.0000) | Anchor (0.0000, 0.2264, 0.0000)
--   Analytic: Ref Point (0.0000, 0.2264, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0539 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 0.2264, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0539 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[0.2264, 0.2264] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 8, 3
 -   Loop Count: 1
@@ -7468,11 +7468,11 @@
 - Face 2: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62741
 -   Measure: Area 0.7968 | Perimeter 12.7494 | Radius/Diameter N/A | Min Curvature Radius 0.0787
 -   Points: Center (0.0000, 0.2898, 0.0000) | Anchor (0.0000, 0.2898, 0.0000)
--   Analytic: Ref Point (0.0000, 0.2795, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.9752 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.2795, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.9752 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 3, 2
 -   Loop Count: 1
@@ -7483,12 +7483,12 @@
 - Face 3: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62743
 -   Measure: Area 0.2825 | Perimeter 11.9578 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 0.3189, -0.0000) | Anchor (0.0000, 0.3189, -0.0000)
--   Analytic: Ref Point (0.0000, 0.3189, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 0.3189, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 2, 5
 -   Loop Count: 1
@@ -7499,11 +7499,11 @@
 - Face 4: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62745
 -   Measure: Area 0.5520 | Perimeter 11.2652 | Radius/Diameter N/A | Min Curvature Radius 0.0630
 -   Points: Center (0.0000, 0.2964, 0.0000) | Anchor (0.0000, 0.2964, 0.0000)
--   Analytic: Ref Point (0.0000, 0.2874, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.9280 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.2874, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.9280 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 5, 1
 -   Loop Count: 1
@@ -7514,12 +7514,12 @@
 - Face 5: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62747
 -   Measure: Area 0.3209 | Perimeter 10.8694 | Radius/Diameter 0.8650 | Min Curvature Radius 0.8650
 -   Points: Center (0.0000, 0.2264, 0.0000) | Anchor (0.0000, 0.2264, 0.0000)
--   Analytic: Ref Point (0.0000, 0.2264, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.8650 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 0.2264, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.8650 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.2264, -0.2264] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 1, 6
 -   Loop Count: 1
@@ -7530,11 +7530,11 @@
 - Face 6: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62749
 -   Measure: Area 0.5520 | Perimeter 11.2652 | Radius/Diameter N/A | Min Curvature Radius 0.0630
 -   Points: Center (0.0000, 0.1564, 0.0000) | Anchor (0.0000, 0.1564, 0.0000)
--   Analytic: Ref Point (0.0000, 0.1654, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.9280 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.1654, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.9280 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 6, 7
 -   Loop Count: 1
@@ -7545,12 +7545,12 @@
 - Face 7: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62751
 -   Measure: Area 0.2825 | Perimeter 11.9578 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 0.1339, 0.0000) | Anchor (0.0000, 0.1339, 0.0000)
--   Analytic: Ref Point (0.0000, 0.1339, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 0.1339, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 7, 4
 -   Loop Count: 1
@@ -7561,11 +7561,11 @@
 - Face 8: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62737
 -   Measure: Area 0.7968 | Perimeter 12.7494 | Radius/Diameter N/A | Min Curvature Radius 0.0787
 -   Points: Center (0.0000, 0.1630, 0.0000) | Anchor (0.0000, 0.1630, 0.0000)
--   Analytic: Ref Point (0.0000, 0.1732, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.9752 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.1732, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.9752 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 8, 4
 -   Loop Count: 1
@@ -7597,10 +7597,10 @@
 - Radius Of Gyration: 0.9268
 - Centroid: (0.0000, -3.4331, -0.0000)
 ### Bounding Box
-- X Min: 0.6358
+- X Min: -0.6870
 - Y Min: 3.8799
 - Z Min: -2.6559
-- X Max: 0.6870
+- X Max: -0.6358
 - Y Max: 4.4311
 - Z Max: -2.1047
 - Dx (Length): 0.0512
@@ -7711,12 +7711,12 @@
 - Face 1: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62799
 -   Measure: Area 0.2518 | Perimeter 12.7890 | Radius/Diameter 1.0177 | Min Curvature Radius 1.0177
 -   Points: Center (0.0000, -3.4331, -0.0000) | Anchor (0.0000, -3.4331, -0.0000)
--   Analytic: Ref Point (0.0000, -3.4331, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 1.0177 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, -3.4331, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 1.0177 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[3.4331, 3.4331] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 1, 7
 -   Loop Count: 1
@@ -7727,12 +7727,12 @@
 - Face 2: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62791
 -   Measure: Area 0.2040 | Perimeter 10.3648 | Radius/Diameter 0.8248 | Min Curvature Radius 0.8248
 -   Points: Center (0.0000, -3.4331, -0.0000) | Anchor (0.0000, -3.4331, -0.0000)
--   Analytic: Ref Point (0.0000, -3.4331, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.8248 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, -3.4331, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.8248 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-3.4331, -3.4331] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 2, 3
 -   Loop Count: 1
@@ -7743,11 +7743,11 @@
 - Face 3: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62793
 -   Measure: Area 0.6632 | Perimeter 10.8595 | Radius/Diameter N/A | Min Curvature Radius 0.0787
 -   Points: Center (0.0000, -3.5035, -0.0000) | Anchor (0.0000, -3.5035, -0.0000)
--   Analytic: Ref Point (0.0000, -3.4921, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9035 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, -3.4921, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9035 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 3, 8
 -   Loop Count: 1
@@ -7758,11 +7758,11 @@
 - Face 4: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62801
 -   Measure: Area 0.7687 | Perimeter 12.2943 | Radius/Diameter N/A | Min Curvature Radius 0.0787
 -   Points: Center (0.0000, -3.3638, -0.0000) | Anchor (0.0000, -3.3638, -0.0000)
--   Analytic: Ref Point (0.0000, -3.3740, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9390 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, -3.3740, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9390 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 7, 5
 -   Loop Count: 1
@@ -7773,12 +7773,12 @@
 - Face 5: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62803
 -   Measure: Area 0.2051 | Perimeter 11.5769 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, -3.3346, -0.0000) | Anchor (0.0000, -3.3346, -0.0000)
--   Analytic: Ref Point (0.0000, -3.3346, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, -3.3346, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 5, 6
 -   Loop Count: 1
@@ -7789,11 +7789,11 @@
 - Face 6: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62789
 -   Measure: Area 0.6632 | Perimeter 10.8595 | Radius/Diameter N/A | Min Curvature Radius 0.0787
 -   Points: Center (0.0000, -3.3626, -0.0000) | Anchor (0.0000, -3.3626, -0.0000)
--   Analytic: Ref Point (0.0000, -3.3740, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9035 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, -3.3740, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9035 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 2, 6
 -   Loop Count: 1
@@ -7804,12 +7804,12 @@
 - Face 7: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62795
 -   Measure: Area 0.2051 | Perimeter 11.5769 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, -3.5315, 0.0000) | Anchor (0.0000, -3.5315, 0.0000)
--   Analytic: Ref Point (0.0000, -3.5315, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, -3.5315, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 8, 4
 -   Loop Count: 1
@@ -7820,11 +7820,11 @@
 - Face 8: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62797
 -   Measure: Area 0.7687 | Perimeter 12.2943 | Radius/Diameter N/A | Min Curvature Radius 0.0787
 -   Points: Center (0.0000, -3.5023, -0.0000) | Anchor (0.0000, -3.5023, -0.0000)
--   Analytic: Ref Point (0.0000, -3.4921, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9390 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, -3.4921, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9390 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 4, 1
 -   Loop Count: 1
@@ -7856,10 +7856,10 @@
 - Radius Of Gyration: 0.5158
 - Centroid: (0.0000, -2.7953, 0.0000)
 ### Bounding Box
-- X Min: 0.6358
+- X Min: -0.6870
 - Y Min: 3.8799
 - Z Min: -2.6559
-- X Max: 0.6870
+- X Max: -0.6358
 - Y Max: 4.4311
 - Z Max: -2.1047
 - Dx (Length): 0.0512
@@ -7970,12 +7970,12 @@
 - Face 1: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62843
 -   Measure: Area 0.1500 | Perimeter 5.4421 | Radius/Diameter 0.4331 | Min Curvature Radius 0.4331
 -   Points: Center (0.0000, -2.7953, 0.0000) | Anchor (0.0000, -2.7953, 0.0000)
--   Analytic: Ref Point (0.0000, -2.7953, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.4331 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, -2.7953, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.4331 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[2.7953, 2.7953] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 7, 4
 -   Loop Count: 1
@@ -7986,11 +7986,11 @@
 - Face 2: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62845
 -   Measure: Area 0.2835 | Perimeter 5.8379 | Radius/Diameter N/A | Min Curvature Radius 0.0630
 -   Points: Center (0.0000, -2.7269, 0.0000) | Anchor (0.0000, -2.7269, 0.0000)
--   Analytic: Ref Point (0.0000, -2.7362, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.4961 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, -2.7362, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.4961 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 4, 8
 -   Loop Count: 1
@@ -8001,11 +8001,11 @@
 - Face 3: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62841
 -   Measure: Area 0.2835 | Perimeter 5.8379 | Radius/Diameter N/A | Min Curvature Radius 0.0630
 -   Points: Center (0.0000, -2.8637, 0.0000) | Anchor (0.0000, -2.8637, 0.0000)
--   Analytic: Ref Point (0.0000, -2.8543, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.4961 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, -2.8543, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.4961 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 7, 2
 -   Loop Count: 1
@@ -8016,12 +8016,12 @@
 - Face 4: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62847
 -   Measure: Area 0.0818 | Perimeter 6.3945 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, -2.7047, 0.0000) | Anchor (0.0000, -2.7047, 0.0000)
--   Analytic: Ref Point (0.0000, -2.7047, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, -2.7047, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 8, 5
 -   Loop Count: 1
@@ -8032,11 +8032,11 @@
 - Face 5: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62849
 -   Measure: Area 0.3492 | Perimeter 6.9511 | Radius/Diameter N/A | Min Curvature Radius 0.0630
 -   Points: Center (0.0000, -2.7282, 0.0000) | Anchor (0.0000, -2.7282, 0.0000)
--   Analytic: Ref Point (0.0000, -2.7362, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.5217 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, -2.7362, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.5217 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 5, 3
 -   Loop Count: 1
@@ -8047,12 +8047,12 @@
 - Face 6: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62851
 -   Measure: Area 0.2025 | Perimeter 7.3469 | Radius/Diameter 0.5846 | Min Curvature Radius 0.5846
 -   Points: Center (0.0000, -2.7953, 0.0000) | Anchor (0.0000, -2.7953, 0.0000)
--   Analytic: Ref Point (0.0000, -2.7953, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.5846 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, -2.7953, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.5846 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-2.7953, -2.7953] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 3, 6
 -   Loop Count: 1
@@ -8063,11 +8063,11 @@
 - Face 7: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62853
 -   Measure: Area 0.3492 | Perimeter 6.9511 | Radius/Diameter N/A | Min Curvature Radius 0.0630
 -   Points: Center (0.0000, -2.8623, 0.0000) | Anchor (0.0000, -2.8623, 0.0000)
--   Analytic: Ref Point (0.0000, -2.8543, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.5217 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, -2.8543, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.5217 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 6, 1
 -   Loop Count: 1
@@ -8078,12 +8078,12 @@
 - Face 8: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62855
 -   Measure: Area 0.0818 | Perimeter 6.3945 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, -2.8858, -0.0000) | Anchor (0.0000, -2.8858, -0.0000)
--   Analytic: Ref Point (0.0000, -2.8858, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, -2.8858, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 1, 2
 -   Loop Count: 1
@@ -8115,15 +8115,15 @@
 - Radius Of Gyration: 0.7052
 - Centroid: (0.0143, 3.1402, 0.3231)
 ### Bounding Box
-- X Min: 0.6358
-- Y Min: 3.8799
-- Z Min: -2.6559
-- X Max: 0.6870
-- Y Max: 4.4311
-- Z Max: -2.1047
-- Dx (Length): 0.0512
-- Dy (Width): 0.5512
-- Dz (Height): 0.5512
+- X Min: -0.9902
+- Y Min: 2.6638
+- Z Min: -0.0594
+- X Max: 1.0515
+- Y Max: 3.6402
+- Z Max: 0.7144
+- Dx (Length): 2.0417
+- Dy (Width): 0.9764
+- Dz (Height): 0.7738
 
 ### Features
 - Total Features: 1
@@ -8639,12 +8639,12 @@
 - Face 1: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62915
 -   Measure: Area 0.8055 | Perimeter 3.5936 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0109, 3.1515, 0.4248) | Anchor (0.0109, 3.1515, 0.4248)
--   Analytic: Ref Point (0.0109, 3.1515, 0.4248) | Direction (-0.0000, 0.1104, 0.9939) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0109, 3.1515, 0.4248) | Direction (-0.0000, 0.1104, 0.9939) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.4287, 0.4287] | V[-0.4697, 0.4697] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 8, 27, 11, 16
 -   Loop Count: 1
@@ -8655,12 +8655,12 @@
 - Face 2: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62907
 -   Measure: Area 0.2004 | Perimeter 4.2686 | Radius/Diameter 0.4882 | Min Curvature Radius 0.4882
 -   Points: Center (-0.9312, 3.1295, 0.2261) | Anchor (-0.9312, 3.1295, 0.2261)
--   Analytic: Ref Point (-0.9312, 3.1520, 0.4287) | Direction (-1.0000, 0.0000, -0.0000) | Radius 0.4882 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.9312, 3.1520, 0.4287) | Direction (-1.0000, 0.0000, -0.0000) | Radius 0.4882 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0492, 0.0492] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 51, 42, 36, 49
 -   Loop Count: 1
@@ -8671,12 +8671,12 @@
 - Face 3: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62933
 -   Measure: Area 0.1844 | Perimeter 0.5693 | Radius/Diameter 0.0453 | Min Curvature Radius 0.0453
 -   Points: Center (0.9066, 3.1416, 0.3354) | Anchor (0.9066, 3.1416, 0.3354)
--   Analytic: Ref Point (0.9066, 3.1415, 0.3345) | Direction (-0.0000, 0.1104, 0.9939) | Radius 0.0453 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9066, 3.1415, 0.3345) | Direction (-0.0000, 0.1104, 0.9939) | Radius 0.0453 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.6794, -0.6794] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 45, 12
 -   Loop Count: 1
@@ -8687,12 +8687,12 @@
 - Face 4: Planar | Edges: 12 | Facets: None | Vertices: 12 | Tag: 62893
 -   Measure: Area 0.3647 | Perimeter 2.6595 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.7423, 3.1785, 0.6674) | Anchor (-0.7423, 3.1785, 0.6674)
--   Analytic: Ref Point (-0.7343, 3.1785, 0.6674) | Direction (-0.0000, 0.1104, 0.9939) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.7343, 3.1785, 0.6674) | Direction (-0.0000, 0.1104, 0.9939) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.4250, 0.4250] | V[-0.2461, 0.2461] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 14, 9, 36, 4, 46, 7, 34, 26, 39, 1, 10, 49
 -   Loop Count: 1
@@ -8703,12 +8703,12 @@
 - Face 5: Cylindrical | Edges: 21 | Facets: None | Vertices: 21 | Tag: 62899
 -   Measure: Area 3.0197 | Perimeter 8.8412 | Radius/Diameter 0.4287 | Min Curvature Radius 0.4287
 -   Points: Center (0.1004, 3.1286, 0.2188) | Anchor (0.1004, 3.1286, 0.2188)
--   Analytic: Ref Point (0.0897, 3.1520, 0.4287) | Direction (-1.0000, 0.0000, -0.0000) | Radius 0.4287 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0897, 3.1520, 0.4287) | Direction (-1.0000, 0.0000, -0.0000) | Radius 0.4287 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.9520, 0.9520] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 21, 50, 52, 37, 5, 24, 13, 32, 54, 11, 16, 30, 20, 44, 34, 26, 17, 15, 35, 3, 38
 -   Loop Count: 2
@@ -8719,12 +8719,12 @@
 - Face 6: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62923
 -   Measure: Area 0.0265 | Perimeter 1.7762 | Radius/Diameter 0.0197 | Min Curvature Radius 0.0197
 -   Points: Center (-0.4713, 3.1523, 0.4319) | Anchor (-0.4713, 3.1523, 0.4319)
--   Analytic: Ref Point (-0.4587, 3.1536, 0.4444) | Direction (-0.0000, -0.9939, 0.1104) | Radius 0.0197 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.4587, 3.1536, 0.4444) | Direction (-0.0000, -0.9939, 0.1104) | Radius 0.0197 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.4289, 0.4286] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 24, 13, 18, 27
 -   Loop Count: 1
@@ -8735,11 +8735,11 @@
 - Face 7: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62905
 -   Measure: Area 0.0281 | Perimeter 4.0719 | Radius/Diameter N/A | Min Curvature Radius 0.6765
 -   Points: Center (-0.8771, 3.1298, 0.2294) | Anchor (-0.8771, 3.1298, 0.2294)
--   Analytic: Ref Point (-0.8771, 3.1520, 0.4287) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.4833 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.8771, 3.1520, 0.4287) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.4833 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 53, 51, 4, 10
 -   Loop Count: 1
@@ -8750,12 +8750,12 @@
 - Face 8: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62931
 -   Measure: Area 0.0108 | Perimeter 1.4468 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (1.0479, 3.1781, 0.6639) | Anchor (1.0479, 3.1781, 0.6639)
--   Analytic: Ref Point (1.0416, 3.1779, 0.6576) | Direction (0.0000, -0.9939, 0.1104) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (1.0416, 3.1779, 0.6576) | Direction (0.0000, -0.9939, 0.1104) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.3547, 0.3556] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 47, 6, 25, 48
 -   Loop Count: 1
@@ -8766,11 +8766,11 @@
 - Face 9: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62897
 -   Measure: Area 0.0256 | Perimeter 3.6971 | Radius/Diameter N/A | Min Curvature Radius 0.5924
 -   Points: Center (1.0465, 3.1341, 0.2679) | Anchor (1.0465, 3.1341, 0.2679)
--   Analytic: Ref Point (1.0466, 3.1520, 0.4287) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.4238 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (1.0466, 3.1520, 0.4287) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.4238 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 6, 25, 22, 30
 -   Loop Count: 1
@@ -8781,12 +8781,12 @@
 - Face 10: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 62913
 -   Measure: Area 0.3680 | Perimeter 2.8300 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.7725, 3.1785, 0.6674) | Anchor (0.7725, 3.1785, 0.6674)
--   Analytic: Ref Point (0.7759, 3.1785, 0.6674) | Direction (-0.0000, 0.1104, 0.9939) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.7759, 3.1785, 0.6674) | Direction (-0.0000, 0.1104, 0.9939) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.3552, 3.0853] | V[-0.7759, 0.2657] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 31, 47, 23, 44, 17
 -   Loop Count: 2
@@ -8797,12 +8797,12 @@
 - Face 11: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62903
 -   Measure: Area 0.0774 | Perimeter 3.9855 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.8721, 3.1316, 0.2457) | Anchor (-0.8721, 3.1316, 0.2457)
--   Analytic: Ref Point (-0.8721, 3.1520, 0.3318) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.8721, 3.1520, 0.3318) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.3814, -0.2900] | V[-0.3846, 0.4377] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 40, 53, 46, 1
 -   Loop Count: 1
@@ -8813,12 +8813,12 @@
 - Face 12: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62929
 -   Measure: Area 0.0130 | Perimeter 1.7249 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.9867, 3.1781, 0.6639) | Anchor (-0.9867, 3.1781, 0.6639)
--   Analytic: Ref Point (-0.9804, 3.1781, 0.6576) | Direction (0.0000, 0.9939, -0.1104) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.9804, 3.1781, 0.6576) | Direction (0.0000, 0.9939, -0.1104) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.4257, 0.4244] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 14, 33, 2, 19
 -   Loop Count: 1
@@ -8829,12 +8829,12 @@
 - Face 13: Planar | Edges: 2 | Facets: None | Vertices: 2 | Tag: 62895
 -   Measure: Area 0.4584 | Perimeter 2.5035 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (1.0515, 3.1451, 0.3668) | Anchor (1.0515, 3.1451, 0.3668)
--   Analytic: Ref Point (1.0515, 3.1520, 0.3531) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (1.0515, 3.1520, 0.3531) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.3432, -0.2659] | V[-0.3223, 0.3732] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 48, 22
 -   Loop Count: 1
@@ -8845,12 +8845,12 @@
 - Face 14: Planar | Edges: 2 | Facets: None | Vertices: 2 | Tag: 62911
 -   Measure: Area 0.5709 | Perimeter 2.8219 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.9902, 3.1425, 0.3432) | Anchor (-0.9902, 3.1425, 0.3432)
--   Analytic: Ref Point (-0.9902, 3.1520, 0.3272) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.9902, 3.1520, 0.3272) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.2842, 0.3768] | V[-0.3913, 0.4421] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 19, 29
 -   Loop Count: 1
@@ -8861,11 +8861,11 @@
 - Face 15: Parametric | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62937
 -   Measure: Area 0.0038 | Perimeter 0.6216 | Radius/Diameter N/A | Min Curvature Radius 0.0555
 -   Points: Center (0.9066, 3.1053, 0.0086) | Anchor (0.9066, 3.1053, 0.0086)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0084 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 1 period 0.0084 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 21, 12
 -   Loop Count: 1
@@ -8876,12 +8876,12 @@
 - Face 16: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62927
 -   Measure: Area 0.0111 | Perimeter 1.4676 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.4820, 3.1781, 0.6639) | Anchor (-0.4820, 3.1781, 0.6639)
--   Analytic: Ref Point (-0.4883, 3.1768, 0.6577) | Direction (0.0000, 0.9939, -0.1104) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.4883, 3.1768, 0.6577) | Direction (0.0000, 0.9939, -0.1104) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.3610, 0.3622] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 43, 9, 37, 5
 -   Loop Count: 1
@@ -8892,12 +8892,12 @@
 - Face 17: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62925
 -   Measure: Area 0.0111 | Perimeter 1.4676 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.5039, 3.1781, 0.6639) | Anchor (0.5039, 3.1781, 0.6639)
--   Analytic: Ref Point (0.5102, 3.1770, 0.6577) | Direction (0.0000, -0.9939, 0.1104) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.5102, 3.1770, 0.6577) | Direction (0.0000, -0.9939, 0.1104) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.3620, 0.3612] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 28, 50, 52, 23
 -   Loop Count: 1
@@ -8908,11 +8908,11 @@
 - Face 18: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62909
 -   Measure: Area 0.0281 | Perimeter 4.0555 | Radius/Diameter N/A | Min Curvature Radius 0.6765
 -   Points: Center (-0.9853, 3.1297, 0.2283) | Anchor (-0.9853, 3.1297, 0.2283)
--   Analytic: Ref Point (-0.9853, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.4833 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.9853, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.4833 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 33, 2, 42, 29
 -   Loop Count: 1
@@ -8923,11 +8923,11 @@
 - Face 19: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 62935
 -   Measure: Area 0.0044 | Perimeter 0.6308 | Radius/Diameter N/A | Min Curvature Radius 0.0640
 -   Points: Center (0.9066, 3.1780, 0.6627) | Anchor (0.9066, 3.1780, 0.6627)
--   Analytic: Ref Point (0.9066, 3.1779, 0.6625) | Direction (-0.0000, -0.1104, -0.9939) | Radius 0.0502 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.9066, 3.1779, 0.6625) | Direction (-0.0000, -0.1104, -0.9939) | Radius 0.0502 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 45, 31
 -   Loop Count: 1
@@ -8938,12 +8938,12 @@
 - Face 20: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62919
 -   Measure: Area 0.1740 | Perimeter 2.0349 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.5003, 3.1652, 0.5481) | Anchor (0.5003, 3.1652, 0.5481)
--   Analytic: Ref Point (0.5003, 3.1543, 0.5473) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.5003, 3.1543, 0.5473) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.1503, 0.1503] | V[-0.4264, 0.4252] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 28, 41, 3, 38
 -   Loop Count: 1
@@ -8954,12 +8954,12 @@
 - Face 21: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62921
 -   Measure: Area 0.0265 | Perimeter 1.7762 | Radius/Diameter 0.0197 | Min Curvature Radius 0.0197
 -   Points: Center (0.4932, 3.1523, 0.4319) | Anchor (0.4932, 3.1523, 0.4319)
--   Analytic: Ref Point (0.4806, 3.1536, 0.4444) | Direction (-0.0000, 0.9939, -0.1104) | Radius 0.0197 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.4806, 3.1536, 0.4444) | Direction (-0.0000, 0.9939, -0.1104) | Radius 0.0197 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.4286, 0.4289] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 32, 54, 41, 8
 -   Loop Count: 1
@@ -8970,11 +8970,11 @@
 - Face 22: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62901
 -   Measure: Area 0.0260 | Perimeter 3.7737 | Radius/Diameter N/A | Min Curvature Radius 0.6063
 -   Points: Center (-0.8672, 3.1335, 0.2624) | Anchor (-0.8672, 3.1335, 0.2624)
--   Analytic: Ref Point (-0.8672, 3.1520, 0.4287) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.4337 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.8672, 3.1520, 0.4287) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.4337 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 20, 40, 7, 39
 -   Loop Count: 1
@@ -8985,12 +8985,12 @@
 - Face 23: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 62917
 -   Measure: Area 0.1740 | Perimeter 2.0349 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.4784, 3.1652, 0.5481) | Anchor (-0.4784, 3.1652, 0.5481)
--   Analytic: Ref Point (-0.4784, 3.1543, 0.5473) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.4784, 3.1543, 0.5473) | Direction (1.0000, -0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.1503, 0.1503] | V[-0.4264, 0.4252] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 43, 18, 15, 35
 -   Loop Count: 1
@@ -9022,15 +9022,15 @@
 - Radius Of Gyration: 0.4246
 - Centroid: (0.0000, 4.1137, 0.0000)
 ### Bounding Box
-- X Min: -0.4998
-- Y Min: 3.8661
-- Z Min: -0.5246
-- X Max: 0.4998
-- Y Max: 4.3622
-- Z Max: 0.5246
-- Dx (Length): 0.9996
-- Dy (Width): 0.4961
-- Dz (Height): 1.0492
+- X Min: -0.9902
+- Y Min: 2.6638
+- Z Min: -0.0594
+- X Max: 1.0515
+- Y Max: 3.6402
+- Z Max: 0.7144
+- Dx (Length): 2.0417
+- Dy (Width): 0.9764
+- Dz (Height): 0.7738
 
 ### Features
 - Total Features: 1
@@ -9606,11 +9606,11 @@
 - Face 1: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63132
 -   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
 -   Points: Center (-0.3769, 3.8781, -0.3019) | Anchor (-0.3769, 3.8781, -0.3019)
--   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 25, 37, 42, 20
 -   Loop Count: 1
@@ -9621,12 +9621,12 @@
 - Face 2: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63150
 -   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
 -   Points: Center (-0.4913, 4.1114, 0.1916) | Anchor (-0.4913, 4.1114, 0.1916)
--   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.2111, 0.2111] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 27, 62, 38, 6
 -   Loop Count: 1
@@ -9637,11 +9637,11 @@
 - Face 3: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63174
 -   Measure: Area 0.3917 | Perimeter 23.1806 | Radius/Diameter N/A | Min Curvature Radius 0.5057
 -   Points: Center (-0.0028, 4.1142, -0.0053) | Anchor (-0.0028, 4.1142, -0.0053)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 57, 22, 45, 34
 -   Loop Count: 1
@@ -9652,12 +9652,12 @@
 - Face 4: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63158
 -   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.2929, 4.1114, -0.3656) | Anchor (0.2929, 4.1114, -0.3656)
--   Analytic: Ref Point (0.2929, 4.1114, -0.3656) | Direction (0.6252, 0.0000, -0.7804) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.2929, 4.1114, -0.3656) | Direction (0.6252, 0.0000, -0.7804) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.2452, 0.2111] | V[-0.2425, 0.2425] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 19, 43, 3, 12, 23
 -   Loop Count: 1
@@ -9668,12 +9668,12 @@
 - Face 5: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63164
 -   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.2929, 4.1114, 0.3656) | Anchor (-0.2929, 4.1114, 0.3656)
--   Analytic: Ref Point (-0.2929, 4.1114, 0.3656) | Direction (-0.6252, -0.0000, 0.7804) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.2929, 4.1114, 0.3656) | Direction (-0.6252, -0.0000, 0.7804) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.2111, 0.2452] | V[-0.2425, 0.2425] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 62, 26, 33, 41, 24
 -   Loop Count: 1
@@ -9684,12 +9684,12 @@
 - Face 6: Planar | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63130
 -   Measure: Area 0.3191 | Perimeter 5.1014 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, 3.8661, 0.0000) | Anchor (-0.0000, 3.8661, 0.0000)
--   Analytic: Ref Point (0.0000, 3.8661, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 3.8661, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.4365, 0.4365] | V[-0.4631, 0.4631] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 25, 47, 7, 31, 30, 60, 14
 -   Loop Count: 2
@@ -9700,11 +9700,11 @@
 - Face 7: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63172
 -   Measure: Area 0.1902 | Perimeter 4.6720 | Radius/Diameter N/A | Min Curvature Radius 0.3675
 -   Points: Center (0.0103, 3.9004, 0.0162) | Anchor (0.0103, 3.9004, 0.0162)
--   Analytic: Ref Point (0.0000, 3.9079, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.3016 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 3.9079, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.3016 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 57, 36, 17, 44, 14
 -   Loop Count: 2
@@ -9715,11 +9715,11 @@
 - Face 8: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63138
 -   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
 -   Points: Center (-0.0730, 3.8781, 0.4773) | Anchor (-0.0730, 3.8781, 0.4773)
--   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 7, 51, 41, 46
 -   Loop Count: 1
@@ -9730,12 +9730,12 @@
 - Face 9: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63146
 -   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
 -   Points: Center (0.0798, 4.1114, -0.5213) | Anchor (0.0798, 4.1114, -0.5213)
--   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.2111, 0.2111] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 29, 43, 52, 21
 -   Loop Count: 1
@@ -9746,12 +9746,12 @@
 - Face 10: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63180
 -   Measure: Area 0.1343 | Perimeter 19.0144 | Radius/Diameter 0.2598 | Min Curvature Radius 0.2598
 -   Points: Center (-0.0097, 4.1142, -0.0087) | Anchor (-0.0097, 4.1142, -0.0087)
--   Analytic: Ref Point (0.0000, 4.1142, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.2598 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 4.1142, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.2598 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.1645, 0.1645] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 45, 4, 17, 59
 -   Loop Count: 1
@@ -9762,12 +9762,12 @@
 - Face 11: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63168
 -   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.1702, 4.1114, -0.4365) | Anchor (-0.1702, 4.1114, -0.4365)
--   Analytic: Ref Point (-0.1702, 4.1114, -0.4365) | Direction (-0.3633, 0.0000, -0.9317) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.1702, 4.1114, -0.4365) | Direction (-0.3633, 0.0000, -0.9317) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.2452, 0.2111] | V[-0.2425, 0.2425] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 29, 54, 18, 42, 1
 -   Loop Count: 1
@@ -9778,12 +9778,12 @@
 - Face 12: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63152
 -   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
 -   Points: Center (-0.0798, 4.1114, 0.5213) | Anchor (-0.0798, 4.1114, 0.5213)
--   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.2111, 0.2111] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 26, 49, 61, 51
 -   Loop Count: 1
@@ -9794,12 +9794,12 @@
 - Face 13: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63128
 -   Measure: Area 0.2907 | Perimeter 5.0402 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 4.3622, -0.0000) | Anchor (0.0000, 4.3622, -0.0000)
--   Analytic: Ref Point (0.0000, 4.3622, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 4.3622, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 56, 39
 -   Loop Count: 1
@@ -9810,11 +9810,11 @@
 - Face 14: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63170
 -   Measure: Area 0.1902 | Perimeter 4.6763 | Radius/Diameter N/A | Min Curvature Radius 0.3675
 -   Points: Center (0.0172, 4.3279, 0.0084) | Anchor (0.0172, 4.3279, 0.0084)
--   Analytic: Ref Point (0.0000, 4.3204, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.3016 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 4.3204, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.3016 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 22, 5, 59, 53, 39
 -   Loop Count: 2
@@ -9825,11 +9825,11 @@
 - Face 15: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63136
 -   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
 -   Points: Center (-0.4499, 3.8781, 0.1754) | Anchor (-0.4499, 3.8781, 0.1754)
--   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 47, 6, 8, 33
 -   Loop Count: 1
@@ -9840,11 +9840,11 @@
 - Face 16: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63178
 -   Measure: Area 0.0900 | Perimeter 24.8634 | Radius/Diameter N/A | Min Curvature Radius 0.2918
 -   Points: Center (-0.0090, 4.1142, -0.0080) | Anchor (-0.0090, 4.1142, -0.0080)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 9, 34, 44, 53
 -   Loop Count: 1
@@ -9855,11 +9855,11 @@
 - Face 17: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63142
 -   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
 -   Points: Center (0.4499, 3.8781, -0.1754) | Anchor (0.4499, 3.8781, -0.1754)
--   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 30, 35, 16, 3
 -   Loop Count: 1
@@ -9870,11 +9870,11 @@
 - Face 18: Conical | Edges: 13 | Facets: None | Vertices: 13 | Tag: 63144
 -   Measure: Area 0.1123 | Perimeter 6.1206 | Radius/Diameter N/A | Min Curvature Radius 0.9175
 -   Points: Center (0.0000, 4.3489, -0.0000) | Anchor (0.0000, 4.3489, -0.0000)
--   Analytic: Ref Point (0.0000, 4.3423, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4932 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 4.3423, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4932 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 2, 28, 52, 13, 38, 61, 56, 1, 11, 24, 63, 40, 23
 -   Loop Count: 2
@@ -9885,12 +9885,12 @@
 - Face 19: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63148
 -   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
 -   Points: Center (-0.4116, 4.1114, -0.3297) | Anchor (-0.4116, 4.1114, -0.3297)
--   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.2111, 0.2111] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 54, 15, 13, 37
 -   Loop Count: 1
@@ -9901,11 +9901,11 @@
 - Face 20: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63140
 -   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
 -   Points: Center (0.3769, 3.8781, 0.3019) | Anchor (0.3769, 3.8781, 0.3019)
--   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 31, 48, 10, 55
 -   Loop Count: 1
@@ -9916,11 +9916,11 @@
 - Face 21: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63134
 -   Measure: Area 0.0133 | Perimeter 1.0303 | Radius/Diameter N/A | Min Curvature Radius 0.9370
 -   Points: Center (0.0730, 3.8781, -0.4773) | Anchor (0.0730, 3.8781, -0.4773)
--   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 3.8832, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.4980 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 60, 21, 18, 12
 -   Loop Count: 1
@@ -9931,12 +9931,12 @@
 - Face 22: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63160
 -   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.4631, 4.1114, 0.0709) | Anchor (0.4631, 4.1114, 0.0709)
--   Analytic: Ref Point (0.4628, 4.1114, 0.0731) | Direction (0.9885, -0.0000, 0.1512) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.4628, 4.1114, 0.0731) | Direction (0.9885, -0.0000, 0.1512) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.2111, 0.2452] | V[-0.2403, 0.2448] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 32, 58, 55, 16, 40
 -   Loop Count: 1
@@ -9947,12 +9947,12 @@
 - Face 23: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63162
 -   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.1702, 4.1114, 0.4365) | Anchor (0.1702, 4.1114, 0.4365)
--   Analytic: Ref Point (0.1702, 4.1114, 0.4365) | Direction (0.3633, -0.0000, 0.9317) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.1702, 4.1114, 0.4365) | Direction (0.3633, -0.0000, 0.9317) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.2111, 0.2452] | V[-0.2425, 0.2425] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 49, 50, 46, 10, 63
 -   Loop Count: 1
@@ -9963,12 +9963,12 @@
 - Face 24: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63166
 -   Measure: Area 0.2266 | Perimeter 1.8270 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.4631, 4.1114, -0.0709) | Anchor (-0.4631, 4.1114, -0.0709)
--   Analytic: Ref Point (-0.4628, 4.1114, -0.0731) | Direction (-0.9885, 0.0000, -0.1512) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.4628, 4.1114, -0.0731) | Direction (-0.9885, 0.0000, -0.1512) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.2452, 0.2111] | V[-0.2448, 0.2403] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 15, 27, 20, 8, 11
 -   Loop Count: 1
@@ -9979,11 +9979,11 @@
 - Face 25: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63176
 -   Measure: Area 0.3916 | Perimeter 23.1806 | Radius/Diameter N/A | Min Curvature Radius 0.5057
 -   Points: Center (-0.0056, 4.1142, -0.0022) | Anchor (-0.0056, 4.1142, -0.0022)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 4, 9, 36, 5
 -   Loop Count: 1
@@ -9994,12 +9994,12 @@
 - Face 26: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63156
 -   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
 -   Points: Center (0.4913, 4.1114, -0.1916) | Anchor (0.4913, 4.1114, -0.1916)
--   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.2111, 0.2111] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 58, 19, 28, 35
 -   Loop Count: 1
@@ -10010,12 +10010,12 @@
 - Face 27: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63154
 -   Measure: Area 0.0205 | Perimeter 0.9414 | Radius/Diameter 0.5276 | Min Curvature Radius 0.5276
 -   Points: Center (0.4116, 4.1114, 0.3297) | Anchor (0.4116, 4.1114, 0.3297)
--   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 4.1114, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5276 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.2111, 0.2111] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 50, 32, 2, 48
 -   Loop Count: 1
@@ -10047,15 +10047,15 @@
 - Radius Of Gyration: 0.4759
 - Centroid: (-0.0000, 3.8051, -0.0000)
 ### Bounding Box
-- X Min: -0.4998
-- Y Min: 3.8661
-- Z Min: -0.5246
-- X Max: 0.4998
-- Y Max: 4.3622
-- Z Max: 0.5246
-- Dx (Length): 0.9996
-- Dy (Width): 0.4961
-- Dz (Height): 1.0492
+- X Min: -0.9902
+- Y Min: 2.6638
+- Z Min: -0.0594
+- X Max: 1.0515
+- Y Max: 3.6402
+- Z Max: 0.7144
+- Dx (Length): 2.0417
+- Dy (Width): 0.9764
+- Dz (Height): 0.7738
 
 ### Features
 - Total Features: 1
@@ -10161,11 +10161,11 @@
 - Face 1: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63416
 -   Measure: Area 0.0290 | Perimeter 4.1682 | Radius/Diameter N/A | Min Curvature Radius 0.4621
 -   Points: Center (-0.0000, 3.8612, -0.0000) | Anchor (-0.0000, 3.8612, -0.0000)
--   Analytic: Ref Point (-0.0000, 3.8612, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.3317 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, 3.8612, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.3317 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 6, 7
 -   Loop Count: 1
@@ -10176,12 +10176,12 @@
 - Face 2: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63402
 -   Measure: Area 0.6891 | Perimeter 5.7390 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, 3.8661, -0.0000) | Anchor (-0.0000, 3.8661, -0.0000)
--   Analytic: Ref Point (-0.0000, 3.8661, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 3.8661, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 4, 7
 -   Loop Count: 1
@@ -10192,12 +10192,12 @@
 - Face 3: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63406
 -   Measure: Area 0.3773 | Perimeter 7.3716 | Radius/Diameter 0.5866 | Min Curvature Radius 0.5866
 -   Points: Center (-0.0000, 3.8051, -0.0000) | Anchor (-0.0000, 3.8051, -0.0000)
--   Analytic: Ref Point (-0.0000, 3.8051, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.5866 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 3.8051, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.5866 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[3.8051, 3.8051] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 2, 1
 -   Loop Count: 1
@@ -10208,12 +10208,12 @@
 - Face 4: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63408
 -   Measure: Area 0.2102 | Perimeter 4.1063 | Radius/Diameter 0.3268 | Min Curvature Radius 0.3268
 -   Points: Center (-0.0000, 3.8051, -0.0000) | Anchor (-0.0000, 3.8051, -0.0000)
--   Analytic: Ref Point (-0.0000, 3.8051, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.3268 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 3.8051, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.3268 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-3.8051, -3.8051] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 3, 6
 -   Loop Count: 1
@@ -10224,11 +10224,11 @@
 - Face 5: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63410
 -   Measure: Area 0.0509 | Perimeter 7.3098 | Radius/Diameter N/A | Min Curvature Radius 0.8157
 -   Points: Center (-0.0000, 3.7490, -0.0000) | Anchor (-0.0000, 3.7490, -0.0000)
--   Analytic: Ref Point (-0.0000, 3.7490, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.5817 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, 3.7490, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.5817 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 5, 2
 -   Loop Count: 1
@@ -10239,11 +10239,11 @@
 - Face 6: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63412
 -   Measure: Area 0.0509 | Perimeter 7.3098 | Radius/Diameter N/A | Min Curvature Radius 0.8157
 -   Points: Center (-0.0000, 3.8612, -0.0000) | Anchor (-0.0000, 3.8612, -0.0000)
--   Analytic: Ref Point (-0.0000, 3.8612, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.5817 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, 3.8612, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.5817 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 4, 1
 -   Loop Count: 1
@@ -10254,11 +10254,11 @@
 - Face 7: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63414
 -   Measure: Area 0.0290 | Perimeter 4.1682 | Radius/Diameter N/A | Min Curvature Radius 0.4621
 -   Points: Center (-0.0000, 3.7490, -0.0000) | Anchor (-0.0000, 3.7490, -0.0000)
--   Analytic: Ref Point (-0.0000, 3.7490, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.3317 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, 3.7490, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.3317 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 3, 8
 -   Loop Count: 1
@@ -10269,12 +10269,12 @@
 - Face 8: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63404
 -   Measure: Area 0.6891 | Perimeter 5.7390 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, 3.7441, -0.0000) | Anchor (-0.0000, 3.7441, -0.0000)
--   Analytic: Ref Point (-0.0000, 3.7441, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 3.7441, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 5, 8
 -   Loop Count: 1
@@ -10306,15 +10306,15 @@
 - Radius Of Gyration: 2.4422
 - Centroid: (-0.0000, -1.0302, -0.0208)
 ### Bounding Box
-- X Min: -0.4998
-- Y Min: 3.8661
-- Z Min: -0.5246
-- X Max: 0.4998
-- Y Max: 4.3622
-- Z Max: 0.5246
-- Dx (Length): 0.9996
-- Dy (Width): 0.4961
-- Dz (Height): 1.0492
+- X Min: -0.9902
+- Y Min: 2.6638
+- Z Min: -0.0594
+- X Max: 1.0515
+- Y Max: 3.6402
+- Z Max: 0.7144
+- Dx (Length): 2.0417
+- Dy (Width): 0.9764
+- Dz (Height): 0.7738
 
 ### Features
 - Total Features: 1
@@ -11055,12 +11055,12 @@
 - Face 1: Planar | Edges: 1 | Facets: None | Vertices: 1 | Tag: 63502
 -   Measure: Area 0.6202 | Perimeter 2.7918 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, -3.7756, -0.0000) | Anchor (-0.0000, -3.7756, -0.0000)
--   Analytic: Ref Point (-0.0000, -3.7756, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, -3.7756, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 2
 -   Loop Count: 1
@@ -11071,11 +11071,11 @@
 - Face 2: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63516
 -   Measure: Area 0.0543 | Perimeter 4.3388 | Radius/Diameter N/A | Min Curvature Radius 0.3793
 -   Points: Center (-0.0158, 4.4343, 0.0737) | Anchor (-0.0158, 4.4343, 0.0737)
--   Analytic: Ref Point (-0.0000, 4.4291, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.2879 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, 4.4291, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.2879 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 36, 40, 53, 61, 47
 -   Loop Count: 2
@@ -11086,12 +11086,12 @@
 - Face 3: Cylindrical | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63466
 -   Measure: Area 12.1192 | Perimeter 12.2884 | Radius/Diameter 0.4331 | Min Curvature Radius 0.4331
 -   Points: Center (0.0000, -0.3595, -0.0843) | Anchor (0.0000, -0.3595, -0.0843)
--   Analytic: Ref Point (-0.0000, -0.1441, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4331 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, -0.1441, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4331 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.5150, 2.7217] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 28, 33, 50, 23, 79, 46, 62
 -   Loop Count: 2
@@ -11102,11 +11102,11 @@
 - Face 4: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63492
 -   Measure: Area 0.4351 | Perimeter 12.0222 | Radius/Diameter N/A | Min Curvature Radius 1.3168
 -   Points: Center (-0.0000, -3.6474, -0.0000) | Anchor (-0.0000, -3.6474, -0.0000)
--   Analytic: Ref Point (-0.0000, -3.6476, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.9567 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, -3.6476, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.9567 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 5, 18
 -   Loop Count: 1
@@ -11117,12 +11117,12 @@
 - Face 5: Cylindrical | Edges: 2 | Facets: None | Vertices: 2 | Tag: 63526
 -   Measure: Area 0.1961 | Perimeter 1.7700 | Radius/Diameter 0.4287 | Min Curvature Radius 0.4287
 -   Points: Center (-0.0000, -0.8112, 0.3172) | Anchor (-0.0000, -0.8112, 0.3172)
--   Analytic: Ref Point (-0.0000, -0.6591, 0.7059) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.4287 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, -0.6591, 0.7059) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.4287 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.3281, 0.3281] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 19, 7
 -   Loop Count: 1
@@ -11133,11 +11133,11 @@
 - Face 6: Spherical | Edges: 3 | Facets: None | Vertices: 3 | Tag: 63544
 -   Measure: Area 0.0001 | Perimeter 0.0331 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.3036, 2.7481, 0.2752) | Anchor (0.3036, 2.7481, 0.2752)
--   Analytic: Ref Point (0.3007, 2.7442, 0.2673) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status -2 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.3007, 2.7442, 0.2673) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status -2 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 77, 10, 8
 -   Loop Count: 1
@@ -11148,11 +11148,11 @@
 - Face 7: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63464
 -   Measure: Area 0.0566 | Perimeter 3.9057 | Radius/Diameter N/A | Min Curvature Radius 0.5829
 -   Points: Center (0.0000, 2.5879, -0.1426) | Anchor (0.0000, 2.5879, -0.1426)
--   Analytic: Ref Point (-0.0000, 2.5880, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4226 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, 2.5880, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4226 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 67, 30, 31, 46
 -   Loop Count: 1
@@ -11163,12 +11163,12 @@
 - Face 8: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63490
 -   Measure: Area 0.4981 | Perimeter 12.3437 | Radius/Diameter 0.9823 | Min Curvature Radius 0.9823
 -   Points: Center (-0.0000, -3.5817, -0.0000) | Anchor (-0.0000, -3.5817, -0.0000)
--   Analytic: Ref Point (-0.0000, -3.5817, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9823 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, -3.5817, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9823 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[3.5817, 3.5817] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 70, 5
 -   Loop Count: 1
@@ -11179,11 +11179,11 @@
 - Face 9: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63524
 -   Measure: Area 0.0403 | Perimeter 5.7458 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.0000, 3.2547, 0.1582) | Anchor (-0.0000, 3.2547, 0.1582)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 0.0895 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 0.0895 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 77, 43, 38, 52
 -   Loop Count: 1
@@ -11194,12 +11194,12 @@
 - Face 10: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63542
 -   Measure: Area 0.0282 | Perimeter 6.4870 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.3322, 0.9582, 0.2759) | Anchor (0.3322, 0.9582, 0.2759)
--   Analytic: Ref Point (0.3281, 0.9594, 0.2673) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.3281, 0.9594, 0.2673) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-1.6185, 1.6178] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 50, 60, 45, 55
 -   Loop Count: 1
@@ -11210,11 +11210,11 @@
 - Face 11: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63484
 -   Measure: Area 0.1460 | Perimeter 10.4885 | Radius/Diameter N/A | Min Curvature Radius 1.1664
 -   Points: Center (-0.0000, -3.5217, -0.0000) | Anchor (-0.0000, -3.5217, -0.0000)
--   Analytic: Ref Point (-0.0000, -3.5217, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.8346 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, -3.5217, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.8346 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 22, 41
 -   Loop Count: 1
@@ -11225,12 +11225,12 @@
 - Face 12: Cylindrical | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63462
 -   Measure: Area 1.8480 | Perimeter 7.6793 | Radius/Diameter 0.4122 | Min Curvature Radius 0.4122
 -   Points: Center (0.0000, 3.1865, -0.1683) | Anchor (0.0000, 3.1865, -0.1683)
--   Analytic: Ref Point (-0.0000, 3.1590, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4122 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 3.1590, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4122 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-3.1590, -0.4149] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 65, 57, 76, 20, 52, 14, 31
 -   Loop Count: 2
@@ -11241,11 +11241,11 @@
 - Face 13: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63488
 -   Measure: Area 0.0855 | Perimeter 12.2819 | Radius/Diameter N/A | Min Curvature Radius 1.3752
 -   Points: Center (-0.0000, -3.5364, -0.0000) | Anchor (-0.0000, -3.5364, -0.0000)
--   Analytic: Ref Point (-0.0000, -3.5364, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9774 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, -3.5364, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9774 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 54, 70
 -   Loop Count: 1
@@ -11256,12 +11256,12 @@
 - Face 14: Cylindrical | Edges: 2 | Facets: None | Vertices: 2 | Tag: 63522
 -   Measure: Area 0.8402 | Perimeter 3.4183 | Radius/Diameter 0.4287 | Min Curvature Radius 0.4287
 -   Points: Center (-0.0000, 3.1800, 0.1053) | Anchor (-0.0000, 3.1800, 0.1053)
--   Analytic: Ref Point (0.0000, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.4287 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.4287 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.3007, 0.3007] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 13, 38
 -   Loop Count: 1
@@ -11272,12 +11272,12 @@
 - Face 15: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63470
 -   Measure: Area 2.1492 | Perimeter 8.7692 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, -2.8858, 0.0000) | Anchor (-0.0000, -2.8858, 0.0000)
--   Analytic: Ref Point (-0.0000, -2.8858, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, -2.8858, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 75, 11
 -   Loop Count: 1
@@ -11288,12 +11288,12 @@
 - Face 16: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63540
 -   Measure: Area 0.0071 | Perimeter 1.2264 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.0000, 2.7494, 0.2750) | Anchor (0.0000, 2.7494, 0.2750)
--   Analytic: Ref Point (0.0000, 2.7442, 0.2673) | Direction (1.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 2.7442, 0.2673) | Direction (1.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.3007, 0.3007] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 13, 25, 27, 10
 -   Loop Count: 1
@@ -11304,11 +11304,11 @@
 - Face 17: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63460
 -   Measure: Area 0.0840 | Perimeter 5.0315 | Radius/Diameter N/A | Min Curvature Radius 0.5495
 -   Points: Center (-0.0000, 3.7322, 0.0000) | Anchor (-0.0000, 3.7322, 0.0000)
--   Analytic: Ref Point (-0.0000, 3.7323, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4004 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, 3.7323, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4004 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 80, 14
 -   Loop Count: 1
@@ -11319,12 +11319,12 @@
 - Face 18: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63478
 -   Measure: Area 0.7304 | Perimeter 11.4161 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, -3.3346, 0.0000) | Anchor (0.0000, -3.3346, 0.0000)
--   Analytic: Ref Point (-0.0000, -3.3346, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, -3.3346, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 58, 72
 -   Loop Count: 1
@@ -11335,12 +11335,12 @@
 - Face 19: Planar | Edges: 1 | Facets: None | Vertices: 1 | Tag: 63520
 -   Measure: Area 0.2260 | Perimeter 1.6852 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, 4.4488, 0.0000) | Anchor (-0.0000, 4.4488, 0.0000)
--   Analytic: Ref Point (-0.0000, 4.4488, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 4.4488, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 40
 -   Loop Count: 1
@@ -11351,12 +11351,12 @@
 - Face 20: Planar | Edges: 5 | Facets: None | Vertices: 6 | Tag: 63504
 -   Measure: Area 0.0001 | Perimeter 0.5059 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.2547, 3.9355, -0.1576) | Anchor (-0.2547, 3.9355, -0.1576)
--   Analytic: Ref Point (-0.2398, 3.9355, -0.1483) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.2398, 3.9355, -0.1483) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.1045, 0.1045] | V[-0.0646, 0.0646] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 35, 73, 39, 3, 1
 -   Loop Count: 1
@@ -11367,12 +11367,12 @@
 - Face 21: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63458
 -   Measure: Area 0.2323 | Perimeter 4.1855 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, 3.7441, -0.0000) | Anchor (-0.0000, 3.7441, -0.0000)
--   Analytic: Ref Point (-0.0000, 3.7441, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 3.7441, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 66, 80
 -   Loop Count: 1
@@ -11383,12 +11383,12 @@
 - Face 22: Cylindrical | Edges: 4 | Facets: None | Vertices: 5 | Tag: 63514
 -   Measure: Area 0.1143 | Perimeter 31.5474 | Radius/Diameter 0.3079 | Min Curvature Radius 0.3079
 -   Points: Center (-0.0009, 4.1725, -0.0005) | Anchor (-0.0009, 4.1725, -0.0005)
--   Analytic: Ref Point (-0.0000, 4.1725, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.3079 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 4.1725, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.3079 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.2370, 0.2369] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 49, 64, 21, 39
 -   Loop Count: 2
@@ -11399,11 +11399,11 @@
 - Face 23: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63476
 -   Measure: Area 0.0855 | Perimeter 12.2819 | Radius/Diameter N/A | Min Curvature Radius 1.3752
 -   Points: Center (-0.0000, -3.3297, -0.0000) | Anchor (-0.0000, -3.3297, -0.0000)
--   Analytic: Ref Point (-0.0000, -3.3297, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.9774 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, -3.3297, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.9774 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 44, 58
 -   Loop Count: 1
@@ -11414,12 +11414,12 @@
 - Face 24: Planar | Edges: 4 | Facets: None | Vertices: 5 | Tag: 63518
 -   Measure: Area 0.0001 | Perimeter 0.5070 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.2767, 4.4094, -0.1146) | Anchor (-0.2767, 4.4094, -0.1146)
--   Analytic: Ref Point (-0.2606, 4.4094, -0.1079) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.2606, 4.4094, -0.1079) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.1138, 0.1138] | V[-0.0473, 0.0473] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 69, 4, 21, 47
 -   Loop Count: 3
@@ -11430,12 +11430,12 @@
 - Face 25: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63482
 -   Measure: Area 0.8161 | Perimeter 10.3648 | Radius/Diameter 0.8248 | Min Curvature Radius 0.8248
 -   Points: Center (-0.0000, -3.4331, -0.0000) | Anchor (-0.0000, -3.4331, -0.0000)
--   Analytic: Ref Point (-0.0000, -3.4331, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.8248 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, -3.4331, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.8248 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[3.4331, 3.4331] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 6, 22
 -   Loop Count: 1
@@ -11446,11 +11446,11 @@
 - Face 26: Spherical | Edges: 3 | Facets: None | Vertices: 3 | Tag: 63536
 -   Measure: Area 0.0001 | Perimeter 0.0331 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.3036, 2.7481, 0.2752) | Anchor (-0.3036, 2.7481, 0.2752)
--   Analytic: Ref Point (-0.3007, 2.7442, 0.2673) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status -2 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.3007, 2.7442, 0.2673) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status -2 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 43, 78, 27
 -   Loop Count: 1
@@ -11461,11 +11461,11 @@
 - Face 27: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63456
 -   Measure: Area 0.0285 | Perimeter 3.4137 | Radius/Diameter N/A | Min Curvature Radius 0.3758
 -   Points: Center (-0.0000, 3.7500, 0.0000) | Anchor (-0.0000, 3.7500, 0.0000)
--   Analytic: Ref Point (-0.0000, 3.7500, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.2717 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, 3.7500, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.2717 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 34, 66
 -   Loop Count: 1
@@ -11476,11 +11476,11 @@
 - Face 28: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63480
 -   Measure: Area 0.1460 | Perimeter 10.4885 | Radius/Diameter N/A | Min Curvature Radius 1.1664
 -   Points: Center (-0.0000, -3.3444, -0.0000) | Anchor (-0.0000, -3.3444, -0.0000)
--   Analytic: Ref Point (-0.0000, -3.3445, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.8346 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, -3.3445, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.8346 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 72, 6
 -   Loop Count: 1
@@ -11491,12 +11491,12 @@
 - Face 29: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63474
 -   Measure: Area 2.4663 | Perimeter 12.3437 | Radius/Diameter 0.9823 | Min Curvature Radius 0.9823
 -   Points: Center (-0.0000, -3.1250, -0.0000) | Anchor (-0.0000, -3.1250, -0.0000)
--   Analytic: Ref Point (-0.0000, -3.1250, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9823 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, -3.1250, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9823 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[3.1250, 3.1250] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 26, 44
 -   Loop Count: 1
@@ -11507,11 +11507,11 @@
 - Face 30: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63500
 -   Measure: Area 0.0892 | Perimeter 5.7584 | Radius/Diameter N/A | Min Curvature Radius 0.0394
 -   Points: Center (-0.0000, -3.7716, -0.0000) | Anchor (-0.0000, -3.7716, -0.0000)
--   Analytic: Ref Point (-0.0000, -3.7698, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4443 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, -3.7698, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4443 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 68, 2
 -   Loop Count: 1
@@ -11522,11 +11522,11 @@
 - Face 31: Blending | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63538
 -   Measure: Area 0.0095 | Perimeter 2.2733 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.0000, -0.8761, 0.3536) | Anchor (0.0000, -0.8761, 0.3536)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 19, 79, 12, 45
 -   Loop Count: 1
@@ -11537,12 +11537,12 @@
 - Face 32: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63534
 -   Measure: Area 0.0282 | Perimeter 6.4870 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.3322, 0.9582, 0.2759) | Anchor (-0.3322, 0.9582, 0.2759)
--   Analytic: Ref Point (-0.3281, 0.9594, 0.2673) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.3281, 0.9594, 0.2673) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-1.6185, 1.6178] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 23, 42, 63, 12
 -   Loop Count: 1
@@ -11553,12 +11553,12 @@
 - Face 33: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63486
 -   Measure: Area 0.7304 | Perimeter 11.4161 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, -3.5315, -0.0000) | Anchor (-0.0000, -3.5315, -0.0000)
--   Analytic: Ref Point (-0.0000, -3.5315, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, -3.5315, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 41, 54
 -   Loop Count: 1
@@ -11569,12 +11569,12 @@
 - Face 34: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63454
 -   Measure: Area 0.2301 | Perimeter 3.3395 | Radius/Diameter 0.2657 | Min Curvature Radius 0.2657
 -   Points: Center (-0.0000, 3.8248, 0.0000) | Anchor (-0.0000, 3.8248, 0.0000)
--   Analytic: Ref Point (-0.0000, 3.8248, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.2657 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 3.8248, 0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.2657 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-3.8248, -3.8248] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 34, 15
 -   Loop Count: 1
@@ -11585,11 +11585,11 @@
 - Face 35: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63472
 -   Measure: Area 0.3367 | Perimeter 12.0964 | Radius/Diameter N/A | Min Curvature Radius 1.3335
 -   Points: Center (-0.0000, -2.9056, -0.0000) | Anchor (-0.0000, -2.9056, -0.0000)
--   Analytic: Ref Point (-0.0000, -2.9055, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9626 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, -2.9055, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.9626 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 11, 26
 -   Loop Count: 1
@@ -11600,11 +11600,11 @@
 - Face 36: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63498
 -   Measure: Area 0.3606 | Perimeter 6.4316 | Radius/Diameter N/A | Min Curvature Radius 0.6677
 -   Points: Center (-0.0000, -3.7234, -0.0000) | Anchor (-0.0000, -3.7234, -0.0000)
--   Analytic: Ref Point (-0.0000, -3.7244, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5118 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, -3.7244, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5118 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 51, 68
 -   Loop Count: 1
@@ -11615,12 +11615,12 @@
 - Face 37: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63532
 -   Measure: Area 0.0012 | Perimeter 0.3134 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.3046, 2.6702, 0.2760) | Anchor (-0.3046, 2.6702, 0.2760)
--   Analytic: Ref Point (-0.3007, 2.6689, 0.2673) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.3007, 2.6689, 0.2673) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0746, 0.0752] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 71, 20, 48, 78
 -   Loop Count: 1
@@ -11631,11 +11631,11 @@
 - Face 38: SurfaceOfRevolution | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63496
 -   Measure: Area 0.1097 | Perimeter 7.1048 | Radius/Diameter N/A | Min Curvature Radius 0.0394
 -   Points: Center (-0.0000, -3.6771, -0.0000) | Anchor (-0.0000, -3.6771, -0.0000)
--   Analytic: Ref Point (-0.0000, -3.6790, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5793 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, -3.6790, -0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.5793 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 1 period 6.2832 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 37, 51
 -   Loop Count: 1
@@ -11646,11 +11646,11 @@
 - Face 39: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63510
 -   Measure: Area 0.2327 | Perimeter 32.4253 | Radius/Diameter N/A | Min Curvature Radius 0.2759
 -   Points: Center (-0.0023, 4.1725, -0.0012) | Anchor (-0.0023, 4.1725, -0.0012)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 59, 32, 61, 17
 -   Loop Count: 1
@@ -11661,11 +11661,11 @@
 - Face 40: Parametric | Edges: 7 | Facets: None | Vertices: 9 | Tag: 63508
 -   Measure: Area 0.5784 | Perimeter 33.2900 | Radius/Diameter N/A | Min Curvature Radius 0.5379
 -   Points: Center (0.0008, 4.1725, -0.0059) | Anchor (0.0008, 4.1725, -0.0059)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 69, 36, 16, 35, 32, 64, 73
 -   Loop Count: 5
@@ -11676,11 +11676,11 @@
 - Face 41: Parametric | Edges: 6 | Facets: None | Vertices: 6 | Tag: 63512
 -   Measure: Area 0.5785 | Perimeter 33.2894 | Radius/Diameter N/A | Min Curvature Radius 0.5379
 -   Points: Center (-0.0043, 4.1725, 0.0041) | Anchor (-0.0043, 4.1725, 0.0041)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 59, 49, 4, 53, 29, 3
 -   Loop Count: 1
@@ -11691,11 +11691,11 @@
 - Face 42: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63506
 -   Measure: Area 0.0601 | Perimeter 4.3223 | Radius/Diameter N/A | Min Curvature Radius 0.3758
 -   Points: Center (0.0454, 3.9091, -0.0507) | Anchor (0.0454, 3.9091, -0.0507)
--   Analytic: Ref Point (-0.0000, 3.9146, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.2867 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, 3.9146, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.2867 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 16, 29, 17, 1, 15
 -   Loop Count: 2
@@ -11706,11 +11706,11 @@
 - Face 43: Blending | Edges: 6 | Facets: None | Vertices: 6 | Tag: 63530
 -   Measure: Area 0.0004 | Perimeter 0.0926 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (-0.3194, 2.5863, 0.2753) | Anchor (-0.3194, 2.5863, 0.2753)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 65, 30, 33, 56, 48, 63
 -   Loop Count: 1
@@ -11721,12 +11721,12 @@
 - Face 44: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63548
 -   Measure: Area 0.0012 | Perimeter 0.3134 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.3046, 2.6702, 0.2760) | Anchor (0.3046, 2.6702, 0.2760)
--   Analytic: Ref Point (0.3007, 2.6689, 0.2673) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.3007, 2.6689, 0.2673) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.0746, 0.0752] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 9, 76, 8, 24
 -   Loop Count: 1
@@ -11737,11 +11737,11 @@
 - Face 45: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63468
 -   Measure: Area 0.0775 | Perimeter 5.5658 | Radius/Diameter N/A | Min Curvature Radius 0.6125
 -   Points: Center (-0.0000, -2.8761, -0.0000) | Anchor (-0.0000, -2.8761, -0.0000)
--   Analytic: Ref Point (-0.0000, -2.8760, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4429 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.0000, -2.8760, -0.0000) | Direction (-0.0000, 1.0000, 0.0000) | Radius 0.4429 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 62, 75
 -   Loop Count: 1
@@ -11752,12 +11752,12 @@
 - Face 46: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63494
 -   Measure: Area 1.6693 | Perimeter 9.4901 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.0000, -3.6732, 0.0000) | Anchor (-0.0000, -3.6732, 0.0000)
--   Analytic: Ref Point (-0.0000, -3.6732, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, -3.6732, 0.0000) | Direction (0.0000, -1.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 18, 37
 -   Loop Count: 1
@@ -11768,12 +11768,12 @@
 - Face 47: Planar | Edges: 8 | Facets: None | Vertices: 8 | Tag: 63528
 -   Measure: Area 2.2245 | Perimeter 8.0913 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 1.0362, 0.2772) | Anchor (0.0000, 1.0362, 0.2772)
--   Analytic: Ref Point (-0.0000, 1.0426, 0.2772) | Direction (-0.0000, -0.0000, 1.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.0000, 1.0426, 0.2772) | Direction (-0.0000, -0.0000, 1.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-1.7016, 1.7016] | V[-0.3281, 0.3281] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 60, 74, 9, 25, 42, 56, 71, 7
 -   Loop Count: 1
@@ -11784,11 +11784,11 @@
 - Face 48: Blending | Edges: 6 | Facets: None | Vertices: 6 | Tag: 63546
 -   Measure: Area 0.0004 | Perimeter 0.0926 | Radius/Diameter 0.0098 | Min Curvature Radius 0.0098
 -   Points: Center (0.3194, 2.5863, 0.2753) | Anchor (0.3194, 2.5863, 0.2753)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0098 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 57, 67, 28, 74, 55, 24
 -   Loop Count: 1
@@ -11820,15 +11820,15 @@
 - Radius Of Gyration: 1.3041
 - Centroid: (0.0001, 1.7373, -0.0330)
 ### Bounding Box
-- X Min: -0.4998
-- Y Min: 3.8661
-- Z Min: -0.5246
-- X Max: 0.4998
-- Y Max: 4.3622
-- Z Max: 0.5246
-- Dx (Length): 0.9996
-- Dy (Width): 0.4961
-- Dz (Height): 1.0492
+- X Min: -0.9902
+- Y Min: 2.6638
+- Z Min: -0.0594
+- X Max: 1.0515
+- Y Max: 3.6402
+- Z Max: 0.7144
+- Dx (Length): 2.0417
+- Dy (Width): 0.9764
+- Dz (Height): 0.7738
 
 ### Features
 - Total Features: 1
@@ -12412,12 +12412,12 @@
 - Face 1: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63852
 -   Measure: Area 0.5089 | Perimeter 13.6053 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 1.7756, 0.0000) | Anchor (0.0000, 1.7756, 0.0000)
--   Analytic: Ref Point (0.0000, 1.7756, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 1.7756, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 28, 16
 -   Loop Count: 1
@@ -12428,12 +12428,12 @@
 - Face 2: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63878
 -   Measure: Area 2.4342 | Perimeter 9.3184 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 0.0000, 0.0000) | Anchor (0.0000, 0.0000, 0.0000)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 14, 38
 -   Loop Count: 1
@@ -12444,11 +12444,11 @@
 - Face 3: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63912
 -   Measure: Area 0.0383 | Perimeter 5.5040 | Radius/Diameter N/A | Min Curvature Radius 0.6125
 -   Points: Center (0.6762, 3.1520, 0.4287) | Anchor (0.6762, 3.1520, 0.4287)
--   Analytic: Ref Point (0.6762, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.4380 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.6762, 3.1520, 0.4287) | Direction (-1.0000, -0.0000, -0.0000) | Radius 0.4380 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 2, 27
 -   Loop Count: 1
@@ -12459,11 +12459,11 @@
 - Face 4: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63884
 -   Measure: Area 0.1917 | Perimeter 5.7390 | Radius/Diameter N/A | Min Curvature Radius 0.6125
 -   Points: Center (0.0000, 3.7209, 0.0000) | Anchor (0.0000, 3.7209, 0.0000)
--   Analytic: Ref Point (0.0000, 3.7205, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.4567 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 3.7205, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.4567 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 43, 49
 -   Loop Count: 1
@@ -12474,11 +12474,11 @@
 - Face 5: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63860
 -   Measure: Area 0.0890 | Perimeter 12.7865 | Radius/Diameter N/A | Min Curvature Radius 1.4320
 -   Points: Center (0.0000, 0.3238, 0.0000) | Anchor (0.0000, 0.3238, 0.0000)
--   Analytic: Ref Point (0.0000, 0.3238, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.0175 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.3238, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.0175 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 50, 10
 -   Loop Count: 1
@@ -12489,11 +12489,11 @@
 - Face 6: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63844
 -   Measure: Area 0.1303 | Perimeter 3.1280 | Radius/Diameter N/A | Min Curvature Radius 1.5506
 -   Points: Center (-0.0000, 3.7126, -1.0505) | Anchor (-0.0000, 3.7126, -1.0505)
--   Analytic: Ref Point (0.0000, 3.7126, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 1.1280 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 3.7126, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 1.1280 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 31, 32, 3, 47
 -   Loop Count: 1
@@ -12504,11 +12504,11 @@
 - Face 7: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63902
 -   Measure: Area 2.6262 | Perimeter 149.6389 | Radius/Diameter N/A | Min Curvature Radius 2.1159
 -   Points: Center (-0.0046, 1.1748, 0.0171) | Anchor (-0.0046, 1.1748, 0.0171)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 19, 35, 58, 36
 -   Loop Count: 1
@@ -12519,12 +12519,12 @@
 - Face 8: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63874
 -   Measure: Area 0.6070 | Perimeter 12.8484 | Radius/Diameter 1.0224 | Min Curvature Radius 1.0224
 -   Points: Center (0.0000, 0.0669, 0.0000) | Anchor (0.0000, 0.0669, 0.0000)
--   Analytic: Ref Point (0.0000, 0.0669, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0224 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 0.0669, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0224 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[0.0669, 0.0669] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 12, 42
 -   Loop Count: 1
@@ -12535,11 +12535,11 @@
 - Face 9: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63850
 -   Measure: Area 0.3987 | Perimeter 14.3227 | Radius/Diameter N/A | Min Curvature Radius 1.5840
 -   Points: Center (0.0000, 1.7954, 0.0000) | Anchor (0.0000, 1.7954, 0.0000)
--   Analytic: Ref Point (0.0000, 1.7953, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.1398 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 1.7953, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.1398 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 23, 28
 -   Loop Count: 1
@@ -12550,11 +12550,11 @@
 - Face 10: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63868
 -   Measure: Area 0.0761 | Perimeter 10.9313 | Radius/Diameter N/A | Min Curvature Radius 1.2232
 -   Points: Center (0.0000, 0.1388, 0.0000) | Anchor (0.0000, 0.1388, 0.0000)
--   Analytic: Ref Point (0.0000, 0.1388, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.8699 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.1388, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.8699 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 18, 44
 -   Loop Count: 1
@@ -12565,12 +12565,12 @@
 - Face 11: Cylindrical | Edges: 3 | Facets: None | Vertices: 1 | Tag: 63910
 -   Measure: Area 2.6376 | Perimeter 9.1527 | Radius/Diameter 0.4331 | Min Curvature Radius 0.4331
 -   Points: Center (-0.0000, 3.1520, 0.5455) | Anchor (-0.0000, 3.1520, 0.5455)
--   Analytic: Ref Point (0.0000, 3.1520, 0.4287) | Direction (1.0000, -0.0000, -0.0000) | Radius 0.4331 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 3.1520, 0.4287) | Direction (1.0000, -0.0000, -0.0000) | Radius 0.4331 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[0.0000, 0.0000] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 27, 52, 34
 -   Loop Count: 1
@@ -12581,12 +12581,12 @@
 - Face 12: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63858
 -   Measure: Area 3.0730 | Perimeter 12.8484 | Radius/Diameter 1.0224 | Min Curvature Radius 1.0224
 -   Points: Center (0.0000, 0.5679, 0.0000) | Anchor (0.0000, 0.5679, 0.0000)
--   Analytic: Ref Point (0.0000, 0.5679, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0224 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 0.5679, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0224 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[0.5679, 0.5679] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 50, 51
 -   Loop Count: 1
@@ -12597,11 +12597,11 @@
 - Face 13: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63900
 -   Measure: Area 0.5235 | Perimeter 16.3092 | Radius/Diameter N/A | Min Curvature Radius 1.4459
 -   Points: Center (-0.0532, 0.8367, 0.0935) | Anchor (-0.0532, 0.8367, 0.0935)
--   Analytic: Ref Point (0.0000, 0.8441, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.0594 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.8441, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.0594 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 19, 29, 55, 15, 51
 -   Loop Count: 2
@@ -12612,11 +12612,11 @@
 - Face 14: Conical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63842
 -   Measure: Area 0.1303 | Perimeter 3.1280 | Radius/Diameter N/A | Min Curvature Radius 1.5506
 -   Points: Center (0.0000, 3.7126, 1.0505) | Anchor (0.0000, 3.7126, 1.0505)
--   Analytic: Ref Point (0.0000, 3.7126, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 1.1280 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 3.7126, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 1.1280 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 57, 9, 24, 13
 -   Loop Count: 1
@@ -12627,12 +12627,12 @@
 - Face 15: Planar | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63848
 -   Measure: Area 2.0573 | Perimeter 9.3945 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 3.7441, 0.0000) | Anchor (0.0000, 3.7441, 0.0000)
--   Analytic: Ref Point (0.0000, 3.7441, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 3.7441, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.8593, 0.8593] | V[-0.6811, 0.6811] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 11, 4, 49, 9, 32
 -   Loop Count: 2
@@ -12643,12 +12643,12 @@
 - Face 16: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63866
 -   Measure: Area 0.8987 | Perimeter 10.8694 | Radius/Diameter 0.8650 | Min Curvature Radius 0.8650
 -   Points: Center (0.0000, 0.2264, 0.0000) | Anchor (0.0000, 0.2264, 0.0000)
--   Analytic: Ref Point (0.0000, 0.2264, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.8650 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 0.2264, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.8650 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[0.2264, 0.2264] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 5, 18
 -   Loop Count: 1
@@ -12659,12 +12659,12 @@
 - Face 17: Cylindrical | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63908
 -   Measure: Area 0.5055 | Perimeter 138.7609 | Radius/Diameter 1.0965 | Min Curvature Radius 1.0965
 -   Points: Center (-0.0051, 1.1748, -0.0025) | Anchor (-0.0051, 1.1748, -0.0025)
--   Analytic: Ref Point (0.0000, 1.1748, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0965 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 1.1748, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0965 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.2937, 0.2937] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 48, 36, 29, 40
 -   Loop Count: 1
@@ -12675,12 +12675,12 @@
 - Face 18: Cylindrical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63856
 -   Measure: Area 1.3953 | Perimeter 12.8880 | Radius/Diameter 1.0256 | Min Curvature Radius 1.0256
 -   Points: Center (0.0000, 1.6476, 0.0000) | Anchor (0.0000, 1.6476, 0.0000)
--   Analytic: Ref Point (0.0000, 1.6476, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0256 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 1.6476, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.0256 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[1.6476, 1.6476] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 7, 45
 -   Loop Count: 1
@@ -12691,12 +12691,12 @@
 - Face 19: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63896
 -   Measure: Area 0.0518 | Perimeter 3.7869 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.6909, 1.9823, -0.0000) | Anchor (-0.6909, 1.9823, -0.0000)
--   Analytic: Ref Point (-0.6909, 1.9823, 0.0000) | Direction (-0.7071, 0.7071, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6909, 1.9823, 0.0000) | Direction (-0.7071, 0.7071, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.9383, 0.9383] | V[-0.0139, 0.0139] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 59, 21, 30, 54
 -   Loop Count: 1
@@ -12707,12 +12707,12 @@
 - Face 20: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63870
 -   Measure: Area 0.7547 | Perimeter 11.7971 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 0.1339, -0.0000) | Anchor (0.0000, 0.1339, -0.0000)
--   Analytic: Ref Point (0.0000, 0.1339, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 0.1339, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 44, 60
 -   Loop Count: 1
@@ -12723,12 +12723,12 @@
 - Face 21: Cylindrical | Edges: 3 | Facets: None | Vertices: 1 | Tag: 63882
 -   Measure: Area 8.9155 | Perimeter 9.1527 | Radius/Diameter 0.4331 | Min Curvature Radius 0.4331
 -   Points: Center (-0.0000, 1.7262, -0.0345) | Anchor (-0.0000, 1.7262, -0.0345)
--   Analytic: Ref Point (0.0000, 1.8720, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.4331 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 1.8720, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.4331 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-1.8720, -1.8720] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 22, 43, 34
 -   Loop Count: 1
@@ -12739,12 +12739,12 @@
 - Face 22: Planar | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63892
 -   Measure: Area 2.6665 | Perimeter 9.9581 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.6811, 2.8009, -0.0991) | Anchor (0.6811, 2.8009, -0.0991)
--   Analytic: Ref Point (0.6811, 2.8681, -0.0000) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6811, 2.8681, -0.0000) | Direction (1.0000, 0.0000, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-2.8681, 0.8760] | V[-0.9383, 0.9383] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 2, 39, 11, 24, 17, 3, 56
 -   Loop Count: 2
@@ -12755,12 +12755,12 @@
 - Face 23: Cylindrical | Edges: 13 | Facets: None | Vertices: 13 | Tag: 63846
 -   Measure: Area 6.1239 | Perimeter 21.3537 | Radius/Diameter 1.1594 | Min Curvature Radius 1.1594
 -   Points: Center (0.0000, 2.6518, -0.0000) | Anchor (0.0000, 2.6518, -0.0000)
--   Analytic: Ref Point (0.0000, 2.7480, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.1594 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 2.7480, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 1.1594 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[0.0000, 6.2832] | V[-0.9331, 2.7480] [inferred: inferred_from_edges]
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 59, 21, 46, 6, 61, 25, 57, 31, 23, 17, 56, 53, 37
 -   Loop Count: 2
@@ -12771,11 +12771,11 @@
 - Face 24: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63906
 -   Measure: Area 2.6262 | Perimeter 149.6389 | Radius/Diameter N/A | Min Curvature Radius 2.1159
 -   Points: Center (0.0101, 1.1748, -0.0145) | Anchor (0.0101, 1.1748, -0.0145)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 20, 48, 55, 8
 -   Loop Count: 1
@@ -12786,11 +12786,11 @@
 - Face 25: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63872
 -   Measure: Area 0.1771 | Perimeter 12.7247 | Radius/Diameter N/A | Min Curvature Radius 1.4181
 -   Points: Center (0.0000, 0.1240, 0.0000) | Anchor (0.0000, 0.1240, 0.0000)
--   Analytic: Ref Point (0.0000, 0.1240, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 1.0126 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.1240, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 1.0126 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 60, 12
 -   Loop Count: 1
@@ -12801,11 +12801,11 @@
 - Face 26: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63854
 -   Measure: Area 0.1811 | Perimeter 13.0116 | Radius/Diameter N/A | Min Curvature Radius 1.4504
 -   Points: Center (0.0000, 1.7658, 0.0000) | Anchor (0.0000, 1.7658, 0.0000)
--   Analytic: Ref Point (0.0000, 1.7657, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.0354 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 1.7657, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.0354 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 16, 7
 -   Loop Count: 1
@@ -12816,12 +12816,12 @@
 - Face 27: Planar | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63894
 -   Measure: Area 0.0518 | Perimeter 3.7869 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.6909, 1.9823, 0.0000) | Anchor (0.6909, 1.9823, 0.0000)
--   Analytic: Ref Point (0.6909, 1.9823, -0.0000) | Direction (0.7071, 0.7071, -0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.6909, 1.9823, -0.0000) | Direction (0.7071, 0.7071, -0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.9383, 0.9383] | V[-0.0139, 0.0139] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 46, 6, 1, 39
 -   Loop Count: 1
@@ -12832,11 +12832,11 @@
 - Face 28: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63880
 -   Measure: Area 0.1917 | Perimeter 5.7390 | Radius/Diameter N/A | Min Curvature Radius 0.6125
 -   Points: Center (0.0000, 0.0232, 0.0000) | Anchor (0.0000, 0.0232, 0.0000)
--   Analytic: Ref Point (0.0000, 0.0236, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.4567 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0236, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 0.4567 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 38, 22
 -   Loop Count: 1
@@ -12847,11 +12847,11 @@
 - Face 29: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63876
 -   Measure: Area 0.1771 | Perimeter 12.7247 | Radius/Diameter N/A | Min Curvature Radius 1.4181
 -   Points: Center (0.0000, 0.0099, 0.0000) | Anchor (0.0000, 0.0099, 0.0000)
--   Analytic: Ref Point (0.0000, 0.0098, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.0126 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0098, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 1.0126 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 42, 14
 -   Loop Count: 1
@@ -12862,11 +12862,11 @@
 - Face 30: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63914
 -   Measure: Area 0.0383 | Perimeter 5.5040 | Radius/Diameter N/A | Min Curvature Radius 0.6125
 -   Points: Center (-0.6762, 3.1520, 0.4287) | Anchor (-0.6762, 3.1520, 0.4287)
--   Analytic: Ref Point (-0.6762, 3.1520, 0.4287) | Direction (1.0000, -0.0000, -0.0000) | Radius 0.4380 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (-0.6762, 3.1520, 0.4287) | Direction (1.0000, -0.0000, -0.0000) | Radius 0.4380 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 41, 52
 -   Loop Count: 1
@@ -12877,12 +12877,12 @@
 - Face 31: Planar | Edges: 2 | Facets: None | Vertices: 2 | Tag: 63888
 -   Measure: Area 0.5918 | Perimeter 3.9849 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.8878, 1.9724, 0.0000) | Anchor (-0.8878, 1.9724, 0.0000)
--   Analytic: Ref Point (-0.9301, 1.9724, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.9301, 1.9724, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.9237, 0.9237] | V[0.2293, 0.2293] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 30, 25
 -   Loop Count: 1
@@ -12893,12 +12893,12 @@
 - Face 32: Planar | Edges: 2 | Facets: None | Vertices: 2 | Tag: 63890
 -   Measure: Area 0.5918 | Perimeter 3.9849 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.8878, 1.9724, 0.0000) | Anchor (0.8878, 1.9724, 0.0000)
--   Analytic: Ref Point (0.9301, 1.9724, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.9301, 1.9724, 0.0000) | Direction (0.0000, 1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.9237, 0.9237] | V[-0.2293, -0.2293] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 1, 61
 -   Loop Count: 1
@@ -12909,11 +12909,11 @@
 - Face 33: Conical | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63864
 -   Measure: Area 0.0761 | Perimeter 10.9313 | Radius/Diameter N/A | Min Curvature Radius 1.2232
 -   Points: Center (0.0000, 0.3140, 0.0000) | Anchor (0.0000, 0.3140, 0.0000)
--   Analytic: Ref Point (0.0000, 0.3140, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.8699 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.3140, 0.0000) | Direction (-0.0000, -1.0000, -0.0000) | Radius 0.8699 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 33, 5
 -   Loop Count: 1
@@ -12924,12 +12924,12 @@
 - Face 34: Planar | Edges: 2 | Facets: None | Vertices: 1 | Tag: 63862
 -   Measure: Area 0.8170 | Perimeter 11.8589 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (0.0000, 0.3189, -0.0000) | Anchor (0.0000, 0.3189, -0.0000)
--   Analytic: Ref Point (0.0000, 0.3189, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (0.0000, 0.3189, 0.0000) | Direction (0.0000, -1.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.0000, 0.0000] | V[-0.0000, 0.0000] [inferred: inferred_from_edges_and_radius]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 10, 33
 -   Loop Count: 1
@@ -12940,11 +12940,11 @@
 - Face 35: Conical | Edges: 5 | Facets: None | Vertices: 5 | Tag: 63898
 -   Measure: Area 0.4949 | Perimeter 16.3327 | Radius/Diameter N/A | Min Curvature Radius 1.4504
 -   Points: Center (0.0392, 1.5113, -0.1068) | Anchor (0.0392, 1.5113, -0.1068)
--   Analytic: Ref Point (0.0000, 1.5039, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 1.0610 [native]
--   Surface Definition Source: native
--   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [native]
--   Face Topology: Closed [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 1.5039, 0.0000) | Direction (-0.0000, 1.0000, -0.0000) | Radius 1.0610 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 1 period 6.2832 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Closed [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 35, 40, 8, 26, 45
 -   Loop Count: 2
@@ -12955,11 +12955,11 @@
 - Face 36: Parametric | Edges: 4 | Facets: None | Vertices: 4 | Tag: 63904
 -   Measure: Area 1.0886 | Perimeter 150.8762 | Radius/Diameter N/A | Min Curvature Radius 1.0645
 -   Points: Center (0.0023, 1.1748, 0.0011) | Anchor (0.0023, 1.1748, 0.0011)
--   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Analytic: Ref Point (0.0000, 0.0000, 0.0000) | Direction (0.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 20, 58, 15, 26
 -   Loop Count: 1
@@ -12970,12 +12970,12 @@
 - Face 37: Planar | Edges: 7 | Facets: None | Vertices: 7 | Tag: 63886
 -   Measure: Area 2.6665 | Perimeter 9.9581 | Radius/Diameter N/A | Min Curvature Radius N/A
 -   Points: Center (-0.6811, 2.8009, -0.0991) | Anchor (-0.6811, 2.8009, -0.0991)
--   Analytic: Ref Point (-0.6811, 2.8681, 0.0000) | Direction (-1.0000, 0.0000, 0.0000) | Radius 0.0000 [native]
--   Surface Definition Source: native
+-   Analytic: Ref Point (-0.6811, 2.8681, 0.0000) | Direction (-1.0000, 0.0000, 0.0000) | Radius 0.0000 [AskFaceData]
+-   Surface Definition Source: AskFaceData
 -   UV Bounds: U[-0.9383, 0.9383] | V[-2.8681, 0.8760] [inferred: inferred_from_edges]
--   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [native]
--   Face Topology: Open [native]
--   Local Properties Source: native
+-   Periodicity: U status 0 period 0.0000 | V status 0 period 0.0000 [AskFacePeriodicity]
+-   Face Topology: Open [AskFaceTopology]
+-   Local Properties Source: AskFaceProps
 -   Trimmed Surface Source: inferred: inferred_from_loops
 -   Face Edge Indices: 41, 54, 4, 47, 53, 13, 37
 -   Loop Count: 2

@@ -1801,10 +1801,13 @@ def _build_nx_body(
         and circular_edges >= 3
         and linear_edges >= 8
     )
+    has_complex_face_types = bool(
+        face_types.intersection({"parametric", "blending", "surfaceofrevolution", "conical", "spherical"})
+    )
+    rich_preview = _build_nx_wireframe_body(body_payload, scale=scale, body_index=body_index)
 
-    exact_built = _build_exact_compound_from_rich_body(body_payload, scale=scale, body_index=body_index)
-    if exact_built:
-        return exact_built
+    if rich_preview and (has_complex_face_types or total_faces > 16 or total_edges > 48):
+        return rich_preview
 
     if looks_like_compound_cylinder_block:
         built = _build_nx_compound_block_cylinder_body(body_payload, scale=scale, body_index=body_index)
@@ -1821,7 +1824,11 @@ def _build_nx_body(
         if built:
             return built
 
-    return _build_nx_wireframe_body(body_payload, scale=scale, body_index=body_index)
+    exact_built = _build_exact_compound_from_rich_body(body_payload, scale=scale, body_index=body_index)
+    if exact_built:
+        return exact_built
+
+    return rich_preview
 
 
 def normalize_existing_report(

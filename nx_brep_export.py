@@ -670,6 +670,37 @@ def public_attrs(obj):
         return []
 
 
+def serialize_public_object(obj, depth=1, max_fields=40):
+    if obj is None or depth < 0:
+        return None
+    payload = {}
+    for name in public_attrs(obj)[:max_fields]:
+        try:
+            value = getattr(obj, name)
+        except Exception:
+            continue
+        if callable(value):
+            continue
+        serialized = serialize_public_value(value, depth - 1)
+        if serialized in (None, {}, []):
+            continue
+        payload[name] = serialized
+    return payload or None
+
+
+def serialize_public_value(value, depth=1):
+    if value is None:
+        return None
+    if isinstance(value, (bool, int, float, str)):
+        return value
+    generic = serialize_generic(value)
+    if generic is not None and not isinstance(generic, str):
+        return generic
+    if depth <= 0:
+        return clean_text(value, "")
+    return serialize_public_object(value, depth=depth)
+
+
 def get_attr_candidates(obj, *names):
     if obj is None:
         return None
@@ -752,6 +783,7 @@ def parse_face_props_result(result, uv):
             "v_curvature": serialize_xyz(xyzs[4]),
             "unit_normal": serialize_xyz(xyzs[5]),
             "principal_radii": to_number_list(radii) if radii is not None else (to_number_list(pairs[-1]) if pairs else None),
+            "source": "AskFaceProps",
         }
     return None
 
@@ -1085,6 +1117,7 @@ def get_face_uv_bounds(uf_session, face_tag):
             "u_max": uv_values[1],
             "v_min": uv_values[2],
             "v_max": uv_values[3],
+            "source": "AskFaceUvMinmax",
         }
     if result is not None:
         add_diagnostic_once("AskFaceUvMinmax", "unparsed_result", sample=serialize_generic(result))
@@ -1097,6 +1130,7 @@ def get_face_uv_bounds(uf_session, face_tag):
             "u_max": uv_bounds[1],
             "v_min": uv_bounds[2],
             "v_max": uv_bounds[3],
+            "source": "AskFaceUvMinmax",
         }
     except Exception:
         return None
@@ -1116,6 +1150,7 @@ def get_face_periodicity(uf_session, face_tag):
             "u_period": values[1],
             "v_status": int(values[2]),
             "v_period": values[3],
+            "source": "AskFacePeriodicity",
         }
     if result is not None:
         add_diagnostic_once("AskFacePeriodicity", "unparsed_result", sample=serialize_generic(result))
@@ -1131,6 +1166,7 @@ def get_face_periodicity(uf_session, face_tag):
             "u_period": u_period[0],
             "v_status": v_status[0],
             "v_period": v_period[0],
+            "source": "AskFacePeriodicity",
         }
     except Exception:
         return None
@@ -1147,12 +1183,14 @@ def get_face_topology(uf_session, face_tag):
         return {
             "topology_code": int(result),
             "topology_name": FACE_TOPOLOGY_NAMES.get(int(result)),
+            "source": "AskFaceTopology",
         }
     scalar = first_scalar(sequenceize(result))
     if scalar is not None:
         return {
             "topology_code": int(scalar),
             "topology_name": FACE_TOPOLOGY_NAMES.get(int(scalar)),
+            "source": "AskFaceTopology",
         }
     if result is not None:
         add_diagnostic_once("AskFaceTopology", "unparsed_result", sample=serialize_generic(result))
@@ -1164,6 +1202,7 @@ def get_face_topology(uf_session, face_tag):
         return {
             "topology_code": topology_value,
             "topology_name": FACE_TOPOLOGY_NAMES.get(topology_value),
+            "source": "AskFaceTopology",
         }
     except Exception:
         return None
@@ -1213,6 +1252,7 @@ def get_face_local_properties(uf_session, face_tag, uv_bounds):
                 "v_curvature": serialize_xyz(v2),
                 "unit_normal": serialize_xyz(unit_norm),
                 "principal_radii": radii,
+                "source": "AskFaceProps",
             }
         except Exception:
             continue
@@ -1244,16 +1284,19 @@ def parse_trimmed_bsurface_result(result):
     )
     return {
         "surface": {
+            "type": clean_text(getattr(bsurface, "type", None), None),
             "num_poles_u": getattr(bsurface, "num_poles_u", None),
             "num_poles_v": getattr(bsurface, "num_poles_v", None),
             "order_u": getattr(bsurface, "order_u", None),
             "order_v": getattr(bsurface, "order_v", None),
             "is_rational": getattr(bsurface, "is_rational", None),
+            "raw_struct": serialize_public_object(bsurface, depth=2),
         },
         "loop_count": int(scalar_values[0]) if len(scalar_values) >= 1 else None,
         "edge_count": int(scalar_values[1]) if len(scalar_values) >= 2 else None,
         "edge_sense": edge_sense,
         "edge_bcurve_tags": None,
+        "source": "Ask2dtrimBsurf",
     }
 
 
@@ -1288,23 +1331,27 @@ def get_face_trimmed_bsurface(uf_session, face_tag, edge_count_hint):
             total_edges = sum(value for value in edge_count if is_number(value))
             return {
                 "surface": {
+                    "type": clean_text(getattr(bsurface, "type", None), None),
                     "num_poles_u": getattr(bsurface, "num_poles_u", None),
                     "num_poles_v": getattr(bsurface, "num_poles_v", None),
                     "order_u": getattr(bsurface, "order_u", None),
                     "order_v": getattr(bsurface, "order_v", None),
                     "is_rational": getattr(bsurface, "is_rational", None),
+                    "raw_struct": serialize_public_object(bsurface, depth=2),
                 },
                 "loop_count": loop_count[0] if isinstance(loop_count, list) else loop_count,
                 "edge_count": total_edges if total_edges else edge_count_hint,
+                "edges_per_loop": [value for value in edge_count if is_number(value)],
                 "edge_sense": edge_sense,
                 "edge_bcurve_tags": edge_bcurves,
+                "source": "Ask2dtrimBsurf",
             }
         except Exception:
             continue
     return None
 
 
-def build_surface_definition(face_type_name, analytic_data, local_properties):
+def build_surface_definition(face_type_name, analytic_data, local_properties, trimmed_bsurface=None):
     if analytic_data is None:
         return None
     reference_point = analytic_data.get("reference_point")
@@ -1321,6 +1368,12 @@ def build_surface_definition(face_type_name, analytic_data, local_properties):
     }
     if local_properties is not None:
         definition["sampled_normal"] = local_properties.get("unit_normal")
+        definition["sampled_point"] = local_properties.get("point")
+        definition["u_tangent"] = local_properties.get("u_tangent")
+        definition["v_tangent"] = local_properties.get("v_tangent")
+        definition["principal_radii"] = local_properties.get("principal_radii")
+    if trimmed_bsurface is not None:
+        definition["trimmed_surface"] = trimmed_bsurface.get("surface")
     if face_type_name == "Planar":
         definition["plane_equation"] = serialize_plane_equation(reference_point, direction)
     elif face_type_name in ("Cylindrical", "Conical", "SurfaceOfRevolution"):
@@ -2418,6 +2471,7 @@ def get_face_analytic_data(uf_session, face):
     result = call_with_diagnostics("AskFaceData", ask_face_data, (face_tag,))
     parsed = parse_face_data_result(result)
     if parsed is not None:
+        parsed["source"] = "AskFaceData"
         return parsed
     if result is not None:
         add_diagnostic_once("AskFaceData", "unparsed_result", sample=serialize_generic(result))
@@ -2439,6 +2493,7 @@ def get_face_analytic_data(uf_session, face):
             "radius": radius[0] if isinstance(radius, list) else radius,
             "radius_data": radius_data[0] if isinstance(radius_data, list) else radius_data,
             "normal_direction": normal_direction[0] if isinstance(normal_direction, list) else normal_direction,
+            "source": "AskFaceData",
         }
     except Exception:
         return None
@@ -2548,7 +2603,7 @@ def summarize_faces(session, uf_session, body):
                 "adjacent_faces": adjacent_faces,
                 "measurement": face_measurement,
                 "analytic_data": analytic_data,
-                "surface_definition": build_surface_definition(face_type_name, analytic_data, local_properties),
+                "surface_definition": build_surface_definition(face_type_name, analytic_data, local_properties, trimmed_bsurface),
                 "uv_bounds": uv_bounds,
                 "periodicity": periodicity,
                 "topology": topology,
@@ -2713,7 +2768,7 @@ def analyze_part_to_md(output_path="report.md"):
             if face.get("trimmed_bsurface") is None:
                 face["trimmed_bsurface"] = infer_face_trimmed_bsurface(face)
             if face.get("surface_definition") is None:
-                face["surface_definition"] = build_surface_definition(face.get("type"), face.get("analytic_data"), face.get("local_properties"))
+                face["surface_definition"] = build_surface_definition(face.get("type"), face.get("analytic_data"), face.get("local_properties"), face.get("trimmed_bsurface"))
         body_box = get_body_bounding_box(session, uf_session, body)
         body_attributes = get_user_attributes(body)
         body_entry = {
