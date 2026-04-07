@@ -2764,6 +2764,34 @@ HTML = """<!doctype html>
       return highlightFaces.some((item) => item.axis === face.axis && item.side === face.side);
     }
 
+    function edgeMatchesHighlight(edge, highlightComponents, highlightBodyKeys, highlightRawEdges) {
+      if (highlightComponents?.length && edge.componentId && highlightComponents.includes(edge.componentId)) {
+        return true;
+      }
+      if (highlightBodyKeys?.length && edge.bodyRawKey && highlightBodyKeys.includes(edge.bodyRawKey)) {
+        return true;
+      }
+      if (highlightRawEdges?.length && edge.rawEdgeKey && highlightRawEdges.includes(edge.rawEdgeKey)) {
+        return true;
+      }
+      return false;
+    }
+
+    function compareAnnotationLines(annotations, limit = 4) {
+      const seen = new Set();
+      const lines = [];
+      for (const annotation of annotations || []) {
+        for (const line of annotation?.lines || []) {
+          const text = String(line || "").trim();
+          if (!text || seen.has(text)) continue;
+          seen.add(text);
+          lines.push(text);
+          if (lines.length >= limit) return lines;
+        }
+      }
+      return lines;
+    }
+
     function drawArrow(ctx2d, start, end, color) {
       const dx = end[0] - start[0];
       const dy = end[1] - start[1];
@@ -3661,6 +3689,8 @@ HTML = """<!doctype html>
       const changeLines = diff.summary.length
         ? diff.summary
         : ["No geometric size change was inferred from the current preview data."];
+      const leftCallouts = compareAnnotationLines(diff.annotations.left);
+      const rightCallouts = compareAnnotationLines(diff.annotations.right);
       const rows = [
         ["Decoded Names", left.decoded_names?.join(", ") || "None", right.decoded_names?.join(", ") || "None"],
         ["Inferred Shape", topologyLabel(left), topologyLabel(right)],
@@ -3704,6 +3734,7 @@ HTML = """<!doctype html>
                 <div id="compare-left-overlay" class="viewport-overlay"></div>
               </div>
               <div class="compare-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. This view now renders directly in WebGL.</div>
+              <div class="compare-note">${leftCallouts.length ? leftCallouts.map((line) => escapeHtml(line)).join("<br>") : "Changed regions will highlight in orange on this side."}</div>
             </div>
             <div class="compare-preview-card">
               <h3>${escapeHtml(right.file_name)}</h3>
@@ -3712,6 +3743,7 @@ HTML = """<!doctype html>
                 <div id="compare-right-overlay" class="viewport-overlay"></div>
               </div>
               <div class="compare-note">This comparison pane uses the same WebGL mesh pipeline as the main preview.</div>
+              <div class="compare-note">${rightCallouts.length ? rightCallouts.map((line) => escapeHtml(line)).join("<br>") : "Changed regions will highlight in orange on this side."}</div>
             </div>
           </div>
           <table>
@@ -3795,10 +3827,16 @@ HTML = """<!doctype html>
           rebuildPreviewViewport(leftViewport, left, {
             fitView: leftViewport.currentReportKey !== reportKey(left) || !leftViewport.previewObjects,
             mode: "solid",
+            highlightComponents: diff.highlightComponents.left,
+            highlightRawFaces: diff.highlightRawFaces.left,
+            highlightRawEdges: diff.highlightRawEdges.left,
           });
           rebuildPreviewViewport(rightViewport, right, {
             fitView: rightViewport.currentReportKey !== reportKey(right) || !rightViewport.previewObjects,
             mode: "solid",
+            highlightComponents: diff.highlightComponents.right,
+            highlightRawFaces: diff.highlightRawFaces.right,
+            highlightRawEdges: diff.highlightRawEdges.right,
           });
           syncCompareViewports();
         })
@@ -4074,8 +4112,8 @@ HTML = """<!doctype html>
 
     function applyPreviewViewportMode(viewport, mode) {
       if (!viewport?.previewObjects) return;
-      const { solidMesh, wireframe, pointCloud, edgeLines, fallbackEdgeLines } = viewport.previewObjects;
-      const hasSurfaceGeometry = Boolean(solidMesh || wireframe || edgeLines || fallbackEdgeLines);
+      const { solidMesh, wireframe, pointCloud, edgeLines, fallbackEdgeLines, highlightEdgeLines } = viewport.previewObjects;
+      const hasSurfaceGeometry = Boolean(solidMesh || wireframe || edgeLines || fallbackEdgeLines || highlightEdgeLines);
       const showSolid = mode === "solid";
       const showWireframe = mode === "wireframe";
       const showPoints = mode === "points";
@@ -4093,17 +4131,26 @@ HTML = """<!doctype html>
         fallbackEdgeLines.visible = showWireframe || showSolid;
         fallbackEdgeLines.material.opacity = showWireframe ? 0.78 : 0.4;
       }
+      if (highlightEdgeLines) {
+        highlightEdgeLines.visible = showWireframe || showSolid;
+        highlightEdgeLines.material.opacity = showWireframe ? 0.98 : 0.92;
+      }
     }
 
-    function buildPreviewViewportObjects(viewport, preview) {
+    function buildPreviewViewportObjects(viewport, preview, options = {}) {
       const { THREE } = viewport;
       const palette = previewEdgePalette();
+      const highlightComponents = options.highlightComponents || [];
+      const highlightBodyKeys = options.highlightBodyKeys || [];
+      const highlightRawFaces = options.highlightRawFaces || [];
+      const highlightRawEdges = options.highlightRawEdges || [];
       const group = new THREE.Group();
       const solidPositions = [];
       const solidNormals = [];
       const solidColors = [];
       const edgePositions = [];
       const fallbackEdgePositions = [];
+      const highlightEdgePositions = [];
       const pointPositions = [];
       const pointSeen = new Set();
       const surfaceBodyKeys = new Set();
@@ -4126,7 +4173,8 @@ HTML = """<!doctype html>
         const faceBodyKey = face?.bodyRawKey || face?.componentId || null;
         if (faceBodyKey) surfaceBodyKeys.add(faceBodyKey);
         const normal = (face.normal || normalFromVertices(vertices) || [0, 0, 1]).map(Number);
-        const baseColor = (face.baseColor || [196, 199, 205]).map((value) => Number(value) / 255);
+        const highlighted = faceMatchesHighlight(face, [], highlightComponents, highlightBodyKeys, highlightRawFaces);
+        const baseColor = (highlighted ? [255, 159, 28] : (face.baseColor || [196, 199, 205])).map((value) => Number(value) / 255);
 
         vertices.forEach(pushPoint);
         for (let index = 1; index < vertices.length - 1; index++) {
@@ -4146,20 +4194,27 @@ HTML = """<!doctype html>
       for (const edge of preview.kernelGeometry?.edges || []) {
         const points = Array.isArray(edge.points) ? edge.points : [];
         const edgeBodyKey = edge?.bodyRawKey || edge?.componentId || null;
+        const highlighted = edgeMatchesHighlight(edge, highlightComponents, highlightBodyKeys, highlightRawEdges);
         const targetPositions = edgeBodyKey && !surfaceBodyKeys.has(edgeBodyKey)
           ? fallbackEdgePositions
           : edgePositions;
         for (let index = 1; index < points.length; index++) {
           const start = points[index - 1];
           const end = points[index];
-          targetPositions.push(
+          const centered = [
             Number(start[0]) - preview.center[0],
             Number(start[1]) - preview.center[1],
             Number(start[2]) - preview.center[2],
             Number(end[0]) - preview.center[0],
             Number(end[1]) - preview.center[1],
             Number(end[2]) - preview.center[2]
+          ];
+          targetPositions.push(
+            ...centered
           );
+          if (highlighted) {
+            highlightEdgePositions.push(...centered);
+          }
           pushPoint(start);
           pushPoint(end);
         }
@@ -4173,6 +4228,7 @@ HTML = """<!doctype html>
       let wireframe = null;
       let edgeLines = null;
       let fallbackEdgeLines = null;
+      let highlightEdgeLines = null;
       let pointCloud = null;
 
       if (solidPositions.length) {
@@ -4235,6 +4291,20 @@ HTML = """<!doctype html>
         group.add(fallbackEdgeLines);
       }
 
+      if (highlightEdgePositions.length) {
+        const highlightEdgeGeometry = new THREE.BufferGeometry();
+        highlightEdgeGeometry.setAttribute("position", new THREE.Float32BufferAttribute(highlightEdgePositions, 3));
+        highlightEdgeLines = new THREE.LineSegments(
+          highlightEdgeGeometry,
+          new THREE.LineBasicMaterial({
+            color: new THREE.Color("#ef6c00"),
+            transparent: true,
+            opacity: 0.96,
+          })
+        );
+        group.add(highlightEdgeLines);
+      }
+
       if (pointPositions.length) {
         const pointGeometry = new THREE.BufferGeometry();
         pointGeometry.setAttribute("position", new THREE.Float32BufferAttribute(pointPositions, 3));
@@ -4249,7 +4319,7 @@ HTML = """<!doctype html>
         group.add(pointCloud);
       }
 
-      return { group, solidMesh, wireframe, edgeLines, fallbackEdgeLines, pointCloud };
+      return { group, solidMesh, wireframe, edgeLines, fallbackEdgeLines, highlightEdgeLines, pointCloud };
     }
 
     function destroyViewport(viewport) {
@@ -4577,7 +4647,12 @@ HTML = """<!doctype html>
         return;
       }
 
-      const objects = buildPreviewViewportObjects(viewport, preview);
+      const objects = buildPreviewViewportObjects(viewport, preview, {
+        highlightComponents: options.highlightComponents || [],
+        highlightBodyKeys: options.highlightBodyKeys || [],
+        highlightRawFaces: options.highlightRawFaces || [],
+        highlightRawEdges: options.highlightRawEdges || [],
+      });
       viewport.contentGroup.add(objects.group);
       viewport.previewObjects = objects;
       viewport.currentPreview = preview;
