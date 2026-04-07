@@ -4125,6 +4125,16 @@ def analyze_input_text(
     ]
 
 
+def _input_suffix_hint(display_name: str, source_path: str | None) -> str:
+    for candidate in (source_path, display_name):
+        if not candidate:
+            continue
+        suffix = Path(str(candidate)).suffix.lower()
+        if suffix:
+            return suffix
+    return ""
+
+
 def _decode_text_payload(raw_bytes: bytes) -> str:
     for encoding in ("utf-8", "utf-8-sig", "latin-1"):
         try:
@@ -4355,14 +4365,25 @@ def analyze_input_bytes(
     source_path: str | None = None,
     file_size_bytes: int | None = None,
 ) -> list[dict[str, Any]]:
-    imported_reports = parse_stl_input_bytes(
-        raw_bytes,
-        display_name=display_name,
-        source_path=source_path,
-        file_size_bytes=file_size_bytes,
-    )
-    if imported_reports is not None:
-        return imported_reports
+    suffix_hint = _input_suffix_hint(display_name, source_path)
+    if suffix_hint == ".stl":
+        imported_reports = parse_stl_input_bytes(
+            raw_bytes,
+            display_name=display_name,
+            source_path=source_path,
+            file_size_bytes=file_size_bytes,
+        )
+        if imported_reports is not None:
+            return imported_reports
+    elif suffix_hint not in {".json", ".stp", ".step", ".x_t", ".xt"}:
+        imported_reports = parse_stl_input_bytes(
+            raw_bytes,
+            display_name=display_name,
+            source_path=source_path,
+            file_size_bytes=file_size_bytes,
+        )
+        if imported_reports is not None:
+            return imported_reports
 
     raw_text = _decode_text_payload(raw_bytes)
     return analyze_input_text(

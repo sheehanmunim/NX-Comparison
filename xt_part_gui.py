@@ -318,6 +318,84 @@ def preview_score(report: dict) -> tuple[int, int]:
     )
 
 
+def _transport_face(face: dict) -> dict:
+    metadata = dict(face.get("metadata") or {})
+    return {
+        "name": face.get("name"),
+        "vertices": list(face.get("vertices") or []),
+        "normal": face.get("normal"),
+        "metadata": {
+            "kind": metadata.get("kind"),
+            "axis": metadata.get("axis"),
+            "source_body_index": metadata.get("source_body_index"),
+            "source_face_index": metadata.get("source_face_index"),
+            "source_face_type": metadata.get("source_face_type"),
+            "object_identity": metadata.get("object_identity"),
+            "display_properties": metadata.get("display_properties"),
+            "component_context": metadata.get("component_context"),
+        },
+    }
+
+
+def _transport_edge(edge: dict) -> dict:
+    return {
+        "kind": edge.get("kind"),
+        "name": edge.get("name"),
+        "source_edge_index": edge.get("source_edge_index"),
+        "points": list(edge.get("points") or []),
+        "object_identity": edge.get("object_identity"),
+        "display_properties": edge.get("display_properties"),
+        "component_context": edge.get("component_context"),
+    }
+
+
+def _transport_kernel_body(body: dict) -> dict:
+    metadata = dict(body.get("metadata") or {})
+    return {
+        "kind": body.get("kind"),
+        "name": body.get("name"),
+        "faces": [_transport_face(face) for face in (body.get("faces") or [])],
+        "edges": [_transport_edge(edge) for edge in (body.get("edges") or [])],
+        "vertices": list(body.get("vertices") or []),
+        "metadata": {
+            "name": metadata.get("name"),
+            "primitive": metadata.get("primitive"),
+            "shape_summary": metadata.get("shape_summary"),
+            "source": metadata.get("source"),
+            "nx_body_index": metadata.get("nx_body_index"),
+            "object_identity": metadata.get("object_identity"),
+            "display_properties": metadata.get("display_properties"),
+            "component_context": metadata.get("component_context"),
+            "edge_count": metadata.get("edge_count"),
+            "vertex_count": metadata.get("vertex_count"),
+            "face_patch_count": metadata.get("face_patch_count"),
+            "source_face_count": metadata.get("source_face_count"),
+        },
+    }
+
+
+def _transport_report(report: dict) -> dict:
+    transported = dict(report)
+    kernel_bodies = report.get("kernel_bodies")
+    if isinstance(kernel_bodies, list) and kernel_bodies:
+        transported["kernel_bodies"] = [_transport_kernel_body(body) for body in kernel_bodies if body]
+        transported["kernel_body"] = transported["kernel_bodies"][0] if len(transported["kernel_bodies"]) == 1 else None
+    elif report.get("kernel_body"):
+        transported["kernel_body"] = _transport_kernel_body(report["kernel_body"])
+
+    if report.get("preview_kernel_bodies") is report.get("kernel_bodies"):
+        transported.pop("preview_kernel_bodies", None)
+    elif isinstance(report.get("preview_kernel_bodies"), list) and report.get("preview_kernel_bodies"):
+        transported["preview_kernel_bodies"] = [
+            _transport_kernel_body(body) for body in report.get("preview_kernel_bodies") if body
+        ]
+    return transported
+
+
+def _reports_for_client(reports: list[dict]) -> list[dict]:
+    return [_transport_report(report) for report in reports]
+
+
 HTML = """<!doctype html>
 <html lang="en">
 <head>
@@ -6153,7 +6231,7 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def _send_json(self, payload: dict, status: int = HTTPStatus.OK) -> None:
-        body = json.dumps(payload).encode("utf-8")
+        body = json.dumps(payload, separators=(",", ":")).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
@@ -6239,7 +6317,7 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
 
         if parsed.path == "/api/samples":
             try:
-                reports = [enrich_report(report) for report in workspace_sample_reports()]
+                reports = _reports_for_client([enrich_report(report) for report in workspace_sample_reports()])
             except Exception as exc:
                 self._send_json({"error": str(exc)}, status=HTTPStatus.INTERNAL_SERVER_ERROR)
                 return
@@ -6272,7 +6350,7 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
                             ]
                         )
                     )
-                self._send_json({"reports": reports})
+                self._send_json({"reports": _reports_for_client(reports)})
                 return
 
             if parsed.path == "/api/analyze-step-details":
@@ -6294,17 +6372,17 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
                         )
                         or []
                     )
-                self._send_json({"reports": [enrich_report(report) for report in reports]})
+                self._send_json({"reports": _reports_for_client([enrich_report(report) for report in reports])})
                 return
 
             payload = self._read_json()
             if parsed.path == "/api/analyze-paths":
-                reports = [enrich_report(report) for report in analyze_paths(payload.get("paths", []))]
+                reports = _reports_for_client([enrich_report(report) for report in analyze_paths(payload.get("paths", []))])
                 self._send_json({"reports": reports})
                 return
 
             if parsed.path == "/api/analyze-text":
-                reports = [enrich_report(report) for report in analyze_uploaded_files(payload.get("files", []))]
+                reports = _reports_for_client([enrich_report(report) for report in analyze_uploaded_files(payload.get("files", []))])
                 self._send_json({"reports": reports})
                 return
 
@@ -6315,7 +6393,7 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
                 fused_report = create_fused_report(selected_reports[0], selected_reports[1])
                 if fused_report is None:
                     raise ValueError("Selected reports are not a compatible STEP + JSON fusion pair.")
-                reports = [enrich_report(fused_report)]
+                reports = _reports_for_client([enrich_report(fused_report)])
                 self._send_json({"reports": reports})
                 return
         except FileNotFoundError as exc:
