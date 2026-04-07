@@ -91,7 +91,7 @@ def _preview_metadata_for_report(report: dict) -> dict:
         return {
             "strategy": "step_import_preview",
             "label": "STEP Import",
-            "description": "Imported directly from the STEP file and shown as a viewer-style STEP mesh preview.",
+            "description": "Imported directly from the STEP file and shown as a direct STEP mesh preview.",
         }
     if source_format == "siemens_nx_json":
         return {
@@ -1257,10 +1257,10 @@ HTML = """<!doctype html>
       const baseControls = "Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. Double-click fits the model.";
       const strategy = previewMetadata(report).strategy;
       if (strategy === "step_quick_preview") {
-        return `${baseControls} This STEP file is shown with a fast topology-based preview first, then it will refine toward the full viewer-style STEP mesh automatically.`;
+        return `${baseControls} This STEP file is shown with a fast topology-based preview first, then it will refine toward the full STEP mesh automatically.`;
       }
       if (strategy === "step_import_preview") {
-        return `${baseControls} This file is being shown as a direct STEP import preview, closer to the Online3DViewer-style flow.`;
+        return `${baseControls} This file is being shown as a direct STEP import preview.`;
       }
       if (strategy === "stl_mesh_preview") {
         return `${baseControls} This file is being shown as a direct STL triangle mesh preview in WebGL.`;
@@ -1522,6 +1522,77 @@ HTML = """<!doctype html>
       return "x";
     }
 
+    function longestBoundsAxis(bounds) {
+      if (!bounds?.size) return "z";
+      let bestAxis = "x";
+      let bestValue = Number(bounds.size[0] || 0);
+      AXES.slice(1).forEach((axis, index) => {
+        const value = Number(bounds.size[index + 1] || 0);
+        if (value > bestValue) {
+          bestAxis = axis;
+          bestValue = value;
+        }
+      });
+      return bestAxis;
+    }
+
+    function samplePointCloud(points, limit = 320) {
+      const cloud = [...(points || [])];
+      if (cloud.length <= limit) return cloud;
+      const sampled = [];
+      const step = cloud.length / limit;
+      for (let index = 0; index < limit; index++) {
+        sampled.push(cloud[Math.min(cloud.length - 1, Math.floor(index * step))]);
+      }
+      return sampled;
+    }
+
+    function meshProfileFromPointCloud(pointCloud, bounds, stats = {}) {
+      if (!bounds || !pointCloud?.length) return null;
+      const sampled = samplePointCloud(pointCloud, 320);
+      const size = (bounds.size || [0, 0, 0]).map((value) => Math.max(Number(value) || 0, 1e-9));
+      const min = (bounds.min || [0, 0, 0]).map(Number);
+      const bins = 6;
+      const occupancy = new Set();
+      const centroid = [0, 0, 0];
+
+      sampled.forEach((point) => {
+        const normalized = point.map((value, index) => Math.max(0, Math.min(1, (Number(value) - min[index]) / size[index])));
+        centroid[0] += normalized[0];
+        centroid[1] += normalized[1];
+        centroid[2] += normalized[2];
+        occupancy.add(
+          normalized
+            .map((value) => Math.min(bins - 1, Math.max(0, Math.floor(value * bins))))
+            .join("|")
+        );
+      });
+
+      const count = sampled.length || 1;
+      return {
+        pointCount: pointCloud.length,
+        sampleCount: sampled.length,
+        faceCount: Number(stats.faceCount || 0),
+        edgeCount: Number(stats.edgeCount || 0),
+        occupancy,
+        occupancyCount: occupancy.size,
+        centroid: centroid.map((value) => value / count),
+      };
+    }
+
+    function meshProfileDelta(leftProfile, rightProfile) {
+      if (!leftProfile || !rightProfile) return null;
+      const union = new Set([...leftProfile.occupancy, ...rightProfile.occupancy]);
+      const intersectionCount = [...leftProfile.occupancy].filter((key) => rightProfile.occupancy.has(key)).length;
+      const mismatchRatio = union.size ? 1 - (intersectionCount / union.size) : 0;
+      const centroidDelta = Math.hypot(
+        rightProfile.centroid[0] - leftProfile.centroid[0],
+        rightProfile.centroid[1] - leftProfile.centroid[1],
+        rightProfile.centroid[2] - leftProfile.centroid[2]
+      );
+      return { mismatchRatio, centroidDelta };
+    }
+
     function describeComponent(component, identity, siblingCount = 1) {
       const metadata = component?.metadata || {};
       const primitive = identity.primitive;
@@ -1587,6 +1658,10 @@ HTML = """<!doctype html>
           ? bounds.min.map((value, index) => (value + bounds.max[index]) / 2)
           : [0, 0, 0],
         bounds,
+        meshProfile: meshProfileFromPointCloud(pointCloud, bounds, {
+          faceCount: component?.faces?.length || 0,
+          edgeCount: component?.edges?.length || 0,
+        }),
         measurements: bounds
           ? Object.fromEntries(AXES.map((axis, index) => [axis, Number(bounds.size[index] || 0)]))
           : {},
@@ -1595,7 +1670,7 @@ HTML = """<!doctype html>
 
     function reportComponents(report) {
       const results = [];
-      kernelBodies(report).forEach((body, bodyIndex) => {
+      previewBodies(report).forEach((body, bodyIndex) => {
         if (body?.metadata?.primitive === "compound" && Array.isArray(body.metadata.components)) {
           const componentCount = body.metadata.components.length;
           body.metadata.components.forEach((component, componentIndex) => {
@@ -1694,6 +1769,35 @@ HTML = """<!doctype html>
           properties.push({ kind: "size", axis, label: `${axis.toUpperCase()} size`, leftValue, rightValue, delta });
         }
       });
+
+      const leftMesh = leftComponent.meshProfile;
+      const rightMesh = rightComponent.meshProfile;
+      if (leftMesh && rightMesh) {
+        const faceDelta = Number(rightMesh.faceCount || 0) - Number(leftMesh.faceCount || 0);
+        if (Math.abs(faceDelta) >= 1) {
+          properties.push({
+            kind: "facet_count",
+            axis: longestBoundsAxis(leftComponent.bounds || rightComponent.bounds),
+            label: "Mesh faces",
+            leftValue: Number(leftMesh.faceCount || 0),
+            rightValue: Number(rightMesh.faceCount || 0),
+            delta: faceDelta,
+          });
+        }
+
+        const profileDelta = meshProfileDelta(leftMesh, rightMesh);
+        if (profileDelta && (profileDelta.mismatchRatio >= 0.12 || profileDelta.centroidDelta >= 0.045)) {
+          properties.push({
+            kind: "shape_profile",
+            axis: longestBoundsAxis(leftComponent.bounds || rightComponent.bounds),
+            label: "Shape profile",
+            leftValue: profileDelta.mismatchRatio,
+            rightValue: 0,
+            delta: profileDelta.mismatchRatio,
+            centroidDelta: profileDelta.centroidDelta,
+          });
+        }
+      }
       return properties;
     }
 
@@ -1796,8 +1900,21 @@ HTML = """<!doctype html>
     }
 
     function summarizeComponentChange(change) {
+      if (change.properties.some((property) => property.kind === "shape_profile")) {
+        const faceProperty = change.properties.find((property) => property.kind === "facet_count");
+        const profileProperty = change.properties.find((property) => property.kind === "shape_profile");
+        const parts = [
+          `${change.label} surface shape changed visibly`,
+          faceProperty ? `mesh faces ${Math.round(faceProperty.leftValue)} -> ${Math.round(faceProperty.rightValue)}` : null,
+          profileProperty ? `profile mismatch ${(Number(profileProperty.delta || 0) * 100).toFixed(0)}%` : null,
+        ].filter(Boolean);
+        return `${parts.join(", ")}.`;
+      }
+
       const propertyDescriptions = change.properties.map((property) =>
-        `${property.label} ${changeVerb(property.delta)} from ${formatLength(property.leftValue)} to ${formatLength(property.rightValue)} (${formatSignedInches(property.delta)})`
+        property.kind === "facet_count"
+          ? `${property.label} changed from ${Math.round(property.leftValue)} to ${Math.round(property.rightValue)}`
+          : `${property.label} ${changeVerb(property.delta)} from ${formatLength(property.leftValue)} to ${formatLength(property.rightValue)} (${formatSignedInches(property.delta)})`
       );
 
       if (change.primitive === "cylinder" && change.properties.length === 1 && change.properties[0].kind === "height") {
@@ -2464,22 +2581,45 @@ HTML = """<!doctype html>
             const leftEndpoints = annotationEndpointsForProperty(change.left, property);
             const rightEndpoints = annotationEndpointsForProperty(change.right, property);
             const focusSegments = focusSegmentsForProperty(change.left, change.right, property);
+            if (property.kind === "shape_profile") {
+              info.annotations.left.push({
+                point: change.left.center,
+                lines: [`${change.label} shape changed`],
+              });
+              info.annotations.right.push({
+                point: change.right.center,
+                lines: [`${change.label} shape changed`],
+              });
+              return;
+            }
             if (leftEndpoints) {
               info.annotations.left.push({
                 start: leftEndpoints[0],
                 end: leftEndpoints[1],
-                lines: [`${change.label} ${property.label}: ${formatInches(property.leftValue)}`],
+                lines: [
+                  property.kind === "facet_count"
+                    ? `${change.label} ${property.label}: ${Math.round(property.leftValue)}`
+                    : `${change.label} ${property.label}: ${formatInches(property.leftValue)}`
+                ],
                 focusSegments: focusSegments.left,
-                deltaLabel: focusSegments.left.length ? formatSignedInches(property.delta) : null,
+                deltaLabel: property.kind === "facet_count"
+                  ? null
+                  : (focusSegments.left.length ? formatSignedInches(property.delta) : null),
               });
             }
             if (rightEndpoints) {
               info.annotations.right.push({
                 start: rightEndpoints[0],
                 end: rightEndpoints[1],
-                lines: [`${change.label} ${property.label}: ${formatInches(property.rightValue)} (${formatSignedInches(property.delta)})`],
+                lines: [
+                  property.kind === "facet_count"
+                    ? `${change.label} ${property.label}: ${Math.round(property.rightValue)}`
+                    : `${change.label} ${property.label}: ${formatInches(property.rightValue)} (${formatSignedInches(property.delta)})`
+                ],
                 focusSegments: focusSegments.right,
-                deltaLabel: focusSegments.right.length ? formatSignedInches(property.delta) : null,
+                deltaLabel: property.kind === "facet_count"
+                  ? null
+                  : (focusSegments.right.length ? formatSignedInches(property.delta) : null),
               });
             }
           });
