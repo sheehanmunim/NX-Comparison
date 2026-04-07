@@ -4935,8 +4935,19 @@ HTML = """<!doctype html>
       return preserved.concat(sampled);
     }
 
-    function simplifyKernelGeometryForPreview(kernelGeometry) {
+    function simplifyKernelGeometryForPreview(kernelGeometry, options = {}) {
       const originalFaces = kernelGeometry?.faces || [];
+      if (options?.preserveTriangleMeshFaces) {
+        return {
+          ...kernelGeometry,
+          faces: originalFaces,
+          renderStats: {
+            originalFaceCount: originalFaces.length,
+            renderedFaceCount: originalFaces.length,
+            faceReductionApplied: false,
+          }
+        };
+      }
       const faces = simplifyFacesForPreview(originalFaces);
       return {
         ...kernelGeometry,
@@ -4965,7 +4976,10 @@ HTML = """<!doctype html>
           }),
           { faces: [], points: [], edges: [] }
         );
-      const simplifiedKernelGeometry = simplifyKernelGeometryForPreview(kernelGeometry);
+      const preserveTriangleMeshFaces = (report?.step_import?.backend || "") === "opencascade_occ";
+      const simplifiedKernelGeometry = simplifyKernelGeometryForPreview(kernelGeometry, {
+        preserveTriangleMeshFaces,
+      });
       const cloud = [...points, ...kernelGeometry.points];
       const kernelBody = bodies.length === 1 ? bodies[0] : null;
       let bounds = geometry?.bounds

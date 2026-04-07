@@ -45,6 +45,31 @@ def _curve_type_name(curve_type: Any) -> str:
     return text.replace("GeomAbs_", "")
 
 
+def _occ_display_properties(color_tool: Any, shape: Any) -> dict[str, Any] | None:
+    from OCP.Quantity import Quantity_Color
+    from OCP.XCAFDoc import XCAFDoc_ColorCurv, XCAFDoc_ColorGen, XCAFDoc_ColorSurf
+
+    if shape is None or shape.IsNull():
+        return None
+
+    for color_type in (XCAFDoc_ColorSurf, XCAFDoc_ColorGen, XCAFDoc_ColorCurv):
+        color = Quantity_Color()
+        try:
+            has_color = color_tool.GetColor(shape, color_type, color)
+        except Exception:
+            has_color = False
+        if not has_color:
+            continue
+        return {
+            "rgb": [
+                max(0, min(255, int(round(float(color.Red()) * 255)))),
+                max(0, min(255, int(round(float(color.Green()) * 255)))),
+                max(0, min(255, int(round(float(color.Blue()) * 255)))),
+            ]
+        }
+    return None
+
+
 def _step_occ_preview(payload: dict[str, Any]) -> dict[str, Any]:
     from OCP.BRep import BRep_Tool
     from OCP.BRepAdaptor import BRepAdaptor_Curve
@@ -52,24 +77,38 @@ def _step_occ_preview(payload: dict[str, Any]) -> dict[str, Any]:
     from OCP.BRepMesh import BRepMesh_IncrementalMesh
     from OCP.Bnd import Bnd_Box
     from OCP.IFSelect import IFSelect_RetDone
-    from OCP.STEPControl import STEPControl_Reader
+    from OCP.STEPCAFControl import STEPCAFControl_Reader
+    from OCP.TCollection import TCollection_ExtendedString
+    from OCP.TDocStd import TDocStd_Document
     from OCP.TopAbs import TopAbs_EDGE, TopAbs_FACE, TopAbs_REVERSED, TopAbs_SHELL, TopAbs_SOLID
     from OCP.TopExp import TopExp_Explorer
     from OCP.TopLoc import TopLoc_Location
     from OCP.TopoDS import TopoDS
+    from OCP.XCAFApp import XCAFApp_Application
+    from OCP.XCAFDoc import XCAFDoc_DocumentTool
 
     step_path = Path(str(payload["path"]))
     display_name = str(payload.get("display_name") or step_path.name)
     linear_deflection = float(payload.get("linear_deflection", 0.5))
     angular_deflection = float(payload.get("angular_deflection", 0.35))
 
-    reader = STEPControl_Reader()
+    app = XCAFApp_Application.GetApplication_s()
+    document = TDocStd_Document(TCollection_ExtendedString("XmlXCAF"))
+    app.NewDocument(TCollection_ExtendedString("MDTV-XCAF"), document)
+    shape_tool = XCAFDoc_DocumentTool.ShapeTool_s(document.Main())
+    color_tool = XCAFDoc_DocumentTool.ColorTool_s(document.Main())
+
+    reader = STEPCAFControl_Reader()
+    reader.SetColorMode(True)
+    reader.SetNameMode(True)
     status = reader.ReadFile(str(step_path))
     if status != IFSelect_RetDone:
         raise RuntimeError(f"OpenCascade could not read STEP file: {display_name}")
 
-    reader.TransferRoots()
-    shape = reader.OneShape()
+    if not reader.Transfer(document):
+        raise RuntimeError(f"OpenCascade could not transfer STEP file: {display_name}")
+
+    shape = shape_tool.GetOneShape()
     mesh = BRepMesh_IncrementalMesh(shape, linear_deflection, False, angular_deflection, True)
     mesh.Perform()
     if not mesh.IsDone():
@@ -95,6 +134,7 @@ def _step_occ_preview(payload: dict[str, Any]) -> dict[str, Any]:
         faces: list[dict[str, Any]] = []
         edges: list[dict[str, Any]] = []
         edge_seen: set[str] = set()
+        body_display_properties = _occ_display_properties(color_tool, body_shape)
 
         face_explorer = TopExp_Explorer(body_shape, TopAbs_FACE)
         face_index = 0
@@ -124,6 +164,7 @@ def _step_occ_preview(payload: dict[str, Any]) -> dict[str, Any]:
                                 "kind": "occ_triangle_mesh",
                                 "source_face_type": "occ_triangle_mesh",
                                 "source_face_index": face_index,
+                                "display_properties": body_display_properties,
                             },
                         }
                     )
@@ -206,6 +247,7 @@ def _step_occ_preview(payload: dict[str, Any]) -> dict[str, Any]:
                     "shape_summary": f"OpenCascade tessellated {body_kind} preview with {len(faces)} triangles and {len(edges)} edges.",
                     "source": "opencascade_occ_preview",
                     "nx_body_index": body_index,
+                    "display_properties": body_display_properties,
                 },
                 "bounding_box": body_bounds,
             }
