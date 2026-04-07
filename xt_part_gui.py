@@ -18,7 +18,6 @@ from xt_part_report import (
     _fused_report_from_step_and_json,
     analyze_input_bytes,
     analyze_input_text,
-    build_step_preview_only_report,
     metric_and_imperial,
     parse_step_input_text,
 )
@@ -835,6 +834,7 @@ HTML = """<!doctype html>
       }
     }
   </script>
+  <script type="text/javascript" src="/vendor/occt-import-js/dist/occt-import-js.js"></script>
 </head>
 <body>
   <div class="app">
@@ -1046,6 +1046,7 @@ HTML = """<!doctype html>
       ["dark", "Dark", "#1d1d1d"]
     ];
     const THREE_MODULE_URL = "/vendor/three/build/three.module.js";
+    const OCCT_IMPORT_JS_BASE_URL = "/vendor/occt-import-js/dist/";
     const previewCanvas = document.getElementById("preview-canvas");
     const canvas = previewCanvas;
     const previewOverlay = document.getElementById("preview-overlay");
@@ -1053,6 +1054,7 @@ HTML = """<!doctype html>
     let previewViewport = null;
     let compareViewports = { left: null, right: null };
     let webGlModulesPromise = null;
+    let occtImportPromise = null;
     let pendingStepRefinements = new Set();
 
     function byId(id) {
@@ -1313,6 +1315,7 @@ HTML = """<!doctype html>
       const sourceFormat = report?.transmit_info?.source_format || "";
       if (!["step_file", "fused_step_json"].includes(sourceFormat)) return "Not applicable";
       const backend = report?.step_import?.backend || report?.entity_hints?.step_backend || "native_step_parser";
+      if (backend === "browser_occt_import_js") return "Browser STEP Import";
       if (backend === "native_step_parser" && report?.step_import?.refinement_pending) {
         return "Built-in STEP topology importer (refining mesh preview)";
       }
@@ -2928,6 +2931,34 @@ HTML = """<!doctype html>
       mergeReportsInternal(incoming, {});
     }
 
+    function preserveExistingStepPreview(existing, report) {
+      if (!existing || !report) return report;
+      if (existing?.transmit_info?.source_format !== "step_file") return report;
+      if (!Array.isArray(existing?.preview_kernel_bodies) || !existing.preview_kernel_bodies.length) return report;
+      const existingBackend = String(existing?.step_import?.backend || "");
+      const shouldPreserve = ["opencascade_occ", "browser_occt_import_js"].includes(existingBackend)
+        || existing?.preview?.strategy === "step_import_preview";
+      if (!shouldPreserve) return report;
+      const mergedBackend = existingBackend || report?.step_import?.backend || report?.entity_hints?.step_backend || "browser_occt_import_js";
+      return {
+        ...report,
+        preview: existing.preview || report.preview,
+        preview_kernel_bodies: existing.preview_kernel_bodies,
+        preview_geometry_hints: existing.preview_geometry_hints || report.preview_geometry_hints || report.geometry_hints,
+        step_import: {
+          ...(report.step_import || {}),
+          backend: mergedBackend,
+          occ_preview: existing.step_import?.occ_preview || report.step_import?.occ_preview,
+          analysis_pending: false,
+          refinement_pending: false,
+        },
+        entity_hints: {
+          ...(report.entity_hints || {}),
+          step_backend: mergedBackend,
+        },
+      };
+    }
+
     function invalidateViewportCaches() {
       if (previewViewport) {
         previewViewport.currentReportKey = null;
@@ -2961,32 +2992,18 @@ HTML = """<!doctype html>
       const merged = enrichReports(incoming).map((report) => {
         const existing = state.reports.find((item) => reportKey(item) === reportKey(report));
         if (!existing) return report;
-        if (
-          existing?.transmit_info?.source_format === "step_file"
-          && existing?.step_import?.backend === "opencascade_occ"
-          && Array.isArray(existing?.preview_kernel_bodies)
-          && existing.preview_kernel_bodies.length
-        ) {
-          return {
-            ...report,
-            preview_kernel_bodies: existing.preview_kernel_bodies,
-            preview_geometry_hints: existing.preview_geometry_hints || report.preview_geometry_hints,
-            step_import: {
-              ...(report.step_import || {}),
-              backend: "opencascade_occ",
-              occ_preview: existing.step_import?.occ_preview || report.step_import?.occ_preview,
-              analysis_pending: false,
-              refinement_pending: false,
-            },
-            entity_hints: {
-              ...(report.entity_hints || {}),
-              step_backend: "opencascade_occ",
-            },
-          };
-        }
-        return report;
+        return preserveExistingStepPreview(existing, report);
       });
       mergeReportsInternal(merged, { preserveSelection: true });
+    }
+
+    function mergeUploadedAnalysisReports(incoming, options = {}) {
+      const { preserveSelection = false } = options;
+      const merged = enrichReports(incoming).map((report) => {
+        const existing = state.reports.find((item) => reportKey(item) === reportKey(report));
+        return preserveExistingStepPreview(existing, report);
+      });
+      mergeReportsInternal(merged, { preserveSelection });
     }
 
     function renderFusionButton() {
@@ -4983,7 +5000,7 @@ HTML = """<!doctype html>
           }),
           { faces: [], points: [], edges: [] }
         );
-      const preserveTriangleMeshFaces = (report?.step_import?.backend || "") === "opencascade_occ";
+      const preserveTriangleMeshFaces = ["opencascade_occ", "browser_occt_import_js"].includes(report?.step_import?.backend || "");
       const simplifiedKernelGeometry = simplifyKernelGeometryForPreview(kernelGeometry, {
         preserveTriangleMeshFaces,
       });
@@ -5439,6 +5456,210 @@ HTML = """<!doctype html>
       return `Importing preview for ${totalCount} file(s)...`;
     }
 
+    async function ensureOcctImportJs() {
+      if (occtImportPromise) return occtImportPromise;
+      if (typeof window.occtimportjs !== "function") {
+        throw new Error("Browser STEP importer is not available.");
+      }
+      occtImportPromise = window.occtimportjs({
+        locateFile: (path) => `${OCCT_IMPORT_JS_BASE_URL}${path}`,
+      });
+      return occtImportPromise;
+    }
+
+    function importedRgbToDisplay(rgb, fallback = [196, 199, 205]) {
+      if (!(Array.isArray(rgb) || ArrayBuffer.isView(rgb)) || rgb.length < 3) return fallback;
+      const normalized = Array.from(rgb).slice(0, 3).map((value) => Number(value));
+      if (!normalized.every((value) => Number.isFinite(value))) return fallback;
+      const scale = normalized.some((value) => value > 1.001) ? 1 : 255;
+      return normalized.map((value) => Math.max(0, Math.min(255, Math.round(value * scale))));
+    }
+
+    function triangleAverageNormal(normalArray, a, b, c) {
+      if (!(Array.isArray(normalArray) || ArrayBuffer.isView(normalArray)) || !normalArray.length) return null;
+      const indices = [a, b, c];
+      const vectors = indices
+        .map((index) => [normalArray[index * 3], normalArray[(index * 3) + 1], normalArray[(index * 3) + 2]])
+        .filter((vector) => vector.every((value) => Number.isFinite(Number(value))));
+      if (!vectors.length) return null;
+      const average = vectors.reduce(
+        (sum, vector) => [sum[0] + Number(vector[0]), sum[1] + Number(vector[1]), sum[2] + Number(vector[2])],
+        [0, 0, 0]
+      );
+      const length = Math.hypot(average[0], average[1], average[2]) || 1;
+      return average.map((value) => value / length);
+    }
+
+    function browserStepMeshToKernelBody(mesh, bodyIndex) {
+      const positions = mesh?.attributes?.position?.array || [];
+      const normals = mesh?.attributes?.normal?.array || [];
+      const indices = mesh?.index?.array || [];
+      const displayProperties = { rgb: importedRgbToDisplay(mesh?.color) };
+      const faces = [];
+      const points = [];
+
+      for (let triangleOffset = 0; triangleOffset + 2 < indices.length; triangleOffset += 3) {
+        const triangle = [indices[triangleOffset], indices[triangleOffset + 1], indices[triangleOffset + 2]]
+          .map((index) => Number(index));
+        if (!triangle.every((index) => Number.isInteger(index) && index >= 0)) continue;
+        const vertices = triangle.map((index) => ([
+          Number(positions[index * 3] || 0),
+          Number(positions[(index * 3) + 1] || 0),
+          Number(positions[(index * 3) + 2] || 0),
+        ]));
+        faces.push({
+          name: `${mesh?.name || `Mesh ${bodyIndex}`} triangle ${(triangleOffset / 3) + 1}`,
+          vertices,
+          normal: triangleAverageNormal(normals, triangle[0], triangle[1], triangle[2]),
+          metadata: {
+            kind: "browser_occ_triangle_mesh",
+            source_face_type: "browser_occ_triangle_mesh",
+            source_face_index: (triangleOffset / 3) + 1,
+            display_properties: displayProperties,
+          },
+        });
+        points.push(...vertices);
+      }
+
+      return {
+        kind: "solid",
+        name: mesh?.name || `Body ${bodyIndex}`,
+        faces,
+        edges: [],
+        vertices: [],
+        metadata: {
+          name: mesh?.name || `Body ${bodyIndex}`,
+          primitive: "occ_mesh",
+          shape_summary: `Browser STEP mesh with ${faces.length} triangles.`,
+          source: "browser_occt_import_js",
+          nx_body_index: bodyIndex,
+          display_properties: displayProperties,
+        },
+        bounding_box: boundsFromPoints(points),
+      };
+    }
+
+    function buildBrowserStepPreviewReport(file, result) {
+      const meshes = Array.isArray(result?.meshes) ? result.meshes : [];
+      const previewBodies = meshes
+        .map((mesh, meshIndex) => browserStepMeshToKernelBody(mesh, meshIndex + 1))
+        .filter((body) => (body.faces || []).length);
+      const previewPoints = previewBodies.flatMap((body) => body.faces.flatMap((face) => face.vertices || []));
+      const bounds = boundsFromPoints(previewPoints);
+      const partName = file.name.replace(/\.(step|stp)$/i, "") || file.name;
+
+      return {
+        file: `uploaded:${file.name}`,
+        file_name: file.name,
+        file_size_bytes: Number(file.size || 0),
+        line_count: 0,
+        header: {
+          PART1: {
+            APPL: "Browser STEP Preview Import",
+            DATE: "",
+            PART: partName,
+          },
+          PART2: {
+            SCH: "STEP-ISO10303",
+          },
+        },
+        transmit_info: {
+          source_format: "step_file",
+          original_units: "Unknown",
+        },
+        decoded_names: [partName],
+        density: null,
+        colors: [],
+        has_scale_factor_attribute: false,
+        object_state_ids: [],
+        structured_parse: null,
+        preview: {
+          strategy: "step_import_preview",
+          label: "STEP Import",
+          description: "Imported directly in the browser from the STEP file for immediate preview while detailed analysis continues in the background.",
+        },
+        entity_hints: {
+          source: "step_file",
+          step_backend: "browser_occt_import_js",
+          mesh_triangle_count: previewBodies.reduce((sum, body) => sum + (body.faces || []).length, 0),
+        },
+        source_part_summary: {
+          part_name: partName,
+          leaf: file.name,
+          units: "Unknown",
+        },
+        source_bodies: [],
+        source_body_count: previewBodies.length,
+        kernel_body: previewBodies.length === 1 ? previewBodies[0] : null,
+        kernel_bodies: previewBodies,
+        preview_kernel_bodies: previewBodies,
+        kernel_topology: null,
+        geometry_hints: {
+          point_count: previewPoints.length,
+          point_samples: previewPoints.slice(0, 12),
+          preview_points: previewPoints.slice(0, 1200),
+          bounds,
+          notable_scalar_values: [],
+          unit_inference: "STEP preview mesh was imported directly in the browser. Detailed topology and units may be refined after background analysis finishes.",
+        },
+        preview_geometry_hints: {
+          point_count: previewPoints.length,
+          preview_points: previewPoints.slice(0, 1200),
+          bounds,
+        },
+        model_analysis: {
+          unique_axis_levels: { x: [], y: [], z: [] },
+          curve_hints: [],
+          topology: null,
+          summary: [
+            `Loaded STEP preview mesh for ${partName} in the browser.`,
+            `Detected ${previewBodies.length} body/bodies and ${previewBodies.reduce((sum, body) => sum + (body.faces || []).length, 0)} triangle faces for immediate preview.`,
+            "Detailed STEP analysis is continuing in the background.",
+          ],
+        },
+        step_import: {
+          backend: "browser_occt_import_js",
+          analysis_pending: true,
+          refinement_pending: false,
+        },
+      };
+    }
+
+    async function importBrowserStepPreview(file) {
+      const importer = await ensureOcctImportJs();
+      const buffer = await file.arrayBuffer();
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      const result = importer.ReadStepFile(new Uint8Array(buffer), {
+        linearUnit: "millimeter",
+        linearDeflectionType: "bounding_box_ratio",
+        linearDeflection: 0.0025,
+        angularDeflection: 0.35,
+      });
+      if (!result?.success || !(result?.meshes || []).length) {
+        throw new Error(`Browser STEP import failed for ${file.name}.`);
+      }
+      return buildBrowserStepPreviewReport(file, result);
+    }
+
+    async function importBrowserStepPreviews(files) {
+      const stepFiles = [...(files || [])].filter((file) => /\.(step|stp)$/i.test(file?.name || ""));
+      if (!stepFiles.length) return [];
+
+      const importedReports = [];
+      for (const file of stepFiles) {
+        setStatus(`Importing STEP preview for ${file.name} in the browser...`);
+        try {
+          const report = await importBrowserStepPreview(file);
+          importedReports.push(report);
+          mergeReports([report]);
+          setStatus(previewReadyMessage(report));
+        } catch (error) {
+          setStatus(`STEP preview import fallback for ${file.name}: ${error.message}`);
+        }
+      }
+      return importedReports;
+    }
+
     async function uploadFilesWithProgress(files) {
       return new Promise((resolve, reject) => {
         const uploadFiles = [...files];
@@ -5567,15 +5788,28 @@ HTML = """<!doctype html>
 
     async function loadUploads(files) {
       if (!files.length) return;
+      const uploadFiles = [...files];
+      const stepFiles = uploadFiles.filter((file) => /\.(step|stp)$/i.test(file.name));
+      const browserPreviewPromise = stepFiles.length ? importBrowserStepPreviews(uploadFiles) : Promise.resolve([]);
+      const uploadPromise = uploadFilesWithProgress(uploadFiles);
       try {
-        const data = await uploadFilesWithProgress(files);
-        mergeReports(data.reports || []);
-        if (data.reports.length === 1) {
-          setStatus(previewReadyMessage(data.reports[0]));
+        const browserPreviewReports = await browserPreviewPromise;
+        const data = await uploadPromise;
+        if (browserPreviewReports.length) {
+          mergeUploadedAnalysisReports(data.reports || [], { preserveSelection: true });
+          if (data.reports.length === 1) {
+            setStatus(`Detailed analysis ready for ${data.reports[0].file_name}.`);
+          } else {
+            setStatus(loadedReportsStatus(data.reports || []));
+          }
         } else {
-          setStatus(loadedReportsStatus(data.reports || []));
+          mergeReports(data.reports || []);
+          if (data.reports.length === 1) {
+            setStatus(previewReadyMessage(data.reports[0]));
+          } else {
+            setStatus(loadedReportsStatus(data.reports || []));
+          }
         }
-        setTimeout(() => analyzeStepFilesInBackground(files), 0);
       } finally {
         clearStatusProgress();
       }
@@ -5783,6 +6017,7 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
                 ".js": "text/javascript; charset=utf-8",
                 ".json": "application/json; charset=utf-8",
                 ".map": "application/json; charset=utf-8",
+                ".wasm": "application/wasm",
             }.get(suffix, "application/octet-stream")
             self._send_bytes(file_path.read_bytes(), content_type)
             return
@@ -5811,17 +6046,6 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
                 for file_payload in self._read_multipart_files():
                     name = str(file_payload.get("name") or "<upload>")
                     raw_bytes = bytes(file_payload.get("data") or b"")
-                    if re.search(r"\.(stp|step)$", name, flags=re.IGNORECASE):
-                        raw_text = raw_bytes.decode("utf-8", errors="ignore")
-                        preview_report = build_step_preview_only_report(
-                            raw_text,
-                            display_name=name,
-                            source_path=f"uploaded:{name}",
-                            file_size_bytes=int(file_payload.get("size") or len(raw_bytes)),
-                        )
-                        if preview_report is not None:
-                            reports.append(preview_report)
-                            continue
                     reports.extend(
                         analyze_uploaded_binary_files(
                             [
