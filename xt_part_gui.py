@@ -769,6 +769,12 @@ HTML = """<!doctype html>
       return state.reports.find((report) => reportKey(report) === state.selected[0]) || null;
     }
 
+    function selectedReports() {
+      return state.selected
+        .map((key) => state.reports.find((report) => reportKey(report) === key))
+        .filter(Boolean);
+    }
+
     function kernelBodies(report) {
       if (!report) return [];
       if (Array.isArray(report.kernel_bodies) && report.kernel_bodies.length) {
@@ -793,9 +799,7 @@ HTML = """<!doctype html>
 
     function comparisonReports() {
       if (state.selected.length !== 2) return [];
-      return state.selected
-        .map((key) => state.reports.find((report) => reportKey(report) === key))
-        .filter(Boolean);
+      return selectedReports();
     }
 
     function formatDensity(report) {
@@ -824,9 +828,21 @@ HTML = """<!doctype html>
 
     function fusionLabel(report) {
       if (!report?.fusion?.enabled) return "Off";
+      const faceRegionCounts = report.fusion?.face_region_source_counts || {};
+      const edgeRegionCounts = report.fusion?.edge_region_source_counts || {};
+      if (Object.keys(faceRegionCounts).length || Object.keys(edgeRegionCounts).length) {
+        return `On (${faceRegionCounts.json || 0} JSON face regions, ${faceRegionCounts.step || 0} STEP face regions; ${edgeRegionCounts.json || 0} JSON edge regions, ${edgeRegionCounts.step || 0} STEP edge regions)`;
+      }
       const faceCounts = report.fusion?.face_source_counts || {};
       const edgeCounts = report.fusion?.edge_source_counts || {};
       return `On (${faceCounts.json || 0} JSON face bodies, ${faceCounts.step || 0} STEP face bodies; ${edgeCounts.json || 0} JSON edge bodies, ${edgeCounts.step || 0} STEP edge bodies)`;
+    }
+
+    function canFuseSelection() {
+      const reports = selectedReports();
+      if (reports.length !== 2) return false;
+      const formats = new Set(reports.map((report) => report?.transmit_info?.source_format || ""));
+      return formats.has("siemens_nx_json") && formats.has("step_file");
     }
 
     function formatBounds(bounds) {
@@ -2391,6 +2407,12 @@ HTML = """<!doctype html>
       render();
     }
 
+    function renderFusionButton() {
+      const button = byId("create-fusion");
+      if (!button) return;
+      button.disabled = !canFuseSelection();
+    }
+
     function renderTabs() {
       const root = byId("tabs");
       root.innerHTML = "";
@@ -2501,9 +2523,11 @@ HTML = """<!doctype html>
       }
 
       byId("sidebar-foot").textContent =
-        state.selected.length === 2
-          ? "Two parts selected. Use Compare tab to inspect both."
-          : `${state.reports.length} report(s) loaded.`;
+        canFuseSelection()
+          ? "Compatible STEP and JSON reports selected. Click Create Multi-File Fusion to add a fused entry."
+          : state.selected.length === 2
+            ? "Two parts selected. Use Compare tab to inspect both."
+            : `${state.reports.length} report(s) loaded.`;
     }
 
     function renderSummary() {
@@ -3864,6 +3888,7 @@ HTML = """<!doctype html>
       renderPreviewModes();
       renderPreviewPresets();
       renderFileList();
+      renderFusionButton();
       renderSummary();
       renderOverview();
       renderNotes();
@@ -3889,14 +3914,14 @@ HTML = """<!doctype html>
     }
 
     async function loadSamples() {
-      setStatus(`Loading workspace samples in ${state.reconstructionMode} mode...`);
-      const response = await fetch(`/api/samples?mode=${encodeURIComponent(state.reconstructionMode)}`);
+      setStatus("Loading workspace samples...");
+      const response = await fetch("/api/samples");
       const data = await response.json();
       state.reports = enrichReports(data.reports || []);
       state.selected = state.reports.length ? [bestReportKey(state.reports)] : [];
       resetPreviewIfNeeded();
       render();
-      setStatus(`Loaded ${state.reports.length} workspace sample(s) using ${state.reconstructionMode} mode.`);
+      setStatus(`Loaded ${state.reports.length} workspace sample(s).`);
     }
 
     async function loadPaths() {
@@ -3906,23 +3931,40 @@ HTML = """<!doctype html>
         return;
       }
       const paths = raw.split(",").map((item) => item.trim()).filter(Boolean);
-      setStatus(`Analyzing file paths in ${state.reconstructionMode} mode...`);
-      const data = await postJson("/api/analyze-paths", { paths, mode: state.reconstructionMode });
+      setStatus("Analyzing file paths...");
+      const data = await postJson("/api/analyze-paths", { paths });
       mergeReports(data.reports || []);
-      setStatus(`Analyzed ${data.reports.length} path-based file(s) using ${state.reconstructionMode} mode.`);
+      setStatus(`Analyzed ${data.reports.length} path-based file(s).`);
     }
 
     async function loadUploads(files) {
       if (!files.length) return;
-      setStatus(`Reading ${files.length} uploaded file(s) in ${state.reconstructionMode} mode...`);
+      setStatus(`Reading ${files.length} uploaded file(s)...`);
       const payload = await Promise.all([...files].map(async (file) => ({
         name: file.name,
         text: await file.text(),
         size: file.size
       })));
-      const data = await postJson("/api/analyze-text", { files: payload, mode: state.reconstructionMode });
+      const data = await postJson("/api/analyze-text", { files: payload });
       mergeReports(data.reports || []);
-      setStatus(`Analyzed ${data.reports.length} uploaded file(s) using ${state.reconstructionMode} mode.`);
+      setStatus(`Analyzed ${data.reports.length} uploaded file(s).`);
+    }
+
+    async function createFusionFromSelection() {
+      const reports = selectedReports();
+      if (reports.length !== 2) {
+        setStatus("Select exactly two parts first.");
+        return;
+      }
+      if (!canFuseSelection()) {
+        setStatus("Select one Siemens NX JSON report and one STEP report to create a multi-file fusion.");
+        return;
+      }
+      setStatus("Creating multi-file fusion from the selected JSON and STEP reports...");
+      const data = await postJson("/api/fuse-reports", { reports });
+      mergeReports(data.reports || []);
+      const created = data.reports?.[0];
+      setStatus(created ? `Created fused report: ${created.file_name}.` : "Created fused report.");
     }
 
     function exportCurrentJson() {
@@ -3997,11 +4039,7 @@ HTML = """<!doctype html>
     byId("load-samples").onclick = () => loadSamples().catch((error) => setStatus(error.message));
     byId("load-paths").onclick = () => loadPaths().catch((error) => setStatus(error.message));
     byId("export-json").onclick = exportCurrentJson;
-    byId("reconstruction-mode").value = state.reconstructionMode;
-    byId("reconstruction-mode").addEventListener("change", (event) => {
-      state.reconstructionMode = event.target.value || "auto";
-      setStatus(`Reconstruction mode set to ${state.reconstructionMode}. Reload samples, paths, or uploads to apply it.`);
-    });
+    byId("create-fusion").onclick = () => createFusionFromSelection().catch((error) => setStatus(error.message));
     byId("reset-view").onclick = () => {
       resetPreviewIfNeeded();
       drawPreview();
@@ -4057,8 +4095,7 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
 
         if parsed.path == "/api/samples":
             try:
-                mode = normalize_reconstruction_mode(parse_qs(parsed.query).get("mode", ["auto"])[0])
-                reports = [enrich_report(report) for report in workspace_sample_reports(mode)]
+                reports = [enrich_report(report) for report in workspace_sample_reports()]
             except Exception as exc:
                 self._send_json({"error": str(exc)}, status=HTTPStatus.INTERNAL_SERVER_ERROR)
                 return
@@ -4077,24 +4114,23 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
         try:
             payload = self._read_json()
             if parsed.path == "/api/analyze-paths":
-                reports = [
-                    enrich_report(report)
-                    for report in analyze_paths(
-                        payload.get("paths", []),
-                        reconstruction_mode=payload.get("mode", "auto"),
-                    )
-                ]
+                reports = [enrich_report(report) for report in analyze_paths(payload.get("paths", []))]
                 self._send_json({"reports": reports})
                 return
 
             if parsed.path == "/api/analyze-text":
-                reports = [
-                    enrich_report(report)
-                    for report in analyze_uploaded_files(
-                        payload.get("files", []),
-                        reconstruction_mode=payload.get("mode", "auto"),
-                    )
-                ]
+                reports = [enrich_report(report) for report in analyze_uploaded_files(payload.get("files", []))]
+                self._send_json({"reports": reports})
+                return
+
+            if parsed.path == "/api/fuse-reports":
+                selected_reports = payload.get("reports", [])
+                if len(selected_reports) != 2:
+                    raise ValueError("Select exactly two reports to fuse.")
+                fused_report = create_fused_report(selected_reports[0], selected_reports[1])
+                if fused_report is None:
+                    raise ValueError("Selected reports are not a compatible STEP + JSON fusion pair.")
+                reports = [enrich_report(fused_report)]
                 self._send_json({"reports": reports})
                 return
         except FileNotFoundError as exc:

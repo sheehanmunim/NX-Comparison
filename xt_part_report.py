@@ -2233,6 +2233,186 @@ def normalize_existing_report(
     return report
 
 
+def _source_index_key(prefix: str, value: Any, fallback: str) -> str:
+    if value is None:
+        return fallback
+    try:
+        return f"{prefix}:{int(value)}"
+    except (TypeError, ValueError):
+        return f"{prefix}:{value}"
+
+
+def _group_points(groups: list[dict[str, Any]], point_getter: str) -> list[list[float]]:
+    points: list[list[float]] = []
+    for item in groups:
+        for point in item.get(point_getter, []):
+            if isinstance(point, list) and len(point) >= 3:
+                points.append(_round_triplet(point[:3]))
+    return points
+
+
+def _dedupe_poly_points(points: list[list[float]]) -> list[list[float]]:
+    deduped: list[list[float]] = []
+    seen: set[tuple[float, float, float]] = set()
+    for point in points:
+        marker = tuple(_round_triplet(point[:3]))
+        if marker in seen:
+            continue
+        seen.add(marker)
+        deduped.append(list(marker))
+    return deduped
+
+
+def _bounds_center(bounds: dict[str, Any] | None) -> list[float]:
+    if not bounds:
+        return [0.0, 0.0, 0.0]
+    return [
+        (float(bounds["min"][index]) + float(bounds["max"][index])) / 2.0
+        for index in range(3)
+    ]
+
+
+def _distance_between(a: list[float], b: list[float]) -> float:
+    return math.sqrt(sum((float(a[index]) - float(b[index])) ** 2 for index in range(3)))
+
+
+def _body_signature(body: dict[str, Any]) -> dict[str, Any]:
+    points = _preview_points_from_kernel_body(body)
+    bounds = _polyline_bounds(points)
+    metadata = body.get("metadata", {})
+    return {
+        "bounds": bounds,
+        "center": _bounds_center(bounds),
+        "size": list(bounds["size"]) if bounds else [0.0, 0.0, 0.0],
+        "diagonal": math.sqrt(sum(float(value) ** 2 for value in (bounds["size"] if bounds else [0.0, 0.0, 0.0]))),
+        "point_count": len(points),
+        "name": str(body.get("name") or ""),
+        "body_index": metadata.get("nx_body_index"),
+        "source_face_count": int(metadata.get("source_face_count") or 0),
+        "face_patch_count": len(body.get("faces", [])),
+        "edge_count": len(body.get("edges", [])),
+    }
+
+
+def _group_signature(items: list[dict[str, Any]], point_getter: str) -> dict[str, Any]:
+    points = _group_points(items, point_getter)
+    bounds = _polyline_bounds(points)
+    return {
+        "bounds": bounds,
+        "center": _bounds_center(bounds),
+        "size": list(bounds["size"]) if bounds else [0.0, 0.0, 0.0],
+        "diagonal": math.sqrt(sum(float(value) ** 2 for value in (bounds["size"] if bounds else [0.0, 0.0, 0.0]))),
+        "point_count": len(points),
+    }
+
+
+def _size_delta(a: list[float], b: list[float]) -> float:
+    return sum(
+        abs(float(a[index]) - float(b[index])) / max(abs(float(a[index])), abs(float(b[index])), 1e-9)
+        for index in range(3)
+    )
+
+
+def _body_match_cost(step_body: dict[str, Any], json_body: dict[str, Any]) -> float:
+    step_sig = _body_signature(step_body)
+    json_sig = _body_signature(json_body)
+    reference_span = max(step_sig["diagonal"], json_sig["diagonal"], 1e-9)
+    center_cost = _distance_between(step_sig["center"], json_sig["center"]) / reference_span
+    size_cost = _size_delta(step_sig["size"], json_sig["size"])
+    face_cost = abs(step_sig["source_face_count"] - json_sig["source_face_count"]) / max(
+        step_sig["source_face_count"], json_sig["source_face_count"], 1
+    )
+    edge_cost = abs(step_sig["edge_count"] - json_sig["edge_count"]) / max(
+        step_sig["edge_count"], json_sig["edge_count"], 1
+    )
+    patch_cost = abs(step_sig["face_patch_count"] - json_sig["face_patch_count"]) / max(
+        step_sig["face_patch_count"], json_sig["face_patch_count"], 1
+    )
+    name_bonus = -0.75 if step_sig["name"] and step_sig["name"] == json_sig["name"] else 0.0
+    index_bonus = (
+        -1.0
+        if step_sig["body_index"] is not None
+        and json_sig["body_index"] is not None
+        and step_sig["body_index"] == json_sig["body_index"]
+        else 0.0
+    )
+    return (center_cost * 5.0) + (size_cost * 4.0) + (face_cost * 2.0) + edge_cost + (patch_cost * 0.5) + name_bonus + index_bonus
+
+
+def _match_kernel_bodies(
+    step_bodies: list[dict[str, Any]],
+    json_bodies: list[dict[str, Any]],
+) -> list[tuple[dict[str, Any], dict[str, Any], dict[str, Any]]]:
+    pairs: list[tuple[dict[str, Any], dict[str, Any], dict[str, Any]]] = []
+    remaining_steps = list(enumerate(step_bodies, start=1))
+    remaining_json = list(enumerate(json_bodies, start=1))
+
+    step_index_map = {
+        int(body.get("metadata", {}).get("nx_body_index")): (list_index, body)
+        for list_index, body in remaining_steps
+        if body.get("metadata", {}).get("nx_body_index") is not None
+    }
+    json_index_map = {
+        int(body.get("metadata", {}).get("nx_body_index")): (list_index, body)
+        for list_index, body in remaining_json
+        if body.get("metadata", {}).get("nx_body_index") is not None
+    }
+
+    matched_step_indexes: set[int] = set()
+    matched_json_indexes: set[int] = set()
+    for common_index in sorted(set(step_index_map).intersection(json_index_map)):
+        step_list_index, step_body = step_index_map[common_index]
+        json_list_index, json_body = json_index_map[common_index]
+        pairs.append(
+            (
+                step_body,
+                json_body,
+                {
+                    "step_body_index": step_list_index,
+                    "json_body_index": json_list_index,
+                    "match_cost": _body_match_cost(step_body, json_body),
+                    "match_reason": "shared_body_index",
+                },
+            )
+        )
+        matched_step_indexes.add(step_list_index)
+        matched_json_indexes.add(json_list_index)
+
+    step_remaining = [(index, body) for index, body in remaining_steps if index not in matched_step_indexes]
+    json_remaining = [(index, body) for index, body in remaining_json if index not in matched_json_indexes]
+
+    while step_remaining and json_remaining:
+        best_cost = float("inf")
+        best_pair: tuple[int, int, dict[str, Any], dict[str, Any]] | None = None
+        for step_index, step_body in step_remaining:
+            for json_index, json_body in json_remaining:
+                cost = _body_match_cost(step_body, json_body)
+                if cost < best_cost:
+                    best_cost = cost
+                    best_pair = (step_index, json_index, step_body, json_body)
+
+        if best_pair is None:
+            break
+
+        step_index, json_index, step_body, json_body = best_pair
+        pairs.append(
+            (
+                step_body,
+                json_body,
+                {
+                    "step_body_index": step_index,
+                    "json_body_index": json_index,
+                    "match_cost": best_cost,
+                    "match_reason": "geometric_similarity",
+                },
+            )
+        )
+        step_remaining = [(index, body) for index, body in step_remaining if index != step_index]
+        json_remaining = [(index, body) for index, body in json_remaining if index != json_index]
+
+    return pairs
+
+
 def _face_type_weight(face: dict[str, Any]) -> int:
     face_type = str(face.get("metadata", {}).get("source_face_type") or face.get("surface", {}).get("kind") or "").lower()
     return {
@@ -2278,26 +2458,150 @@ def _body_edge_score(body: dict[str, Any]) -> int:
     return score
 
 
-def _merge_body_metadata(
-    face_body: dict[str, Any],
-    edge_body: dict[str, Any],
+def _face_group_key(face: dict[str, Any], fallback_index: int) -> str:
+    metadata = face.get("metadata", {})
+    if metadata.get("source_face_index") is not None:
+        return _source_index_key("face", metadata.get("source_face_index"), f"face:fallback:{fallback_index}")
+    object_identity = metadata.get("object_identity") or {}
+    if object_identity.get("tag") is not None:
+        return _source_index_key("face_tag", object_identity.get("tag"), f"face:fallback:{fallback_index}")
+    return f"face:fallback:{fallback_index}"
+
+
+def _edge_group_key(edge: dict[str, Any], fallback_index: int) -> str:
+    if edge.get("source_edge_index") is not None:
+        return _source_index_key("edge", edge.get("source_edge_index"), f"edge:fallback:{fallback_index}")
+    object_identity = edge.get("object_identity") or {}
+    if object_identity.get("tag") is not None:
+        return _source_index_key("edge_tag", object_identity.get("tag"), f"edge:fallback:{fallback_index}")
+    return f"edge:fallback:{fallback_index}"
+
+
+def _group_faces(body: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
+    groups: dict[str, list[dict[str, Any]]] = {}
+    for fallback_index, face in enumerate(body.get("faces", []), start=1):
+        groups.setdefault(_face_group_key(face, fallback_index), []).append(face)
+    return groups
+
+
+def _group_edges(body: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
+    groups: dict[str, list[dict[str, Any]]] = {}
+    for fallback_index, edge in enumerate(body.get("edges", []), start=1):
+        groups.setdefault(_edge_group_key(edge, fallback_index), []).append(edge)
+    return groups
+
+
+def _face_group_score(group: list[dict[str, Any]]) -> int:
+    score = 0
+    for face in group:
+        metadata = face.get("metadata", {})
+        score += _face_type_weight(face)
+        score += max(1, len(face.get("vertices", [])) // 4)
+        score += max(1, len(face.get("loops", [])))
+        score += 3 if metadata.get("trimmed_bsurface") else 0
+        score += 2 if metadata.get("surface_definition") else 0
+        score += 1 if metadata.get("uv_bounds") else 0
+        score += 1 if metadata.get("periodicity") else 0
+        if metadata.get("facet_mesh"):
+            score += min(6, len(metadata.get("facet_mesh", [])))
+    return score
+
+
+def _edge_group_score(group: list[dict[str, Any]]) -> int:
+    score = 0
+    for edge in group:
+        object_identity = edge.get("object_identity") or {}
+        score += _edge_type_weight(edge)
+        score += max(1, len(edge.get("points", [])) // 8)
+        score += 2 if object_identity.get("journal_identifier") else 0
+        score += 1 if edge.get("display_properties") else 0
+    return score
+
+
+def _group_match_cost(
+    step_group: list[dict[str, Any]],
+    json_group: list[dict[str, Any]],
     *,
-    face_source: str,
-    edge_source: str,
+    point_getter: str,
+) -> float:
+    step_sig = _group_signature(step_group, point_getter)
+    json_sig = _group_signature(json_group, point_getter)
+    reference_span = max(step_sig["diagonal"], json_sig["diagonal"], 1e-9)
+    center_cost = _distance_between(step_sig["center"], json_sig["center"]) / reference_span
+    size_cost = _size_delta(step_sig["size"], json_sig["size"])
+    point_cost = abs(step_sig["point_count"] - json_sig["point_count"]) / max(
+        step_sig["point_count"], json_sig["point_count"], 1
+    )
+    return (center_cost * 5.0) + (size_cost * 4.0) + point_cost
+
+
+def _match_group_keys(
+    step_groups: dict[str, list[dict[str, Any]]],
+    json_groups: dict[str, list[dict[str, Any]]],
+    *,
+    point_getter: str,
+    threshold: float,
+) -> dict[str, str]:
+    matched: dict[str, str] = {}
+    for key in sorted(set(step_groups).intersection(json_groups)):
+        matched[key] = key
+
+    remaining_steps = [key for key in step_groups if key not in matched]
+    remaining_json = [key for key in json_groups if key not in matched.values()]
+
+    while remaining_steps and remaining_json:
+        best_cost = float("inf")
+        best_pair: tuple[str, str] | None = None
+        for step_key in remaining_steps:
+            for json_key in remaining_json:
+                cost = _group_match_cost(step_groups[step_key], json_groups[json_key], point_getter=point_getter)
+                if cost < best_cost:
+                    best_cost = cost
+                    best_pair = (step_key, json_key)
+
+        if best_pair is None or best_cost > threshold:
+            break
+
+        matched[best_pair[0]] = best_pair[1]
+        remaining_steps.remove(best_pair[0])
+        remaining_json.remove(best_pair[1])
+
+    return matched
+
+
+def _dominant_source(source_counts: Counter[str]) -> str:
+    json_count = int(source_counts.get("json", 0))
+    step_count = int(source_counts.get("step", 0))
+    return "json" if json_count >= step_count else "step"
+
+
+def _merge_body_metadata(
+    step_body: dict[str, Any],
+    json_body: dict[str, Any],
+    *,
+    faces: list[dict[str, Any]],
+    edges: list[dict[str, Any]],
+    vertices: list[list[float]],
+    face_source_counts: Counter[str],
+    edge_source_counts: Counter[str],
 ) -> dict[str, Any]:
-    face_meta = dict(face_body.get("metadata", {}))
-    edge_meta = dict(edge_body.get("metadata", {}))
-    merged = {**edge_meta, **face_meta}
+    step_meta = dict(step_body.get("metadata", {}))
+    json_meta = dict(json_body.get("metadata", {}))
+    merged = {**step_meta, **json_meta}
+    face_source = _dominant_source(face_source_counts)
+    edge_source = _dominant_source(edge_source_counts)
     merged["source"] = "fused_step_json_preview"
     merged["primitive"] = "nx_brep_import"
     merged["face_source"] = face_source
     merged["edge_source"] = edge_source
-    merged["face_patch_count"] = len(face_body.get("faces", []))
-    merged["edge_count"] = len(edge_body.get("edges", []))
-    merged["vertex_count"] = max(len(face_body.get("vertices", [])), len(edge_body.get("vertices", [])))
+    merged["face_patch_count"] = len(faces)
+    merged["edge_count"] = len(edges)
+    merged["vertex_count"] = len(vertices)
+    merged["face_region_source_counts"] = dict(face_source_counts)
+    merged["edge_region_source_counts"] = dict(edge_source_counts)
     merged["source_face_count"] = max(
-        int(face_meta.get("source_face_count") or 0),
-        int(edge_meta.get("source_face_count") or 0),
+        int(step_meta.get("source_face_count") or 0),
+        int(json_meta.get("source_face_count") or 0),
     )
     return merged
 
@@ -2309,31 +2613,100 @@ def _fuse_kernel_bodies(
     fused: list[dict[str, Any]] = []
     decisions: list[dict[str, Any]] = []
 
-    for index, (step_body, json_body) in enumerate(zip(step_bodies, json_bodies), start=1):
+    for index, (step_body, json_body, match_info) in enumerate(_match_kernel_bodies(step_bodies, json_bodies), start=1):
         step_face_score = _body_face_score(step_body)
         json_face_score = _body_face_score(json_body)
         step_edge_score = _body_edge_score(step_body)
         json_edge_score = _body_edge_score(json_body)
+        step_face_groups = _group_faces(step_body)
+        json_face_groups = _group_faces(json_body)
+        face_matches = _match_group_keys(step_face_groups, json_face_groups, point_getter="vertices", threshold=1.8)
+        used_json_face_keys: set[str] = set()
+        fused_faces: list[dict[str, Any]] = []
+        face_source_counts: Counter[str] = Counter()
+        for step_key, step_group in step_face_groups.items():
+            json_key = face_matches.get(step_key)
+            if json_key and json_key in json_face_groups:
+                json_group = json_face_groups[json_key]
+                step_group_score = _face_group_score(step_group)
+                json_group_score = _face_group_score(json_group)
+                chosen_group = json_group if json_group_score >= step_group_score else step_group
+                chosen_source = "json" if chosen_group is json_group else "step"
+                fused_faces.extend(chosen_group)
+                face_source_counts[chosen_source] += 1
+                used_json_face_keys.add(json_key)
+            else:
+                fused_faces.extend(step_group)
+                face_source_counts["step"] += 1
+        for json_key, json_group in json_face_groups.items():
+            if json_key in used_json_face_keys:
+                continue
+            fused_faces.extend(json_group)
+            face_source_counts["json"] += 1
 
-        face_body = json_body if json_face_score >= step_face_score else step_body
-        edge_body = json_body if json_edge_score >= step_edge_score else step_body
-        face_source = "json" if face_body is json_body else "step"
-        edge_source = "json" if edge_body is json_body else "step"
+        step_edge_groups = _group_edges(step_body)
+        json_edge_groups = _group_edges(json_body)
+        edge_matches = _match_group_keys(step_edge_groups, json_edge_groups, point_getter="points", threshold=1.8)
+        used_json_edge_keys: set[str] = set()
+        fused_edges: list[dict[str, Any]] = []
+        edge_source_counts: Counter[str] = Counter()
+        for step_key, step_group in step_edge_groups.items():
+            json_key = edge_matches.get(step_key)
+            if json_key and json_key in json_edge_groups:
+                json_group = json_edge_groups[json_key]
+                step_group_score = _edge_group_score(step_group)
+                json_group_score = _edge_group_score(json_group)
+                chosen_group = json_group if json_group_score >= step_group_score else step_group
+                chosen_source = "json" if chosen_group is json_group else "step"
+                fused_edges.extend(chosen_group)
+                edge_source_counts[chosen_source] += 1
+                used_json_edge_keys.add(json_key)
+            else:
+                fused_edges.extend(step_group)
+                edge_source_counts["step"] += 1
+        for json_key, json_group in json_edge_groups.items():
+            if json_key in used_json_edge_keys:
+                continue
+            fused_edges.extend(json_group)
+            edge_source_counts["json"] += 1
+
+        fused_vertices = _dedupe_poly_points(
+            [
+                *step_body.get("vertices", []),
+                *json_body.get("vertices", []),
+                *_group_points(fused_faces, "vertices"),
+                *_group_points(fused_edges, "points"),
+            ]
+        )
 
         fused_body = {
-            "kind": face_body.get("kind") or edge_body.get("kind") or "solid",
-            "name": face_body.get("name") or edge_body.get("name") or f"Body {index}",
-            "faces": face_body.get("faces", []),
-            "edges": edge_body.get("edges", []),
-            "vertices": face_body.get("vertices", []) if len(face_body.get("vertices", [])) >= len(edge_body.get("vertices", [])) else edge_body.get("vertices", []),
-            "metadata": _merge_body_metadata(face_body, edge_body, face_source=face_source, edge_source=edge_source),
+            "kind": json_body.get("kind") or step_body.get("kind") or "solid",
+            "name": json_body.get("name") or step_body.get("name") or f"Body {index}",
+            "faces": fused_faces,
+            "edges": fused_edges,
+            "vertices": fused_vertices,
+            "metadata": _merge_body_metadata(
+                step_body,
+                json_body,
+                faces=fused_faces,
+                edges=fused_edges,
+                vertices=fused_vertices,
+                face_source_counts=face_source_counts,
+                edge_source_counts=edge_source_counts,
+            ),
         }
         fused.append(fused_body)
         decisions.append(
             {
                 "body_index": index,
-                "face_source": face_source,
-                "edge_source": edge_source,
+                "step_body_index": match_info.get("step_body_index"),
+                "json_body_index": match_info.get("json_body_index"),
+                "match_cost": round(float(match_info.get("match_cost", 0.0)), 6),
+                "match_reason": match_info.get("match_reason"),
+                "face_source": _dominant_source(face_source_counts),
+                "edge_source": _dominant_source(edge_source_counts),
+                "face_region_source_counts": dict(face_source_counts),
+                "edge_region_source_counts": dict(edge_source_counts),
                 "step_face_score": step_face_score,
                 "json_face_score": json_face_score,
                 "step_edge_score": step_edge_score,
@@ -2375,6 +2748,11 @@ def _fused_report_from_step_and_json(
     )
     face_source_counts = Counter(item["face_source"] for item in decisions)
     edge_source_counts = Counter(item["edge_source"] for item in decisions)
+    face_region_source_counts = Counter()
+    edge_region_source_counts = Counter()
+    for item in decisions:
+        face_region_source_counts.update(item.get("face_region_source_counts") or {})
+        edge_region_source_counts.update(item.get("edge_region_source_counts") or {})
 
     base_report = dict(json_report)
     base_report["kernel_bodies"] = fused_bodies
@@ -2414,6 +2792,8 @@ def _fused_report_from_step_and_json(
         "body_decisions": decisions,
         "face_source_counts": dict(face_source_counts),
         "edge_source_counts": dict(edge_source_counts),
+        "face_region_source_counts": dict(face_region_source_counts),
+        "edge_region_source_counts": dict(edge_region_source_counts),
     }
     base_report["model_analysis"] = {
         **dict(base_report.get("model_analysis") or {}),
@@ -2422,7 +2802,8 @@ def _fused_report_from_step_and_json(
             f"Fused Siemens NX JSON and STEP reconstruction for {step_name or json_name or base_report.get('file_name')}.",
             f"Detected {len(fused_bodies)} body/bodies and reconstructed {len(fused_bodies)} fused preview body/bodies.",
             f"Face geometry favored JSON on {face_source_counts.get('json', 0)} bodies and STEP on {face_source_counts.get('step', 0)} bodies.",
-            f"Edge geometry favored JSON on {edge_source_counts.get('json', 0)} bodies and STEP on {edge_source_counts.get('step', 0)} bodies.",
+            f"Face-region fusion kept {face_region_source_counts.get('json', 0)} JSON regions and {face_region_source_counts.get('step', 0)} STEP regions.",
+            f"Edge-region fusion kept {edge_region_source_counts.get('json', 0)} JSON regions and {edge_region_source_counts.get('step', 0)} STEP regions.",
         ],
     }
     return base_report
