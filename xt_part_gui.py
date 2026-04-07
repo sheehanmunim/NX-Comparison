@@ -2,6 +2,7 @@
 
 import json
 import os
+import re
 import webbrowser
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -31,6 +32,149 @@ def _is_workspace_sample_path(path: Path) -> bool:
     return path.is_file()
 
 
+def _report_key(report: dict) -> tuple[str, str]:
+    return (
+        str(report.get("file") or ""),
+        str(report.get("file_name") or ""),
+    )
+
+
+def _normalize_identity_token(value: str | None) -> str | None:
+    if not value:
+        return None
+    token = re.sub(r"[^a-z0-9]+", "", value.lower())
+    return token or None
+
+
+def _report_identity_tokens(report: dict) -> set[str]:
+    tokens: set[str] = set()
+    candidates = [
+        Path(str(report.get("file_name") or "")).stem,
+        Path(str(report.get("file") or "")).stem,
+        *((report.get("decoded_names") or [])[:6]),
+        str((report.get("source_part_summary") or {}).get("part_name") or ""),
+        str((report.get("source_part_summary") or {}).get("leaf") or ""),
+    ]
+    for candidate in candidates:
+        token = _normalize_identity_token(candidate)
+        if token:
+            tokens.add(token)
+    return tokens
+
+
+def _report_stem_token(report: dict) -> str | None:
+    for candidate in (
+        Path(str(report.get("file_name") or "")).stem,
+        Path(str(report.get("file") or "")).stem,
+    ):
+        token = _normalize_identity_token(candidate)
+        if token:
+            return token
+    return None
+
+
+def _preview_metadata_for_report(report: dict) -> dict:
+    source_format = str((report.get("transmit_info") or {}).get("source_format") or "")
+    if source_format == "step_file":
+        return {
+            "strategy": "step_import_preview",
+            "label": "STEP Import",
+            "description": "Imported directly from the STEP file and shown from decoded STEP topology.",
+        }
+    if source_format == "siemens_nx_json":
+        return {
+            "strategy": "json_reconstruction_preview",
+            "label": "JSON Reconstruction",
+            "description": "Reconstructed from Siemens NX JSON topology and geometry for preview.",
+        }
+    if source_format == "fused_step_json":
+        step_reference = ((report.get("fusion") or {}).get("reference_step") or {}).get("file_name")
+        description = "Reconstructed from Siemens NX JSON and improved with referenced STEP geometry."
+        if step_reference:
+            description = f"Reconstructed from Siemens NX JSON and improved with STEP reference {step_reference}."
+        return {
+            "strategy": "fused_json_step_preview",
+            "label": "Fusion",
+            "description": description,
+        }
+    return {
+        "strategy": "report_preview",
+        "label": "Preview",
+        "description": "Rendered from the best available decoded preview geometry in the report.",
+    }
+
+
+def _append_auto_fused_reports(reports: list[dict]) -> list[dict]:
+    if not reports:
+        return reports
+
+    result = list(reports)
+    seen = {_report_key(report) for report in result}
+    steps = [report for report in result if (report.get("transmit_info") or {}).get("source_format") == "step_file"]
+    json_reports = [
+        report for report in result if (report.get("transmit_info") or {}).get("source_format") == "siemens_nx_json"
+    ]
+    if not steps or not json_reports:
+        return result
+
+    used_step_keys: set[tuple[str, str]] = set()
+    used_json_keys: set[tuple[str, str]] = set()
+    candidate_pairs: list[tuple[dict, dict]] = []
+
+    step_by_stem: dict[str, list[dict]] = {}
+    json_by_stem: dict[str, list[dict]] = {}
+    for report in steps:
+        token = _report_stem_token(report)
+        if token:
+            step_by_stem.setdefault(token, []).append(report)
+    for report in json_reports:
+        token = _report_stem_token(report)
+        if token:
+            json_by_stem.setdefault(token, []).append(report)
+
+    for token in sorted(set(step_by_stem).intersection(json_by_stem)):
+        if len(step_by_stem[token]) == 1 and len(json_by_stem[token]) == 1:
+            candidate_pairs.append((step_by_stem[token][0], json_by_stem[token][0]))
+
+    for step_report in steps:
+        step_key = _report_key(step_report)
+        if step_key in used_step_keys:
+            continue
+        step_tokens = _report_identity_tokens(step_report)
+        matches = []
+        for json_report in json_reports:
+            json_key = _report_key(json_report)
+            if json_key in used_json_keys:
+                continue
+            if step_tokens.intersection(_report_identity_tokens(json_report)):
+                matches.append(json_report)
+        if len(matches) == 1:
+            candidate_pairs.append((step_report, matches[0]))
+
+    for step_report, json_report in candidate_pairs:
+        step_key = _report_key(step_report)
+        json_key = _report_key(json_report)
+        if step_key in used_step_keys or json_key in used_json_keys:
+            continue
+        fused = create_fused_report(step_report, json_report)
+        if fused is None:
+            continue
+        fused_key = _report_key(fused)
+        used_step_keys.add(step_key)
+        used_json_keys.add(json_key)
+        if fused_key in seen:
+            continue
+        seen.add(fused_key)
+        result.append(fused)
+
+    return result
+
+
+def _prepare_reports(reports: list[dict]) -> list[dict]:
+    enriched = [enrich_report(report) for report in reports]
+    return _append_auto_fused_reports(enriched)
+
+
 def workspace_sample_reports() -> list[dict]:
     reports: list[dict] = []
     seen: set[Path] = set()
@@ -40,8 +184,8 @@ def workspace_sample_reports() -> list[dict]:
             if resolved in seen:
                 continue
             seen.add(resolved)
-            reports.extend(enrich_report(report) for report in _analyze_input_file_single(resolved))
-    return reports
+            reports.extend(_analyze_input_file_single(resolved))
+    return _prepare_reports(reports)
 
 
 def analyze_paths(paths: list[str]) -> list[dict]:
@@ -54,8 +198,8 @@ def analyze_paths(paths: list[str]) -> list[dict]:
         if path in seen:
             continue
         seen.add(path)
-        reports.extend(enrich_report(report) for report in _analyze_input_file_single(path))
-    return reports
+        reports.extend(_analyze_input_file_single(path))
+    return _prepare_reports(reports)
 
 
 def analyze_uploaded_files(file_payloads: list[dict]) -> list[dict]:
@@ -67,8 +211,8 @@ def analyze_uploaded_files(file_payloads: list[dict]) -> list[dict]:
             source_path=f"uploaded:{file_payload.get('name', '<upload>')}",
             file_size_bytes=file_payload.get("size"),
         )
-        reports.extend(enrich_report(report) for report in imported_reports)
-    return reports
+        reports.extend(imported_reports)
+    return _prepare_reports(reports)
 
 
 def create_fused_report(left_report: dict, right_report: dict) -> dict | None:
@@ -97,10 +241,30 @@ def create_fused_report(left_report: dict, right_report: dict) -> dict | None:
     fused_report["fusion"] = {
         **dict(fused_report.get("fusion") or {}),
         "display_name": "STEP+JSON",
+        "reference_step": {
+            "file": step_report.get("file"),
+            "file_name": step_report.get("file_name"),
+            "decoded_name": (step_report.get("decoded_names") or [None])[0],
+        },
+        "reference_json": {
+            "file": json_report.get("file"),
+            "file_name": json_report.get("file_name"),
+            "decoded_name": (json_report.get("decoded_names") or [None])[0],
+        },
+        "improves": "siemens_nx_json",
+        "improved_by": "step_file",
+    }
+    fused_report["transmit_info"] = {
+        **dict(fused_report.get("transmit_info") or {}),
+        "reference_step_file": step_report.get("file"),
+        "reference_step_name": step_report.get("file_name"),
+        "reference_json_file": json_report.get("file"),
+        "reference_json_name": json_report.get("file_name"),
+        "preview_strategy": "json_reconstruction_with_step_reference",
     }
     model_summary = list((fused_report.get("model_analysis") or {}).get("summary") or [])
     if model_summary:
-        model_summary[0] = f"Explicit STEP + JSON fusion for {base_name}."
+        model_summary[0] = f"JSON reconstruction for {base_name} improved by referencing STEP geometry."
         fused_report["model_analysis"] = {
             **dict(fused_report.get("model_analysis") or {}),
             "summary": model_summary,
@@ -607,7 +771,7 @@ HTML = """<!doctype html>
   <div class="app">
     <div class="header">
       <h1>CAD Part Viewer & Compare</h1>
-      <p>Load a `.step` or `.stp` file to preview it like a typical CAD model, then select two loaded parts to compare what changed. `.x_t`, compatible JSON, and text reports are also supported.</p>
+      <p>STEP files preview as direct STEP imports, Siemens NX JSON files preview as reconstructed parts, and Fusion previews improve the JSON by referencing the matching STEP geometry. `.x_t`, compatible JSON, and text reports are also supported.</p>
     </div>
 
     <div class="toolbar">
@@ -651,7 +815,7 @@ HTML = """<!doctype html>
               <div id="preview-overlay" class="viewport-overlay"></div>
             </div>
             <div class="viewport-footer">
-            <div class="preview-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. Double-click fits the model. Solid mode uses STEP face tessellation when available and otherwise falls back to the best reconstructed preview geometry.</div>
+            <div class="preview-note" id="preview-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. Double-click fits the model. STEP files use direct STEP import geometry, JSON files use reconstructed preview geometry, and Fusion previews use JSON geometry improved by STEP references.</div>
               <div class="viewport-badges">
                 <div class="viewport-badge">Orbit</div>
                 <div class="viewport-badge">Pan</div>
@@ -675,7 +839,7 @@ HTML = """<!doctype html>
       </div>
     </div>
 
-    <div class="status" id="status">Load a STEP file to preview it, or select two parts to compare them.</div>
+    <div class="status" id="status">Load a STEP file, Siemens NX JSON file, or a matching pair to preview them and build a STEP-referenced fusion.</div>
   </div>
 
   <script>
@@ -943,7 +1107,7 @@ HTML = """<!doctype html>
     function sourceFormatLabel(report) {
       const format = report?.transmit_info?.source_format || "";
       const labels = {
-        fused_step_json: "Fused STEP + JSON",
+        fused_step_json: "Fusion (JSON + STEP Reference)",
         siemens_nx_json: "Siemens NX JSON",
         step_file: "STEP",
         parasolid_analysis_report: "Parasolid analysis report"
@@ -954,26 +1118,86 @@ HTML = """<!doctype html>
       return format ? format.replaceAll("_", " ") : "Unknown";
     }
 
+    function previewMetadata(report) {
+      return report?.preview || {
+        strategy: "report_preview",
+        label: "Preview",
+        description: "Rendered from the best available decoded preview geometry in the report."
+      };
+    }
+
+    function previewSourceLabel(report) {
+      return previewMetadata(report).label || "Preview";
+    }
+
+    function previewSourceDescription(report) {
+      return previewMetadata(report).description || "Rendered from the best available decoded preview geometry in the report.";
+    }
+
+    function previewNoteText(report) {
+      const baseControls = "Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. Double-click fits the model.";
+      const strategy = previewMetadata(report).strategy;
+      if (strategy === "step_import_preview") {
+        return `${baseControls} This file is being shown as a direct STEP import preview, closer to the Online3DViewer-style flow.`;
+      }
+      if (strategy === "json_reconstruction_preview") {
+        return `${baseControls} This file is being shown as a reconstructed part preview built from Siemens NX JSON topology and geometry.`;
+      }
+      if (strategy === "fused_json_step_preview") {
+        const stepName = report?.fusion?.reference_step?.file_name || "the matching STEP file";
+        return `${baseControls} This Fusion preview starts from the JSON reconstruction, then improves the faces and edges by referencing ${stepName}.`;
+      }
+      return `${baseControls} The preview uses the best decoded geometry available in the current report.`;
+    }
+
+    function renderPreviewNote() {
+      const node = byId("preview-note");
+      if (!node) return;
+      node.textContent = previewNoteText(activeReport());
+    }
+
+    function previewReadyMessage(report) {
+      if (!report) return "Preview ready.";
+      const strategy = previewMetadata(report).strategy;
+      if (strategy === "step_import_preview") return `Loaded ${report.file_name}. STEP import preview ready.`;
+      if (strategy === "json_reconstruction_preview") return `Loaded ${report.file_name}. JSON reconstruction preview ready.`;
+      if (strategy === "fused_json_step_preview") return `Loaded ${report.file_name}. STEP-referenced Fusion preview ready.`;
+      return `Loaded ${report.file_name}. Preview ready.`;
+    }
+
+    function loadedReportsStatus(reports) {
+      const previewKinds = new Set((reports || []).map((report) => previewMetadata(report).strategy));
+      const fusionCount = (reports || []).filter((report) => previewMetadata(report).strategy === "fused_json_step_preview").length;
+      if (fusionCount) {
+        return `Loaded ${reports.length} file(s) and built ${fusionCount} STEP-referenced Fusion preview(s). Select one to inspect it or select two to compare them.`;
+      }
+      if (previewKinds.has("step_import_preview") && previewKinds.has("json_reconstruction_preview")) {
+        return `Loaded ${reports.length} file(s). STEP imports and JSON reconstructions are ready; matching pairs can be fused automatically or compared side-by-side.`;
+      }
+      return `Loaded ${reports.length} file(s). Select one to preview it or two to compare them.`;
+    }
+
     function stepBackendLabel(report) {
       const sourceFormat = report?.transmit_info?.source_format || "";
       if (!["step_file", "fused_step_json"].includes(sourceFormat)) return "Not applicable";
-      const backend = report?.step_import?.backend || report?.entity_hints?.step_backend || "unknown";
+      const backend = report?.step_import?.backend || report?.entity_hints?.step_backend || "native_step_parser";
       if (backend === "opencascade_occ") return "Open Cascade";
-      if (backend === "native_step_parser") return "Native parser fallback";
+      if (backend === "native_step_parser") return "Built-in STEP topology importer";
       return backend.replaceAll("_", " ");
     }
 
     function fusionLabel(report) {
       if (!report?.fusion?.enabled) return "Off";
       const mlPrefix = report?.fusion?.ml_assisted ? "ML-assisted " : "";
+      const stepName = report?.fusion?.reference_step?.file_name || report?.transmit_info?.reference_step_name;
       const faceRegionCounts = report.fusion?.face_region_source_counts || {};
       const edgeRegionCounts = report.fusion?.edge_region_source_counts || {};
       if (Object.keys(faceRegionCounts).length || Object.keys(edgeRegionCounts).length) {
-        return `${mlPrefix}On (${faceRegionCounts.json || 0} JSON face regions, ${faceRegionCounts.step || 0} STEP face regions; ${edgeRegionCounts.json || 0} JSON edge regions, ${edgeRegionCounts.step || 0} STEP edge regions)`;
+        return `${mlPrefix}On${stepName ? ` via ${stepName}` : ""} (${faceRegionCounts.json || 0} JSON face regions, ${faceRegionCounts.step || 0} STEP face regions; ${edgeRegionCounts.json || 0} JSON edge regions, ${edgeRegionCounts.step || 0} STEP edge regions)`;
       }
       const faceCounts = report.fusion?.face_source_counts || {};
       const edgeCounts = report.fusion?.edge_source_counts || {};
-      return `${mlPrefix}On (${faceCounts.json || 0} JSON face bodies, ${faceCounts.step || 0} STEP face bodies; ${edgeCounts.json || 0} JSON edge bodies, ${edgeCounts.step || 0} STEP edge bodies)`;
+      return `${mlPrefix}On${stepName ? ` via ${stepName}` : ""} (${faceCounts.json || 0} JSON face bodies, ${faceCounts.step || 0} STEP face bodies; ${edgeCounts.json || 0} JSON edge bodies, ${edgeCounts.step || 0} STEP edge bodies)`;
     }
 
     function fusionMlLabel(report) {
@@ -2701,10 +2925,10 @@ HTML = """<!doctype html>
 
       byId("sidebar-foot").textContent =
         canFuseSelection()
-          ? "Two parts are selected. Compare them now, or use Improve JSON With STEP to build a better hybrid reconstruction."
+          ? "Two parts are selected. Compare them now, or use Improve JSON With STEP to make the JSON reconstruction reference the STEP geometry."
           : state.selected.length === 2
             ? "Two parts selected. The Compare view is ready."
-            : `${state.reports.length} part report(s) loaded.`;
+            : `${state.reports.length} part report(s) loaded. STEP imports, JSON reconstructions, and Fusion previews appear together here.`;
     }
 
     function renderSummary() {
@@ -2722,6 +2946,8 @@ HTML = """<!doctype html>
       const rows = [
         ["Path", report.file],
         ["Source Format", sourceFormatLabel(report)],
+        ["Preview Source", previewSourceLabel(report)],
+        ["Preview Detail", previewSourceDescription(report)],
         ["STEP Importer", stepBackendLabel(report)],
         ["Decoded Names", report.decoded_names?.join(", ") || "None"],
         ["Source App", report.header?.PART1?.APPL || "Unknown"],
@@ -2739,7 +2965,8 @@ HTML = """<!doctype html>
       ];
 
       if (report?.fusion?.enabled) {
-        rows.splice(2, 0, ["Fusion", fusionLabel(report)], ["Fusion ML", fusionMlLabel(report)]);
+        rows.splice(3, 0, ["Fusion", fusionLabel(report)], ["Fusion ML", fusionMlLabel(report)]);
+        rows.splice(4, 0, ["Referenced STEP", report?.fusion?.reference_step?.file_name || report?.transmit_info?.reference_step_name || "Unknown"]);
       }
 
       for (const [label, value] of rows) {
@@ -3838,29 +4065,14 @@ HTML = """<!doctype html>
     }
 
     function applyPreviewPreset(preset) {
-      if (previewViewportDisabled) {
-        applyViewPreset(state.viewer, preset);
-        return;
-      }
-      ensurePreviewViewport()
-        .then((viewport) => {
-          if (!viewport) {
-            applyViewPreset(state.viewer, preset);
-            return;
-          }
-          if (!viewport.currentPreview) return;
-          if (preset !== "fit") {
-            viewport.currentPreset = preset;
-          }
-          fitPreviewViewport(viewport, preset === "fit" ? (viewport.currentPreset || "iso") : preset);
-        })
-        .catch((error) => setStatus(`Preview error: ${error.message}`));
+      applyViewPreset(state.viewer, preset);
     }
 
     function drawViewportHud(ctx2d, canvasEl, report, preview, viewer, options = {}) {
       const theme = currentViewportTheme();
       const lines = [
         report?.file_name || "Preview",
+        previewSourceLabel(report),
         `${capitalizeLabel(options.mode || viewer.mode || "solid")} view`,
       ];
       if (preview?.bounds?.size) {
@@ -4671,7 +4883,8 @@ HTML = """<!doctype html>
     }
 
     function drawPreview() {
-      drawPreviewWebGl();
+      setPreviewOverlay("");
+      drawPreviewCanvasFallback();
     }
 
     function render() {
@@ -4689,6 +4902,7 @@ HTML = """<!doctype html>
       renderGeometry();
       renderCompare();
       renderJson();
+      renderPreviewNote();
       drawPreview();
     }
 
@@ -4713,7 +4927,7 @@ HTML = """<!doctype html>
       state.selected = state.reports.length ? [bestReportKey(state.reports)] : [];
       resetPreviewIfNeeded();
       render();
-      setStatus(`Loaded ${state.reports.length} workspace sample(s). Select one to preview it or two to compare.`);
+      setStatus(loadedReportsStatus(state.reports));
     }
 
     async function loadPaths() {
@@ -4727,9 +4941,9 @@ HTML = """<!doctype html>
       const data = await postJson("/api/analyze-paths", { paths });
       mergeReports(data.reports || []);
       if (data.reports.length === 1) {
-        setStatus(`Loaded ${data.reports[0].file_name}. Preview ready.`);
+        setStatus(previewReadyMessage(data.reports[0]));
       } else {
-        setStatus(`Loaded ${data.reports.length} files. Select two to compare them.`);
+        setStatus(loadedReportsStatus(data.reports || []));
       }
     }
 
@@ -4744,9 +4958,9 @@ HTML = """<!doctype html>
       const data = await postJson("/api/analyze-text", { files: payload });
       mergeReports(data.reports || []);
       if (data.reports.length === 1) {
-        setStatus(`Loaded ${data.reports[0].file_name}. Preview ready.`);
+        setStatus(previewReadyMessage(data.reports[0]));
       } else {
-        setStatus(`Loaded ${data.reports.length} files. Select two to compare them.`);
+        setStatus(loadedReportsStatus(data.reports || []));
       }
     }
 
@@ -4774,7 +4988,7 @@ HTML = """<!doctype html>
       const data = await postJson("/api/fuse-reports", { reports });
       mergeReports(data.reports || []);
       const created = data.reports?.[0];
-      setStatus(created ? `Created improved fused model: ${created.file_name}.` : "Created improved fused model.");
+      setStatus(created ? `Created STEP-referenced Fusion preview: ${created.file_name}.` : "Created STEP-referenced Fusion preview.");
     }
 
     function exportCurrentJson() {
@@ -4840,10 +5054,6 @@ HTML = """<!doctype html>
     byId("create-fusion").onclick = () => createFusionFromSelection().catch((error) => setStatus(error.message));
     byId("reset-view").onclick = () => {
       resetPreviewIfNeeded();
-      if (previewViewport) {
-        previewViewport.currentPreset = "iso";
-        fitPreviewViewport(previewViewport, "iso");
-      }
       drawPreview();
       setStatus("Preview view reset.");
     };
@@ -4863,6 +5073,10 @@ def enrich_report(report: dict) -> dict:
     geometry = report.get("geometry_hints", {})
     for item in geometry.get("notable_scalar_values", []):
         item["pretty_metric_and_imperial"] = metric_and_imperial(item["value"])
+    report["preview"] = {
+        **dict(report.get("preview") or {}),
+        **_preview_metadata_for_report(report),
+    }
     return report
 
 
