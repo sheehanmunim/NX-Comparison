@@ -326,7 +326,7 @@ HTML = """<!doctype html>
     }
     .app {
       display: grid;
-      grid-template-rows: auto auto 1fr auto;
+      grid-template-rows: auto auto auto 1fr;
       min-height: 100vh;
     }
     .header, .toolbar, .sidebar, .main, .status {
@@ -796,6 +796,8 @@ HTML = """<!doctype html>
       <button id="reset-view">Reset Preview View</button>
     </div>
 
+    <div class="status" id="status">Load a STEP or STL file to preview it, or load a matching STEP and JSON pair to build a STEP-referenced fusion.</div>
+
     <div class="content">
       <div class="sidebar">
         <h2>Loaded Parts</h2>
@@ -848,7 +850,6 @@ HTML = """<!doctype html>
       </div>
     </div>
 
-    <div class="status" id="status">Load a STEP or STL file to preview it, or load a matching STEP and JSON pair to build a STEP-referenced fusion.</div>
   </div>
 
   <script>
