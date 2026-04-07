@@ -8,6 +8,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
 
+from xt_backend_setup import ensure_backend_runtimes
 from xt_part_report import (
     _analyze_input_file_single,
     _fused_report_from_step_and_json,
@@ -19,11 +20,22 @@ from xt_part_report import (
 HOST = "127.0.0.1"
 PORT = 8765
 
+
+def _is_workspace_sample_path(path: Path) -> bool:
+    ignored_parts = {"__pycache__", ".git", ".hg", ".svn", "node_modules", "schemas"}
+    for part in path.parts:
+        if part in ignored_parts:
+            return False
+        if part.startswith(".venv"):
+            return False
+    return path.is_file()
+
+
 def workspace_sample_reports() -> list[dict]:
     reports: list[dict] = []
     seen: set[Path] = set()
     for pattern in ("*.x_t", "*.stp", "*.step", "*.json"):
-        for path in sorted(Path.cwd().glob(pattern)):
+        for path in sorted(candidate for candidate in Path.cwd().rglob(pattern) if _is_workspace_sample_path(candidate)):
             resolved = path.resolve()
             if resolved in seen:
                 continue
@@ -110,7 +122,7 @@ HTML = """<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Parasolid XT Part Inspector</title>
+  <title>CAD Part Viewer & Compare</title>
   <style>
     * { box-sizing: border-box; }
     html, body { margin: 0; height: 100%; }
@@ -344,6 +356,27 @@ HTML = """<!doctype html>
       background: transparent;
       display: block;
     }
+    .viewport-overlay {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 14px 16px;
+      pointer-events: none;
+      font-size: 13px;
+      line-height: 1.45;
+      color: #343434;
+      white-space: pre-wrap;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0));
+    }
+    .viewport-overlay.visible {
+      display: flex;
+    }
+    .viewport-overlay[data-tone="error"] {
+      color: #7f1d1d;
+      background: linear-gradient(180deg, rgba(255, 245, 245, 0.85), rgba(255, 255, 255, 0));
+    }
     .viewport-footer {
       display: flex;
       justify-content: space-between;
@@ -530,6 +563,32 @@ HTML = """<!doctype html>
       font-size: 12px;
       line-height: 1.4;
     }
+    .body-visibility {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #d5d5d5;
+      display: grid;
+      gap: 10px;
+    }
+    .body-visibility-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .body-visibility-list {
+      display: grid;
+      gap: 6px;
+    }
+    .body-visibility-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-main);
+    }
+    .body-visibility-item small {
+      color: var(--text-muted);
+    }
     @media (max-width: 980px) {
       .content { grid-template-columns: 1fr; }
       .top-row { grid-template-columns: 1fr; }
@@ -540,15 +599,15 @@ HTML = """<!doctype html>
 <body>
   <div class="app">
     <div class="header">
-      <h1>Parasolid XT Part Inspector</h1>
-      <p>Load `.x_t`, `.step`, `.stp`, compatible JSON reports, or Parasolid analysis text reports, inspect extracted metadata, and review an interactive CAD-style preview with component-aware comparison.</p>
+      <h1>CAD Part Viewer & Compare</h1>
+      <p>Load a `.step` or `.stp` file to preview it like a typical CAD model, then select two loaded parts to compare what changed. `.x_t`, compatible JSON, and text reports are also supported.</p>
     </div>
 
     <div class="toolbar">
       <button id="load-samples">Load Workspace Samples</button>
-      <label class="file-upload">Upload CAD or report files<input id="file-input" type="file" accept=".x_t,.step,.stp,.json,.txt,.md,text/plain,application/json" multiple></label>
+      <label class="file-upload">Upload CAD Files<input id="file-input" type="file" accept=".x_t,.step,.stp,.json,.txt,.md,text/plain,application/json" multiple></label>
       <input id="path-input" type="text" placeholder="Enter one or more file paths separated by commas">
-      <button id="load-paths">Analyze Paths</button>
+      <button id="load-paths">Load Paths</button>
       <button id="export-json">Export Current JSON</button>
       <button id="reset-view">Reset Preview View</button>
     </div>
@@ -556,10 +615,11 @@ HTML = """<!doctype html>
     <div class="content">
       <div class="sidebar">
         <h2>Loaded Parts</h2>
-        <div class="hint">Click one part to inspect it. Use Ctrl-click, Cmd-click, or Shift-click to add a second part for comparison or for explicit multi-file fusion.</div>
+        <div class="hint">Click one part to preview it. Use Ctrl-click, Cmd-click, or Shift-click to add a second part, then compare what changed.</div>
         <div class="file-list" id="file-list"></div>
         <div class="sidebar-actions">
-          <button id="create-fusion" disabled>Create Multi-File Fusion</button>
+          <button id="compare-selected" disabled>Compare Selected Parts</button>
+          <button id="create-fusion" disabled>Improve JSON With STEP</button>
         </div>
         <div class="hint" id="sidebar-foot">No parts loaded yet.</div>
       </div>
@@ -581,9 +641,10 @@ HTML = """<!doctype html>
             </div>
             <div class="canvas-frame">
               <canvas id="preview-canvas"></canvas>
+              <div id="preview-overlay" class="viewport-overlay"></div>
             </div>
             <div class="viewport-footer">
-              <div class="preview-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. Double-click fits the model. Solid mode renders imported or reconstructed kernel faces from loops, curves, and surface definitions when available; otherwise the app falls back to decoded points and edge geometry.</div>
+            <div class="preview-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. Double-click fits the model. Solid mode uses STEP face tessellation when available and otherwise falls back to the best reconstructed preview geometry.</div>
               <div class="viewport-badges">
                 <div class="viewport-badge">Orbit</div>
                 <div class="viewport-badge">Pan</div>
@@ -607,7 +668,7 @@ HTML = """<!doctype html>
       </div>
     </div>
 
-    <div class="status" id="status">Ready.</div>
+    <div class="status" id="status">Load a STEP file to preview it, or select two parts to compare them.</div>
   </div>
 
   <script>
@@ -709,6 +770,7 @@ HTML = """<!doctype html>
       viewer: defaultViewerState(),
       viewportBackground: "gray",
       compareSync: false,
+      hiddenPreviewBodies: {},
       compareViewers: {
         left: defaultViewerState(),
         right: defaultViewerState()
@@ -717,16 +779,18 @@ HTML = """<!doctype html>
 
     const tabs = [
       ["overview", "Overview"],
+      ["compare", "Compare"],
       ["notes", "Part Notes"],
       ["header", "Header"],
       ["topology", "Topology"],
       ["geometry", "Geometry"],
-      ["compare", "Compare"],
       ["json", "JSON"]
     ];
 
     const AXES = ["x", "y", "z"];
     const DIMENSION_TOLERANCE = 1e-6;
+    const MAX_RENDER_FACES = 3200;
+    const MAX_RENDER_OCC_FACES = 2200;
     const VIEW_PRESETS = [
       ["iso", "ISO"],
       ["front", "Front"],
@@ -739,10 +803,17 @@ HTML = """<!doctype html>
       ["gray", "Gray", "#d9d9d9"],
       ["dark", "Dark", "#1d1d1d"]
     ];
+    const THREE_MODULE_URL = "https://esm.sh/three@0.161.0?bundle";
+    const ORBIT_CONTROLS_MODULE_URL = "https://esm.sh/three@0.161.0/examples/jsm/controls/OrbitControls.js?bundle";
 
     const canvas = document.getElementById("preview-canvas");
-    const ctx = canvas.getContext("2d");
+    const previewOverlay = document.getElementById("preview-overlay");
     let dragState = null;
+    let previewViewport = null;
+    let previewViewportPromise = null;
+    let previewViewportDisabled = false;
+    let previewViewportFailure = "";
+    let previewCanvasFallbackBound = false;
 
     function byId(id) {
       return document.getElementById(id);
@@ -764,6 +835,13 @@ HTML = """<!doctype html>
       byId("status").textContent = message;
     }
 
+    function setPreviewOverlay(message = "", tone = "info") {
+      if (!previewOverlay) return;
+      previewOverlay.textContent = message || "";
+      previewOverlay.dataset.tone = tone;
+      previewOverlay.classList.toggle("visible", Boolean(message));
+    }
+
     function activeReport() {
       if (!state.selected.length) return null;
       return state.reports.find((report) => reportKey(report) === state.selected[0]) || null;
@@ -783,6 +861,45 @@ HTML = """<!doctype html>
       return report.kernel_body ? [report.kernel_body] : [];
     }
 
+    function previewBodyKey(body, bodyIndex = 0) {
+      return rawIdentityKey(
+        body?.metadata?.object_identity,
+        `preview-body:${Number(body?.metadata?.nx_body_index || body?.index || bodyIndex + 1)}`
+      );
+    }
+
+    function hiddenPreviewBodiesForReport(report) {
+      if (!report) return [];
+      return state.hiddenPreviewBodies[reportKey(report)] || [];
+    }
+
+    function visiblePreviewBodyCount(report) {
+      const bodies = kernelBodies(report);
+      if (!bodies.length) return 0;
+      const hidden = new Set(hiddenPreviewBodiesForReport(report));
+      return bodies.filter((body, bodyIndex) => !hidden.has(previewBodyKey(body, bodyIndex))).length;
+    }
+
+    function setHiddenPreviewBodies(report, hiddenKeys) {
+      if (!report) return;
+      state.hiddenPreviewBodies = {
+        ...state.hiddenPreviewBodies,
+        [reportKey(report)]: dedupeList(hiddenKeys)
+      };
+    }
+
+    function togglePreviewBody(report, bodyKey, visible) {
+      const hidden = new Set(hiddenPreviewBodiesForReport(report));
+      if (visible) hidden.delete(bodyKey);
+      else hidden.add(bodyKey);
+      setHiddenPreviewBodies(report, [...hidden]);
+      renderOverview();
+      drawPreview();
+      if (state.activeTab === "compare") {
+        drawComparePreviews();
+      }
+    }
+
     function inferredTopology(report) {
       return report?.model_analysis?.topology || report?.kernel_topology || null;
     }
@@ -800,6 +917,10 @@ HTML = """<!doctype html>
     function comparisonReports() {
       if (state.selected.length !== 2) return [];
       return selectedReports();
+    }
+
+    function canCompareSelection() {
+      return state.selected.length === 2;
     }
 
     function formatDensity(report) {
@@ -826,16 +947,49 @@ HTML = """<!doctype html>
       return format ? format.replaceAll("_", " ") : "Unknown";
     }
 
+    function stepBackendLabel(report) {
+      const sourceFormat = report?.transmit_info?.source_format || "";
+      if (!["step_file", "fused_step_json"].includes(sourceFormat)) return "Not applicable";
+      const backend = report?.step_import?.backend || report?.entity_hints?.step_backend || "unknown";
+      if (backend === "opencascade_occ") return "Open Cascade";
+      if (backend === "native_step_parser") return "Native parser fallback";
+      return backend.replaceAll("_", " ");
+    }
+
     function fusionLabel(report) {
       if (!report?.fusion?.enabled) return "Off";
+      const mlPrefix = report?.fusion?.ml_assisted ? "ML-assisted " : "";
       const faceRegionCounts = report.fusion?.face_region_source_counts || {};
       const edgeRegionCounts = report.fusion?.edge_region_source_counts || {};
       if (Object.keys(faceRegionCounts).length || Object.keys(edgeRegionCounts).length) {
-        return `On (${faceRegionCounts.json || 0} JSON face regions, ${faceRegionCounts.step || 0} STEP face regions; ${edgeRegionCounts.json || 0} JSON edge regions, ${edgeRegionCounts.step || 0} STEP edge regions)`;
+        return `${mlPrefix}On (${faceRegionCounts.json || 0} JSON face regions, ${faceRegionCounts.step || 0} STEP face regions; ${edgeRegionCounts.json || 0} JSON edge regions, ${edgeRegionCounts.step || 0} STEP edge regions)`;
       }
       const faceCounts = report.fusion?.face_source_counts || {};
       const edgeCounts = report.fusion?.edge_source_counts || {};
-      return `On (${faceCounts.json || 0} JSON face bodies, ${faceCounts.step || 0} STEP face bodies; ${edgeCounts.json || 0} JSON edge bodies, ${edgeCounts.step || 0} STEP edge bodies)`;
+      return `${mlPrefix}On (${faceCounts.json || 0} JSON face bodies, ${faceCounts.step || 0} STEP face bodies; ${edgeCounts.json || 0} JSON edge bodies, ${edgeCounts.step || 0} STEP edge bodies)`;
+    }
+
+    function fusionMlLabel(report) {
+      if (!report?.fusion?.ml_assisted) return "Off";
+      const model = report?.fusion?.ml_model?.name || "Unknown";
+      const decisions = report?.fusion?.body_decisions || [];
+      const confidences = decisions
+        .map((item) => Number(item?.ml_match_confidence))
+        .filter((value) => Number.isFinite(value));
+      if (!confidences.length) return model;
+      const average = confidences.reduce((sum, value) => sum + value, 0) / confidences.length;
+      return `${model} (avg confidence ${average.toFixed(2)})`;
+    }
+
+    function fusionDecisionLines(report, limit = 4) {
+      const decisions = report?.fusion?.body_decisions || [];
+      return decisions.slice(0, limit).map((item) => {
+        const bodyIndex = item?.body_index ?? "?";
+        const matchReason = item?.match_reason || "unknown";
+        const confidence = Number(item?.ml_match_confidence);
+        const confidenceText = Number.isFinite(confidence) ? confidence.toFixed(2) : "n/a";
+        return `Body ${bodyIndex}: ${matchReason}, confidence ${confidenceText}, faces ${item?.face_source || "?"}, edges ${item?.edge_source || "?"}`;
+      });
     }
 
     function canFuseSelection() {
@@ -2024,6 +2178,10 @@ HTML = """<!doctype html>
       return info;
     }
 
+    function previewViewerDistance(preview) {
+      return Math.max(4, Number(preview?.span || 0) * 2.5);
+    }
+
     function projectModelPoint(point, preview, viewer, scale, canvasEl) {
       return projectPoint(
         rotatePoint(
@@ -2036,7 +2194,8 @@ HTML = """<!doctype html>
         ),
         scale,
         canvasEl,
-        viewer
+        viewer,
+        previewViewerDistance(preview)
       );
     }
 
@@ -2359,6 +2518,11 @@ HTML = """<!doctype html>
       } else {
         setPrimarySelection(key);
       }
+      if (state.selected.length === 2) {
+        state.activeTab = "compare";
+      } else if (state.activeTab === "compare") {
+        state.activeTab = "overview";
+      }
       resetPreviewIfNeeded();
       render();
     }
@@ -2413,6 +2577,12 @@ HTML = """<!doctype html>
       button.disabled = !canFuseSelection();
     }
 
+    function renderCompareButton() {
+      const button = byId("compare-selected");
+      if (!button) return;
+      button.disabled = !canCompareSelection();
+    }
+
     function renderTabs() {
       const root = byId("tabs");
       root.innerHTML = "";
@@ -2465,7 +2635,7 @@ HTML = """<!doctype html>
         button.className = "view-preset";
         button.textContent = label;
         button.onclick = () => {
-          applyViewPreset(state.viewer, preset);
+          applyPreviewPreset(preset);
           drawPreview();
           setStatus(`Preview set to ${label.toLowerCase()} view.`);
         };
@@ -2502,7 +2672,7 @@ HTML = """<!doctype html>
 
       if (!state.reports.length) {
         list.innerHTML = '<div class="empty">No reports loaded.</div>';
-        byId("sidebar-foot").textContent = "Use the toolbar to load files.";
+        byId("sidebar-foot").textContent = "Use the toolbar to load a STEP file or another supported CAD file.";
         return;
       }
 
@@ -2524,10 +2694,10 @@ HTML = """<!doctype html>
 
       byId("sidebar-foot").textContent =
         canFuseSelection()
-          ? "Compatible STEP and JSON reports selected. Click Create Multi-File Fusion to add a fused entry."
+          ? "Two parts are selected. Compare them now, or use Improve JSON With STEP to build a better hybrid reconstruction."
           : state.selected.length === 2
-            ? "Two parts selected. Use Compare tab to inspect both."
-            : `${state.reports.length} report(s) loaded.`;
+            ? "Two parts selected. The Compare view is ready."
+            : `${state.reports.length} part report(s) loaded.`;
     }
 
     function renderSummary() {
@@ -2545,7 +2715,7 @@ HTML = """<!doctype html>
       const rows = [
         ["Path", report.file],
         ["Source Format", sourceFormatLabel(report)],
-        ["Fusion", fusionLabel(report)],
+        ["STEP Importer", stepBackendLabel(report)],
         ["Decoded Names", report.decoded_names?.join(", ") || "None"],
         ["Source App", report.header?.PART1?.APPL || "Unknown"],
         ["Date", report.header?.PART1?.DATE || "Unknown"],
@@ -2560,6 +2730,10 @@ HTML = """<!doctype html>
         ["Preview Points", String(report.geometry_hints?.point_count || 0)],
         ["Scale Factor Attribute", report.has_scale_factor_attribute ? "Present" : "Not found"]
       ];
+
+      if (report?.fusion?.enabled) {
+        rows.splice(2, 0, ["Fusion", fusionLabel(report)], ["Fusion ML", fusionMlLabel(report)]);
+      }
 
       for (const [label, value] of rows) {
         const row = document.createElement("div");
@@ -2580,7 +2754,7 @@ HTML = """<!doctype html>
         ["File", report.file_name],
         ["Path", report.file],
         ["Source Format", sourceFormatLabel(report)],
-        ["Fusion", fusionLabel(report)],
+        ["STEP Importer", stepBackendLabel(report)],
         ["Date", report.header?.PART1?.DATE || "Unknown"],
         ["Decoded Names", report.decoded_names?.join(", ") || "None"],
         ["Kernel Body", kernelLabel(report)],
@@ -2591,15 +2765,71 @@ HTML = """<!doctype html>
         ["Colors", formatColors(report)],
         ["Bounds", formatBounds(report.geometry_hints?.bounds)],
         ["Preview Point Count", String(report.geometry_hints?.point_count || 0)],
+        ["Visible Preview Bodies", String(visiblePreviewBodyCount(report) || 0)],
         ["Object State IDs", String(report.object_state_ids?.length || 0)]
       ];
+
+      if (report?.fusion?.enabled) {
+        rows.splice(3, 0, ["Fusion", fusionLabel(report)], ["Fusion ML", fusionMlLabel(report)]);
+      }
+
+      const bodies = kernelBodies(report);
+      const hiddenBodyKeys = new Set(hiddenPreviewBodiesForReport(report));
+      const bodyVisibilityHtml = bodies.length > 1
+        ? `
+          <div class="body-visibility">
+            <div><strong>Preview Bodies</strong></div>
+            <div class="body-visibility-actions">
+              <button type="button" id="show-all-bodies">Show All</button>
+              <button type="button" id="hide-all-bodies">Hide All</button>
+            </div>
+            <div class="body-visibility-list">
+              ${bodies.map((body, bodyIndex) => {
+                const bodyKey = previewBodyKey(body, bodyIndex);
+                const bodyName = escapeHtml(body?.name || body?.metadata?.name || `Body ${bodyIndex + 1}`);
+                const checked = hiddenBodyKeys.has(bodyKey) ? "" : "checked";
+                const faceCount = Number(body?.faces?.length || 0);
+                const edgeCount = Number(body?.edges?.length || 0);
+                return `
+                  <label class="body-visibility-item">
+                    <input type="checkbox" class="body-toggle" data-body-key="${escapeHtml(bodyKey)}" ${checked}>
+                    <span>${bodyName}</span>
+                    <small>${faceCount} faces / ${edgeCount} edges</small>
+                  </label>
+                `;
+              }).join("")}
+            </div>
+          </div>
+        `
+        : "";
 
       root.innerHTML = `
         <table>
           <thead><tr><th>Field</th><th>Value</th></tr></thead>
           <tbody>${rows.map(([label, value]) => `<tr><td>${escapeHtml(label)}</td><td>${escapeHtml(value)}</td></tr>`).join("")}</tbody>
         </table>
+        ${bodyVisibilityHtml}
       `;
+
+      if (bodies.length > 1) {
+        byId("show-all-bodies").onclick = () => {
+          setHiddenPreviewBodies(report, []);
+          renderOverview();
+          drawPreview();
+          if (state.activeTab === "compare") drawComparePreviews();
+        };
+        byId("hide-all-bodies").onclick = () => {
+          setHiddenPreviewBodies(report, bodies.map((body, bodyIndex) => previewBodyKey(body, bodyIndex)));
+          renderOverview();
+          drawPreview();
+          if (state.activeTab === "compare") drawComparePreviews();
+        };
+        root.querySelectorAll(".body-toggle").forEach((input) => {
+          input.onchange = (event) => {
+            togglePreviewBody(report, event.target.dataset.bodyKey, event.target.checked);
+          };
+        });
+      }
     }
 
     function renderNotes() {
@@ -2615,6 +2845,7 @@ HTML = """<!doctype html>
         "",
         `Decoded entity names: ${report.decoded_names?.join(", ") || "None"}`,
         `Kernel body: ${kernelLabel(report)}`,
+        `STEP importer: ${stepBackendLabel(report)}`,
         `Inferred shape: ${topologyLabel(report)}`,
         `Faces / edges: ${topologyCounts(report)}`,
         `Material density: ${formatDensity(report)}`,
@@ -2626,6 +2857,17 @@ HTML = """<!doctype html>
         "Notable dimensions and scalar values",
         ""
       ];
+
+      if (report?.fusion?.enabled) {
+        lines.push("");
+        lines.push("Fusion");
+        lines.push("");
+        lines.push(`Fusion status: ${fusionLabel(report)}`);
+        lines.push(`Fusion ML: ${fusionMlLabel(report)}`);
+        for (const line of fusionDecisionLines(report, 6)) {
+          lines.push(line);
+        }
+      }
 
       const scalars = report.geometry_hints?.notable_scalar_values || [];
       if (scalars.length) {
@@ -3032,9 +3274,10 @@ HTML = """<!doctype html>
       return applyRotationMatrix(viewer?.rotation || defaultRotation(), point);
     }
 
-    function projectPoint(point, scale, canvasEl, viewer) {
-      const viewerDistance = 4;
-      const depth = viewerDistance / (viewerDistance + point[2]);
+    function projectPoint(point, scale, canvasEl, viewer, viewerDistance = 4) {
+      const safeDistance = Math.max(4, Number(viewerDistance) || 4);
+      const denominator = Math.max(safeDistance * 0.2, safeDistance + point[2]);
+      const depth = safeDistance / denominator;
       return [
         point[0] * scale * depth + canvasEl.width / 2 + viewer.panX,
         -point[1] * scale * depth + canvasEl.height / 2 + viewer.panY,
@@ -3169,6 +3412,444 @@ HTML = """<!doctype html>
       return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
     }
 
+    function previewEdgePalette() {
+      if (state.viewportBackground === "dark") {
+        return {
+          edgeColor: [224, 229, 236],
+          pointColor: [241, 241, 241],
+        };
+      }
+      if (state.viewportBackground === "white") {
+        return {
+          edgeColor: [86, 94, 106],
+          pointColor: [48, 55, 65],
+        };
+      }
+      return {
+        edgeColor: [78, 84, 94],
+        pointColor: [56, 60, 68],
+      };
+    }
+
+    function previewPresetDirection(preset) {
+      const directions = {
+        iso: [1.2, 1, 0.85],
+        front: [0, 0, 1],
+        top: [0, 1, 0],
+        right: [1, 0, 0],
+      };
+      return normalizeVector(directions[preset] || directions.iso);
+    }
+
+    function disposeThreeObject(object3d) {
+      if (!object3d) return;
+      object3d.traverse((child) => {
+        if (child.geometry?.dispose) {
+          child.geometry.dispose();
+        }
+        if (Array.isArray(child.material)) {
+          child.material.forEach((material) => material?.dispose?.());
+        } else if (child.material?.dispose) {
+          child.material.dispose();
+        }
+      });
+    }
+
+    function clearPreviewViewportContent(viewport) {
+      if (!viewport?.contentGroup) return;
+      const children = [...viewport.contentGroup.children];
+      for (const child of children) {
+        viewport.contentGroup.remove(child);
+        disposeThreeObject(child);
+      }
+      viewport.previewObjects = null;
+      viewport.currentPreview = null;
+      viewport.currentReportKey = null;
+      viewport.currentHiddenKey = "";
+    }
+
+    function resizePreviewViewport(viewport) {
+      if (!viewport?.renderer || !viewport?.camera) return;
+      const rect = canvas.getBoundingClientRect();
+      const width = Math.max(320, Math.floor(rect.width));
+      const height = Math.max(320, Math.floor(rect.height));
+      viewport.renderer.setSize(width, height, false);
+      viewport.camera.aspect = width / height;
+      viewport.camera.updateProjectionMatrix();
+    }
+
+    function setPreviewViewportBackground(viewport) {
+      if (!viewport?.renderer || !viewport?.THREE) return;
+      const background = VIEWPORT_BACKGROUNDS.find(([value]) => value === state.viewportBackground)?.[2] || "#d9d9d9";
+      viewport.renderer.setClearColor(new viewport.THREE.Color(background), 1);
+    }
+
+    function renderPreviewViewport(viewport) {
+      if (!viewport?.renderer || !viewport?.scene || !viewport?.camera) return;
+      resizePreviewViewport(viewport);
+      viewport.renderer.render(viewport.scene, viewport.camera);
+    }
+
+    function fitPreviewViewport(viewport, preset = "iso") {
+      if (!viewport?.camera || !viewport?.controls || !viewport?.currentPreview) return;
+      const direction = previewPresetDirection(preset);
+      const preview = viewport.currentPreview;
+      const radius = Math.max(
+        preview?.bounds?.size ? Math.hypot(...preview.bounds.size) * 0.5 : 0,
+        preview?.span ? preview.span * 0.6 : 0,
+        1e-3
+      );
+      const fovRadians = (viewport.camera.fov * Math.PI) / 180;
+      const distance = Math.max(radius / Math.sin(Math.max(fovRadians / 2, 1e-3)), radius * 1.75);
+      viewport.controls.target.set(0, 0, 0);
+      viewport.camera.position.set(
+        direction[0] * distance,
+        direction[1] * distance,
+        direction[2] * distance
+      );
+      viewport.camera.near = Math.max(0.001, distance / 1000);
+      viewport.camera.far = Math.max(10, distance + radius * 8);
+      viewport.camera.updateProjectionMatrix();
+      viewport.controls.update();
+      viewport.currentPreset = preset === "fit" ? (viewport.currentPreset || "iso") : preset;
+      renderPreviewViewport(viewport);
+    }
+
+    function applyPreviewViewportMode(viewport, mode) {
+      if (!viewport?.previewObjects) return;
+      const { solidMesh, wireframe, pointCloud, edgeLines } = viewport.previewObjects;
+      const hasSurfaceGeometry = Boolean(solidMesh || wireframe || edgeLines);
+      if (solidMesh) solidMesh.visible = mode === "solid";
+      if (pointCloud) pointCloud.visible = mode === "points" || !hasSurfaceGeometry;
+      if (wireframe) {
+        wireframe.visible = mode !== "points";
+        wireframe.material.opacity = mode === "solid" ? 0.22 : 1;
+      }
+      if (edgeLines) {
+        edgeLines.visible = mode !== "points";
+        edgeLines.material.opacity = mode === "solid" ? 0.26 : 0.78;
+      }
+    }
+
+    function buildPreviewViewportObjects(viewport, preview) {
+      const { THREE } = viewport;
+      const palette = previewEdgePalette();
+      const group = new THREE.Group();
+      const solidPositions = [];
+      const solidNormals = [];
+      const solidColors = [];
+      const edgePositions = [];
+      const pointPositions = [];
+      const pointSeen = new Set();
+
+      function pushPoint(position) {
+        const centered = [
+          Number(position[0]) - preview.center[0],
+          Number(position[1]) - preview.center[1],
+          Number(position[2]) - preview.center[2],
+        ];
+        const marker = centered.map((value) => value.toFixed(6)).join("|");
+        if (pointSeen.has(marker)) return;
+        pointSeen.add(marker);
+        pointPositions.push(...centered);
+      }
+
+      for (const face of preview.kernelGeometry?.faces || []) {
+        const vertices = Array.isArray(face.vertices) ? face.vertices : [];
+        if (vertices.length < 3) continue;
+        const normal = (face.normal || normalFromVertices(vertices) || [0, 0, 1]).map(Number);
+        const baseColor = (face.baseColor || [196, 199, 205]).map((value) => Number(value) / 255);
+
+        vertices.forEach(pushPoint);
+        for (let index = 1; index < vertices.length - 1; index++) {
+          const triangle = [vertices[0], vertices[index], vertices[index + 1]];
+          for (const vertex of triangle) {
+            solidPositions.push(
+              Number(vertex[0]) - preview.center[0],
+              Number(vertex[1]) - preview.center[1],
+              Number(vertex[2]) - preview.center[2]
+            );
+            solidNormals.push(normal[0], normal[1], normal[2]);
+            solidColors.push(baseColor[0], baseColor[1], baseColor[2]);
+          }
+        }
+      }
+
+      for (const edge of preview.kernelGeometry?.edges || []) {
+        const points = Array.isArray(edge.points) ? edge.points : [];
+        for (let index = 1; index < points.length; index++) {
+          const start = points[index - 1];
+          const end = points[index];
+          edgePositions.push(
+            Number(start[0]) - preview.center[0],
+            Number(start[1]) - preview.center[1],
+            Number(start[2]) - preview.center[2],
+            Number(end[0]) - preview.center[0],
+            Number(end[1]) - preview.center[1],
+            Number(end[2]) - preview.center[2]
+          );
+          pushPoint(start);
+          pushPoint(end);
+        }
+      }
+
+      for (const point of preview.points || []) {
+        pushPoint(point);
+      }
+
+      let solidMesh = null;
+      let wireframe = null;
+      let edgeLines = null;
+      let pointCloud = null;
+
+      if (solidPositions.length) {
+        const solidGeometry = new THREE.BufferGeometry();
+        solidGeometry.setAttribute("position", new THREE.Float32BufferAttribute(solidPositions, 3));
+        solidGeometry.setAttribute("normal", new THREE.Float32BufferAttribute(solidNormals, 3));
+        solidGeometry.setAttribute("color", new THREE.Float32BufferAttribute(solidColors, 3));
+        solidMesh = new THREE.Mesh(
+          solidGeometry,
+          new THREE.MeshStandardMaterial({
+            vertexColors: true,
+            side: THREE.DoubleSide,
+            roughness: 0.58,
+            metalness: 0.08,
+            transparent: true,
+            opacity: 0.98,
+            polygonOffset: true,
+            polygonOffsetFactor: 1,
+            polygonOffsetUnits: 1,
+          })
+        );
+        group.add(solidMesh);
+
+        wireframe = new THREE.LineSegments(
+          new THREE.WireframeGeometry(solidGeometry),
+          new THREE.LineBasicMaterial({
+            color: new THREE.Color(rgbCss(palette.edgeColor)),
+            transparent: true,
+            opacity: 0.22,
+          })
+        );
+        group.add(wireframe);
+      }
+
+      if (edgePositions.length) {
+        const edgeGeometry = new THREE.BufferGeometry();
+        edgeGeometry.setAttribute("position", new THREE.Float32BufferAttribute(edgePositions, 3));
+        edgeLines = new THREE.LineSegments(
+          edgeGeometry,
+          new THREE.LineBasicMaterial({
+            color: new THREE.Color(rgbCss(palette.edgeColor)),
+            transparent: true,
+            opacity: 0.26,
+          })
+        );
+        group.add(edgeLines);
+      }
+
+      if (pointPositions.length) {
+        const pointGeometry = new THREE.BufferGeometry();
+        pointGeometry.setAttribute("position", new THREE.Float32BufferAttribute(pointPositions, 3));
+        pointCloud = new THREE.Points(
+          pointGeometry,
+          new THREE.PointsMaterial({
+            color: new THREE.Color(rgbCss(palette.pointColor)),
+            size: Math.max((preview.span || 0.1) * 0.018, 0.0015),
+            sizeAttenuation: true,
+          })
+        );
+        group.add(pointCloud);
+      }
+
+      return { group, solidMesh, wireframe, edgeLines, pointCloud };
+    }
+
+    async function ensurePreviewViewport() {
+      if (previewViewportDisabled) return null;
+      if (previewViewport) return previewViewport;
+      if (!previewViewportPromise) {
+        setPreviewOverlay("Loading interactive 3D preview...");
+        previewViewportPromise = Promise.all([
+          import(THREE_MODULE_URL),
+          import(ORBIT_CONTROLS_MODULE_URL),
+        ]).then(([THREE, controlsModule]) => {
+          const renderer = new THREE.WebGLRenderer({
+            canvas,
+            antialias: true,
+            alpha: false,
+            powerPreference: "high-performance",
+          });
+          if ("outputColorSpace" in renderer && THREE.SRGBColorSpace) {
+            renderer.outputColorSpace = THREE.SRGBColorSpace;
+          }
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+          const scene = new THREE.Scene();
+          const camera = new THREE.PerspectiveCamera(45, 1, 0.001, 1000);
+          const controls = new controlsModule.OrbitControls(camera, canvas);
+          controls.enableDamping = false;
+          controls.screenSpacePanning = true;
+          controls.addEventListener("change", () => renderPreviewViewport(previewViewport));
+
+          const hemiLight = new THREE.HemisphereLight(0xffffff, 0x4f5660, 1.18);
+          scene.add(hemiLight);
+
+          const keyLight = new THREE.DirectionalLight(0xffffff, 1.25);
+          keyLight.position.set(2.2, 3.1, 4.4);
+          scene.add(keyLight);
+
+          const fillLight = new THREE.DirectionalLight(0xffffff, 0.48);
+          fillLight.position.set(-2.1, -1.8, -3.4);
+          scene.add(fillLight);
+
+          const contentGroup = new THREE.Group();
+          scene.add(contentGroup);
+
+          canvas.style.cursor = "grab";
+          canvas.addEventListener("contextmenu", (event) => event.preventDefault());
+          controls.addEventListener("start", () => {
+            canvas.style.cursor = "grabbing";
+          });
+          controls.addEventListener("end", () => {
+            canvas.style.cursor = "grab";
+          });
+          canvas.addEventListener("dblclick", () => {
+            fitPreviewViewport(previewViewport, "fit");
+            setStatus("Preview fit to view.");
+          });
+
+          previewViewport = {
+            THREE,
+            renderer,
+            scene,
+            camera,
+            controls,
+            contentGroup,
+            previewObjects: null,
+            currentPreview: null,
+            currentPreset: "iso",
+            currentReportKey: null,
+            currentHiddenKey: "",
+          };
+
+          setPreviewViewportBackground(previewViewport);
+          resizePreviewViewport(previewViewport);
+          setPreviewOverlay("");
+          return previewViewport;
+        }).catch((error) => {
+          previewViewportDisabled = true;
+          previewViewportFailure = error.message;
+          setPreviewOverlay("");
+          return null;
+        });
+      }
+      return previewViewportPromise;
+    }
+
+    function ensurePreviewCanvasFallbackInteractions() {
+      if (previewCanvasFallbackBound) return;
+      bindCanvasInteractions(
+        canvas,
+        () => state.viewer,
+        drawPreview,
+        () => {
+          state.viewer = {
+            ...defaultViewerState(),
+            mode: state.viewer?.mode || "solid"
+          };
+        },
+        "Preview"
+      );
+      previewCanvasFallbackBound = true;
+    }
+
+    function drawPreviewCanvasFallback() {
+      ensurePreviewCanvasFallbackInteractions();
+      drawModelPreview(canvas, activeReport(), state.viewer, {
+        mode: state.viewer.mode
+      });
+    }
+
+    function rebuildPreviewViewport(viewport, report, options = {}) {
+      clearPreviewViewportContent(viewport);
+      if (!report) {
+        setPreviewOverlay("Load a STEP or JSON file to preview it here.");
+        renderPreviewViewport(viewport);
+        return;
+      }
+
+      const preview = getPreviewData(report);
+      if (!preview) {
+        const names = report?.decoded_names?.length ? `\nNamed entities: ${report.decoded_names.join(", ")}` : "";
+        setPreviewOverlay(`No previewable solid geometry was decoded from this file.${names}`);
+        renderPreviewViewport(viewport);
+        return;
+      }
+
+      const objects = buildPreviewViewportObjects(viewport, preview);
+      viewport.contentGroup.add(objects.group);
+      viewport.previewObjects = objects;
+      viewport.currentPreview = preview;
+      viewport.currentReportKey = reportKey(report);
+      viewport.currentHiddenKey = JSON.stringify(hiddenPreviewBodiesForReport(report));
+      setPreviewOverlay("");
+      applyPreviewViewportMode(viewport, state.viewer.mode);
+      if (options.fitView) {
+        fitPreviewViewport(viewport, viewport.currentPreset || "iso");
+      }
+      renderPreviewViewport(viewport);
+    }
+
+    function drawPreviewWebGl() {
+      ensurePreviewViewport()
+        .then((viewport) => {
+          if (!viewport) {
+            if (previewViewportFailure) {
+              setStatus(`Preview compatibility mode: ${previewViewportFailure}`);
+            }
+            drawPreviewCanvasFallback();
+            return;
+          }
+          const report = activeReport();
+          const nextReportKey = report ? reportKey(report) : null;
+          const nextHiddenKey = report ? JSON.stringify(hiddenPreviewBodiesForReport(report)) : "";
+          const fitView = nextReportKey !== viewport.currentReportKey;
+          setPreviewViewportBackground(viewport);
+          if (fitView || nextHiddenKey !== viewport.currentHiddenKey || !viewport.previewObjects) {
+            rebuildPreviewViewport(viewport, report, { fitView });
+            return;
+          }
+          applyPreviewViewportMode(viewport, state.viewer.mode);
+          setPreviewOverlay("");
+          renderPreviewViewport(viewport);
+        })
+        .catch((error) => {
+          setStatus(`Preview error: ${error.message}`);
+          drawPreviewCanvasFallback();
+        });
+    }
+
+    function applyPreviewPreset(preset) {
+      if (previewViewportDisabled) {
+        applyViewPreset(state.viewer, preset);
+        return;
+      }
+      ensurePreviewViewport()
+        .then((viewport) => {
+          if (!viewport) {
+            applyViewPreset(state.viewer, preset);
+            return;
+          }
+          if (!viewport.currentPreview) return;
+          if (preset !== "fit") {
+            viewport.currentPreset = preset;
+          }
+          fitPreviewViewport(viewport, preset === "fit" ? (viewport.currentPreset || "iso") : preset);
+        })
+        .catch((error) => setStatus(`Preview error: ${error.message}`));
+    }
+
     function drawViewportHud(ctx2d, canvasEl, report, preview, viewer, options = {}) {
       const theme = currentViewportTheme();
       const lines = [
@@ -3234,13 +3915,28 @@ HTML = """<!doctype html>
       return points;
     }
 
+    function pointExtents(points) {
+      if (!Array.isArray(points) || !points.length) return null;
+
+      const first = points[0].map(Number);
+      const min = [...first];
+      const max = [...first];
+
+      for (const point of points.slice(1)) {
+        for (let index = 0; index < 3; index++) {
+          const value = Number(point[index]);
+          if (value < min[index]) min[index] = value;
+          if (value > max[index]) max[index] = value;
+        }
+      }
+
+      return { min, max };
+    }
+
     function boundsFromPoints(points) {
-      if (!points.length) return null;
-      const xs = points.map((point) => point[0]);
-      const ys = points.map((point) => point[1]);
-      const zs = points.map((point) => point[2]);
-      const min = [Math.min(...xs), Math.min(...ys), Math.min(...zs)];
-      const max = [Math.max(...xs), Math.max(...ys), Math.max(...zs)];
+      const extents = pointExtents(points);
+      if (!extents) return null;
+      const { min, max } = extents;
       return {
         min,
         max,
@@ -3250,6 +3946,11 @@ HTML = """<!doctype html>
 
     function previewGeometryFromKernelBody(body, context = {}) {
       if (!body) return { faces: [], points: [], edges: [] };
+
+      const bodyKey = previewBodyKey(body, context.bodyIndex || 0);
+      if (context.hiddenBodyKeys?.has(bodyKey)) {
+        return { faces: [], points: [], edges: [] };
+      }
 
       const bodyDisplay = body?.metadata?.display_properties || null;
       const componentDisplay = body?.metadata?.component_context?.display_properties || null;
@@ -3499,12 +4200,57 @@ HTML = """<!doctype html>
       return { faces: [], points: [], edges: [] };
     }
 
+    function simplifyFacesForPreview(faces) {
+      if (!Array.isArray(faces) || !faces.length) return [];
+
+      const preserved = [];
+      const reducible = [];
+      for (const face of faces) {
+        const kind = String(face?.surface?.kind || face?.metadata?.kind || "").toLowerCase();
+        const isTriangleMesh = kind === "occ_triangle_mesh" || kind === "facet_triangle";
+        if (isTriangleMesh && Array.isArray(face.vertices) && face.vertices.length === 3) {
+          reducible.push(face);
+        } else {
+          preserved.push(face);
+        }
+      }
+
+      const totalLimit = Math.max(400, MAX_RENDER_FACES - preserved.length);
+      const occLimit = Math.max(300, Math.min(MAX_RENDER_OCC_FACES, totalLimit));
+      if (reducible.length <= occLimit && (preserved.length + reducible.length) <= MAX_RENDER_FACES) {
+        return faces;
+      }
+
+      const target = Math.max(1, Math.min(occLimit, MAX_RENDER_FACES - preserved.length));
+      const sampled = [];
+      const step = reducible.length / target;
+      for (let index = 0; index < target; index++) {
+        sampled.push(reducible[Math.min(reducible.length - 1, Math.floor(index * step))]);
+      }
+      return preserved.concat(sampled);
+    }
+
+    function simplifyKernelGeometryForPreview(kernelGeometry) {
+      const originalFaces = kernelGeometry?.faces || [];
+      const faces = simplifyFacesForPreview(originalFaces);
+      return {
+        ...kernelGeometry,
+        faces,
+        renderStats: {
+          originalFaceCount: originalFaces.length,
+          renderedFaceCount: faces.length,
+          faceReductionApplied: faces.length < originalFaces.length,
+        }
+      };
+    }
+
     function getPreviewData(report) {
       if (!report) return null;
-      const points = (report.geometry_hints?.preview_points || []).map((point) => point.map(Number));
       const bodies = kernelBodies(report);
+      const points = (!bodies.length ? (report.geometry_hints?.preview_points || []) : []).map((point) => point.map(Number));
+      const hiddenBodyKeys = new Set(hiddenPreviewBodiesForReport(report));
       const kernelGeometry = bodies
-        .map((body, bodyIndex) => previewGeometryFromKernelBody(body, { bodyIndex }))
+        .map((body, bodyIndex) => previewGeometryFromKernelBody(body, { bodyIndex, hiddenBodyKeys }))
         .reduce(
           (combined, geometry) => ({
             faces: combined.faces.concat(geometry.faces || []),
@@ -3513,6 +4259,7 @@ HTML = """<!doctype html>
           }),
           { faces: [], points: [], edges: [] }
         );
+      const simplifiedKernelGeometry = simplifyKernelGeometryForPreview(kernelGeometry);
       const cloud = [...points, ...kernelGeometry.points];
       const kernelBody = bodies.length === 1 ? bodies[0] : null;
       let bounds = report.geometry_hints?.bounds
@@ -3544,18 +4291,18 @@ HTML = """<!doctype html>
 
       if (!cloud.length) return null;
 
-      const xs = cloud.map((point) => point[0]);
-      const ys = cloud.map((point) => point[1]);
-      const zs = cloud.map((point) => point[2]);
+      const extents = pointExtents(cloud);
+      if (!extents) return null;
+      const { min, max } = extents;
       const center = [
-        (Math.min(...xs) + Math.max(...xs)) / 2,
-        (Math.min(...ys) + Math.max(...ys)) / 2,
-        (Math.min(...zs) + Math.max(...zs)) / 2
+        (min[0] + max[0]) / 2,
+        (min[1] + max[1]) / 2,
+        (min[2] + max[2]) / 2
       ];
       const span = Math.max(
-        Math.max(...xs) - Math.min(...xs),
-        Math.max(...ys) - Math.min(...ys),
-        Math.max(...zs) - Math.min(...zs),
+        max[0] - min[0],
+        max[1] - min[1],
+        max[2] - min[2],
         1e-6
       );
 
@@ -3563,7 +4310,8 @@ HTML = """<!doctype html>
         points,
         bounds,
         kernelBody,
-        kernelGeometry,
+        kernelGeometry: simplifiedKernelGeometry,
+        renderStats: simplifiedKernelGeometry.renderStats,
         center,
         span
       };
@@ -3670,6 +4418,25 @@ HTML = """<!doctype html>
       ctx2d.putImageData(imageData, 0, 0);
     }
 
+    function paintSolidFacesNative(ctx2d, faces, theme) {
+      for (const face of faces) {
+        if (!face.projectedVertices?.length) continue;
+        const fillRgb = face.highlighted
+          ? [255, 191, 102]
+          : shadeRgbForNormal(face.rotatedNormal || [0, 0, -1], theme, face.baseColor);
+        ctx2d.fillStyle = rgbCss(fillRgb);
+        ctx2d.globalAlpha = Math.max(0.2, Math.min(1, Number(face.opacity ?? 1)));
+        ctx2d.beginPath();
+        ctx2d.moveTo(face.projectedVertices[0][0], face.projectedVertices[0][1]);
+        for (const vertex of face.projectedVertices.slice(1)) {
+          ctx2d.lineTo(vertex[0], vertex[1]);
+        }
+        ctx2d.closePath();
+        ctx2d.fill();
+      }
+      ctx2d.globalAlpha = 1;
+    }
+
     function drawModelPreview(canvasEl, report, viewer, options = {}) {
       const ctx2d = canvasEl.getContext("2d");
       const theme = currentViewportTheme();
@@ -3700,6 +4467,7 @@ HTML = """<!doctype html>
       }
 
       const scale = (Math.min(canvasEl.width, canvasEl.height) * 0.32 / preview.span) * viewer.zoom;
+      const viewerDistance = previewViewerDistance(preview);
       const centeredPoints = preview.points.map((point) => [
         point[0] - preview.center[0],
         point[1] - preview.center[1],
@@ -3707,10 +4475,12 @@ HTML = """<!doctype html>
       ]);
 
       const projected = centeredPoints.map((point) =>
-        projectPoint(rotatePoint(point, viewer), scale, canvasEl, viewer)
+        projectPoint(rotatePoint(point, viewer), scale, canvasEl, viewer, viewerDistance)
       );
 
-      const projectedFaces = (preview.kernelGeometry?.faces || []).map((face) => {
+      const projectedFaces = (preview.kernelGeometry?.faces || [])
+        .filter((face) => face?.vertices?.length >= 3)
+        .map((face) => {
         const rotatedVertices = face.vertices.map((point) => {
           return rotatePoint([
             point[0] - preview.center[0],
@@ -3718,7 +4488,7 @@ HTML = """<!doctype html>
             point[2] - preview.center[2]
           ], viewer);
         });
-        const projectedVertices = rotatedVertices.map((point) => projectPoint(point, scale, canvasEl, viewer));
+        const projectedVertices = rotatedVertices.map((point) => projectPoint(point, scale, canvasEl, viewer, viewerDistance));
         const sourceNormal = face.normal ? face.normal.map(Number) : normalFromVertices(face.vertices.map((vertex) => vertex.map(Number)));
         const rotatedNormal = sourceNormal ? rotatePoint(sourceNormal, viewer) : normalFromVertices(rotatedVertices);
         const averageDepth = rotatedVertices.reduce((sum, point) => sum + point[2], 0) / rotatedVertices.length;
@@ -3754,7 +4524,12 @@ HTML = """<!doctype html>
       });
 
       if (forceMode === "solid" && projectedFaces.length) {
-        rasterizeSolidFaces(ctx2d, canvasEl, projectedFaces, theme);
+        const useNativeFill = projectedFaces.length > 1400;
+        if (useNativeFill) {
+          paintSolidFacesNative(ctx2d, projectedFaces, theme);
+        } else {
+          rasterizeSolidFaces(ctx2d, canvasEl, projectedFaces, theme);
+        }
         for (const face of projectedFaces) {
           ctx2d.beginPath();
           ctx2d.moveTo(face.projectedVertices[0][0], face.projectedVertices[0][1]);
@@ -3789,7 +4564,7 @@ HTML = """<!doctype html>
         ]);
 
         const projectedCorners = corners.map((point) =>
-          projectPoint(rotatePoint(point, viewer), scale, canvasEl, viewer)
+          projectPoint(rotatePoint(point, viewer), scale, canvasEl, viewer, viewerDistance)
         );
 
         const edges = [
@@ -3829,7 +4604,8 @@ HTML = """<!doctype html>
               ),
               scale,
               canvasEl,
-              viewer
+              viewer,
+              viewerDistance
             )
           );
           const edgeKind = String(edge.kind || "").toLowerCase();
@@ -3869,6 +4645,16 @@ HTML = """<!doctype html>
         ctx2d.fillText("Only one geometric point was decoded from this file.", 16, 24);
       }
 
+      if (preview?.renderStats?.faceReductionApplied) {
+        ctx2d.fillStyle = theme.secondaryText;
+        ctx2d.font = "12px 'Segoe UI'";
+        ctx2d.fillText(
+          `Preview mesh simplified: ${preview.renderStats.renderedFaceCount} of ${preview.renderStats.originalFaceCount} faces shown`,
+          16,
+          canvasEl.height - 18
+        );
+      }
+
       drawCompareAnnotations(ctx2d, canvasEl, preview, viewer, scale, compareAnnotation);
       drawViewportHud(ctx2d, canvasEl, report, preview, viewer, {
         mode: forceMode,
@@ -3878,9 +4664,7 @@ HTML = """<!doctype html>
     }
 
     function drawPreview() {
-      drawModelPreview(canvas, activeReport(), state.viewer, {
-        mode: state.viewer.mode
-      });
+      drawPreviewWebGl();
     }
 
     function render() {
@@ -3888,6 +4672,7 @@ HTML = """<!doctype html>
       renderPreviewModes();
       renderPreviewPresets();
       renderFileList();
+      renderCompareButton();
       renderFusionButton();
       renderSummary();
       renderOverview();
@@ -3921,7 +4706,7 @@ HTML = """<!doctype html>
       state.selected = state.reports.length ? [bestReportKey(state.reports)] : [];
       resetPreviewIfNeeded();
       render();
-      setStatus(`Loaded ${state.reports.length} workspace sample(s).`);
+      setStatus(`Loaded ${state.reports.length} workspace sample(s). Select one to preview it or two to compare.`);
     }
 
     async function loadPaths() {
@@ -3931,10 +4716,14 @@ HTML = """<!doctype html>
         return;
       }
       const paths = raw.split(",").map((item) => item.trim()).filter(Boolean);
-      setStatus("Analyzing file paths...");
+      setStatus("Loading file paths...");
       const data = await postJson("/api/analyze-paths", { paths });
       mergeReports(data.reports || []);
-      setStatus(`Analyzed ${data.reports.length} path-based file(s).`);
+      if (data.reports.length === 1) {
+        setStatus(`Loaded ${data.reports[0].file_name}. Preview ready.`);
+      } else {
+        setStatus(`Loaded ${data.reports.length} files. Select two to compare them.`);
+      }
     }
 
     async function loadUploads(files) {
@@ -3947,7 +4736,21 @@ HTML = """<!doctype html>
       })));
       const data = await postJson("/api/analyze-text", { files: payload });
       mergeReports(data.reports || []);
-      setStatus(`Analyzed ${data.reports.length} uploaded file(s).`);
+      if (data.reports.length === 1) {
+        setStatus(`Loaded ${data.reports[0].file_name}. Preview ready.`);
+      } else {
+        setStatus(`Loaded ${data.reports.length} files. Select two to compare them.`);
+      }
+    }
+
+    function openCompareFromSelection() {
+      if (!canCompareSelection()) {
+        setStatus("Select exactly two parts first.");
+        return;
+      }
+      state.activeTab = "compare";
+      render();
+      setStatus("Comparing the two selected parts.");
     }
 
     async function createFusionFromSelection() {
@@ -3957,14 +4760,14 @@ HTML = """<!doctype html>
         return;
       }
       if (!canFuseSelection()) {
-        setStatus("Select one Siemens NX JSON report and one STEP report to create a multi-file fusion.");
+        setStatus("Select one Siemens NX JSON report and one matching STEP report to improve the JSON reconstruction.");
         return;
       }
-      setStatus("Creating multi-file fusion from the selected JSON and STEP reports...");
+      setStatus("Building an improved JSON reconstruction using the selected STEP file...");
       const data = await postJson("/api/fuse-reports", { reports });
       mergeReports(data.reports || []);
       const created = data.reports?.[0];
-      setStatus(created ? `Created fused report: ${created.file_name}.` : "Created fused report.");
+      setStatus(created ? `Created improved fused model: ${created.file_name}.` : "Created improved fused model.");
     }
 
     function exportCurrentJson() {
@@ -3982,19 +4785,6 @@ HTML = """<!doctype html>
       URL.revokeObjectURL(url);
       setStatus(`Exported ${report.file_name} as JSON.`);
     }
-
-    bindCanvasInteractions(
-      canvas,
-      () => state.viewer,
-      drawPreview,
-      () => {
-        state.viewer = {
-          ...defaultViewerState(),
-          mode: state.viewer?.mode || "solid"
-        };
-      },
-      "Preview"
-    );
 
     window.addEventListener("mousemove", (event) => {
       if (!dragState) return;
@@ -4038,10 +4828,15 @@ HTML = """<!doctype html>
 
     byId("load-samples").onclick = () => loadSamples().catch((error) => setStatus(error.message));
     byId("load-paths").onclick = () => loadPaths().catch((error) => setStatus(error.message));
+    byId("compare-selected").onclick = openCompareFromSelection;
     byId("export-json").onclick = exportCurrentJson;
     byId("create-fusion").onclick = () => createFusionFromSelection().catch((error) => setStatus(error.message));
     byId("reset-view").onclick = () => {
       resetPreviewIfNeeded();
+      if (previewViewport) {
+        previewViewport.currentPreset = "iso";
+        fitPreviewViewport(previewViewport, "iso");
+      }
       drawPreview();
       setStatus("Preview view reset.");
     };
@@ -4051,7 +4846,6 @@ HTML = """<!doctype html>
     });
 
     render();
-    loadSamples().catch((error) => setStatus(error.message));
   </script>
 </body>
 </html>
@@ -4163,6 +4957,10 @@ def create_server(start_port: int) -> ThreadingHTTPServer:
 
 
 def main() -> int:
+    bootstrap_status = ensure_backend_runtimes(verbose=print)
+    if not bootstrap_status.get("message_already_reported"):
+        print(bootstrap_status.get("message"))
+
     server = create_server(PORT)
     print(f"Serving {HOST}:{PORT}")
     print("Open this in your browser if it does not launch automatically:")
