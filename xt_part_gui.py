@@ -988,8 +988,6 @@ HTML = """<!doctype html>
       ["dark", "Dark", "#1d1d1d"]
     ];
     const THREE_MODULE_URL = "/vendor/three/build/three.module.js";
-    const ORBIT_CONTROLS_MODULE_URL = "/vendor/three/examples/jsm/controls/OrbitControls.js";
-
     const previewCanvas = document.getElementById("preview-canvas");
     const canvas = previewCanvas;
     const previewOverlay = document.getElementById("preview-overlay");
@@ -3675,6 +3673,13 @@ HTML = """<!doctype html>
       return normalizeVector(directions[preset] || directions.iso);
     }
 
+    function previewPresetUp(direction) {
+      const worldUp = [0, 1, 0];
+      const fallbackUp = [0, 0, 1];
+      const alignment = Math.abs(direction[0] * worldUp[0] + direction[1] * worldUp[1] + direction[2] * worldUp[2]);
+      return alignment > 0.98 ? fallbackUp : worldUp;
+    }
+
     function disposeThreeObject(object3d) {
       if (!object3d) return;
       object3d.traverse((child) => {
@@ -3741,6 +3746,7 @@ HTML = """<!doctype html>
         direction[1] * distance,
         direction[2] * distance
       );
+      viewport.camera.up.set(...previewPresetUp(direction));
       viewport.camera.near = Math.max(0.001, distance / 1000);
       viewport.camera.far = Math.max(10, distance + radius * 8);
       viewport.camera.updateProjectionMatrix();
@@ -3918,6 +3924,7 @@ HTML = """<!doctype html>
       targetViewport.syncingFromPeer = true;
       targetViewport.controls.target.copy(sourceViewport.controls.target);
       targetViewport.camera.position.copy(sourceViewport.camera.position);
+      targetViewport.camera.up.copy(sourceViewport.camera.up);
       targetViewport.camera.quaternion.copy(sourceViewport.camera.quaternion);
       targetViewport.camera.near = sourceViewport.camera.near;
       targetViewport.camera.far = sourceViewport.camera.far;
@@ -3937,19 +3944,164 @@ HTML = """<!doctype html>
 
     function ensureWebGlModules() {
       if (!webGlModulesPromise) {
-        webGlModulesPromise = Promise.all([
-          import(THREE_MODULE_URL),
-          import(ORBIT_CONTROLS_MODULE_URL),
-        ]).then(([THREE, controlsModule]) => ({
+        webGlModulesPromise = import(THREE_MODULE_URL).then((THREE) => ({
           THREE,
-          OrbitControls: controlsModule.OrbitControls,
         }));
       }
       return webGlModulesPromise;
     }
 
+    function createCadCameraControls(THREE, camera, domElement) {
+      class CadCameraControls extends THREE.EventDispatcher {
+        constructor() {
+          super();
+          this.camera = camera;
+          this.domElement = domElement;
+          this.enabled = true;
+          this.target = new THREE.Vector3();
+          this.rotateSpeed = 2;
+          this.panSpeed = 1;
+          this.zoomSpeed = 1;
+          this.minDistance = 0.001;
+          this.maxDistance = 1e6;
+          this._pointerId = null;
+          this._mode = null;
+          this._lastX = 0;
+          this._lastY = 0;
+
+          this._onPointerDown = this._onPointerDown.bind(this);
+          this._onPointerMove = this._onPointerMove.bind(this);
+          this._onPointerUp = this._onPointerUp.bind(this);
+          this._onWheel = this._onWheel.bind(this);
+
+          this.domElement.style.touchAction = "none";
+          this.domElement.addEventListener("pointerdown", this._onPointerDown);
+          this.domElement.addEventListener("pointermove", this._onPointerMove);
+          this.domElement.addEventListener("pointerup", this._onPointerUp);
+          this.domElement.addEventListener("pointercancel", this._onPointerUp);
+          this.domElement.addEventListener("wheel", this._onWheel, { passive: false });
+          this.update();
+        }
+
+        dispose() {
+          this.domElement.removeEventListener("pointerdown", this._onPointerDown);
+          this.domElement.removeEventListener("pointermove", this._onPointerMove);
+          this.domElement.removeEventListener("pointerup", this._onPointerUp);
+          this.domElement.removeEventListener("pointercancel", this._onPointerUp);
+          this.domElement.removeEventListener("wheel", this._onWheel);
+        }
+
+        update() {
+          this.camera.lookAt(this.target);
+          this.camera.updateMatrixWorld();
+        }
+
+        _viewportSize() {
+          const rect = this.domElement.getBoundingClientRect();
+          return {
+            width: Math.max(rect.width, 1),
+            height: Math.max(rect.height, 1),
+          };
+        }
+
+        _onPointerDown(event) {
+          if (!this.enabled || this._pointerId !== null) return;
+          event.preventDefault();
+          this._pointerId = event.pointerId;
+          this._mode = (event.shiftKey || event.button === 1 || event.button === 2) ? "pan" : "rotate";
+          this._lastX = event.clientX;
+          this._lastY = event.clientY;
+          this.domElement.setPointerCapture?.(event.pointerId);
+          this.dispatchEvent({ type: "start" });
+        }
+
+        _onPointerMove(event) {
+          if (!this.enabled || event.pointerId !== this._pointerId) return;
+          event.preventDefault();
+          const dx = event.clientX - this._lastX;
+          const dy = event.clientY - this._lastY;
+          this._lastX = event.clientX;
+          this._lastY = event.clientY;
+
+          if (this._mode === "pan") {
+            this._pan(dx, dy);
+          } else {
+            this._rotate(dx, dy);
+          }
+          this.update();
+          this.dispatchEvent({ type: "change" });
+        }
+
+        _onPointerUp(event) {
+          if (event.pointerId !== this._pointerId) return;
+          this.domElement.releasePointerCapture?.(event.pointerId);
+          this._pointerId = null;
+          this._mode = null;
+          this.dispatchEvent({ type: "end" });
+        }
+
+        _onWheel(event) {
+          if (!this.enabled) return;
+          event.preventDefault();
+          this._dolly(event.deltaY);
+          this.update();
+          this.dispatchEvent({ type: "change" });
+        }
+
+        _rotate(dx, dy) {
+          const { width, height } = this._viewportSize();
+          const offset = this.camera.position.clone().sub(this.target);
+          if (offset.lengthSq() <= 1e-12) return;
+
+          const yawAngle = (-dx / width) * Math.PI * this.rotateSpeed;
+          const pitchAngle = (-dy / height) * Math.PI * this.rotateSpeed;
+
+          const upAxis = this.camera.up.clone().normalize();
+          if (upAxis.lengthSq() > 1e-12 && yawAngle) {
+            const yawQuat = new THREE.Quaternion().setFromAxisAngle(upAxis, yawAngle);
+            offset.applyQuaternion(yawQuat);
+          }
+
+          const rightAxis = new THREE.Vector3().crossVectors(this.camera.up, offset).normalize();
+          if (rightAxis.lengthSq() > 1e-12 && pitchAngle) {
+            const pitchQuat = new THREE.Quaternion().setFromAxisAngle(rightAxis, pitchAngle);
+            offset.applyQuaternion(pitchQuat);
+            this.camera.up.applyQuaternion(pitchQuat).normalize();
+          }
+
+          this.camera.position.copy(this.target).add(offset);
+        }
+
+        _pan(dx, dy) {
+          const { width, height } = this._viewportSize();
+          const offset = this.camera.position.clone().sub(this.target);
+          const distance = Math.max(offset.length(), this.minDistance);
+          const verticalSpan = 2 * distance * Math.tan(THREE.MathUtils.degToRad(this.camera.fov || 45) / 2);
+          const horizontalSpan = verticalSpan * (this.camera.aspect || 1);
+          const viewDirection = this.camera.getWorldDirection(new THREE.Vector3());
+          const right = new THREE.Vector3().crossVectors(viewDirection, this.camera.up).normalize();
+          const up = this.camera.up.clone().normalize();
+          const pan = right.multiplyScalar((-dx / width) * horizontalSpan * this.panSpeed)
+            .add(up.multiplyScalar((dy / height) * verticalSpan * this.panSpeed));
+          this.camera.position.add(pan);
+          this.target.add(pan);
+        }
+
+        _dolly(deltaY) {
+          const offset = this.camera.position.clone().sub(this.target);
+          const distance = Math.max(offset.length(), this.minDistance);
+          const scale = Math.pow(1.0015, deltaY * this.zoomSpeed);
+          const nextDistance = Math.min(this.maxDistance, Math.max(this.minDistance, distance * scale));
+          offset.setLength(nextDistance);
+          this.camera.position.copy(this.target).add(offset);
+        }
+      }
+
+      return new CadCameraControls();
+    }
+
     function createWebGlViewport(modules, canvasEl, overlayEl, options = {}) {
-      const { THREE, OrbitControls } = modules;
+      const { THREE } = modules;
       const renderer = new THREE.WebGLRenderer({
         canvas: canvasEl,
         antialias: true,
@@ -3963,9 +4115,7 @@ HTML = """<!doctype html>
 
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(45, 1, 0.001, 1000);
-      const controls = new OrbitControls(camera, canvasEl);
-      controls.enableDamping = false;
-      controls.screenSpacePanning = true;
+      const controls = createCadCameraControls(THREE, camera, canvasEl);
 
       const hemiLight = new THREE.HemisphereLight(0xffffff, 0x4f5660, 1.18);
       scene.add(hemiLight);
