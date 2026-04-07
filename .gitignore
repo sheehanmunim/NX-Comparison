@@ -1,6 +1,7 @@
 # Python cache artifacts
 __pycache__/
 *.py[cod]
+.venv*/
 
 .DS_Store
 .codex/

@@ -595,6 +595,13 @@ HTML = """<!doctype html>
       .compare-preview-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/vendor/three/build/three.module.js"
+      }
+    }
+  </script>
 </head>
 <body>
   <div class="app">
@@ -803,8 +810,8 @@ HTML = """<!doctype html>
       ["gray", "Gray", "#d9d9d9"],
       ["dark", "Dark", "#1d1d1d"]
     ];
-    const THREE_MODULE_URL = "https://esm.sh/three@0.161.0?bundle";
-    const ORBIT_CONTROLS_MODULE_URL = "https://esm.sh/three@0.161.0/examples/jsm/controls/OrbitControls.js?bundle";
+    const THREE_MODULE_URL = "/vendor/three/build/three.module.js";
+    const ORBIT_CONTROLS_MODULE_URL = "/vendor/three/examples/jsm/controls/OrbitControls.js";
 
     const canvas = document.getElementById("preview-canvas");
     const previewOverlay = document.getElementById("preview-overlay");
@@ -4860,6 +4867,13 @@ def enrich_report(report: dict) -> dict:
 
 
 class XTPartRequestHandler(BaseHTTPRequestHandler):
+    def _send_bytes(self, body: bytes, content_type: str, status: int = HTTPStatus.OK) -> None:
+        self.send_response(status)
+        self.send_header("Content-Type", content_type)
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
     def _send_json(self, payload: dict, status: int = HTTPStatus.OK) -> None:
         body = json.dumps(payload).encode("utf-8")
         self.send_response(status)
@@ -4885,6 +4899,27 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
         parsed = urlparse(self.path)
         if parsed.path == "/":
             self._send_html(HTML)
+            return
+
+        if parsed.path.startswith("/vendor/"):
+            repo_root = Path(__file__).resolve().parent
+            relative = Path(parsed.path.lstrip("/"))
+            file_path = (repo_root / relative).resolve()
+            vendor_root = (repo_root / "vendor").resolve()
+            if vendor_root not in file_path.parents and file_path != vendor_root:
+                self._send_json({"error": "Not found"}, status=HTTPStatus.NOT_FOUND)
+                return
+            if not file_path.exists() or not file_path.is_file():
+                self._send_json({"error": "Not found"}, status=HTTPStatus.NOT_FOUND)
+                return
+
+            suffix = file_path.suffix.lower()
+            content_type = {
+                ".js": "text/javascript; charset=utf-8",
+                ".json": "application/json; charset=utf-8",
+                ".map": "application/json; charset=utf-8",
+            }.get(suffix, "application/octet-stream")
+            self._send_bytes(file_path.read_bytes(), content_type)
             return
 
         if parsed.path == "/api/samples":
