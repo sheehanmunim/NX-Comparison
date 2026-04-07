@@ -990,14 +990,13 @@ HTML = """<!doctype html>
     const THREE_MODULE_URL = "/vendor/three/build/three.module.js";
     const ORBIT_CONTROLS_MODULE_URL = "/vendor/three/examples/jsm/controls/OrbitControls.js";
 
-    const canvas = document.getElementById("preview-canvas");
+    const previewCanvas = document.getElementById("preview-canvas");
+    const canvas = previewCanvas;
     const previewOverlay = document.getElementById("preview-overlay");
     let dragState = null;
     let previewViewport = null;
-    let previewViewportPromise = null;
-    let previewViewportDisabled = false;
-    let previewViewportFailure = "";
-    let previewCanvasFallbackBound = false;
+    let compareViewports = { left: null, right: null };
+    let webGlModulesPromise = null;
 
     function byId(id) {
       return document.getElementById(id);
@@ -1020,10 +1019,15 @@ HTML = """<!doctype html>
     }
 
     function setPreviewOverlay(message = "", tone = "info") {
-      if (!previewOverlay) return;
-      previewOverlay.textContent = message || "";
-      previewOverlay.dataset.tone = tone;
-      previewOverlay.classList.toggle("visible", Boolean(message));
+      setViewportOverlay({ overlay: previewOverlay }, message, tone);
+    }
+
+    function setViewportOverlay(viewport, message = "", tone = "info") {
+      const overlay = viewport?.overlay;
+      if (!overlay) return;
+      overlay.textContent = message || "";
+      overlay.dataset.tone = tone;
+      overlay.classList.toggle("visible", Boolean(message));
     }
 
     function activeReport() {
@@ -3332,6 +3336,7 @@ HTML = """<!doctype html>
       const root = byId("compare-panel");
       const reports = comparisonReports();
       if (reports.length !== 2) {
+        destroyCompareViewports();
         root.innerHTML = '<div class="empty">Select exactly two parts from the left list to compare them.</div>';
         return;
       }
@@ -3381,15 +3386,17 @@ HTML = """<!doctype html>
               <h3>${escapeHtml(left.file_name)}</h3>
               <div class="canvas-frame">
                 <canvas id="compare-left-canvas" class="compare-canvas"></canvas>
+                <div id="compare-left-overlay" class="viewport-overlay"></div>
               </div>
-              <div class="compare-note">Orbit with drag. Pan with Shift + drag or right-drag. Blue callouts stay attached to the changed feature on this model.</div>
+              <div class="compare-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. This view now renders directly in WebGL.</div>
             </div>
             <div class="compare-preview-card">
               <h3>${escapeHtml(right.file_name)}</h3>
               <div class="canvas-frame">
                 <canvas id="compare-right-canvas" class="compare-canvas"></canvas>
+                <div id="compare-right-overlay" class="viewport-overlay"></div>
               </div>
-              <div class="compare-note">The right-side labels include the delta versus the left model, so feature-level changes read more like a CAD inspection view.</div>
+              <div class="compare-note">This comparison pane uses the same WebGL mesh pipeline as the main preview.</div>
             </div>
           </div>
           <table>
@@ -3420,11 +3427,7 @@ HTML = """<!doctype html>
         button.className = "view-preset";
         button.textContent = label;
         button.onclick = () => {
-          const targets = state.compareSync
-            ? [state.compareViewers.left, state.compareViewers.right]
-            : [state.compareViewers.left, state.compareViewers.right];
-          applyViewPreset(targets, preset);
-          drawComparePreviews();
+          applyComparePreset(preset);
           setStatus(`Comparison previews set to ${label.toLowerCase()} view.`);
         };
         presetRoot.appendChild(button);
@@ -3448,79 +3451,45 @@ HTML = """<!doctype html>
       byId("compare-sync-toggle").addEventListener("change", (event) => {
         state.compareSync = event.target.checked;
         if (state.compareSync) {
-          state.compareViewers.right = cloneViewerState(state.compareViewers.left);
+          syncCompareViewports();
           setStatus("Comparison sync enabled. Moving either model now moves both.");
         } else {
           setStatus("Comparison sync disabled. Each model moves independently.");
         }
-        drawComparePreviews();
       });
 
-      bindCanvasInteractions(
-        byId("compare-left-canvas"),
-        () => compareInteractionViewers("left"),
-        drawComparePreviews,
-        () => {
-          if (state.compareSync) {
-            state.compareViewers.left = { ...defaultViewerState(), mode: "solid" };
-            state.compareViewers.right = cloneViewerState(state.compareViewers.left);
-          } else {
-            state.compareViewers.left = { ...defaultViewerState(), mode: "solid" };
-          }
-        },
-        "Left comparison preview"
-      );
-      bindCanvasInteractions(
-        byId("compare-right-canvas"),
-        () => compareInteractionViewers("right"),
-        drawComparePreviews,
-        () => {
-          if (state.compareSync) {
-            state.compareViewers.right = { ...defaultViewerState(), mode: "solid" };
-            state.compareViewers.left = cloneViewerState(state.compareViewers.right);
-          } else {
-            state.compareViewers.right = { ...defaultViewerState(), mode: "solid" };
-          }
-        },
-        "Right comparison preview"
-      );
       drawComparePreviews();
     }
 
     function drawComparePreviews() {
       const reports = comparisonReports();
-      if (reports.length !== 2) return;
-
-      const leftCanvas = byId("compare-left-canvas");
-      const rightCanvas = byId("compare-right-canvas");
-      if (!leftCanvas || !rightCanvas) return;
+      if (reports.length !== 2) {
+        destroyCompareViewports();
+        return;
+      }
 
       const [left, right] = reports;
-      const diff = compareDiffInfo(left, right);
-      drawModelPreview(leftCanvas, left, state.compareViewers.left, {
-        mode: "solid",
-        highlightAxes: diff.changedAxes,
-        highlightComponents: diff.highlightComponents.left,
-        highlightBodyKeys: diff.highlightComponents.left,
-        highlightRawFaces: diff.highlightRawFaces.left,
-        highlightRawEdges: diff.highlightRawEdges.left,
-        compareAnnotation: {
-          role: "left",
-          annotations: diff.annotations.left
-        }
-      });
-      drawModelPreview(rightCanvas, right, state.compareViewers.right, {
-        mode: "solid",
-        highlightAxes: diff.changedAxes,
-        highlightComponents: diff.highlightComponents.right,
-        highlightBodyKeys: diff.highlightComponents.right,
-        highlightRawFaces: diff.highlightRawFaces.right,
-        highlightRawEdges: diff.highlightRawEdges.right,
-        compareAnnotation: {
-          role: "right",
-          annotations: diff.annotations.right
-        }
-      });
+      Promise.all([
+        ensureCompareViewport("left"),
+        ensureCompareViewport("right"),
+      ])
+        .then(([leftViewport, rightViewport]) => {
+          if (!leftViewport || !rightViewport) return;
+          setPreviewViewportBackground(leftViewport);
+          setPreviewViewportBackground(rightViewport);
+          rebuildPreviewViewport(leftViewport, left, {
+            fitView: leftViewport.currentReportKey !== reportKey(left) || !leftViewport.previewObjects,
+            mode: "solid",
+          });
+          rebuildPreviewViewport(rightViewport, right, {
+            fitView: rightViewport.currentReportKey !== reportKey(right) || !rightViewport.previewObjects,
+            mode: "solid",
+          });
+          syncCompareViewports();
+        })
+        .catch((error) => {
+          setStatus(`Comparison preview error: ${error.message}`);
+        });
     }
 
     function renderJson() {
@@ -3735,7 +3704,7 @@ HTML = """<!doctype html>
 
     function resizePreviewViewport(viewport) {
       if (!viewport?.renderer || !viewport?.camera) return;
-      const rect = canvas.getBoundingClientRect();
+      const rect = viewport.canvas?.getBoundingClientRect?.() || { width: 0, height: 0 };
       const width = Math.max(320, Math.floor(rect.width));
       const height = Math.max(320, Math.floor(rect.height));
       viewport.renderer.setSize(width, height, false);
@@ -3820,7 +3789,7 @@ HTML = """<!doctype html>
       }
 
       for (const face of preview.kernelGeometry?.faces || []) {
-        const vertices = Array.isArray(face.vertices) ? face.vertices : [];
+        const vertices = Array.isArray(face?.vertices) ? face.vertices : [];
         if (vertices.length < 3) continue;
         const normal = (face.normal || normalFromVertices(vertices) || [0, 0, 1]).map(Number);
         const baseColor = (face.baseColor || [196, 199, 205]).map((value) => Number(value) / 255);
@@ -3930,123 +3899,175 @@ HTML = """<!doctype html>
       return { group, solidMesh, wireframe, edgeLines, pointCloud };
     }
 
-    async function ensurePreviewViewport() {
-      if (previewViewportDisabled) return null;
-      if (previewViewport) return previewViewport;
-      if (!previewViewportPromise) {
-        setPreviewOverlay("Loading interactive 3D preview...");
-        previewViewportPromise = Promise.all([
+    function destroyViewport(viewport) {
+      if (!viewport) return;
+      clearPreviewViewportContent(viewport);
+      viewport.controls?.dispose?.();
+      viewport.renderer?.dispose?.();
+      setViewportOverlay(viewport, "");
+    }
+
+    function destroyCompareViewports() {
+      destroyViewport(compareViewports.left);
+      destroyViewport(compareViewports.right);
+      compareViewports = { left: null, right: null };
+    }
+
+    function syncViewportCamera(sourceViewport, targetViewport) {
+      if (!sourceViewport?.camera || !targetViewport?.camera || sourceViewport === targetViewport) return;
+      targetViewport.syncingFromPeer = true;
+      targetViewport.controls.target.copy(sourceViewport.controls.target);
+      targetViewport.camera.position.copy(sourceViewport.camera.position);
+      targetViewport.camera.quaternion.copy(sourceViewport.camera.quaternion);
+      targetViewport.camera.near = sourceViewport.camera.near;
+      targetViewport.camera.far = sourceViewport.camera.far;
+      targetViewport.camera.updateProjectionMatrix();
+      targetViewport.controls.update();
+      renderPreviewViewport(targetViewport);
+      targetViewport.syncingFromPeer = false;
+    }
+
+    function syncCompareViewports() {
+      if (!state.compareSync) return;
+      const leftViewport = compareViewports.left;
+      const rightViewport = compareViewports.right;
+      if (!leftViewport?.currentPreview || !rightViewport?.currentPreview) return;
+      syncViewportCamera(leftViewport, rightViewport);
+    }
+
+    function ensureWebGlModules() {
+      if (!webGlModulesPromise) {
+        webGlModulesPromise = Promise.all([
           import(THREE_MODULE_URL),
           import(ORBIT_CONTROLS_MODULE_URL),
-        ]).then(([THREE, controlsModule]) => {
-          const renderer = new THREE.WebGLRenderer({
-            canvas,
-            antialias: true,
-            alpha: false,
-            powerPreference: "high-performance",
-          });
-          if ("outputColorSpace" in renderer && THREE.SRGBColorSpace) {
-            renderer.outputColorSpace = THREE.SRGBColorSpace;
-          }
-          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-
-          const scene = new THREE.Scene();
-          const camera = new THREE.PerspectiveCamera(45, 1, 0.001, 1000);
-          const controls = new controlsModule.OrbitControls(camera, canvas);
-          controls.enableDamping = false;
-          controls.screenSpacePanning = true;
-          controls.addEventListener("change", () => renderPreviewViewport(previewViewport));
-
-          const hemiLight = new THREE.HemisphereLight(0xffffff, 0x4f5660, 1.18);
-          scene.add(hemiLight);
-
-          const keyLight = new THREE.DirectionalLight(0xffffff, 1.25);
-          keyLight.position.set(2.2, 3.1, 4.4);
-          scene.add(keyLight);
-
-          const fillLight = new THREE.DirectionalLight(0xffffff, 0.48);
-          fillLight.position.set(-2.1, -1.8, -3.4);
-          scene.add(fillLight);
-
-          const contentGroup = new THREE.Group();
-          scene.add(contentGroup);
-
-          canvas.style.cursor = "grab";
-          canvas.addEventListener("contextmenu", (event) => event.preventDefault());
-          controls.addEventListener("start", () => {
-            canvas.style.cursor = "grabbing";
-          });
-          controls.addEventListener("end", () => {
-            canvas.style.cursor = "grab";
-          });
-          canvas.addEventListener("dblclick", () => {
-            fitPreviewViewport(previewViewport, "fit");
-            setStatus("Preview fit to view.");
-          });
-
-          previewViewport = {
-            THREE,
-            renderer,
-            scene,
-            camera,
-            controls,
-            contentGroup,
-            previewObjects: null,
-            currentPreview: null,
-            currentPreset: "iso",
-            currentReportKey: null,
-            currentHiddenKey: "",
-          };
-
-          setPreviewViewportBackground(previewViewport);
-          resizePreviewViewport(previewViewport);
-          const initialReport = activeReport();
-          if (initialReport) {
-            rebuildPreviewViewport(previewViewport, initialReport, { fitView: true });
-          } else {
-            setPreviewOverlay("");
-            renderPreviewViewport(previewViewport);
-          }
-          return previewViewport;
-        }).catch((error) => {
-          previewViewportDisabled = true;
-          previewViewportFailure = error.message;
-          setPreviewOverlay("");
-          return null;
-        });
+        ]).then(([THREE, controlsModule]) => ({
+          THREE,
+          OrbitControls: controlsModule.OrbitControls,
+        }));
       }
-      return previewViewportPromise;
+      return webGlModulesPromise;
     }
 
-    function ensurePreviewCanvasFallbackInteractions() {
-      if (previewCanvasFallbackBound) return;
-      bindCanvasInteractions(
-        canvas,
-        () => state.viewer,
-        drawPreview,
-        () => {
-          state.viewer = {
-            ...defaultViewerState(),
-            mode: state.viewer?.mode || "solid"
-          };
-        },
-        "Preview"
-      );
-      previewCanvasFallbackBound = true;
-    }
-
-    function drawPreviewCanvasFallback() {
-      ensurePreviewCanvasFallbackInteractions();
-      drawModelPreview(canvas, activeReport(), state.viewer, {
-        mode: state.viewer.mode
+    function createWebGlViewport(modules, canvasEl, overlayEl, options = {}) {
+      const { THREE, OrbitControls } = modules;
+      const renderer = new THREE.WebGLRenderer({
+        canvas: canvasEl,
+        antialias: true,
+        alpha: false,
+        powerPreference: "high-performance",
       });
+      if ("outputColorSpace" in renderer && THREE.SRGBColorSpace) {
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
+      }
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.001, 1000);
+      const controls = new OrbitControls(camera, canvasEl);
+      controls.enableDamping = false;
+      controls.screenSpacePanning = true;
+
+      const hemiLight = new THREE.HemisphereLight(0xffffff, 0x4f5660, 1.18);
+      scene.add(hemiLight);
+
+      const keyLight = new THREE.DirectionalLight(0xffffff, 1.25);
+      keyLight.position.set(2.2, 3.1, 4.4);
+      scene.add(keyLight);
+
+      const fillLight = new THREE.DirectionalLight(0xffffff, 0.48);
+      fillLight.position.set(-2.1, -1.8, -3.4);
+      scene.add(fillLight);
+
+      const contentGroup = new THREE.Group();
+      scene.add(contentGroup);
+
+      const viewport = {
+        canvas: canvasEl,
+        overlay: overlayEl,
+        label: options.label || "Preview",
+        side: options.side || null,
+        THREE,
+        renderer,
+        scene,
+        camera,
+        controls,
+        contentGroup,
+        previewObjects: null,
+        currentPreview: null,
+        currentPreset: "iso",
+        currentReportKey: null,
+        currentHiddenKey: "",
+        syncingFromPeer: false,
+      };
+
+      controls.addEventListener("change", () => {
+        if (!viewport.syncingFromPeer && viewport.side && state.compareSync) {
+          const peer = compareViewports[viewport.side === "left" ? "right" : "left"];
+          if (peer?.currentPreview) {
+            syncViewportCamera(viewport, peer);
+          }
+        }
+        renderPreviewViewport(viewport);
+      });
+
+      canvasEl.style.cursor = "grab";
+      canvasEl.addEventListener("contextmenu", (event) => event.preventDefault());
+      controls.addEventListener("start", () => {
+        canvasEl.style.cursor = "grabbing";
+      });
+      controls.addEventListener("end", () => {
+        canvasEl.style.cursor = "grab";
+      });
+      canvasEl.addEventListener("dblclick", () => {
+        fitPreviewViewport(viewport, "fit");
+        if (viewport.side && state.compareSync) {
+          const peer = compareViewports[viewport.side === "left" ? "right" : "left"];
+          if (peer?.currentPreview) {
+            syncViewportCamera(viewport, peer);
+          }
+        }
+        setStatus(`${viewport.label} fit to view.`);
+      });
+
+      setPreviewViewportBackground(viewport);
+      resizePreviewViewport(viewport);
+      return viewport;
+    }
+
+    async function ensurePreviewViewport() {
+      if (previewViewport) return previewViewport;
+      setPreviewOverlay("Loading WebGL preview...");
+      const modules = await ensureWebGlModules();
+      previewViewport = createWebGlViewport(modules, previewCanvas, previewOverlay, {
+        label: "Preview",
+      });
+      return previewViewport;
+    }
+
+    async function ensureCompareViewport(side) {
+      const canvasEl = byId(`compare-${side}-canvas`);
+      if (!canvasEl) return null;
+      const overlayEl = byId(`compare-${side}-overlay`);
+      const existing = compareViewports[side];
+      if (existing?.canvas === canvasEl) return existing;
+      destroyViewport(existing);
+      const modules = await ensureWebGlModules();
+      const viewport = createWebGlViewport(modules, canvasEl, overlayEl, {
+        label: `${capitalizeLabel(side)} comparison preview`,
+        side,
+      });
+      compareViewports = {
+        ...compareViewports,
+        [side]: viewport,
+      };
+      return viewport;
     }
 
     function rebuildPreviewViewport(viewport, report, options = {}) {
       const resolvedReport = report || activeReport();
       clearPreviewViewportContent(viewport);
       if (!resolvedReport) {
-        setPreviewOverlay("Load a STEP, STL, or JSON file to preview it here.");
+        setViewportOverlay(viewport, "Load a STEP, STL, or JSON file to preview it here.");
         renderPreviewViewport(viewport);
         return;
       }
@@ -4054,7 +4075,7 @@ HTML = """<!doctype html>
       const preview = getPreviewData(resolvedReport);
       if (!preview) {
         const names = resolvedReport?.decoded_names?.length ? `\nNamed entities: ${resolvedReport.decoded_names.join(", ")}` : "";
-        setPreviewOverlay(`No previewable solid geometry was decoded from this file.${names}`);
+        setViewportOverlay(viewport, `No previewable solid geometry was decoded from this file.${names}`);
         renderPreviewViewport(viewport);
         return;
       }
@@ -4065,8 +4086,8 @@ HTML = """<!doctype html>
       viewport.currentPreview = preview;
       viewport.currentReportKey = reportKey(resolvedReport);
       viewport.currentHiddenKey = JSON.stringify(hiddenPreviewBodiesForReport(resolvedReport));
-      setPreviewOverlay("");
-      applyPreviewViewportMode(viewport, state.viewer.mode);
+      setViewportOverlay(viewport, "");
+      applyPreviewViewportMode(viewport, options.mode || state.viewer.mode);
       if (options.fitView) {
         fitPreviewViewport(viewport, viewport.currentPreset || "iso");
       }
@@ -4076,34 +4097,56 @@ HTML = """<!doctype html>
     function drawPreviewWebGl() {
       ensurePreviewViewport()
         .then((viewport) => {
-          if (!viewport) {
-            if (previewViewportFailure) {
-              setStatus(`Preview compatibility mode: ${previewViewportFailure}`);
-            }
-            drawPreviewCanvasFallback();
-            return;
-          }
           const report = activeReport();
           const nextReportKey = report ? reportKey(report) : null;
           const nextHiddenKey = report ? JSON.stringify(hiddenPreviewBodiesForReport(report)) : "";
           const fitView = nextReportKey !== viewport.currentReportKey;
           setPreviewViewportBackground(viewport);
           if (fitView || nextHiddenKey !== viewport.currentHiddenKey || !viewport.previewObjects) {
-            rebuildPreviewViewport(viewport, report, { fitView });
+            rebuildPreviewViewport(viewport, report, { fitView, mode: state.viewer.mode });
             return;
           }
           applyPreviewViewportMode(viewport, state.viewer.mode);
-          setPreviewOverlay("");
+          setViewportOverlay(viewport, "");
           renderPreviewViewport(viewport);
         })
         .catch((error) => {
+          setPreviewOverlay(`WebGL preview failed: ${error.message}`, "error");
           setStatus(`Preview error: ${error.message}`);
-          drawPreviewCanvasFallback();
         });
     }
 
     function applyPreviewPreset(preset) {
-      applyViewPreset(state.viewer, preset);
+      ensurePreviewViewport()
+        .then((viewport) => {
+          if (!viewport) return;
+          if (preset !== "fit") {
+            viewport.currentPreset = preset;
+          }
+          fitPreviewViewport(viewport, preset);
+        })
+        .catch((error) => {
+          setPreviewOverlay(`WebGL preview failed: ${error.message}`, "error");
+        });
+    }
+
+    function applyComparePreset(preset) {
+      Promise.all([
+        ensureCompareViewport("left"),
+        ensureCompareViewport("right"),
+      ])
+        .then((viewports) => {
+          viewports.filter(Boolean).forEach((viewport) => {
+            if (preset !== "fit") {
+              viewport.currentPreset = preset;
+            }
+            fitPreviewViewport(viewport, preset);
+          });
+          syncCompareViewports();
+        })
+        .catch((error) => {
+          setStatus(`Comparison preview error: ${error.message}`);
+        });
     }
 
     function drawViewportHud(ctx2d, canvasEl, report, preview, viewer, options = {}) {
@@ -4478,11 +4521,16 @@ HTML = """<!doctype html>
         return faces;
       }
 
+      if (!reducible.length) {
+        return preserved.slice(0, MAX_RENDER_FACES);
+      }
+
       const target = Math.max(1, Math.min(occLimit, MAX_RENDER_FACES - preserved.length));
       const sampled = [];
       const step = reducible.length / target;
       for (let index = 0; index < target; index++) {
-        sampled.push(reducible[Math.min(reducible.length - 1, Math.floor(index * step))]);
+        const face = reducible[Math.min(reducible.length - 1, Math.floor(index * step))];
+        if (face) sampled.push(face);
       }
       return preserved.concat(sampled);
     }
@@ -4922,8 +4970,7 @@ HTML = """<!doctype html>
     }
 
     function drawPreview() {
-      setPreviewOverlay("");
-      drawPreviewCanvasFallback();
+      drawPreviewWebGl();
     }
 
     function render() {
