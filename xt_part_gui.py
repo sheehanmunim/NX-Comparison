@@ -1283,6 +1283,9 @@ HTML = """<!doctype html>
       if (!report) return "Preview ready.";
       const strategy = previewMetadata(report).strategy;
       if (strategy === "step_quick_preview") return `Loaded ${report.file_name}. Fast STEP preview ready; refining the full STEP mesh in the background.`;
+      if (strategy === "step_import_preview" && report?.step_import?.analysis_pending) {
+        return `Loaded ${report.file_name}. STEP preview ready; detailed analysis is continuing in the background.`;
+      }
       if (strategy === "step_import_preview") return `Loaded ${report.file_name}. STEP import preview ready.`;
       if (strategy === "stl_mesh_preview") return `Loaded ${report.file_name}. STL mesh preview ready.`;
       if (strategy === "json_reconstruction_preview") return `Loaded ${report.file_name}. JSON reconstruction preview ready.`;
@@ -1292,12 +1295,16 @@ HTML = """<!doctype html>
 
     function loadedReportsStatus(reports) {
       const previewKinds = new Set((reports || []).map((report) => previewMetadata(report).strategy));
+      const stepAnalysisPending = (reports || []).some((report) => report?.step_import?.analysis_pending);
       const fusionCount = (reports || []).filter((report) => previewMetadata(report).strategy === "fused_json_step_preview").length;
       if (fusionCount) {
         return `Loaded ${reports.length} file(s) and built ${fusionCount} STEP-referenced Fusion preview(s). Select one to inspect it or select two to compare them.`;
       }
       if (previewKinds.has("step_import_preview") && previewKinds.has("json_reconstruction_preview")) {
         return `Loaded ${reports.length} file(s). STEP imports, STL meshes, and JSON reconstructions are ready; matching STEP+JSON pairs can be fused automatically or compared side-by-side.`;
+      }
+      if (stepAnalysisPending) {
+        return `Loaded ${reports.length} file(s). STEP previews are ready and detailed analysis is continuing in the background.`;
       }
       return `Loaded ${reports.length} file(s). Select one to preview it or two to compare them.`;
     }
@@ -5418,6 +5425,20 @@ HTML = """<!doctype html>
       return response.json();
     }
 
+    function stepUploadCount(files) {
+      return [...(files || [])].filter((file) => /\.(step|stp)$/i.test(file?.name || "")).length;
+    }
+
+    function previewImportMessage(files) {
+      const uploadFiles = [...(files || [])];
+      const totalCount = uploadFiles.length;
+      const stepCount = stepUploadCount(uploadFiles);
+      if (!totalCount) return "Importing preview...";
+      if (stepCount === totalCount) return `Importing STEP preview for ${totalCount} file(s)...`;
+      if (stepCount > 0) return `Importing preview for ${totalCount} file(s)... STEP previews appear first.`;
+      return `Importing preview for ${totalCount} file(s)...`;
+    }
+
     async function uploadFilesWithProgress(files) {
       return new Promise((resolve, reject) => {
         const uploadFiles = [...files];
@@ -5443,7 +5464,7 @@ HTML = """<!doctype html>
         });
 
         xhr.upload.addEventListener("load", () => {
-          setStatus(`Analyzing ${uploadFiles.length} uploaded file(s)...`);
+          setStatus(previewImportMessage(uploadFiles));
           setStatusProgress(null, { indeterminate: true });
         });
 
@@ -5549,12 +5570,12 @@ HTML = """<!doctype html>
       try {
         const data = await uploadFilesWithProgress(files);
         mergeReports(data.reports || []);
-        analyzeStepFilesInBackground(files);
         if (data.reports.length === 1) {
           setStatus(previewReadyMessage(data.reports[0]));
         } else {
           setStatus(loadedReportsStatus(data.reports || []));
         }
+        setTimeout(() => analyzeStepFilesInBackground(files), 0);
       } finally {
         clearStatusProgress();
       }
