@@ -57,6 +57,28 @@ def _existing_ready_venv(repo_root: Path) -> Path | None:
     return None
 
 
+def _current_ready_venv() -> Path | None:
+    candidates: list[Path] = []
+    virtual_env = os.environ.get("VIRTUAL_ENV")
+    if virtual_env:
+        candidates.append(Path(virtual_env))
+
+    current_python = Path(sys.executable).resolve()
+    if current_python.parent.name in {"bin", "Scripts"}:
+        candidates.append(current_python.parent.parent)
+
+    seen: set[Path] = set()
+    for candidate in candidates:
+        resolved = candidate.resolve()
+        if resolved in seen:
+            continue
+        seen.add(resolved)
+        python_executable = _venv_python_path(resolved)
+        if _python_can_import(python_executable, REQUIRED_IMPORTS):
+            return resolved
+    return None
+
+
 def _python_command_candidates() -> list[tuple[str, list[str], str]]:
     candidates: list[tuple[str, list[str], str]] = []
     explicit = os.environ.get("XT_BACKEND_BOOTSTRAP_PYTHON")
@@ -161,6 +183,18 @@ def ensure_backend_runtimes(*, verbose=print) -> dict[str, Any]:
             "message_already_reported": False,
             "venv": str(ready_venv),
             "message": f"Using backend runtime from {ready_venv.name}.",
+        }
+
+    current_venv = _current_ready_venv()
+    if current_venv is not None:
+        os.environ.setdefault("XT_STEP_OCC_VENV", str(current_venv))
+        os.environ.setdefault("XT_FUSION_ML_VENV", str(current_venv))
+        return {
+            "ready": True,
+            "auto_install_attempted": False,
+            "message_already_reported": False,
+            "venv": str(current_venv),
+            "message": f"Using active backend runtime from {current_venv.name}.",
         }
 
     bootstrap = _pick_bootstrap_python()

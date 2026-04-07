@@ -2317,33 +2317,164 @@ def _relative_delta(left: float, right: float) -> float:
     return abs(float(left) - float(right)) / max(abs(float(left)), abs(float(right)), 1e-9)
 
 
+def _occupancy_profile(
+    points: list[list[float]],
+    bounds: dict[str, Any] | None,
+    *,
+    bins: int = 6,
+    sample_limit: int = 320,
+) -> dict[str, Any] | None:
+    if not bounds or not points:
+        return None
+
+    sample = (
+        points
+        if len(points) <= sample_limit
+        else [
+            points[min(len(points) - 1, math.floor(index * len(points) / sample_limit))]
+            for index in range(sample_limit)
+        ]
+    )
+    minimum = [float(value) for value in bounds.get("min", [0.0, 0.0, 0.0])]
+    size = [max(float(value), 1e-9) for value in bounds.get("size", [0.0, 0.0, 0.0])]
+    occupancy: set[tuple[int, int, int]] = set()
+    centroid = [0.0, 0.0, 0.0]
+    radial_distances: list[float] = []
+
+    for point in sample:
+        normalized = [
+            max(0.0, min(1.0, (float(point[index]) - minimum[index]) / size[index]))
+            for index in range(3)
+        ]
+        occupancy.add(
+            tuple(
+                min(bins - 1, max(0, int(math.floor(value * bins))))
+                for value in normalized
+            )
+        )
+        for index in range(3):
+            centroid[index] += normalized[index]
+        radial_distances.append(
+            math.sqrt(sum((normalized[index] - 0.5) ** 2 for index in range(3)))
+        )
+
+    count = max(len(sample), 1)
+    centroid = [value / count for value in centroid]
+    radial_mean = sum(radial_distances) / len(radial_distances) if radial_distances else 0.0
+    radial_std = (
+        math.sqrt(sum((value - radial_mean) ** 2 for value in radial_distances) / len(radial_distances))
+        if radial_distances
+        else 0.0
+    )
+    max_extent = max(size) if size else 1.0
+    return {
+        "occupancy": occupancy,
+        "occupancy_count": len(occupancy),
+        "centroid": centroid,
+        "radial_mean": radial_mean,
+        "radial_std": radial_std,
+        "extent_ratios": [value / max_extent for value in size],
+    }
+
+
+def _profile_delta(left_profile: dict[str, Any] | None, right_profile: dict[str, Any] | None) -> dict[str, float]:
+    if not left_profile or not right_profile:
+        return {
+            "mismatch_ratio": 1.0,
+            "centroid_delta": 1.0,
+            "radial_delta": 1.0,
+            "density_delta": 1.0,
+            "extent_delta": 1.0,
+        }
+
+    union = set(left_profile["occupancy"]).union(right_profile["occupancy"])
+    intersection = set(left_profile["occupancy"]).intersection(right_profile["occupancy"])
+    mismatch_ratio = 1.0 - (len(intersection) / len(union)) if union else 0.0
+    centroid_delta = math.sqrt(
+        sum(
+            (float(right_profile["centroid"][index]) - float(left_profile["centroid"][index])) ** 2
+            for index in range(3)
+        )
+    )
+    radial_delta = abs(float(right_profile["radial_mean"]) - float(left_profile["radial_mean"])) + abs(
+        float(right_profile["radial_std"]) - float(left_profile["radial_std"])
+    )
+    density_delta = abs(float(right_profile["occupancy_count"]) - float(left_profile["occupancy_count"])) / max(
+        float(left_profile["occupancy_count"]),
+        float(right_profile["occupancy_count"]),
+        1.0,
+    )
+    extent_delta = max(
+        abs(float(right_profile["extent_ratios"][index]) - float(left_profile["extent_ratios"][index]))
+        for index in range(3)
+    )
+    return {
+        "mismatch_ratio": mismatch_ratio,
+        "centroid_delta": centroid_delta,
+        "radial_delta": radial_delta,
+        "density_delta": density_delta,
+        "extent_delta": extent_delta,
+    }
+
+
+def _name_token_overlap(left_name: str, right_name: str) -> float:
+    left_tokens = {token for token in re.split(r"[^a-z0-9]+", left_name.lower()) if token}
+    right_tokens = {token for token in re.split(r"[^a-z0-9]+", right_name.lower()) if token}
+    if not left_tokens or not right_tokens:
+        return 0.0
+    return len(left_tokens.intersection(right_tokens)) / len(left_tokens.union(right_tokens))
+
+
+def _display_color_vector(body: dict[str, Any]) -> list[float] | None:
+    display_properties = (body.get("metadata") or {}).get("display_properties") or {}
+    rgb = display_properties.get("rgb")
+    if not isinstance(rgb, list) or len(rgb) < 3:
+        return None
+    return [max(0.0, min(255.0, float(value))) for value in rgb[:3]]
+
+
+def _color_distance(left_body: dict[str, Any], right_body: dict[str, Any]) -> float:
+    left_color = _display_color_vector(left_body)
+    right_color = _display_color_vector(right_body)
+    if not left_color or not right_color:
+        return 0.0
+    return math.sqrt(sum((right_color[index] - left_color[index]) ** 2 for index in range(3))) / 255.0
+
+
 def _body_signature(body: dict[str, Any]) -> dict[str, Any]:
     points = _preview_points_from_kernel_body(body)
     bounds = _polyline_bounds(points)
     metadata = body.get("metadata", {})
+    size = list(bounds["size"]) if bounds else [0.0, 0.0, 0.0]
     return {
         "bounds": bounds,
         "center": _bounds_center(bounds),
-        "size": list(bounds["size"]) if bounds else [0.0, 0.0, 0.0],
-        "diagonal": math.sqrt(sum(float(value) ** 2 for value in (bounds["size"] if bounds else [0.0, 0.0, 0.0]))),
+        "size": size,
+        "diagonal": math.sqrt(sum(float(value) ** 2 for value in size)),
+        "volume": max(float(size[0]) * float(size[1]) * float(size[2]), 0.0),
         "point_count": len(points),
         "name": str(body.get("name") or ""),
         "body_index": metadata.get("nx_body_index"),
         "source_face_count": int(metadata.get("source_face_count") or 0),
         "face_patch_count": len(body.get("faces", [])),
         "edge_count": len(body.get("edges", [])),
+        "primitive": str(metadata.get("primitive") or body.get("kind") or ""),
+        "profile": _occupancy_profile(points, bounds),
     }
 
 
 def _group_signature(items: list[dict[str, Any]], point_getter: str) -> dict[str, Any]:
     points = _group_points(items, point_getter)
     bounds = _polyline_bounds(points)
+    size = list(bounds["size"]) if bounds else [0.0, 0.0, 0.0]
     return {
         "bounds": bounds,
         "center": _bounds_center(bounds),
-        "size": list(bounds["size"]) if bounds else [0.0, 0.0, 0.0],
-        "diagonal": math.sqrt(sum(float(value) ** 2 for value in (bounds["size"] if bounds else [0.0, 0.0, 0.0]))),
+        "size": size,
+        "diagonal": math.sqrt(sum(float(value) ** 2 for value in size)),
+        "volume": max(float(size[0]) * float(size[1]) * float(size[2]), 0.0),
         "point_count": len(points),
+        "profile": _occupancy_profile(points, bounds, bins=5, sample_limit=220),
     }
 
 
@@ -2360,6 +2491,7 @@ def _body_match_cost(step_body: dict[str, Any], json_body: dict[str, Any]) -> fl
     reference_span = max(step_sig["diagonal"], json_sig["diagonal"], 1e-9)
     center_cost = _distance_between(step_sig["center"], json_sig["center"]) / reference_span
     size_cost = _size_delta(step_sig["size"], json_sig["size"])
+    volume_cost = _relative_delta(step_sig["volume"], json_sig["volume"])
     face_cost = abs(step_sig["source_face_count"] - json_sig["source_face_count"]) / max(
         step_sig["source_face_count"], json_sig["source_face_count"], 1
     )
@@ -2369,6 +2501,16 @@ def _body_match_cost(step_body: dict[str, Any], json_body: dict[str, Any]) -> fl
     patch_cost = abs(step_sig["face_patch_count"] - json_sig["face_patch_count"]) / max(
         step_sig["face_patch_count"], json_sig["face_patch_count"], 1
     )
+    profile_delta = _profile_delta(step_sig.get("profile"), json_sig.get("profile"))
+    profile_cost = (
+        profile_delta["mismatch_ratio"] * 2.5
+        + profile_delta["centroid_delta"] * 1.5
+        + profile_delta["radial_delta"]
+        + profile_delta["extent_delta"]
+    )
+    primitive_bonus = -0.25 if step_sig["primitive"] and step_sig["primitive"] == json_sig["primitive"] else 0.0
+    token_bonus = -0.4 * _name_token_overlap(step_sig["name"], json_sig["name"])
+    color_cost = _color_distance(step_body, json_body) * 0.35
     name_bonus = -0.75 if step_sig["name"] and step_sig["name"] == json_sig["name"] else 0.0
     index_bonus = (
         -1.0
@@ -2377,7 +2519,20 @@ def _body_match_cost(step_body: dict[str, Any], json_body: dict[str, Any]) -> fl
         and step_sig["body_index"] == json_sig["body_index"]
         else 0.0
     )
-    return (center_cost * 5.0) + (size_cost * 4.0) + (face_cost * 2.0) + edge_cost + (patch_cost * 0.5) + name_bonus + index_bonus
+    return (
+        (center_cost * 5.0)
+        + (size_cost * 4.0)
+        + (volume_cost * 1.2)
+        + (face_cost * 2.0)
+        + edge_cost
+        + (patch_cost * 0.5)
+        + profile_cost
+        + color_cost
+        + name_bonus
+        + token_bonus
+        + primitive_bonus
+        + index_bonus
+    )
 
 
 def _body_match_features(step_body: dict[str, Any], json_body: dict[str, Any]) -> list[float]:
@@ -2386,15 +2541,25 @@ def _body_match_features(step_body: dict[str, Any], json_body: dict[str, Any]) -
     reference_span = max(step_sig["diagonal"], json_sig["diagonal"], 1e-9)
     step_name = str(step_sig["name"] or "")
     json_name = str(json_sig["name"] or "")
+    profile_delta = _profile_delta(step_sig.get("profile"), json_sig.get("profile"))
     return [
         _distance_between(step_sig["center"], json_sig["center"]) / reference_span,
         _size_delta(step_sig["size"], json_sig["size"]),
+        _relative_delta(step_sig["volume"], json_sig["volume"]),
         _relative_delta(step_sig["source_face_count"], json_sig["source_face_count"]),
         _relative_delta(step_sig["edge_count"], json_sig["edge_count"]),
         _relative_delta(step_sig["face_patch_count"], json_sig["face_patch_count"]),
         _relative_delta(step_sig["point_count"], json_sig["point_count"]),
+        profile_delta["mismatch_ratio"],
+        profile_delta["centroid_delta"],
+        profile_delta["radial_delta"],
+        profile_delta["density_delta"],
+        profile_delta["extent_delta"],
+        _color_distance(step_body, json_body),
         1.0 if step_name and step_name == json_name else 0.0,
         1.0 if step_name and json_name and not _generic_body_name(step_name) and step_name == json_name else 0.0,
+        _name_token_overlap(step_name, json_name),
+        1.0 if step_sig["primitive"] and step_sig["primitive"] == json_sig["primitive"] else 0.0,
         1.0
         if step_sig["body_index"] is not None
         and json_sig["body_index"] is not None
@@ -2497,11 +2662,31 @@ def _ml_probability_bundle(
     return result
 
 
+def _candidate_margin(
+    current_key: tuple[Any, Any],
+    probability_map: dict[tuple[Any, Any], float],
+    candidate_keys: list[tuple[Any, Any]],
+) -> float:
+    current_probability = float(probability_map.get(current_key, 0.0))
+    alternatives = [
+        float(probability_map.get(key, 0.0))
+        for key in candidate_keys
+        if key != current_key
+    ]
+    if not alternatives:
+        return current_probability
+    return current_probability - max(alternatives)
+
+
 def _match_kernel_bodies(
     step_bodies: list[dict[str, Any]],
     json_bodies: list[dict[str, Any]],
 ) -> list[tuple[dict[str, Any], dict[str, Any], dict[str, Any]]]:
     heuristic_pairs = _match_kernel_bodies_cost_only(step_bodies, json_bodies)
+    heuristic_pair_lookup = {
+        (int(match_info["step_body_index"]), int(match_info["json_body_index"])): (step_body, json_body, match_info)
+        for step_body, json_body, match_info in heuristic_pairs
+    }
     exact_positive_keys: set[tuple[int, int]] = set()
     for pair_step_body, pair_json_body, match_info in heuristic_pairs:
         if match_info.get("match_reason") == "shared_body_index":
@@ -2583,6 +2768,17 @@ def _match_kernel_bodies(
                     "match_reason": "shared_body_index",
                     "ml_assisted": True,
                     "ml_match_confidence": round(float(probability_map.get((step_index, json_index), 1.0)), 6),
+                    "ml_match_margin": round(
+                        float(
+                            _candidate_margin(
+                                (step_index, json_index),
+                                probability_map,
+                                [(step_index, candidate_json_index) for candidate_json_index in remaining_json]
+                                + [(candidate_step_index, json_index) for candidate_step_index in remaining_steps],
+                            )
+                        ),
+                        6,
+                    ),
                     "ml_model": model_info,
                 },
             )
@@ -2594,6 +2790,17 @@ def _match_kernel_bodies(
         candidates = [
             (
                 probability_map.get((step_index, json_index), 0.0),
+                _candidate_margin(
+                    (step_index, json_index),
+                    probability_map,
+                    [
+                        (step_index, candidate_json_index)
+                        for candidate_json_index in remaining_json
+                    ] + [
+                        (candidate_step_index, json_index)
+                        for candidate_step_index in remaining_steps
+                    ],
+                ),
                 -cost,
                 step_index,
                 json_index,
@@ -2606,7 +2813,35 @@ def _match_kernel_bodies(
         ]
         if not candidates:
             break
-        probability, _neg_cost, step_index, json_index, step_body, json_body, cost = max(candidates)
+        probability, margin, _neg_cost, step_index, json_index, step_body, json_body, cost = max(candidates)
+        if probability < 0.43 and cost > 2.15:
+            fallback_pair = next(
+                (
+                    heuristic_pair_lookup[(fallback_step_index, fallback_json_index)]
+                    for fallback_step_index in remaining_steps
+                    for fallback_json_index in remaining_json
+                    if (fallback_step_index, fallback_json_index) in heuristic_pair_lookup
+                ),
+                None,
+            )
+            if fallback_pair is None:
+                break
+            step_body, json_body, fallback_info = fallback_pair
+            step_index = int(fallback_info["step_body_index"])
+            json_index = int(fallback_info["json_body_index"])
+            cost = float(fallback_info["match_cost"])
+            probability = float(probability_map.get((step_index, json_index), 0.0))
+            margin = _candidate_margin(
+                (step_index, json_index),
+                probability_map,
+                [
+                    (step_index, candidate_json_index)
+                    for candidate_json_index in remaining_json
+                ] + [
+                    (candidate_step_index, json_index)
+                    for candidate_step_index in remaining_steps
+                ],
+            )
         selected.append(
             (
                 step_body,
@@ -2622,6 +2857,7 @@ def _match_kernel_bodies(
                     ),
                     "ml_assisted": True,
                     "ml_match_confidence": round(float(probability), 6),
+                    "ml_match_margin": round(float(margin), 6),
                     "ml_model": model_info,
                 },
             )
@@ -2748,10 +2984,18 @@ def _group_match_cost(
     reference_span = max(step_sig["diagonal"], json_sig["diagonal"], 1e-9)
     center_cost = _distance_between(step_sig["center"], json_sig["center"]) / reference_span
     size_cost = _size_delta(step_sig["size"], json_sig["size"])
+    volume_cost = _relative_delta(step_sig["volume"], json_sig["volume"])
     point_cost = abs(step_sig["point_count"] - json_sig["point_count"]) / max(
         step_sig["point_count"], json_sig["point_count"], 1
     )
-    return (center_cost * 5.0) + (size_cost * 4.0) + point_cost
+    profile_delta = _profile_delta(step_sig.get("profile"), json_sig.get("profile"))
+    profile_cost = (
+        profile_delta["mismatch_ratio"] * 2.4
+        + profile_delta["centroid_delta"] * 1.3
+        + profile_delta["radial_delta"] * 0.8
+        + profile_delta["extent_delta"] * 0.7
+    )
+    return (center_cost * 5.0) + (size_cost * 4.0) + (volume_cost * 0.9) + point_cost + profile_cost
 
 
 def _group_match_features(
@@ -2773,12 +3017,19 @@ def _group_match_features(
         else _edge_group_score(json_group)
     )
     reference_span = max(step_sig["diagonal"], json_sig["diagonal"], 1e-9)
+    profile_delta = _profile_delta(step_sig.get("profile"), json_sig.get("profile"))
     return [
         _distance_between(step_sig["center"], json_sig["center"]) / reference_span,
         _size_delta(step_sig["size"], json_sig["size"]),
+        _relative_delta(step_sig["volume"], json_sig["volume"]),
         abs(step_sig["point_count"] - json_sig["point_count"]) / max(step_sig["point_count"], json_sig["point_count"], 1),
         _relative_delta(len(step_group), len(json_group)),
         _relative_delta(step_score, json_score),
+        profile_delta["mismatch_ratio"],
+        profile_delta["centroid_delta"],
+        profile_delta["radial_delta"],
+        profile_delta["density_delta"],
+        profile_delta["extent_delta"],
         1.0 if step_group and json_group and len(step_group) == len(json_group) else 0.0,
     ]
 
@@ -2830,6 +3081,7 @@ def _match_group_keys(
         point_getter=point_getter,
         threshold=threshold,
     )
+    heuristic_lookup = {(step_key, json_key): True for step_key, json_key in heuristic_matches.items()}
     exact_positive_keys = {(key, key) for key in sorted(set(step_groups).intersection(json_groups))}
     provisional_positive_keys = exact_positive_keys or {(step_key, json_key) for step_key, json_key in heuristic_matches.items()}
 
@@ -2870,6 +3122,17 @@ def _match_group_keys(
         match_meta[(step_key, json_key)] = {
             "used_ml": True,
             "probability": round(float(probability_map.get((step_key, json_key), 1.0)), 6),
+            "margin": round(
+                float(
+                    _candidate_margin(
+                        (step_key, json_key),
+                        probability_map,
+                        [(step_key, candidate_json_key) for candidate_json_key in remaining_json]
+                        + [(candidate_step_key, json_key) for candidate_step_key in remaining_steps],
+                    )
+                ),
+                6,
+            ),
             "model": ml_result.get("model"),
         }
         if step_key in remaining_steps:
@@ -2880,6 +3143,12 @@ def _match_group_keys(
         candidates = [
             (
                 probability_map.get((step_key, json_key), 0.0),
+                _candidate_margin(
+                    (step_key, json_key),
+                    probability_map,
+                    [(step_key, candidate_json_key) for candidate_json_key in remaining_json]
+                    + [(candidate_step_key, json_key) for candidate_step_key in remaining_steps],
+                ),
                 -cost,
                 step_key,
                 json_key,
@@ -2889,13 +3158,33 @@ def _match_group_keys(
         ]
         if not candidates:
             break
-        probability, _neg_cost, step_key, json_key = max(candidates)
-        if _group_match_cost(step_groups[step_key], json_groups[json_key], point_getter=point_getter) > threshold and probability < 0.55:
-            break
+        probability, margin, _neg_cost, step_key, json_key = max(candidates)
+        cost = _group_match_cost(step_groups[step_key], json_groups[json_key], point_getter=point_getter)
+        if cost > threshold and probability < 0.55:
+            fallback_pair = next(
+                (
+                    (candidate_step_key, candidate_json_key)
+                    for candidate_step_key in remaining_steps
+                    for candidate_json_key in remaining_json
+                    if (candidate_step_key, candidate_json_key) in heuristic_lookup
+                ),
+                None,
+            )
+            if fallback_pair is None:
+                break
+            step_key, json_key = fallback_pair
+            probability = float(probability_map.get((step_key, json_key), 0.0))
+            margin = _candidate_margin(
+                (step_key, json_key),
+                probability_map,
+                [(step_key, candidate_json_key) for candidate_json_key in remaining_json]
+                + [(candidate_step_key, json_key) for candidate_step_key in remaining_steps],
+            )
         matched[step_key] = json_key
         match_meta[(step_key, json_key)] = {
             "used_ml": True,
             "probability": round(float(probability), 6),
+            "margin": round(float(margin), 6),
             "model": ml_result.get("model"),
         }
         remaining_steps.remove(step_key)
@@ -2908,6 +3197,32 @@ def _dominant_source(source_counts: Counter[str]) -> str:
     json_count = int(source_counts.get("json", 0))
     step_count = int(source_counts.get("step", 0))
     return "json" if json_count >= step_count else "step"
+
+
+def _preferred_fusion_group(
+    step_group: list[dict[str, Any]],
+    json_group: list[dict[str, Any]],
+    *,
+    step_score: int,
+    json_score: int,
+    match_meta: dict[str, Any] | None,
+) -> tuple[list[dict[str, Any]], str]:
+    probability = float((match_meta or {}).get("probability", 0.0))
+    margin = float((match_meta or {}).get("margin", 0.0))
+
+    if probability >= 0.8 and margin >= -0.02:
+        if json_score >= max(1, int(step_score * 0.78)):
+            return json_group, "json"
+        return step_group, "step"
+
+    if probability <= 0.52 and margin < 0.03:
+        return (step_group, "step") if step_score >= json_score else (json_group, "json")
+
+    if json_score > step_score:
+        return json_group, "json"
+    if step_score > json_score:
+        return step_group, "step"
+    return json_group, "json"
 
 
 def _merge_body_metadata(
@@ -2971,12 +3286,17 @@ def _fuse_kernel_bodies(
                 json_group = json_face_groups[json_key]
                 step_group_score = _face_group_score(step_group)
                 json_group_score = _face_group_score(json_group)
-                chosen_group = json_group if json_group_score >= step_group_score else step_group
-                chosen_source = "json" if chosen_group is json_group else "step"
+                meta = face_match_meta.get((step_key, json_key))
+                chosen_group, chosen_source = _preferred_fusion_group(
+                    step_group,
+                    json_group,
+                    step_score=step_group_score,
+                    json_score=json_group_score,
+                    match_meta=meta,
+                )
                 fused_faces.extend(chosen_group)
                 face_source_counts[chosen_source] += 1
                 used_json_face_keys.add(json_key)
-                meta = face_match_meta.get((step_key, json_key))
                 if meta and meta.get("used_ml"):
                     ml_face_confidences.append(float(meta.get("probability", 0.0)))
             else:
@@ -3006,12 +3326,17 @@ def _fuse_kernel_bodies(
                 json_group = json_edge_groups[json_key]
                 step_group_score = _edge_group_score(step_group)
                 json_group_score = _edge_group_score(json_group)
-                chosen_group = json_group if json_group_score >= step_group_score else step_group
-                chosen_source = "json" if chosen_group is json_group else "step"
+                meta = edge_match_meta.get((step_key, json_key))
+                chosen_group, chosen_source = _preferred_fusion_group(
+                    step_group,
+                    json_group,
+                    step_score=step_group_score,
+                    json_score=json_group_score,
+                    match_meta=meta,
+                )
                 fused_edges.extend(chosen_group)
                 edge_source_counts[chosen_source] += 1
                 used_json_edge_keys.add(json_key)
-                meta = edge_match_meta.get((step_key, json_key))
                 if meta and meta.get("used_ml"):
                     ml_edge_confidences.append(float(meta.get("probability", 0.0)))
             else:
@@ -3071,6 +3396,7 @@ def _fuse_kernel_bodies(
                     or ml_edge_confidences
                 ),
                 "ml_match_confidence": body_ml_confidence,
+                "ml_match_margin": match_info.get("ml_match_margin"),
                 "ml_face_region_confidence_avg": (
                     round(sum(ml_face_confidences) / len(ml_face_confidences), 6)
                     if ml_face_confidences

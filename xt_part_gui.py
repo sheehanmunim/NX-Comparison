@@ -10,8 +10,10 @@ from email.parser import BytesParser
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from typing import Any
 from urllib.parse import urlparse
 
+from xt_backend_bridge import predict_match_probabilities
 from xt_backend_setup import ensure_backend_runtimes
 from xt_part_report import (
     _analyze_input_file_single,
@@ -307,6 +309,520 @@ def create_fused_report(left_report: dict, right_report: dict) -> dict | None:
             "summary": model_summary,
         }
     return enrich_report(fused_report)
+
+
+def _identity_token(object_identity: dict | None, fallback: str) -> str:
+    object_identity = object_identity or {}
+    journal_identifier = object_identity.get("journal_identifier")
+    if journal_identifier:
+        return f"jid:{journal_identifier}"
+    tag = object_identity.get("tag")
+    if tag is not None:
+        try:
+            return f"tag:{int(tag)}"
+        except (TypeError, ValueError):
+            return f"tag:{tag}"
+    return fallback
+
+
+def _bounds_from_points(points: list[list[float]]) -> dict[str, Any] | None:
+    if not points:
+        return None
+    mins = [float(points[0][0]), float(points[0][1]), float(points[0][2])]
+    maxs = mins[:]
+    for point in points[1:]:
+        for index in range(3):
+            value = float(point[index])
+            if value < mins[index]:
+                mins[index] = value
+            if value > maxs[index]:
+                maxs[index] = value
+    return {
+        "min": mins,
+        "max": maxs,
+        "size": [maxs[index] - mins[index] for index in range(3)],
+    }
+
+
+def _component_profile(points: list[list[float]], bounds: dict[str, Any] | None, *, bins: int = 6, sample_limit: int = 260) -> dict[str, Any] | None:
+    if not bounds or not points:
+        return None
+    sample = (
+        points
+        if len(points) <= sample_limit
+        else [points[min(len(points) - 1, int(index * len(points) / sample_limit))] for index in range(sample_limit)]
+    )
+    minimum = [float(value) for value in bounds.get("min", [0.0, 0.0, 0.0])]
+    size = [max(float(value), 1e-9) for value in bounds.get("size", [0.0, 0.0, 0.0])]
+    occupancy: set[tuple[int, int, int]] = set()
+    centroid = [0.0, 0.0, 0.0]
+    radial_distances: list[float] = []
+    for point in sample:
+        normalized = [
+            max(0.0, min(1.0, (float(point[index]) - minimum[index]) / size[index]))
+            for index in range(3)
+        ]
+        occupancy.add(
+            tuple(
+                min(bins - 1, max(0, int(normalized[index] * bins)))
+                for index in range(3)
+            )
+        )
+        for index in range(3):
+            centroid[index] += normalized[index]
+        radial_distances.append(sum((normalized[index] - 0.5) ** 2 for index in range(3)) ** 0.5)
+    count = max(len(sample), 1)
+    centroid = [value / count for value in centroid]
+    radial_mean = sum(radial_distances) / len(radial_distances) if radial_distances else 0.0
+    radial_std = (
+        (sum((value - radial_mean) ** 2 for value in radial_distances) / len(radial_distances)) ** 0.5
+        if radial_distances
+        else 0.0
+    )
+    max_extent = max(size) if size else 1.0
+    return {
+        "occupancy": occupancy,
+        "occupancy_count": len(occupancy),
+        "centroid": centroid,
+        "radial_mean": radial_mean,
+        "radial_std": radial_std,
+        "extent_ratios": [value / max_extent for value in size],
+    }
+
+
+def _profile_delta(left_profile: dict[str, Any] | None, right_profile: dict[str, Any] | None) -> dict[str, float]:
+    if not left_profile or not right_profile:
+        return {
+            "mismatch_ratio": 1.0,
+            "centroid_delta": 1.0,
+            "radial_delta": 1.0,
+            "density_delta": 1.0,
+            "extent_delta": 1.0,
+        }
+    union = set(left_profile["occupancy"]).union(right_profile["occupancy"])
+    intersection = set(left_profile["occupancy"]).intersection(right_profile["occupancy"])
+    mismatch_ratio = 1.0 - (len(intersection) / len(union)) if union else 0.0
+    centroid_delta = sum(
+        (float(right_profile["centroid"][index]) - float(left_profile["centroid"][index])) ** 2
+        for index in range(3)
+    ) ** 0.5
+    radial_delta = abs(float(right_profile["radial_mean"]) - float(left_profile["radial_mean"])) + abs(
+        float(right_profile["radial_std"]) - float(left_profile["radial_std"])
+    )
+    density_delta = abs(float(right_profile["occupancy_count"]) - float(left_profile["occupancy_count"])) / max(
+        float(left_profile["occupancy_count"]),
+        float(right_profile["occupancy_count"]),
+        1.0,
+    )
+    extent_delta = max(
+        abs(float(right_profile["extent_ratios"][index]) - float(left_profile["extent_ratios"][index]))
+        for index in range(3)
+    )
+    return {
+        "mismatch_ratio": mismatch_ratio,
+        "centroid_delta": centroid_delta,
+        "radial_delta": radial_delta,
+        "density_delta": density_delta,
+        "extent_delta": extent_delta,
+    }
+
+
+def _component_name_overlap(left_name: str, right_name: str) -> float:
+    left_tokens = {token for token in re.split(r"[^a-z0-9]+", left_name.lower()) if token}
+    right_tokens = {token for token in re.split(r"[^a-z0-9]+", right_name.lower()) if token}
+    if not left_tokens or not right_tokens:
+        return 0.0
+    return len(left_tokens.intersection(right_tokens)) / len(left_tokens.union(right_tokens))
+
+
+def _relative_delta(left: float, right: float) -> float:
+    return abs(float(left) - float(right)) / max(abs(float(left)), abs(float(right)), 1e-9)
+
+
+def _display_color(component: dict) -> list[float] | None:
+    display_properties = (component.get("metadata") or {}).get("display_properties") or {}
+    rgb = display_properties.get("rgb")
+    if not isinstance(rgb, list) or len(rgb) < 3:
+        return None
+    return [float(value) for value in rgb[:3]]
+
+
+def _color_distance(left_component: dict, right_component: dict) -> float:
+    left_color = _display_color(left_component)
+    right_color = _display_color(right_component)
+    if not left_color or not right_color:
+        return 0.0
+    return sum((right_color[index] - left_color[index]) ** 2 for index in range(3)) ** 0.5 / 255.0
+
+
+def _average_point(points: list[list[float]]) -> list[float] | None:
+    if not points:
+        return None
+    totals = [0.0, 0.0, 0.0]
+    for point in points:
+        for index in range(3):
+            totals[index] += float(point[index])
+    return [value / len(points) for value in totals]
+
+
+def _mesh_bin_key(point: list[float], bounds: dict[str, Any] | None, *, bins: int = 8) -> str | None:
+    if not bounds or not point or len(point) < 3:
+        return None
+    minimum = [float(value) for value in bounds.get("min", [0.0, 0.0, 0.0])]
+    size = [max(float(value), 1e-9) for value in bounds.get("size", [0.0, 0.0, 0.0])]
+    return "|".join(
+        str(min(bins - 1, max(0, int(((float(point[index]) - minimum[index]) / size[index]) * bins))))
+        for index in range(3)
+    )
+
+
+def _component_signature(body: dict, body_index: int) -> dict[str, Any] | None:
+    faces = list(body.get("faces") or [])
+    edges = list(body.get("edges") or [])
+    face_points = [
+        [float(vertex[0]), float(vertex[1]), float(vertex[2])]
+        for face in faces
+        for vertex in (face.get("vertices") or [])
+        if isinstance(vertex, list) and len(vertex) >= 3
+    ]
+    edge_points = [
+        [float(point[0]), float(point[1]), float(point[2])]
+        for edge in edges
+        for point in (edge.get("points") or [])
+        if isinstance(point, list) and len(point) >= 3
+    ]
+    all_points = face_points + edge_points
+    bounds = _bounds_from_points(all_points)
+    if not bounds:
+        return None
+    metadata = body.get("metadata") or {}
+    name = str(body.get("name") or metadata.get("name") or f"Body {body_index}")
+    primitive = str(metadata.get("primitive") or body.get("kind") or "body")
+    axis = str(metadata.get("axis") or "")
+    size = list(bounds["size"])
+    body_raw_key = _identity_token(
+        metadata.get("object_identity"),
+        f"body:{int(metadata.get('nx_body_index') or body_index)}",
+    )
+    face_entries = []
+    for face_index, face in enumerate(faces, start=1):
+        vertices = [
+            [float(vertex[0]), float(vertex[1]), float(vertex[2])]
+            for vertex in (face.get("vertices") or [])
+            if isinstance(vertex, list) and len(vertex) >= 3
+        ]
+        centroid = _average_point(vertices)
+        bin_key = _mesh_bin_key(centroid, bounds) if centroid else None
+        face_entries.append(
+            {
+                "key": _identity_token(
+                    (face.get("metadata") or {}).get("object_identity"),
+                    f"body:{int((face.get('metadata') or {}).get('source_body_index') or metadata.get('nx_body_index') or body_index)}:face:{int((face.get('metadata') or {}).get('source_face_index') or face_index)}",
+                ),
+                "centroid": centroid,
+                "bin": bin_key,
+            }
+        )
+    edge_entries = []
+    for edge_index, edge in enumerate(edges, start=1):
+        points = [
+            [float(point[0]), float(point[1]), float(point[2])]
+            for point in (edge.get("points") or [])
+            if isinstance(point, list) and len(point) >= 3
+        ]
+        centroid = _average_point(points)
+        bin_key = _mesh_bin_key(centroid, bounds) if centroid else None
+        edge_entries.append(
+            {
+                "key": _identity_token(
+                    edge.get("object_identity"),
+                    f"body:{int(metadata.get('nx_body_index') or body_index)}:edge:{int(edge.get('source_edge_index') or edge_index)}",
+                ),
+                "centroid": centroid,
+                "bin": bin_key,
+            }
+        )
+    return {
+        "name": name,
+        "primitive": primitive,
+        "axis": axis or None,
+        "body_index": int(metadata.get("nx_body_index") or body_index),
+        "body_raw_key": body_raw_key,
+        "bounds": bounds,
+        "center": [(float(bounds["min"][index]) + float(bounds["max"][index])) / 2.0 for index in range(3)],
+        "size": size,
+        "diagonal": sum(value * value for value in size) ** 0.5,
+        "volume": max(size[0] * size[1] * size[2], 0.0),
+        "face_count": len(faces),
+        "edge_count": len(edges),
+        "point_count": len(all_points),
+        "profile": _component_profile(all_points, bounds),
+        "face_entries": [entry for entry in face_entries if entry["key"] and entry["bin"] and entry["centroid"]],
+        "edge_entries": [entry for entry in edge_entries if entry["key"] and entry["bin"] and entry["centroid"]],
+        "display_color": _display_color(body),
+    }
+
+
+def _flatten_report_components(report: dict) -> list[dict[str, Any]]:
+    components: list[dict[str, Any]] = []
+    for body_index, body in enumerate(report.get("kernel_bodies") or [], start=1):
+        signature = _component_signature(body, body_index)
+        if signature:
+            components.append(signature)
+    return components
+
+
+def _component_match_cost(left_component: dict, right_component: dict) -> float:
+    reference_span = max(left_component["diagonal"], right_component["diagonal"], 1e-9)
+    center_cost = sum(
+        (float(right_component["center"][index]) - float(left_component["center"][index])) ** 2
+        for index in range(3)
+    ) ** 0.5 / reference_span
+    size_cost = sum(
+        abs(float(left_component["size"][index]) - float(right_component["size"][index]))
+        / max(abs(float(left_component["size"][index])), abs(float(right_component["size"][index])), 1e-9)
+        for index in range(3)
+    ) / 3.0
+    profile_delta = _profile_delta(left_component.get("profile"), right_component.get("profile"))
+    return (
+        (center_cost * 4.8)
+        + (size_cost * 4.1)
+        + (_relative_delta(left_component["volume"], right_component["volume"]) * 1.1)
+        + (_relative_delta(left_component["face_count"], right_component["face_count"]) * 1.2)
+        + (_relative_delta(left_component["edge_count"], right_component["edge_count"]) * 0.8)
+        + (profile_delta["mismatch_ratio"] * 2.2)
+        + profile_delta["centroid_delta"]
+        + (profile_delta["radial_delta"] * 0.8)
+        + (_color_distance(left_component, right_component) * 0.3)
+        - (0.65 if left_component["body_raw_key"] == right_component["body_raw_key"] else 0.0)
+        - (0.35 * _component_name_overlap(left_component["name"], right_component["name"]))
+        - (0.2 if left_component["primitive"] == right_component["primitive"] else 0.0)
+        - (0.15 if left_component["axis"] and left_component["axis"] == right_component["axis"] else 0.0)
+    )
+
+
+def _component_match_features(left_component: dict, right_component: dict) -> list[float]:
+    reference_span = max(left_component["diagonal"], right_component["diagonal"], 1e-9)
+    profile_delta = _profile_delta(left_component.get("profile"), right_component.get("profile"))
+    return [
+        sum(
+            (float(right_component["center"][index]) - float(left_component["center"][index])) ** 2
+            for index in range(3)
+        ) ** 0.5 / reference_span,
+        sum(
+            abs(float(left_component["size"][index]) - float(right_component["size"][index]))
+            / max(abs(float(left_component["size"][index])), abs(float(right_component["size"][index])), 1e-9)
+            for index in range(3)
+        ) / 3.0,
+        _relative_delta(left_component["volume"], right_component["volume"]),
+        _relative_delta(left_component["face_count"], right_component["face_count"]),
+        _relative_delta(left_component["edge_count"], right_component["edge_count"]),
+        _relative_delta(left_component["point_count"], right_component["point_count"]),
+        profile_delta["mismatch_ratio"],
+        profile_delta["centroid_delta"],
+        profile_delta["radial_delta"],
+        profile_delta["density_delta"],
+        profile_delta["extent_delta"],
+        _color_distance(left_component, right_component),
+        1.0 if left_component["body_raw_key"] == right_component["body_raw_key"] else 0.0,
+        _component_name_overlap(left_component["name"], right_component["name"]),
+        1.0 if left_component["primitive"] == right_component["primitive"] else 0.0,
+        1.0 if left_component["axis"] and left_component["axis"] == right_component["axis"] else 0.0,
+        1.0 if left_component["body_index"] == right_component["body_index"] else 0.0,
+    ]
+
+
+def _heuristic_compare_pairs(left_components: list[dict[str, Any]], right_components: list[dict[str, Any]]) -> list[tuple[dict, dict, dict]]:
+    pairs: list[tuple[dict, dict, dict]] = []
+    used_right: set[int] = set()
+    for left_index, left_component in enumerate(left_components, start=1):
+        exact_index = next(
+            (
+                right_index
+                for right_index, right_component in enumerate(right_components, start=1)
+                if right_index not in used_right
+                and right_component["body_raw_key"] == left_component["body_raw_key"]
+            ),
+            None,
+        )
+        if exact_index is not None:
+            right_component = right_components[exact_index - 1]
+            used_right.add(exact_index)
+            pairs.append((left_component, right_component, {"left_index": left_index, "right_index": exact_index, "cost": _component_match_cost(left_component, right_component), "reason": "shared_body_key"}))
+            continue
+        best: tuple[int, dict[str, Any], float] | None = None
+        for right_index, right_component in enumerate(right_components, start=1):
+            if right_index in used_right:
+                continue
+            cost = _component_match_cost(left_component, right_component)
+            if best is None or cost < best[2]:
+                best = (right_index, right_component, cost)
+        if best is None:
+            continue
+        used_right.add(best[0])
+        pairs.append((left_component, best[1], {"left_index": left_index, "right_index": best[0], "cost": best[2], "reason": "geometric_similarity"}))
+    return pairs
+
+
+def _compare_match_quality(probability: float) -> str:
+    if probability >= 0.82:
+        return "High"
+    if probability >= 0.58:
+        return "Medium"
+    return "Low"
+
+
+def compare_reports_ml(left_report: dict, right_report: dict) -> dict:
+    left_components = _flatten_report_components(left_report)
+    right_components = _flatten_report_components(right_report)
+    if not left_components or not right_components:
+        return {
+            "available": False,
+            "used_ml": False,
+            "summary": [],
+            "stats": {"matched_components": 0, "changed_components": 0, "added_components": 0, "removed_components": 0},
+            "highlightBodyKeys": {"left": [], "right": []},
+            "highlightRawFaces": {"left": [], "right": []},
+            "highlightRawEdges": {"left": [], "right": []},
+            "annotations": {"left": [], "right": []},
+        }
+
+    heuristic_pairs = _heuristic_compare_pairs(left_components, right_components)
+    exact_positive_keys = {
+        (int(meta["left_index"]), int(meta["right_index"]))
+        for _left, _right, meta in heuristic_pairs
+        if meta["reason"] == "shared_body_key"
+    } or {
+        (int(meta["left_index"]), int(meta["right_index"]))
+        for _left, _right, meta in heuristic_pairs
+    }
+
+    probability_map: dict[tuple[int, int], float] = {}
+    model_info = None
+    training_features: list[list[float]] = []
+    training_labels: list[int] = []
+    predict_features: list[list[float]] = []
+    pair_lookup: list[tuple[int, int, dict, dict, float]] = []
+    for left_index, left_component in enumerate(left_components, start=1):
+        for right_index, right_component in enumerate(right_components, start=1):
+            features = _component_match_features(left_component, right_component)
+            pair_lookup.append((left_index, right_index, left_component, right_component, _component_match_cost(left_component, right_component)))
+            predict_features.append(features)
+            training_features.append(features)
+            training_labels.append(1 if (left_index, right_index) in exact_positive_keys else 0)
+    ml_result = predict_match_probabilities(
+        training_features=training_features,
+        training_labels=training_labels,
+        predict_features=predict_features,
+        model_name="compare_component_match_ensemble",
+    )
+    if ml_result and ml_result.get("ok"):
+        model_info = ml_result.get("model")
+        for (left_index, right_index, _left_component, _right_component, _cost), probability in zip(pair_lookup, ml_result.get("probabilities", [])):
+            probability_map[(left_index, right_index)] = float(probability)
+
+    selected: list[tuple[dict, dict, dict]] = []
+    remaining_left = {index + 1: component for index, component in enumerate(left_components)}
+    remaining_right = {index + 1: component for index, component in enumerate(right_components)}
+    while remaining_left and remaining_right:
+        candidates = []
+        for left_index, right_index, left_component, right_component, cost in pair_lookup:
+            if left_index not in remaining_left or right_index not in remaining_right:
+                continue
+            probability = probability_map.get((left_index, right_index), max(0.0, 1.0 - min(cost / 5.0, 1.0)))
+            candidates.append((probability, -cost, left_index, right_index, left_component, right_component, cost))
+        if not candidates:
+            break
+        probability, _neg_cost, left_index, right_index, left_component, right_component, cost = max(candidates)
+        selected.append((left_component, right_component, {"left_index": left_index, "right_index": right_index, "probability": probability, "cost": cost, "match_quality": _compare_match_quality(probability)}))
+        remaining_left.pop(left_index, None)
+        remaining_right.pop(right_index, None)
+
+    highlight_body_keys = {"left": [], "right": []}
+    highlight_raw_faces = {"left": [], "right": []}
+    highlight_raw_edges = {"left": [], "right": []}
+    annotations = {"left": [], "right": []}
+    summary: list[str] = []
+    changed_count = 0
+
+    for left_component, right_component, meta in selected:
+        profile_delta = _profile_delta(left_component.get("profile"), right_component.get("profile"))
+        size_delta = sum(
+            abs(float(left_component["size"][index]) - float(right_component["size"][index]))
+            / max(abs(float(left_component["size"][index])), abs(float(right_component["size"][index])), 1e-9)
+            for index in range(3)
+        ) / 3.0
+        changed = (
+            profile_delta["mismatch_ratio"] >= 0.08
+            or size_delta >= 0.06
+            or left_component["face_count"] != right_component["face_count"]
+            or left_component["edge_count"] != right_component["edge_count"]
+        )
+        if not changed:
+            continue
+        changed_count += 1
+        highlight_body_keys["left"].append(left_component["body_raw_key"])
+        highlight_body_keys["right"].append(right_component["body_raw_key"])
+        left_face_bins = {entry["bin"] for entry in left_component["face_entries"]}
+        right_face_bins = {entry["bin"] for entry in right_component["face_entries"]}
+        left_edge_bins = {entry["bin"] for entry in left_component["edge_entries"]}
+        right_edge_bins = {entry["bin"] for entry in right_component["edge_entries"]}
+        left_changed_faces = [entry for entry in left_component["face_entries"] if entry["bin"] not in right_face_bins][:180]
+        right_changed_faces = [entry for entry in right_component["face_entries"] if entry["bin"] not in left_face_bins][:180]
+        left_changed_edges = [entry for entry in left_component["edge_entries"] if entry["bin"] not in right_edge_bins][:120]
+        right_changed_edges = [entry for entry in right_component["edge_entries"] if entry["bin"] not in left_edge_bins][:120]
+        highlight_raw_faces["left"].extend(entry["key"] for entry in left_changed_faces)
+        highlight_raw_faces["right"].extend(entry["key"] for entry in right_changed_faces)
+        highlight_raw_edges["left"].extend(entry["key"] for entry in left_changed_edges)
+        highlight_raw_edges["right"].extend(entry["key"] for entry in right_changed_edges)
+        left_point = _average_point([entry["centroid"] for entry in left_changed_faces if entry["centroid"]]) or left_component["center"]
+        right_point = _average_point([entry["centroid"] for entry in right_changed_faces if entry["centroid"]]) or right_component["center"]
+        mismatch_percent = int(round(profile_delta["mismatch_ratio"] * 100))
+        summary.append(
+            f"ML compare matched {left_component['name']} to {right_component['name']} with {meta['match_quality'].lower()} confidence and found about {mismatch_percent}% regional mismatch."
+        )
+        annotations["left"].append({"point": left_point, "lines": [f"{left_component['name']} ML-changed region ({mismatch_percent}% mismatch)"]})
+        annotations["right"].append({"point": right_point, "lines": [f"{right_component['name']} ML-changed region ({mismatch_percent}% mismatch)"]})
+
+    summary.insert(
+        0,
+        f"ML compare matched {len(selected)} component(s); {changed_count} changed, {len(remaining_right)} added, {len(remaining_left)} removed."
+    )
+    for component in remaining_left.values():
+        highlight_body_keys["left"].append(component["body_raw_key"])
+        summary.append(f"ML compare flagged removed component: {component['name']}.")
+    for component in remaining_right.values():
+        highlight_body_keys["right"].append(component["body_raw_key"])
+        summary.append(f"ML compare flagged added component: {component['name']}.")
+
+    return {
+        "available": bool(model_info),
+        "used_ml": bool(model_info),
+        "model": model_info,
+        "summary": summary[:12],
+        "stats": {
+            "matched_components": len(selected),
+            "changed_components": changed_count,
+            "added_components": len(remaining_right),
+            "removed_components": len(remaining_left),
+        },
+        "highlightBodyKeys": {
+            "left": list(dict.fromkeys(item for item in highlight_body_keys["left"] if item)),
+            "right": list(dict.fromkeys(item for item in highlight_body_keys["right"] if item)),
+        },
+        "highlightRawFaces": {
+            "left": list(dict.fromkeys(item for item in highlight_raw_faces["left"] if item)),
+            "right": list(dict.fromkeys(item for item in highlight_raw_faces["right"] if item)),
+        },
+        "highlightRawEdges": {
+            "left": list(dict.fromkeys(item for item in highlight_raw_edges["left"] if item)),
+            "right": list(dict.fromkeys(item for item in highlight_raw_edges["right"] if item)),
+        },
+        "annotations": {
+            "left": annotations["left"][:6],
+            "right": annotations["right"][:6],
+        },
+    }
 
 
 def preview_score(report: dict) -> tuple[int, int]:
@@ -1090,6 +1606,8 @@ HTML = """<!doctype html>
       viewer: defaultViewerState(),
       viewportBackground: "gray",
       compareSync: false,
+      compareMlCache: {},
+      compareMlPending: {},
       hiddenPreviewBodies: {},
       compareViewers: {
         left: defaultViewerState(),
@@ -1632,29 +2150,43 @@ HTML = """<!doctype html>
       const min = (bounds.min || [0, 0, 0]).map(Number);
       const bins = 6;
       const occupancy = new Set();
+      const occupancyCounts = new Map();
       const centroid = [0, 0, 0];
+      const radialDistances = [];
 
       sampled.forEach((point) => {
         const normalized = point.map((value, index) => Math.max(0, Math.min(1, (Number(value) - min[index]) / size[index])));
         centroid[0] += normalized[0];
         centroid[1] += normalized[1];
         centroid[2] += normalized[2];
-        occupancy.add(
-          normalized
-            .map((value) => Math.min(bins - 1, Math.max(0, Math.floor(value * bins))))
-            .join("|")
-        );
+        const binKey = normalized
+          .map((value) => Math.min(bins - 1, Math.max(0, Math.floor(value * bins))))
+          .join("|");
+        occupancy.add(binKey);
+        occupancyCounts.set(binKey, Number(occupancyCounts.get(binKey) || 0) + 1);
+        radialDistances.push(Math.hypot(normalized[0] - 0.5, normalized[1] - 0.5, normalized[2] - 0.5));
       });
 
       const count = sampled.length || 1;
+      const radialMean = radialDistances.length
+        ? radialDistances.reduce((sum, value) => sum + value, 0) / radialDistances.length
+        : 0;
+      const radialStd = radialDistances.length
+        ? Math.sqrt(radialDistances.reduce((sum, value) => sum + ((value - radialMean) ** 2), 0) / radialDistances.length)
+        : 0;
+      const maxExtent = Math.max(...size, 1e-9);
       return {
         pointCount: pointCloud.length,
         sampleCount: sampled.length,
         faceCount: Number(stats.faceCount || 0),
         edgeCount: Number(stats.edgeCount || 0),
         occupancy,
+        occupancyCounts,
         occupancyCount: occupancy.size,
         centroid: centroid.map((value) => value / count),
+        radialMean,
+        radialStd,
+        extentRatios: size.map((value) => value / maxExtent),
       };
     }
 
@@ -1668,13 +2200,197 @@ HTML = """<!doctype html>
         rightProfile.centroid[1] - leftProfile.centroid[1],
         rightProfile.centroid[2] - leftProfile.centroid[2]
       );
-      return { mismatchRatio, centroidDelta };
+      const radialDelta = Math.abs(Number(rightProfile.radialMean || 0) - Number(leftProfile.radialMean || 0))
+        + Math.abs(Number(rightProfile.radialStd || 0) - Number(leftProfile.radialStd || 0));
+      const densityDelta = Math.abs(Number(rightProfile.occupancyCount || 0) - Number(leftProfile.occupancyCount || 0))
+        / Math.max(Number(leftProfile.occupancyCount || 0), Number(rightProfile.occupancyCount || 0), 1);
+      const extentDelta = Math.max(
+        ...((leftProfile.extentRatios || []).map((value, index) =>
+          Math.abs(Number((rightProfile.extentRatios || [])[index] || 0) - Number(value || 0))
+        )),
+        0
+      );
+      return { mismatchRatio, centroidDelta, radialDelta, densityDelta, extentDelta };
+    }
+
+    function averagePoint(points) {
+      if (!Array.isArray(points) || !points.length) return null;
+      const totals = [0, 0, 0];
+      points.forEach((point) => {
+        totals[0] += Number(point[0] || 0);
+        totals[1] += Number(point[1] || 0);
+        totals[2] += Number(point[2] || 0);
+      });
+      return totals.map((value) => value / points.length);
+    }
+
+    function meshBinKey(point, bounds, bins = 8) {
+      if (!bounds || !Array.isArray(point) || point.length < 3) return null;
+      const min = bounds.min || [0, 0, 0];
+      const size = (bounds.size || [0, 0, 0]).map((value) => Math.max(Number(value) || 0, 1e-9));
+      return point
+        .map((value, index) => Math.min(
+          bins - 1,
+          Math.max(0, Math.floor(((Number(value) - Number(min[index] || 0)) / size[index]) * bins))
+        ))
+        .join("|");
+    }
+
+    function colorDistance(leftColor, rightColor) {
+      if (!Array.isArray(leftColor) || !Array.isArray(rightColor)) return 0;
+      return Math.hypot(
+        Number(rightColor[0] || 0) - Number(leftColor[0] || 0),
+        Number(rightColor[1] || 0) - Number(leftColor[1] || 0),
+        Number(rightColor[2] || 0) - Number(leftColor[2] || 0)
+      );
+    }
+
+    function formatRgb(rgb) {
+      if (!Array.isArray(rgb) || rgb.length < 3) return "Unknown";
+      return `rgb(${rgb.slice(0, 3).map((value) => Math.round(Number(value || 0))).join(", ")})`;
+    }
+
+    function componentFaceEntries(component, bounds, identity) {
+      return (component?.faces || [])
+        .map((face, faceIndex) => {
+          const vertices = Array.isArray(face?.vertices) ? face.vertices : [];
+          if (vertices.length < 3) return null;
+          const centroid = averagePoint(vertices);
+          return {
+            rawFaceKey: rawIdentityKey(
+              face?.metadata?.object_identity,
+              `body:${Number(face?.metadata?.source_body_index || component?.metadata?.nx_body_index || identity.bodyIndex || 0)}:face:${Number(face?.metadata?.source_face_index || faceIndex + 1)}`
+            ),
+            centroid,
+            binKey: meshBinKey(centroid, bounds),
+          };
+        })
+        .filter((entry) => entry?.rawFaceKey && entry?.binKey && entry?.centroid);
+    }
+
+    function componentEdgeEntries(component, bounds, identity) {
+      return (component?.edges || [])
+        .map((edge, edgeIndex) => {
+          const points = Array.isArray(edge?.points) ? edge.points : [];
+          if (points.length < 2) return null;
+          const centroid = averagePoint(points);
+          return {
+            rawEdgeKey: rawIdentityKey(
+              edge?.object_identity,
+              `body:${Number(component?.metadata?.nx_body_index || identity.bodyIndex || 0)}:edge:${Number(edge?.source_edge_index || edgeIndex + 1)}`
+            ),
+            centroid,
+            binKey: meshBinKey(centroid, bounds),
+          };
+        })
+        .filter((entry) => entry?.rawEdgeKey && entry?.binKey && entry?.centroid);
+    }
+
+    function averageEntryPoint(entries, key) {
+      const points = (entries || []).map((entry) => entry?.[key]).filter(Boolean);
+      return averagePoint(points);
+    }
+
+    function relativeDelta(leftValue, rightValue) {
+      return Math.abs(Number(rightValue || 0) - Number(leftValue || 0))
+        / Math.max(Math.abs(Number(leftValue || 0)), Math.abs(Number(rightValue || 0)), 1e-9);
+    }
+
+    function componentSimilarityCost(leftComponent, rightComponent) {
+      const leftBounds = leftComponent?.bounds;
+      const rightBounds = rightComponent?.bounds;
+      const leftSize = leftBounds?.size || [0, 0, 0];
+      const rightSize = rightBounds?.size || [0, 0, 0];
+      const referenceSpan = Math.max(
+        Math.hypot(...leftSize.map(Number)),
+        Math.hypot(...rightSize.map(Number)),
+        1e-9
+      );
+      const centerCost = Math.hypot(
+        Number(rightComponent.center?.[0] || 0) - Number(leftComponent.center?.[0] || 0),
+        Number(rightComponent.center?.[1] || 0) - Number(leftComponent.center?.[1] || 0),
+        Number(rightComponent.center?.[2] || 0) - Number(leftComponent.center?.[2] || 0)
+      ) / referenceSpan;
+      const sizeCost = AXES.reduce((sum, _axis, index) =>
+        sum + relativeDelta(leftSize[index], rightSize[index]), 0
+      ) / AXES.length;
+      const primitivePenalty = leftComponent.primitive === rightComponent.primitive ? 0 : 2.2;
+      const axisPenalty = (leftComponent.axis || null) === (rightComponent.axis || null)
+        ? 0
+        : ((leftComponent.axis || rightComponent.axis) ? 0.35 : 0);
+      const faceCost = relativeDelta(leftComponent.faceCount || 0, rightComponent.faceCount || 0) * 0.8;
+      const edgeCost = relativeDelta(leftComponent.edgeCount || 0, rightComponent.edgeCount || 0) * 0.45;
+      const colorCost = colorDistance(leftComponent.displayColor, rightComponent.displayColor) / 255;
+      const meshDelta = meshProfileDelta(leftComponent.meshProfile, rightComponent.meshProfile);
+      const meshCost = meshDelta
+        ? (meshDelta.mismatchRatio * 1.9) + (meshDelta.centroidDelta * 0.8) + (meshDelta.radialDelta * 0.9) + (meshDelta.extentDelta * 0.7)
+        : 0;
+      const labelBonus = leftComponent.label && rightComponent.label && leftComponent.label === rightComponent.label ? -0.35 : 0;
+      const bodyBonus = leftComponent.bodyRawKey && rightComponent.bodyRawKey && leftComponent.bodyRawKey === rightComponent.bodyRawKey ? -0.7 : 0;
+      return primitivePenalty + axisPenalty + (centerCost * 3.6) + (sizeCost * 3.4) + faceCost + edgeCost + (colorCost * 0.4) + meshCost + labelBonus + bodyBonus;
+    }
+
+    function matchQualityFromCost(cost) {
+      const normalized = Math.max(0, Math.min(1, 1 - (Number(cost || 0) / 5)));
+      if (normalized >= 0.82) return { label: "High", value: normalized };
+      if (normalized >= 0.58) return { label: "Medium", value: normalized };
+      return { label: "Low", value: normalized };
+    }
+
+    function componentRegionHighlights(leftComponent, rightComponent) {
+      const leftFaceEntries = leftComponent?.faceEntries || [];
+      const rightFaceEntries = rightComponent?.faceEntries || [];
+      const leftEdgeEntries = leftComponent?.edgeEntries || [];
+      const rightEdgeEntries = rightComponent?.edgeEntries || [];
+      const leftFaceBins = new Set(leftFaceEntries.map((entry) => entry.binKey));
+      const rightFaceBins = new Set(rightFaceEntries.map((entry) => entry.binKey));
+      const leftEdgeBins = new Set(leftEdgeEntries.map((entry) => entry.binKey));
+      const rightEdgeBins = new Set(rightEdgeEntries.map((entry) => entry.binKey));
+      const leftChangedFaces = leftFaceEntries.filter((entry) => !rightFaceBins.has(entry.binKey)).slice(0, 180);
+      const rightChangedFaces = rightFaceEntries.filter((entry) => !leftFaceBins.has(entry.binKey)).slice(0, 180);
+      const leftChangedEdges = leftEdgeEntries.filter((entry) => !rightEdgeBins.has(entry.binKey)).slice(0, 120);
+      const rightChangedEdges = rightEdgeEntries.filter((entry) => !leftEdgeBins.has(entry.binKey)).slice(0, 120);
+      const meshDelta = meshProfileDelta(leftComponent.meshProfile, rightComponent.meshProfile);
+      const mismatchPercent = meshDelta ? `${(Number(meshDelta.mismatchRatio || 0) * 100).toFixed(0)}%` : null;
+
+      return {
+        highlightRawFaces: {
+          left: leftChangedFaces.map((entry) => entry.rawFaceKey),
+          right: rightChangedFaces.map((entry) => entry.rawFaceKey),
+        },
+        highlightRawEdges: {
+          left: leftChangedEdges.map((entry) => entry.rawEdgeKey),
+          right: rightChangedEdges.map((entry) => entry.rawEdgeKey),
+        },
+        annotations: {
+          left: leftChangedFaces.length || leftChangedEdges.length
+            ? [{
+                point: averageEntryPoint(leftChangedFaces, "centroid") || averageEntryPoint(leftChangedEdges, "centroid") || leftComponent.center,
+                lines: [`${leftComponent.label} changed region${mismatchPercent ? ` (${mismatchPercent} mismatch)` : ""}`],
+              }]
+            : [],
+          right: rightChangedFaces.length || rightChangedEdges.length
+            ? [{
+                point: averageEntryPoint(rightChangedFaces, "centroid") || averageEntryPoint(rightChangedEdges, "centroid") || rightComponent.center,
+                lines: [`${rightComponent.label} changed region${mismatchPercent ? ` (${mismatchPercent} mismatch)` : ""}`],
+              }]
+            : [],
+        },
+      };
     }
 
     function describeComponent(component, identity, siblingCount = 1) {
       const metadata = component?.metadata || {};
       const primitive = identity.primitive;
       const label = componentLabel(component, identity, siblingCount);
+      const bodyRawKey = rawIdentityKey(
+        component?.metadata?.object_identity,
+        `body:${Number(component?.metadata?.nx_body_index || identity.bodyIndex || 0)}`
+      );
+      const displayColor = displayColorFromProperties(
+        component?.metadata?.display_properties,
+        displayColorFromProperties(component?.metadata?.component_context?.display_properties, null)
+      );
 
       if (primitive === "box") {
         const dimensions = metadata.dimensions || {};
@@ -1683,8 +2399,12 @@ HTML = """<!doctype html>
         return {
           ...identity,
           label,
+          bodyRawKey,
+          displayColor,
           bounds: boundsFromCenterSize(center, size),
           center,
+          faceCount: component?.faces?.length || 0,
+          edgeCount: component?.edges?.length || 0,
           measurements: Object.fromEntries(AXES.map((axis, index) => [axis, size[index]])),
         };
       }
@@ -1698,8 +2418,12 @@ HTML = """<!doctype html>
           ...identity,
           label,
           axis,
+          bodyRawKey,
+          displayColor,
           center,
           bounds: cylinderBounds(axis, center, radius, height),
+          faceCount: component?.faces?.length || 0,
+          edgeCount: component?.edges?.length || 0,
           measurements: {
             height,
             radius,
@@ -1715,8 +2439,12 @@ HTML = """<!doctype html>
         return {
           ...identity,
           label,
+          bodyRawKey,
+          displayColor,
           center,
           bounds: boundsFromCenterSize(center, size),
+          faceCount: component?.faces?.length || 0,
+          edgeCount: component?.edges?.length || 0,
           measurements: {
             diameter: radius * 2,
             radius,
@@ -1729,13 +2457,21 @@ HTML = """<!doctype html>
         ...(component?.edges || []).flatMap((edge) => edge.points || []),
       ].map((point) => point.map(Number));
       const bounds = pointCloud.length ? boundsFromPoints(pointCloud) : null;
+      const faceEntries = componentFaceEntries(component, bounds, identity);
+      const edgeEntries = componentEdgeEntries(component, bounds, identity);
       return {
         ...identity,
         label,
+        bodyRawKey,
+        displayColor,
         center: bounds
           ? bounds.min.map((value, index) => (value + bounds.max[index]) / 2)
           : [0, 0, 0],
         bounds,
+        faceCount: component?.faces?.length || 0,
+        edgeCount: component?.edges?.length || 0,
+        faceEntries,
+        edgeEntries,
         meshProfile: meshProfileFromPointCloud(pointCloud, bounds, {
           faceCount: component?.faces?.length || 0,
           edgeCount: component?.edges?.length || 0,
@@ -1782,16 +2518,17 @@ HTML = """<!doctype html>
 
     function matchRightComponent(leftComponent, rightComponents, used) {
       let match = rightComponents.find((candidate) => !used.has(candidate.id) && candidate.id === leftComponent.id);
-      if (match) return match;
+      if (match) return { component: match, cost: 0 };
 
-      match = rightComponents.find((candidate) =>
-        !used.has(candidate.id)
-        && candidate.primitive === leftComponent.primitive
-        && (candidate.axis || null) === (leftComponent.axis || null)
-      );
-      if (match) return match;
+      const candidates = rightComponents
+        .filter((candidate) => !used.has(candidate.id))
+        .map((candidate) => ({ candidate, cost: componentSimilarityCost(leftComponent, candidate) }))
+        .sort((a, b) => a.cost - b.cost);
 
-      return rightComponents.find((candidate) => !used.has(candidate.id) && candidate.primitive === leftComponent.primitive) || null;
+      if (!candidates.length) return null;
+      const best = candidates[0];
+      if (best.cost > 4.1) return null;
+      return { component: best.candidate, cost: best.cost };
     }
 
     function componentPropertyChanges(leftComponent, rightComponent) {
@@ -1863,8 +2600,25 @@ HTML = """<!doctype html>
           });
         }
 
+        const edgeDelta = Number(rightMesh.edgeCount || 0) - Number(leftMesh.edgeCount || 0);
+        if (Math.abs(edgeDelta) >= 1) {
+          properties.push({
+            kind: "edge_count",
+            axis: longestBoundsAxis(leftComponent.bounds || rightComponent.bounds),
+            label: "Mesh edges",
+            leftValue: Number(leftMesh.edgeCount || 0),
+            rightValue: Number(rightMesh.edgeCount || 0),
+            delta: edgeDelta,
+          });
+        }
+
         const profileDelta = meshProfileDelta(leftMesh, rightMesh);
-        if (profileDelta && (profileDelta.mismatchRatio >= 0.12 || profileDelta.centroidDelta >= 0.045)) {
+        if (profileDelta && (
+          profileDelta.mismatchRatio >= 0.08
+          || profileDelta.centroidDelta >= 0.03
+          || profileDelta.radialDelta >= 0.045
+          || profileDelta.extentDelta >= 0.06
+        )) {
           properties.push({
             kind: "shape_profile",
             axis: longestBoundsAxis(leftComponent.bounds || rightComponent.bounds),
@@ -1873,10 +2627,36 @@ HTML = """<!doctype html>
             rightValue: 0,
             delta: profileDelta.mismatchRatio,
             centroidDelta: profileDelta.centroidDelta,
+            radialDelta: profileDelta.radialDelta,
+            extentDelta: profileDelta.extentDelta,
           });
         }
       }
+
+      const colorDeltaValue = colorDistance(leftComponent.displayColor, rightComponent.displayColor);
+      if (colorDeltaValue >= 18) {
+        properties.push({
+          kind: "color",
+          axis: longestBoundsAxis(leftComponent.bounds || rightComponent.bounds),
+          label: "Color",
+          leftValue: leftComponent.displayColor,
+          rightValue: rightComponent.displayColor,
+          delta: colorDeltaValue,
+        });
+      }
       return properties;
+    }
+
+    function propertySeverity(property) {
+      if (!property) return 0;
+      if (property.kind === "shape_profile") return 6 + ((Number(property.delta || 0) * 10) || 0);
+      if (property.kind === "facet_count" || property.kind === "edge_count") return 3 + Math.min(4, Math.abs(Number(property.delta || 0)) / 4);
+      if (property.kind === "color") return 1.5 + (Number(property.delta || 0) / 64);
+      return 1 + Math.abs(Number(property.delta || 0));
+    }
+
+    function changeSeverity(change) {
+      return (change?.properties || []).reduce((sum, property) => sum + propertySeverity(property), 0);
     }
 
     function cylinderDiameterEndpoints(component, axis) {
@@ -1980,27 +2760,35 @@ HTML = """<!doctype html>
     function summarizeComponentChange(change) {
       if (change.properties.some((property) => property.kind === "shape_profile")) {
         const faceProperty = change.properties.find((property) => property.kind === "facet_count");
+        const edgeProperty = change.properties.find((property) => property.kind === "edge_count");
         const profileProperty = change.properties.find((property) => property.kind === "shape_profile");
         const parts = [
           `${change.label} surface shape changed visibly`,
           faceProperty ? `mesh faces ${Math.round(faceProperty.leftValue)} -> ${Math.round(faceProperty.rightValue)}` : null,
+          edgeProperty ? `mesh edges ${Math.round(edgeProperty.leftValue)} -> ${Math.round(edgeProperty.rightValue)}` : null,
           profileProperty ? `profile mismatch ${(Number(profileProperty.delta || 0) * 100).toFixed(0)}%` : null,
+          profileProperty?.radialDelta ? `radial signature ${(Number(profileProperty.radialDelta) * 100).toFixed(0)}%` : null,
+          change.matchQuality ? `match quality ${change.matchQuality.label.toLowerCase()}` : null,
         ].filter(Boolean);
         return `${parts.join(", ")}.`;
       }
 
-      const propertyDescriptions = change.properties.map((property) =>
-        property.kind === "facet_count"
-          ? `${property.label} changed from ${Math.round(property.leftValue)} to ${Math.round(property.rightValue)}`
-          : `${property.label} ${changeVerb(property.delta)} from ${formatLength(property.leftValue)} to ${formatLength(property.rightValue)} (${formatSignedInches(property.delta)})`
-      );
+      const propertyDescriptions = change.properties.map((property) => {
+        if (property.kind === "facet_count" || property.kind === "edge_count") {
+          return `${property.label} changed from ${Math.round(property.leftValue)} to ${Math.round(property.rightValue)}`;
+        }
+        if (property.kind === "color") {
+          return `${property.label} changed from ${formatRgb(property.leftValue)} to ${formatRgb(property.rightValue)}`;
+        }
+        return `${property.label} ${changeVerb(property.delta)} from ${formatLength(property.leftValue)} to ${formatLength(property.rightValue)} (${formatSignedInches(property.delta)})`;
+      });
 
       if (change.primitive === "cylinder" && change.properties.length === 1 && change.properties[0].kind === "height") {
         const radiusValue = Number(change.left.measurements.radius || change.right.measurements.radius || 0);
         return `${change.label} height ${changeVerb(change.properties[0].delta)} from ${formatLength(change.properties[0].leftValue)} to ${formatLength(change.properties[0].rightValue)} (${formatSignedInches(change.properties[0].delta)}). Radius stayed ${formatLength(radiusValue)}.`;
       }
 
-      return `${change.label}: ${propertyDescriptions.join("; ")}.`;
+      return `${change.label}: ${propertyDescriptions.join("; ")}${change.matchQuality ? ` Match quality ${change.matchQuality.label.toLowerCase()}.` : "."}`;
     }
 
     function topologyLabel(report) {
@@ -2601,9 +3389,17 @@ HTML = """<!doctype html>
         summary: [],
         dimensions: compareAxisDimensions(left, right),
         highlightComponents: { left: [], right: [] },
+        highlightBodyKeys: { left: [], right: [] },
         highlightRawFaces: { left: [], right: [] },
         highlightRawEdges: { left: [], right: [] },
-        annotations: { left: [], right: [] }
+        annotations: { left: [], right: [] },
+        stats: {
+          matchedComponents: 0,
+          changedComponents: 0,
+          addedComponents: 0,
+          removedComponents: 0,
+          matchQuality: "Unknown",
+        },
       };
 
       if (!left || !right) {
@@ -2616,12 +3412,21 @@ HTML = """<!doctype html>
       const rightComponents = reportComponents(right);
       const usedRightComponents = new Set();
       const componentChanges = [];
+      const removedComponents = [];
+      const addedComponents = [];
+      const matchQualities = [];
 
       for (const leftComponent of leftComponents) {
-        const rightComponent = matchRightComponent(leftComponent, rightComponents, usedRightComponents);
-        if (!rightComponent) continue;
+        const matched = matchRightComponent(leftComponent, rightComponents, usedRightComponents);
+        if (!matched?.component) {
+          removedComponents.push(leftComponent);
+          continue;
+        }
+        const rightComponent = matched.component;
         usedRightComponents.add(rightComponent.id);
         const properties = componentPropertyChanges(leftComponent, rightComponent);
+        const matchQuality = matchQualityFromCost(matched.cost);
+        matchQualities.push(matchQuality.value);
         if (!properties.length) {
           componentChanges.push({
             primitive: leftComponent.primitive,
@@ -2630,6 +3435,7 @@ HTML = """<!doctype html>
             right: rightComponent,
             properties: [],
             changed: false,
+            matchQuality,
           });
           continue;
         }
@@ -2641,32 +3447,64 @@ HTML = """<!doctype html>
           right: rightComponent,
           properties,
           changed: true,
+          matchQuality,
         });
       }
+
+      rightComponents
+        .filter((candidate) => !usedRightComponents.has(candidate.id))
+        .forEach((candidate) => addedComponents.push(candidate));
 
       const leftShape = topologyLabel(left);
       const rightShape = topologyLabel(right);
       info.changedShape = leftShape !== rightShape;
 
-      const changedComponents = componentChanges.filter((change) => change.changed);
+      const changedComponents = componentChanges
+        .filter((change) => change.changed)
+        .sort((a, b) => changeSeverity(b) - changeSeverity(a));
+      info.stats = {
+        matchedComponents: componentChanges.length,
+        changedComponents: changedComponents.length,
+        addedComponents: addedComponents.length,
+        removedComponents: removedComponents.length,
+        matchQuality: matchQualities.length
+          ? matchQualityFromCost((1 - (matchQualities.reduce((sum, value) => sum + value, 0) / matchQualities.length)) * 5).label
+          : "Unknown",
+      };
+      if (componentChanges.length || addedComponents.length || removedComponents.length) {
+        info.summary.push(
+          `Preview comparison matched ${componentChanges.length} component(s); ${changedComponents.length} changed, ${addedComponents.length} added, ${removedComponents.length} removed.`
+        );
+      }
       if (changedComponents.length) {
         info.changedAxes = [...new Set(changedComponents.flatMap((change) => change.properties.map((property) => property.axis).filter(Boolean)))];
         changedComponents.forEach((change) => {
           info.summary.push(summarizeComponentChange(change));
           info.highlightComponents.left.push(change.left.id);
           info.highlightComponents.right.push(change.right.id);
+          if (change.left.bodyRawKey) info.highlightBodyKeys.left.push(change.left.bodyRawKey);
+          if (change.right.bodyRawKey) info.highlightBodyKeys.right.push(change.right.bodyRawKey);
+          if (change.properties.some((property) => property.kind === "shape_profile")) {
+            const regionHighlights = componentRegionHighlights(change.left, change.right);
+            info.highlightRawFaces.left.push(...regionHighlights.highlightRawFaces.left);
+            info.highlightRawFaces.right.push(...regionHighlights.highlightRawFaces.right);
+            info.highlightRawEdges.left.push(...regionHighlights.highlightRawEdges.left);
+            info.highlightRawEdges.right.push(...regionHighlights.highlightRawEdges.right);
+            info.annotations.left.push(...regionHighlights.annotations.left);
+            info.annotations.right.push(...regionHighlights.annotations.right);
+          }
           change.properties.forEach((property) => {
             const leftEndpoints = annotationEndpointsForProperty(change.left, property);
             const rightEndpoints = annotationEndpointsForProperty(change.right, property);
             const focusSegments = focusSegmentsForProperty(change.left, change.right, property);
-            if (property.kind === "shape_profile") {
+            if (property.kind === "shape_profile" || property.kind === "color") {
               info.annotations.left.push({
                 point: change.left.center,
-                lines: [`${change.label} shape changed`],
+                lines: [property.kind === "color" ? `${change.label} color changed` : `${change.label} shape changed`],
               });
               info.annotations.right.push({
                 point: change.right.center,
-                lines: [`${change.label} shape changed`],
+                lines: [property.kind === "color" ? `${change.label} color changed` : `${change.label} shape changed`],
               });
               return;
             }
@@ -2675,7 +3513,7 @@ HTML = """<!doctype html>
                 start: leftEndpoints[0],
                 end: leftEndpoints[1],
                 lines: [
-                  property.kind === "facet_count"
+                  (property.kind === "facet_count" || property.kind === "edge_count")
                     ? `${change.label} ${property.label}: ${Math.round(property.leftValue)}`
                     : `${change.label} ${property.label}: ${formatInches(property.leftValue)}`
                 ],
@@ -2690,7 +3528,7 @@ HTML = """<!doctype html>
                 start: rightEndpoints[0],
                 end: rightEndpoints[1],
                 lines: [
-                  property.kind === "facet_count"
+                  (property.kind === "facet_count" || property.kind === "edge_count")
                     ? `${change.label} ${property.label}: ${Math.round(property.rightValue)}`
                     : `${change.label} ${property.label}: ${formatInches(property.rightValue)} (${formatSignedInches(property.delta)})`
                 ],
@@ -2752,15 +3590,52 @@ HTML = """<!doctype html>
         info.summary.push(`Shape changed: ${leftShape || "unknown"} -> ${rightShape || "unknown"}`);
       }
 
+      removedComponents.slice(0, 3).forEach((component) => {
+        info.summary.push(`Removed preview component: ${component.label}.`);
+        info.highlightComponents.left.push(component.id);
+        if (component.bodyRawKey) info.highlightBodyKeys.left.push(component.bodyRawKey);
+      });
+      addedComponents.slice(0, 3).forEach((component) => {
+        info.summary.push(`Added preview component: ${component.label}.`);
+        info.highlightComponents.right.push(component.id);
+        if (component.bodyRawKey) info.highlightBodyKeys.right.push(component.bodyRawKey);
+      });
+
       if (structuredDiff.summary.length) {
         info.summary = [...structuredDiff.summary, ...info.summary];
         info.highlightComponents.left.push(...structuredDiff.highlightBodyKeys.left);
         info.highlightComponents.right.push(...structuredDiff.highlightBodyKeys.right);
-        info.highlightRawFaces = structuredDiff.highlightRawFaces;
-        info.highlightRawEdges = structuredDiff.highlightRawEdges;
+        info.highlightBodyKeys.left.push(...structuredDiff.highlightBodyKeys.left);
+        info.highlightBodyKeys.right.push(...structuredDiff.highlightBodyKeys.right);
+        info.highlightRawFaces.left.push(...(structuredDiff.highlightRawFaces.left || []));
+        info.highlightRawFaces.right.push(...(structuredDiff.highlightRawFaces.right || []));
+        info.highlightRawEdges.left.push(...(structuredDiff.highlightRawEdges.left || []));
+        info.highlightRawEdges.right.push(...(structuredDiff.highlightRawEdges.right || []));
         info.annotations.left.push(...structuredDiff.annotations.left);
         info.annotations.right.push(...structuredDiff.annotations.right);
       }
+
+      info.summary = dedupeList(info.summary).slice(0, 18);
+      info.highlightComponents = {
+        left: dedupeList(info.highlightComponents.left),
+        right: dedupeList(info.highlightComponents.right),
+      };
+      info.highlightBodyKeys = {
+        left: dedupeList(info.highlightBodyKeys.left),
+        right: dedupeList(info.highlightBodyKeys.right),
+      };
+      info.highlightRawFaces = {
+        left: dedupeList(info.highlightRawFaces.left),
+        right: dedupeList(info.highlightRawFaces.right),
+      };
+      info.highlightRawEdges = {
+        left: dedupeList(info.highlightRawEdges.left),
+        right: dedupeList(info.highlightRawEdges.right),
+      };
+      info.annotations = {
+        left: (info.annotations.left || []).slice(0, 10),
+        right: (info.annotations.right || []).slice(0, 10),
+      };
 
       return info;
     }
@@ -2855,7 +3730,7 @@ HTML = """<!doctype html>
       return false;
     }
 
-    function compareAnnotationLines(annotations, limit = 4) {
+    function compareAnnotationLines(annotations, limit = 6) {
       const seen = new Set();
       const lines = [];
       for (const annotation of annotations || []) {
@@ -3763,7 +4638,9 @@ HTML = """<!doctype html>
       }
 
       const [left, right] = reports;
-      const diff = compareDiffInfo(left, right);
+      requestCompareMl(left, right).catch((error) => setStatus(error.message));
+      const compareMl = compareMlResult(left, right);
+      const diff = mergeCompareResults(compareDiffInfo(left, right), compareMl);
       const changeLines = diff.summary.length
         ? diff.summary
         : ["No geometric size change was inferred from the current preview data."];
@@ -3774,6 +4651,11 @@ HTML = """<!doctype html>
         ["Inferred Shape", topologyLabel(left), topologyLabel(right)],
         ["Faces / Edges", topologyCounts(left), topologyCounts(right)],
         ["Raw NX Faces / Edges", structuredTopologyLabel(left), structuredTopologyLabel(right)],
+        ["Matched Preview Components", String(diff.stats.matchedComponents || 0), String(diff.stats.matchedComponents || 0)],
+        ["Changed / Removed / Added", `${diff.stats.changedComponents || 0} / ${diff.stats.removedComponents || 0} / 0`, `${diff.stats.changedComponents || 0} / 0 / ${diff.stats.addedComponents || 0}`],
+        ["Match Quality", diff.stats.matchQuality || "Unknown", diff.stats.matchQuality || "Unknown"],
+        ["Comparison ML", diff.stats.ml || "Loading", diff.stats.ml || "Loading"],
+        ["ML Changed / Removed / Added", `${diff.stats.mlChangedComponents ?? "-"} / ${diff.stats.mlRemovedComponents ?? "-"} / 0`, `${diff.stats.mlChangedComponents ?? "-"} / 0 / ${diff.stats.mlAddedComponents ?? "-"}`],
         ["Density", formatDensity(left), formatDensity(right)],
         ["Colors", formatColors(left), formatColors(right)],
         ["Bounds", formatBounds(left.geometry_hints?.bounds), formatBounds(right.geometry_hints?.bounds)],
@@ -3812,6 +4694,7 @@ HTML = """<!doctype html>
                 <div id="compare-left-overlay" class="viewport-overlay"></div>
               </div>
               <div class="compare-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. This view now renders directly in WebGL.</div>
+              <div class="compare-note">${compareMl ? escapeHtml(`Comparison ML: ${compareMlStatusLabel(compareMl)}`) : "Comparison ML is loading in the background."}</div>
               <div class="compare-note">${leftCallouts.length ? leftCallouts.map((line) => escapeHtml(line)).join("<br>") : "Changed regions will highlight in orange on this side."}</div>
             </div>
             <div class="compare-preview-card">
@@ -3821,6 +4704,7 @@ HTML = """<!doctype html>
                 <div id="compare-right-overlay" class="viewport-overlay"></div>
               </div>
               <div class="compare-note">This comparison pane uses the same WebGL mesh pipeline as the main preview.</div>
+              <div class="compare-note">${compareMl?.model?.type ? escapeHtml(`ML model: ${compareMl.model.type}`) : "Learning-based compare will refine matches when available."}</div>
               <div class="compare-note">${rightCallouts.length ? rightCallouts.map((line) => escapeHtml(line)).join("<br>") : "Changed regions will highlight in orange on this side."}</div>
             </div>
           </div>
@@ -3894,6 +4778,7 @@ HTML = """<!doctype html>
       }
 
       const [left, right] = reports;
+      const diff = mergeCompareResults(compareDiffInfo(left, right), compareMlResult(left, right));
       Promise.all([
         ensureCompareViewport("left"),
         ensureCompareViewport("right"),
@@ -3906,6 +4791,7 @@ HTML = """<!doctype html>
             fitView: leftViewport.currentReportKey !== reportKey(left) || !leftViewport.previewObjects,
             mode: "solid",
             highlightComponents: diff.highlightComponents.left,
+            highlightBodyKeys: diff.highlightBodyKeys.left,
             highlightRawFaces: diff.highlightRawFaces.left,
             highlightRawEdges: diff.highlightRawEdges.left,
           });
@@ -3913,6 +4799,7 @@ HTML = """<!doctype html>
             fitView: rightViewport.currentReportKey !== reportKey(right) || !rightViewport.previewObjects,
             mode: "solid",
             highlightComponents: diff.highlightComponents.right,
+            highlightBodyKeys: diff.highlightBodyKeys.right,
             highlightRawFaces: diff.highlightRawFaces.right,
             highlightRawEdges: diff.highlightRawEdges.right,
           });
@@ -5735,6 +6622,93 @@ HTML = """<!doctype html>
       return response.json();
     }
 
+    function comparePairKey(left, right) {
+      return `${reportKey(left)}||${reportKey(right)}`;
+    }
+
+    function compareMlPayload(report) {
+      return {
+        file: report?.file,
+        file_name: report?.file_name,
+        decoded_names: report?.decoded_names || [],
+        geometry_hints: {
+          bounds: report?.geometry_hints?.bounds || null,
+          point_count: report?.geometry_hints?.point_count || 0,
+        },
+        kernel_bodies: kernelBodies(report),
+      };
+    }
+
+    function compareMlResult(left, right) {
+      return state.compareMlCache[comparePairKey(left, right)] || null;
+    }
+
+    async function requestCompareMl(left, right) {
+      const key = comparePairKey(left, right);
+      if (!left || !right || state.compareMlCache[key] || state.compareMlPending[key]) return;
+      state.compareMlPending[key] = true;
+      try {
+        const data = await postJson("/api/compare-ml", {
+          left: compareMlPayload(left),
+          right: compareMlPayload(right),
+        });
+        state.compareMlCache[key] = data || {};
+      } catch (error) {
+        state.compareMlCache[key] = { error: error.message, available: false, used_ml: false };
+      } finally {
+        delete state.compareMlPending[key];
+        const reports = comparisonReports();
+        if (reports.length === 2 && comparePairKey(reports[0], reports[1]) === key) {
+          renderCompare();
+        }
+      }
+    }
+
+    function compareMlStatusLabel(compareMl) {
+      if (!compareMl) return "Loading";
+      if (compareMl?.error) return "Unavailable";
+      if (compareMl?.used_ml) {
+        const modelType = compareMl?.model?.type || "ML";
+        return `On (${modelType})`;
+      }
+      if (compareMl?.available === false) return "Fallback";
+      return "Waiting";
+    }
+
+    function mergeCompareResults(baseDiff, compareMl) {
+      if (!compareMl) return baseDiff;
+      return {
+        ...baseDiff,
+        summary: dedupeList([...(compareMl.summary || []), ...(baseDiff.summary || [])]).slice(0, 18),
+        highlightComponents: baseDiff.highlightComponents,
+        highlightBodyKeys: {
+          left: dedupeList([...(baseDiff.highlightBodyKeys?.left || []), ...((compareMl.highlightBodyKeys || {}).left || [])]),
+          right: dedupeList([...(baseDiff.highlightBodyKeys?.right || []), ...((compareMl.highlightBodyKeys || {}).right || [])]),
+        },
+        highlightRawFaces: {
+          left: dedupeList([...(baseDiff.highlightRawFaces?.left || []), ...((compareMl.highlightRawFaces || {}).left || [])]),
+          right: dedupeList([...(baseDiff.highlightRawFaces?.right || []), ...((compareMl.highlightRawFaces || {}).right || [])]),
+        },
+        highlightRawEdges: {
+          left: dedupeList([...(baseDiff.highlightRawEdges?.left || []), ...((compareMl.highlightRawEdges || {}).left || [])]),
+          right: dedupeList([...(baseDiff.highlightRawEdges?.right || []), ...((compareMl.highlightRawEdges || {}).right || [])]),
+        },
+        annotations: {
+          left: [...(compareMl.annotations?.left || []), ...(baseDiff.annotations?.left || [])].slice(0, 10),
+          right: [...(compareMl.annotations?.right || []), ...(baseDiff.annotations?.right || [])].slice(0, 10),
+        },
+        stats: {
+          ...(baseDiff.stats || {}),
+          ml: compareMlStatusLabel(compareMl),
+          mlMatchedComponents: compareMl?.stats?.matched_components ?? null,
+          mlChangedComponents: compareMl?.stats?.changed_components ?? null,
+          mlAddedComponents: compareMl?.stats?.added_components ?? null,
+          mlRemovedComponents: compareMl?.stats?.removed_components ?? null,
+        },
+        compareMl,
+      };
+    }
+
     function stepUploadCount(files) {
       return [...(files || [])].filter((file) => /\.(step|stp)$/i.test(file?.name || "")).length;
     }
@@ -6395,6 +7369,12 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
                     raise ValueError("Selected reports are not a compatible STEP + JSON fusion pair.")
                 reports = _reports_for_client([enrich_report(fused_report)])
                 self._send_json({"reports": reports})
+                return
+
+            if parsed.path == "/api/compare-ml":
+                left_report = payload.get("left") or {}
+                right_report = payload.get("right") or {}
+                self._send_json(compare_reports_ml(left_report, right_report))
                 return
         except FileNotFoundError as exc:
             self._send_json({"error": f"File not found: {exc}"}, status=HTTPStatus.NOT_FOUND)

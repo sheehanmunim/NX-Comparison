@@ -269,7 +269,7 @@ def _step_occ_preview(payload: dict[str, Any]) -> dict[str, Any]:
 
 
 def _ml_match_probabilities(payload: dict[str, Any]) -> dict[str, Any]:
-    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.ensemble import ExtraTreesClassifier, GradientBoostingClassifier, RandomForestClassifier
 
     training_features = payload.get("training_features") or []
     training_labels = payload.get("training_labels") or []
@@ -283,23 +283,63 @@ def _ml_match_probabilities(payload: dict[str, Any]) -> dict[str, Any]:
     if len(set(int(label) for label in training_labels)) < 2:
         return {"ok": False, "error": "Need at least two classes for ML matching."}
 
-    model = RandomForestClassifier(
-        n_estimators=160,
-        random_state=7,
-        class_weight="balanced",
-        min_samples_leaf=1,
-    )
-    model.fit(training_features, [int(label) for label in training_labels])
-    probabilities = [
-        float(row[1]) if len(row) > 1 else 0.0
-        for row in model.predict_proba(predict_features)
+    labels = [int(label) for label in training_labels]
+    models = [
+        (
+            "RandomForestClassifier",
+            RandomForestClassifier(
+                n_estimators=220,
+                random_state=7,
+                class_weight="balanced_subsample",
+                min_samples_leaf=1,
+                max_features="sqrt",
+            ),
+        ),
+        (
+            "ExtraTreesClassifier",
+            ExtraTreesClassifier(
+                n_estimators=260,
+                random_state=11,
+                class_weight="balanced",
+                min_samples_leaf=1,
+                max_features="sqrt",
+            ),
+        ),
+        (
+            "GradientBoostingClassifier",
+            GradientBoostingClassifier(
+                n_estimators=140,
+                learning_rate=0.06,
+                max_depth=3,
+                random_state=13,
+            ),
+        ),
     ]
+    probability_rows: list[list[float]] = []
+    ensemble_members: list[dict[str, Any]] = []
+    for estimator_name, model in models:
+        model.fit(training_features, labels)
+        probability_rows.append(
+            [
+                float(row[1]) if len(row) > 1 else 0.0
+                for row in model.predict_proba(predict_features)
+            ]
+        )
+        ensemble_members.append({"type": estimator_name})
+
+    probabilities = []
+    for index in range(len(predict_features)):
+        member_values = [row[index] for row in probability_rows]
+        average_probability = sum(member_values) / len(member_values)
+        spread = max(member_values) - min(member_values) if len(member_values) > 1 else 0.0
+        probabilities.append(max(0.0, min(1.0, average_probability - (spread * 0.08))))
     return {
         "ok": True,
         "model": {
             "name": model_name,
-            "type": "RandomForestClassifier",
-            "n_estimators": 160,
+            "type": "EnsembleClassifier",
+            "members": ensemble_members,
+            "feature_count": len(training_features[0]) if training_features else 0,
         },
         "probabilities": probabilities,
     }
