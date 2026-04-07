@@ -18,7 +18,9 @@ from xt_part_report import (
     _fused_report_from_step_and_json,
     analyze_input_bytes,
     analyze_input_text,
+    build_step_preview_only_report,
     metric_and_imperial,
+    parse_step_input_text,
 )
 
 
@@ -80,10 +82,17 @@ def _report_stem_token(report: dict) -> str | None:
 def _preview_metadata_for_report(report: dict) -> dict:
     source_format = str((report.get("transmit_info") or {}).get("source_format") or "")
     if source_format == "step_file":
+        backend = ((report.get("step_import") or {}).get("backend") or "").strip().lower()
+        if backend == "native_step_parser":
+            return {
+                "strategy": "step_quick_preview",
+                "label": "STEP Quick Preview",
+                "description": "Loaded quickly from decoded STEP topology while the refined STEP mesh preview can be generated in the background.",
+            }
         return {
             "strategy": "step_import_preview",
             "label": "STEP Import",
-            "description": "Imported directly from the STEP file and shown from decoded STEP topology.",
+            "description": "Imported directly from the STEP file and shown as a viewer-style STEP mesh preview.",
         }
     if source_format == "siemens_nx_json":
         return {
@@ -1044,6 +1053,7 @@ HTML = """<!doctype html>
     let previewViewport = null;
     let compareViewports = { left: null, right: null };
     let webGlModulesPromise = null;
+    let pendingStepRefinements = new Set();
 
     function byId(id) {
       return document.getElementById(id);
@@ -1244,6 +1254,9 @@ HTML = """<!doctype html>
     function previewNoteText(report) {
       const baseControls = "Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. Double-click fits the model.";
       const strategy = previewMetadata(report).strategy;
+      if (strategy === "step_quick_preview") {
+        return `${baseControls} This STEP file is shown with a fast topology-based preview first, then it will refine toward the full viewer-style STEP mesh automatically.`;
+      }
       if (strategy === "step_import_preview") {
         return `${baseControls} This file is being shown as a direct STEP import preview, closer to the Online3DViewer-style flow.`;
       }
@@ -1269,6 +1282,7 @@ HTML = """<!doctype html>
     function previewReadyMessage(report) {
       if (!report) return "Preview ready.";
       const strategy = previewMetadata(report).strategy;
+      if (strategy === "step_quick_preview") return `Loaded ${report.file_name}. Fast STEP preview ready; refining the full STEP mesh in the background.`;
       if (strategy === "step_import_preview") return `Loaded ${report.file_name}. STEP import preview ready.`;
       if (strategy === "stl_mesh_preview") return `Loaded ${report.file_name}. STL mesh preview ready.`;
       if (strategy === "json_reconstruction_preview") return `Loaded ${report.file_name}. JSON reconstruction preview ready.`;
@@ -1292,6 +1306,9 @@ HTML = """<!doctype html>
       const sourceFormat = report?.transmit_info?.source_format || "";
       if (!["step_file", "fused_step_json"].includes(sourceFormat)) return "Not applicable";
       const backend = report?.step_import?.backend || report?.entity_hints?.step_backend || "native_step_parser";
+      if (backend === "native_step_parser" && report?.step_import?.refinement_pending) {
+        return "Built-in STEP topology importer (refining mesh preview)";
+      }
       if (backend === "opencascade_occ") return "Open Cascade";
       if (backend === "native_step_parser") return "Built-in STEP topology importer";
       return backend.replaceAll("_", " ");
@@ -2901,16 +2918,68 @@ HTML = """<!doctype html>
     }
 
     function mergeReports(incoming) {
+      mergeReportsInternal(incoming, {});
+    }
+
+    function invalidateViewportCaches() {
+      if (previewViewport) {
+        previewViewport.currentReportKey = null;
+        previewViewport.currentHiddenKey = "";
+      }
+      Object.values(compareViewports).forEach((viewport) => {
+        if (!viewport) return;
+        viewport.currentReportKey = null;
+        viewport.currentHiddenKey = "";
+      });
+    }
+
+    function mergeReportsInternal(incoming, options = {}) {
+      const { preserveSelection = false } = options;
       const reportMap = new Map(state.reports.map((report) => [reportKey(report), report]));
       for (const report of enrichReports(incoming)) {
         reportMap.set(reportKey(report), report);
       }
       state.reports = [...reportMap.values()];
-      if (incoming.length) {
+      if (incoming.length && !preserveSelection) {
         setPrimarySelection(bestReportKey(incoming));
       }
-      resetPreviewIfNeeded();
+      invalidateViewportCaches();
+      if (!preserveSelection) {
+        resetPreviewIfNeeded();
+      }
       render();
+    }
+
+    function mergeStepAnalysisReports(incoming) {
+      const merged = enrichReports(incoming).map((report) => {
+        const existing = state.reports.find((item) => reportKey(item) === reportKey(report));
+        if (!existing) return report;
+        if (
+          existing?.transmit_info?.source_format === "step_file"
+          && existing?.step_import?.backend === "opencascade_occ"
+          && Array.isArray(existing?.preview_kernel_bodies)
+          && existing.preview_kernel_bodies.length
+        ) {
+          return {
+            ...report,
+            preview_kernel_bodies: existing.preview_kernel_bodies,
+            preview_geometry_hints: existing.preview_geometry_hints || report.preview_geometry_hints,
+            step_import: {
+              ...(report.step_import || {}),
+              backend: "opencascade_occ",
+              occ_preview: existing.step_import?.occ_preview || report.step_import?.occ_preview,
+              analysis_pending: false,
+              refinement_pending: false,
+            },
+            entity_hints: {
+              ...(report.entity_hints || {}),
+              step_backend: "opencascade_occ",
+            },
+          };
+        }
+        return report;
+      });
+      mergeReportsInternal(merged, { preserveSelection: true });
     }
 
     function renderFusionButton() {
@@ -5393,6 +5462,46 @@ HTML = """<!doctype html>
       });
     }
 
+    async function postStepAnalysis(file) {
+      const formData = new FormData();
+      formData.append("files", file, file.name);
+      const response = await fetch("/api/analyze-step-details", {
+        method: "POST",
+        body: formData,
+      });
+      if (!response.ok) {
+        const error = await response.json().catch(() => ({ error: "Unknown error" }));
+        throw new Error(error.error || `Request failed: ${response.status}`);
+      }
+      return response.json();
+    }
+
+    function analyzeStepFilesInBackground(files) {
+      [...files]
+        .filter((file) => /\.(step|stp)$/i.test(file.name))
+        .forEach((file) => {
+          const refinementKey = `uploaded:${file.name}::${file.name}`;
+          if (pendingStepRefinements.has(refinementKey)) return;
+          pendingStepRefinements.add(refinementKey);
+          postStepAnalysis(file)
+            .then((data) => {
+              if (data?.reports?.length) {
+                mergeStepAnalysisReports(data.reports);
+                const active = activeReport();
+                if (active && reportKey(active) === refinementKey) {
+                  setStatus(`Detailed STEP analysis ready for ${active.file_name}.`);
+                }
+              }
+            })
+            .catch(() => {
+              // Keep the viewer-style STEP preview if background analysis fails.
+            })
+            .finally(() => {
+              pendingStepRefinements.delete(refinementKey);
+            });
+        });
+    }
+
     async function loadSamples() {
       setStatus("Loading workspace samples...");
       const response = await fetch("/api/samples");
@@ -5426,6 +5535,7 @@ HTML = """<!doctype html>
       try {
         const data = await uploadFilesWithProgress(files);
         mergeReports(data.reports || []);
+        analyzeStepFilesInBackground(files);
         if (data.reports.length === 1) {
           setStatus(previewReadyMessage(data.reports[0]));
         } else {
@@ -5662,8 +5772,55 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
 
         try:
             if parsed.path == "/api/analyze-uploads":
-                reports = [enrich_report(report) for report in analyze_uploaded_binary_files(self._read_multipart_files())]
+                reports: list[dict] = []
+                for file_payload in self._read_multipart_files():
+                    name = str(file_payload.get("name") or "<upload>")
+                    raw_bytes = bytes(file_payload.get("data") or b"")
+                    if re.search(r"\.(stp|step)$", name, flags=re.IGNORECASE):
+                        raw_text = raw_bytes.decode("utf-8", errors="ignore")
+                        preview_report = build_step_preview_only_report(
+                            raw_text,
+                            display_name=name,
+                            source_path=f"uploaded:{name}",
+                            file_size_bytes=int(file_payload.get("size") or len(raw_bytes)),
+                        )
+                        if preview_report is not None:
+                            reports.append(preview_report)
+                            continue
+                    reports.extend(
+                        analyze_uploaded_binary_files(
+                            [
+                                {
+                                    "name": name,
+                                    "data": raw_bytes,
+                                    "size": int(file_payload.get("size") or len(raw_bytes)),
+                                }
+                            ]
+                        )
+                    )
                 self._send_json({"reports": reports})
+                return
+
+            if parsed.path == "/api/analyze-step-details":
+                files = self._read_multipart_files()
+                reports: list[dict] = []
+                for file_payload in files:
+                    name = str(file_payload.get("name") or "<upload>")
+                    if not re.search(r"\.(stp|step)$", name, flags=re.IGNORECASE):
+                        continue
+                    raw_bytes = bytes(file_payload.get("data") or b"")
+                    raw_text = raw_bytes.decode("utf-8", errors="ignore")
+                    reports.extend(
+                        parse_step_input_text(
+                            raw_text,
+                            display_name=name,
+                            source_path=f"uploaded:{name}",
+                            file_size_bytes=int(file_payload.get("size") or len(raw_bytes)),
+                            prefer_occ_preview=False,
+                        )
+                        or []
+                    )
+                self._send_json({"reports": [enrich_report(report) for report in reports]})
                 return
 
             payload = self._read_json()

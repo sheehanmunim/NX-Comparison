@@ -3755,6 +3755,7 @@ def convert_step_report(
     source_path: str | None,
     file_size_bytes: int | None,
     raw_text: str,
+    prefer_occ_preview: bool = False,
 ) -> dict[str, Any]:
     report = _convert_structured_body_report(
         payload,
@@ -3768,7 +3769,10 @@ def convert_step_report(
     )
     step_import = dict(payload.get("step_metadata") or {})
     step_import["backend"] = "native_step_parser"
-    enable_occ_preview = os.environ.get("XT_ENABLE_OCC_STEP_PREVIEW", "").strip().lower() in {"1", "true", "yes", "on"}
+    enable_occ_preview = prefer_occ_preview or (
+        os.environ.get("XT_ENABLE_OCC_STEP_PREVIEW", "").strip().lower() in {"1", "true", "yes", "on"}
+    )
+    step_import["refinement_pending"] = not enable_occ_preview
     if enable_occ_preview:
         occ_preview = step_occ_preview_from_text(raw_text, display_name=display_name)
         if occ_preview and occ_preview.get("ok") and occ_preview.get("kernel_bodies"):
@@ -3788,9 +3792,102 @@ def convert_step_report(
                 "triangle_face_count": int(occ_preview.get("triangle_face_count") or 0),
                 "edge_count": int(occ_preview.get("edge_count") or 0),
             }
+            step_import["refinement_pending"] = False
     report["step_import"] = step_import
     report.setdefault("entity_hints", {})
     report["entity_hints"]["step_backend"] = report["step_import"].get("backend")
+    return report
+
+
+def build_step_preview_only_report(
+    raw_text: str,
+    *,
+    display_name: str,
+    source_path: str | None,
+    file_size_bytes: int | None,
+) -> dict | None:
+    occ_preview = step_occ_preview_from_text(raw_text, display_name=display_name)
+    if not occ_preview or not occ_preview.get("ok") or not occ_preview.get("kernel_bodies"):
+        return None
+
+    preview_bodies = list(occ_preview.get("kernel_bodies") or [])
+    preview_points = [list(point) for point in (occ_preview.get("preview_points") or [])]
+    bounds = occ_preview.get("bounds")
+    part_name = Path(display_name).stem or display_name
+
+    report: dict[str, Any] = {
+        "file": source_path or display_name,
+        "file_name": display_name,
+        "file_size_bytes": file_size_bytes if file_size_bytes is not None else len(raw_text.encode("utf-8")),
+        "line_count": raw_text.count("\n") + (1 if raw_text else 0),
+        "header": {
+            "PART1": {
+                "APPL": "STEP Preview Import",
+                "DATE": "",
+                "PART": part_name,
+            },
+            "PART2": {
+                "SCH": "STEP-ISO10303",
+            },
+        },
+        "transmit_info": {
+            "source_format": "step_file",
+            "original_units": "Unknown",
+        },
+        "decoded_names": [part_name] if part_name else [],
+        "density": None,
+        "colors": [],
+        "has_scale_factor_attribute": False,
+        "object_state_ids": [],
+        "structured_parse": None,
+        "entity_hints": {
+            "source": "step_file",
+            "step_backend": "opencascade_occ",
+        },
+        "source_part_summary": {
+            "part_name": part_name,
+            "leaf": display_name,
+            "units": "Unknown",
+        },
+        "source_bodies": [],
+        "source_body_count": len(preview_bodies),
+        "kernel_body": preview_bodies[0] if len(preview_bodies) == 1 else None,
+        "kernel_bodies": preview_bodies,
+        "preview_kernel_bodies": preview_bodies,
+        "kernel_topology": None,
+        "geometry_hints": {
+            "point_count": len(preview_points),
+            "point_samples": preview_points[:12],
+            "preview_points": preview_points[:1200],
+            "bounds": bounds,
+            "notable_scalar_values": [],
+            "unit_inference": "STEP preview mesh loaded first for display. Detailed topology and units can be populated after background analysis finishes.",
+        },
+        "preview_geometry_hints": {
+            "point_count": len(preview_points),
+            "preview_points": preview_points[:1200],
+            "bounds": bounds,
+        },
+        "model_analysis": {
+            "unique_axis_levels": {"x": [], "y": [], "z": []},
+            "curve_hints": [],
+            "topology": None,
+            "summary": [
+                f"Loaded STEP preview mesh for {part_name}.",
+                f"Detected {len(preview_bodies)} body/bodies from the direct STEP preview import.",
+                "Detailed STEP topology and metadata can be analyzed after the preview is already on screen.",
+            ],
+        },
+        "step_import": {
+            "backend": "opencascade_occ",
+            "analysis_pending": True,
+            "occ_preview": {
+                "body_count": int(occ_preview.get("body_count") or 0),
+                "triangle_face_count": int(occ_preview.get("triangle_face_count") or 0),
+                "edge_count": int(occ_preview.get("edge_count") or 0),
+            },
+        },
+    }
     return report
 
 
@@ -3966,6 +4063,7 @@ def parse_step_input_text(
     display_name: str,
     source_path: str | None,
     file_size_bytes: int | None,
+    prefer_occ_preview: bool = False,
 ) -> list[dict[str, Any]] | None:
     payload = parse_step_payload(raw_text, display_name=display_name)
     if payload is None:
@@ -3978,6 +4076,7 @@ def parse_step_input_text(
             source_path=source_path,
             file_size_bytes=file_size_bytes,
             raw_text=raw_text,
+            prefer_occ_preview=prefer_occ_preview,
         )
     ]
 
