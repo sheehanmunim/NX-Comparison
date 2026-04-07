@@ -8,25 +8,92 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
 
-from xt_part_report import analyze_input_file, analyze_input_text, analyze_xt_file, metric_and_imperial
+from xt_part_report import (
+    _analyze_input_file_single,
+    _fused_report_from_step_and_json,
+    analyze_input_text,
+    metric_and_imperial,
+)
 
 
 HOST = "127.0.0.1"
 PORT = 8765
 
-
 def workspace_sample_reports() -> list[dict]:
-    return [analyze_xt_file(path) for path in sorted(Path.cwd().glob("*.x_t"))]
+    reports: list[dict] = []
+    seen: set[Path] = set()
+    for pattern in ("*.x_t", "*.stp", "*.step", "*.json"):
+        for path in sorted(Path.cwd().glob(pattern)):
+            resolved = path.resolve()
+            if resolved in seen:
+                continue
+            seen.add(resolved)
+            reports.extend(enrich_report(report) for report in _analyze_input_file_single(resolved))
+    return reports
 
 
 def analyze_paths(paths: list[str]) -> list[dict]:
     reports: list[dict] = []
+    seen: set[Path] = set()
     for raw_path in paths:
         path = Path(raw_path).expanduser()
         if not path.is_absolute():
             path = (Path.cwd() / path).resolve()
-        reports.extend(analyze_input_file(path))
+        if path in seen:
+            continue
+        seen.add(path)
+        reports.extend(enrich_report(report) for report in _analyze_input_file_single(path))
     return reports
+
+
+def analyze_uploaded_files(file_payloads: list[dict]) -> list[dict]:
+    reports: list[dict] = []
+    for file_payload in file_payloads:
+        imported_reports = analyze_input_text(
+            file_payload.get("text", ""),
+            display_name=file_payload.get("name", "<upload>"),
+            source_path=f"uploaded:{file_payload.get('name', '<upload>')}",
+            file_size_bytes=file_payload.get("size"),
+        )
+        reports.extend(enrich_report(report) for report in imported_reports)
+    return reports
+
+
+def create_fused_report(left_report: dict, right_report: dict) -> dict | None:
+    fused_report = _fused_report_from_step_and_json(left_report, right_report)
+    if fused_report is None:
+        return None
+
+    formats = {
+        left_report.get("transmit_info", {}).get("source_format"): left_report,
+        right_report.get("transmit_info", {}).get("source_format"): right_report,
+    }
+    step_report = formats.get("step_file")
+    json_report = formats.get("siemens_nx_json")
+    if not step_report or not json_report:
+        return None
+
+    base_name = (
+        (json_report.get("decoded_names") or [None])[0]
+        or (step_report.get("decoded_names") or [None])[0]
+        or Path(str(json_report.get("file_name") or step_report.get("file_name") or "Fusion")).stem
+    )
+    fused_report["file_name"] = f"{base_name} STEP+JSON"
+    fused_report["file"] = (
+        f"fusion:{json_report.get('file_name', 'json')}+{step_report.get('file_name', 'step')}"
+    )
+    fused_report["fusion"] = {
+        **dict(fused_report.get("fusion") or {}),
+        "display_name": "STEP+JSON",
+    }
+    model_summary = list((fused_report.get("model_analysis") or {}).get("summary") or [])
+    if model_summary:
+        model_summary[0] = f"Explicit STEP + JSON fusion for {base_name}."
+        fused_report["model_analysis"] = {
+            **dict(fused_report.get("model_analysis") or {}),
+            "summary": model_summary,
+        }
+    return enrich_report(fused_report)
 
 
 def preview_score(report: dict) -> tuple[int, int]:
@@ -124,6 +191,13 @@ HTML = """<!doctype html>
       border-color: #8d8d8d;
       transform: translateY(-1px);
     }
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+      transform: none;
+      background: #ececec;
+      border-color: #c5c5c5;
+    }
     .file-upload input { display: none; }
     .content {
       display: grid;
@@ -168,6 +242,11 @@ HTML = """<!doctype html>
     .file-item.selected {
       background: #e2e2e2;
       box-shadow: inset 3px 0 0 var(--accent);
+    }
+    .sidebar-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
     }
     .file-item strong {
       display: block;
@@ -462,12 +541,12 @@ HTML = """<!doctype html>
   <div class="app">
     <div class="header">
       <h1>Parasolid XT Part Inspector</h1>
-      <p>Load `.x_t` files, compatible JSON reports, or Parasolid analysis text reports, inspect extracted metadata, and review an interactive CAD-style preview with component-aware comparison.</p>
+      <p>Load `.x_t`, `.step`, `.stp`, compatible JSON reports, or Parasolid analysis text reports, inspect extracted metadata, and review an interactive CAD-style preview with component-aware comparison.</p>
     </div>
 
     <div class="toolbar">
       <button id="load-samples">Load Workspace Samples</button>
-      <label class="file-upload">Upload .x_t, .json, or report Files<input id="file-input" type="file" accept=".x_t,.json,.txt,.md,text/plain,application/json" multiple></label>
+      <label class="file-upload">Upload CAD or report files<input id="file-input" type="file" accept=".x_t,.step,.stp,.json,.txt,.md,text/plain,application/json" multiple></label>
       <input id="path-input" type="text" placeholder="Enter one or more file paths separated by commas">
       <button id="load-paths">Analyze Paths</button>
       <button id="export-json">Export Current JSON</button>
@@ -477,8 +556,11 @@ HTML = """<!doctype html>
     <div class="content">
       <div class="sidebar">
         <h2>Loaded Parts</h2>
-        <div class="hint">Click one part to inspect it. Use Ctrl-click, Cmd-click, or Shift-click to add a second part for comparison.</div>
+        <div class="hint">Click one part to inspect it. Use Ctrl-click, Cmd-click, or Shift-click to add a second part for comparison or for explicit multi-file fusion.</div>
         <div class="file-list" id="file-list"></div>
+        <div class="sidebar-actions">
+          <button id="create-fusion" disabled>Create Multi-File Fusion</button>
+        </div>
         <div class="hint" id="sidebar-foot">No parts loaded yet.</div>
       </div>
 
@@ -724,6 +806,27 @@ HTML = """<!doctype html>
     function formatColors(report) {
       if (!report || !report.colors || !report.colors.length) return "Not found";
       return report.colors.map((color) => color.hex).join(", ");
+    }
+
+    function sourceFormatLabel(report) {
+      const format = report?.transmit_info?.source_format || "";
+      const labels = {
+        fused_step_json: "Fused STEP + JSON",
+        siemens_nx_json: "Siemens NX JSON",
+        step_file: "STEP",
+        parasolid_analysis_report: "Parasolid analysis report"
+      };
+      if (labels[format]) return labels[format];
+      const fileName = String(report?.file_name || report?.file || "").toLowerCase();
+      if (fileName.endsWith(".x_t")) return "Parasolid XT";
+      return format ? format.replaceAll("_", " ") : "Unknown";
+    }
+
+    function fusionLabel(report) {
+      if (!report?.fusion?.enabled) return "Off";
+      const faceCounts = report.fusion?.face_source_counts || {};
+      const edgeCounts = report.fusion?.edge_source_counts || {};
+      return `On (${faceCounts.json || 0} JSON face bodies, ${faceCounts.step || 0} STEP face bodies; ${edgeCounts.json || 0} JSON edge bodies, ${edgeCounts.step || 0} STEP edge bodies)`;
     }
 
     function formatBounds(bounds) {
@@ -2389,6 +2492,7 @@ HTML = """<!doctype html>
         const bounds = report.geometry_hints?.bounds;
         item.innerHTML = `
           <strong>${escapeHtml(report.file_name)}</strong>
+          <span>${escapeHtml(sourceFormatLabel(report))}</span>
           <span>${escapeHtml(report.decoded_names?.join(", ") || "No decoded names")}</span>
           <span>${escapeHtml(bounds ? formatBounds(bounds) : "No bounds inferred")}</span>
         `;
@@ -2416,6 +2520,8 @@ HTML = """<!doctype html>
 
       const rows = [
         ["Path", report.file],
+        ["Source Format", sourceFormatLabel(report)],
+        ["Fusion", fusionLabel(report)],
         ["Decoded Names", report.decoded_names?.join(", ") || "None"],
         ["Source App", report.header?.PART1?.APPL || "Unknown"],
         ["Date", report.header?.PART1?.DATE || "Unknown"],
@@ -2449,6 +2555,8 @@ HTML = """<!doctype html>
       const rows = [
         ["File", report.file_name],
         ["Path", report.file],
+        ["Source Format", sourceFormatLabel(report)],
+        ["Fusion", fusionLabel(report)],
         ["Date", report.header?.PART1?.DATE || "Unknown"],
         ["Decoded Names", report.decoded_names?.join(", ") || "None"],
         ["Kernel Body", kernelLabel(report)],
@@ -3781,14 +3889,14 @@ HTML = """<!doctype html>
     }
 
     async function loadSamples() {
-      setStatus("Loading workspace samples...");
-      const response = await fetch("/api/samples");
+      setStatus(`Loading workspace samples in ${state.reconstructionMode} mode...`);
+      const response = await fetch(`/api/samples?mode=${encodeURIComponent(state.reconstructionMode)}`);
       const data = await response.json();
       state.reports = enrichReports(data.reports || []);
       state.selected = state.reports.length ? [bestReportKey(state.reports)] : [];
       resetPreviewIfNeeded();
       render();
-      setStatus(`Loaded ${state.reports.length} workspace sample(s).`);
+      setStatus(`Loaded ${state.reports.length} workspace sample(s) using ${state.reconstructionMode} mode.`);
     }
 
     async function loadPaths() {
@@ -3798,23 +3906,23 @@ HTML = """<!doctype html>
         return;
       }
       const paths = raw.split(",").map((item) => item.trim()).filter(Boolean);
-      setStatus("Analyzing file paths...");
-      const data = await postJson("/api/analyze-paths", { paths });
+      setStatus(`Analyzing file paths in ${state.reconstructionMode} mode...`);
+      const data = await postJson("/api/analyze-paths", { paths, mode: state.reconstructionMode });
       mergeReports(data.reports || []);
-      setStatus(`Analyzed ${data.reports.length} path-based file(s).`);
+      setStatus(`Analyzed ${data.reports.length} path-based file(s) using ${state.reconstructionMode} mode.`);
     }
 
     async function loadUploads(files) {
       if (!files.length) return;
-      setStatus(`Reading ${files.length} uploaded file(s)...`);
+      setStatus(`Reading ${files.length} uploaded file(s) in ${state.reconstructionMode} mode...`);
       const payload = await Promise.all([...files].map(async (file) => ({
         name: file.name,
         text: await file.text(),
         size: file.size
       })));
-      const data = await postJson("/api/analyze-text", { files: payload });
+      const data = await postJson("/api/analyze-text", { files: payload, mode: state.reconstructionMode });
       mergeReports(data.reports || []);
-      setStatus(`Analyzed ${data.reports.length} uploaded file(s).`);
+      setStatus(`Analyzed ${data.reports.length} uploaded file(s) using ${state.reconstructionMode} mode.`);
     }
 
     function exportCurrentJson() {
@@ -3827,7 +3935,7 @@ HTML = """<!doctype html>
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement("a");
       anchor.href = url;
-      anchor.download = `${report.file_name.replace(/\\.x_t$/i, "") || "report"}_report.json`;
+      anchor.download = `${report.file_name.replace(/\\.(x_t|step|stp)$/i, "") || "report"}_report.json`;
       anchor.click();
       URL.revokeObjectURL(url);
       setStatus(`Exported ${report.file_name} as JSON.`);
@@ -3889,6 +3997,11 @@ HTML = """<!doctype html>
     byId("load-samples").onclick = () => loadSamples().catch((error) => setStatus(error.message));
     byId("load-paths").onclick = () => loadPaths().catch((error) => setStatus(error.message));
     byId("export-json").onclick = exportCurrentJson;
+    byId("reconstruction-mode").value = state.reconstructionMode;
+    byId("reconstruction-mode").addEventListener("change", (event) => {
+      state.reconstructionMode = event.target.value || "auto";
+      setStatus(`Reconstruction mode set to ${state.reconstructionMode}. Reload samples, paths, or uploads to apply it.`);
+    });
     byId("reset-view").onclick = () => {
       resetPreviewIfNeeded();
       drawPreview();
@@ -3944,7 +4057,8 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
 
         if parsed.path == "/api/samples":
             try:
-                reports = [enrich_report(report) for report in workspace_sample_reports()]
+                mode = normalize_reconstruction_mode(parse_qs(parsed.query).get("mode", ["auto"])[0])
+                reports = [enrich_report(report) for report in workspace_sample_reports(mode)]
             except Exception as exc:
                 self._send_json({"error": str(exc)}, status=HTTPStatus.INTERNAL_SERVER_ERROR)
                 return
@@ -3963,20 +4077,24 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
         try:
             payload = self._read_json()
             if parsed.path == "/api/analyze-paths":
-                reports = [enrich_report(report) for report in analyze_paths(payload.get("paths", []))]
+                reports = [
+                    enrich_report(report)
+                    for report in analyze_paths(
+                        payload.get("paths", []),
+                        reconstruction_mode=payload.get("mode", "auto"),
+                    )
+                ]
                 self._send_json({"reports": reports})
                 return
 
             if parsed.path == "/api/analyze-text":
-                reports = []
-                for file_payload in payload.get("files", []):
-                    imported_reports = analyze_input_text(
-                        file_payload.get("text", ""),
-                        display_name=file_payload.get("name", "<upload>"),
-                        source_path=f"uploaded:{file_payload.get('name', '<upload>')}",
-                        file_size_bytes=file_payload.get("size"),
+                reports = [
+                    enrich_report(report)
+                    for report in analyze_uploaded_files(
+                        payload.get("files", []),
+                        reconstruction_mode=payload.get("mode", "auto"),
                     )
-                    reports.extend(enrich_report(report) for report in imported_reports)
+                ]
                 self._send_json({"reports": reports})
                 return
         except FileNotFoundError as exc:

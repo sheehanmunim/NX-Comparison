@@ -11,9 +11,14 @@ from typing import Any
 from xt_engine.topology import build_topology_from_kernel_body
 from xt_kernel import build_kernel_body
 from xt_parser_foundation import infer_entity_hints, parse_xt_structure
+from xt_step import parse_step_payload
 
 
 NUMBER_PATTERN = r"[+-]?(?:\d+\.\d*|\.\d+|\d+)(?:e[+-]?\d+)?"
+JOURNAL_POINT_PATTERN = re.compile(
+    r"\((" + NUMBER_PATTERN + r"),(" + NUMBER_PATTERN + r"),(" + NUMBER_PATTERN + r")\)",
+    flags=re.IGNORECASE,
+)
 PRINTABLE_ASCII = set(range(32, 127))
 
 
@@ -623,6 +628,33 @@ def _merge_bounds(bounds_list: list[dict[str, Any]]) -> dict[str, Any] | None:
     }
 
 
+def _preview_points_from_kernel_body(body: dict[str, Any] | None) -> list[list[float]]:
+    if not body:
+        return []
+    points: list[list[float]] = []
+    for face in body.get("faces", []):
+        for vertex in face.get("vertices", []):
+            if isinstance(vertex, list) and len(vertex) >= 3:
+                points.append(_round_triplet(vertex[:3]))
+    for edge in body.get("edges", []):
+        for point in edge.get("points", []):
+            if isinstance(point, list) and len(point) >= 3:
+                points.append(_round_triplet(point[:3]))
+    for point in body.get("vertices", []):
+        if isinstance(point, list) and len(point) >= 3:
+            points.append(_round_triplet(point[:3]))
+
+    deduped: list[list[float]] = []
+    seen: set[tuple[float, float, float]] = set()
+    for point in points:
+        marker = tuple(point[:3])
+        if marker in seen:
+            continue
+        seen.add(marker)
+        deduped.append(point)
+    return deduped
+
+
 def _box_face_specs(minimum: list[float], maximum: list[float]) -> list[dict[str, Any]]:
     corners = {
         "000": [minimum[0], minimum[1], minimum[2]],
@@ -1055,14 +1087,119 @@ def _polyline_from_preview_payload(points_payload: Any, scale: float) -> list[li
     return polyline if len(polyline) >= 2 else None
 
 
+def _distance_between_points(a: list[float], b: list[float]) -> float:
+    return math.sqrt(sum((float(a[index]) - float(b[index])) ** 2 for index in range(3)))
+
+
+def _dedupe_points(points: list[list[float]]) -> list[list[float]]:
+    deduped: list[list[float]] = []
+    for point in points:
+        rounded = _round_triplet(point)
+        if deduped and deduped[-1] == rounded:
+            continue
+        deduped.append(rounded)
+    return deduped
+
+
+def _journal_points_from_edge_payload(edge_payload: dict[str, Any], scale: float) -> list[list[float]] | None:
+    journal_identifier = str(((edge_payload.get("object_identity") or {}).get("journal_identifier")) or "")
+    if not journal_identifier:
+        return None
+
+    matches = JOURNAL_POINT_PATTERN.findall(journal_identifier)
+    if len(matches) < 3:
+        return None
+
+    points = [
+        [float(match[0]) * scale, float(match[1]) * scale, float(match[2]) * scale]
+        for match in matches
+    ]
+    deduped = _dedupe_points(points)
+    return deduped if len(deduped) >= 3 else None
+
+
+def _quadratic_polyline_from_guides(
+    guide_points: list[list[float]],
+    *,
+    edge_length: float | None = None,
+) -> list[list[float]] | None:
+    if len(guide_points) < 3:
+        return _dedupe_points(guide_points) if len(guide_points) >= 2 else None
+
+    start = guide_points[0]
+    mid = guide_points[1]
+    end = guide_points[-1]
+    control = [
+        2 * mid[index] - 0.5 * (start[index] + end[index])
+        for index in range(3)
+    ]
+    chord = _distance_between_points(start, end)
+    guide_span = sum(
+        _distance_between_points(guide_points[index], guide_points[index + 1])
+        for index in range(len(guide_points) - 1)
+    )
+    midpoint = [(start[index] + end[index]) / 2 for index in range(3)]
+    deviation = _distance_between_points(mid, midpoint)
+    reference_length = max(
+        edge_length or 0.0,
+        guide_span,
+        chord,
+        1e-9,
+    )
+    curvature_factor = deviation / max(chord, 1e-9)
+    segment_count = max(
+        8,
+        min(
+            64,
+            int(
+                math.ceil(
+                    max(reference_length / max(chord, 1e-9), 1.0) * 8
+                    + curvature_factor * 18
+                )
+            ),
+        ),
+    )
+
+    polyline: list[list[float]] = []
+    for index in range(segment_count + 1):
+        t = index / segment_count
+        one_minus_t = 1.0 - t
+        point = [
+            (one_minus_t * one_minus_t * start[axis])
+            + (2 * one_minus_t * t * control[axis])
+            + (t * t * end[axis])
+            for axis in range(3)
+        ]
+        polyline.append(_round_triplet(point))
+
+    return _dedupe_points(polyline) if len(polyline) >= 2 else None
+
+
 def _edge_polyline_from_payload(
     edge_payload: dict[str, Any],
     scale: float,
     vertex_lookup: dict[int, list[float]] | None = None,
 ) -> list[list[float]] | None:
+    edge_type = str(edge_payload.get("type") or "").lower()
     preview_polyline = _polyline_from_preview_payload(edge_payload.get("preview_points"), scale)
-    if preview_polyline:
+    if preview_polyline and (
+        len(preview_polyline) >= 3
+        or edge_type not in {"intersection", "spcurve", "spline", "elliptical"}
+    ):
         return preview_polyline
+
+    journal_points = _journal_points_from_edge_payload(edge_payload, scale)
+    if journal_points and edge_type in {"intersection", "spcurve", "spline", "elliptical"}:
+        guided_polyline = _quadratic_polyline_from_guides(
+            journal_points,
+            edge_length=(
+                float(edge_payload.get("length")) * scale
+                if edge_payload.get("length") is not None
+                else None
+            ),
+        )
+        if guided_polyline:
+            return guided_polyline
 
     analytic_curve = ((edge_payload.get("exact_geometry") or {}).get("analytic_curve") or {})
     curve_type = analytic_curve.get("type")
@@ -1235,6 +1372,53 @@ def _resample_ring(ring: list[list[float]], count: int) -> list[list[float]]:
     return [_round_triplet(ring[int(index * len(ring) / count) % len(ring)]) for index in range(count)]
 
 
+def _resample_polyline(polyline: list[list[float]], count: int) -> list[list[float]]:
+    if not polyline:
+        return []
+    if count <= 1:
+        return [_round_triplet(polyline[0])]
+    if len(polyline) == 1:
+        return [_round_triplet(polyline[0]) for _ in range(count)]
+    if len(polyline) == count:
+        return [_round_triplet(point) for point in polyline]
+
+    segment_lengths = [0.0]
+    total_length = 0.0
+    for index in range(1, len(polyline)):
+        total_length += _distance_between_points(polyline[index - 1], polyline[index])
+        segment_lengths.append(total_length)
+
+    if total_length <= 1e-12:
+        return [_round_triplet(polyline[0]) for _ in range(count)]
+
+    result: list[list[float]] = []
+    for sample_index in range(count):
+        target = total_length * sample_index / (count - 1)
+        segment_index = 1
+        while segment_index < len(segment_lengths) and segment_lengths[segment_index] < target:
+            segment_index += 1
+        if segment_index >= len(polyline):
+            result.append(_round_triplet(polyline[-1]))
+            continue
+        start_point = polyline[segment_index - 1]
+        end_point = polyline[segment_index]
+        start_length = segment_lengths[segment_index - 1]
+        end_length = segment_lengths[segment_index]
+        if end_length - start_length <= 1e-12:
+            result.append(_round_triplet(end_point))
+            continue
+        t = (target - start_length) / (end_length - start_length)
+        result.append(
+            _round_triplet(
+                [
+                    start_point[axis] + (end_point[axis] - start_point[axis]) * t
+                    for axis in range(3)
+                ]
+            )
+        )
+    return result
+
+
 def _align_ring_pair(reference_ring: list[list[float]], target_ring: list[list[float]]) -> tuple[list[list[float]], list[list[float]]]:
     sample_count = max(12, min(72, max(len(reference_ring), len(target_ring))))
     reference = _resample_ring(reference_ring, sample_count)
@@ -1281,6 +1465,87 @@ def _stitch_loop_polyline(loop_payload: dict[str, Any], edge_polyline_lookup: di
             stitched.extend(_round_triplet(point) for point in segment)
 
     return _closed_ring_from_polyline(stitched)
+
+
+def _loop_segments_from_payload(
+    loop_payload: dict[str, Any],
+    edge_polyline_lookup: dict[int, list[list[float]]],
+) -> list[list[list[float]]]:
+    segments: list[list[list[float]]] = []
+    for coedge in loop_payload.get("coedges", []):
+        edge_index = coedge.get("edge_index")
+        if edge_index is None:
+            continue
+        polyline = edge_polyline_lookup.get(int(edge_index))
+        if not polyline or len(polyline) < 2:
+            continue
+        segment = polyline if coedge.get("sense") != "backward" and coedge.get("sense") != "reversed" else list(reversed(polyline))
+        segments.append([_round_triplet(point) for point in segment])
+    return segments
+
+
+def _align_open_polyline_pair(
+    first: list[list[float]],
+    second: list[list[float]],
+) -> tuple[list[list[float]], list[list[float]]] | None:
+    if len(first) < 2 or len(second) < 2:
+        return None
+
+    candidates = [second, list(reversed(second))]
+    best: tuple[list[list[float]], list[list[float]]] | None = None
+    best_score = float("inf")
+    sample_count = max(2, min(96, max(len(first), len(second))))
+    first_resampled = _resample_polyline(first, sample_count)
+
+    for candidate in candidates:
+        second_resampled = _resample_polyline(candidate, sample_count)
+        score = (
+            _point_distance_sq(first_resampled[0], second_resampled[0])
+            + _point_distance_sq(first_resampled[-1], second_resampled[-1])
+        )
+        if score < best_score:
+            best = (first_resampled, second_resampled)
+            best_score = score
+
+    return best
+
+
+def _mesh_strip_between_polylines(
+    first: list[list[float]],
+    second: list[list[float]],
+    *,
+    name: str,
+    surface_payload: dict[str, Any],
+    normal: list[float] | None,
+    base_metadata: dict[str, Any],
+    kind: str,
+) -> list[dict[str, Any]]:
+    aligned = _align_open_polyline_pair(first, second)
+    if not aligned:
+        return []
+    first_aligned, second_aligned = aligned
+    meshes: list[dict[str, Any]] = []
+    for index in range(len(first_aligned) - 1):
+        quad = [
+            first_aligned[index],
+            first_aligned[index + 1],
+            second_aligned[index + 1],
+            second_aligned[index],
+        ]
+        meshes.append(
+            {
+                "name": f"{name} patch {index + 1}",
+                "surface": surface_payload,
+                "vertices": quad,
+                "normal": normal or _face_normal_from_vertices(quad),
+                "loops": [
+                    {"id": f"{name}-edge-a", "vertices": first_aligned},
+                    {"id": f"{name}-edge-b", "vertices": second_aligned},
+                ],
+                "metadata": {**base_metadata, "kind": kind, "patch_index": index + 1},
+            }
+        )
+    return meshes
 
 
 def _facet_meshes_from_payload(
@@ -1379,6 +1644,28 @@ def _face_meshes_from_payload(
                 loop_rings.append((loop_payload, stitched))
 
     if not loop_rings:
+        curved_segments = []
+        for loop_payload in face_payload.get("loops", []):
+            segments = _loop_segments_from_payload(loop_payload, edge_polyline_lookup)
+            if len(segments) == 2:
+                curved_segments.append(segments)
+        if curved_segments and surface_payload["kind"] in {"cylinder", "cone", "surface_of_revolution", "sphere", "parametric", "blend"}:
+            strip_meshes: list[dict[str, Any]] = []
+            for loop_index, (first, second) in enumerate(curved_segments, start=1):
+                strip_meshes.extend(
+                    _mesh_strip_between_polylines(
+                        first,
+                        second,
+                        name=f"Face {face_index} loop {loop_index}",
+                        surface_payload=surface_payload,
+                        normal=face_normal,
+                        base_metadata=base_metadata,
+                        kind="open_surface_strip",
+                    )
+                )
+            if strip_meshes:
+                base_metadata["loop_count"] = len(curved_segments)
+                return strip_meshes
         return facet_meshes
 
     rings = [ring for _, ring in loop_rings]
@@ -1443,6 +1730,21 @@ def _face_meshes_from_payload(
         return meshes
 
     if len(rings) == 1:
+        if surface_payload["kind"] in {"cylinder", "cone", "surface_of_revolution", "sphere", "parametric", "blend"}:
+            for loop_payload in face_payload.get("loops", []):
+                segments = _loop_segments_from_payload(loop_payload, edge_polyline_lookup)
+                if len(segments) == 2:
+                    strip_meshes = _mesh_strip_between_polylines(
+                        segments[0],
+                        segments[1],
+                        name=f"Face {face_index}",
+                        surface_payload=surface_payload,
+                        normal=face_normal,
+                        base_metadata=base_metadata,
+                        kind="open_surface_strip",
+                    )
+                    if strip_meshes:
+                        return strip_meshes
         ring = rings[0]
         meshes.append(
             {
@@ -1930,6 +2232,209 @@ def normalize_existing_report(
     )
     return report
 
+
+def _face_type_weight(face: dict[str, Any]) -> int:
+    face_type = str(face.get("metadata", {}).get("source_face_type") or face.get("surface", {}).get("kind") or "").lower()
+    return {
+        "blending": 9,
+        "surfaceofrevolution": 8,
+        "surface_of_revolution": 8,
+        "parametric": 7,
+        "spherical": 7,
+        "conical": 6,
+        "cylindrical": 5,
+        "planar": 2,
+        "plane": 2,
+    }.get(face_type, 3 if face_type else 1)
+
+
+def _edge_type_weight(edge: dict[str, Any]) -> int:
+    edge_type = str(edge.get("kind") or "").lower()
+    return {
+        "intersection": 10,
+        "spcurve": 9,
+        "spline": 8,
+        "elliptical": 6,
+        "arc": 4,
+        "line": 2,
+    }.get(edge_type, 3 if edge_type else 1)
+
+
+def _body_face_score(body: dict[str, Any]) -> int:
+    score = 0
+    for face in body.get("faces", []):
+        score += _face_type_weight(face)
+        score += max(1, len(face.get("vertices", [])) // 4)
+    score += len(body.get("faces", [])) * 2
+    return score
+
+
+def _body_edge_score(body: dict[str, Any]) -> int:
+    score = 0
+    for edge in body.get("edges", []):
+        score += _edge_type_weight(edge)
+        score += max(1, len(edge.get("points", [])) // 8)
+    score += len(body.get("edges", []))
+    return score
+
+
+def _merge_body_metadata(
+    face_body: dict[str, Any],
+    edge_body: dict[str, Any],
+    *,
+    face_source: str,
+    edge_source: str,
+) -> dict[str, Any]:
+    face_meta = dict(face_body.get("metadata", {}))
+    edge_meta = dict(edge_body.get("metadata", {}))
+    merged = {**edge_meta, **face_meta}
+    merged["source"] = "fused_step_json_preview"
+    merged["primitive"] = "nx_brep_import"
+    merged["face_source"] = face_source
+    merged["edge_source"] = edge_source
+    merged["face_patch_count"] = len(face_body.get("faces", []))
+    merged["edge_count"] = len(edge_body.get("edges", []))
+    merged["vertex_count"] = max(len(face_body.get("vertices", [])), len(edge_body.get("vertices", [])))
+    merged["source_face_count"] = max(
+        int(face_meta.get("source_face_count") or 0),
+        int(edge_meta.get("source_face_count") or 0),
+    )
+    return merged
+
+
+def _fuse_kernel_bodies(
+    step_bodies: list[dict[str, Any]],
+    json_bodies: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    fused: list[dict[str, Any]] = []
+    decisions: list[dict[str, Any]] = []
+
+    for index, (step_body, json_body) in enumerate(zip(step_bodies, json_bodies), start=1):
+        step_face_score = _body_face_score(step_body)
+        json_face_score = _body_face_score(json_body)
+        step_edge_score = _body_edge_score(step_body)
+        json_edge_score = _body_edge_score(json_body)
+
+        face_body = json_body if json_face_score >= step_face_score else step_body
+        edge_body = json_body if json_edge_score >= step_edge_score else step_body
+        face_source = "json" if face_body is json_body else "step"
+        edge_source = "json" if edge_body is json_body else "step"
+
+        fused_body = {
+            "kind": face_body.get("kind") or edge_body.get("kind") or "solid",
+            "name": face_body.get("name") or edge_body.get("name") or f"Body {index}",
+            "faces": face_body.get("faces", []),
+            "edges": edge_body.get("edges", []),
+            "vertices": face_body.get("vertices", []) if len(face_body.get("vertices", [])) >= len(edge_body.get("vertices", [])) else edge_body.get("vertices", []),
+            "metadata": _merge_body_metadata(face_body, edge_body, face_source=face_source, edge_source=edge_source),
+        }
+        fused.append(fused_body)
+        decisions.append(
+            {
+                "body_index": index,
+                "face_source": face_source,
+                "edge_source": edge_source,
+                "step_face_score": step_face_score,
+                "json_face_score": json_face_score,
+                "step_edge_score": step_edge_score,
+                "json_edge_score": json_edge_score,
+            }
+        )
+
+    return fused, decisions
+
+
+def _fused_report_from_step_and_json(
+    primary_report: dict[str, Any],
+    secondary_report: dict[str, Any],
+) -> dict[str, Any] | None:
+    reports = {primary_report.get("transmit_info", {}).get("source_format"): primary_report, secondary_report.get("transmit_info", {}).get("source_format"): secondary_report}
+    step_report = reports.get("step_file")
+    json_report = reports.get("siemens_nx_json")
+    if not step_report or not json_report:
+        return None
+
+    step_bodies = step_report.get("kernel_bodies", [])
+    json_bodies = json_report.get("kernel_bodies", [])
+    if not step_bodies or not json_bodies or len(step_bodies) != len(json_bodies):
+        return None
+
+    step_name = (step_report.get("source_part_summary") or {}).get("part_name") or (step_report.get("decoded_names") or [None])[0]
+    json_name = (json_report.get("source_part_summary") or {}).get("part_name") or (json_report.get("decoded_names") or [None])[0]
+    if step_name and json_name and step_name != json_name:
+        return None
+
+    fused_bodies, decisions = _fuse_kernel_bodies(step_bodies, json_bodies)
+    preview_points = [point for body in fused_bodies for point in _preview_points_from_kernel_body(body)]
+    bounds = _merge_bounds(
+        [
+            _polyline_bounds(_preview_points_from_kernel_body(body))
+            for body in fused_bodies
+            if _preview_points_from_kernel_body(body)
+        ]
+    )
+    face_source_counts = Counter(item["face_source"] for item in decisions)
+    edge_source_counts = Counter(item["edge_source"] for item in decisions)
+
+    base_report = dict(json_report)
+    base_report["kernel_bodies"] = fused_bodies
+    base_report["kernel_body"] = fused_bodies[0] if len(fused_bodies) == 1 else None
+    base_report["kernel_topology"] = (
+        build_topology_from_kernel_body(fused_bodies[0])
+        if len(fused_bodies) == 1 and fused_bodies[0].get("metadata", {}).get("primitive") != "compound"
+        else None
+    )
+    base_report["geometry_hints"] = {
+        **dict(base_report.get("geometry_hints") or {}),
+        "point_count": len(preview_points),
+        "point_samples": preview_points[:12],
+        "preview_points": preview_points[:500],
+        "bounds": bounds,
+        "unit_inference": "Fused Siemens NX JSON and STEP geometry. Original JSON units were inches; STEP units were millimeters; preview geometry was normalized to meters.",
+    }
+    base_report["transmit_info"] = {
+        "source_format": "fused_step_json",
+        "primary_source_format": primary_report.get("transmit_info", {}).get("source_format"),
+        "companion_source_format": secondary_report.get("transmit_info", {}).get("source_format"),
+        "original_units": f"JSON={json_report.get('transmit_info', {}).get('original_units')}, STEP={step_report.get('transmit_info', {}).get('original_units')}",
+    }
+    base_report["step_import"] = step_report.get("step_import") or {}
+    base_report["fusion"] = {
+        "enabled": True,
+        "sources": [
+            {
+                "file": json_report.get("file"),
+                "format": json_report.get("transmit_info", {}).get("source_format"),
+            },
+            {
+                "file": step_report.get("file"),
+                "format": step_report.get("transmit_info", {}).get("source_format"),
+            },
+        ],
+        "body_decisions": decisions,
+        "face_source_counts": dict(face_source_counts),
+        "edge_source_counts": dict(edge_source_counts),
+    }
+    base_report["model_analysis"] = {
+        **dict(base_report.get("model_analysis") or {}),
+        "unique_axis_levels": summarize_unique_levels([tuple(point) for point in preview_points[:500]]) if preview_points else {"x": [], "y": [], "z": []},
+        "summary": [
+            f"Fused Siemens NX JSON and STEP reconstruction for {step_name or json_name or base_report.get('file_name')}.",
+            f"Detected {len(fused_bodies)} body/bodies and reconstructed {len(fused_bodies)} fused preview body/bodies.",
+            f"Face geometry favored JSON on {face_source_counts.get('json', 0)} bodies and STEP on {face_source_counts.get('step', 0)} bodies.",
+            f"Edge geometry favored JSON on {edge_source_counts.get('json', 0)} bodies and STEP on {edge_source_counts.get('step', 0)} bodies.",
+        ],
+    }
+    return base_report
+
+
+def _companion_candidates(path: Path) -> list[Path]:
+    suffix = path.suffix.lower()
+    if suffix == ".json":
+        return [path.with_suffix(".stp"), path.with_suffix(".step")]
+    if suffix in {".stp", ".step"}:
+        return [path.with_suffix(".json")]
+    return []
 
 def _structured_body_summaries(payload: dict[str, Any]) -> list[dict[str, Any]]:
     summaries: list[dict[str, Any]] = []
@@ -2479,6 +2984,28 @@ def convert_parasolid_analysis_report(
     )
 
 
+def convert_step_report(
+    payload: dict[str, Any],
+    *,
+    display_name: str,
+    source_path: str | None,
+    file_size_bytes: int | None,
+    raw_text: str,
+) -> dict[str, Any]:
+    report = _convert_structured_body_report(
+        payload,
+        display_name=display_name,
+        source_path=source_path,
+        file_size_bytes=file_size_bytes,
+        raw_text=raw_text,
+        source_format="step_file",
+        application_label="STEP BREP Import",
+        schema_label="STEP-ISO10303",
+    )
+    report["step_import"] = payload.get("step_metadata") or {}
+    return report
+
+
 def infer_compound_preview_from_xt_scalars(
     notable_scalars: list[dict[str, Any]],
     entity_hints: dict[str, Any],
@@ -2645,6 +3172,28 @@ def parse_imported_report_text(
     ]
 
 
+def parse_step_input_text(
+    raw_text: str,
+    *,
+    display_name: str,
+    source_path: str | None,
+    file_size_bytes: int | None,
+) -> list[dict[str, Any]] | None:
+    payload = parse_step_payload(raw_text, display_name=display_name)
+    if payload is None:
+        return None
+
+    return [
+        convert_step_report(
+            payload,
+            display_name=display_name,
+            source_path=source_path,
+            file_size_bytes=file_size_bytes,
+            raw_text=raw_text,
+        )
+    ]
+
+
 def analyze_input_text(
     raw_text: str,
     *,
@@ -2670,6 +3219,15 @@ def analyze_input_text(
     if imported_reports is not None:
         return imported_reports
 
+    imported_reports = parse_step_input_text(
+        raw_text,
+        display_name=display_name,
+        source_path=source_path,
+        file_size_bytes=file_size_bytes,
+    )
+    if imported_reports is not None:
+        return imported_reports
+
     return [
         analyze_xt_text(
             raw_text,
@@ -2680,7 +3238,7 @@ def analyze_input_text(
     ]
 
 
-def analyze_input_file(path: Path) -> list[dict[str, Any]]:
+def _analyze_input_file_single(path: Path) -> list[dict[str, Any]]:
     raw_text = path.read_text(errors="ignore")
     return analyze_input_text(
         raw_text,
@@ -2688,6 +3246,24 @@ def analyze_input_file(path: Path) -> list[dict[str, Any]]:
         source_path=str(path),
         file_size_bytes=path.stat().st_size,
     )
+
+
+def analyze_input_file(path: Path) -> list[dict[str, Any]]:
+    reports = _analyze_input_file_single(path)
+    if path.suffix.lower() not in {".json", ".stp", ".step"} or len(reports) != 1:
+        return reports
+
+    for companion in _companion_candidates(path):
+        if not companion.exists():
+            continue
+        companion_reports = _analyze_input_file_single(companion)
+        if len(companion_reports) != 1:
+            continue
+        fused_report = _fused_report_from_step_and_json(reports[0], companion_reports[0])
+        if fused_report is not None:
+            return [fused_report]
+
+    return reports
 
 
 def print_text_report(report: dict[str, Any]) -> None:
