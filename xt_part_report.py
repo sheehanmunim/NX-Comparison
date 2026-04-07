@@ -3,6 +3,7 @@
 import argparse
 import json
 import math
+import os
 import re
 import struct
 from collections import Counter
@@ -3765,26 +3766,28 @@ def convert_step_report(
         application_label="STEP BREP Import",
         schema_label="STEP-ISO10303",
     )
-    occ_preview = step_occ_preview_from_text(raw_text, display_name=display_name)
     step_import = dict(payload.get("step_metadata") or {})
     step_import["backend"] = "native_step_parser"
-    if occ_preview and occ_preview.get("ok") and occ_preview.get("kernel_bodies"):
-        scale = unit_scale_to_meters((payload.get("part_summary") or {}).get("units"))
-        preview_bodies = list(occ_preview.get("kernel_bodies") or [])
-        _scale_preview_bodies_in_place(preview_bodies, scale)
-        preview_points = [_scale_triplet(point, scale) for point in (occ_preview.get("preview_points") or [])]
-        report["preview_geometry_hints"] = {
-            "point_count": len(preview_points),
-            "preview_points": preview_points,
-            "bounds": _scale_bounds(occ_preview.get("bounds"), scale),
-        }
-        report["preview_kernel_bodies"] = preview_bodies
-        step_import["backend"] = occ_preview.get("backend") or "opencascade_occ"
-        step_import["occ_preview"] = {
-            "body_count": int(occ_preview.get("body_count") or 0),
-            "triangle_face_count": int(occ_preview.get("triangle_face_count") or 0),
-            "edge_count": int(occ_preview.get("edge_count") or 0),
-        }
+    enable_occ_preview = os.environ.get("XT_ENABLE_OCC_STEP_PREVIEW", "").strip().lower() in {"1", "true", "yes", "on"}
+    if enable_occ_preview:
+        occ_preview = step_occ_preview_from_text(raw_text, display_name=display_name)
+        if occ_preview and occ_preview.get("ok") and occ_preview.get("kernel_bodies"):
+            scale = unit_scale_to_meters((payload.get("part_summary") or {}).get("units"))
+            preview_bodies = list(occ_preview.get("kernel_bodies") or [])
+            _scale_preview_bodies_in_place(preview_bodies, scale)
+            preview_points = [_scale_triplet(point, scale) for point in (occ_preview.get("preview_points") or [])]
+            report["preview_geometry_hints"] = {
+                "point_count": len(preview_points),
+                "preview_points": preview_points,
+                "bounds": _scale_bounds(occ_preview.get("bounds"), scale),
+            }
+            report["preview_kernel_bodies"] = preview_bodies
+            step_import["backend"] = occ_preview.get("backend") or "opencascade_occ"
+            step_import["occ_preview"] = {
+                "body_count": int(occ_preview.get("body_count") or 0),
+                "triangle_face_count": int(occ_preview.get("triangle_face_count") or 0),
+                "edge_count": int(occ_preview.get("edge_count") or 0),
+            }
     report["step_import"] = step_import
     report.setdefault("entity_hints", {})
     report["entity_hints"]["step_backend"] = report["step_import"].get("backend")

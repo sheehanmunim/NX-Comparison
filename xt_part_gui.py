@@ -5,6 +5,8 @@ import json
 import os
 import re
 import webbrowser
+from email import policy
+from email.parser import BytesParser
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -228,6 +230,20 @@ def analyze_uploaded_files(file_payloads: list[dict]) -> list[dict]:
     return _prepare_reports(reports)
 
 
+def analyze_uploaded_binary_files(file_payloads: list[dict]) -> list[dict]:
+    reports: list[dict] = []
+    for file_payload in file_payloads:
+        raw_bytes = bytes(file_payload.get("data") or b"")
+        imported_reports = analyze_input_bytes(
+            raw_bytes,
+            display_name=file_payload.get("name", "<upload>"),
+            source_path=f"uploaded:{file_payload.get('name', '<upload>')}",
+            file_size_bytes=file_payload.get("size", len(raw_bytes)),
+        )
+        reports.extend(imported_reports)
+    return _prepare_reports(reports)
+
+
 def create_fused_report(left_report: dict, right_report: dict) -> dict | None:
     fused_report = _fused_report_from_step_and_json(left_report, right_report)
     if fused_report is None:
@@ -320,6 +336,7 @@ HTML = """<!doctype html>
       --viewport-frame: #5a5a5a;
     }
     body {
+      margin: 0;
       font-family: "Segoe UI", "Aptos", "Helvetica Neue", Arial, sans-serif;
       background: var(--app-bg);
       color: var(--text-main);
@@ -327,6 +344,9 @@ HTML = """<!doctype html>
     .app {
       display: grid;
       grid-template-rows: auto auto auto 1fr;
+      gap: 10px;
+      padding: 10px;
+      box-sizing: border-box;
       min-height: 100vh;
     }
     .header, .toolbar, .sidebar, .main, .status {
@@ -335,8 +355,8 @@ HTML = """<!doctype html>
       box-shadow: var(--panel-shadow);
     }
     .header, .toolbar, .status {
-      margin: 10px 10px 0 10px;
-      padding: 12px;
+      margin: 0;
+      padding: 10px;
     }
     .header h1 {
       margin: 0 0 6px 0;
@@ -348,6 +368,33 @@ HTML = """<!doctype html>
       color: var(--text-muted);
       font-size: 14px;
       line-height: 1.4;
+    }
+    .status {
+      display: grid;
+      gap: 8px;
+    }
+    .status-progress {
+      height: 8px;
+      border: 1px solid #d0d0d0;
+      background: #ededed;
+      overflow: hidden;
+    }
+    .status-progress[hidden] {
+      display: none;
+    }
+    .status-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #f59e0b, #fbbf24);
+      transition: width 120ms linear;
+    }
+    .status-progress.indeterminate .status-progress-bar {
+      width: 35%;
+      animation: status-progress-slide 1.1s linear infinite;
+    }
+    @keyframes status-progress-slide {
+      from { transform: translateX(-120%); }
+      to { transform: translateX(340%); }
     }
     .toolbar {
       display: flex;
@@ -392,7 +439,7 @@ HTML = """<!doctype html>
       display: grid;
       grid-template-columns: 300px minmax(0, 1fr);
       gap: 10px;
-      padding: 10px;
+      padding: 0;
       min-height: 0;
     }
     .sidebar {
@@ -796,7 +843,12 @@ HTML = """<!doctype html>
       <button id="reset-view">Reset Preview View</button>
     </div>
 
-    <div class="status" id="status">Load a STEP or STL file to preview it, or load a matching STEP and JSON pair to build a STEP-referenced fusion.</div>
+    <div class="status" id="status">
+      <div id="status-text">Load a STEP or STL file to preview it, or load a matching STEP and JSON pair to build a STEP-referenced fusion.</div>
+      <div class="status-progress" id="status-progress" hidden>
+        <div class="status-progress-bar" id="status-progress-bar"></div>
+      </div>
+    </div>
 
     <div class="content">
       <div class="sidebar">
@@ -1010,7 +1062,37 @@ HTML = """<!doctype html>
     }
 
     function setStatus(message) {
+      const statusText = byId("status-text");
+      if (statusText) {
+        statusText.textContent = message;
+        return;
+      }
       byId("status").textContent = message;
+    }
+
+    function setStatusProgress(value = null, options = {}) {
+      const progressEl = byId("status-progress");
+      const barEl = byId("status-progress-bar");
+      if (!progressEl || !barEl) return;
+
+      const { indeterminate = false, visible = true } = options;
+      if (!visible) {
+        progressEl.hidden = true;
+        progressEl.classList.remove("indeterminate");
+        barEl.style.width = "0%";
+        return;
+      }
+
+      progressEl.hidden = false;
+      progressEl.classList.toggle("indeterminate", indeterminate);
+      if (!indeterminate) {
+        const clamped = Math.max(0, Math.min(100, Number(value) || 0));
+        barEl.style.width = `${clamped}%`;
+      }
+    }
+
+    function clearStatusProgress() {
+      setStatusProgress(0, { visible: false });
     }
 
     function setPreviewOverlay(message = "", tone = "info") {
@@ -3759,17 +3841,24 @@ HTML = """<!doctype html>
 
     function applyPreviewViewportMode(viewport, mode) {
       if (!viewport?.previewObjects) return;
-      const { solidMesh, wireframe, pointCloud, edgeLines } = viewport.previewObjects;
-      const hasSurfaceGeometry = Boolean(solidMesh || wireframe || edgeLines);
+      const { solidMesh, wireframe, pointCloud, edgeLines, fallbackEdgeLines } = viewport.previewObjects;
+      const hasSurfaceGeometry = Boolean(solidMesh || wireframe || edgeLines || fallbackEdgeLines);
+      const showSolid = mode === "solid";
+      const showWireframe = mode === "wireframe";
+      const showPoints = mode === "points";
       if (solidMesh) solidMesh.visible = mode === "solid";
-      if (pointCloud) pointCloud.visible = mode === "points" || !hasSurfaceGeometry;
+      if (pointCloud) pointCloud.visible = showPoints || !hasSurfaceGeometry;
       if (wireframe) {
-        wireframe.visible = mode !== "points";
-        wireframe.material.opacity = mode === "solid" ? 0.22 : 1;
+        wireframe.visible = showWireframe;
+        wireframe.material.opacity = showWireframe ? 1 : 0;
       }
       if (edgeLines) {
-        edgeLines.visible = mode !== "points";
-        edgeLines.material.opacity = mode === "solid" ? 0.26 : 0.78;
+        edgeLines.visible = showWireframe;
+        edgeLines.material.opacity = showWireframe ? 0.78 : 0.32;
+      }
+      if (fallbackEdgeLines) {
+        fallbackEdgeLines.visible = showWireframe || showSolid;
+        fallbackEdgeLines.material.opacity = showWireframe ? 0.78 : 0.4;
       }
     }
 
@@ -3781,8 +3870,10 @@ HTML = """<!doctype html>
       const solidNormals = [];
       const solidColors = [];
       const edgePositions = [];
+      const fallbackEdgePositions = [];
       const pointPositions = [];
       const pointSeen = new Set();
+      const surfaceBodyKeys = new Set();
 
       function pushPoint(position) {
         const centered = [
@@ -3799,6 +3890,8 @@ HTML = """<!doctype html>
       for (const face of preview.kernelGeometry?.faces || []) {
         const vertices = Array.isArray(face?.vertices) ? face.vertices : [];
         if (vertices.length < 3) continue;
+        const faceBodyKey = face?.bodyRawKey || face?.componentId || null;
+        if (faceBodyKey) surfaceBodyKeys.add(faceBodyKey);
         const normal = (face.normal || normalFromVertices(vertices) || [0, 0, 1]).map(Number);
         const baseColor = (face.baseColor || [196, 199, 205]).map((value) => Number(value) / 255);
 
@@ -3819,10 +3912,14 @@ HTML = """<!doctype html>
 
       for (const edge of preview.kernelGeometry?.edges || []) {
         const points = Array.isArray(edge.points) ? edge.points : [];
+        const edgeBodyKey = edge?.bodyRawKey || edge?.componentId || null;
+        const targetPositions = edgeBodyKey && !surfaceBodyKeys.has(edgeBodyKey)
+          ? fallbackEdgePositions
+          : edgePositions;
         for (let index = 1; index < points.length; index++) {
           const start = points[index - 1];
           const end = points[index];
-          edgePositions.push(
+          targetPositions.push(
             Number(start[0]) - preview.center[0],
             Number(start[1]) - preview.center[1],
             Number(start[2]) - preview.center[2],
@@ -3842,6 +3939,7 @@ HTML = """<!doctype html>
       let solidMesh = null;
       let wireframe = null;
       let edgeLines = null;
+      let fallbackEdgeLines = null;
       let pointCloud = null;
 
       if (solidPositions.length) {
@@ -3890,6 +3988,20 @@ HTML = """<!doctype html>
         group.add(edgeLines);
       }
 
+      if (fallbackEdgePositions.length) {
+        const fallbackEdgeGeometry = new THREE.BufferGeometry();
+        fallbackEdgeGeometry.setAttribute("position", new THREE.Float32BufferAttribute(fallbackEdgePositions, 3));
+        fallbackEdgeLines = new THREE.LineSegments(
+          fallbackEdgeGeometry,
+          new THREE.LineBasicMaterial({
+            color: new THREE.Color(rgbCss(palette.edgeColor)),
+            transparent: true,
+            opacity: 0.4,
+          })
+        );
+        group.add(fallbackEdgeLines);
+      }
+
       if (pointPositions.length) {
         const pointGeometry = new THREE.BufferGeometry();
         pointGeometry.setAttribute("position", new THREE.Float32BufferAttribute(pointPositions, 3));
@@ -3904,7 +4016,7 @@ HTML = """<!doctype html>
         group.add(pointCloud);
       }
 
-      return { group, solidMesh, wireframe, edgeLines, pointCloud };
+      return { group, solidMesh, wireframe, edgeLines, fallbackEdgeLines, pointCloud };
     }
 
     function destroyViewport(viewport) {
@@ -5223,6 +5335,64 @@ HTML = """<!doctype html>
       return response.json();
     }
 
+    async function uploadFilesWithProgress(files) {
+      return new Promise((resolve, reject) => {
+        const uploadFiles = [...files];
+        const xhr = new XMLHttpRequest();
+        const formData = new FormData();
+
+        uploadFiles.forEach((file) => {
+          formData.append("files", file, file.name);
+        });
+
+        xhr.open("POST", "/api/analyze-uploads");
+        xhr.responseType = "json";
+
+        xhr.upload.addEventListener("progress", (event) => {
+          if (event.lengthComputable && event.total > 0) {
+            const percent = (event.loaded / event.total) * 100;
+            setStatus(`Uploading ${uploadFiles.length} file(s)... ${Math.round(percent)}%`);
+            setStatusProgress(percent);
+          } else {
+            setStatus(`Uploading ${uploadFiles.length} file(s)...`);
+            setStatusProgress(null, { indeterminate: true });
+          }
+        });
+
+        xhr.upload.addEventListener("load", () => {
+          setStatus(`Analyzing ${uploadFiles.length} uploaded file(s)...`);
+          setStatusProgress(null, { indeterminate: true });
+        });
+
+        xhr.addEventListener("load", () => {
+          const response = xhr.response || (() => {
+            try {
+              return JSON.parse(xhr.responseText || "{}");
+            } catch {
+              return {};
+            }
+          })();
+          if (xhr.status >= 200 && xhr.status < 300) {
+            resolve(response);
+            return;
+          }
+          reject(new Error(response.error || `Request failed: ${xhr.status}`));
+        });
+
+        xhr.addEventListener("error", () => {
+          reject(new Error("Upload failed."));
+        });
+
+        xhr.addEventListener("abort", () => {
+          reject(new Error("Upload cancelled."));
+        });
+
+        setStatus(`Uploading ${uploadFiles.length} file(s)...`);
+        setStatusProgress(0);
+        xhr.send(formData);
+      });
+    }
+
     async function loadSamples() {
       setStatus("Loading workspace samples...");
       const response = await fetch("/api/samples");
@@ -5253,28 +5423,16 @@ HTML = """<!doctype html>
 
     async function loadUploads(files) {
       if (!files.length) return;
-      setStatus(`Reading ${files.length} uploaded file(s)...`);
-      const payload = await Promise.all([...files].map(async (file) => {
-        const buffer = await file.arrayBuffer();
-        const bytes = new Uint8Array(buffer);
-        const chunkSize = 0x8000;
-        let binary = "";
-        for (let index = 0; index < bytes.length; index += chunkSize) {
-          binary += String.fromCharCode(...bytes.subarray(index, index + chunkSize));
+      try {
+        const data = await uploadFilesWithProgress(files);
+        mergeReports(data.reports || []);
+        if (data.reports.length === 1) {
+          setStatus(previewReadyMessage(data.reports[0]));
+        } else {
+          setStatus(loadedReportsStatus(data.reports || []));
         }
-        return {
-          name: file.name,
-          data: btoa(binary),
-          encoding: "base64",
-          size: file.size
-        };
-      }));
-      const data = await postJson("/api/analyze-text", { files: payload });
-      mergeReports(data.reports || []);
-      if (data.reports.length === 1) {
-        setStatus(previewReadyMessage(data.reports[0]));
-      } else {
-        setStatus(loadedReportsStatus(data.reports || []));
+      } finally {
+        clearStatusProgress();
       }
     }
 
@@ -5421,6 +5579,42 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
         body = self.rfile.read(content_length) if content_length else b"{}"
         return json.loads(body.decode("utf-8"))
 
+    def _read_multipart_files(self) -> list[dict]:
+        content_type = self.headers.get("Content-Type", "")
+        if "multipart/form-data" not in content_type:
+            return []
+        content_length = int(self.headers.get("Content-Length", "0"))
+        body = self.rfile.read(content_length) if content_length else b""
+        if not body:
+            return []
+
+        message = BytesParser(policy=policy.default).parsebytes(
+            (
+                f"Content-Type: {content_type}\r\n"
+                "MIME-Version: 1.0\r\n"
+                "\r\n"
+            ).encode("utf-8")
+            + body
+        )
+        if not message.is_multipart():
+            return []
+
+        payloads: list[dict] = []
+        for part in message.iter_parts():
+            if part.get_content_disposition() != "form-data":
+                continue
+            if part.get_param("name", header="content-disposition") != "files":
+                continue
+            raw_bytes = part.get_payload(decode=True) or b""
+            payloads.append(
+                {
+                    "name": part.get_filename() or "<upload>",
+                    "data": raw_bytes,
+                    "size": len(raw_bytes),
+                }
+            )
+        return payloads
+
     def do_GET(self) -> None:
         parsed = urlparse(self.path)
         if parsed.path == "/":
@@ -5467,6 +5661,11 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
         parsed = urlparse(self.path)
 
         try:
+            if parsed.path == "/api/analyze-uploads":
+                reports = [enrich_report(report) for report in analyze_uploaded_binary_files(self._read_multipart_files())]
+                self._send_json({"reports": reports})
+                return
+
             payload = self._read_json()
             if parsed.path == "/api/analyze-paths":
                 reports = [enrich_report(report) for report in analyze_paths(payload.get("paths", []))]
