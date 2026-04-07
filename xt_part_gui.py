@@ -801,10 +801,6 @@ HTML = """<!doctype html>
         <h2>Loaded Parts</h2>
         <div class="hint">Click one part to preview it. Use Ctrl-click, Cmd-click, or Shift-click to add a second part, then compare what changed.</div>
         <div class="file-list" id="file-list"></div>
-        <div class="sidebar-actions">
-          <button id="compare-selected" disabled>Compare Selected Parts</button>
-          <button id="create-fusion" disabled>Improve JSON With STEP</button>
-        </div>
         <div class="hint" id="sidebar-foot">No parts loaded yet.</div>
       </div>
 
@@ -2840,12 +2836,6 @@ HTML = """<!doctype html>
       button.disabled = !canFuseSelection();
     }
 
-    function renderCompareButton() {
-      const button = byId("compare-selected");
-      if (!button) return;
-      button.disabled = !canCompareSelection();
-    }
-
     function renderTabs() {
       const root = byId("tabs");
       root.innerHTML = "";
@@ -2890,6 +2880,16 @@ HTML = """<!doctype html>
       const root = byId("preview-toolbar-right");
       root.innerHTML = "";
 
+      const actionGroup = document.createElement("div");
+      actionGroup.className = "toolbar-cluster";
+      const fusionButton = document.createElement("button");
+      fusionButton.id = "create-fusion";
+      fusionButton.className = "view-preset";
+      fusionButton.textContent = "Improve JSON With STEP";
+      fusionButton.disabled = !canFuseSelection();
+      fusionButton.onclick = () => createFusionFromSelection().catch((error) => setStatus(error.message));
+      actionGroup.appendChild(fusionButton);
+
       const viewGroup = document.createElement("div");
       viewGroup.className = "toolbar-cluster";
       viewGroup.innerHTML = '<span class="toolbar-label">Views</span>';
@@ -2925,6 +2925,7 @@ HTML = """<!doctype html>
         backgroundGroup.appendChild(button);
       });
 
+      root.appendChild(actionGroup);
       root.appendChild(viewGroup);
       root.appendChild(backgroundGroup);
     }
@@ -4676,12 +4677,79 @@ HTML = """<!doctype html>
       }
 
       const target = Math.max(1, Math.min(occLimit, MAX_RENDER_FACES - preserved.length));
-      const sampled = [];
-      const step = reducible.length / target;
-      for (let index = 0; index < target; index++) {
-        const face = reducible[Math.min(reducible.length - 1, Math.floor(index * step))];
-        if (face) sampled.push(face);
+      const sampleGroup = (group, count) => {
+        if (!Array.isArray(group) || !group.length || count <= 0) return [];
+        if (count >= group.length) return [...group];
+        const result = [];
+        const step = group.length / count;
+        for (let index = 0; index < count; index++) {
+          const face = group[Math.min(group.length - 1, Math.floor(index * step))];
+          if (face) result.push(face);
+        }
+        return result;
+      };
+
+      const reducibleGroups = new Map();
+      reducible.forEach((face, index) => {
+        const key = face?.bodyRawKey || face?.componentId || face?.rawFaceKey || `reducible-${index}`;
+        if (!reducibleGroups.has(key)) reducibleGroups.set(key, []);
+        reducibleGroups.get(key).push(face);
+      });
+
+      const groups = [...reducibleGroups.values()].filter((group) => group.length);
+      if (!groups.length) {
+        return preserved.slice(0, MAX_RENDER_FACES);
       }
+
+      const guaranteedPerGroup = Math.min(groups.length, target);
+      const allocations = groups.map(() => 0);
+      let remaining = target;
+      for (let index = 0; index < guaranteedPerGroup; index++) {
+        allocations[index] = 1;
+        remaining -= 1;
+      }
+
+      if (remaining > 0) {
+        const extraCapacities = groups.map((group, index) => Math.max(0, group.length - allocations[index]));
+        const extraTotal = extraCapacities.reduce((sum, value) => sum + value, 0);
+        if (extraTotal > 0) {
+          const fractional = [];
+          groups.forEach((group, index) => {
+            const capacity = extraCapacities[index];
+            if (capacity <= 0) {
+              fractional.push({ index, remainder: 0 });
+              return;
+            }
+            const exact = (capacity / extraTotal) * remaining;
+            const add = Math.min(capacity, Math.floor(exact));
+            allocations[index] += add;
+            remaining -= add;
+            fractional.push({ index, remainder: exact - add });
+          });
+
+          if (remaining > 0) {
+            fractional
+              .sort((left, right) => right.remainder - left.remainder)
+              .forEach(({ index }) => {
+                if (remaining <= 0) return;
+                if (allocations[index] >= groups[index].length) return;
+                allocations[index] += 1;
+                remaining -= 1;
+              });
+          }
+        }
+      }
+
+      if (remaining > 0) {
+        for (let index = 0; index < groups.length && remaining > 0; index++) {
+          while (remaining > 0 && allocations[index] < groups[index].length) {
+            allocations[index] += 1;
+            remaining -= 1;
+          }
+        }
+      }
+
+      const sampled = groups.flatMap((group, index) => sampleGroup(group, allocations[index] || 0));
       return preserved.concat(sampled);
     }
 
@@ -5128,7 +5196,6 @@ HTML = """<!doctype html>
       renderPreviewModes();
       renderPreviewPresets();
       renderFileList();
-      renderCompareButton();
       renderFusionButton();
       renderSummary();
       renderOverview();
@@ -5295,9 +5362,7 @@ HTML = """<!doctype html>
 
     byId("load-samples").onclick = () => loadSamples().catch((error) => setStatus(error.message));
     byId("load-paths").onclick = () => loadPaths().catch((error) => setStatus(error.message));
-    byId("compare-selected").onclick = openCompareFromSelection;
     byId("export-json").onclick = exportCurrentJson;
-    byId("create-fusion").onclick = () => createFusionFromSelection().catch((error) => setStatus(error.message));
     byId("reset-view").onclick = () => {
       resetPreviewIfNeeded();
       drawPreview();
