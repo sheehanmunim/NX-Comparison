@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import base64
 import json
 import os
 import re
@@ -13,6 +14,7 @@ from xt_backend_setup import ensure_backend_runtimes
 from xt_part_report import (
     _analyze_input_file_single,
     _fused_report_from_step_and_json,
+    analyze_input_bytes,
     analyze_input_text,
     metric_and_imperial,
 )
@@ -86,6 +88,12 @@ def _preview_metadata_for_report(report: dict) -> dict:
             "strategy": "json_reconstruction_preview",
             "label": "JSON Reconstruction",
             "description": "Reconstructed from Siemens NX JSON topology and geometry for preview.",
+        }
+    if source_format == "stl_file":
+        return {
+            "strategy": "stl_mesh_preview",
+            "label": "STL Mesh",
+            "description": "Imported directly from the STL file and shown as a triangle mesh.",
         }
     if source_format == "fused_step_json":
         step_reference = ((report.get("fusion") or {}).get("reference_step") or {}).get("file_name")
@@ -178,7 +186,7 @@ def _prepare_reports(reports: list[dict]) -> list[dict]:
 def workspace_sample_reports() -> list[dict]:
     reports: list[dict] = []
     seen: set[Path] = set()
-    for pattern in ("*.x_t", "*.stp", "*.step", "*.json"):
+    for pattern in ("*.x_t", "*.stp", "*.step", "*.stl", "*.json"):
         for path in sorted(candidate for candidate in Path.cwd().rglob(pattern) if _is_workspace_sample_path(candidate)):
             resolved = path.resolve()
             if resolved in seen:
@@ -205,8 +213,13 @@ def analyze_paths(paths: list[str]) -> list[dict]:
 def analyze_uploaded_files(file_payloads: list[dict]) -> list[dict]:
     reports: list[dict] = []
     for file_payload in file_payloads:
-        imported_reports = analyze_input_text(
-            file_payload.get("text", ""),
+        raw_bytes: bytes
+        if file_payload.get("encoding") == "base64":
+            raw_bytes = base64.b64decode(file_payload.get("data", "") or "")
+        else:
+            raw_bytes = str(file_payload.get("text", "")).encode("utf-8")
+        imported_reports = analyze_input_bytes(
+            raw_bytes,
             display_name=file_payload.get("name", "<upload>"),
             source_path=f"uploaded:{file_payload.get('name', '<upload>')}",
             file_size_bytes=file_payload.get("size"),
@@ -771,12 +784,12 @@ HTML = """<!doctype html>
   <div class="app">
     <div class="header">
       <h1>CAD Part Viewer & Compare</h1>
-      <p>STEP files preview as direct STEP imports, Siemens NX JSON files preview as reconstructed parts, and Fusion previews improve the JSON by referencing the matching STEP geometry. `.x_t`, compatible JSON, and text reports are also supported.</p>
+      <p>STEP files preview as direct STEP imports, STL files preview as direct triangle meshes, Siemens NX JSON files preview as reconstructed parts, and Fusion previews improve the JSON by referencing the matching STEP geometry. `.x_t`, compatible JSON, and text reports are also supported.</p>
     </div>
 
     <div class="toolbar">
       <button id="load-samples">Load Workspace Samples</button>
-      <label class="file-upload">Upload CAD Files<input id="file-input" type="file" accept=".x_t,.step,.stp,.json,.txt,.md,text/plain,application/json" multiple></label>
+      <label class="file-upload">Upload CAD Files<input id="file-input" type="file" accept=".x_t,.step,.stp,.stl,.json,.txt,.md,text/plain,application/json,model/stl,application/sla" multiple></label>
       <input id="path-input" type="text" placeholder="Enter one or more file paths separated by commas">
       <button id="load-paths">Load Paths</button>
       <button id="export-json">Export Current JSON</button>
@@ -815,7 +828,7 @@ HTML = """<!doctype html>
               <div id="preview-overlay" class="viewport-overlay"></div>
             </div>
             <div class="viewport-footer">
-            <div class="preview-note" id="preview-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. Double-click fits the model. STEP files use direct STEP import geometry, JSON files use reconstructed preview geometry, and Fusion previews use JSON geometry improved by STEP references.</div>
+            <div class="preview-note" id="preview-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. Double-click fits the model. STEP files use direct STEP import geometry, STL files use direct triangle meshes, JSON files use reconstructed preview geometry, and Fusion previews use JSON geometry improved by STEP references.</div>
               <div class="viewport-badges">
                 <div class="viewport-badge">Orbit</div>
                 <div class="viewport-badge">Pan</div>
@@ -839,7 +852,7 @@ HTML = """<!doctype html>
       </div>
     </div>
 
-    <div class="status" id="status">Load a STEP file, Siemens NX JSON file, or a matching pair to preview them and build a STEP-referenced fusion.</div>
+    <div class="status" id="status">Load a STEP or STL file to preview it, or load a matching STEP and JSON pair to build a STEP-referenced fusion.</div>
   </div>
 
   <script>
@@ -1032,6 +1045,18 @@ HTML = """<!doctype html>
       return report.kernel_body ? [report.kernel_body] : [];
     }
 
+    function previewBodies(report) {
+      if (!report) return [];
+      if (Array.isArray(report.preview_kernel_bodies) && report.preview_kernel_bodies.length) {
+        return report.preview_kernel_bodies.filter(Boolean);
+      }
+      return kernelBodies(report);
+    }
+
+    function previewGeometryHints(report) {
+      return report?.preview_geometry_hints || report?.geometry_hints || {};
+    }
+
     function previewBodyKey(body, bodyIndex = 0) {
       return rawIdentityKey(
         body?.metadata?.object_identity,
@@ -1045,7 +1070,7 @@ HTML = """<!doctype html>
     }
 
     function visiblePreviewBodyCount(report) {
-      const bodies = kernelBodies(report);
+      const bodies = previewBodies(report);
       if (!bodies.length) return 0;
       const hidden = new Set(hiddenPreviewBodiesForReport(report));
       return bodies.filter((body, bodyIndex) => !hidden.has(previewBodyKey(body, bodyIndex))).length;
@@ -1076,7 +1101,7 @@ HTML = """<!doctype html>
     }
 
     function reportPreviewScore(report) {
-      return (report.geometry_hints?.point_count || 0) + ((inferredTopology(report) ? 1 : 0) * 1000);
+      return (previewGeometryHints(report)?.point_count || 0) + ((inferredTopology(report) ? 1 : 0) * 1000);
     }
 
     function bestReportKey(reports) {
@@ -1109,6 +1134,7 @@ HTML = """<!doctype html>
       const labels = {
         fused_step_json: "Fusion (JSON + STEP Reference)",
         siemens_nx_json: "Siemens NX JSON",
+        stl_file: "STL",
         step_file: "STEP",
         parasolid_analysis_report: "Parasolid analysis report"
       };
@@ -1140,6 +1166,9 @@ HTML = """<!doctype html>
       if (strategy === "step_import_preview") {
         return `${baseControls} This file is being shown as a direct STEP import preview, closer to the Online3DViewer-style flow.`;
       }
+      if (strategy === "stl_mesh_preview") {
+        return `${baseControls} This file is being shown as a direct STL triangle mesh preview in WebGL.`;
+      }
       if (strategy === "json_reconstruction_preview") {
         return `${baseControls} This file is being shown as a reconstructed part preview built from Siemens NX JSON topology and geometry.`;
       }
@@ -1160,6 +1189,7 @@ HTML = """<!doctype html>
       if (!report) return "Preview ready.";
       const strategy = previewMetadata(report).strategy;
       if (strategy === "step_import_preview") return `Loaded ${report.file_name}. STEP import preview ready.`;
+      if (strategy === "stl_mesh_preview") return `Loaded ${report.file_name}. STL mesh preview ready.`;
       if (strategy === "json_reconstruction_preview") return `Loaded ${report.file_name}. JSON reconstruction preview ready.`;
       if (strategy === "fused_json_step_preview") return `Loaded ${report.file_name}. STEP-referenced Fusion preview ready.`;
       return `Loaded ${report.file_name}. Preview ready.`;
@@ -1172,7 +1202,7 @@ HTML = """<!doctype html>
         return `Loaded ${reports.length} file(s) and built ${fusionCount} STEP-referenced Fusion preview(s). Select one to inspect it or select two to compare them.`;
       }
       if (previewKinds.has("step_import_preview") && previewKinds.has("json_reconstruction_preview")) {
-        return `Loaded ${reports.length} file(s). STEP imports and JSON reconstructions are ready; matching pairs can be fused automatically or compared side-by-side.`;
+        return `Loaded ${reports.length} file(s). STEP imports, STL meshes, and JSON reconstructions are ready; matching STEP+JSON pairs can be fused automatically or compared side-by-side.`;
       }
       return `Loaded ${reports.length} file(s). Select one to preview it or two to compare them.`;
     }
@@ -2903,7 +2933,7 @@ HTML = """<!doctype html>
 
       if (!state.reports.length) {
         list.innerHTML = '<div class="empty">No reports loaded.</div>';
-        byId("sidebar-foot").textContent = "Use the toolbar to load a STEP file or another supported CAD file.";
+        byId("sidebar-foot").textContent = "Use the toolbar to load a STEP, STL, or another supported CAD file.";
         return;
       }
 
@@ -2928,7 +2958,7 @@ HTML = """<!doctype html>
           ? "Two parts are selected. Compare them now, or use Improve JSON With STEP to make the JSON reconstruction reference the STEP geometry."
           : state.selected.length === 2
             ? "Two parts selected. The Compare view is ready."
-            : `${state.reports.length} part report(s) loaded. STEP imports, JSON reconstructions, and Fusion previews appear together here.`;
+            : `${state.reports.length} part report(s) loaded. STEP imports, STL meshes, JSON reconstructions, and Fusion previews appear together here.`;
     }
 
     function renderSummary() {
@@ -2997,8 +3027,8 @@ HTML = """<!doctype html>
         ["Raw NX Faces / Edges", structuredTopologyLabel(report)],
         ["Density", formatDensity(report)],
         ["Colors", formatColors(report)],
-        ["Bounds", formatBounds(report.geometry_hints?.bounds)],
-        ["Preview Point Count", String(report.geometry_hints?.point_count || 0)],
+        ["Bounds", formatBounds(previewGeometryHints(report)?.bounds || report.geometry_hints?.bounds)],
+        ["Preview Point Count", String(previewGeometryHints(report)?.point_count || 0)],
         ["Visible Preview Bodies", String(visiblePreviewBodyCount(report) || 0)],
         ["Object State IDs", String(report.object_state_ids?.length || 0)]
       ];
@@ -3007,7 +3037,7 @@ HTML = """<!doctype html>
         rows.splice(3, 0, ["Fusion", fusionLabel(report)], ["Fusion ML", fusionMlLabel(report)]);
       }
 
-      const bodies = kernelBodies(report);
+      const bodies = previewBodies(report);
       const hiddenBodyKeys = new Set(hiddenPreviewBodiesForReport(report));
       const bodyVisibilityHtml = bodies.length > 1
         ? `
@@ -3086,7 +3116,7 @@ HTML = """<!doctype html>
         `Color swatches: ${formatColors(report)}`,
         `Scale factor attribute: ${report.has_scale_factor_attribute ? "Present" : "Not found"}`,
         `Object state IDs found: ${report.object_state_ids?.length || 0}`,
-        `Preview point count: ${report.geometry_hints?.point_count || 0}`,
+        `Preview point count: ${previewGeometryHints(report)?.point_count || 0}`,
         "",
         "Notable dimensions and scalar values",
         ""
@@ -3159,8 +3189,9 @@ HTML = """<!doctype html>
         return;
       }
 
-      const bounds = report.geometry_hints?.bounds;
-      const points = report.geometry_hints?.preview_points || [];
+      const geometry = previewGeometryHints(report);
+      const bounds = geometry?.bounds;
+      const points = geometry?.preview_points || [];
       const ids = report.object_state_ids || [];
 
       panel.textContent = [
@@ -3969,7 +4000,13 @@ HTML = """<!doctype html>
 
           setPreviewViewportBackground(previewViewport);
           resizePreviewViewport(previewViewport);
-          setPreviewOverlay("");
+          const initialReport = activeReport();
+          if (initialReport) {
+            rebuildPreviewViewport(previewViewport, initialReport, { fitView: true });
+          } else {
+            setPreviewOverlay("");
+            renderPreviewViewport(previewViewport);
+          }
           return previewViewport;
         }).catch((error) => {
           previewViewportDisabled = true;
@@ -4006,16 +4043,17 @@ HTML = """<!doctype html>
     }
 
     function rebuildPreviewViewport(viewport, report, options = {}) {
+      const resolvedReport = report || activeReport();
       clearPreviewViewportContent(viewport);
-      if (!report) {
-        setPreviewOverlay("Load a STEP or JSON file to preview it here.");
+      if (!resolvedReport) {
+        setPreviewOverlay("Load a STEP, STL, or JSON file to preview it here.");
         renderPreviewViewport(viewport);
         return;
       }
 
-      const preview = getPreviewData(report);
+      const preview = getPreviewData(resolvedReport);
       if (!preview) {
-        const names = report?.decoded_names?.length ? `\nNamed entities: ${report.decoded_names.join(", ")}` : "";
+        const names = resolvedReport?.decoded_names?.length ? `\nNamed entities: ${resolvedReport.decoded_names.join(", ")}` : "";
         setPreviewOverlay(`No previewable solid geometry was decoded from this file.${names}`);
         renderPreviewViewport(viewport);
         return;
@@ -4025,8 +4063,8 @@ HTML = """<!doctype html>
       viewport.contentGroup.add(objects.group);
       viewport.previewObjects = objects;
       viewport.currentPreview = preview;
-      viewport.currentReportKey = reportKey(report);
-      viewport.currentHiddenKey = JSON.stringify(hiddenPreviewBodiesForReport(report));
+      viewport.currentReportKey = reportKey(resolvedReport);
+      viewport.currentHiddenKey = JSON.stringify(hiddenPreviewBodiesForReport(resolvedReport));
       setPreviewOverlay("");
       applyPreviewViewportMode(viewport, state.viewer.mode);
       if (options.fitView) {
@@ -4465,8 +4503,9 @@ HTML = """<!doctype html>
 
     function getPreviewData(report) {
       if (!report) return null;
-      const bodies = kernelBodies(report);
-      const points = (!bodies.length ? (report.geometry_hints?.preview_points || []) : []).map((point) => point.map(Number));
+      const bodies = previewBodies(report);
+      const geometry = previewGeometryHints(report);
+      const points = (!bodies.length ? (geometry.preview_points || []) : []).map((point) => point.map(Number));
       const hiddenBodyKeys = new Set(hiddenPreviewBodiesForReport(report));
       const kernelGeometry = bodies
         .map((body, bodyIndex) => previewGeometryFromKernelBody(body, { bodyIndex, hiddenBodyKeys }))
@@ -4481,11 +4520,11 @@ HTML = """<!doctype html>
       const simplifiedKernelGeometry = simplifyKernelGeometryForPreview(kernelGeometry);
       const cloud = [...points, ...kernelGeometry.points];
       const kernelBody = bodies.length === 1 ? bodies[0] : null;
-      let bounds = report.geometry_hints?.bounds
+      let bounds = geometry?.bounds
         ? {
-            min: report.geometry_hints.bounds.min.map(Number),
-            max: report.geometry_hints.bounds.max.map(Number),
-            size: report.geometry_hints.bounds.size.map(Number)
+            min: geometry.bounds.min.map(Number),
+            max: geometry.bounds.max.map(Number),
+            size: geometry.bounds.size.map(Number)
           }
         : null;
 
@@ -4950,11 +4989,21 @@ HTML = """<!doctype html>
     async function loadUploads(files) {
       if (!files.length) return;
       setStatus(`Reading ${files.length} uploaded file(s)...`);
-      const payload = await Promise.all([...files].map(async (file) => ({
-        name: file.name,
-        text: await file.text(),
-        size: file.size
-      })));
+      const payload = await Promise.all([...files].map(async (file) => {
+        const buffer = await file.arrayBuffer();
+        const bytes = new Uint8Array(buffer);
+        const chunkSize = 0x8000;
+        let binary = "";
+        for (let index = 0; index < bytes.length; index += chunkSize) {
+          binary += String.fromCharCode(...bytes.subarray(index, index + chunkSize));
+        }
+        return {
+          name: file.name,
+          data: btoa(binary),
+          encoding: "base64",
+          size: file.size
+        };
+      }));
       const data = await postJson("/api/analyze-text", { files: payload });
       mergeReports(data.reports || []);
       if (data.reports.length === 1) {

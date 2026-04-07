@@ -4,11 +4,13 @@ import argparse
 import json
 import math
 import re
+import struct
 from collections import Counter
 from pathlib import Path
 from typing import Any
 
 from xt_engine.topology import build_topology_from_kernel_body
+from xt_backend_bridge import predict_match_probabilities, step_occ_preview_from_text
 from xt_kernel import build_kernel_body
 from xt_parser_foundation import infer_entity_hints, parse_xt_structure
 from xt_step import parse_step_payload
@@ -607,6 +609,35 @@ def unit_scale_to_meters(unit_label: str | None) -> float:
 
 def _round_triplet(values: tuple[float, float, float] | list[float]) -> list[float]:
     return [round(float(value), 12) for value in values]
+
+
+def _scale_triplet(values: list[float], scale: float) -> list[float]:
+    return _round_triplet([float(value) * scale for value in values[:3]])
+
+
+def _scale_bounds(bounds: dict[str, Any] | None, scale: float) -> dict[str, Any] | None:
+    if not bounds:
+        return None
+    return {
+        "min": _scale_triplet(list(bounds["min"]), scale),
+        "max": _scale_triplet(list(bounds["max"]), scale),
+        "size": _scale_triplet(list(bounds["size"]), scale),
+    }
+
+
+def _scale_preview_bodies_in_place(bodies: list[dict[str, Any]], scale: float) -> None:
+    if abs(scale - 1.0) <= 1e-12:
+        return
+    for body in bodies:
+        body["vertices"] = [_scale_triplet(point, scale) for point in (body.get("vertices") or [])]
+        for face in body.get("faces", []):
+            face["vertices"] = [_scale_triplet(point, scale) for point in (face.get("vertices") or [])]
+            if face.get("normal"):
+                face["normal"] = _round_triplet(face["normal"])
+        for edge in body.get("edges", []):
+            edge["points"] = [_scale_triplet(point, scale) for point in (edge.get("points") or [])]
+        if body.get("bounding_box"):
+            body["bounding_box"] = _scale_bounds(body.get("bounding_box"), scale)
 
 
 def _merge_bounds(bounds_list: list[dict[str, Any]]) -> dict[str, Any] | None:
@@ -2276,6 +2307,15 @@ def _distance_between(a: list[float], b: list[float]) -> float:
     return math.sqrt(sum((float(a[index]) - float(b[index])) ** 2 for index in range(3)))
 
 
+def _generic_body_name(name: str) -> bool:
+    text = str(name or "").strip().lower()
+    return not text or bool(re.fullmatch(r"body\s+\d+", text))
+
+
+def _relative_delta(left: float, right: float) -> float:
+    return abs(float(left) - float(right)) / max(abs(float(left)), abs(float(right)), 1e-9)
+
+
 def _body_signature(body: dict[str, Any]) -> dict[str, Any]:
     points = _preview_points_from_kernel_body(body)
     bounds = _polyline_bounds(points)
@@ -2339,7 +2379,30 @@ def _body_match_cost(step_body: dict[str, Any], json_body: dict[str, Any]) -> fl
     return (center_cost * 5.0) + (size_cost * 4.0) + (face_cost * 2.0) + edge_cost + (patch_cost * 0.5) + name_bonus + index_bonus
 
 
-def _match_kernel_bodies(
+def _body_match_features(step_body: dict[str, Any], json_body: dict[str, Any]) -> list[float]:
+    step_sig = _body_signature(step_body)
+    json_sig = _body_signature(json_body)
+    reference_span = max(step_sig["diagonal"], json_sig["diagonal"], 1e-9)
+    step_name = str(step_sig["name"] or "")
+    json_name = str(json_sig["name"] or "")
+    return [
+        _distance_between(step_sig["center"], json_sig["center"]) / reference_span,
+        _size_delta(step_sig["size"], json_sig["size"]),
+        _relative_delta(step_sig["source_face_count"], json_sig["source_face_count"]),
+        _relative_delta(step_sig["edge_count"], json_sig["edge_count"]),
+        _relative_delta(step_sig["face_patch_count"], json_sig["face_patch_count"]),
+        _relative_delta(step_sig["point_count"], json_sig["point_count"]),
+        1.0 if step_name and step_name == json_name else 0.0,
+        1.0 if step_name and json_name and not _generic_body_name(step_name) and step_name == json_name else 0.0,
+        1.0
+        if step_sig["body_index"] is not None
+        and json_sig["body_index"] is not None
+        and step_sig["body_index"] == json_sig["body_index"]
+        else 0.0,
+    ]
+
+
+def _match_kernel_bodies_cost_only(
     step_bodies: list[dict[str, Any]],
     json_bodies: list[dict[str, Any]],
 ) -> list[tuple[dict[str, Any], dict[str, Any], dict[str, Any]]]:
@@ -2411,6 +2474,161 @@ def _match_kernel_bodies(
         json_remaining = [(index, body) for index, body in json_remaining if index != json_index]
 
     return pairs
+
+
+def _ml_probability_bundle(
+    *,
+    training_features: list[list[float]],
+    training_labels: list[int],
+    predict_features: list[list[float]],
+    model_name: str,
+) -> dict[str, Any] | None:
+    if len(set(training_labels)) < 2:
+        return None
+    result = predict_match_probabilities(
+        training_features=training_features,
+        training_labels=training_labels,
+        predict_features=predict_features,
+        model_name=model_name,
+    )
+    if not result or not result.get("ok"):
+        return None
+    return result
+
+
+def _match_kernel_bodies(
+    step_bodies: list[dict[str, Any]],
+    json_bodies: list[dict[str, Any]],
+) -> list[tuple[dict[str, Any], dict[str, Any], dict[str, Any]]]:
+    heuristic_pairs = _match_kernel_bodies_cost_only(step_bodies, json_bodies)
+    exact_positive_keys: set[tuple[int, int]] = set()
+    for pair_step_body, pair_json_body, match_info in heuristic_pairs:
+        if match_info.get("match_reason") == "shared_body_index":
+            exact_positive_keys.add(
+                (int(match_info["step_body_index"]), int(match_info["json_body_index"]))
+            )
+
+    if not exact_positive_keys:
+        for step_index, step_body in enumerate(step_bodies, start=1):
+            step_name = str((_body_signature(step_body)["name"]) or "")
+            if _generic_body_name(step_name):
+                continue
+            name_matches = [
+                json_index
+                for json_index, json_body in enumerate(json_bodies, start=1)
+                if str((_body_signature(json_body)["name"]) or "") == step_name
+            ]
+            if len(name_matches) == 1:
+                exact_positive_keys.add((step_index, name_matches[0]))
+
+    provisional_positive_keys = exact_positive_keys or {
+        (int(item[2]["step_body_index"]), int(item[2]["json_body_index"]))
+        for item in heuristic_pairs
+    }
+
+    training_features: list[list[float]] = []
+    training_labels: list[int] = []
+    predict_features: list[list[float]] = []
+    pair_lookup: list[tuple[int, int, dict[str, Any], dict[str, Any], float]] = []
+    for step_index, step_body in enumerate(step_bodies, start=1):
+        for json_index, json_body in enumerate(json_bodies, start=1):
+            features = _body_match_features(step_body, json_body)
+            key = (step_index, json_index)
+            if key in provisional_positive_keys:
+                training_features.append(features)
+                training_labels.append(1)
+            else:
+                training_features.append(features)
+                training_labels.append(0)
+            predict_features.append(features)
+            pair_lookup.append((step_index, json_index, step_body, json_body, _body_match_cost(step_body, json_body)))
+
+    ml_result = _ml_probability_bundle(
+        training_features=training_features,
+        training_labels=training_labels,
+        predict_features=predict_features,
+        model_name="fusion_body_match_rf",
+    )
+    probability_map: dict[tuple[int, int], float] = {}
+    model_info = None
+    if ml_result:
+        model_info = ml_result.get("model")
+        for (step_index, json_index, _step_body, _json_body, _cost), probability in zip(
+            pair_lookup,
+            ml_result.get("probabilities", []),
+        ):
+            probability_map[(step_index, json_index)] = float(probability)
+
+    if not probability_map:
+        return heuristic_pairs
+
+    selected: list[tuple[dict[str, Any], dict[str, Any], dict[str, Any]]] = []
+    remaining_steps = {(index + 1): body for index, body in enumerate(step_bodies)}
+    remaining_json = {(index + 1): body for index, body in enumerate(json_bodies)}
+
+    for step_index, json_index in sorted(exact_positive_keys):
+        step_body = remaining_steps.get(step_index)
+        json_body = remaining_json.get(json_index)
+        if not step_body or not json_body:
+            continue
+        selected.append(
+            (
+                step_body,
+                json_body,
+                {
+                    "step_body_index": step_index,
+                    "json_body_index": json_index,
+                    "match_cost": _body_match_cost(step_body, json_body),
+                    "match_reason": "shared_body_index",
+                    "ml_assisted": True,
+                    "ml_match_confidence": round(float(probability_map.get((step_index, json_index), 1.0)), 6),
+                    "ml_model": model_info,
+                },
+            )
+        )
+        remaining_steps.pop(step_index, None)
+        remaining_json.pop(json_index, None)
+
+    while remaining_steps and remaining_json:
+        candidates = [
+            (
+                probability_map.get((step_index, json_index), 0.0),
+                -cost,
+                step_index,
+                json_index,
+                step_body,
+                json_body,
+                cost,
+            )
+            for step_index, json_index, step_body, json_body, cost in pair_lookup
+            if step_index in remaining_steps and json_index in remaining_json
+        ]
+        if not candidates:
+            break
+        probability, _neg_cost, step_index, json_index, step_body, json_body, cost = max(candidates)
+        selected.append(
+            (
+                step_body,
+                json_body,
+                {
+                    "step_body_index": step_index,
+                    "json_body_index": json_index,
+                    "match_cost": cost,
+                    "match_reason": (
+                        "shared_body_index"
+                        if (step_index, json_index) in exact_positive_keys
+                        else "ml_assisted_geometric_similarity"
+                    ),
+                    "ml_assisted": True,
+                    "ml_match_confidence": round(float(probability), 6),
+                    "ml_model": model_info,
+                },
+            )
+        )
+        remaining_steps.pop(step_index, None)
+        remaining_json.pop(json_index, None)
+
+    return selected or heuristic_pairs
 
 
 def _face_type_weight(face: dict[str, Any]) -> int:
@@ -2535,7 +2753,36 @@ def _group_match_cost(
     return (center_cost * 5.0) + (size_cost * 4.0) + point_cost
 
 
-def _match_group_keys(
+def _group_match_features(
+    step_group: list[dict[str, Any]],
+    json_group: list[dict[str, Any]],
+    *,
+    point_getter: str,
+) -> list[float]:
+    step_sig = _group_signature(step_group, point_getter)
+    json_sig = _group_signature(json_group, point_getter)
+    step_score = (
+        _face_group_score(step_group)
+        if point_getter == "vertices"
+        else _edge_group_score(step_group)
+    )
+    json_score = (
+        _face_group_score(json_group)
+        if point_getter == "vertices"
+        else _edge_group_score(json_group)
+    )
+    reference_span = max(step_sig["diagonal"], json_sig["diagonal"], 1e-9)
+    return [
+        _distance_between(step_sig["center"], json_sig["center"]) / reference_span,
+        _size_delta(step_sig["size"], json_sig["size"]),
+        abs(step_sig["point_count"] - json_sig["point_count"]) / max(step_sig["point_count"], json_sig["point_count"], 1),
+        _relative_delta(len(step_group), len(json_group)),
+        _relative_delta(step_score, json_score),
+        1.0 if step_group and json_group and len(step_group) == len(json_group) else 0.0,
+    ]
+
+
+def _match_group_keys_cost_only(
     step_groups: dict[str, list[dict[str, Any]]],
     json_groups: dict[str, list[dict[str, Any]]],
     *,
@@ -2567,6 +2814,93 @@ def _match_group_keys(
         remaining_json.remove(best_pair[1])
 
     return matched
+
+
+def _match_group_keys(
+    step_groups: dict[str, list[dict[str, Any]]],
+    json_groups: dict[str, list[dict[str, Any]]],
+    *,
+    point_getter: str,
+    threshold: float,
+) -> tuple[dict[str, str], dict[tuple[str, str], dict[str, Any]]]:
+    heuristic_matches = _match_group_keys_cost_only(
+        step_groups,
+        json_groups,
+        point_getter=point_getter,
+        threshold=threshold,
+    )
+    exact_positive_keys = {(key, key) for key in sorted(set(step_groups).intersection(json_groups))}
+    provisional_positive_keys = exact_positive_keys or {(step_key, json_key) for step_key, json_key in heuristic_matches.items()}
+
+    training_features: list[list[float]] = []
+    training_labels: list[int] = []
+    predict_features: list[list[float]] = []
+    pair_lookup: list[tuple[str, str, float]] = []
+    for step_key, step_group in step_groups.items():
+        for json_key, json_group in json_groups.items():
+            features = _group_match_features(step_group, json_group, point_getter=point_getter)
+            key = (step_key, json_key)
+            training_features.append(features)
+            training_labels.append(1 if key in provisional_positive_keys else 0)
+            predict_features.append(features)
+            pair_lookup.append((step_key, json_key, _group_match_cost(step_group, json_group, point_getter=point_getter)))
+
+    ml_result = _ml_probability_bundle(
+        training_features=training_features,
+        training_labels=training_labels,
+        predict_features=predict_features,
+        model_name=f"fusion_{point_getter}_group_match_rf",
+    )
+    if not ml_result:
+        return heuristic_matches, {}
+
+    probability_map = {
+        (step_key, json_key): float(probability)
+        for (step_key, json_key, _cost), probability in zip(pair_lookup, ml_result.get("probabilities", []))
+    }
+    match_meta: dict[tuple[str, str], dict[str, Any]] = {}
+    matched: dict[str, str] = {}
+    remaining_steps = list(step_groups)
+    remaining_json = list(json_groups)
+    for step_key, json_key in sorted(exact_positive_keys):
+        if step_key not in step_groups or json_key not in json_groups:
+            continue
+        matched[step_key] = json_key
+        match_meta[(step_key, json_key)] = {
+            "used_ml": True,
+            "probability": round(float(probability_map.get((step_key, json_key), 1.0)), 6),
+            "model": ml_result.get("model"),
+        }
+        if step_key in remaining_steps:
+            remaining_steps.remove(step_key)
+        if json_key in remaining_json:
+            remaining_json.remove(json_key)
+    while remaining_steps and remaining_json:
+        candidates = [
+            (
+                probability_map.get((step_key, json_key), 0.0),
+                -cost,
+                step_key,
+                json_key,
+            )
+            for step_key, json_key, cost in pair_lookup
+            if step_key in remaining_steps and json_key in remaining_json
+        ]
+        if not candidates:
+            break
+        probability, _neg_cost, step_key, json_key = max(candidates)
+        if _group_match_cost(step_groups[step_key], json_groups[json_key], point_getter=point_getter) > threshold and probability < 0.55:
+            break
+        matched[step_key] = json_key
+        match_meta[(step_key, json_key)] = {
+            "used_ml": True,
+            "probability": round(float(probability), 6),
+            "model": ml_result.get("model"),
+        }
+        remaining_steps.remove(step_key)
+        remaining_json.remove(json_key)
+
+    return matched or heuristic_matches, match_meta
 
 
 def _dominant_source(source_counts: Counter[str]) -> str:
@@ -2620,10 +2954,16 @@ def _fuse_kernel_bodies(
         json_edge_score = _body_edge_score(json_body)
         step_face_groups = _group_faces(step_body)
         json_face_groups = _group_faces(json_body)
-        face_matches = _match_group_keys(step_face_groups, json_face_groups, point_getter="vertices", threshold=1.8)
+        face_matches, face_match_meta = _match_group_keys(
+            step_face_groups,
+            json_face_groups,
+            point_getter="vertices",
+            threshold=1.8,
+        )
         used_json_face_keys: set[str] = set()
         fused_faces: list[dict[str, Any]] = []
         face_source_counts: Counter[str] = Counter()
+        ml_face_confidences: list[float] = []
         for step_key, step_group in step_face_groups.items():
             json_key = face_matches.get(step_key)
             if json_key and json_key in json_face_groups:
@@ -2635,6 +2975,9 @@ def _fuse_kernel_bodies(
                 fused_faces.extend(chosen_group)
                 face_source_counts[chosen_source] += 1
                 used_json_face_keys.add(json_key)
+                meta = face_match_meta.get((step_key, json_key))
+                if meta and meta.get("used_ml"):
+                    ml_face_confidences.append(float(meta.get("probability", 0.0)))
             else:
                 fused_faces.extend(step_group)
                 face_source_counts["step"] += 1
@@ -2646,10 +2989,16 @@ def _fuse_kernel_bodies(
 
         step_edge_groups = _group_edges(step_body)
         json_edge_groups = _group_edges(json_body)
-        edge_matches = _match_group_keys(step_edge_groups, json_edge_groups, point_getter="points", threshold=1.8)
+        edge_matches, edge_match_meta = _match_group_keys(
+            step_edge_groups,
+            json_edge_groups,
+            point_getter="points",
+            threshold=1.8,
+        )
         used_json_edge_keys: set[str] = set()
         fused_edges: list[dict[str, Any]] = []
         edge_source_counts: Counter[str] = Counter()
+        ml_edge_confidences: list[float] = []
         for step_key, step_group in step_edge_groups.items():
             json_key = edge_matches.get(step_key)
             if json_key and json_key in json_edge_groups:
@@ -2661,6 +3010,9 @@ def _fuse_kernel_bodies(
                 fused_edges.extend(chosen_group)
                 edge_source_counts[chosen_source] += 1
                 used_json_edge_keys.add(json_key)
+                meta = edge_match_meta.get((step_key, json_key))
+                if meta and meta.get("used_ml"):
+                    ml_edge_confidences.append(float(meta.get("probability", 0.0)))
             else:
                 fused_edges.extend(step_group)
                 edge_source_counts["step"] += 1
@@ -2696,6 +3048,15 @@ def _fuse_kernel_bodies(
             ),
         }
         fused.append(fused_body)
+        ml_model = (
+            match_info.get("ml_model")
+            or next((item.get("model") for item in face_match_meta.values() if item.get("model")), None)
+            or next((item.get("model") for item in edge_match_meta.values() if item.get("model")), None)
+        )
+        body_ml_confidence = match_info.get("ml_match_confidence")
+        if body_ml_confidence is None and (ml_face_confidences or ml_edge_confidences):
+            aggregate = ml_face_confidences + ml_edge_confidences
+            body_ml_confidence = round(sum(aggregate) / len(aggregate), 6)
         decisions.append(
             {
                 "body_index": index,
@@ -2703,6 +3064,23 @@ def _fuse_kernel_bodies(
                 "json_body_index": match_info.get("json_body_index"),
                 "match_cost": round(float(match_info.get("match_cost", 0.0)), 6),
                 "match_reason": match_info.get("match_reason"),
+                "ml_assisted": bool(
+                    match_info.get("ml_assisted")
+                    or ml_face_confidences
+                    or ml_edge_confidences
+                ),
+                "ml_match_confidence": body_ml_confidence,
+                "ml_face_region_confidence_avg": (
+                    round(sum(ml_face_confidences) / len(ml_face_confidences), 6)
+                    if ml_face_confidences
+                    else None
+                ),
+                "ml_edge_region_confidence_avg": (
+                    round(sum(ml_edge_confidences) / len(ml_edge_confidences), 6)
+                    if ml_edge_confidences
+                    else None
+                ),
+                "ml_model": ml_model,
                 "face_source": _dominant_source(face_source_counts),
                 "edge_source": _dominant_source(edge_source_counts),
                 "face_region_source_counts": dict(face_source_counts),
@@ -2750,6 +3128,8 @@ def _fused_report_from_step_and_json(
     edge_source_counts = Counter(item["edge_source"] for item in decisions)
     face_region_source_counts = Counter()
     edge_region_source_counts = Counter()
+    ml_enabled = any(bool(item.get("ml_assisted")) for item in decisions)
+    ml_model = next((item.get("ml_model") for item in decisions if item.get("ml_model")), None)
     for item in decisions:
         face_region_source_counts.update(item.get("face_region_source_counts") or {})
         edge_region_source_counts.update(item.get("edge_region_source_counts") or {})
@@ -2779,6 +3159,8 @@ def _fused_report_from_step_and_json(
     base_report["step_import"] = step_report.get("step_import") or {}
     base_report["fusion"] = {
         "enabled": True,
+        "ml_assisted": ml_enabled,
+        "ml_model": ml_model,
         "sources": [
             {
                 "file": json_report.get("file"),
@@ -3383,7 +3765,29 @@ def convert_step_report(
         application_label="STEP BREP Import",
         schema_label="STEP-ISO10303",
     )
-    report["step_import"] = payload.get("step_metadata") or {}
+    occ_preview = step_occ_preview_from_text(raw_text, display_name=display_name)
+    step_import = dict(payload.get("step_metadata") or {})
+    step_import["backend"] = "native_step_parser"
+    if occ_preview and occ_preview.get("ok") and occ_preview.get("kernel_bodies"):
+        scale = unit_scale_to_meters((payload.get("part_summary") or {}).get("units"))
+        preview_bodies = list(occ_preview.get("kernel_bodies") or [])
+        _scale_preview_bodies_in_place(preview_bodies, scale)
+        preview_points = [_scale_triplet(point, scale) for point in (occ_preview.get("preview_points") or [])]
+        report["preview_geometry_hints"] = {
+            "point_count": len(preview_points),
+            "preview_points": preview_points,
+            "bounds": _scale_bounds(occ_preview.get("bounds"), scale),
+        }
+        report["preview_kernel_bodies"] = preview_bodies
+        step_import["backend"] = occ_preview.get("backend") or "opencascade_occ"
+        step_import["occ_preview"] = {
+            "body_count": int(occ_preview.get("body_count") or 0),
+            "triangle_face_count": int(occ_preview.get("triangle_face_count") or 0),
+            "edge_count": int(occ_preview.get("edge_count") or 0),
+        }
+    report["step_import"] = step_import
+    report.setdefault("entity_hints", {})
+    report["entity_hints"]["step_backend"] = report["step_import"].get("backend")
     return report
 
 
@@ -3619,10 +4023,258 @@ def analyze_input_text(
     ]
 
 
-def _analyze_input_file_single(path: Path) -> list[dict[str, Any]]:
-    raw_text = path.read_text(errors="ignore")
+def _decode_text_payload(raw_bytes: bytes) -> str:
+    for encoding in ("utf-8", "utf-8-sig", "latin-1"):
+        try:
+            return raw_bytes.decode(encoding)
+        except UnicodeDecodeError:
+            continue
+    return raw_bytes.decode("utf-8", errors="ignore")
+
+
+def _stl_bounds(points: list[list[float]]) -> dict[str, Any] | None:
+    if not points:
+        return None
+    minimum = [min(point[index] for point in points) for index in range(3)]
+    maximum = [max(point[index] for point in points) for index in range(3)]
+    return {
+        "min": _round_triplet(minimum),
+        "max": _round_triplet(maximum),
+        "size": _round_triplet([maximum[index] - minimum[index] for index in range(3)]),
+    }
+
+
+def _parse_binary_stl(raw_bytes: bytes) -> tuple[list[dict[str, Any]], list[list[float]]] | None:
+    if len(raw_bytes) < 84:
+        return None
+    triangle_count = struct.unpack_from("<I", raw_bytes, 80)[0]
+    expected_size = 84 + (triangle_count * 50)
+    if triangle_count <= 0 or expected_size != len(raw_bytes):
+        return None
+
+    faces: list[dict[str, Any]] = []
+    preview_points: list[list[float]] = []
+    offset = 84
+    for face_index in range(1, triangle_count + 1):
+        nx, ny, nz = struct.unpack_from("<3f", raw_bytes, offset)
+        offset += 12
+        vertices: list[list[float]] = []
+        for _ in range(3):
+            x, y, z = struct.unpack_from("<3f", raw_bytes, offset)
+            offset += 12
+            vertex = _round_triplet([x, y, z])
+            vertices.append(vertex)
+            preview_points.append(vertex)
+        offset += 2
+        normal = _round_triplet([nx, ny, nz]) if abs(nx) + abs(ny) + abs(nz) > 1e-12 else None
+        faces.append(
+            {
+                "name": f"Triangle {face_index}",
+                "vertices": vertices,
+                "normal": normal,
+                "metadata": {
+                    "kind": "facet_triangle",
+                    "source_face_type": "facet_triangle",
+                    "source_face_index": face_index,
+                },
+            }
+        )
+
+    return faces, preview_points
+
+
+def _parse_ascii_stl(raw_bytes: bytes) -> tuple[list[dict[str, Any]], list[list[float]]] | None:
+    try:
+        text = raw_bytes.decode("utf-8", errors="ignore")
+    except Exception:
+        return None
+    if "facet" not in text.lower() or "vertex" not in text.lower():
+        return None
+
+    faces: list[dict[str, Any]] = []
+    preview_points: list[list[float]] = []
+    normal: list[float] | None = None
+    vertices: list[list[float]] = []
+    face_index = 0
+
+    for line in text.splitlines():
+        stripped = line.strip()
+        lower = stripped.lower()
+        if lower.startswith("facet normal"):
+            values = stripped.split()[2:5]
+            if len(values) == 3:
+                try:
+                    normal = _round_triplet([float(value) for value in values])
+                except ValueError:
+                    normal = None
+            continue
+        if lower.startswith("vertex"):
+            values = stripped.split()[1:4]
+            if len(values) == 3:
+                try:
+                    vertex = _round_triplet([float(value) for value in values])
+                except ValueError:
+                    continue
+                vertices.append(vertex)
+                preview_points.append(vertex)
+            continue
+        if lower.startswith("endfacet") and len(vertices) >= 3:
+            face_index += 1
+            faces.append(
+                {
+                    "name": f"Triangle {face_index}",
+                    "vertices": vertices[:3],
+                    "normal": normal,
+                    "metadata": {
+                        "kind": "facet_triangle",
+                        "source_face_type": "facet_triangle",
+                        "source_face_index": face_index,
+                    },
+                }
+            )
+            vertices = []
+            normal = None
+
+    if not faces:
+        return None
+    return faces, preview_points
+
+
+def parse_stl_input_bytes(
+    raw_bytes: bytes,
+    *,
+    display_name: str,
+    source_path: str | None,
+    file_size_bytes: int | None,
+) -> list[dict[str, Any]] | None:
+    parsed = _parse_binary_stl(raw_bytes)
+    if parsed is None:
+        parsed = _parse_ascii_stl(raw_bytes)
+    if parsed is None:
+        return None
+
+    faces, preview_points = parsed
+    if not faces:
+        return None
+
+    vertex_markers: set[tuple[float, float, float]] = set()
+    vertices: list[list[float]] = []
+    for point in preview_points:
+        marker = tuple(point)
+        if marker in vertex_markers:
+            continue
+        vertex_markers.add(marker)
+        vertices.append(point)
+
+    body = {
+        "kind": "solid",
+        "name": Path(display_name).stem or display_name,
+        "faces": faces,
+        "edges": [],
+        "vertices": vertices,
+        "metadata": {
+            "name": Path(display_name).stem or display_name,
+            "primitive": "stl_mesh",
+            "shape_summary": f"STL triangle mesh with {len(faces)} triangles.",
+            "source": "stl_mesh_import",
+            "source_face_count": len(faces),
+            "face_patch_count": len(faces),
+            "edge_count": 0,
+            "vertex_count": len(vertices),
+            "nx_body_index": 1,
+        },
+    }
+    bounds = _stl_bounds(preview_points)
+    report = {
+        "file": source_path or display_name,
+        "file_name": display_name,
+        "file_size_bytes": file_size_bytes if file_size_bytes is not None else len(raw_bytes),
+        "line_count": raw_bytes.count(b"\n") + (1 if raw_bytes else 0),
+        "header": {
+            "PART1": {
+                "APPL": "STL Mesh Import",
+                "DATE": "",
+                "PART": Path(display_name).stem or display_name,
+            },
+            "PART2": {
+                "SCH": "STL",
+            },
+        },
+        "transmit_info": {
+            "source_format": "stl_file",
+            "original_units": "unknown",
+        },
+        "decoded_names": [Path(display_name).stem] if Path(display_name).stem else [],
+        "density": None,
+        "colors": [],
+        "has_scale_factor_attribute": False,
+        "object_state_ids": [],
+        "structured_parse": None,
+        "entity_hints": {
+            "source": "stl_file",
+            "mesh_triangle_count": len(faces),
+        },
+        "source_part_summary": {
+            "part_name": Path(display_name).stem or display_name,
+            "leaf": display_name,
+            "units": "Unknown",
+        },
+        "source_bodies": [],
+        "source_body_count": 1,
+        "kernel_body": body,
+        "kernel_bodies": [body],
+        "kernel_topology": None,
+        "geometry_hints": {
+            "point_count": len(preview_points),
+            "point_samples": preview_points[:12],
+            "preview_points": preview_points[:1200],
+            "bounds": bounds,
+            "notable_scalar_values": [],
+            "unit_inference": "STL is a triangle mesh format and usually does not encode reliable units. Measurements are shown in source mesh units.",
+        },
+        "model_analysis": {
+            "unique_axis_levels": summarize_unique_levels([tuple(point) for point in preview_points[:500]]) if preview_points else {"x": [], "y": [], "z": []},
+            "curve_hints": [],
+            "topology": None,
+            "summary": [
+                f"Imported STL mesh for {Path(display_name).stem or display_name}.",
+                f"Detected 1 body and reconstructed {len(faces)} triangle faces for preview.",
+                "STL previews render the triangle mesh directly in WebGL instead of reconstructing analytic CAD faces.",
+            ],
+        },
+    }
+    return [report]
+
+
+def analyze_input_bytes(
+    raw_bytes: bytes,
+    *,
+    display_name: str = "<memory>",
+    source_path: str | None = None,
+    file_size_bytes: int | None = None,
+) -> list[dict[str, Any]]:
+    imported_reports = parse_stl_input_bytes(
+        raw_bytes,
+        display_name=display_name,
+        source_path=source_path,
+        file_size_bytes=file_size_bytes,
+    )
+    if imported_reports is not None:
+        return imported_reports
+
+    raw_text = _decode_text_payload(raw_bytes)
     return analyze_input_text(
         raw_text,
+        display_name=display_name,
+        source_path=source_path,
+        file_size_bytes=file_size_bytes if file_size_bytes is not None else len(raw_bytes),
+    )
+
+
+def _analyze_input_file_single(path: Path) -> list[dict[str, Any]]:
+    raw_bytes = path.read_bytes()
+    return analyze_input_bytes(
+        raw_bytes,
         display_name=path.name,
         source_path=str(path),
         file_size_bytes=path.stat().st_size,
