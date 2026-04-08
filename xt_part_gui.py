@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 
 import base64
+import concurrent.futures
 import json
 import os
 import re
+import threading
+import time
+import uuid
 import webbrowser
 from email import policy
 from email.parser import BytesParser
@@ -11,7 +15,7 @@ from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 from xt_backend_bridge import predict_match_probabilities
 from xt_backend_setup import ensure_backend_runtimes
@@ -27,6 +31,9 @@ from xt_part_report import (
 
 HOST = "127.0.0.1"
 PORT = 8765
+UPLOAD_ANALYSIS_PROGRESS_LOCK = threading.Lock()
+UPLOAD_ANALYSIS_PROGRESS: dict[str, dict[str, Any]] = {}
+UPLOAD_ANALYSIS_PROGRESS_TTL_SECONDS = 600
 
 
 def _is_workspace_sample_path(path: Path) -> bool:
@@ -208,8 +215,24 @@ def workspace_sample_reports() -> list[dict]:
     return _prepare_reports(reports)
 
 
+def _parallel_map_preserve_order(items: list[Any], worker: Any) -> list[Any]:
+    if len(items) <= 1:
+        return [worker(item) for item in items]
+
+    max_workers = max(2, min(len(items), os.cpu_count() or 4, 8))
+    results: list[Any] = [None] * len(items)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(worker, item): index
+            for index, item in enumerate(items)
+        }
+        for future in concurrent.futures.as_completed(futures):
+            results[futures[future]] = future.result()
+    return results
+
+
 def analyze_paths(paths: list[str]) -> list[dict]:
-    reports: list[dict] = []
+    resolved_paths: list[Path] = []
     seen: set[Path] = set()
     for raw_path in paths:
         path = Path(raw_path).expanduser()
@@ -218,40 +241,144 @@ def analyze_paths(paths: list[str]) -> list[dict]:
         if path in seen:
             continue
         seen.add(path)
-        reports.extend(_analyze_input_file_single(path))
+        resolved_paths.append(path)
+
+    reports: list[dict] = []
+    for result in _parallel_map_preserve_order(resolved_paths, _analyze_input_file_single):
+        reports.extend(result)
     return _prepare_reports(reports)
 
 
 def analyze_uploaded_files(file_payloads: list[dict]) -> list[dict]:
-    reports: list[dict] = []
-    for file_payload in file_payloads:
+    def _analyze_payload(file_payload: dict) -> list[dict]:
         raw_bytes: bytes
         if file_payload.get("encoding") == "base64":
             raw_bytes = base64.b64decode(file_payload.get("data", "") or "")
         else:
             raw_bytes = str(file_payload.get("text", "")).encode("utf-8")
-        imported_reports = analyze_input_bytes(
+        return analyze_input_bytes(
             raw_bytes,
             display_name=file_payload.get("name", "<upload>"),
             source_path=f"uploaded:{file_payload.get('name', '<upload>')}",
             file_size_bytes=file_payload.get("size"),
         )
-        reports.extend(imported_reports)
+
+    reports: list[dict] = []
+    for result in _parallel_map_preserve_order(file_payloads, _analyze_payload):
+        reports.extend(result)
     return _prepare_reports(reports)
 
 
 def analyze_uploaded_binary_files(file_payloads: list[dict]) -> list[dict]:
-    reports: list[dict] = []
-    for file_payload in file_payloads:
+    def _analyze_payload(file_payload: dict) -> list[dict]:
         raw_bytes = bytes(file_payload.get("data") or b"")
-        imported_reports = analyze_input_bytes(
+        return analyze_input_bytes(
             raw_bytes,
             display_name=file_payload.get("name", "<upload>"),
             source_path=f"uploaded:{file_payload.get('name', '<upload>')}",
             file_size_bytes=file_payload.get("size", len(raw_bytes)),
         )
-        reports.extend(imported_reports)
+
+    reports: list[dict] = []
+    for result in _parallel_map_preserve_order(file_payloads, _analyze_payload):
+        reports.extend(result)
     return _prepare_reports(reports)
+
+
+def _prune_upload_analysis_progress(now: float | None = None) -> None:
+    current = float(now if now is not None else time.time())
+    expired: list[str] = []
+    for task_id, payload in UPLOAD_ANALYSIS_PROGRESS.items():
+        finished_at = float(payload.get("finished_at") or 0)
+        if finished_at and (current - finished_at) > UPLOAD_ANALYSIS_PROGRESS_TTL_SECONDS:
+            expired.append(task_id)
+    for task_id in expired:
+        UPLOAD_ANALYSIS_PROGRESS.pop(task_id, None)
+
+
+def _create_upload_analysis_progress(task_id: str, file_payloads: list[dict]) -> None:
+    now = time.time()
+    with UPLOAD_ANALYSIS_PROGRESS_LOCK:
+        _prune_upload_analysis_progress(now)
+        UPLOAD_ANALYSIS_PROGRESS[task_id] = {
+            "task_id": task_id,
+            "created_at": now,
+            "updated_at": now,
+            "finished_at": None,
+            "status": "running",
+            "total_count": len(file_payloads),
+            "completed_count": 0,
+            "failed_count": 0,
+            "items": [
+                {
+                    "name": str(file_payload.get("name") or "<upload>"),
+                    "status": "queued",
+                    "note": "Waiting to start.",
+                    "started_at": None,
+                    "completed_at": None,
+                    "duration_ms": None,
+                    "report_count": 0,
+                    "reports": [],
+                }
+                for file_payload in file_payloads
+            ],
+        }
+
+
+def _update_upload_analysis_progress_item(task_id: str, file_name: str, patch: dict[str, Any]) -> None:
+    now = time.time()
+    with UPLOAD_ANALYSIS_PROGRESS_LOCK:
+        payload = UPLOAD_ANALYSIS_PROGRESS.get(task_id)
+        if not payload:
+            return
+        items = list(payload.get("items") or [])
+        for index, item in enumerate(items):
+            if str(item.get("name") or "") != str(file_name):
+                continue
+            items[index] = {
+                **item,
+                **patch,
+            }
+            break
+        completed_count = sum(1 for item in items if str(item.get("status") or "") == "done")
+        failed_count = sum(1 for item in items if str(item.get("status") or "") == "failed")
+        payload.update(
+            {
+                "items": items,
+                "completed_count": completed_count,
+                "failed_count": failed_count,
+                "updated_at": now,
+            }
+        )
+
+
+def _finish_upload_analysis_progress(task_id: str, status: str, error: str | None = None) -> None:
+    now = time.time()
+    with UPLOAD_ANALYSIS_PROGRESS_LOCK:
+        payload = UPLOAD_ANALYSIS_PROGRESS.get(task_id)
+        if not payload:
+            return
+        payload["status"] = status
+        payload["updated_at"] = now
+        payload["finished_at"] = now
+        if error:
+            payload["error"] = error
+
+
+def _upload_analysis_progress_snapshot(task_id: str) -> dict[str, Any] | None:
+    with UPLOAD_ANALYSIS_PROGRESS_LOCK:
+        _prune_upload_analysis_progress()
+        payload = UPLOAD_ANALYSIS_PROGRESS.get(task_id)
+        if not payload:
+            return None
+        snapshot = json.loads(json.dumps(payload))
+    active_names = [
+        str(item.get("name") or "")
+        for item in snapshot.get("items") or []
+        if str(item.get("status") or "") == "running"
+    ]
+    snapshot["active_names"] = active_names
+    return snapshot
 
 
 def create_fused_report(left_report: dict, right_report: dict) -> dict | None:
@@ -1058,6 +1185,87 @@ HTML = """<!doctype html>
       width: 35%;
       animation: status-progress-slide 1.1s linear infinite;
     }
+    .status-detail-panel {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+      border-top: 1px solid #d5d5d5;
+      padding-top: 10px;
+    }
+    .status-detail-panel[hidden] {
+      display: none;
+    }
+    .status-detail-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 6px;
+    }
+    .status-detail-chip {
+      border: 1px solid #d2d2d2;
+      background: #f5f5f5;
+      padding: 6px 8px;
+      display: grid;
+      gap: 2px;
+    }
+    .status-detail-chip-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .status-detail-chip-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .status-detail-chip-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+    .status-detail-list {
+      display: grid;
+      gap: 4px;
+      max-height: 220px;
+      overflow: auto;
+      border: 1px solid #d8d8d8;
+      background: #fafafa;
+    }
+    .status-detail-row {
+      display: grid;
+      grid-template-columns: minmax(180px, 2fr) minmax(120px, 1fr) minmax(220px, 2fr);
+      gap: 8px;
+      padding: 7px 9px;
+      border-bottom: 1px solid #ececec;
+      font-size: 12px;
+      align-items: center;
+    }
+    .status-detail-row:last-child {
+      border-bottom: none;
+    }
+    .status-detail-row[data-stage="ready"] {
+      background: #f1f8ef;
+    }
+    .status-detail-row[data-stage="previewing"],
+    .status-detail-row[data-stage="analyzing"],
+    .status-detail-row[data-stage="uploading"] {
+      background: #fff8e8;
+    }
+    .status-detail-row[data-stage="failed"] {
+      background: #fff0f0;
+    }
+    .status-detail-name {
+      font-weight: 600;
+      color: var(--text-main);
+      word-break: break-word;
+    }
+    .status-detail-stage {
+      color: var(--text-main);
+    }
+    .status-detail-note {
+      color: var(--text-muted);
+      word-break: break-word;
+    }
     @keyframes status-progress-slide {
       from { transform: translateX(-120%); }
       to { transform: translateX(340%); }
@@ -1526,6 +1734,7 @@ HTML = """<!doctype html>
       <div class="status-progress" id="status-progress" hidden>
         <div class="status-progress-bar" id="status-progress-bar"></div>
       </div>
+      <div class="status-detail-panel" id="status-detail-panel" hidden></div>
       <div class="timing-panel" id="timing-panel" hidden></div>
     </div>
 
@@ -1693,6 +1902,7 @@ HTML = """<!doctype html>
         compare: null,
         backgroundStep: {},
       },
+      importProgress: null,
       compareViewers: {
         left: defaultViewerState(),
         right: defaultViewerState()
@@ -1735,10 +1945,515 @@ HTML = """<!doctype html>
     let compareViewports = { left: null, right: null };
     let webGlModulesPromise = null;
     let occtImportPromise = null;
+    let compareWorkerBlobUrl = null;
+    let compareWorkerTaskCounter = 0;
+    let compareWorkerTasks = new Map();
+    let compareWorkers = new Set();
+    let stepImportWorkerBlobUrl = null;
+    let stepImportWorkerTaskCounter = 0;
+    let stepImportWorkerTasks = new Map();
+    let stepImportWorkers = new Set();
+    let importProgressPollTimer = null;
     let pendingStepRefinements = new Set();
+    const COMPARE_WORKER_FUNCTION_NAMES = [
+      "formatBounds",
+      "formatLength",
+      "formatSignedInches",
+      "formatInches",
+      "reportUnitLabel",
+      "reportLengthScale",
+      "scalePoint",
+      "changeVerb",
+      "capitalizeLabel",
+      "componentIdentity",
+      "componentLabel",
+      "hashString",
+      "inferredComponentColor",
+      "nxColorIndexToRgb",
+      "displayColorFromProperties",
+      "displayOpacityFromProperties",
+      "isBlankedFromDisplay",
+      "kernelBodies",
+      "previewBodies",
+      "previewGeometryHints",
+      "pointExtents",
+      "boundsFromPoints",
+      "boundsFromCenterSize",
+      "cylinderBounds",
+      "perpendicularAxisForCylinder",
+      "longestBoundsAxis",
+      "samplePointCloud",
+      "canonicalizePointCloud",
+      "previewBounds",
+      "previewPointCloud",
+      "previewPointBinProfile",
+      "previewBinPointSet",
+      "meshProfileFromPointCloud",
+      "meshProfileDelta",
+      "meshProfileLikelyScaleOnly",
+      "averagePoint",
+      "meshBinKey",
+      "colorDistance",
+      "formatRgb",
+      "componentFaceEntries",
+      "componentEdgeEntries",
+      "averageEntryPoint",
+      "relativeDelta",
+      "componentSimilarityCost",
+      "matchQualityFromCost",
+      "componentRegionHighlights",
+      "describeComponent",
+      "reportComponents",
+      "compareAxisDimensions",
+      "matchRightComponent",
+      "componentPropertyChanges",
+      "propertySeverity",
+      "changeSeverity",
+      "cylinderDiameterEndpoints",
+      "axisDimensionEndpoints",
+      "annotationEndpointsForProperty",
+      "measurementLineForProperty",
+      "pointOnMeasurementLine",
+      "measurementDifferenceSegments",
+      "focusSegmentsForProperty",
+      "summarizeComponentChange",
+      "topologyLabel",
+      "topologyCounts",
+      "kernelLabel",
+      "rawIdentityKey",
+      "previewBodyIndex",
+      "previewBodyRawKey",
+      "structuredBodies",
+      "structuredTopologyCounts",
+      "structuredTopologyLabel",
+      "structuredBodyName",
+      "structuredBodyIdentity",
+      "structuredEdgeIdentity",
+      "structuredFaceIdentity",
+      "structuredIdentitySource",
+      "structuredIdentityBonus",
+      "matchStructuredBody",
+      "finiteNumber",
+      "pointArray",
+      "vectorLength",
+      "normalizeVector",
+      "distanceBetweenPoints",
+      "midpointBetweenPoints",
+      "vectorBetweenPoints",
+      "scaleVector",
+      "addVectors",
+      "dotProduct",
+      "structuredFaceKind",
+      "structuredFaceRadius",
+      "structuredFaceCenter",
+      "structuredFaceDirection",
+      "structuredFaceEntry",
+      "structuredFaceMatchCost",
+      "matchStructuredFace",
+      "structuredEdgeKind",
+      "structuredEdgeLength",
+      "structuredEdgeRadius",
+      "structuredEdgeEndpoints",
+      "structuredEdgeCenter",
+      "structuredEdgeDirection",
+      "structuredEdgeEntry",
+      "structuredEdgeEndpointCost",
+      "structuredEdgeMatchCost",
+      "matchStructuredEdge",
+      "dedupeList",
+      "formatArea",
+      "formatVolume",
+      "metricValueList",
+      "compareNumericLists",
+      "compareValueEntries",
+      "positionedEntryShiftDelta",
+      "comparePositionedValueEntries",
+      "circularEdgeDiameters",
+      "circularEdgeEntries",
+      "faceRadiusValues",
+      "faceRadiusEntries",
+      "summarizeBreakdownDiff",
+      "summarizeMetricSetDiff",
+      "summarizeScalarChange",
+      "compareStructuredReportData",
+      "createEmptyCompareInfo",
+      "finalizeCompareInfo",
+      "compareUltraFastPassInfo",
+      "compareFastPassInfo",
+      "comparePreviewDiffInfo",
+      "compareDiffInfo",
+    ];
 
     function byId(id) {
       return document.getElementById(id);
+    }
+
+    function buildCompareWorkerSource() {
+      const functionSources = COMPARE_WORKER_FUNCTION_NAMES.map((name) => {
+        const candidate = globalThis[name];
+        if (typeof candidate !== "function") {
+          throw new Error(`Compare worker dependency missing: ${name}`);
+        }
+        return candidate.toString();
+      }).join("\\n\\n");
+
+      return `
+"use strict";
+const AXES = ${JSON.stringify(AXES)};
+const DIMENSION_TOLERANCE = ${JSON.stringify(DIMENSION_TOLERANCE)};
+
+${functionSources}
+
+self.onmessage = (event) => {
+  const { taskId, stage, left, right } = event.data || {};
+  try {
+    let result = null;
+    if (stage === "medium") {
+      result = comparePreviewDiffInfo(left, right);
+    } else if (stage === "exact") {
+      result = compareDiffInfo(left, right);
+    } else if (stage === "fast") {
+      result = compareFastPassInfo(left, right);
+    } else if (stage === "ultra") {
+      result = compareUltraFastPassInfo(left, right);
+    } else {
+      throw new Error("Unknown compare worker stage: " + stage);
+    }
+    self.postMessage({ taskId, ok: true, result });
+  } catch (error) {
+    self.postMessage({
+      taskId,
+      ok: false,
+      error: error?.message || String(error || "Worker compare failed."),
+    });
+  }
+};
+`;
+    }
+
+    function compareWorkerSourceUrl() {
+      if (!compareWorkerBlobUrl) {
+        const blob = new Blob([buildCompareWorkerSource()], { type: "text/javascript" });
+        compareWorkerBlobUrl = URL.createObjectURL(blob);
+      }
+      return compareWorkerBlobUrl;
+    }
+
+    function runCompareStageInWorker(stage, left, right) {
+      return new Promise((resolve, reject) => {
+        const worker = new Worker(compareWorkerSourceUrl());
+        const taskId = `${stage}-${++compareWorkerTaskCounter}`;
+        compareWorkers.add(worker);
+        compareWorkerTasks.set(taskId, { resolve, reject, stage, worker });
+        worker.onmessage = (event) => {
+          const payload = event.data || {};
+          const task = compareWorkerTasks.get(payload.taskId);
+          if (!task) return;
+          compareWorkerTasks.delete(payload.taskId);
+          compareWorkers.delete(worker);
+          worker.terminate();
+          if (payload.ok) {
+            task.resolve(payload.result);
+          } else {
+            task.reject(new Error(payload.error || `${stage} compare worker failed.`));
+          }
+        };
+        worker.onerror = (event) => {
+          compareWorkerTasks.delete(taskId);
+          compareWorkers.delete(worker);
+          worker.terminate();
+          reject(new Error(event?.message || `${stage} compare worker crashed.`));
+        };
+        worker.postMessage({ taskId, stage, left, right });
+      });
+    }
+
+    function buildStepImportWorkerSource() {
+      const importerScriptUrl = new URL(`${OCCT_IMPORT_JS_BASE_URL}occt-import-js.js`, window.location.href).href;
+      const wasmBaseUrl = new URL(OCCT_IMPORT_JS_BASE_URL, window.location.href).href;
+      return `
+"use strict";
+importScripts(${JSON.stringify(importerScriptUrl)});
+
+let importerPromise = null;
+
+function ensureImporter() {
+  if (!importerPromise) {
+    if (typeof occtimportjs !== "function") {
+      throw new Error("Worker STEP importer is not available.");
+    }
+    importerPromise = occtimportjs({
+      locateFile: (path) => ${JSON.stringify(wasmBaseUrl)} + path,
+    });
+  }
+  return importerPromise;
+}
+
+function pointExtents(points) {
+  if (!Array.isArray(points) || !points.length) return null;
+  const first = points[0].map(Number);
+  const min = [...first];
+  const max = [...first];
+  for (const point of points.slice(1)) {
+    for (let index = 0; index < 3; index++) {
+      const value = Number(point[index]);
+      if (value < min[index]) min[index] = value;
+      if (value > max[index]) max[index] = value;
+    }
+  }
+  return { min, max };
+}
+
+function boundsFromPoints(points) {
+  const extents = pointExtents(points);
+  if (!extents) return null;
+  const { min, max } = extents;
+  return {
+    min,
+    max,
+    size: [max[0] - min[0], max[1] - min[1], max[2] - min[2]],
+  };
+}
+
+function importedRgbToDisplay(rgb, fallback = [196, 199, 205]) {
+  if (!(Array.isArray(rgb) || ArrayBuffer.isView(rgb)) || rgb.length < 3) return fallback;
+  const normalized = Array.from(rgb).slice(0, 3).map((value) => Number(value));
+  if (!normalized.every((value) => Number.isFinite(value))) return fallback;
+  const scale = normalized.some((value) => value > 1.001) ? 1 : 255;
+  return normalized.map((value) => Math.max(0, Math.min(255, Math.round(value * scale))));
+}
+
+function triangleAverageNormal(normalArray, a, b, c) {
+  if (!(Array.isArray(normalArray) || ArrayBuffer.isView(normalArray)) || !normalArray.length) return null;
+  const indices = [a, b, c];
+  const vectors = indices
+    .map((index) => [normalArray[index * 3], normalArray[(index * 3) + 1], normalArray[(index * 3) + 2]])
+    .filter((vector) => vector.every((value) => Number.isFinite(Number(value))));
+  if (!vectors.length) return null;
+  const average = vectors.reduce(
+    (sum, vector) => [sum[0] + Number(vector[0]), sum[1] + Number(vector[1]), sum[2] + Number(vector[2])],
+    [0, 0, 0]
+  );
+  const length = Math.hypot(average[0], average[1], average[2]) || 1;
+  return average.map((value) => value / length);
+}
+
+function scaleBrowserStepPoint(point) {
+  return [
+    Number(point[0] || 0) * 0.001,
+    Number(point[1] || 0) * 0.001,
+    Number(point[2] || 0) * 0.001,
+  ];
+}
+
+function browserStepMeshToKernelBody(mesh, bodyIndex) {
+  const positions = mesh?.attributes?.position?.array || [];
+  const normals = mesh?.attributes?.normal?.array || [];
+  const indices = mesh?.index?.array || [];
+  const displayProperties = { rgb: importedRgbToDisplay(mesh?.color) };
+  const faces = [];
+  const points = [];
+
+  for (let triangleOffset = 0; triangleOffset + 2 < indices.length; triangleOffset += 3) {
+    const triangle = [indices[triangleOffset], indices[triangleOffset + 1], indices[triangleOffset + 2]]
+      .map((index) => Number(index));
+    if (!triangle.every((index) => Number.isInteger(index) && index >= 0)) continue;
+    const vertices = triangle.map((index) => scaleBrowserStepPoint([
+      Number(positions[index * 3] || 0),
+      Number(positions[(index * 3) + 1] || 0),
+      Number(positions[(index * 3) + 2] || 0),
+    ]));
+    faces.push({
+      name: (mesh?.name || ("Mesh " + bodyIndex)) + " triangle " + ((triangleOffset / 3) + 1),
+      vertices,
+      normal: triangleAverageNormal(normals, triangle[0], triangle[1], triangle[2]),
+      metadata: {
+        kind: "browser_occ_triangle_mesh",
+        source_face_type: "browser_occ_triangle_mesh",
+        source_face_index: (triangleOffset / 3) + 1,
+        display_properties: displayProperties,
+      },
+    });
+    points.push(...vertices);
+  }
+
+  return {
+    kind: "solid",
+    name: mesh?.name || ("Body " + bodyIndex),
+    faces,
+    edges: [],
+    vertices: [],
+    metadata: {
+      name: mesh?.name || ("Body " + bodyIndex),
+      primitive: "occ_mesh",
+      shape_summary: "Browser STEP mesh with " + faces.length + " triangles.",
+      source: "browser_occt_import_js_worker",
+      nx_body_index: bodyIndex,
+      display_properties: displayProperties,
+    },
+    bounding_box: boundsFromPoints(points),
+  };
+}
+
+function buildBrowserStepPreviewReport(fileName, fileSize, result) {
+  const meshes = Array.isArray(result?.meshes) ? result.meshes : [];
+  const previewBodies = meshes
+    .map((mesh, meshIndex) => browserStepMeshToKernelBody(mesh, meshIndex + 1))
+    .filter((body) => (body.faces || []).length);
+  const previewPoints = previewBodies.flatMap((body) => body.faces.flatMap((face) => face.vertices || []));
+  const bounds = boundsFromPoints(previewPoints);
+  const partName = fileName.replace(/\\.(step|stp)$/i, "") || fileName;
+
+  return {
+    file: "uploaded:" + fileName,
+    file_name: fileName,
+    file_size_bytes: Number(fileSize || 0),
+    line_count: 0,
+    header: {
+      PART1: {
+        APPL: "Browser STEP Preview Import",
+        DATE: "",
+        PART: partName,
+      },
+      PART2: {
+        SCH: "STEP-ISO10303",
+      },
+    },
+    transmit_info: {
+      source_format: "step_file",
+      original_units: "Millimeter",
+    },
+    decoded_names: [partName],
+    density: null,
+    colors: [],
+    has_scale_factor_attribute: false,
+    object_state_ids: [],
+    structured_parse: null,
+    preview: {
+      strategy: "step_import_preview",
+      label: "STEP Import",
+      description: "Imported directly in a background worker from the STEP file for immediate preview while detailed analysis continues in the background.",
+    },
+    entity_hints: {
+      source: "step_file",
+      step_backend: "browser_occt_import_js_worker",
+      mesh_triangle_count: previewBodies.reduce((sum, body) => sum + (body.faces || []).length, 0),
+    },
+    source_part_summary: {
+      part_name: partName,
+      leaf: fileName,
+      units: "Millimeter",
+    },
+    source_bodies: [],
+    source_body_count: previewBodies.length,
+    kernel_body: previewBodies.length === 1 ? previewBodies[0] : null,
+    kernel_bodies: previewBodies,
+    preview_kernel_bodies: previewBodies,
+    kernel_topology: null,
+    geometry_hints: {
+      point_count: previewPoints.length,
+      point_samples: previewPoints.slice(0, 12),
+      preview_points: previewPoints.slice(0, 1200),
+      bounds,
+      notable_scalar_values: [],
+      unit_inference: "STEP preview mesh was imported in millimeters and normalized to the app's meter-based comparison units. Detailed topology and units may be refined after background analysis finishes.",
+    },
+    preview_geometry_hints: {
+      point_count: previewPoints.length,
+      preview_points: previewPoints.slice(0, 1200),
+      bounds,
+    },
+    model_analysis: {
+      unique_axis_levels: { x: [], y: [], z: [] },
+      curve_hints: [],
+      topology: null,
+      summary: [
+        "Loaded STEP preview mesh for " + partName + " in a background worker.",
+        "Detected " + previewBodies.length + " body/bodies and " + previewBodies.reduce((sum, body) => sum + (body.faces || []).length, 0) + " triangle faces for immediate preview.",
+        "Detailed STEP analysis is continuing in the background.",
+      ],
+    },
+    step_import: {
+      backend: "browser_occt_import_js_worker",
+      analysis_pending: true,
+      refinement_pending: false,
+    },
+  };
+}
+
+self.onmessage = async (event) => {
+  const { taskId, fileName, fileSize, buffer } = event.data || {};
+  try {
+    const importer = await ensureImporter();
+    const result = importer.ReadStepFile(new Uint8Array(buffer), {
+      linearUnit: "millimeter",
+      linearDeflectionType: "bounding_box_ratio",
+      linearDeflection: 0.0025,
+      angularDeflection: 0.35,
+    });
+    if (!result?.success || !(result?.meshes || []).length) {
+      throw new Error("Browser STEP import failed for " + fileName + ".");
+    }
+    self.postMessage({
+      taskId,
+      ok: true,
+      report: buildBrowserStepPreviewReport(fileName, fileSize, result),
+    });
+  } catch (error) {
+    self.postMessage({
+      taskId,
+      ok: false,
+      error: error?.message || String(error || "STEP import worker failed."),
+    });
+  }
+};
+`;
+    }
+
+    function stepImportWorkerSourceUrl() {
+      if (!stepImportWorkerBlobUrl) {
+        const blob = new Blob([buildStepImportWorkerSource()], { type: "text/javascript" });
+        stepImportWorkerBlobUrl = URL.createObjectURL(blob);
+      }
+      return stepImportWorkerBlobUrl;
+    }
+
+    async function importBrowserStepPreviewInWorker(file) {
+      const buffer = await file.arrayBuffer();
+      return new Promise((resolve, reject) => {
+        const worker = new Worker(stepImportWorkerSourceUrl());
+        const taskId = `step-import-${++stepImportWorkerTaskCounter}`;
+        stepImportWorkers.add(worker);
+        stepImportWorkerTasks.set(taskId, { resolve, reject, worker });
+        worker.onmessage = (event) => {
+          const payload = event.data || {};
+          const task = stepImportWorkerTasks.get(payload.taskId);
+          if (!task) return;
+          stepImportWorkerTasks.delete(payload.taskId);
+          stepImportWorkers.delete(worker);
+          worker.terminate();
+          if (payload.ok) {
+            task.resolve(payload.report);
+          } else {
+            task.reject(new Error(payload.error || `Browser STEP import failed for ${file.name}.`));
+          }
+        };
+        worker.onerror = (event) => {
+          stepImportWorkerTasks.delete(taskId);
+          stepImportWorkers.delete(worker);
+          worker.terminate();
+          reject(new Error(event?.message || `STEP import worker crashed for ${file.name}.`));
+        };
+        worker.postMessage(
+          {
+            taskId,
+            fileName: file.name,
+            fileSize: Number(file.size || 0),
+            buffer,
+          },
+          [buffer]
+        );
+      });
     }
 
     function nowMs() {
@@ -1877,6 +2592,287 @@ HTML = """<!doctype html>
 
     function clearStatusProgress() {
       setStatusProgress(0, { visible: false });
+    }
+
+    function progressStageLabel(stage) {
+      const labels = {
+        queued: "Queued",
+        uploading: "Uploading",
+        previewing: "STEP preview",
+        preview_ready: "Preview ready",
+        analyzing: "Server analysis",
+        ready: "Ready",
+        failed: "Failed",
+      };
+      return labels[stage] || "Working";
+    }
+
+    function importProgressPercent(progress) {
+      if (!progress) return 0;
+      const uploadPart = progress.uploadDone ? 1 : Math.max(0, Math.min(1, Number(progress.uploadPercent || 0) / 100));
+      const previewPart = progress.stepTotal ? (Number(progress.stepCompleted || 0) / Math.max(1, Number(progress.stepTotal || 1))) : 1;
+      const serverPart = progress.serverAnalysisDone
+        ? 1
+        : (progress.serverTotal ? (Number(progress.serverCompleted || 0) / Math.max(1, Number(progress.serverTotal || 1))) : (progress.serverAnalysisStarted ? 0.1 : 0));
+      return Math.round(((uploadPart * 0.35) + (previewPart * 0.4) + (serverPart * 0.25)) * 100);
+    }
+
+    function renderImportProgress() {
+      const panel = byId("status-detail-panel");
+      const progress = state.importProgress;
+      if (!panel) return;
+      if (!progress || !progress.items?.length) {
+        panel.hidden = true;
+        panel.innerHTML = "";
+        return;
+      }
+
+      const percent = importProgressPercent(progress);
+      setStatusProgress(percent);
+      const uploadValue = progress.uploadDone
+        ? "Done"
+        : `${Math.round(Number(progress.uploadPercent || 0))}%`;
+      const previewValue = progress.stepTotal
+        ? `${progress.stepCompleted}/${progress.stepTotal}`
+        : "N/A";
+      const previewNote = progress.stepTotal
+        ? (progress.activePreviewName ? `Now importing ${progress.activePreviewName}` : "Previews are imported one at a time so the main-thread STEP importer stays responsive.")
+        : "No STEP files in this batch.";
+      const serverValue = progress.serverAnalysisDone
+        ? "Done"
+        : (progress.serverAnalysisStarted
+          ? `${progress.serverCompleted || 0}/${progress.serverTotal || progress.totalFiles || 0}`
+          : "Waiting");
+      const rows = progress.items.map((item) => `
+        <div class="status-detail-row" data-stage="${escapeHtml(item.stage || "queued")}">
+          <div class="status-detail-name">${escapeHtml(item.name || "File")}</div>
+          <div class="status-detail-stage">${escapeHtml(progressStageLabel(item.stage))}</div>
+          <div class="status-detail-note">${escapeHtml(item.note || "")}</div>
+        </div>
+      `).join("");
+
+      panel.hidden = false;
+      panel.innerHTML = `
+        <div class="status-detail-summary">
+          <div class="status-detail-chip">
+            <div class="status-detail-chip-label">Overall</div>
+            <div class="status-detail-chip-value">${escapeHtml(`${percent}%`)}</div>
+            <div class="status-detail-chip-note">${escapeHtml(progress.summary || "Import in progress")}</div>
+          </div>
+          <div class="status-detail-chip">
+            <div class="status-detail-chip-label">Upload</div>
+            <div class="status-detail-chip-value">${escapeHtml(uploadValue)}</div>
+            <div class="status-detail-chip-note">${escapeHtml(`${progress.totalFiles || 0} file(s)`)}</div>
+          </div>
+          <div class="status-detail-chip">
+            <div class="status-detail-chip-label">STEP Previews</div>
+            <div class="status-detail-chip-value">${escapeHtml(previewValue)}</div>
+            <div class="status-detail-chip-note">${escapeHtml(previewNote)}</div>
+          </div>
+          <div class="status-detail-chip">
+            <div class="status-detail-chip-label">Server Analysis</div>
+            <div class="status-detail-chip-value">${escapeHtml(serverValue)}</div>
+            <div class="status-detail-chip-note">${escapeHtml(progress.serverNote || "Upload request analysis")}</div>
+          </div>
+        </div>
+        <div class="status-detail-list">${rows}</div>
+      `;
+    }
+
+    function beginImportProgress(files) {
+      const uploadFiles = [...(files || [])];
+      state.importProgress = {
+        totalFiles: uploadFiles.length,
+        stepTotal: uploadFiles.filter((file) => /\\.(step|stp)$/i.test(file?.name || "")).length,
+        stepCompleted: 0,
+        uploadPercent: 0,
+        uploadDone: false,
+        serverAnalysisStarted: false,
+        serverAnalysisDone: false,
+        serverCompleted: 0,
+        serverTotal: uploadFiles.length,
+        mergedServerReports: [],
+        activePreviewName: "",
+        summary: uploadFiles.length ? `Preparing ${uploadFiles.length} file(s) for import.` : "Preparing import.",
+        serverNote: "Waiting for upload to finish.",
+        items: uploadFiles.map((file, index) => ({
+          key: `${file?.name || "file"}::${index}`,
+          name: file?.name || `File ${index + 1}`,
+          isStep: /\\.(step|stp)$/i.test(file?.name || ""),
+          stage: "queued",
+          note: "Waiting to upload.",
+        })),
+      };
+      renderImportProgress();
+    }
+
+    function stopImportProgressPolling() {
+      if (importProgressPollTimer) {
+        clearTimeout(importProgressPollTimer);
+        importProgressPollTimer = null;
+      }
+    }
+
+    function withServerAnalysisNote(note, serverNote) {
+      const base = String(note || "").replace(new RegExp("\\s*Server analysis[^.]*\\.?", "gi"), "").trim();
+      const suffix = String(serverNote || "").trim();
+      return [base, suffix].filter(Boolean).join(" ").trim();
+    }
+
+    function reportHasPreviewGeometry(report) {
+      return reportPreviewScore(report) > 0;
+    }
+
+    function applyServerAnalysisProgress(progress) {
+      if (!progress || !state.importProgress) return;
+      const totalCount = Number(progress.total_count || state.importProgress.serverTotal || 0);
+      const completedCount = Number(progress.completed_count || 0);
+      const activeNames = Array.isArray(progress.active_names) ? progress.active_names.filter(Boolean) : [];
+      const status = String(progress.status || "running");
+      updateImportProgress({
+        serverAnalysisStarted: true,
+        serverAnalysisDone: status === "done",
+        serverCompleted: completedCount,
+        serverTotal: totalCount || state.importProgress.serverTotal || state.importProgress.totalFiles || 0,
+        serverNote: status === "done"
+          ? "Server analysis finished."
+          : (activeNames.length ? `Active: ${activeNames.join(", ")}` : `Completed ${completedCount} of ${totalCount || 0}.`),
+      });
+      const byName = new Map((progress.items || []).map((item) => [String(item?.name || ""), item]));
+      mapImportProgressItems((item) => {
+        const serverItem = byName.get(item.name);
+        if (!serverItem) return item;
+        const serverStatus = String(serverItem.status || "");
+        const durationMs = Number(serverItem.duration_ms);
+        const durationText = Number.isFinite(durationMs) && durationMs > 0 ? formatDuration(durationMs) : "";
+        if (serverStatus === "running") {
+          if (item.stage === "preview_ready") {
+            return {
+              ...item,
+              note: withServerAnalysisNote(item.note, "Server analysis running."),
+            };
+          }
+          return {
+            ...item,
+            stage: item.stage === "queued" ? "analyzing" : item.stage,
+            note: item.isStep && item.stage === "previewing"
+              ? item.note
+              : withServerAnalysisNote(item.note, "Server analysis running."),
+          };
+        }
+        if (serverStatus === "done") {
+          if (item.stage === "preview_ready") {
+            return {
+              ...item,
+              note: withServerAnalysisNote(item.note, `Server analysis done${durationText ? ` in ${durationText}` : ""}.`),
+            };
+          }
+          if (item.stage !== "ready") {
+            return {
+              ...item,
+              stage: "ready",
+              note: withServerAnalysisNote(item.note, `Server analysis done${durationText ? ` in ${durationText}` : ""}.`),
+            };
+          }
+          return item;
+        }
+        if (serverStatus === "failed") {
+          return {
+            ...item,
+            stage: "failed",
+            note: serverItem.note || "Server analysis failed.",
+          };
+        }
+        return item;
+      });
+    }
+
+    async function mergeIncrementalUploadReports(taskId, progress) {
+      if (!taskId || !progress || !state.importProgress || state.importProgress.taskId !== taskId) return;
+      const mergedNames = new Set(state.importProgress.mergedServerReports || []);
+      const readyItems = (progress.items || []).filter((item) => {
+        const status = String(item?.status || "");
+        const reportCount = Number(item?.report_count || 0);
+        const name = String(item?.name || "");
+        return status === "done" && reportCount > 0 && name && !mergedNames.has(name);
+      });
+      for (const item of readyItems) {
+        const fileName = String(item.name || "");
+        const reports = await fetchIncrementalUploadReports(taskId, fileName);
+        if (reports.length) {
+          mergeUploadedAnalysisReports(reports, { preserveSelection: true });
+        }
+        mergedNames.add(fileName);
+        updateImportProgress({
+          mergedServerReports: [...mergedNames],
+        });
+      }
+    }
+
+    async function pollImportProgress(taskId) {
+      if (!taskId || !state.importProgress || state.importProgress.taskId !== taskId) return;
+      try {
+        const response = await fetch(`/api/analyze-progress?taskId=${encodeURIComponent(taskId)}`, { cache: "no-store" });
+        if (response.ok) {
+          const payload = await response.json();
+          await mergeIncrementalUploadReports(taskId, payload);
+          applyServerAnalysisProgress(payload);
+          if (!payload || !["done", "failed"].includes(String(payload.status || ""))) {
+            importProgressPollTimer = setTimeout(() => pollImportProgress(taskId), 250);
+            return;
+          }
+          stopImportProgressPolling();
+          return;
+        }
+      } catch {
+        // Keep the upload request flowing; polling is best-effort.
+      }
+      importProgressPollTimer = setTimeout(() => pollImportProgress(taskId), 500);
+    }
+
+    function updateImportProgress(patch = {}) {
+      if (!state.importProgress) return;
+      state.importProgress = {
+        ...state.importProgress,
+        ...patch,
+      };
+      renderImportProgress();
+    }
+
+    function mapImportProgressItems(mapper) {
+      if (!state.importProgress) return;
+      state.importProgress = {
+        ...state.importProgress,
+        items: (state.importProgress.items || []).map((item, index) => mapper({ ...item }, index)),
+      };
+      state.importProgress.stepCompleted = state.importProgress.items
+        .filter((item) => item.isStep && ["preview_ready", "ready"].includes(item.stage))
+        .length;
+      renderImportProgress();
+    }
+
+    function updateImportProgressItem(fileName, patch = {}) {
+      let updated = false;
+      mapImportProgressItems((item) => {
+        if (!updated && item.name === fileName) {
+          updated = true;
+          return {
+            ...item,
+            ...patch,
+          };
+        }
+        return item;
+      });
+    }
+
+    async function fetchIncrementalUploadReports(taskId, fileName) {
+      const response = await fetch(
+        `/api/analyze-progress-report?taskId=${encodeURIComponent(taskId)}&fileName=${encodeURIComponent(fileName)}`,
+        { cache: "no-store" }
+      );
+      if (!response.ok) return [];
+      const payload = await response.json().catch(() => ({ reports: [] }));
+      return Array.isArray(payload?.reports) ? payload.reports : [];
     }
 
     function updateImportTiming(timing) {
@@ -2128,6 +3124,7 @@ HTML = """<!doctype html>
       if (!["step_file", "fused_step_json"].includes(sourceFormat)) return "Not applicable";
       const backend = report?.step_import?.backend || report?.entity_hints?.step_backend || "native_step_parser";
       if (backend === "browser_occt_import_js") return "Browser STEP Import";
+      if (backend === "browser_occt_import_js_worker") return "Browser STEP Import (Worker)";
       if (backend === "native_step_parser" && report?.step_import?.refinement_pending) {
         return "Built-in STEP topology importer (refining mesh preview)";
       }
@@ -2397,6 +3394,64 @@ HTML = """<!doctype html>
       return [...unique.entries()]
         .sort((left, right) => left[0].localeCompare(right[0]))
         .map((entry) => entry[1]);
+    }
+
+    function previewBounds(report) {
+      return previewGeometryHints(report)?.bounds || report?.geometry_hints?.bounds || null;
+    }
+
+    function previewPointCloud(report, limit = 360) {
+      const geometry = previewGeometryHints(report);
+      const rawPoints = Array.isArray(geometry?.preview_points) && geometry.preview_points.length
+        ? geometry.preview_points
+        : (Array.isArray(report?.geometry_hints?.preview_points) ? report.geometry_hints.preview_points : []);
+      if (!rawPoints.length) return [];
+      return samplePointCloud(
+        canonicalizePointCloud(
+          rawPoints
+            .filter((point) => Array.isArray(point) && point.length >= 3)
+            .map((point) => point.slice(0, 3).map((value) => Number(value || 0))),
+          7
+        ),
+        limit
+      );
+    }
+
+    function previewPointBinProfile(report, bins = 10, limit = 360) {
+      const bounds = previewBounds(report);
+      const points = previewPointCloud(report, limit);
+      if (!bounds || !points.length) return null;
+
+      const occupancy = new Set();
+      const pointsByBin = new Map();
+      points.forEach((point) => {
+        const binKey = meshBinKey(point, bounds, bins);
+        if (!binKey) return;
+        occupancy.add(binKey);
+        if (!pointsByBin.has(binKey)) pointsByBin.set(binKey, []);
+        pointsByBin.get(binKey).push(point);
+      });
+
+      return {
+        bounds,
+        points,
+        occupancy,
+        pointsByBin,
+        centroid: averagePoint(points),
+        pointCount: Number(previewGeometryHints(report)?.point_count || report?.geometry_hints?.point_count || points.length),
+      };
+    }
+
+    function previewBinPointSet(profile, binKeys, limit = 96) {
+      if (!profile || !Array.isArray(binKeys) || !binKeys.length) return [];
+      const points = [];
+      binKeys.forEach((binKey) => {
+        const bucket = profile.pointsByBin.get(binKey) || [];
+        bucket.forEach((point) => {
+          if (points.length < limit) points.push(point);
+        });
+      });
+      return points;
     }
 
     function meshProfileFromPointCloud(pointCloud, bounds, stats = {}) {
@@ -2771,8 +3826,8 @@ HTML = """<!doctype html>
     }
 
     function compareAxisDimensions(left, right) {
-      const leftBounds = left?.geometry_hints?.bounds;
-      const rightBounds = right?.geometry_hints?.bounds;
+      const leftBounds = previewBounds(left);
+      const rightBounds = previewBounds(right);
       if (!leftBounds || !rightBounds) return [];
 
       return AXES.map((axis, index) => {
@@ -4477,6 +5532,101 @@ HTML = """<!doctype html>
       return info;
     }
 
+    function compareUltraFastPassInfo(left, right) {
+      const info = createEmptyCompareInfo();
+      if (!left || !right) return info;
+
+      info.dimensions = compareAxisDimensions(left, right);
+      info.changedAxes = info.dimensions.filter((item) => item.changed).map((item) => item.axis);
+
+      const leftProfile = previewPointBinProfile(left, 10, 300);
+      const rightProfile = previewPointBinProfile(right, 10, 300);
+      const leftBodies = previewBodies(left);
+      const rightBodies = previewBodies(right);
+      const leftBodyKeys = leftBodies.map((body, index) => previewBodyRawKey(body, index));
+      const rightBodyKeys = rightBodies.map((body, index) => previewBodyRawKey(body, index));
+      const leftKeySet = new Set(leftBodyKeys);
+      const rightKeySet = new Set(rightBodyKeys);
+      const removedBodyKeys = leftBodyKeys.filter((key) => !rightKeySet.has(key));
+      const addedBodyKeys = rightBodyKeys.filter((key) => !leftKeySet.has(key));
+      const matchedBodyCount = leftBodyKeys.filter((key) => rightKeySet.has(key)).length;
+
+      let mismatchRatio = 0;
+      let leftOnlyBins = [];
+      let rightOnlyBins = [];
+      if (leftProfile && rightProfile) {
+        leftOnlyBins = [...leftProfile.occupancy].filter((binKey) => !rightProfile.occupancy.has(binKey));
+        rightOnlyBins = [...rightProfile.occupancy].filter((binKey) => !leftProfile.occupancy.has(binKey));
+        const unionCount = new Set([...leftProfile.occupancy, ...rightProfile.occupancy]).size;
+        mismatchRatio = unionCount ? ((leftOnlyBins.length + rightOnlyBins.length) / unionCount) : 0;
+      }
+
+      const leftChangedPoints = previewBinPointSet(leftProfile, leftOnlyBins);
+      const rightChangedPoints = previewBinPointSet(rightProfile, rightOnlyBins);
+      const visualMismatch = mismatchRatio >= 0.035
+        || leftChangedPoints.length >= 8
+        || rightChangedPoints.length >= 8;
+      info.changedShape = visualMismatch;
+
+      info.stats = {
+        matchedComponents: matchedBodyCount,
+        changedComponents: (visualMismatch || info.changedAxes.length)
+          ? Math.max(1, matchedBodyCount || Math.min(leftBodies.length, rightBodies.length) || 1)
+          : 0,
+        addedComponents: addedBodyKeys.length,
+        removedComponents: removedBodyKeys.length,
+        matchQuality: "Ultra",
+      };
+
+      if (info.changedAxes.length) {
+        info.summary.push(`Ultra fast pass detected preview-size changes on ${info.changedAxes.map((axis) => axis.toUpperCase()).join(", ")}.`);
+      }
+
+      if (visualMismatch) {
+        const mismatchPercent = Math.max(1, Math.round(mismatchRatio * 100));
+        info.summary.push(`Ultra fast pass found preview-point region mismatch (${mismatchPercent}% of occupied bins changed).`);
+        const leftPoint = averagePoint(leftChangedPoints) || leftProfile?.centroid || null;
+        const rightPoint = averagePoint(rightChangedPoints) || rightProfile?.centroid || null;
+        if (leftPoint) {
+          info.annotations.left.push({
+            point: leftPoint,
+            lines: [`Preview-point region changed (${mismatchPercent}% mismatch)`],
+          });
+        }
+        if (rightPoint) {
+          info.annotations.right.push({
+            point: rightPoint,
+            lines: [`Preview-point region changed (${mismatchPercent}% mismatch)`],
+          });
+        }
+        if (leftBodies.length === 1 && rightBodies.length === 1) {
+          info.highlightBodyKeys.left.push(leftBodyKeys[0]);
+          info.highlightBodyKeys.right.push(rightBodyKeys[0]);
+        }
+      }
+
+      const leftPointCount = Number(previewGeometryHints(left)?.point_count || left?.geometry_hints?.point_count || 0);
+      const rightPointCount = Number(previewGeometryHints(right)?.point_count || right?.geometry_hints?.point_count || 0);
+      if (relativeDelta(leftPointCount, rightPointCount) >= 0.03) {
+        info.summary.push(`Ultra fast pass found preview-point drift: ${leftPointCount} -> ${rightPointCount}.`);
+      }
+
+      removedBodyKeys.slice(0, 4).forEach((key, index) => {
+        info.summary.push(`Ultra fast pass flagged removed preview body ${index + 1}.`);
+        info.highlightBodyKeys.left.push(key);
+      });
+      addedBodyKeys.slice(0, 4).forEach((key, index) => {
+        info.summary.push(`Ultra fast pass flagged added preview body ${index + 1}.`);
+        info.highlightBodyKeys.right.push(key);
+      });
+
+      if (!info.summary.length) {
+        info.summary.push("Ultra fast pass did not detect a visible preview-point change.");
+      }
+
+      return finalizeCompareInfo(info, 10);
+    }
+
     function compareFastPassInfo(left, right) {
       const info = createEmptyCompareInfo();
       if (!left || !right) return info;
@@ -4484,8 +5634,8 @@ HTML = """<!doctype html>
       info.dimensions = compareAxisDimensions(left, right);
       info.changedAxes = info.dimensions.filter((item) => item.changed).map((item) => item.axis);
 
-      const leftBounds = left?.geometry_hints?.bounds;
-      const rightBounds = right?.geometry_hints?.bounds;
+      const leftBounds = previewBounds(left);
+      const rightBounds = previewBounds(right);
       const leftBodies = previewBodies(left);
       const rightBodies = previewBodies(right);
       const leftBodyKeys = leftBodies.map((body, index) => previewBodyRawKey(body, index));
@@ -4544,8 +5694,8 @@ HTML = """<!doctype html>
         }
       }
 
-      const leftPointCount = Number(left?.geometry_hints?.point_count || 0);
-      const rightPointCount = Number(right?.geometry_hints?.point_count || 0);
+      const leftPointCount = Number(previewGeometryHints(left)?.point_count || left?.geometry_hints?.point_count || 0);
+      const rightPointCount = Number(previewGeometryHints(right)?.point_count || right?.geometry_hints?.point_count || 0);
       if (relativeDelta(leftPointCount, rightPointCount) >= 0.04) {
         info.summary.push(`Fast pass found preview point-count drift: ${leftPointCount} -> ${rightPointCount}.`);
       }
@@ -5992,6 +7142,13 @@ HTML = """<!doctype html>
       mergeReportsInternal(merged, { preserveSelection });
     }
 
+    function mergeBrowserPreviewReport(report, options = {}) {
+      const { preserveSelection = false } = options;
+      const existing = state.reports.find((item) => reportKey(item) === reportKey(report));
+      const merged = existing ? preserveExistingStepPreview(report, existing) : report;
+      mergeReportsInternal([merged], { preserveSelection });
+    }
+
     function renderFusionButton() {
       const button = byId("create-fusion");
       if (!button) return;
@@ -6505,10 +7662,11 @@ HTML = """<!doctype html>
       const [left, right] = reports;
       const viewportSnapshots = compareViewportSnapshots();
       scheduleCompareStages(left, right).catch((error) => setStatus(error.message));
-      requestCompareMl(left, right).catch((error) => setStatus(error.message));
       const stageLines = compareStageProgressLines(left, right);
       const compareMl = compareMlResult(left, right);
       const diff = mergeCompareResults(currentCompareBaseDiff(left, right), compareMl);
+      const leftPreviewStats = previewGeometryHints(left);
+      const rightPreviewStats = previewGeometryHints(right);
       const changeLines = diff.summary.length
         ? diff.summary
         : ["No geometric size change was inferred from the current preview data."];
@@ -6528,8 +7686,8 @@ HTML = """<!doctype html>
         ["ML Changed / Removed / Added", `${diff.stats.mlChangedComponents ?? "-"} / ${diff.stats.mlRemovedComponents ?? "-"} / 0`, `${diff.stats.mlChangedComponents ?? "-"} / 0 / ${diff.stats.mlAddedComponents ?? "-"}`],
         ["Density", formatDensity(left), formatDensity(right)],
         ["Colors", formatColors(left), formatColors(right)],
-        ["Bounds", formatBounds(left.geometry_hints?.bounds), formatBounds(right.geometry_hints?.bounds)],
-        ["Preview Points", String(left.geometry_hints?.point_count || 0), String(right.geometry_hints?.point_count || 0)],
+        ["Bounds", formatBounds(previewBounds(left)), formatBounds(previewBounds(right))],
+        ["Preview Points", String(leftPreviewStats?.point_count || left.geometry_hints?.point_count || 0), String(rightPreviewStats?.point_count || right.geometry_hints?.point_count || 0)],
         ["Object State IDs", String(left.object_state_ids?.length || 0), String(right.object_state_ids?.length || 0)]
       ];
       const rowMarkup = rows.map(([label, a, b]) => {
@@ -7437,12 +8595,24 @@ HTML = """<!doctype html>
       }
 
       if (pointPositions.length) {
+        const pointHighlightActive = Boolean(
+          highlightComponents.length
+          || highlightBodyKeys.length
+          || highlightRawFaces.length
+          || highlightRawEdges.length
+        );
+        const pointExactActive = Boolean(
+          exactHighlightComponents.length
+          || exactHighlightBodyKeys.length
+          || exactHighlightRawFaces.length
+          || exactHighlightRawEdges.length
+        );
         const pointGeometry = new THREE.BufferGeometry();
         pointGeometry.setAttribute("position", new THREE.Float32BufferAttribute(pointPositions, 3));
         pointCloud = new THREE.Points(
           pointGeometry,
           new THREE.PointsMaterial({
-            color: new THREE.Color(rgbCss(palette.pointColor)),
+            color: new THREE.Color(pointExactActive ? "#1e88e5" : (pointHighlightActive ? "#ef6c00" : rgbCss(palette.pointColor))),
             size: Math.max((preview.span || 0.1) * 0.018, 0.0015),
             sizeAttenuation: true,
           })
@@ -8786,7 +9956,13 @@ HTML = """<!doctype html>
         .sort((a, b) => a.point[2] - b.point[2]);
 
       if (forceMode !== "solid" || !projectedFaces.length) {
-        ctx2d.fillStyle = highlightAxes.length || highlightComponents.length ? "#ef6c00" : theme.point;
+        ctx2d.fillStyle = (
+          highlightAxes.length
+          || highlightComponents.length
+          || highlightBodyKeys.length
+          || highlightRawFaces.length
+          || highlightRawEdges.length
+        ) ? "#ef6c00" : theme.point;
         for (const item of ordered) {
           const [x, y, depth] = item.point;
           const radius = Math.max(3, ordered.length <= 2 ? 7 : 4 * depth);
@@ -8867,9 +10043,9 @@ HTML = """<!doctype html>
       const key = comparePairKey(left, right);
       if (!state.compareStageCache[key]) {
         state.compareStageCache[key] = {
-          results: { fast: null, medium: null, exact: null },
-          status: { fast: "idle", medium: "idle", exact: "idle" },
-          timings: { fastMs: null, mediumMs: null, exactMs: null },
+          results: { ultra: null, fast: null, medium: null, exact: null },
+          status: { ultra: "idle", fast: "idle", medium: "idle", exact: "idle" },
+          timings: { ultraMs: null, fastMs: null, mediumMs: null, exactMs: null },
           errors: {},
         };
       }
@@ -8887,6 +10063,7 @@ HTML = """<!doctype html>
       const stageState = compareStageState(left, right);
       if (!stageState) {
         return [
+          "Ultra fast pass: waiting",
           "Fast pass: waiting",
           "Medium pass: waiting",
           "Exact pass: waiting",
@@ -8894,6 +10071,7 @@ HTML = """<!doctype html>
       }
 
       return [
+        `Ultra fast pass: ${compareStageLabel(stageState.status.ultra)}${stageState.timings.ultraMs ? ` (${formatDuration(stageState.timings.ultraMs)})` : ""}`,
         `Fast pass: ${compareStageLabel(stageState.status.fast)}${stageState.timings.fastMs ? ` (${formatDuration(stageState.timings.fastMs)})` : ""}`,
         `Medium pass: ${compareStageLabel(stageState.status.medium)}${stageState.timings.mediumMs ? ` (${formatDuration(stageState.timings.mediumMs)})` : ""}`,
         `Exact pass: ${compareStageLabel(stageState.status.exact)}${stageState.timings.exactMs ? ` (${formatDuration(stageState.timings.exactMs)})` : ""}`,
@@ -8905,6 +10083,7 @@ HTML = """<!doctype html>
       return stageState?.results?.exact
         || stageState?.results?.medium
         || stageState?.results?.fast
+        || stageState?.results?.ultra
         || createEmptyCompareInfo();
     }
 
@@ -8925,87 +10104,58 @@ HTML = """<!doctype html>
 
       const stageState = ensureCompareStageState(left, right);
       state.compareStagePending[key] = true;
-      let activeStage = "fast";
+      const runStage = async (stageName, compute, readyStatus, mode, modelType) => {
+        if (stageState.results[stageName] || stageState.status[stageName] === "error") return;
+        try {
+          stageState.status[stageName] = "running";
+          renderCompareIfCurrentPair(key);
+          await nextCompareStageTick();
+          const startedAt = nowMs();
+          stageState.results[stageName] = await compute(left, right);
+          stageState.timings[`${stageName}Ms`] = nowMs() - startedAt;
+          stageState.status[stageName] = "done";
+          updateCompareTiming({
+            label: `${left.file_name} vs ${right.file_name}`,
+            requestMs: stageState.timings[`${stageName}Ms`],
+            status: readyStatus,
+            changedComponents: stageState.results[stageName]?.stats?.changedComponents ?? 0,
+            removedComponents: stageState.results[stageName]?.stats?.removedComponents ?? 0,
+            addedComponents: stageState.results[stageName]?.stats?.addedComponents ?? 0,
+            mode,
+            modelType,
+          });
+          renderCompareIfCurrentPair(key);
+        } catch (error) {
+          stageState.status[stageName] = "error";
+          stageState.errors[stageName] = error.message;
+          updateCompareTiming({
+            label: `${left.file_name} vs ${right.file_name}`,
+            requestMs: null,
+            status: `${stageName} pass failed`,
+            changedComponents: "—",
+            removedComponents: "—",
+            addedComponents: "—",
+            mode: stageName,
+            modelType: error.message,
+          });
+          renderCompareIfCurrentPair(key);
+        }
+      };
 
       try {
-        if (!stageState.results.fast && stageState.status.fast !== "error") {
-          stageState.status.fast = "running";
-          renderCompareIfCurrentPair(key);
-          await nextCompareStageTick();
-          const startedAt = nowMs();
-          stageState.results.fast = compareFastPassInfo(left, right);
-          stageState.timings.fastMs = nowMs() - startedAt;
-          stageState.status.fast = "done";
-          updateCompareTiming({
-            label: `${left.file_name} vs ${right.file_name}`,
-            requestMs: stageState.timings.fastMs,
-            status: "Fast pass ready",
-            changedComponents: stageState.results.fast?.stats?.changedComponents ?? 0,
-            removedComponents: stageState.results.fast?.stats?.removedComponents ?? 0,
-            addedComponents: stageState.results.fast?.stats?.addedComponents ?? 0,
-            mode: "Fast",
-            modelType: "Bounds + preview points",
-          });
-          renderCompareIfCurrentPair(key);
+        await runStage("ultra", compareUltraFastPassInfo, "Ultra fast pass ready", "Ultra", "Preview point bins");
+
+        if (!state.compareMlCache[key] && !state.compareMlPending[key]) {
+          window.setTimeout(() => {
+            requestCompareMl(left, right).catch((error) => setStatus(error.message));
+          }, 0);
         }
 
-        if (!stageState.results.medium && stageState.status.medium !== "error") {
-          activeStage = "medium";
-          stageState.status.medium = "running";
-          renderCompareIfCurrentPair(key);
-          await nextCompareStageTick();
-          const startedAt = nowMs();
-          stageState.results.medium = comparePreviewDiffInfo(left, right);
-          stageState.timings.mediumMs = nowMs() - startedAt;
-          stageState.status.medium = "done";
-          updateCompareTiming({
-            label: `${left.file_name} vs ${right.file_name}`,
-            requestMs: stageState.timings.mediumMs,
-            status: "Medium pass ready",
-            changedComponents: stageState.results.medium?.stats?.changedComponents ?? 0,
-            removedComponents: stageState.results.medium?.stats?.removedComponents ?? 0,
-            addedComponents: stageState.results.medium?.stats?.addedComponents ?? 0,
-            mode: "Medium",
-            modelType: "Preview components + wireframe bins",
-          });
-          renderCompareIfCurrentPair(key);
-        }
-
-        if (!stageState.results.exact && stageState.status.exact !== "error") {
-          activeStage = "exact";
-          stageState.status.exact = "running";
-          renderCompareIfCurrentPair(key);
-          await nextCompareStageTick();
-          const startedAt = nowMs();
-          stageState.results.exact = compareDiffInfo(left, right);
-          stageState.timings.exactMs = nowMs() - startedAt;
-          stageState.status.exact = "done";
-          updateCompareTiming({
-            label: `${left.file_name} vs ${right.file_name}`,
-            requestMs: stageState.timings.exactMs,
-            status: "Exact pass ready",
-            changedComponents: stageState.results.exact?.stats?.changedComponents ?? 0,
-            removedComponents: stageState.results.exact?.stats?.removedComponents ?? 0,
-            addedComponents: stageState.results.exact?.stats?.addedComponents ?? 0,
-            mode: "Exact",
-            modelType: "Structured faces + edges",
-          });
-          renderCompareIfCurrentPair(key);
-        }
-      } catch (error) {
-        stageState.status[activeStage] = "error";
-        stageState.errors[activeStage] = error.message;
-        updateCompareTiming({
-          label: `${left.file_name} vs ${right.file_name}`,
-          requestMs: null,
-          status: `${activeStage} pass failed`,
-          changedComponents: "—",
-          removedComponents: "—",
-          addedComponents: "—",
-          mode: activeStage,
-          modelType: error.message,
-        });
-        renderCompareIfCurrentPair(key);
+        await Promise.allSettled([
+          runStage("fast", (leftReport, rightReport) => runCompareStageInWorker("fast", leftReport, rightReport), "Fast pass ready", "Fast", "Bounds + preview points"),
+          runStage("medium", (leftReport, rightReport) => runCompareStageInWorker("medium", leftReport, rightReport), "Medium pass ready", "Medium", "Preview components + wireframe bins"),
+          runStage("exact", (leftReport, rightReport) => runCompareStageInWorker("exact", leftReport, rightReport), "Exact pass ready", "Exact", "Structured faces + edges"),
+        ]);
       } finally {
         delete state.compareStagePending[key];
       }
@@ -9348,27 +10498,59 @@ HTML = """<!doctype html>
       return buildBrowserStepPreviewReport(file, result);
     }
 
-    async function importBrowserStepPreviews(files) {
+    async function importBrowserStepPreviews(files, options = {}) {
       const stepFiles = [...(files || [])].filter((file) => /\\.(step|stp)$/i.test(file?.name || ""));
       if (!stepFiles.length) return { reports: [], timing: { totalMs: 0, perFile: [] } };
 
-      const importedReports = [];
-      const perFile = [];
       const startedAt = nowMs();
-      for (const file of stepFiles) {
-        setStatus(`Importing STEP preview for ${file.name} in the browser...`);
+      const results = [];
+      for (const [index, file] of stepFiles.entries()) {
+        setStatus(`Importing STEP preview ${index + 1}/${stepFiles.length}: ${file.name}`);
+        updateImportProgress({
+          activePreviewName: file.name,
+          summary: `Building STEP preview ${index + 1} of ${stepFiles.length}.`,
+        });
+        updateImportProgressItem(file.name, {
+          stage: "previewing",
+          note: `Generating browser STEP preview (${index + 1}/${stepFiles.length}).`,
+        });
         const fileStartedAt = nowMs();
         try {
           const report = await importBrowserStepPreview(file);
-          importedReports.push(report);
-          perFile.push({ name: file.name, ms: nowMs() - fileStartedAt, ok: true });
-          mergeReports([report]);
-          setStatus(previewReadyMessage(report));
+          const result = {
+            name: file.name,
+            ms: nowMs() - fileStartedAt,
+            ok: true,
+            report,
+          };
+          updateImportProgressItem(file.name, {
+            stage: "preview_ready",
+            note: `Preview ready in ${formatDuration(result.ms)}.`,
+          });
+          options?.onReport?.(report, result);
+          results.push(result);
         } catch (error) {
-          perFile.push({ name: file.name, ms: nowMs() - fileStartedAt, ok: false, error: error.message });
-          setStatus(`STEP preview import fallback for ${file.name}: ${error.message}`);
+          const result = {
+            name: file.name,
+            ms: nowMs() - fileStartedAt,
+            ok: false,
+            error: error.message,
+          };
+          updateImportProgressItem(file.name, {
+            stage: "analyzing",
+            note: "Browser preview failed, waiting for server analysis.",
+          });
+          results.push(result);
         }
       }
+
+      const importedReports = results.filter((entry) => entry.ok && entry.report).map((entry) => entry.report);
+      const perFile = results.map((entry) => ({
+        name: entry.name,
+        ms: entry.ms,
+        ok: entry.ok,
+        error: entry.error,
+      }));
       return {
         reports: importedReports,
         timing: {
@@ -9385,29 +10567,64 @@ HTML = """<!doctype html>
         const formData = new FormData();
         const startedAt = nowMs();
         let uploadFinishedAt = null;
+        const taskId = `upload-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
 
         uploadFiles.forEach((file) => {
           formData.append("files", file, file.name);
         });
 
-        xhr.open("POST", "/api/analyze-uploads");
+        xhr.open("POST", `/api/analyze-uploads?taskId=${encodeURIComponent(taskId)}`);
         xhr.responseType = "json";
 
         xhr.upload.addEventListener("progress", (event) => {
           if (event.lengthComputable && event.total > 0) {
             const percent = (event.loaded / event.total) * 100;
             setStatus(`Uploading ${uploadFiles.length} file(s)... ${Math.round(percent)}%`);
-            setStatusProgress(percent);
+            updateImportProgress({
+              uploadPercent: percent,
+              summary: `Uploading ${uploadFiles.length} file(s).`,
+            });
+            mapImportProgressItems((item) => ({
+              ...item,
+              stage: ["previewing", "preview_ready", "ready", "analyzing"].includes(item.stage) ? item.stage : "uploading",
+              note: ["previewing", "preview_ready", "ready", "analyzing"].includes(item.stage) ? item.note : `Uploading... ${Math.round(percent)}%.`,
+            }));
           } else {
             setStatus(`Uploading ${uploadFiles.length} file(s)...`);
-            setStatusProgress(null, { indeterminate: true });
+            updateImportProgress({
+              summary: `Uploading ${uploadFiles.length} file(s).`,
+            });
           }
         });
 
         xhr.upload.addEventListener("load", () => {
           uploadFinishedAt = nowMs();
           setStatus(previewImportMessage(uploadFiles));
-          setStatusProgress(null, { indeterminate: true });
+          updateImportProgress({
+            uploadPercent: 100,
+            uploadDone: true,
+            serverAnalysisStarted: true,
+            taskId,
+            summary: "Upload complete. Waiting for browser previews and server analysis.",
+            serverNote: "Server analysis is now running.",
+          });
+          stopImportProgressPolling();
+          pollImportProgress(taskId);
+          mapImportProgressItems((item) => {
+            if (item.stage === "previewing" || item.stage === "preview_ready") return item;
+            if (item.isStep) {
+              return {
+                ...item,
+                stage: "analyzing",
+                note: "Waiting for STEP preview and server analysis.",
+              };
+            }
+            return {
+              ...item,
+              stage: "analyzing",
+              note: "Server analysis running.",
+            };
+          });
         });
 
         xhr.addEventListener("load", () => {
@@ -9420,6 +10637,17 @@ HTML = """<!doctype html>
           })();
           if (xhr.status >= 200 && xhr.status < 300) {
             const finishedAt = nowMs();
+            stopImportProgressPolling();
+            updateImportProgress({
+              uploadPercent: 100,
+              uploadDone: true,
+              serverAnalysisStarted: true,
+              serverAnalysisDone: true,
+              serverCompleted: uploadFiles.length,
+              serverTotal: uploadFiles.length,
+              summary: "Server analysis finished. Finalizing loaded parts.",
+              serverNote: "Server analysis response received.",
+            });
             resolve({
               response,
               timing: {
@@ -9435,15 +10663,29 @@ HTML = """<!doctype html>
         });
 
         xhr.addEventListener("error", () => {
+          stopImportProgressPolling();
+          updateImportProgress({
+            summary: "Upload failed.",
+            serverNote: "Upload request failed.",
+          });
           reject(new Error("Upload failed."));
         });
 
         xhr.addEventListener("abort", () => {
+          stopImportProgressPolling();
+          updateImportProgress({
+            summary: "Upload cancelled.",
+            serverNote: "Upload request was cancelled.",
+          });
           reject(new Error("Upload cancelled."));
         });
 
         setStatus(`Uploading ${uploadFiles.length} file(s)...`);
-        setStatusProgress(0);
+        updateImportProgress({
+          uploadPercent: 0,
+          summary: `Uploading ${uploadFiles.length} file(s).`,
+          serverNote: "Waiting for upload to finish.",
+        });
         xhr.send(formData);
       });
     }
@@ -9529,28 +10771,28 @@ HTML = """<!doctype html>
       if (!files.length) return;
       const uploadFiles = [...files];
       const stepFiles = uploadFiles.filter((file) => /\\.(step|stp)$/i.test(file.name));
-      const browserPreviewPromise = stepFiles.length ? importBrowserStepPreviews(uploadFiles) : Promise.resolve([]);
+      stopImportProgressPolling();
+      beginImportProgress(uploadFiles);
+      const browserPreviewPromise = stepFiles.length
+        ? importBrowserStepPreviews(uploadFiles, {
+            onReport: (report) => {
+              mergeBrowserPreviewReport(report, { preserveSelection: true });
+              setStatus(previewReadyMessage(report));
+            },
+          }).then((result) => {
+            return result;
+          }).catch((error) => {
+            setStatus(`Browser STEP preview fallback: ${error.message}`);
+            return { reports: [], timing: { totalMs: 0, perFile: [] } };
+          })
+        : Promise.resolve({ reports: [], timing: { totalMs: 0, perFile: [] } });
       const uploadPromise = uploadFilesWithProgress(uploadFiles);
       const importStartedAt = nowMs();
       try {
-        const browserPreviewResult = await browserPreviewPromise;
         const uploadResult = await uploadPromise;
-        const browserPreviewReports = Array.isArray(browserPreviewResult) ? browserPreviewResult : (browserPreviewResult?.reports || []);
-        const browserPreviewTiming = browserPreviewResult?.timing || { totalMs: 0, perFile: [] };
         const data = uploadResult?.response || {};
         const requestTiming = uploadResult?.timing || {};
-        updateImportTiming({
-          fileCount: uploadFiles.length,
-          stepFileCount: stepFiles.length,
-          primaryName: uploadFiles.length === 1 ? uploadFiles[0].name : `${uploadFiles.length} files`,
-          totalMs: nowMs() - importStartedAt,
-          uploadMs: requestTiming.uploadMs,
-          serverAnalysisMs: requestTiming.serverAnalysisMs,
-          browserPreviewMs: browserPreviewTiming.totalMs,
-          uploadBytes: requestTiming.uploadBytes,
-          browserPreviewBreakdown: (browserPreviewTiming.perFile || []).map((entry) => `${entry.name}: ${formatDuration(entry.ms)}`).join(", "),
-        });
-        if (browserPreviewReports.length) {
+        if (stepFiles.length) {
           mergeUploadedAnalysisReports(data.reports || [], { preserveSelection: true });
           if ((data.reports || []).length === 1) {
             setStatus(`Detailed analysis ready for ${data.reports[0].file_name}.`);
@@ -9565,8 +10807,54 @@ HTML = """<!doctype html>
             setStatus(loadedReportsStatus(data.reports || []));
           }
         }
+        const analyzedReportsByName = new Map((data.reports || []).map((report) => [String(report?.file_name || ""), report]));
+        mapImportProgressItems((item) => {
+          if (item.stage === "failed") return item;
+          const analyzedReport = analyzedReportsByName.get(String(item.name || ""));
+          const hasPreview = reportHasPreviewGeometry(analyzedReport);
+          if (item.isStep) {
+            return {
+              ...item,
+              stage: (item.stage === "preview_ready" || hasPreview) ? "preview_ready" : item.stage,
+              note: (item.stage === "preview_ready" || hasPreview)
+                ? withServerAnalysisNote(item.note, "Detailed analysis ready. Preview ready.")
+                : withServerAnalysisNote(item.note, "Server analysis ready."),
+            };
+          }
+          return {
+            ...item,
+            stage: hasPreview ? "preview_ready" : "ready",
+            note: withServerAnalysisNote(item.note, hasPreview ? "Preview ready." : "Server analysis ready."),
+          };
+        });
+        updateImportProgress({
+          summary: `Server analysis finished for ${uploadFiles.length} file(s).`,
+          serverNote: "All requested file analysis is complete.",
+          mergedServerReports: dedupeList([
+            ...((state.importProgress?.mergedServerReports) || []),
+            ...(data.reports || []).map((report) => String(report?.file_name || "")).filter(Boolean),
+          ]),
+        });
+        const browserPreviewResult = await browserPreviewPromise;
+        const browserPreviewTiming = browserPreviewResult?.timing || { totalMs: 0, perFile: [] };
+        updateImportProgress({
+          activePreviewName: "",
+          summary: `Loaded ${uploadFiles.length} file(s).`,
+        });
+        updateImportTiming({
+          fileCount: uploadFiles.length,
+          stepFileCount: stepFiles.length,
+          primaryName: uploadFiles.length === 1 ? uploadFiles[0].name : `${uploadFiles.length} files`,
+          totalMs: nowMs() - importStartedAt,
+          uploadMs: requestTiming.uploadMs,
+          serverAnalysisMs: requestTiming.serverAnalysisMs,
+          browserPreviewMs: browserPreviewTiming.totalMs,
+          uploadBytes: requestTiming.uploadBytes,
+          browserPreviewBreakdown: (browserPreviewTiming.perFile || []).map((entry) => `${entry.name}: ${formatDuration(entry.ms)}`).join(", "),
+        });
       } finally {
-        clearStatusProgress();
+        stopImportProgressPolling();
+        renderImportProgress();
       }
     }
 
@@ -9644,6 +10932,29 @@ HTML = """<!doctype html>
         dragState.canvasEl.style.cursor = "grab";
       }
       dragState = null;
+    });
+
+    window.addEventListener("beforeunload", () => {
+      compareWorkers.forEach((worker) => worker?.terminate?.());
+      compareWorkers = new Set();
+      compareWorkerTasks.forEach((task) => {
+        task.reject(new Error("Compare worker stopped."));
+      });
+      compareWorkerTasks.clear();
+      if (compareWorkerBlobUrl) {
+        URL.revokeObjectURL(compareWorkerBlobUrl);
+        compareWorkerBlobUrl = null;
+      }
+      stepImportWorkers.forEach((worker) => worker?.terminate?.());
+      stepImportWorkers = new Set();
+      stepImportWorkerTasks.forEach((task) => {
+        task.reject(new Error("STEP import worker stopped."));
+      });
+      stepImportWorkerTasks.clear();
+      if (stepImportWorkerBlobUrl) {
+        URL.revokeObjectURL(stepImportWorkerBlobUrl);
+        stepImportWorkerBlobUrl = null;
+      }
     });
 
     window.addEventListener("resize", () => {
@@ -9790,6 +11101,31 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
             self._send_json({"ok": True})
             return
 
+        if parsed.path == "/api/analyze-progress":
+            task_id = parse_qs(parsed.query).get("taskId", [None])[0]
+            snapshot = _upload_analysis_progress_snapshot(str(task_id or ""))
+            if not snapshot:
+                self._send_json({"error": "Not found"}, status=HTTPStatus.NOT_FOUND)
+                return
+            self._send_json(snapshot)
+            return
+
+        if parsed.path == "/api/analyze-progress-report":
+            params = parse_qs(parsed.query)
+            task_id = str((params.get("taskId") or [None])[0] or "")
+            file_name = str((params.get("fileName") or [None])[0] or "")
+            snapshot = _upload_analysis_progress_snapshot(task_id)
+            if not snapshot:
+                self._send_json({"error": "Not found"}, status=HTTPStatus.NOT_FOUND)
+                return
+            for item in snapshot.get("items") or []:
+                if str(item.get("name") or "") != file_name:
+                    continue
+                self._send_json({"reports": item.get("reports") or []})
+                return
+            self._send_json({"error": "Not found"}, status=HTTPStatus.NOT_FOUND)
+            return
+
         self._send_json({"error": "Not found"}, status=HTTPStatus.NOT_FOUND)
 
     def do_POST(self) -> None:
@@ -9797,34 +11133,86 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
 
         try:
             if parsed.path == "/api/analyze-uploads":
-                reports: list[dict] = []
-                for file_payload in self._read_multipart_files():
+                files = self._read_multipart_files()
+                task_id = parse_qs(parsed.query).get("taskId", [None])[0]
+                if task_id:
+                    _create_upload_analysis_progress(str(task_id), files)
+
+                def _analyze_payload(file_payload: dict) -> list[dict]:
                     name = str(file_payload.get("name") or "<upload>")
-                    raw_bytes = bytes(file_payload.get("data") or b"")
-                    reports.extend(
-                        analyze_uploaded_binary_files(
-                            [
-                                {
-                                    "name": name,
-                                    "data": raw_bytes,
-                                    "size": int(file_payload.get("size") or len(raw_bytes)),
-                                }
-                            ]
+                    started_at = time.time()
+                    if task_id:
+                        _update_upload_analysis_progress_item(
+                            str(task_id),
+                            name,
+                            {
+                                "status": "running",
+                                "note": "Server analysis running.",
+                                "started_at": started_at,
+                            },
                         )
-                    )
-                self._send_json({"reports": _reports_for_client(reports)})
+                    try:
+                        raw_bytes = bytes(file_payload.get("data") or b"")
+                        reports_for_file = analyze_input_bytes(
+                            raw_bytes,
+                            display_name=name,
+                            source_path=f"uploaded:{name}",
+                            file_size_bytes=file_payload.get("size", len(raw_bytes)),
+                        )
+                        client_reports_for_file = _reports_for_client(_prepare_reports(reports_for_file))
+                        if task_id:
+                            _update_upload_analysis_progress_item(
+                                str(task_id),
+                                name,
+                                {
+                                    "status": "done",
+                                    "note": f"Server analysis complete in {(time.time() - started_at) * 1000:.0f} ms.",
+                                    "completed_at": time.time(),
+                                    "duration_ms": int((time.time() - started_at) * 1000),
+                                    "report_count": len(client_reports_for_file or []),
+                                    "reports": client_reports_for_file,
+                                },
+                            )
+                        return reports_for_file
+                    except Exception as exc:
+                        if task_id:
+                            _update_upload_analysis_progress_item(
+                                str(task_id),
+                                name,
+                                {
+                                    "status": "failed",
+                                    "note": str(exc),
+                                    "completed_at": time.time(),
+                                    "duration_ms": int((time.time() - started_at) * 1000),
+                                },
+                            )
+                        raise
+
+                reports: list[dict] = []
+                try:
+                    for result in _parallel_map_preserve_order(files, _analyze_payload):
+                        reports.extend(result)
+                    if task_id:
+                        _finish_upload_analysis_progress(str(task_id), "done")
+                except Exception as exc:
+                    if task_id:
+                        _finish_upload_analysis_progress(str(task_id), "failed", str(exc))
+                    raise
+                self._send_json({"reports": _reports_for_client(_prepare_reports(reports))})
                 return
 
             if parsed.path == "/api/analyze-step-details":
                 files = self._read_multipart_files()
-                reports: list[dict] = []
-                for file_payload in files:
+                step_payloads = [
+                    file_payload for file_payload in files
+                    if re.search(r"\.(stp|step)$", str(file_payload.get("name") or "<upload>"), flags=re.IGNORECASE)
+                ]
+
+                def _analyze_step_payload(file_payload: dict) -> list[dict]:
                     name = str(file_payload.get("name") or "<upload>")
-                    if not re.search(r"\.(stp|step)$", name, flags=re.IGNORECASE):
-                        continue
                     raw_bytes = bytes(file_payload.get("data") or b"")
                     raw_text = raw_bytes.decode("utf-8", errors="ignore")
-                    reports.extend(
+                    return (
                         parse_step_input_text(
                             raw_text,
                             display_name=name,
@@ -9834,6 +11222,10 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
                         )
                         or []
                     )
+
+                reports: list[dict] = []
+                for result in _parallel_map_preserve_order(step_payloads, _analyze_step_payload):
+                    reports.extend(result)
                 self._send_json({"reports": _reports_for_client([enrich_report(report) for report in reports])})
                 return
 
