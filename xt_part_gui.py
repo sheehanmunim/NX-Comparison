@@ -3088,8 +3088,12 @@ HTML = """<!doctype html>
     }
 
     function previewBodyIndex(body, fallbackIndex = 0) {
-      const numeric = Number(body?.metadata?.nx_body_index);
-      return Number.isFinite(numeric) ? numeric : Number(fallbackIndex || 0);
+      const numeric = Number(
+        body?.metadata?.nx_body_index
+        ?? body?.metadata?.source_body_index
+        ?? body?.index
+      );
+      return Number.isFinite(numeric) ? numeric : Number(fallbackIndex + 1);
     }
 
     function previewBodyRawKey(body, fallbackIndex = 0) {
@@ -3248,6 +3252,15 @@ HTML = """<!doctype html>
       ];
     }
 
+    function dotProduct(leftVector, rightVector) {
+      if (!Array.isArray(leftVector) || !Array.isArray(rightVector)) return 0;
+      return (
+        Number(leftVector[0] || 0) * Number(rightVector[0] || 0)
+        + Number(leftVector[1] || 0) * Number(rightVector[1] || 0)
+        + Number(leftVector[2] || 0) * Number(rightVector[2] || 0)
+      );
+    }
+
     function structuredFaceKind(face) {
       return String(
         face?.type
@@ -3332,15 +3345,15 @@ HTML = """<!doctype html>
       );
       if (match) return match;
 
-      match = rightEntries.find((candidate) =>
-        !usedKeys.has(candidate.key)
-        && candidate.faceIndex === leftEntry.faceIndex
-      );
-      if (match) return match;
-
       const candidates = rightEntries
         .filter((candidate) => !usedKeys.has(candidate.key))
-        .map((candidate) => ({ candidate, cost: structuredFaceMatchCost(leftEntry, candidate) }))
+        .map((candidate) => {
+          let cost = structuredFaceMatchCost(leftEntry, candidate);
+          if (candidate.faceIndex === leftEntry.faceIndex) {
+            cost -= 0.2;
+          }
+          return { candidate, cost };
+        })
         .sort((a, b) => a.cost - b.cost);
       if (!candidates.length) return null;
       return candidates[0].cost <= 2.5 ? candidates[0].candidate : null;
@@ -3465,15 +3478,15 @@ HTML = """<!doctype html>
       );
       if (match) return match;
 
-      match = rightEntries.find((candidate) =>
-        !usedKeys.has(candidate.key)
-        && candidate.edgeIndex === leftEntry.edgeIndex
-      );
-      if (match) return match;
-
       const candidates = rightEntries
         .filter((candidate) => !usedKeys.has(candidate.key))
-        .map((candidate) => ({ candidate, cost: structuredEdgeMatchCost(leftEntry, candidate) }))
+        .map((candidate) => {
+          let cost = structuredEdgeMatchCost(leftEntry, candidate);
+          if (candidate.edgeIndex === leftEntry.edgeIndex) {
+            cost -= 0.15;
+          }
+          return { candidate, cost };
+        })
         .sort((a, b) => a.cost - b.cost);
       if (!candidates.length) return null;
       return candidates[0].cost <= 2.25 ? candidates[0].candidate : null;
@@ -3841,6 +3854,17 @@ HTML = """<!doctype html>
             && Math.abs(rightFaceEntry.radius - leftFaceEntry.radius) > DIMENSION_TOLERANCE;
           const centerShift = leftFaceEntry.center && rightFaceEntry.center
             && distanceBetweenPoints(leftFaceEntry.center, rightFaceEntry.center) > DIMENSION_TOLERANCE * 2;
+          const centerOffsetVector = leftFaceEntry.center && rightFaceEntry.center
+            ? vectorBetweenPoints(leftFaceEntry.center, rightFaceEntry.center)
+            : null;
+          const offsetDirection = leftFaceEntry.direction || rightFaceEntry.direction || null;
+          const normalOffset = centerOffsetVector && offsetDirection
+            ? Math.abs(dotProduct(centerOffsetVector, offsetDirection))
+            : null;
+          const planarOffsetChanged = leftFaceEntry.kind === "Planar"
+            && rightFaceEntry.kind === "Planar"
+            && normalOffset !== null
+            && normalOffset > DIMENSION_TOLERANCE * 2;
           const loopChanged = leftFaceEntry.loopCount !== rightFaceEntry.loopCount;
           const edgeChanged = leftFaceEntry.edgeCount !== rightFaceEntry.edgeCount;
           const directionChanged = leftFaceEntry.direction && rightFaceEntry.direction
@@ -3854,13 +3878,35 @@ HTML = """<!doctype html>
           if (!(kindChanged || radiusChanged || centerShift || loopChanged || edgeChanged || directionChanged)) return;
 
           structuredChangedFaceCount += 1;
+          highlightBodyKeys.left.push(leftPreviewBodyKey);
+          highlightBodyKeys.right.push(rightPreviewBodyKey);
+          exactHighlightBodyKeys.left.push(leftPreviewBodyKey);
+          exactHighlightBodyKeys.right.push(rightPreviewBodyKey);
           exactHighlightRawFaces.left.push(leftFaceEntry.key);
           exactHighlightRawFaces.right.push(rightFaceEntry.key);
           highlightRawFaces.left.push(leftFaceEntry.key);
           highlightRawFaces.right.push(rightFaceEntry.key);
 
           const faceLabel = `${bodyLabel} face ${leftFaceEntry.faceIndex} (${leftFaceEntry.kind.toLowerCase()})`;
-          if (leftFaceEntry.center) {
+          if (planarOffsetChanged && leftFaceEntry.center && rightFaceEntry.center) {
+            exactAnnotations.left.push({
+              start: leftFaceEntry.center,
+              end: rightFaceEntry.center,
+              tone: "exact",
+              lines: [`${faceLabel} extrude offset`],
+              focusSegments: [{ start: leftFaceEntry.center, end: rightFaceEntry.center }],
+              deltaLabel: formatSignedInches(normalOffset),
+            });
+          } else if (centerShift && leftFaceEntry.center && rightFaceEntry.center) {
+            exactAnnotations.left.push({
+              start: leftFaceEntry.center,
+              end: rightFaceEntry.center,
+              tone: "exact",
+              lines: [`${faceLabel} shifted`],
+              focusSegments: [{ start: leftFaceEntry.center, end: rightFaceEntry.center }],
+              deltaLabel: formatSignedInches(distanceBetweenPoints(leftFaceEntry.center, rightFaceEntry.center)),
+            });
+          } else if (leftFaceEntry.center) {
             exactAnnotations.left.push({
               point: leftFaceEntry.center,
               tone: "exact",
@@ -3871,7 +3917,25 @@ HTML = """<!doctype html>
               ],
             });
           }
-          if (rightFaceEntry.center) {
+          if (planarOffsetChanged && leftFaceEntry.center && rightFaceEntry.center) {
+            exactAnnotations.right.push({
+              start: leftFaceEntry.center,
+              end: rightFaceEntry.center,
+              tone: "exact",
+              lines: [`${faceLabel} extrude offset`],
+              focusSegments: [{ start: leftFaceEntry.center, end: rightFaceEntry.center }],
+              deltaLabel: formatSignedInches(normalOffset),
+            });
+          } else if (centerShift && leftFaceEntry.center && rightFaceEntry.center) {
+            exactAnnotations.right.push({
+              start: leftFaceEntry.center,
+              end: rightFaceEntry.center,
+              tone: "exact",
+              lines: [`${faceLabel} shifted`],
+              focusSegments: [{ start: leftFaceEntry.center, end: rightFaceEntry.center }],
+              deltaLabel: formatSignedInches(distanceBetweenPoints(leftFaceEntry.center, rightFaceEntry.center)),
+            });
+          } else if (rightFaceEntry.center) {
             exactAnnotations.right.push({
               point: rightFaceEntry.center,
               tone: "exact",
@@ -3890,6 +3954,8 @@ HTML = """<!doctype html>
         const unmatchedLeftFaceEntries = leftFaceEntries.filter((entry) => !matchedLeftFaceKeys.has(entry.key));
         const unmatchedRightFaceEntries = rightFaceEntries.filter((entry) => !usedRightFaceKeys.has(entry.key));
         unmatchedLeftFaceEntries.slice(0, 6).forEach((entry) => {
+          highlightBodyKeys.left.push(leftPreviewBodyKey);
+          exactHighlightBodyKeys.left.push(leftPreviewBodyKey);
           highlightRawFaces.left.push(entry.key);
           exactHighlightRawFaces.left.push(entry.key);
           if (entry.center) {
@@ -3901,6 +3967,8 @@ HTML = """<!doctype html>
           }
         });
         unmatchedRightFaceEntries.slice(0, 6).forEach((entry) => {
+          highlightBodyKeys.right.push(rightPreviewBodyKey);
+          exactHighlightBodyKeys.right.push(rightPreviewBodyKey);
           highlightRawFaces.right.push(entry.key);
           exactHighlightRawFaces.right.push(entry.key);
           if (entry.center) {
@@ -3944,6 +4012,10 @@ HTML = """<!doctype html>
           if (!(kindChanged || lengthChanged || radiusChanged || centerShift || endpointShift)) return;
 
           structuredChangedEdgeCount += 1;
+          highlightBodyKeys.left.push(leftPreviewBodyKey);
+          highlightBodyKeys.right.push(rightPreviewBodyKey);
+          exactHighlightBodyKeys.left.push(leftPreviewBodyKey);
+          exactHighlightBodyKeys.right.push(rightPreviewBodyKey);
           exactHighlightRawEdges.left.push(leftEdgeEntry.key);
           exactHighlightRawEdges.right.push(rightEdgeEntry.key);
           highlightRawEdges.left.push(leftEdgeEntry.key);
@@ -3984,6 +4056,8 @@ HTML = """<!doctype html>
         const unmatchedLeftEdgeEntries = leftEdgeEntries.filter((entry) => !matchedLeftEdgeKeys.has(entry.key));
         const unmatchedRightEdgeEntries = rightEdgeEntries.filter((entry) => !usedRightEdgeKeys.has(entry.key));
         unmatchedLeftEdgeEntries.slice(0, 6).forEach((entry) => {
+          highlightBodyKeys.left.push(leftPreviewBodyKey);
+          exactHighlightBodyKeys.left.push(leftPreviewBodyKey);
           highlightRawEdges.left.push(entry.key);
           exactHighlightRawEdges.left.push(entry.key);
           if (entry.center) {
@@ -3995,6 +4069,8 @@ HTML = """<!doctype html>
           }
         });
         unmatchedRightEdgeEntries.slice(0, 6).forEach((entry) => {
+          highlightBodyKeys.right.push(rightPreviewBodyKey);
+          exactHighlightBodyKeys.right.push(rightPreviewBodyKey);
           highlightRawEdges.right.push(entry.key);
           exactHighlightRawEdges.right.push(entry.key);
           if (entry.center) {
@@ -6245,6 +6321,7 @@ HTML = """<!doctype html>
       const {
         compareStyle,
         solidMesh,
+        flatChangedBodyMesh,
         wireframe,
         pointCloud,
         edgeLines,
@@ -6258,6 +6335,7 @@ HTML = """<!doctype html>
       } = viewport.previewObjects;
       const hasSurfaceGeometry = Boolean(
         solidMesh
+        || flatChangedBodyMesh
         || wireframe
         || edgeLines
         || fallbackEdgeLines
@@ -6272,6 +6350,7 @@ HTML = """<!doctype html>
       const showWireframe = mode === "wireframe";
       const showPoints = mode === "points";
       if (solidMesh) solidMesh.visible = mode === "solid";
+      if (flatChangedBodyMesh) flatChangedBodyMesh.visible = mode === "solid";
       if (solidMesh?.material) {
         solidMesh.material.opacity = 1;
         solidMesh.material.transparent = false;
@@ -6305,8 +6384,8 @@ HTML = """<!doctype html>
         highlightEdgeLines.material.opacity = showWireframe ? 0.98 : 0.92;
       }
       if (exactHighlightEdgeLines) {
-        exactHighlightEdgeLines.visible = (showWireframe || showSolid);
-        exactHighlightEdgeLines.material.opacity = showWireframe ? 0.99 : 0.96;
+        exactHighlightEdgeLines.visible = showWireframe;
+        exactHighlightEdgeLines.material.opacity = 0.6;
       }
     }
 
@@ -6326,10 +6405,15 @@ HTML = """<!doctype html>
       const surfaceExactHighlightBodyKeys = exactHighlightBodyKeys;
       const surfaceExactHighlightRawFaces = exactHighlightRawFaces;
       const surfaceExactHighlightRawEdges = exactHighlightRawEdges;
+      const changedBodyKeySet = new Set([...
+        highlightBodyKeys,
+        ...exactHighlightBodyKeys,
+      ].filter(Boolean));
       const group = new THREE.Group();
       const solidPositions = [];
       const solidNormals = [];
       const solidColors = [];
+      const flatChangedBodyPositions = [];
       const edgePositions = [];
       const fallbackEdgePositions = [];
       const highlightSurfacePositions = [];
@@ -6366,6 +6450,7 @@ HTML = """<!doctype html>
           exactHighlightBodyKeys: surfaceExactHighlightBodyKeys,
           exactHighlightRawFaces: surfaceExactHighlightRawFaces,
         });
+        const bodyChanged = comparisonStyle && faceBodyKey && changedBodyKeySet.has(faceBodyKey);
         const baseColor = (face.baseColor || [196, 199, 205]).map((value) => Number(value) / 255);
 
         vertices.forEach(pushPoint);
@@ -6381,9 +6466,13 @@ HTML = """<!doctype html>
               Number(vertex[1]) - preview.center[1],
               Number(vertex[2]) - preview.center[2],
             ];
-            solidPositions.push(...centeredVertex);
-            solidNormals.push(triangleNormal[0], triangleNormal[1], triangleNormal[2]);
-            solidColors.push(baseColor[0], baseColor[1], baseColor[2]);
+            if (bodyChanged) {
+              flatChangedBodyPositions.push(...centeredVertex);
+            } else {
+              solidPositions.push(...centeredVertex);
+              solidNormals.push(triangleNormal[0], triangleNormal[1], triangleNormal[2]);
+              solidColors.push(baseColor[0], baseColor[1], baseColor[2]);
+            }
             if (highlightSurfaceTarget) {
               highlightSurfaceTarget.push(...centeredVertex);
             }
@@ -6434,6 +6523,7 @@ HTML = """<!doctype html>
       }
 
       let solidMesh = null;
+      let flatChangedBodyMesh = null;
       let wireframe = null;
       let edgeLines = null;
       let fallbackEdgeLines = null;
@@ -6481,6 +6571,27 @@ HTML = """<!doctype html>
         group.add(wireframe);
       }
 
+      if (flatChangedBodyPositions.length) {
+        const flatChangedBodyGeometry = new THREE.BufferGeometry();
+        flatChangedBodyGeometry.setAttribute("position", new THREE.Float32BufferAttribute(flatChangedBodyPositions, 3));
+        flatChangedBodyMesh = new THREE.Mesh(
+          flatChangedBodyGeometry,
+          new THREE.MeshBasicMaterial({
+            color: new THREE.Color("#d7d1c8"),
+            transparent: false,
+            side: THREE.DoubleSide,
+            depthTest: true,
+            depthWrite: true,
+            toneMapped: false,
+            polygonOffset: true,
+            polygonOffsetFactor: 1,
+            polygonOffsetUnits: 1,
+          })
+        );
+        flatChangedBodyMesh.renderOrder = 0;
+        group.add(flatChangedBodyMesh);
+      }
+
       if (highlightSurfacePositions.length) {
         const highlightSurfaceGeometry = new THREE.BufferGeometry();
         highlightSurfaceGeometry.setAttribute("position", new THREE.Float32BufferAttribute(highlightSurfacePositions, 3));
@@ -6489,6 +6600,7 @@ HTML = """<!doctype html>
           new THREE.MeshBasicMaterial({
             color: new THREE.Color("#ffbe66"),
             transparent: false,
+            opacity: 1,
             side: THREE.DoubleSide,
             depthTest: true,
             depthWrite: false,
@@ -6521,8 +6633,8 @@ HTML = """<!doctype html>
           exactHighlightSurfaceGeometry,
           new THREE.MeshBasicMaterial({
             color: new THREE.Color("#ffbe66"),
-            transparent: true,
-            opacity: 0.62,
+            transparent: false,
+            opacity: 1,
             side: THREE.DoubleSide,
             depthTest: true,
             depthWrite: false,
@@ -6537,9 +6649,9 @@ HTML = """<!doctype html>
         exactHighlightSurfaceWireframe = new THREE.LineSegments(
           new THREE.WireframeGeometry(exactHighlightSurfaceGeometry),
           new THREE.LineBasicMaterial({
-            color: new THREE.Color("#1e88e5"),
+            color: new THREE.Color("#ef6c00"),
             transparent: true,
-            opacity: 0.9,
+            opacity: 0.82,
             depthTest: true,
             depthWrite: false,
           })
@@ -6603,7 +6715,7 @@ HTML = """<!doctype html>
           new THREE.LineBasicMaterial({
             color: new THREE.Color("#1e88e5"),
             transparent: true,
-            opacity: 0.98,
+            opacity: 0.42,
             depthTest: true,
             depthWrite: false,
           })
@@ -6630,6 +6742,7 @@ HTML = """<!doctype html>
         compareStyle: comparisonStyle,
         group,
         solidMesh,
+        flatChangedBodyMesh,
         wireframe,
         edgeLines,
         fallbackEdgeLines,
