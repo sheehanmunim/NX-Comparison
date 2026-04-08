@@ -3194,6 +3194,18 @@ HTML = """<!doctype html>
       );
     }
 
+    function structuredIdentitySource(objectIdentity) {
+      if (objectIdentity?.journal_identifier) return "journal";
+      if (Number.isFinite(Number(objectIdentity?.tag))) return "tag";
+      return "fallback";
+    }
+
+    function structuredIdentityBonus(leftSource, rightSource) {
+      if (leftSource === "journal" && rightSource === "journal") return 0.55;
+      if (leftSource !== "fallback" && rightSource !== "fallback") return 0.3;
+      return 0.08;
+    }
+
     function matchStructuredBody(leftBody, rightBodies, used) {
       const leftIdentity = structuredBodyIdentity(leftBody);
 
@@ -3342,6 +3354,7 @@ HTML = """<!doctype html>
     function structuredFaceEntry(body, face, bodyIndex = 0, faceIndex = 0, lengthScale = 1) {
       return {
         key: structuredFaceIdentity(body, face, bodyIndex, faceIndex),
+        identitySource: structuredIdentitySource(face?.object_identity),
         faceIndex: Number(face?.index || (faceIndex + 1)),
         kind: structuredFaceKind(face),
         radius: structuredFaceRadius(face, lengthScale),
@@ -3379,18 +3392,15 @@ HTML = """<!doctype html>
     }
 
     function matchStructuredFace(leftEntry, rightEntries, usedKeys) {
-      let match = rightEntries.find((candidate) =>
-        !usedKeys.has(candidate.key)
-        && candidate.key === leftEntry.key
-      );
-      if (match) return match;
-
       const candidates = rightEntries
         .filter((candidate) => !usedKeys.has(candidate.key))
         .map((candidate) => {
           let cost = structuredFaceMatchCost(leftEntry, candidate);
+          if (candidate.key === leftEntry.key) {
+            cost -= structuredIdentityBonus(leftEntry.identitySource, candidate.identitySource);
+          }
           if (candidate.faceIndex === leftEntry.faceIndex) {
-            cost -= 0.2;
+            cost -= 0.12;
           }
           return { candidate, cost };
         })
@@ -3456,6 +3466,7 @@ HTML = """<!doctype html>
     function structuredEdgeEntry(body, edge, bodyIndex = 0, edgeIndex = 0, lengthScale = 1) {
       return {
         key: structuredEdgeIdentity(body, edge, bodyIndex, edgeIndex),
+        identitySource: structuredIdentitySource(edge?.object_identity),
         edgeIndex: Number(edge?.index || (edgeIndex + 1)),
         kind: structuredEdgeKind(edge),
         length: structuredEdgeLength(edge, lengthScale),
@@ -3512,18 +3523,15 @@ HTML = """<!doctype html>
     }
 
     function matchStructuredEdge(leftEntry, rightEntries, usedKeys) {
-      let match = rightEntries.find((candidate) =>
-        !usedKeys.has(candidate.key)
-        && candidate.key === leftEntry.key
-      );
-      if (match) return match;
-
       const candidates = rightEntries
         .filter((candidate) => !usedKeys.has(candidate.key))
         .map((candidate) => {
           let cost = structuredEdgeMatchCost(leftEntry, candidate);
+          if (candidate.key === leftEntry.key) {
+            cost -= structuredIdentityBonus(leftEntry.identitySource, candidate.identitySource);
+          }
           if (candidate.edgeIndex === leftEntry.edgeIndex) {
-            cost -= 0.15;
+            cost -= 0.1;
           }
           return { candidate, cost };
         })
