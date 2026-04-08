@@ -6273,7 +6273,9 @@ HTML = """<!doctype html>
       const showPoints = mode === "points";
       if (solidMesh) solidMesh.visible = mode === "solid";
       if (solidMesh?.material) {
-        solidMesh.material.opacity = 0.98;
+        solidMesh.material.opacity = 1;
+        solidMesh.material.transparent = false;
+        solidMesh.material.depthWrite = true;
       }
       if (highlightSurfaceMesh) highlightSurfaceMesh.visible = showSolid;
       if (exactHighlightSurfaceMesh) exactHighlightSurfaceMesh.visible = showSolid;
@@ -6453,8 +6455,9 @@ HTML = """<!doctype html>
           side: THREE.DoubleSide,
           roughness: 0.58,
           metalness: 0.08,
-          transparent: !comparisonStyle,
-          opacity: comparisonStyle ? 1 : 0.98,
+          transparent: false,
+          opacity: 1,
+          depthWrite: true,
           polygonOffset: true,
           polygonOffsetFactor: 1,
           polygonOffsetUnits: 1,
@@ -7502,7 +7505,7 @@ HTML = """<!doctype html>
 
     function simplifyKernelGeometryForPreview(kernelGeometry, options = {}) {
       const originalFaces = kernelGeometry?.faces || [];
-      if (options?.preserveTriangleMeshFaces) {
+      if (options?.preserveTriangleMeshFaces || options?.preserveAllFaces) {
         return {
           ...kernelGeometry,
           faces: originalFaces,
@@ -7541,9 +7544,15 @@ HTML = """<!doctype html>
           }),
           { faces: [], points: [], edges: [] }
         );
+      const strategy = previewMetadata(report).strategy;
       const preserveTriangleMeshFaces = ["opencascade_occ", "browser_occt_import_js"].includes(report?.step_import?.backend || "");
+      const preserveAllFaces = (
+        (strategy === "json_reconstruction_preview" || strategy === "fused_json_step_preview")
+        && (kernelGeometry.faces || []).length <= 12000
+      );
       const simplifiedKernelGeometry = simplifyKernelGeometryForPreview(kernelGeometry, {
         preserveTriangleMeshFaces,
+        preserveAllFaces,
       });
       const cloud = [...points, ...kernelGeometry.points];
       const kernelBody = bodies.length === 1 ? bodies[0] : null;
@@ -7597,7 +7606,7 @@ HTML = """<!doctype html>
         kernelBody,
         kernelGeometry: simplifiedKernelGeometry,
         renderStats: simplifiedKernelGeometry.renderStats,
-        strategy: previewMetadata(report).strategy,
+        strategy,
         center,
         span
       };
