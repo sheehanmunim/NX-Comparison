@@ -21,10 +21,15 @@ from xt_backend_bridge import predict_match_probabilities
 from xt_backend_setup import ensure_backend_runtimes
 from xt_part_report import (
     _analyze_input_file_single,
+    _decode_text_payload,
     _fused_report_from_step_and_json,
+    analyze_xt_text,
     analyze_input_bytes,
     analyze_input_text,
     metric_and_imperial,
+    parse_imported_json_text,
+    parse_imported_report_text,
+    parse_stl_input_bytes,
     parse_step_input_text,
 )
 
@@ -285,6 +290,104 @@ def analyze_uploaded_binary_files(file_payloads: list[dict]) -> list[dict]:
     return _prepare_reports(reports)
 
 
+def _upload_file_suffix(display_name: str, source_path: str | None = None) -> str:
+    for candidate in (source_path, display_name):
+        if not candidate:
+            continue
+        suffix = Path(str(candidate)).suffix.lower()
+        if suffix:
+            return suffix
+    return ""
+
+
+def _analyze_upload_bytes_with_progress(
+    raw_bytes: bytes,
+    *,
+    display_name: str,
+    source_path: str | None,
+    file_size_bytes: int | None,
+    phase_callback: Any | None = None,
+) -> list[dict]:
+    def emit(phase: str, note: str) -> None:
+        if callable(phase_callback):
+            phase_callback(phase, note)
+
+    suffix_hint = _upload_file_suffix(display_name, source_path)
+    emit("detect_format", f"Detecting format for {display_name}.")
+
+    if suffix_hint == ".stl":
+        emit("parse_stl", "Parsing STL mesh.")
+        imported_reports = parse_stl_input_bytes(
+            raw_bytes,
+            display_name=display_name,
+            source_path=source_path,
+            file_size_bytes=file_size_bytes,
+        )
+        if imported_reports is not None:
+            emit("finalize_report", "Building STL preview report.")
+            return imported_reports
+    elif suffix_hint not in {".json", ".stp", ".step", ".x_t", ".xt"}:
+        emit("parse_stl", "Checking for STL mesh data.")
+        imported_reports = parse_stl_input_bytes(
+            raw_bytes,
+            display_name=display_name,
+            source_path=source_path,
+            file_size_bytes=file_size_bytes,
+        )
+        if imported_reports is not None:
+            emit("finalize_report", "Building STL preview report.")
+            return imported_reports
+
+    emit("decode_text", "Decoding text payload.")
+    raw_text = _decode_text_payload(raw_bytes)
+    normalized_size = file_size_bytes if file_size_bytes is not None else len(raw_bytes)
+
+    if suffix_hint == ".json":
+        emit("parse_json", "Parsing imported JSON report.")
+        imported_reports = parse_imported_json_text(
+            raw_text,
+            display_name=display_name,
+            source_path=source_path,
+            file_size_bytes=normalized_size,
+        )
+        if imported_reports is not None:
+            emit("finalize_report", "Building JSON preview report.")
+            return imported_reports
+
+    emit("parse_report", "Checking for analysis report format.")
+    imported_reports = parse_imported_report_text(
+        raw_text,
+        display_name=display_name,
+        source_path=source_path,
+        file_size_bytes=normalized_size,
+    )
+    if imported_reports is not None:
+        emit("finalize_report", "Building analysis report preview.")
+        return imported_reports
+
+    if suffix_hint in {".stp", ".step"} or suffix_hint == "":
+        emit("parse_step", "Parsing STEP structure.")
+        imported_reports = parse_step_input_text(
+            raw_text,
+            display_name=display_name,
+            source_path=source_path,
+            file_size_bytes=normalized_size,
+        )
+        if imported_reports is not None:
+            emit("finalize_report", "Building STEP preview report.")
+            return imported_reports
+
+    emit("parse_xt", "Parsing Parasolid text geometry.")
+    report = analyze_xt_text(
+        raw_text,
+        display_name=display_name,
+        source_path=source_path,
+        file_size_bytes=normalized_size,
+    )
+    emit("finalize_report", "Building Parasolid preview report.")
+    return [report]
+
+
 def _prune_upload_analysis_progress(now: float | None = None) -> None:
     current = float(now if now is not None else time.time())
     expired: list[str] = []
@@ -313,6 +416,8 @@ def _create_upload_analysis_progress(task_id: str, file_payloads: list[dict]) ->
                 {
                     "name": str(file_payload.get("name") or "<upload>"),
                     "status": "queued",
+                    "phase": "queued",
+                    "phase_label": "Queued",
                     "note": "Waiting to start.",
                     "started_at": None,
                     "completed_at": None,
@@ -1231,6 +1336,22 @@ HTML = """<!doctype html>
       border: 1px solid #d8d8d8;
       background: #fafafa;
     }
+    .status-detail-jobs {
+      display: grid;
+      gap: 10px;
+    }
+    .status-detail-job {
+      display: grid;
+      gap: 8px;
+      border: 1px solid #d7d7d7;
+      background: #fcfcfc;
+      padding: 8px;
+    }
+    .status-detail-job-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
     .status-detail-row {
       display: grid;
       grid-template-columns: minmax(180px, 2fr) minmax(120px, 1fr) minmax(220px, 2fr);
@@ -1902,7 +2023,7 @@ HTML = """<!doctype html>
         compare: null,
         backgroundStep: {},
       },
-      importProgress: null,
+      importProgressJobs: [],
       compareViewers: {
         left: defaultViewerState(),
         right: defaultViewerState()
@@ -1953,7 +2074,7 @@ HTML = """<!doctype html>
     let stepImportWorkerTaskCounter = 0;
     let stepImportWorkerTasks = new Map();
     let stepImportWorkers = new Set();
-    let importProgressPollTimer = null;
+    let importProgressPollTimers = new Map();
     let pendingStepRefinements = new Set();
     const COMPARE_WORKER_FUNCTION_NAMES = [
       "formatBounds",
@@ -2607,6 +2728,36 @@ self.onmessage = async (event) => {
       return labels[stage] || "Working";
     }
 
+    function progressItemPhaseLabel(item) {
+      const stage = String(item?.stage || "");
+      if (["queued", "uploading", "previewing", "preview_ready", "ready", "failed"].includes(stage)) {
+        return progressStageLabel(stage);
+      }
+      return String(item?.phase_label || progressStageLabel(stage) || "Working");
+    }
+
+    function progressItemElapsedLabel(item) {
+      const durationMs = Number(item?.duration_ms);
+      if (Number.isFinite(durationMs) && durationMs > 0) {
+        return formatDuration(durationMs);
+      }
+      const startedAt = Number(item?.started_at || 0);
+      if (startedAt > 0 && String(item?.stage || "") !== "queued") {
+        return formatDuration(Math.max(0, Date.now() - (startedAt * 1000)));
+      }
+      return "";
+    }
+
+    function importServerCounts(progress) {
+      const items = progress?.items || [];
+      return {
+        done: items.filter((item) => String(item?.status || "") === "done").length,
+        running: items.filter((item) => String(item?.status || "") === "running").length,
+        queued: items.filter((item) => String(item?.status || "") === "queued").length,
+        failed: items.filter((item) => String(item?.status || "") === "failed").length,
+      };
+    }
+
     function importProgressPercent(progress) {
       if (!progress) return 0;
       const uploadPart = progress.uploadDone ? 1 : Math.max(0, Math.min(1, Number(progress.uploadPercent || 0) / 100));
@@ -2617,71 +2768,100 @@ self.onmessage = async (event) => {
       return Math.round(((uploadPart * 0.35) + (previewPart * 0.4) + (serverPart * 0.25)) * 100);
     }
 
+    function importProgressJobs() {
+      return Array.isArray(state.importProgressJobs) ? state.importProgressJobs : [];
+    }
+
+    function findImportProgressJob(jobId) {
+      return importProgressJobs().find((job) => job?.jobId === jobId) || null;
+    }
+
+    function activeImportProgressJobs() {
+      return [...importProgressJobs()].sort((left, right) => {
+        const leftDone = Boolean(left?.serverAnalysisDone && left?.uploadDone && (!left?.stepTotal || !left?.activePreviewName));
+        const rightDone = Boolean(right?.serverAnalysisDone && right?.uploadDone && (!right?.stepTotal || !right?.activePreviewName));
+        if (leftDone !== rightDone) return leftDone ? 1 : -1;
+        return Number(right?.updatedAt || 0) - Number(left?.updatedAt || 0);
+      });
+    }
+
     function renderImportProgress() {
       const panel = byId("status-detail-panel");
-      const progress = state.importProgress;
+      const jobs = activeImportProgressJobs();
       if (!panel) return;
-      if (!progress || !progress.items?.length) {
+      if (!jobs.length) {
         panel.hidden = true;
         panel.innerHTML = "";
+        clearStatusProgress();
         return;
       }
 
-      const percent = importProgressPercent(progress);
-      setStatusProgress(percent);
-      const uploadValue = progress.uploadDone
-        ? "Done"
-        : `${Math.round(Number(progress.uploadPercent || 0))}%`;
-      const previewValue = progress.stepTotal
-        ? `${progress.stepCompleted}/${progress.stepTotal}`
-        : "N/A";
-      const previewNote = progress.stepTotal
-        ? (progress.activePreviewName ? `Now importing ${progress.activePreviewName}` : "Previews are imported one at a time so the main-thread STEP importer stays responsive.")
-        : "No STEP files in this batch.";
-      const serverValue = progress.serverAnalysisDone
-        ? "Done"
-        : (progress.serverAnalysisStarted
-          ? `${progress.serverCompleted || 0}/${progress.serverTotal || progress.totalFiles || 0}`
-          : "Waiting");
-      const rows = progress.items.map((item) => `
-        <div class="status-detail-row" data-stage="${escapeHtml(item.stage || "queued")}">
-          <div class="status-detail-name">${escapeHtml(item.name || "File")}</div>
-          <div class="status-detail-stage">${escapeHtml(progressStageLabel(item.stage))}</div>
-          <div class="status-detail-note">${escapeHtml(item.note || "")}</div>
-        </div>
-      `).join("");
+      setStatusProgress(importProgressPercent(jobs[0]));
+      const jobMarkup = jobs.map((progress, index) => {
+        const percent = importProgressPercent(progress);
+        const uploadValue = progress.uploadDone
+          ? "Done"
+          : `${Math.round(Number(progress.uploadPercent || 0))}%`;
+        const previewValue = progress.stepTotal
+          ? `${progress.stepCompleted}/${progress.stepTotal}`
+          : "N/A";
+        const previewNote = progress.stepTotal
+          ? (progress.activePreviewName ? `Now importing ${progress.activePreviewName}` : "Previews are imported one at a time so the main-thread STEP importer stays responsive.")
+          : "No STEP files in this batch.";
+        const serverCounts = importServerCounts(progress);
+        const serverValue = progress.serverAnalysisDone
+          ? "Done"
+          : (progress.serverAnalysisStarted
+            ? `${progress.serverCompleted || 0}/${progress.serverTotal || progress.totalFiles || 0}`
+            : "Waiting");
+        const rows = (progress.items || []).map((item) => `
+          <div class="status-detail-row" data-stage="${escapeHtml(item.stage || "queued")}">
+            <div class="status-detail-name">${escapeHtml(item.name || "File")}</div>
+            <div class="status-detail-stage">${escapeHtml(progressItemPhaseLabel(item))}${progressItemElapsedLabel(item) ? ` • ${escapeHtml(progressItemElapsedLabel(item))}` : ""}</div>
+            <div class="status-detail-note">${escapeHtml(item.note || "")}</div>
+          </div>
+        `).join("");
+        const title = progress.totalFiles === 1
+          ? (progress.items?.[0]?.name || `Upload ${index + 1}`)
+          : `${progress.totalFiles} files`;
+        return `
+          <div class="status-detail-job">
+            <div class="status-detail-job-title">${escapeHtml(title)}</div>
+            <div class="status-detail-summary">
+              <div class="status-detail-chip">
+                <div class="status-detail-chip-label">Overall</div>
+                <div class="status-detail-chip-value">${escapeHtml(`${percent}%`)}</div>
+                <div class="status-detail-chip-note">${escapeHtml(progress.summary || "Import in progress")}</div>
+              </div>
+              <div class="status-detail-chip">
+                <div class="status-detail-chip-label">Upload</div>
+                <div class="status-detail-chip-value">${escapeHtml(uploadValue)}</div>
+                <div class="status-detail-chip-note">${escapeHtml(`${progress.totalFiles || 0} file(s)`)}</div>
+              </div>
+              <div class="status-detail-chip">
+                <div class="status-detail-chip-label">STEP Previews</div>
+                <div class="status-detail-chip-value">${escapeHtml(previewValue)}</div>
+                <div class="status-detail-chip-note">${escapeHtml(previewNote)}</div>
+              </div>
+              <div class="status-detail-chip">
+                <div class="status-detail-chip-label">Server Analysis</div>
+                <div class="status-detail-chip-value">${escapeHtml(serverValue)}</div>
+                <div class="status-detail-chip-note">${escapeHtml(`Done ${serverCounts.done}, running ${serverCounts.running}, queued ${serverCounts.queued}, failed ${serverCounts.failed}. ${progress.serverNote || "Upload request analysis"}`)}</div>
+              </div>
+            </div>
+            <div class="status-detail-list">${rows}</div>
+          </div>
+        `;
+      }).join("");
 
       panel.hidden = false;
-      panel.innerHTML = `
-        <div class="status-detail-summary">
-          <div class="status-detail-chip">
-            <div class="status-detail-chip-label">Overall</div>
-            <div class="status-detail-chip-value">${escapeHtml(`${percent}%`)}</div>
-            <div class="status-detail-chip-note">${escapeHtml(progress.summary || "Import in progress")}</div>
-          </div>
-          <div class="status-detail-chip">
-            <div class="status-detail-chip-label">Upload</div>
-            <div class="status-detail-chip-value">${escapeHtml(uploadValue)}</div>
-            <div class="status-detail-chip-note">${escapeHtml(`${progress.totalFiles || 0} file(s)`)}</div>
-          </div>
-          <div class="status-detail-chip">
-            <div class="status-detail-chip-label">STEP Previews</div>
-            <div class="status-detail-chip-value">${escapeHtml(previewValue)}</div>
-            <div class="status-detail-chip-note">${escapeHtml(previewNote)}</div>
-          </div>
-          <div class="status-detail-chip">
-            <div class="status-detail-chip-label">Server Analysis</div>
-            <div class="status-detail-chip-value">${escapeHtml(serverValue)}</div>
-            <div class="status-detail-chip-note">${escapeHtml(progress.serverNote || "Upload request analysis")}</div>
-          </div>
-        </div>
-        <div class="status-detail-list">${rows}</div>
-      `;
+      panel.innerHTML = `<div class="status-detail-jobs">${jobMarkup}</div>`;
     }
 
-    function beginImportProgress(files) {
+    function beginImportProgress(files, jobId) {
       const uploadFiles = [...(files || [])];
-      state.importProgress = {
+      const job = {
+        jobId,
         totalFiles: uploadFiles.length,
         stepTotal: uploadFiles.filter((file) => /\\.(step|stp)$/i.test(file?.name || "")).length,
         stepCompleted: 0,
@@ -2695,6 +2875,8 @@ self.onmessage = async (event) => {
         activePreviewName: "",
         summary: uploadFiles.length ? `Preparing ${uploadFiles.length} file(s) for import.` : "Preparing import.",
         serverNote: "Waiting for upload to finish.",
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
         items: uploadFiles.map((file, index) => ({
           key: `${file?.name || "file"}::${index}`,
           name: file?.name || `File ${index + 1}`,
@@ -2703,13 +2885,23 @@ self.onmessage = async (event) => {
           note: "Waiting to upload.",
         })),
       };
+      state.importProgressJobs = [
+        job,
+        ...importProgressJobs().filter((existing) => existing?.jobId !== jobId),
+      ].slice(0, 8);
       renderImportProgress();
     }
 
-    function stopImportProgressPolling() {
-      if (importProgressPollTimer) {
-        clearTimeout(importProgressPollTimer);
-        importProgressPollTimer = null;
+    function stopImportProgressPolling(jobId = null) {
+      if (!jobId) {
+        importProgressPollTimers.forEach((timer) => clearTimeout(timer));
+        importProgressPollTimers.clear();
+        return;
+      }
+      const timer = importProgressPollTimers.get(jobId);
+      if (timer) {
+        clearTimeout(timer);
+        importProgressPollTimers.delete(jobId);
       }
     }
 
@@ -2719,59 +2911,81 @@ self.onmessage = async (event) => {
       return [base, suffix].filter(Boolean).join(" ").trim();
     }
 
+    function withServerPhaseNote(note, phaseNote) {
+      const base = String(note || "").replace(new RegExp("\\s*Server phase:[^.]*\\.?", "gi"), "").trim();
+      const suffix = String(phaseNote || "").trim();
+      return [base, suffix ? `Server phase: ${suffix}` : ""].filter(Boolean).join(" ").trim();
+    }
+
     function reportHasPreviewGeometry(report) {
       return reportPreviewScore(report) > 0;
     }
 
-    function applyServerAnalysisProgress(progress) {
-      if (!progress || !state.importProgress) return;
-      const totalCount = Number(progress.total_count || state.importProgress.serverTotal || 0);
+    function applyServerAnalysisProgress(jobId, progress) {
+      const job = findImportProgressJob(jobId);
+      if (!progress || !job) return;
+      const totalCount = Number(progress.total_count || job.serverTotal || 0);
       const completedCount = Number(progress.completed_count || 0);
       const activeNames = Array.isArray(progress.active_names) ? progress.active_names.filter(Boolean) : [];
       const status = String(progress.status || "running");
-      updateImportProgress({
+      updateImportProgress(jobId, {
         serverAnalysisStarted: true,
         serverAnalysisDone: status === "done",
         serverCompleted: completedCount,
-        serverTotal: totalCount || state.importProgress.serverTotal || state.importProgress.totalFiles || 0,
+        serverTotal: totalCount || job.serverTotal || job.totalFiles || 0,
         serverNote: status === "done"
           ? "Server analysis finished."
           : (activeNames.length ? `Active: ${activeNames.join(", ")}` : `Completed ${completedCount} of ${totalCount || 0}.`),
       });
       const byName = new Map((progress.items || []).map((item) => [String(item?.name || ""), item]));
-      mapImportProgressItems((item) => {
+      mapImportProgressItems(jobId, (item) => {
         const serverItem = byName.get(item.name);
         if (!serverItem) return item;
         const serverStatus = String(serverItem.status || "");
         const durationMs = Number(serverItem.duration_ms);
         const durationText = Number.isFinite(durationMs) && durationMs > 0 ? formatDuration(durationMs) : "";
         if (serverStatus === "running") {
+          const serverPhaseNote = `${serverItem.phase_label || "Server analysis"}: ${serverItem.note || "Running."}`;
           if (item.stage === "preview_ready") {
             return {
               ...item,
-              note: withServerAnalysisNote(item.note, "Server analysis running."),
+              phase: serverItem.phase || item.phase,
+              phase_label: serverItem.phase_label || item.phase_label,
+              note: withServerAnalysisNote(item.note, serverPhaseNote),
+              started_at: serverItem.started_at || item.started_at,
             };
           }
           return {
             ...item,
             stage: item.stage === "queued" ? "analyzing" : item.stage,
+            phase: serverItem.phase || item.phase,
+            phase_label: serverItem.phase_label || item.phase_label,
             note: item.isStep && item.stage === "previewing"
-              ? item.note
-              : withServerAnalysisNote(item.note, "Server analysis running."),
+              ? withServerPhaseNote(item.note, serverPhaseNote)
+              : withServerAnalysisNote(item.note, serverPhaseNote),
+            started_at: serverItem.started_at || item.started_at,
           };
         }
         if (serverStatus === "done") {
           if (item.stage === "preview_ready") {
             return {
               ...item,
+              phase: serverItem.phase || "done",
+              phase_label: serverItem.phase_label || "Done",
               note: withServerAnalysisNote(item.note, `Server analysis done${durationText ? ` in ${durationText}` : ""}.`),
+              duration_ms: serverItem.duration_ms ?? item.duration_ms,
+              completed_at: serverItem.completed_at || item.completed_at,
             };
           }
           if (item.stage !== "ready") {
             return {
               ...item,
               stage: "ready",
+              phase: serverItem.phase || "done",
+              phase_label: serverItem.phase_label || "Done",
               note: withServerAnalysisNote(item.note, `Server analysis done${durationText ? ` in ${durationText}` : ""}.`),
+              duration_ms: serverItem.duration_ms ?? item.duration_ms,
+              completed_at: serverItem.completed_at || item.completed_at,
             };
           }
           return item;
@@ -2780,7 +2994,11 @@ self.onmessage = async (event) => {
           return {
             ...item,
             stage: "failed",
+            phase: serverItem.phase || "failed",
+            phase_label: serverItem.phase_label || "Failed",
             note: serverItem.note || "Server analysis failed.",
+            duration_ms: serverItem.duration_ms ?? item.duration_ms,
+            completed_at: serverItem.completed_at || item.completed_at,
           };
         }
         return item;
@@ -2788,8 +3006,9 @@ self.onmessage = async (event) => {
     }
 
     async function mergeIncrementalUploadReports(taskId, progress) {
-      if (!taskId || !progress || !state.importProgress || state.importProgress.taskId !== taskId) return;
-      const mergedNames = new Set(state.importProgress.mergedServerReports || []);
+      const job = findImportProgressJob(taskId);
+      if (!taskId || !progress || !job) return;
+      const mergedNames = new Set(job.mergedServerReports || []);
       const readyItems = (progress.items || []).filter((item) => {
         const status = String(item?.status || "");
         const reportCount = Number(item?.report_count || 0);
@@ -2803,57 +3022,60 @@ self.onmessage = async (event) => {
           mergeUploadedAnalysisReports(reports, { preserveSelection: true });
         }
         mergedNames.add(fileName);
-        updateImportProgress({
+        updateImportProgress(taskId, {
           mergedServerReports: [...mergedNames],
         });
       }
     }
 
     async function pollImportProgress(taskId) {
-      if (!taskId || !state.importProgress || state.importProgress.taskId !== taskId) return;
+      if (!taskId || !findImportProgressJob(taskId)) return;
       try {
         const response = await fetch(`/api/analyze-progress?taskId=${encodeURIComponent(taskId)}`, { cache: "no-store" });
         if (response.ok) {
           const payload = await response.json();
           await mergeIncrementalUploadReports(taskId, payload);
-          applyServerAnalysisProgress(payload);
+          applyServerAnalysisProgress(taskId, payload);
           if (!payload || !["done", "failed"].includes(String(payload.status || ""))) {
-            importProgressPollTimer = setTimeout(() => pollImportProgress(taskId), 250);
+            importProgressPollTimers.set(taskId, setTimeout(() => pollImportProgress(taskId), 250));
             return;
           }
-          stopImportProgressPolling();
+          stopImportProgressPolling(taskId);
           return;
         }
       } catch {
         // Keep the upload request flowing; polling is best-effort.
       }
-      importProgressPollTimer = setTimeout(() => pollImportProgress(taskId), 500);
+      importProgressPollTimers.set(taskId, setTimeout(() => pollImportProgress(taskId), 500));
     }
 
-    function updateImportProgress(patch = {}) {
-      if (!state.importProgress) return;
-      state.importProgress = {
-        ...state.importProgress,
+    function updateImportProgress(jobId, patch = {}) {
+      const jobs = importProgressJobs();
+      const index = jobs.findIndex((job) => job?.jobId === jobId);
+      if (index === -1) return;
+      const nextJobs = [...jobs];
+      nextJobs[index] = {
+        ...nextJobs[index],
         ...patch,
+        updatedAt: Date.now(),
       };
+      state.importProgressJobs = nextJobs;
       renderImportProgress();
     }
 
-    function mapImportProgressItems(mapper) {
-      if (!state.importProgress) return;
-      state.importProgress = {
-        ...state.importProgress,
-        items: (state.importProgress.items || []).map((item, index) => mapper({ ...item }, index)),
-      };
-      state.importProgress.stepCompleted = state.importProgress.items
-        .filter((item) => item.isStep && ["preview_ready", "ready"].includes(item.stage))
-        .length;
-      renderImportProgress();
+    function mapImportProgressItems(jobId, mapper) {
+      const job = findImportProgressJob(jobId);
+      if (!job) return;
+      const nextItems = (job.items || []).map((item, index) => mapper({ ...item }, index));
+      updateImportProgress(jobId, {
+        items: nextItems,
+        stepCompleted: nextItems.filter((item) => item.isStep && ["preview_ready", "ready"].includes(item.stage)).length,
+      });
     }
 
-    function updateImportProgressItem(fileName, patch = {}) {
+    function updateImportProgressItem(jobId, fileName, patch = {}) {
       let updated = false;
-      mapImportProgressItems((item) => {
+      mapImportProgressItems(jobId, (item) => {
         if (!updated && item.name === fileName) {
           updated = true;
           return {
@@ -2863,6 +3085,27 @@ self.onmessage = async (event) => {
         }
         return item;
       });
+    }
+
+    function activeImportProgressJobId() {
+      const active = activeImportProgressJobs()[0];
+      return active?.jobId || null;
+    }
+
+    function activeImportProgressJob() {
+      return findImportProgressJob(activeImportProgressJobId());
+    }
+
+    function importProgressValue(jobId, key, fallback = null) {
+      const job = findImportProgressJob(jobId);
+      return job ? job[key] : fallback;
+    }
+
+    function pruneCompletedImportJobs(limit = 6) {
+      const jobs = activeImportProgressJobs();
+      if (jobs.length <= limit) return;
+      state.importProgressJobs = jobs.slice(0, limit);
+      renderImportProgress();
     }
 
     async function fetchIncrementalUploadReports(taskId, fileName) {
@@ -3439,6 +3682,232 @@ self.onmessage = async (event) => {
         pointsByBin,
         centroid: averagePoint(points),
         pointCount: Number(previewGeometryHints(report)?.point_count || report?.geometry_hints?.point_count || points.length),
+      };
+    }
+
+    function binKeyParts(binKey) {
+      if (!binKey) return null;
+      const parts = String(binKey).split("|").map((value) => Number(value));
+      return parts.length >= 3 && parts.every((value) => Number.isFinite(value)) ? parts.slice(0, 3) : null;
+    }
+
+    function clusterBinKeys(binKeys) {
+      const remaining = new Set((binKeys || []).filter(Boolean));
+      const clusters = [];
+      while (remaining.size) {
+        const seed = remaining.values().next().value;
+        remaining.delete(seed);
+        const cluster = [seed];
+        const queue = [seed];
+        while (queue.length) {
+          const current = queue.shift();
+          const currentParts = binKeyParts(current);
+          if (!currentParts) continue;
+          [...remaining].forEach((candidate) => {
+            const candidateParts = binKeyParts(candidate);
+            if (!candidateParts) return;
+            const isNeighbor = currentParts.every((value, index) => Math.abs(value - candidateParts[index]) <= 1);
+            if (!isNeighbor) return;
+            remaining.delete(candidate);
+            queue.push(candidate);
+            cluster.push(candidate);
+          });
+        }
+        clusters.push(cluster);
+      }
+      return clusters.sort((left, right) => right.length - left.length);
+    }
+
+    function regionPointsFromBins(profile, binKeys, limit = 120) {
+      if (!profile || !Array.isArray(binKeys) || !binKeys.length) return [];
+      const collected = [];
+      binKeys.forEach((binKey) => {
+        const points = profile.regionPointsByBin?.get(binKey) || profile.pointsByBin?.get(binKey) || [];
+        points.forEach((point) => {
+          if (collected.length < limit) collected.push(point);
+        });
+      });
+      return collected;
+    }
+
+    function previewBodyEdgeEntries(geometry, bounds, bins = 8, limit = 120) {
+      if (!geometry?.edges?.length || !bounds) return [];
+      const diagonal = Math.max(Math.hypot(...(bounds.size || [0, 0, 0]).map(Number)), 1e-9);
+      return samplePointCloud(geometry.edges, limit)
+        .map((edge) => {
+          const points = Array.isArray(edge?.points) ? edge.points.filter((point) => Array.isArray(point) && point.length >= 3) : [];
+          if (points.length < 2) return null;
+          const start = points[0].map(Number);
+          const end = points[points.length - 1].map(Number);
+          const centroid = averagePoint(points);
+          const delta = end.map((value, index) => Number(value) - Number(start[index] || 0));
+          const absDelta = delta.map((value) => Math.abs(Number(value || 0)));
+          const totalDelta = absDelta.reduce((sum, value) => sum + value, 0);
+          const axisPattern = totalDelta > 1e-9
+            ? absDelta.map((value) => value / totalDelta >= 0.28 ? "1" : "0").join("")
+            : "000";
+          const length = points.slice(1).reduce((sum, point, index) => {
+            const previous = points[index];
+            return sum + Math.hypot(
+              Number(point[0] || 0) - Number(previous[0] || 0),
+              Number(point[1] || 0) - Number(previous[1] || 0),
+              Number(point[2] || 0) - Number(previous[2] || 0)
+            );
+          }, 0);
+          const lengthBucket = Math.min(5, Math.floor((length / diagonal) * 6));
+          const centroidBin = meshBinKey(centroid, bounds, bins);
+          if (!centroid || !centroidBin) return null;
+          return {
+            centroid,
+            binKey: centroidBin,
+            signature: `${centroidBin}|${axisPattern}|${lengthBucket}|${String(edge.kind || "edge")}`,
+            points,
+            rawEdgeKey: edge.rawEdgeKey || null,
+          };
+        })
+        .filter(Boolean);
+    }
+
+    function previewBodyUltraProfile(body, bodyIndex, bins = 8) {
+      const geometry = previewGeometryFromKernelBody(body, { bodyIndex, hiddenBodyKeys: new Set() });
+      const pointCloud = samplePointCloud(
+        canonicalizePointCloud((geometry?.points || []).map((point) => point.map(Number)), 7),
+        180
+      );
+      const bounds = pointCloud.length ? boundsFromPoints(pointCloud) : null;
+      const bodyKey = previewBodyRawKey(body, bodyIndex);
+      if (!bounds) {
+        return {
+          body,
+          bodyIndex,
+          bodyKey,
+          label: body?.name || `Body ${bodyIndex + 1}`,
+          bounds: null,
+          center: null,
+          pointOccupancy: new Set(),
+          pointBins: [],
+          pointsByBin: new Map(),
+          regionPointsByBin: new Map(),
+          edgeEntries: [],
+          edgeSignatureCounts: new Map(),
+          edgeBinSet: new Set(),
+          diagonal: 1,
+        };
+      }
+
+      const pointsByBin = new Map();
+      pointCloud.forEach((point) => {
+        const binKey = meshBinKey(point, bounds, bins);
+        if (!binKey) return;
+        if (!pointsByBin.has(binKey)) pointsByBin.set(binKey, []);
+        pointsByBin.get(binKey).push(point);
+      });
+
+      const regionPointsByBin = new Map(pointsByBin);
+      const edgeEntries = previewBodyEdgeEntries(geometry, bounds, bins, 96);
+      const edgeSignatureCounts = new Map();
+      edgeEntries.forEach((entry) => {
+        edgeSignatureCounts.set(entry.signature, Number(edgeSignatureCounts.get(entry.signature) || 0) + 1);
+        if (!regionPointsByBin.has(entry.binKey)) regionPointsByBin.set(entry.binKey, []);
+        const regionPoints = regionPointsByBin.get(entry.binKey);
+        regionPoints.push(entry.centroid);
+        entry.points.slice(0, 2).forEach((point) => regionPoints.push(point));
+      });
+
+      return {
+        body,
+        bodyIndex,
+        bodyKey,
+        label: body?.name || `Body ${bodyIndex + 1}`,
+        bounds,
+        center: averagePoint(pointCloud) || bounds.min.map((value, index) => (value + bounds.max[index]) / 2),
+        pointOccupancy: new Set(pointsByBin.keys()),
+        pointBins: [...pointsByBin.keys()],
+        pointsByBin,
+        regionPointsByBin,
+        edgeEntries,
+        edgeSignatureCounts,
+        edgeBinSet: new Set(edgeEntries.map((entry) => entry.binKey).filter(Boolean)),
+        diagonal: Math.max(Math.hypot(...(bounds.size || [0, 0, 0]).map(Number)), 1e-9),
+      };
+    }
+
+    function previewBodyUltraProfiles(report, bins = 8) {
+      return previewBodies(report)
+        .map((body, bodyIndex) => previewBodyUltraProfile(body, bodyIndex, bins))
+        .filter((profile) => profile?.bounds);
+    }
+
+    function signatureCountDelta(leftCounts, rightCounts) {
+      const keys = new Set([
+        ...[...(leftCounts?.keys?.() || [])],
+        ...[...(rightCounts?.keys?.() || [])],
+      ]);
+      let difference = 0;
+      let total = 0;
+      keys.forEach((key) => {
+        const leftValue = Number(leftCounts?.get(key) || 0);
+        const rightValue = Number(rightCounts?.get(key) || 0);
+        difference += Math.abs(leftValue - rightValue);
+        total += Math.max(leftValue, rightValue);
+      });
+      return total ? (difference / total) : 0;
+    }
+
+    function previewBodyUltraCost(leftProfile, rightProfile) {
+      if (!leftProfile?.bounds || !rightProfile?.bounds) return Number.POSITIVE_INFINITY;
+      const centerCost = Math.hypot(
+        Number(rightProfile.center?.[0] || 0) - Number(leftProfile.center?.[0] || 0),
+        Number(rightProfile.center?.[1] || 0) - Number(leftProfile.center?.[1] || 0),
+        Number(rightProfile.center?.[2] || 0) - Number(leftProfile.center?.[2] || 0)
+      ) / Math.max(leftProfile.diagonal || 0, rightProfile.diagonal || 0, 1e-9);
+      const sizeCost = AXES.reduce((sum, _axis, index) =>
+        sum + relativeDelta(leftProfile.bounds?.size?.[index] || 0, rightProfile.bounds?.size?.[index] || 0), 0
+      ) / AXES.length;
+      const pointUnion = new Set([...leftProfile.pointOccupancy, ...rightProfile.pointOccupancy]);
+      const pointIntersectionCount = [...leftProfile.pointOccupancy].filter((key) => rightProfile.pointOccupancy.has(key)).length;
+      const pointMismatch = pointUnion.size ? 1 - (pointIntersectionCount / pointUnion.size) : 0;
+      const edgeMismatch = signatureCountDelta(leftProfile.edgeSignatureCounts, rightProfile.edgeSignatureCounts);
+      const keyBonus = leftProfile.bodyKey === rightProfile.bodyKey ? -0.9 : 0;
+      return (centerCost * 2.8) + (sizeCost * 2.4) + (pointMismatch * 2.1) + (edgeMismatch * 1.7) + keyBonus;
+    }
+
+    function matchPreviewBodyUltraProfiles(leftProfiles, rightProfiles) {
+      const matches = [];
+      const usedRight = new Set();
+      leftProfiles.forEach((leftProfile) => {
+        const direct = rightProfiles.find((candidate) => !usedRight.has(candidate.bodyKey) && candidate.bodyKey === leftProfile.bodyKey);
+        if (direct) {
+          usedRight.add(direct.bodyKey);
+          matches.push({ left: leftProfile, right: direct, cost: 0 });
+          return;
+        }
+        const candidates = rightProfiles
+          .filter((candidate) => !usedRight.has(candidate.bodyKey))
+          .map((candidate) => ({ candidate, cost: previewBodyUltraCost(leftProfile, candidate) }))
+          .sort((left, right) => left.cost - right.cost);
+        if (!candidates.length || candidates[0].cost > 4.3) return;
+        usedRight.add(candidates[0].candidate.bodyKey);
+        matches.push({ left: leftProfile, right: candidates[0].candidate, cost: candidates[0].cost });
+      });
+
+      return {
+        matches,
+        unmatchedLeft: leftProfiles.filter((profile) => !matches.some((match) => match.left.bodyKey === profile.bodyKey)),
+        unmatchedRight: rightProfiles.filter((profile) => !matches.some((match) => match.right.bodyKey === profile.bodyKey)),
+      };
+    }
+
+    function largestChangedRegion(profile, binKeys) {
+      if (!profile || !Array.isArray(binKeys) || !binKeys.length) return null;
+      const clusters = clusterBinKeys(binKeys);
+      if (!clusters.length) return null;
+      const best = clusters[0];
+      const points = regionPointsFromBins(profile, best, 140);
+      return {
+        binKeys: best,
+        point: averagePoint(points) || profile.center || null,
+        pointCount: points.length,
       };
     }
 
@@ -5541,15 +6010,12 @@ self.onmessage = async (event) => {
 
       const leftProfile = previewPointBinProfile(left, 10, 300);
       const rightProfile = previewPointBinProfile(right, 10, 300);
-      const leftBodies = previewBodies(left);
-      const rightBodies = previewBodies(right);
-      const leftBodyKeys = leftBodies.map((body, index) => previewBodyRawKey(body, index));
-      const rightBodyKeys = rightBodies.map((body, index) => previewBodyRawKey(body, index));
-      const leftKeySet = new Set(leftBodyKeys);
-      const rightKeySet = new Set(rightBodyKeys);
-      const removedBodyKeys = leftBodyKeys.filter((key) => !rightKeySet.has(key));
-      const addedBodyKeys = rightBodyKeys.filter((key) => !leftKeySet.has(key));
-      const matchedBodyCount = leftBodyKeys.filter((key) => rightKeySet.has(key)).length;
+      const leftBodyProfiles = previewBodyUltraProfiles(left, 8);
+      const rightBodyProfiles = previewBodyUltraProfiles(right, 8);
+      const matchedBodies = matchPreviewBodyUltraProfiles(leftBodyProfiles, rightBodyProfiles);
+      const removedBodyKeys = matchedBodies.unmatchedLeft.map((profile) => profile.bodyKey);
+      const addedBodyKeys = matchedBodies.unmatchedRight.map((profile) => profile.bodyKey);
+      const matchedBodyCount = matchedBodies.matches.length;
 
       let mismatchRatio = 0;
       let leftOnlyBins = [];
@@ -5563,15 +6029,60 @@ self.onmessage = async (event) => {
 
       const leftChangedPoints = previewBinPointSet(leftProfile, leftOnlyBins);
       const rightChangedPoints = previewBinPointSet(rightProfile, rightOnlyBins);
+      let changedBodyCount = 0;
+      let strongestBodyMismatch = 0;
+
+      matchedBodies.matches.forEach(({ left: leftBody, right: rightBody }) => {
+        const pointUnion = new Set([...leftBody.pointOccupancy, ...rightBody.pointOccupancy]);
+        const leftOnlyPointBins = [...leftBody.pointOccupancy].filter((binKey) => !rightBody.pointOccupancy.has(binKey));
+        const rightOnlyPointBins = [...rightBody.pointOccupancy].filter((binKey) => !leftBody.pointOccupancy.has(binKey));
+        const edgeSignatureMismatch = signatureCountDelta(leftBody.edgeSignatureCounts, rightBody.edgeSignatureCounts);
+        const leftOnlyEdgeBins = [...leftBody.edgeBinSet].filter((binKey) => !rightBody.edgeBinSet.has(binKey));
+        const rightOnlyEdgeBins = [...rightBody.edgeBinSet].filter((binKey) => !leftBody.edgeBinSet.has(binKey));
+        const bodyMismatch = Math.max(
+          pointUnion.size ? ((leftOnlyPointBins.length + rightOnlyPointBins.length) / pointUnion.size) : 0,
+          edgeSignatureMismatch
+        );
+        strongestBodyMismatch = Math.max(strongestBodyMismatch, bodyMismatch);
+        if (bodyMismatch < 0.055 && !leftOnlyEdgeBins.length && !rightOnlyEdgeBins.length) return;
+
+        changedBodyCount += 1;
+        info.highlightBodyKeys.left.push(leftBody.bodyKey);
+        info.highlightBodyKeys.right.push(rightBody.bodyKey);
+        const mismatchPercent = Math.max(1, Math.round(bodyMismatch * 100));
+        info.summary.push(
+          `Ultra fast matched ${leftBody.label} to ${rightBody.label} and found a visible preview-region mismatch (${mismatchPercent}% local change).`
+        );
+
+        const leftRegion = largestChangedRegion(leftBody, [...new Set([...leftOnlyPointBins, ...leftOnlyEdgeBins])]);
+        const rightRegion = largestChangedRegion(rightBody, [...new Set([...rightOnlyPointBins, ...rightOnlyEdgeBins])]);
+        if (leftRegion?.point) {
+          info.annotations.left.push({
+            point: leftRegion.point,
+            lines: [`${leftBody.label} preview region changed (${mismatchPercent}% local mismatch)`],
+          });
+        }
+        if (rightRegion?.point) {
+          info.annotations.right.push({
+            point: rightRegion.point,
+            lines: [`${rightBody.label} preview region changed (${mismatchPercent}% local mismatch)`],
+          });
+        }
+        if (edgeSignatureMismatch >= 0.09) {
+          info.summary.push(`Ultra fast wireframe edge signatures changed around ${leftBody.label}.`);
+        }
+      });
+
       const visualMismatch = mismatchRatio >= 0.035
         || leftChangedPoints.length >= 8
-        || rightChangedPoints.length >= 8;
-      info.changedShape = visualMismatch;
+        || rightChangedPoints.length >= 8
+        || strongestBodyMismatch >= 0.06;
+      info.changedShape = info.changedShape || visualMismatch;
 
       info.stats = {
         matchedComponents: matchedBodyCount,
-        changedComponents: (visualMismatch || info.changedAxes.length)
-          ? Math.max(1, matchedBodyCount || Math.min(leftBodies.length, rightBodies.length) || 1)
+        changedComponents: (visualMismatch || info.changedAxes.length || changedBodyCount)
+          ? Math.max(changedBodyCount, Math.min(matchedBodyCount || 0, Math.min(leftBodyProfiles.length, rightBodyProfiles.length)) || 1)
           : 0,
         addedComponents: addedBodyKeys.length,
         removedComponents: removedBodyKeys.length,
@@ -5599,9 +6110,9 @@ self.onmessage = async (event) => {
             lines: [`Preview-point region changed (${mismatchPercent}% mismatch)`],
           });
         }
-        if (leftBodies.length === 1 && rightBodies.length === 1) {
-          info.highlightBodyKeys.left.push(leftBodyKeys[0]);
-          info.highlightBodyKeys.right.push(rightBodyKeys[0]);
+        if (leftBodyProfiles.length === 1 && rightBodyProfiles.length === 1) {
+          info.highlightBodyKeys.left.push(leftBodyProfiles[0].bodyKey);
+          info.highlightBodyKeys.right.push(rightBodyProfiles[0].bodyKey);
         }
       }
 
@@ -7663,6 +8174,7 @@ self.onmessage = async (event) => {
       const viewportSnapshots = compareViewportSnapshots();
       scheduleCompareStages(left, right).catch((error) => setStatus(error.message));
       const stageLines = compareStageProgressLines(left, right);
+      const basisLines = compareDataBasisLines(left, right);
       const compareMl = compareMlResult(left, right);
       const diff = mergeCompareResults(currentCompareBaseDiff(left, right), compareMl);
       const leftPreviewStats = previewGeometryHints(left);
@@ -7703,6 +8215,7 @@ self.onmessage = async (event) => {
           <div class="compare-summary">
             <h3>What Changed</h3>
             <div class="compare-summary-list">
+              ${basisLines.map((line) => `<div class="compare-summary-item">${escapeHtml(line)}</div>`).join("")}
               ${stageLines.map((line) => `<div class="compare-summary-item">${escapeHtml(line)}</div>`).join("")}
               ${changeLines.map((line) => `<div class="compare-summary-item">${escapeHtml(line)}</div>`).join("")}
             </div>
@@ -7725,6 +8238,7 @@ self.onmessage = async (event) => {
                 <div id="compare-left-overlay" class="viewport-overlay"></div>
               </div>
               <div class="compare-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. This view now renders directly in WebGL.</div>
+              <div class="compare-note">${escapeHtml(`${left.file_name} is currently using ${reportCompareDataBasis(left)}.`)}</div>
               <div class="compare-note">Orange marks changed regions. Blue marks exact measured differences.</div>
               <div class="compare-note">${escapeHtml(stageLines.join(" | "))}</div>
               <div class="compare-note">${compareMl ? escapeHtml(`Comparison ML: ${compareMlStatusLabel(compareMl)}`) : "Comparison ML is loading in the background."}</div>
@@ -7739,6 +8253,7 @@ self.onmessage = async (event) => {
                 <div id="compare-right-overlay" class="viewport-overlay"></div>
               </div>
               <div class="compare-note">This comparison pane uses the same WebGL mesh pipeline as the main preview.</div>
+              <div class="compare-note">${escapeHtml(`${right.file_name} is currently using ${reportCompareDataBasis(right)}.`)}</div>
               <div class="compare-note">Orange marks changed regions. Blue marks exact measured differences.</div>
               <div class="compare-note">${escapeHtml(stageLines.join(" | "))}</div>
               <div class="compare-note">${compareMl?.model?.type ? escapeHtml(`ML model: ${compareMl.model.type}`) : "Learning-based compare will refine matches when available."}</div>
@@ -10078,6 +10593,37 @@ self.onmessage = async (event) => {
       ];
     }
 
+    function reportHasDetailedSourceGeometry(report) {
+      const counts = structuredTopologyCounts(report);
+      return Boolean(counts.faceCount || counts.edgeCount || counts.bodyCount);
+    }
+
+    function reportCompareDataBasis(report) {
+      if (!report) return "No data";
+      const sourceFormat = String(report?.transmit_info?.source_format || "");
+      if (sourceFormat === "step_file" && report?.step_import?.analysis_pending) {
+        return "preview-only STEP data";
+      }
+      if (reportHasDetailedSourceGeometry(report)) {
+        return "detailed source geometry";
+      }
+      if (reportHasPreviewGeometry(report)) {
+        return `${previewSourceLabel(report)} preview data`;
+      }
+      return "limited metadata";
+    }
+
+    function compareDataBasisLines(left, right) {
+      const lines = [
+        `Current compare data: ${left.file_name} uses ${reportCompareDataBasis(left)}; ${right.file_name} uses ${reportCompareDataBasis(right)}.`,
+        "Ultra fast uses preview points, wireframe edge signatures, and body-level region clustering. Fast uses preview bounds and topology. Medium uses preview components and mesh regions. Exact uses structured source faces and edges when available.",
+      ];
+      if (left?.step_import?.analysis_pending || right?.step_import?.analysis_pending) {
+        lines.push("Detailed part analysis is still running on at least one side. Compare results will refine automatically as richer source geometry arrives.");
+      }
+      return lines;
+    }
+
     function currentCompareBaseDiff(left, right) {
       const stageState = compareStageState(left, right);
       return stageState?.results?.exact
@@ -10143,7 +10689,7 @@ self.onmessage = async (event) => {
       };
 
       try {
-        await runStage("ultra", compareUltraFastPassInfo, "Ultra fast pass ready", "Ultra", "Preview point bins");
+        await runStage("ultra", compareUltraFastPassInfo, "Ultra fast pass ready", "Ultra", "Preview points + wireframe signatures");
 
         if (!state.compareMlCache[key] && !state.compareMlPending[key]) {
           window.setTimeout(() => {
@@ -10503,14 +11049,15 @@ self.onmessage = async (event) => {
       if (!stepFiles.length) return { reports: [], timing: { totalMs: 0, perFile: [] } };
 
       const startedAt = nowMs();
+      const jobId = options.jobId || null;
       const results = [];
       for (const [index, file] of stepFiles.entries()) {
         setStatus(`Importing STEP preview ${index + 1}/${stepFiles.length}: ${file.name}`);
-        updateImportProgress({
+        if (jobId) updateImportProgress(jobId, {
           activePreviewName: file.name,
           summary: `Building STEP preview ${index + 1} of ${stepFiles.length}.`,
         });
-        updateImportProgressItem(file.name, {
+        if (jobId) updateImportProgressItem(jobId, file.name, {
           stage: "previewing",
           note: `Generating browser STEP preview (${index + 1}/${stepFiles.length}).`,
         });
@@ -10523,7 +11070,7 @@ self.onmessage = async (event) => {
             ok: true,
             report,
           };
-          updateImportProgressItem(file.name, {
+          if (jobId) updateImportProgressItem(jobId, file.name, {
             stage: "preview_ready",
             note: `Preview ready in ${formatDuration(result.ms)}.`,
           });
@@ -10536,7 +11083,7 @@ self.onmessage = async (event) => {
             ok: false,
             error: error.message,
           };
-          updateImportProgressItem(file.name, {
+          if (jobId) updateImportProgressItem(jobId, file.name, {
             stage: "analyzing",
             note: "Browser preview failed, waiting for server analysis.",
           });
@@ -10560,14 +11107,13 @@ self.onmessage = async (event) => {
       };
     }
 
-    async function uploadFilesWithProgress(files) {
+    async function uploadFilesWithProgress(files, taskId) {
       return new Promise((resolve, reject) => {
         const uploadFiles = [...files];
         const xhr = new XMLHttpRequest();
         const formData = new FormData();
         const startedAt = nowMs();
         let uploadFinishedAt = null;
-        const taskId = `upload-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
 
         uploadFiles.forEach((file) => {
           formData.append("files", file, file.name);
@@ -10580,18 +11126,18 @@ self.onmessage = async (event) => {
           if (event.lengthComputable && event.total > 0) {
             const percent = (event.loaded / event.total) * 100;
             setStatus(`Uploading ${uploadFiles.length} file(s)... ${Math.round(percent)}%`);
-            updateImportProgress({
+            updateImportProgress(taskId, {
               uploadPercent: percent,
               summary: `Uploading ${uploadFiles.length} file(s).`,
             });
-            mapImportProgressItems((item) => ({
+            mapImportProgressItems(taskId, (item) => ({
               ...item,
               stage: ["previewing", "preview_ready", "ready", "analyzing"].includes(item.stage) ? item.stage : "uploading",
               note: ["previewing", "preview_ready", "ready", "analyzing"].includes(item.stage) ? item.note : `Uploading... ${Math.round(percent)}%.`,
             }));
           } else {
             setStatus(`Uploading ${uploadFiles.length} file(s)...`);
-            updateImportProgress({
+            updateImportProgress(taskId, {
               summary: `Uploading ${uploadFiles.length} file(s).`,
             });
           }
@@ -10600,17 +11146,16 @@ self.onmessage = async (event) => {
         xhr.upload.addEventListener("load", () => {
           uploadFinishedAt = nowMs();
           setStatus(previewImportMessage(uploadFiles));
-          updateImportProgress({
+          updateImportProgress(taskId, {
             uploadPercent: 100,
             uploadDone: true,
             serverAnalysisStarted: true,
-            taskId,
             summary: "Upload complete. Waiting for browser previews and server analysis.",
             serverNote: "Server analysis is now running.",
           });
-          stopImportProgressPolling();
+          stopImportProgressPolling(taskId);
           pollImportProgress(taskId);
-          mapImportProgressItems((item) => {
+          mapImportProgressItems(taskId, (item) => {
             if (item.stage === "previewing" || item.stage === "preview_ready") return item;
             if (item.isStep) {
               return {
@@ -10637,8 +11182,8 @@ self.onmessage = async (event) => {
           })();
           if (xhr.status >= 200 && xhr.status < 300) {
             const finishedAt = nowMs();
-            stopImportProgressPolling();
-            updateImportProgress({
+            stopImportProgressPolling(taskId);
+            updateImportProgress(taskId, {
               uploadPercent: 100,
               uploadDone: true,
               serverAnalysisStarted: true,
@@ -10663,8 +11208,8 @@ self.onmessage = async (event) => {
         });
 
         xhr.addEventListener("error", () => {
-          stopImportProgressPolling();
-          updateImportProgress({
+          stopImportProgressPolling(taskId);
+          updateImportProgress(taskId, {
             summary: "Upload failed.",
             serverNote: "Upload request failed.",
           });
@@ -10672,8 +11217,8 @@ self.onmessage = async (event) => {
         });
 
         xhr.addEventListener("abort", () => {
-          stopImportProgressPolling();
-          updateImportProgress({
+          stopImportProgressPolling(taskId);
+          updateImportProgress(taskId, {
             summary: "Upload cancelled.",
             serverNote: "Upload request was cancelled.",
           });
@@ -10681,7 +11226,7 @@ self.onmessage = async (event) => {
         });
 
         setStatus(`Uploading ${uploadFiles.length} file(s)...`);
-        updateImportProgress({
+        updateImportProgress(taskId, {
           uploadPercent: 0,
           summary: `Uploading ${uploadFiles.length} file(s).`,
           serverNote: "Waiting for upload to finish.",
@@ -10771,10 +11316,11 @@ self.onmessage = async (event) => {
       if (!files.length) return;
       const uploadFiles = [...files];
       const stepFiles = uploadFiles.filter((file) => /\\.(step|stp)$/i.test(file.name));
-      stopImportProgressPolling();
-      beginImportProgress(uploadFiles);
+      const jobId = `upload-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+      beginImportProgress(uploadFiles, jobId);
       const browserPreviewPromise = stepFiles.length
         ? importBrowserStepPreviews(uploadFiles, {
+            jobId,
             onReport: (report) => {
               mergeBrowserPreviewReport(report, { preserveSelection: true });
               setStatus(previewReadyMessage(report));
@@ -10786,7 +11332,7 @@ self.onmessage = async (event) => {
             return { reports: [], timing: { totalMs: 0, perFile: [] } };
           })
         : Promise.resolve({ reports: [], timing: { totalMs: 0, perFile: [] } });
-      const uploadPromise = uploadFilesWithProgress(uploadFiles);
+      const uploadPromise = uploadFilesWithProgress(uploadFiles, jobId);
       const importStartedAt = nowMs();
       try {
         const uploadResult = await uploadPromise;
@@ -10808,7 +11354,7 @@ self.onmessage = async (event) => {
           }
         }
         const analyzedReportsByName = new Map((data.reports || []).map((report) => [String(report?.file_name || ""), report]));
-        mapImportProgressItems((item) => {
+        mapImportProgressItems(jobId, (item) => {
           if (item.stage === "failed") return item;
           const analyzedReport = analyzedReportsByName.get(String(item.name || ""));
           const hasPreview = reportHasPreviewGeometry(analyzedReport);
@@ -10827,17 +11373,17 @@ self.onmessage = async (event) => {
             note: withServerAnalysisNote(item.note, hasPreview ? "Preview ready." : "Server analysis ready."),
           };
         });
-        updateImportProgress({
+        updateImportProgress(jobId, {
           summary: `Server analysis finished for ${uploadFiles.length} file(s).`,
           serverNote: "All requested file analysis is complete.",
           mergedServerReports: dedupeList([
-            ...((state.importProgress?.mergedServerReports) || []),
+            ...(importProgressValue(jobId, "mergedServerReports", []) || []),
             ...(data.reports || []).map((report) => String(report?.file_name || "")).filter(Boolean),
           ]),
         });
         const browserPreviewResult = await browserPreviewPromise;
         const browserPreviewTiming = browserPreviewResult?.timing || { totalMs: 0, perFile: [] };
-        updateImportProgress({
+        updateImportProgress(jobId, {
           activePreviewName: "",
           summary: `Loaded ${uploadFiles.length} file(s).`,
         });
@@ -10853,7 +11399,8 @@ self.onmessage = async (event) => {
           browserPreviewBreakdown: (browserPreviewTiming.perFile || []).map((entry) => `${entry.name}: ${formatDuration(entry.ms)}`).join(", "),
         });
       } finally {
-        stopImportProgressPolling();
+        stopImportProgressPolling(jobId);
+        pruneCompletedImportJobs();
         renderImportProgress();
       }
     }
@@ -10935,6 +11482,7 @@ self.onmessage = async (event) => {
     });
 
     window.addEventListener("beforeunload", () => {
+      stopImportProgressPolling();
       compareWorkers.forEach((worker) => worker?.terminate?.());
       compareWorkers = new Set();
       compareWorkerTasks.forEach((task) => {
@@ -11147,17 +11695,32 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
                             name,
                             {
                                 "status": "running",
+                                "phase": "starting",
+                                "phase_label": "Starting",
                                 "note": "Server analysis running.",
                                 "started_at": started_at,
                             },
                         )
                     try:
                         raw_bytes = bytes(file_payload.get("data") or b"")
-                        reports_for_file = analyze_input_bytes(
+                        reports_for_file = _analyze_upload_bytes_with_progress(
                             raw_bytes,
                             display_name=name,
                             source_path=f"uploaded:{name}",
                             file_size_bytes=file_payload.get("size", len(raw_bytes)),
+                            phase_callback=(
+                                (lambda phase, note: _update_upload_analysis_progress_item(
+                                    str(task_id),
+                                    name,
+                                    {
+                                        "status": "running",
+                                        "phase": phase,
+                                        "phase_label": phase.replace("_", " ").title(),
+                                        "note": note,
+                                    },
+                                ))
+                                if task_id else None
+                            ),
                         )
                         client_reports_for_file = _reports_for_client(_prepare_reports(reports_for_file))
                         if task_id:
@@ -11166,6 +11729,8 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
                                 name,
                                 {
                                     "status": "done",
+                                    "phase": "done",
+                                    "phase_label": "Done",
                                     "note": f"Server analysis complete in {(time.time() - started_at) * 1000:.0f} ms.",
                                     "completed_at": time.time(),
                                     "duration_ms": int((time.time() - started_at) * 1000),
@@ -11181,6 +11746,8 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
                                 name,
                                 {
                                     "status": "failed",
+                                    "phase": "failed",
+                                    "phase_label": "Failed",
                                     "note": str(exc),
                                     "completed_at": time.time(),
                                     "duration_ms": int((time.time() - started_at) * 1000),
