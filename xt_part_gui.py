@@ -344,6 +344,17 @@ def _bounds_from_points(points: list[list[float]]) -> dict[str, Any] | None:
     }
 
 
+def _canonicalize_component_points(points: list[list[float]], *, precision: int = 9) -> list[list[float]]:
+    if not points:
+        return []
+    unique_points = {
+        tuple(round(float(point[index]), precision) for index in range(3))
+        for point in points
+        if isinstance(point, list) and len(point) >= 3
+    }
+    return [[point[0], point[1], point[2]] for point in sorted(unique_points)]
+
+
 def _component_profile(points: list[list[float]], bounds: dict[str, Any] | None, *, bins: int = 6, sample_limit: int = 260) -> dict[str, Any] | None:
     if not bounds or not points:
         return None
@@ -491,7 +502,7 @@ def _component_signature(body: dict, body_index: int) -> dict[str, Any] | None:
         for point in (edge.get("points") or [])
         if isinstance(point, list) and len(point) >= 3
     ]
-    all_points = face_points + edge_points
+    all_points = _canonicalize_component_points(face_points + edge_points)
     bounds = _bounds_from_points(all_points)
     if not bounds:
         return None
@@ -1669,6 +1680,7 @@ HTML = """<!doctype html>
       selected: [],
       activeTab: "overview",
       viewer: defaultViewerState(),
+      compareMode: "solid",
       viewportBackground: "gray",
       compareSync: false,
       compareMlCache: {},
@@ -2371,9 +2383,26 @@ HTML = """<!doctype html>
       return sampled;
     }
 
+    function canonicalizePointCloud(points, precision = 9) {
+      const cloud = Array.isArray(points) ? points : [];
+      const unique = new Map();
+      cloud.forEach((point) => {
+        if (!Array.isArray(point) || point.length < 3) return;
+        const normalized = point.slice(0, 3).map((value) => Number(value || 0));
+        const key = normalized.map((value) => value.toFixed(precision)).join("|");
+        if (!unique.has(key)) {
+          unique.set(key, normalized);
+        }
+      });
+      return [...unique.entries()]
+        .sort((left, right) => left[0].localeCompare(right[0]))
+        .map((entry) => entry[1]);
+    }
+
     function meshProfileFromPointCloud(pointCloud, bounds, stats = {}) {
       if (!bounds || !pointCloud?.length) return null;
-      const sampled = samplePointCloud(pointCloud, 320);
+      const canonicalCloud = canonicalizePointCloud(pointCloud);
+      const sampled = samplePointCloud(canonicalCloud, 320);
       const size = (bounds.size || [0, 0, 0]).map((value) => Math.max(Number(value) || 0, 1e-9));
       const min = (bounds.min || [0, 0, 0]).map(Number);
       const bins = 6;
@@ -2404,7 +2433,7 @@ HTML = """<!doctype html>
         : 0;
       const maxExtent = Math.max(...size, 1e-9);
       return {
-        pointCount: pointCloud.length,
+        pointCount: canonicalCloud.length,
         sampleCount: sampled.length,
         faceCount: Number(stats.faceCount || 0),
         edgeCount: Number(stats.edgeCount || 0),
@@ -2696,10 +2725,10 @@ HTML = """<!doctype html>
         };
       }
 
-      const pointCloud = [
+      const pointCloud = canonicalizePointCloud([
         ...(component?.faces || []).flatMap((face) => face.vertices || []),
         ...(component?.edges || []).flatMap((edge) => edge.points || []),
-      ].map((point) => point.map(Number));
+      ].map((point) => point.map(Number)));
       const bounds = pointCloud.length ? boundsFromPoints(pointCloud) : null;
       const faceEntries = componentFaceEntries(component, bounds, identity);
       const edgeEntries = componentEdgeEntries(component, bounds, identity);
@@ -3602,6 +3631,77 @@ HTML = """<!doctype html>
       return { changes, truncated: leftIndex < left.length || rightIndex < right.length };
     }
 
+    function positionedEntryShiftDelta(leftEntry, rightEntry) {
+      if (!leftEntry || !rightEntry) return null;
+      if (leftEntry.start && leftEntry.end && rightEntry.start && rightEntry.end) {
+        return Math.min(
+          distanceBetweenPoints(leftEntry.start, rightEntry.start) + distanceBetweenPoints(leftEntry.end, rightEntry.end),
+          distanceBetweenPoints(leftEntry.start, rightEntry.end) + distanceBetweenPoints(leftEntry.end, rightEntry.start)
+        ) / 2;
+      }
+      if (leftEntry.center && rightEntry.center) {
+        return distanceBetweenPoints(leftEntry.center, rightEntry.center);
+      }
+      return null;
+    }
+
+    function comparePositionedValueEntries(
+      leftEntries,
+      rightEntries,
+      valueTolerance = DIMENSION_TOLERANCE,
+      positionTolerance = DIMENSION_TOLERANCE * 2,
+      maxChanges = 3
+    ) {
+      const left = [...(leftEntries || [])]
+        .filter((entry) => entry && finiteNumber(entry.value) !== null)
+        .sort((a, b) => a.value - b.value);
+      const right = [...(rightEntries || [])]
+        .filter((entry) => entry && finiteNumber(entry.value) !== null)
+        .sort((a, b) => a.value - b.value);
+
+      const changes = [];
+      let leftIndex = 0;
+      let rightIndex = 0;
+
+      while (leftIndex < left.length || rightIndex < right.length) {
+        const leftEntry = leftIndex < left.length ? left[leftIndex] : null;
+        const rightEntry = rightIndex < right.length ? right[rightIndex] : null;
+
+        if (leftEntry && rightEntry && Math.abs(rightEntry.value - leftEntry.value) <= valueTolerance) {
+          const positionDelta = positionedEntryShiftDelta(leftEntry, rightEntry);
+          if (positionDelta !== null && positionDelta > positionTolerance) {
+            changes.push({
+              kind: "shifted",
+              left: leftEntry,
+              right: rightEntry,
+              delta: positionDelta,
+              valueDelta: rightEntry.value - leftEntry.value,
+              positionDelta,
+            });
+          }
+          leftIndex += 1;
+          rightIndex += 1;
+          continue;
+        }
+
+        if (leftEntry && rightEntry) {
+          changes.push({ kind: "changed", left: leftEntry, right: rightEntry, delta: rightEntry.value - leftEntry.value });
+          leftIndex += 1;
+          rightIndex += 1;
+        } else if (leftEntry) {
+          changes.push({ kind: "removed", left: leftEntry });
+          leftIndex += 1;
+        } else if (rightEntry) {
+          changes.push({ kind: "added", right: rightEntry });
+          rightIndex += 1;
+        }
+
+        if (changes.length >= maxChanges) break;
+      }
+
+      return { changes, truncated: leftIndex < left.length || rightIndex < right.length };
+    }
+
     function circularEdgeDiameters(body, lengthScale = 1) {
       return (body?.edges || [])
         .filter((edge) => edge?.type === "Circular")
@@ -4107,7 +4207,7 @@ HTML = """<!doctype html>
         );
         if (circularDiameterSummary) summary.push(circularDiameterSummary);
 
-        const circularEntryDiff = compareValueEntries(
+        const circularEntryDiff = comparePositionedValueEntries(
           circularEdgeEntries(leftBody, leftIndex, leftLengthScale),
           circularEdgeEntries(rightBody, rightIndex, rightLengthScale)
         );
@@ -4121,17 +4221,25 @@ HTML = """<!doctype html>
               end: change.left.end,
               tone: "exact",
               lines: [
-                change.kind === "changed"
+                change.kind === "shifted"
+                  ? `${circularLabel} shifted by ${formatInches(change.positionDelta)}`
+                  : change.kind === "changed"
                   ? `${circularLabel}: ${formatInches(change.left.value)} -> ${formatInches(change.right.value)}`
                   : `${circularLabel} removed: ${formatInches(change.left.value)}`
               ],
+              focusSegments: change.kind === "shifted" && change.left?.center && change.right?.center
+                ? [{ start: change.left.center, end: change.right.center }]
+                : [],
+              deltaLabel: change.kind === "shifted" ? formatSignedInches(change.positionDelta) : null,
             });
           } else if (change.left?.center) {
             exactAnnotations.left.push({
               point: change.left.center,
               tone: "exact",
               lines: [
-                change.kind === "changed"
+                change.kind === "shifted"
+                  ? `${circularLabel} shifted by ${formatInches(change.positionDelta)}`
+                  : change.kind === "changed"
                   ? `${circularLabel}: ${formatInches(change.left.value)} -> ${formatInches(change.right.value)}`
                   : `${circularLabel} removed: ${formatInches(change.left.value)}`
               ],
@@ -4143,21 +4251,29 @@ HTML = """<!doctype html>
               end: change.right.end,
               tone: "exact",
               lines: [
-                change.kind === "changed"
+                change.kind === "shifted"
+                  ? `${circularLabel} shifted by ${formatInches(change.positionDelta)}`
+                  : change.kind === "changed"
                   ? `${circularLabel}: ${formatInches(change.right.value)} (${formatSignedInches(change.delta)})`
                   : `${circularLabel} added: ${formatInches(change.right.value)}`
               ],
-              focusSegments: change.kind === "changed"
-                ? [{ start: change.right.start, end: change.right.end }]
-                : [],
-              deltaLabel: change.kind === "changed" ? formatSignedInches(change.delta) : null,
+              focusSegments: change.kind === "shifted" && change.left?.center && change.right?.center
+                ? [{ start: change.left.center, end: change.right.center }]
+                : (change.kind === "changed"
+                  ? [{ start: change.right.start, end: change.right.end }]
+                  : []),
+              deltaLabel: change.kind === "shifted"
+                ? formatSignedInches(change.positionDelta)
+                : (change.kind === "changed" ? formatSignedInches(change.delta) : null),
             });
           } else if (change.right?.center) {
             exactAnnotations.right.push({
               point: change.right.center,
               tone: "exact",
               lines: [
-                change.kind === "changed"
+                change.kind === "shifted"
+                  ? `${circularLabel} shifted by ${formatInches(change.positionDelta)}`
+                  : change.kind === "changed"
                   ? `${circularLabel}: ${formatInches(change.right.value)} (${formatSignedInches(change.delta)})`
                   : `${circularLabel} added: ${formatInches(change.right.value)}`
               ],
@@ -4174,7 +4290,7 @@ HTML = """<!doctype html>
         );
         if (faceRadiusSummary) summary.push(faceRadiusSummary);
 
-        const faceEntryDiff = compareValueEntries(
+        const faceEntryDiff = comparePositionedValueEntries(
           faceRadiusEntries(leftBody, leftIndex, leftLengthScale),
           faceRadiusEntries(rightBody, rightIndex, rightLengthScale)
         );
@@ -4188,10 +4304,16 @@ HTML = """<!doctype html>
               point: change.left.center,
               tone: "exact",
               lines: [
-                change.kind === "changed"
+                change.kind === "shifted"
+                  ? `${bodyLabel} face radius shifted by ${formatInches(change.positionDelta)}`
+                  : change.kind === "changed"
                   ? `${bodyLabel} face radius: ${formatInches(change.left.value)} -> ${formatInches(change.right.value)}`
                   : `${bodyLabel} face radius removed: ${formatInches(change.left.value)}`
               ],
+              focusSegments: change.kind === "shifted" && change.right?.center
+                ? [{ start: change.left.center, end: change.right.center }]
+                : [],
+              deltaLabel: change.kind === "shifted" ? formatSignedInches(change.positionDelta) : null,
             });
           }
           if (change.right?.center) {
@@ -4199,10 +4321,16 @@ HTML = """<!doctype html>
               point: change.right.center,
               tone: "exact",
               lines: [
-                change.kind === "changed"
+                change.kind === "shifted"
+                  ? `${bodyLabel} face radius shifted by ${formatInches(change.positionDelta)}`
+                  : change.kind === "changed"
                   ? `${bodyLabel} face radius: ${formatInches(change.right.value)} (${formatSignedInches(change.delta)})`
                   : `${bodyLabel} face radius added: ${formatInches(change.right.value)}`
               ],
+              focusSegments: change.kind === "shifted" && change.left?.center
+                ? [{ start: change.left.center, end: change.right.center }]
+                : [],
+              deltaLabel: change.kind === "shifted" ? formatSignedInches(change.positionDelta) : null,
             });
           }
         });
@@ -5632,6 +5760,43 @@ HTML = """<!doctype html>
       };
     }
 
+    function captureViewportCameraState(viewport) {
+      if (!viewport?.camera || !viewport?.controls) return null;
+      return {
+        reportKey: viewport.currentReportKey,
+        preset: viewport.currentPreset || "iso",
+        target: viewport.controls.target.toArray(),
+        position: viewport.camera.position.toArray(),
+        up: viewport.camera.up.toArray(),
+        near: viewport.camera.near,
+        far: viewport.camera.far,
+      };
+    }
+
+    function applyViewportCameraState(viewport, snapshot) {
+      if (!viewport?.camera || !viewport?.controls || !snapshot) return false;
+      const target = Array.isArray(snapshot.target) ? snapshot.target : null;
+      const position = Array.isArray(snapshot.position) ? snapshot.position : null;
+      const up = Array.isArray(snapshot.up) ? snapshot.up : null;
+      if (!target || !position || !up) return false;
+      viewport.controls.target.set(...target);
+      viewport.camera.position.set(...position);
+      viewport.camera.up.set(...up);
+      viewport.camera.near = Number(snapshot.near || viewport.camera.near);
+      viewport.camera.far = Number(snapshot.far || viewport.camera.far);
+      viewport.camera.updateProjectionMatrix();
+      viewport.controls.update();
+      viewport.currentPreset = snapshot.preset || viewport.currentPreset || "iso";
+      return true;
+    }
+
+    function compareViewportSnapshots() {
+      return {
+        left: captureViewportCameraState(compareViewports.left),
+        right: captureViewportCameraState(compareViewports.right),
+      };
+    }
+
     function enrichReports(reports) {
       return reports.map((report) => {
         const geometry = report.geometry_hints || {};
@@ -6237,6 +6402,7 @@ HTML = """<!doctype html>
       }
 
       const [left, right] = reports;
+      const viewportSnapshots = compareViewportSnapshots();
       scheduleCompareStages(left, right).catch((error) => setStatus(error.message));
       requestCompareMl(left, right).catch((error) => setStatus(error.message));
       const stageLines = compareStageProgressLines(left, right);
@@ -6287,6 +6453,7 @@ HTML = """<!doctype html>
               <input type="checkbox" id="compare-sync-toggle" ${state.compareSync ? "checked" : ""}>
               Move both models together
             </label>
+            <div class="toolbar-cluster" id="compare-display-modes"></div>
             <div class="toolbar-cluster" id="compare-view-presets"></div>
             <div class="toolbar-cluster" id="compare-background-presets"></div>
           </div>
@@ -6341,6 +6508,21 @@ HTML = """<!doctype html>
         </div>
       `;
 
+      const displayRoot = byId("compare-display-modes");
+      displayRoot.innerHTML = '<span class="toolbar-label">Display</span>';
+      [["solid", "Solid"], ["wireframe", "Wireframe"], ["points", "Points"]].forEach(([mode, label]) => {
+        const button = document.createElement("button");
+        button.className = "preview-mode" + (state.compareMode === mode ? " active" : "");
+        button.textContent = label;
+        button.onclick = () => {
+          state.compareMode = mode;
+          renderCompareDisplayModes();
+          applyCompareDisplayMode();
+          setStatus(`Comparison previews switched to ${label.toLowerCase()} view.`);
+        };
+        displayRoot.appendChild(button);
+      });
+
       const presetRoot = byId("compare-view-presets");
       presetRoot.innerHTML = '<span class="toolbar-label">Views</span>';
       VIEW_PRESETS.forEach(([preset, label]) => {
@@ -6379,10 +6561,28 @@ HTML = """<!doctype html>
         }
       });
 
-      drawComparePreviews();
+      drawComparePreviews(viewportSnapshots);
     }
 
-    function drawComparePreviews() {
+    function renderCompareDisplayModes() {
+      const root = byId("compare-display-modes");
+      if (!root) return;
+      root.querySelectorAll("button").forEach((button) => {
+        const label = String(button.textContent || "").trim().toLowerCase();
+        const mode = label === "wireframe" ? "wireframe" : (label === "points" ? "points" : "solid");
+        button.classList.toggle("active", state.compareMode === mode);
+      });
+    }
+
+    function applyCompareDisplayMode() {
+      Object.values(compareViewports).forEach((viewport) => {
+        if (!viewport?.previewObjects) return;
+        applyPreviewViewportMode(viewport, state.compareMode);
+        renderPreviewViewport(viewport);
+      });
+    }
+
+    function drawComparePreviews(viewportSnapshots = null) {
       const reports = comparisonReports();
       if (reports.length !== 2) {
         destroyCompareViewports();
@@ -6399,9 +6599,13 @@ HTML = """<!doctype html>
           if (!leftViewport || !rightViewport) return;
           setPreviewViewportBackground(leftViewport);
           setPreviewViewportBackground(rightViewport);
+          const leftSnapshot = viewportSnapshots?.left || null;
+          const rightSnapshot = viewportSnapshots?.right || null;
+          const leftPreserveView = Boolean(leftSnapshot && leftSnapshot.reportKey === reportKey(left));
+          const rightPreserveView = Boolean(rightSnapshot && rightSnapshot.reportKey === reportKey(right));
           rebuildPreviewViewport(leftViewport, left, {
-            fitView: leftViewport.currentReportKey !== reportKey(left) || !leftViewport.previewObjects,
-            mode: "solid",
+            fitView: (!leftPreserveView) && (leftViewport.currentReportKey !== reportKey(left) || !leftViewport.previewObjects),
+            mode: state.compareMode,
             compareAnnotation: {
               annotations: diff.annotations.left,
               exactAnnotations: diff.exactAnnotations.left,
@@ -6417,9 +6621,13 @@ HTML = """<!doctype html>
             exactHighlightRawFaces: diff.exactHighlightRawFaces.left,
             exactHighlightRawEdges: diff.exactHighlightRawEdges.left,
           });
+          if (leftPreserveView) {
+            applyViewportCameraState(leftViewport, leftSnapshot);
+            renderPreviewViewport(leftViewport);
+          }
           rebuildPreviewViewport(rightViewport, right, {
-            fitView: rightViewport.currentReportKey !== reportKey(right) || !rightViewport.previewObjects,
-            mode: "solid",
+            fitView: (!rightPreserveView) && (rightViewport.currentReportKey !== reportKey(right) || !rightViewport.previewObjects),
+            mode: state.compareMode,
             compareAnnotation: {
               annotations: diff.annotations.right,
               exactAnnotations: diff.exactAnnotations.right,
@@ -6435,6 +6643,10 @@ HTML = """<!doctype html>
             exactHighlightRawFaces: diff.exactHighlightRawFaces.right,
             exactHighlightRawEdges: diff.exactHighlightRawEdges.right,
           });
+          if (rightPreserveView) {
+            applyViewportCameraState(rightViewport, rightSnapshot);
+            renderPreviewViewport(rightViewport);
+          }
           syncCompareViewports();
         })
         .catch((error) => {
