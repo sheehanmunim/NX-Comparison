@@ -8,7 +8,7 @@ import re
 import struct
 from collections import Counter
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 from xt_engine.topology import build_topology_from_kernel_body
 from xt_backend_bridge import predict_match_probabilities, step_occ_preview_from_text
@@ -3648,7 +3648,12 @@ def _convert_structured_body_report(
     source_format: str,
     application_label: str,
     schema_label: str,
+    progress_callback: Callable[[str, str], None] | None = None,
 ) -> dict[str, Any]:
+    def emit(phase: str, note: str) -> None:
+        if callable(progress_callback):
+            progress_callback(phase, note)
+
     part_summary = payload.get("part_summary") or {}
     part_name = part_summary.get("part_name") or part_summary.get("leaf") or display_name
     units = part_summary.get("units") or "Unknown"
@@ -3660,8 +3665,20 @@ def _convert_structured_body_report(
     preview_points: list[list[float]] = []
     edge_lengths: list[float] = []
 
-    for body_payload in payload.get("bodies", []):
+    total_source_bodies = len(payload.get("bodies", []))
+    emit(
+        "prepare_preview_bodies",
+        f"Preparing preview reconstruction for {total_source_bodies} bod{'y' if total_source_bodies == 1 else 'ies'}.",
+    )
+    for body_offset, body_payload in enumerate(payload.get("bodies", []), start=1):
         body_index = int(body_payload.get("index", len(kernel_bodies) + 1))
+        face_count = sum(int(value) for value in (body_payload.get("face_type_breakdown") or {}).values())
+        edge_count = sum(int(value) for value in (body_payload.get("edge_type_breakdown") or {}).values())
+        body_name = str(body_payload.get("metadata", {}).get("name") or f"Body {body_index}")
+        emit(
+            "build_preview_body",
+            f"Reconstructing preview body {body_offset} of {total_source_bodies}: {body_name} ({face_count} faces, {edge_count} edges).",
+        )
         built = _build_nx_body(body_payload, scale=scale, body_index=body_index)
         if not built:
             continue
@@ -3681,6 +3698,7 @@ def _convert_structured_body_report(
                 summary["shape_summary"] = label
                 break
 
+    emit("compute_preview_bounds", "Computing merged preview bounds and scalar summaries.")
     merged_bounds = _merge_bounds(bounds_list)
     notable_scalars: list[dict[str, Any]] = []
     scalar_counts: Counter[float] = Counter(round(length, 12) for length in edge_lengths if length > 0)
@@ -3715,6 +3733,10 @@ def _convert_structured_body_report(
         header["PART1"]["SOURCE_PATH"] = str(part_summary["full_path"])
 
     body_count = int(payload.get("body_count") or len(payload.get("bodies", [])))
+    emit(
+        "build_summary_text",
+        f"Building report summary for {body_count} bod{'y' if body_count == 1 else 'ies'}.",
+    )
     summary = [
         f"Imported {application_label} for {part_name}.",
         f"Detected {body_count} body/bodies and reconstructed {len(kernel_bodies)} previewable body preview(s).",
@@ -3725,6 +3747,12 @@ def _convert_structured_body_report(
             f"Body {body_summary['index']}: {body_summary['shape_summary']} ({body_summary['face_count']} faces, {body_summary['edge_count']} edges)."
         )
 
+    kernel_topology = None
+    if len(kernel_bodies) == 1 and kernel_bodies[0].get("metadata", {}).get("primitive") != "compound":
+        emit("build_kernel_topology", "Building single-body topology summary.")
+        kernel_topology = build_topology_from_kernel_body(kernel_bodies[0])
+
+    emit("assemble_report_payload", "Assembling final analysis payload.")
     report: dict[str, Any] = {
         "file": source_path or display_name,
         "file_name": display_name,
@@ -3759,11 +3787,7 @@ def _convert_structured_body_report(
         "source_body_count": body_count,
         "kernel_body": kernel_bodies[0] if len(kernel_bodies) == 1 else None,
         "kernel_bodies": kernel_bodies,
-        "kernel_topology": (
-            build_topology_from_kernel_body(kernel_bodies[0])
-            if len(kernel_bodies) == 1 and kernel_bodies[0].get("metadata", {}).get("primitive") != "compound"
-            else None
-        ),
+        "kernel_topology": kernel_topology,
         "geometry_hints": {
             "point_count": len(preview_points),
             "point_samples": preview_points[:12],
@@ -4177,7 +4201,12 @@ def convert_step_report(
     file_size_bytes: int | None,
     raw_text: str,
     prefer_occ_preview: bool = False,
+    progress_callback: Callable[[str, str], None] | None = None,
 ) -> dict[str, Any]:
+    def emit(phase: str, note: str) -> None:
+        if callable(progress_callback):
+            progress_callback(phase, note)
+
     report = _convert_structured_body_report(
         payload,
         display_name=display_name,
@@ -4187,6 +4216,7 @@ def convert_step_report(
         source_format="step_file",
         application_label="STEP BREP Import",
         schema_label="STEP-ISO10303",
+        progress_callback=progress_callback,
     )
     step_import = dict(payload.get("step_metadata") or {})
     step_import["backend"] = "native_step_parser"
@@ -4195,6 +4225,7 @@ def convert_step_report(
     )
     step_import["refinement_pending"] = not enable_occ_preview
     if enable_occ_preview:
+        emit("build_occ_preview", "Building OpenCascade STEP preview.")
         occ_preview = step_occ_preview_from_text(raw_text, display_name=display_name)
         if occ_preview and occ_preview.get("ok") and occ_preview.get("kernel_bodies"):
             scale = unit_scale_to_meters((payload.get("part_summary") or {}).get("units"))
@@ -4214,6 +4245,10 @@ def convert_step_report(
                 "edge_count": int(occ_preview.get("edge_count") or 0),
             }
             step_import["refinement_pending"] = False
+            emit(
+                "build_occ_preview_done",
+                f"OpenCascade preview ready ({step_import['occ_preview']['body_count']} bodies, {step_import['occ_preview']['triangle_face_count']} triangles, {step_import['occ_preview']['edge_count']} edges).",
+            )
     report["step_import"] = step_import
     report.setdefault("entity_hints", {})
     report["entity_hints"]["step_backend"] = report["step_import"].get("backend")
@@ -4485,8 +4520,13 @@ def parse_step_input_text(
     source_path: str | None,
     file_size_bytes: int | None,
     prefer_occ_preview: bool = False,
+    progress_callback: Callable[[str, str], None] | None = None,
 ) -> list[dict[str, Any]] | None:
-    payload = parse_step_payload(raw_text, display_name=display_name)
+    payload = parse_step_payload(
+        raw_text,
+        display_name=display_name,
+        progress_callback=progress_callback,
+    )
     if payload is None:
         return None
 
@@ -4498,6 +4538,7 @@ def parse_step_input_text(
             file_size_bytes=file_size_bytes,
             raw_text=raw_text,
             prefer_occ_preview=prefer_occ_preview,
+            progress_callback=progress_callback,
         )
     ]
 

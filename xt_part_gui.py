@@ -323,7 +323,20 @@ def _upload_phase_label(phase: str) -> str:
         "parse_json": "Parsing JSON",
         "parse_report": "Checking report format",
         "parse_step_entities": "Reading STEP entities",
+        "parse_step_records": "Parsing STEP records",
+        "detect_step_units": "Detecting STEP units",
+        "resolve_step_bodies": "Resolving STEP bodies",
+        "build_step_body": "Building STEP body",
+        "build_step_payload_done": "STEP payload ready",
         "build_step_report": "Building STEP report",
+        "prepare_preview_bodies": "Preparing preview bodies",
+        "build_preview_body": "Building preview body",
+        "compute_preview_bounds": "Computing preview bounds",
+        "build_summary_text": "Building report summary",
+        "assemble_report_payload": "Assembling report payload",
+        "build_kernel_topology": "Building topology summary",
+        "build_occ_preview": "Building OCC preview",
+        "build_occ_preview_done": "OCC preview ready",
         "parse_xt": "Parsing Parasolid text",
         "finalize_report": "Finalizing report",
         "done": "Done",
@@ -398,8 +411,11 @@ def _analyze_upload_bytes_with_progress(
         return imported_reports
 
     if suffix_hint in {".stp", ".step"} or suffix_hint == "":
-        emit("parse_step_entities", "Reading STEP entities.")
-        step_payload = parse_step_payload(raw_text, display_name=display_name)
+        step_payload = parse_step_payload(
+            raw_text,
+            display_name=display_name,
+            progress_callback=emit,
+        )
         if step_payload is not None:
             body_count, face_count, edge_count = _structured_payload_counts(step_payload)
             emit(
@@ -413,6 +429,7 @@ def _analyze_upload_bytes_with_progress(
                 file_size_bytes=normalized_size,
                 raw_text=raw_text,
                 prefer_occ_preview=False,
+                progress_callback=emit,
             )
             step_import = imported_report.get("step_import") or {}
             backend_label = str(step_import.get("backend") or "native_step_parser")
@@ -2811,10 +2828,15 @@ self.onmessage = async (event) => {
 
     function progressItemPhaseLabel(item) {
       const stage = String(item?.stage || "");
+      const serverStatus = String(item?.server_status || "");
+      const phaseLabel = String(item?.phase_label || "");
+      if (stage === "preview_ready" && serverStatus === "running" && phaseLabel) {
+        return `Preview ready + ${phaseLabel}`;
+      }
       if (["queued", "uploading", "previewing", "preview_ready", "ready", "failed"].includes(stage)) {
         return progressStageLabel(stage);
       }
-      return String(item?.phase_label || progressStageLabel(stage) || "Working");
+      return String(phaseLabel || progressStageLabel(stage) || "Working");
     }
 
     function progressItemElapsedLabel(item) {
@@ -2841,7 +2863,8 @@ self.onmessage = async (event) => {
       const stage = String(item?.stage || "");
       const phase = String(item?.phase || "");
       const phaseLabel = String(item?.phase_label || "");
-      let note = String(item?.note || "").trim();
+      const serverStatus = String(item?.server_status || "");
+      let note = String((stage === "preview_ready" && serverStatus === "running" && item?.server_note) ? item.server_note : (item?.note || "")).trim();
       if (!note) return "";
 
       note = note.replace(/\s+/g, " ").trim();
@@ -2986,13 +3009,18 @@ self.onmessage = async (event) => {
         );
         const visibleItems = sortedItems.slice(0, visibleLimit);
         const hiddenItems = sortedItems.slice(visibleLimit);
-        const renderRows = (items) => items.map((item) => `
+        const renderRows = (items) => items.map((item) => {
+          const fullNote = (String(item?.stage || "") === "preview_ready" && String(item?.server_status || "") === "running" && item?.server_note)
+            ? String(item.server_note || "")
+            : String(item.note || "");
+          return `
           <div class="status-detail-row" data-stage="${escapeHtml(item.stage || "queued")}">
             <div class="status-detail-name">${escapeHtml(item.name || "File")}</div>
             <div class="status-detail-stage">${escapeHtml(progressItemPhaseLabel(item))}${progressItemElapsedLabel(item) ? ` • ${escapeHtml(progressItemElapsedLabel(item))}` : ""}</div>
-            <div class="status-detail-note" title="${escapeHtml(item.note || "")}">${escapeHtml(compactProgressNote(item))}</div>
+            <div class="status-detail-note" title="${escapeHtml(fullNote)}">${escapeHtml(compactProgressNote(item))}</div>
           </div>
-        `).join("");
+        `;
+        }).join("");
         const hiddenSummary = hiddenItems.length
           ? `${hiddenItems.length} more file${hiddenItems.length === 1 ? "" : "s"}`
           : "";
@@ -3133,14 +3161,18 @@ self.onmessage = async (event) => {
           if (item.stage === "preview_ready") {
             return {
               ...item,
+              server_status: serverStatus,
+              server_note: serverPhaseNote,
               phase: serverItem.phase || item.phase,
               phase_label: serverItem.phase_label || item.phase_label,
-              note: withServerAnalysisNote(item.note, serverPhaseNote),
+              note: item.note,
               started_at: serverItem.started_at || item.started_at,
             };
           }
           return {
             ...item,
+            server_status: serverStatus,
+            server_note: serverPhaseNote,
             stage: item.stage === "queued" ? "analyzing" : item.stage,
             phase: serverItem.phase || item.phase,
             phase_label: serverItem.phase_label || item.phase_label,
@@ -3154,6 +3186,8 @@ self.onmessage = async (event) => {
           if (item.stage === "preview_ready") {
             return {
               ...item,
+              server_status: serverStatus,
+              server_note: `Server analysis done${durationText ? ` in ${durationText}` : ""}.`,
               phase: serverItem.phase || "done",
               phase_label: serverItem.phase_label || "Done",
               note: withServerAnalysisNote(item.note, `Server analysis done${durationText ? ` in ${durationText}` : ""}.`),
@@ -3164,6 +3198,8 @@ self.onmessage = async (event) => {
           if (item.stage !== "ready") {
             return {
               ...item,
+              server_status: serverStatus,
+              server_note: `Server analysis done${durationText ? ` in ${durationText}` : ""}.`,
               stage: "ready",
               phase: serverItem.phase || "done",
               phase_label: serverItem.phase_label || "Done",
@@ -3177,6 +3213,8 @@ self.onmessage = async (event) => {
         if (serverStatus === "failed") {
           return {
             ...item,
+            server_status: serverStatus,
+            server_note: serverItem.note || "Server analysis failed.",
             stage: "failed",
             phase: serverItem.phase || "failed",
             phase_label: serverItem.phase_label || "Failed",

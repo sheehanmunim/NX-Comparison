@@ -6,7 +6,7 @@ import math
 import re
 from collections import Counter
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 
 NUMBER_PATTERN = r"[+-]?(?:\d+\.\d*|\.\d+|\d+)(?:e[+-]?\d+)?"
@@ -144,9 +144,15 @@ def _parse_complex_entity(text: str, index: int) -> tuple[dict[str, Any], int]:
     raise ValueError("Unterminated STEP complex entity")
 
 
-def _parse_step_entities(data_text: str) -> dict[int, dict[str, Any]]:
+def _parse_step_entities(
+    data_text: str,
+    *,
+    progress_callback: Callable[[str], None] | None = None,
+) -> dict[int, dict[str, Any]]:
     entities: dict[int, dict[str, Any]] = {}
     index = 0
+    parsed_count = 0
+    next_progress_count = 500
     while True:
         hash_index = data_text.find("#", index)
         if hash_index == -1:
@@ -174,6 +180,10 @@ def _parse_step_entities(data_text: str) -> dict[int, dict[str, Any]]:
         if index < len(data_text) and data_text[index] == ";":
             index += 1
         entities[entity_id] = entity
+        parsed_count += 1
+        if callable(progress_callback) and parsed_count >= next_progress_count:
+            progress_callback(f"Parsed {parsed_count} STEP records.")
+            next_progress_count += 500
     return entities
 
 
@@ -1066,7 +1076,16 @@ def _build_body_payload(
     }
 
 
-def parse_step_payload(raw_text: str, *, display_name: str) -> dict[str, Any] | None:
+def parse_step_payload(
+    raw_text: str,
+    *,
+    display_name: str,
+    progress_callback: Callable[[str, str], None] | None = None,
+) -> dict[str, Any] | None:
+    def emit(phase: str, note: str) -> None:
+        if callable(progress_callback):
+            progress_callback(phase, note)
+
     if "ISO-10303-21" not in raw_text[:256]:
         return None
 
@@ -1075,15 +1094,22 @@ def parse_step_payload(raw_text: str, *, display_name: str) -> dict[str, Any] | 
         return None
 
     data_text = match.group(1)
-    entities = _parse_step_entities(data_text)
+    emit("parse_step_records", "Scanning STEP DATA section.")
+    entities = _parse_step_entities(
+        data_text,
+        progress_callback=(lambda note: emit("parse_step_records", note)),
+    )
     if not entities:
         return None
 
+    emit("detect_step_units", f"Parsed {len(entities)} STEP records. Detecting units and product metadata.")
     units = _detect_units(entities)
     part_name = _product_name(entities) or _file_name_from_header(raw_text) or display_name
+    emit("resolve_step_bodies", "Resolving STEP body and face references.")
     body_refs = _body_face_refs(entities)
     cache = _StepParseCache()
     bodies: list[dict[str, Any]] = []
+    total_bodies = len(body_refs)
     for body_index, (entity_key, face_refs, is_solid) in enumerate(body_refs, start=1):
         body_name = f"Body {body_index}"
         source_entity = entities.get(int(entity_key)) if entity_key.isdigit() else None
@@ -1091,6 +1117,10 @@ def parse_step_payload(raw_text: str, *, display_name: str) -> dict[str, Any] | 
             source_args = _entity_args(source_entity)
             if source_args and isinstance(source_args[0], str) and source_args[0]:
                 body_name = source_args[0]
+        emit(
+            "build_step_body",
+            f"Building STEP body {body_index} of {total_bodies}: {body_name} ({len(face_refs)} face refs).",
+        )
         built = _build_body_payload(
             body_name,
             face_refs,
@@ -1105,6 +1135,10 @@ def parse_step_payload(raw_text: str, *, display_name: str) -> dict[str, Any] | 
     if not bodies:
         return None
 
+    emit(
+        "build_step_payload_done",
+        f"Built {len(bodies)} STEP bodies from {len(entities)} records.",
+    )
     return {
         "part_summary": {
             "part_name": part_name,
