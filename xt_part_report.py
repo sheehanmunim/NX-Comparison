@@ -1150,6 +1150,56 @@ def _journal_points_from_edge_payload(edge_payload: dict[str, Any], scale: float
     return deduped if len(deduped) >= 3 else None
 
 
+def _collect_curve_points_from_payload(payload: Any, scale: float, *, limit: int = 256) -> list[list[float]]:
+    points: list[list[float]] = []
+
+    def visit(value: Any) -> None:
+        if len(points) >= limit or value is None:
+            return
+        point = _point_from_mapping(value, scale)
+        if point is not None:
+            points.append(_round_triplet(point))
+            return
+        if isinstance(value, dict):
+            for child in value.values():
+                visit(child)
+                if len(points) >= limit:
+                    return
+            return
+        if isinstance(value, list):
+            for child in value:
+                visit(child)
+                if len(points) >= limit:
+                    return
+
+    visit(payload)
+    return _dedupe_points(points)
+
+
+def _curve_payload_points(analytic_curve: dict[str, Any], scale: float) -> list[list[float]] | None:
+    if not isinstance(analytic_curve, dict):
+        return None
+
+    for key in ("sample_points", "fit_points", "control_points", "poles", "points"):
+        points = _collect_curve_points_from_payload(analytic_curve.get(key), scale)
+        if len(points) >= 3:
+            return points
+
+    raw_struct = analytic_curve.get("raw_struct")
+    if isinstance(raw_struct, dict):
+        for key in ("fit_pts", "fit_points", "control_points", "ctrl_pts", "poles", "pole", "pts", "points"):
+            if key not in raw_struct:
+                continue
+            points = _collect_curve_points_from_payload(raw_struct.get(key), scale)
+            if len(points) >= 3:
+                return points
+        points = _collect_curve_points_from_payload(raw_struct, scale)
+        if len(points) >= 3:
+            return points
+
+    return None
+
+
 def _quadratic_polyline_from_guides(
     guide_points: list[list[float]],
     *,
@@ -1207,12 +1257,50 @@ def _quadratic_polyline_from_guides(
     return _dedupe_points(polyline) if len(polyline) >= 2 else None
 
 
+def _guided_polyline_from_points(
+    guide_points: list[list[float]],
+    *,
+    edge_length: float | None = None,
+) -> list[list[float]] | None:
+    deduped = _dedupe_points(guide_points)
+    if len(deduped) < 2:
+        return None
+    if len(deduped) == 2:
+        return deduped
+    if len(deduped) == 3:
+        return _quadratic_polyline_from_guides(deduped, edge_length=edge_length)
+
+    guide_span = sum(
+        _distance_between_points(deduped[index], deduped[index + 1])
+        for index in range(len(deduped) - 1)
+    )
+    chord = _distance_between_points(deduped[0], deduped[-1])
+    reference_length = max(edge_length or 0.0, guide_span, chord, 1e-9)
+    segment_count = max(
+        len(deduped),
+        min(
+            96,
+            int(
+                math.ceil(
+                    max(reference_length / max(chord, 1e-9), 1.0) * max(len(deduped) * 2, 12)
+                )
+            ),
+        ),
+    )
+    return _dedupe_points(_resample_polyline(deduped, segment_count))
+
+
 def _edge_polyline_from_payload(
     edge_payload: dict[str, Any],
     scale: float,
     vertex_lookup: dict[int, list[float]] | None = None,
 ) -> list[list[float]] | None:
     edge_type = str(edge_payload.get("type") or "").lower()
+    edge_length = (
+        float(edge_payload.get("length")) * scale
+        if edge_payload.get("length") is not None
+        else None
+    )
     preview_polyline = _polyline_from_preview_payload(edge_payload.get("preview_points"), scale)
     if preview_polyline and (
         len(preview_polyline) >= 3
@@ -1222,18 +1310,22 @@ def _edge_polyline_from_payload(
 
     journal_points = _journal_points_from_edge_payload(edge_payload, scale)
     if journal_points and edge_type in {"intersection", "spcurve", "spline", "elliptical"}:
-        guided_polyline = _quadratic_polyline_from_guides(
-            journal_points,
-            edge_length=(
-                float(edge_payload.get("length")) * scale
-                if edge_payload.get("length") is not None
-                else None
-            ),
-        )
+        guided_polyline = _guided_polyline_from_points(journal_points, edge_length=edge_length)
         if guided_polyline:
             return guided_polyline
 
     analytic_curve = ((edge_payload.get("exact_geometry") or {}).get("analytic_curve") or {})
+    payload_polyline = _curve_payload_points(analytic_curve, scale)
+    if payload_polyline:
+        exact_vertices = edge_payload.get("exact_vertices") or {}
+        start_point = _point_from_mapping(exact_vertices.get("start_point"), scale) or _point_from_mapping(edge_payload.get("start_point"), scale)
+        end_point = _point_from_mapping(exact_vertices.get("end_point"), scale) or _point_from_mapping(edge_payload.get("end_point"), scale)
+        if start_point is not None:
+            payload_polyline[0] = _round_triplet(start_point)
+        if end_point is not None:
+            payload_polyline[-1] = _round_triplet(end_point)
+        return _guided_polyline_from_points(payload_polyline, edge_length=edge_length)
+
     curve_type = analytic_curve.get("type")
 
     if curve_type == "Arc":
@@ -1652,7 +1744,10 @@ def _face_meshes_from_payload(
         "loop_count": 0,
     }
     facet_meshes = _facet_meshes_from_payload(face_payload, surface_payload, base_metadata, scale=scale)
-    if facet_meshes and surface_payload["kind"] in {"parametric", "blend", "surface_of_revolution", "sphere", "cone"}:
+    if facet_meshes and (
+        surface_payload["kind"] in {"parametric", "blend", "surface_of_revolution", "sphere", "cone"}
+        or len(face_payload.get("loops", [])) != 1
+    ):
         return facet_meshes
 
     loop_rings: list[tuple[dict[str, Any], list[list[float]]]] = []

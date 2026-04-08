@@ -3192,6 +3192,293 @@ HTML = """<!doctype html>
       return null;
     }
 
+    function vectorLength(vector) {
+      if (!Array.isArray(vector) || vector.length < 3) return 0;
+      return Math.hypot(Number(vector[0] || 0), Number(vector[1] || 0), Number(vector[2] || 0));
+    }
+
+    function normalizeVector(vector) {
+      const length = vectorLength(vector);
+      if (length <= 1e-12) return null;
+      return vector.slice(0, 3).map((value) => Number(value || 0) / length);
+    }
+
+    function distanceBetweenPoints(leftPoint, rightPoint) {
+      if (!Array.isArray(leftPoint) || !Array.isArray(rightPoint)) return Infinity;
+      return Math.hypot(
+        Number(rightPoint[0] || 0) - Number(leftPoint[0] || 0),
+        Number(rightPoint[1] || 0) - Number(leftPoint[1] || 0),
+        Number(rightPoint[2] || 0) - Number(leftPoint[2] || 0)
+      );
+    }
+
+    function midpointBetweenPoints(leftPoint, rightPoint) {
+      if (!Array.isArray(leftPoint) || !Array.isArray(rightPoint)) return null;
+      return [
+        (Number(leftPoint[0] || 0) + Number(rightPoint[0] || 0)) / 2,
+        (Number(leftPoint[1] || 0) + Number(rightPoint[1] || 0)) / 2,
+        (Number(leftPoint[2] || 0) + Number(rightPoint[2] || 0)) / 2,
+      ];
+    }
+
+    function vectorBetweenPoints(leftPoint, rightPoint) {
+      if (!Array.isArray(leftPoint) || !Array.isArray(rightPoint)) return null;
+      return [
+        Number(rightPoint[0] || 0) - Number(leftPoint[0] || 0),
+        Number(rightPoint[1] || 0) - Number(leftPoint[1] || 0),
+        Number(rightPoint[2] || 0) - Number(leftPoint[2] || 0),
+      ];
+    }
+
+    function scaleVector(vector, scale = 1) {
+      if (!Array.isArray(vector) || vector.length < 3) return null;
+      return [
+        Number(vector[0] || 0) * scale,
+        Number(vector[1] || 0) * scale,
+        Number(vector[2] || 0) * scale,
+      ];
+    }
+
+    function addVectors(leftVector, rightVector) {
+      if (!Array.isArray(leftVector) || !Array.isArray(rightVector)) return null;
+      return [
+        Number(leftVector[0] || 0) + Number(rightVector[0] || 0),
+        Number(leftVector[1] || 0) + Number(rightVector[1] || 0),
+        Number(leftVector[2] || 0) + Number(rightVector[2] || 0),
+      ];
+    }
+
+    function structuredFaceKind(face) {
+      return String(
+        face?.type
+        || face?.surface_definition?.type
+        || face?.analytic_data?.type
+        || "Unknown"
+      );
+    }
+
+    function structuredFaceRadius(face, lengthScale = 1) {
+      const radius =
+        finiteNumber(face?.measurement?.radius_or_diameter)
+        ?? finiteNumber(face?.analytic_data?.radius)
+        ?? finiteNumber(face?.surface_definition?.radius)
+        ?? finiteNumber(face?.blend_radius);
+      return radius === null ? null : radius * lengthScale;
+    }
+
+    function structuredFaceCenter(face, lengthScale = 1) {
+      return scalePoint(
+        face?.measurement?.center
+        || face?.analytic_data?.reference_point
+        || face?.surface_definition?.reference_point
+        || face?.surface_definition?.axis_point
+        || null,
+        lengthScale
+      );
+    }
+
+    function structuredFaceDirection(face) {
+      return normalizeVector(
+        pointArray(face?.surface_definition?.direction)
+        || pointArray(face?.surface_definition?.axis_direction)
+        || pointArray(face?.analytic_data?.direction)
+        || null
+      );
+    }
+
+    function structuredFaceEntry(body, face, bodyIndex = 0, faceIndex = 0, lengthScale = 1) {
+      return {
+        key: structuredFaceIdentity(body, face, bodyIndex, faceIndex),
+        faceIndex: Number(face?.index || (faceIndex + 1)),
+        kind: structuredFaceKind(face),
+        radius: structuredFaceRadius(face, lengthScale),
+        center: structuredFaceCenter(face, lengthScale),
+        direction: structuredFaceDirection(face),
+        edgeCount: Number(face?.edge_count || 0),
+        loopCount: Number((face?.loops || []).length || 0),
+        bodyLabel: structuredBodyName(body, bodyIndex),
+      };
+    }
+
+    function structuredFaceMatchCost(leftEntry, rightEntry) {
+      if (!leftEntry || !rightEntry) return Infinity;
+      let cost = 0;
+      if (leftEntry.kind !== rightEntry.kind) cost += 5;
+      if (leftEntry.radius !== null && rightEntry.radius !== null) {
+        cost += Math.abs(rightEntry.radius - leftEntry.radius) / Math.max(leftEntry.radius, rightEntry.radius, 1e-9);
+      } else if (leftEntry.radius !== rightEntry.radius) {
+        cost += 1.5;
+      }
+      if (leftEntry.center && rightEntry.center) {
+        cost += distanceBetweenPoints(leftEntry.center, rightEntry.center) / Math.max(leftEntry.radius || rightEntry.radius || 0.01, 1e-6);
+      }
+      if (leftEntry.direction && rightEntry.direction) {
+        const dot = Math.max(-1, Math.min(1,
+          (leftEntry.direction[0] * rightEntry.direction[0])
+          + (leftEntry.direction[1] * rightEntry.direction[1])
+          + (leftEntry.direction[2] * rightEntry.direction[2])
+        ));
+        cost += (1 - Math.abs(dot)) * 0.8;
+      }
+      cost += Math.abs((leftEntry.edgeCount || 0) - (rightEntry.edgeCount || 0)) * 0.15;
+      cost += Math.abs((leftEntry.loopCount || 0) - (rightEntry.loopCount || 0)) * 0.25;
+      return cost;
+    }
+
+    function matchStructuredFace(leftEntry, rightEntries, usedKeys) {
+      let match = rightEntries.find((candidate) =>
+        !usedKeys.has(candidate.key)
+        && candidate.key === leftEntry.key
+      );
+      if (match) return match;
+
+      match = rightEntries.find((candidate) =>
+        !usedKeys.has(candidate.key)
+        && candidate.faceIndex === leftEntry.faceIndex
+      );
+      if (match) return match;
+
+      const candidates = rightEntries
+        .filter((candidate) => !usedKeys.has(candidate.key))
+        .map((candidate) => ({ candidate, cost: structuredFaceMatchCost(leftEntry, candidate) }))
+        .sort((a, b) => a.cost - b.cost);
+      if (!candidates.length) return null;
+      return candidates[0].cost <= 2.5 ? candidates[0].candidate : null;
+    }
+
+    function structuredEdgeKind(edge) {
+      return String(
+        edge?.type
+        || edge?.curve_measurement?.type
+        || edge?.exact_geometry?.analytic_curve?.type
+        || "Unknown"
+      );
+    }
+
+    function structuredEdgeLength(edge, lengthScale = 1) {
+      const length = finiteNumber(edge?.length) ?? finiteNumber(edge?.curve_measurement?.length);
+      return length === null ? null : length * lengthScale;
+    }
+
+    function structuredEdgeRadius(edge, lengthScale = 1) {
+      const radius =
+        finiteNumber(edge?.curve_measurement?.radius)
+        ?? finiteNumber(edge?.exact_geometry?.analytic_curve?.radius);
+      return radius === null ? null : radius * lengthScale;
+    }
+
+    function structuredEdgeEndpoints(edge, lengthScale = 1) {
+      const analyticCurve = edge?.exact_geometry?.analytic_curve || {};
+      const start = scalePoint(analyticCurve?.start_point || edge?.start_point || null, lengthScale);
+      const end = scalePoint(analyticCurve?.end_point || edge?.end_point || null, lengthScale);
+      return start && end ? [start, end] : null;
+    }
+
+    function structuredEdgeCenter(edge, lengthScale = 1) {
+      const analyticCurve = edge?.exact_geometry?.analytic_curve || {};
+      return scalePoint(
+        edge?.curve_measurement?.center
+        || analyticCurve?.center
+        || midpointBetweenPoints(
+          pointArray(analyticCurve?.start_point || edge?.start_point || null),
+          pointArray(analyticCurve?.end_point || edge?.end_point || null)
+        )
+        || (Array.isArray(edge?.preview_points) && edge.preview_points.length
+          ? edge.preview_points[Math.floor(edge.preview_points.length / 2)]
+          : null),
+        lengthScale
+      );
+    }
+
+    function structuredEdgeDirection(edge) {
+      const endpoints = structuredEdgeEndpoints(edge, 1);
+      if (!endpoints) return null;
+      return normalizeVector([
+        Number(endpoints[1][0] || 0) - Number(endpoints[0][0] || 0),
+        Number(endpoints[1][1] || 0) - Number(endpoints[0][1] || 0),
+        Number(endpoints[1][2] || 0) - Number(endpoints[0][2] || 0),
+      ]);
+    }
+
+    function structuredEdgeEntry(body, edge, bodyIndex = 0, edgeIndex = 0, lengthScale = 1) {
+      return {
+        key: structuredEdgeIdentity(body, edge, bodyIndex, edgeIndex),
+        edgeIndex: Number(edge?.index || (edgeIndex + 1)),
+        kind: structuredEdgeKind(edge),
+        length: structuredEdgeLength(edge, lengthScale),
+        radius: structuredEdgeRadius(edge, lengthScale),
+        center: structuredEdgeCenter(edge, lengthScale),
+        direction: structuredEdgeDirection(edge),
+        endpoints: structuredEdgeEndpoints(edge, lengthScale),
+        bodyLabel: structuredBodyName(body, bodyIndex),
+      };
+    }
+
+    function structuredEdgeEndpointCost(leftEndpoints, rightEndpoints) {
+      if (!Array.isArray(leftEndpoints) || !Array.isArray(rightEndpoints)) return Infinity;
+      const direct =
+        distanceBetweenPoints(leftEndpoints[0], rightEndpoints[0])
+        + distanceBetweenPoints(leftEndpoints[1], rightEndpoints[1]);
+      const reversed =
+        distanceBetweenPoints(leftEndpoints[0], rightEndpoints[1])
+        + distanceBetweenPoints(leftEndpoints[1], rightEndpoints[0]);
+      return Math.min(direct, reversed);
+    }
+
+    function structuredEdgeMatchCost(leftEntry, rightEntry) {
+      if (!leftEntry || !rightEntry) return Infinity;
+      let cost = 0;
+      if (leftEntry.kind !== rightEntry.kind) cost += 4;
+      if (leftEntry.length !== null && rightEntry.length !== null) {
+        cost += Math.abs(rightEntry.length - leftEntry.length) / Math.max(leftEntry.length, rightEntry.length, 1e-9);
+      } else if (leftEntry.length !== rightEntry.length) {
+        cost += 1.5;
+      }
+      if (leftEntry.radius !== null && rightEntry.radius !== null) {
+        cost += Math.abs(rightEntry.radius - leftEntry.radius) / Math.max(leftEntry.radius, rightEntry.radius, 1e-9);
+      } else if (leftEntry.radius !== rightEntry.radius) {
+        cost += 0.75;
+      }
+      if (leftEntry.center && rightEntry.center) {
+        cost += distanceBetweenPoints(leftEntry.center, rightEntry.center)
+          / Math.max(leftEntry.length || rightEntry.length || leftEntry.radius || rightEntry.radius || 0.01, 1e-6);
+      }
+      if (leftEntry.direction && rightEntry.direction) {
+        const dot = Math.max(-1, Math.min(1,
+          (leftEntry.direction[0] * rightEntry.direction[0])
+          + (leftEntry.direction[1] * rightEntry.direction[1])
+          + (leftEntry.direction[2] * rightEntry.direction[2])
+        ));
+        cost += (1 - Math.abs(dot)) * 0.5;
+      }
+      if (leftEntry.endpoints && rightEntry.endpoints) {
+        cost += structuredEdgeEndpointCost(leftEntry.endpoints, rightEntry.endpoints)
+          / Math.max(leftEntry.length || rightEntry.length || leftEntry.radius || rightEntry.radius || 0.01, 1e-6);
+      }
+      return cost;
+    }
+
+    function matchStructuredEdge(leftEntry, rightEntries, usedKeys) {
+      let match = rightEntries.find((candidate) =>
+        !usedKeys.has(candidate.key)
+        && candidate.key === leftEntry.key
+      );
+      if (match) return match;
+
+      match = rightEntries.find((candidate) =>
+        !usedKeys.has(candidate.key)
+        && candidate.edgeIndex === leftEntry.edgeIndex
+      );
+      if (match) return match;
+
+      const candidates = rightEntries
+        .filter((candidate) => !usedKeys.has(candidate.key))
+        .map((candidate) => ({ candidate, cost: structuredEdgeMatchCost(leftEntry, candidate) }))
+        .sort((a, b) => a.cost - b.cost);
+      if (!candidates.length) return null;
+      return candidates[0].cost <= 2.25 ? candidates[0].candidate : null;
+    }
+
     function dedupeList(values) {
       return [...new Set((values || []).filter(Boolean))];
     }
@@ -3329,16 +3616,33 @@ HTML = """<!doctype html>
                 : null
             );
           if (diameter === null) return null;
+          const center = scalePoint(
+            edge?.curve_measurement?.center
+            || analyticCurve?.center
+            || edge?.start_point
+            || (Array.isArray(edge?.preview_points) && edge.preview_points.length ? edge.preview_points[0] : null),
+            lengthScale
+          );
+          const radius =
+            finiteNumber(edge?.curve_measurement?.radius)
+            ?? finiteNumber(analyticCurve?.radius);
+          const axisDirection = normalizeVector(
+            pointArray(analyticCurve?.matrix?.x_axis)
+            || vectorBetweenPoints(
+              pointArray(analyticCurve?.center || edge?.curve_measurement?.center || null),
+              pointArray(edge?.start_point || analyticCurve?.start_point || null)
+            )
+            || null
+          );
+          const radiusVector = radius !== null && axisDirection
+            ? scaleVector(axisDirection, radius * lengthScale)
+            : null;
           return {
             key: structuredEdgeIdentity(body, edge, bodyIndex, edgeIndex),
             value: diameter * lengthScale,
-            center: scalePoint(
-              edge?.curve_measurement?.center
-              || analyticCurve?.center
-              || edge?.start_point
-              || (Array.isArray(edge?.preview_points) && edge.preview_points.length ? edge.preview_points[0] : null),
-              lengthScale
-            ),
+            center,
+            start: center && radiusVector ? addVectors(center, scaleVector(radiusVector, -1)) : null,
+            end: center && radiusVector ? addVectors(center, radiusVector) : null,
             label: structuredBodyName(body, bodyIndex),
           };
         })
@@ -3470,14 +3774,14 @@ HTML = """<!doctype html>
         || leftCounts.edgeCount !== rightCounts.edgeCount
       ) {
         summary.push(
-          `Raw NX topology changed from ${leftCounts.faceCount} faces / ${leftCounts.edgeCount} edges across ${leftCounts.bodyCount} bodies to ${rightCounts.faceCount} faces / ${rightCounts.edgeCount} edges across ${rightCounts.bodyCount} bodies.`
+          `Source topology changed from ${leftCounts.faceCount} faces / ${leftCounts.edgeCount} edges across ${leftCounts.bodyCount} bodies to ${rightCounts.faceCount} faces / ${rightCounts.edgeCount} edges across ${rightCounts.bodyCount} bodies.`
         );
       }
 
       leftBodies.forEach((leftBody, leftIndex) => {
         const rightBody = matchStructuredBody(leftBody, rightBodies, usedRightBodyIds);
         if (!rightBody) {
-          summary.push(`Removed raw NX body: ${structuredBodyName(leftBody, leftIndex)}.`);
+          summary.push(`Removed source body: ${structuredBodyName(leftBody, leftIndex)}.`);
           highlightBodyKeys.left.push(previewBodyRawKey(leftBody, leftIndex));
           return;
         }
@@ -3495,10 +3799,8 @@ HTML = """<!doctype html>
         const rightEdgeCount = rightBody?.edges?.length || 0;
         if (leftFaceCount !== rightFaceCount || leftEdgeCount !== rightEdgeCount) {
           summary.push(
-            `${bodyLabel}: raw topology changed from ${leftFaceCount} faces / ${leftEdgeCount} edges to ${rightFaceCount} faces / ${rightEdgeCount} edges.`
+            `${bodyLabel}: source topology changed from ${leftFaceCount} faces / ${leftEdgeCount} edges to ${rightFaceCount} faces / ${rightEdgeCount} edges.`
           );
-          highlightBodyKeys.left.push(leftPreviewBodyKey);
-          highlightBodyKeys.right.push(rightPreviewBodyKey);
         }
 
         const faceBreakdownSummary = summarizeBreakdownDiff(
@@ -3508,8 +3810,6 @@ HTML = """<!doctype html>
         );
         if (faceBreakdownSummary) {
           summary.push(`${bodyLabel}: ${faceBreakdownSummary}`);
-          highlightBodyKeys.left.push(leftPreviewBodyKey);
-          highlightBodyKeys.right.push(rightPreviewBodyKey);
         }
 
         const edgeBreakdownSummary = summarizeBreakdownDiff(
@@ -3519,8 +3819,196 @@ HTML = """<!doctype html>
         );
         if (edgeBreakdownSummary) {
           summary.push(`${bodyLabel}: ${edgeBreakdownSummary}`);
-          highlightBodyKeys.left.push(leftPreviewBodyKey);
-          highlightBodyKeys.right.push(rightPreviewBodyKey);
+        }
+
+        const leftFaceEntries = (leftBody?.faces || []).map((face, faceIndex) =>
+          structuredFaceEntry(leftBody, face, leftIndex, faceIndex, leftLengthScale)
+        );
+        const rightFaceEntries = (rightBody?.faces || []).map((face, faceIndex) =>
+          structuredFaceEntry(rightBody, face, rightIndex, faceIndex, rightLengthScale)
+        );
+        const matchedLeftFaceKeys = new Set();
+        const usedRightFaceKeys = new Set();
+        let structuredChangedFaceCount = 0;
+        leftFaceEntries.forEach((leftFaceEntry) => {
+          const rightFaceEntry = matchStructuredFace(leftFaceEntry, rightFaceEntries, usedRightFaceKeys);
+          if (!rightFaceEntry) return;
+          matchedLeftFaceKeys.add(leftFaceEntry.key);
+          usedRightFaceKeys.add(rightFaceEntry.key);
+
+          const kindChanged = leftFaceEntry.kind !== rightFaceEntry.kind;
+          const radiusChanged = leftFaceEntry.radius !== null && rightFaceEntry.radius !== null
+            && Math.abs(rightFaceEntry.radius - leftFaceEntry.radius) > DIMENSION_TOLERANCE;
+          const centerShift = leftFaceEntry.center && rightFaceEntry.center
+            && distanceBetweenPoints(leftFaceEntry.center, rightFaceEntry.center) > DIMENSION_TOLERANCE * 2;
+          const loopChanged = leftFaceEntry.loopCount !== rightFaceEntry.loopCount;
+          const edgeChanged = leftFaceEntry.edgeCount !== rightFaceEntry.edgeCount;
+          const directionChanged = leftFaceEntry.direction && rightFaceEntry.direction
+            && Math.abs(
+              1 - Math.abs(
+                (leftFaceEntry.direction[0] * rightFaceEntry.direction[0])
+                + (leftFaceEntry.direction[1] * rightFaceEntry.direction[1])
+                + (leftFaceEntry.direction[2] * rightFaceEntry.direction[2])
+              )
+            ) > 0.08;
+          if (!(kindChanged || radiusChanged || centerShift || loopChanged || edgeChanged || directionChanged)) return;
+
+          structuredChangedFaceCount += 1;
+          exactHighlightRawFaces.left.push(leftFaceEntry.key);
+          exactHighlightRawFaces.right.push(rightFaceEntry.key);
+          highlightRawFaces.left.push(leftFaceEntry.key);
+          highlightRawFaces.right.push(rightFaceEntry.key);
+
+          const faceLabel = `${bodyLabel} face ${leftFaceEntry.faceIndex} (${leftFaceEntry.kind.toLowerCase()})`;
+          if (leftFaceEntry.center) {
+            exactAnnotations.left.push({
+              point: leftFaceEntry.center,
+              tone: "exact",
+              lines: [
+                radiusChanged
+                  ? `${faceLabel}: ${formatInches(leftFaceEntry.radius)} -> ${formatInches(rightFaceEntry.radius)}`
+                  : `${faceLabel} changed`
+              ],
+            });
+          }
+          if (rightFaceEntry.center) {
+            exactAnnotations.right.push({
+              point: rightFaceEntry.center,
+              tone: "exact",
+              lines: [
+                radiusChanged
+                  ? `${faceLabel}: ${formatInches(rightFaceEntry.radius)} (${formatSignedInches(rightFaceEntry.radius - leftFaceEntry.radius)})`
+                  : `${faceLabel} changed`
+              ],
+            });
+          }
+        });
+        if (structuredChangedFaceCount) {
+          summary.push(`${bodyLabel}: ${structuredChangedFaceCount} source face region(s) changed.`);
+        }
+
+        const unmatchedLeftFaceEntries = leftFaceEntries.filter((entry) => !matchedLeftFaceKeys.has(entry.key));
+        const unmatchedRightFaceEntries = rightFaceEntries.filter((entry) => !usedRightFaceKeys.has(entry.key));
+        unmatchedLeftFaceEntries.slice(0, 6).forEach((entry) => {
+          highlightRawFaces.left.push(entry.key);
+          exactHighlightRawFaces.left.push(entry.key);
+          if (entry.center) {
+            exactAnnotations.left.push({
+              point: entry.center,
+              tone: "exact",
+              lines: [`${bodyLabel} face ${entry.faceIndex} (${entry.kind.toLowerCase()}) removed`],
+            });
+          }
+        });
+        unmatchedRightFaceEntries.slice(0, 6).forEach((entry) => {
+          highlightRawFaces.right.push(entry.key);
+          exactHighlightRawFaces.right.push(entry.key);
+          if (entry.center) {
+            exactAnnotations.right.push({
+              point: entry.center,
+              tone: "exact",
+              lines: [`${bodyLabel} face ${entry.faceIndex} (${entry.kind.toLowerCase()}) added`],
+            });
+          }
+        });
+        if (unmatchedLeftFaceEntries.length || unmatchedRightFaceEntries.length) {
+          summary.push(
+            `${bodyLabel}: source faces changed (${unmatchedLeftFaceEntries.length} removed, ${unmatchedRightFaceEntries.length} added).`
+          );
+        }
+
+        const leftEdgeEntries = (leftBody?.edges || []).map((edge, edgeIndex) =>
+          structuredEdgeEntry(leftBody, edge, leftIndex, edgeIndex, leftLengthScale)
+        );
+        const rightEdgeEntries = (rightBody?.edges || []).map((edge, edgeIndex) =>
+          structuredEdgeEntry(rightBody, edge, rightIndex, edgeIndex, rightLengthScale)
+        );
+        const matchedLeftEdgeKeys = new Set();
+        const usedRightEdgeKeys = new Set();
+        let structuredChangedEdgeCount = 0;
+        leftEdgeEntries.forEach((leftEdgeEntry) => {
+          const rightEdgeEntry = matchStructuredEdge(leftEdgeEntry, rightEdgeEntries, usedRightEdgeKeys);
+          if (!rightEdgeEntry) return;
+          matchedLeftEdgeKeys.add(leftEdgeEntry.key);
+          usedRightEdgeKeys.add(rightEdgeEntry.key);
+
+          const kindChanged = leftEdgeEntry.kind !== rightEdgeEntry.kind;
+          const lengthChanged = leftEdgeEntry.length !== null && rightEdgeEntry.length !== null
+            && Math.abs(rightEdgeEntry.length - leftEdgeEntry.length) > DIMENSION_TOLERANCE;
+          const radiusChanged = leftEdgeEntry.radius !== null && rightEdgeEntry.radius !== null
+            && Math.abs(rightEdgeEntry.radius - leftEdgeEntry.radius) > DIMENSION_TOLERANCE;
+          const centerShift = leftEdgeEntry.center && rightEdgeEntry.center
+            && distanceBetweenPoints(leftEdgeEntry.center, rightEdgeEntry.center) > DIMENSION_TOLERANCE * 2;
+          const endpointShift = leftEdgeEntry.endpoints && rightEdgeEntry.endpoints
+            && structuredEdgeEndpointCost(leftEdgeEntry.endpoints, rightEdgeEntry.endpoints) > DIMENSION_TOLERANCE * 4;
+          if (!(kindChanged || lengthChanged || radiusChanged || centerShift || endpointShift)) return;
+
+          structuredChangedEdgeCount += 1;
+          exactHighlightRawEdges.left.push(leftEdgeEntry.key);
+          exactHighlightRawEdges.right.push(rightEdgeEntry.key);
+          highlightRawEdges.left.push(leftEdgeEntry.key);
+          highlightRawEdges.right.push(rightEdgeEntry.key);
+
+          const edgeLabel = `${bodyLabel} edge ${leftEdgeEntry.edgeIndex} (${leftEdgeEntry.kind.toLowerCase()})`;
+          const leftLines = [];
+          const rightLines = [];
+          if (radiusChanged && !["Circular", "Arc"].includes(leftEdgeEntry.kind)) {
+            leftLines.push(`${edgeLabel}: radius ${formatInches(leftEdgeEntry.radius)} -> ${formatInches(rightEdgeEntry.radius)}`);
+            rightLines.push(`${edgeLabel}: radius ${formatInches(rightEdgeEntry.radius)} (${formatSignedInches(rightEdgeEntry.radius - leftEdgeEntry.radius)})`);
+          } else if (lengthChanged && !["Circular", "Arc"].includes(leftEdgeEntry.kind)) {
+            leftLines.push(`${edgeLabel}: length ${formatInches(leftEdgeEntry.length)} -> ${formatInches(rightEdgeEntry.length)}`);
+            rightLines.push(`${edgeLabel}: length ${formatInches(rightEdgeEntry.length)} (${formatSignedInches(rightEdgeEntry.length - leftEdgeEntry.length)})`);
+          } else if (!["Circular", "Arc"].includes(leftEdgeEntry.kind)) {
+            leftLines.push(`${edgeLabel} changed`);
+            rightLines.push(`${edgeLabel} changed`);
+          }
+          if (leftLines.length && leftEdgeEntry.center) {
+            exactAnnotations.left.push({
+              point: leftEdgeEntry.center,
+              tone: "exact",
+              lines: leftLines,
+            });
+          }
+          if (rightLines.length && rightEdgeEntry.center) {
+            exactAnnotations.right.push({
+              point: rightEdgeEntry.center,
+              tone: "exact",
+              lines: rightLines,
+            });
+          }
+        });
+        if (structuredChangedEdgeCount) {
+          summary.push(`${bodyLabel}: ${structuredChangedEdgeCount} source edge region(s) changed.`);
+        }
+
+        const unmatchedLeftEdgeEntries = leftEdgeEntries.filter((entry) => !matchedLeftEdgeKeys.has(entry.key));
+        const unmatchedRightEdgeEntries = rightEdgeEntries.filter((entry) => !usedRightEdgeKeys.has(entry.key));
+        unmatchedLeftEdgeEntries.slice(0, 6).forEach((entry) => {
+          highlightRawEdges.left.push(entry.key);
+          exactHighlightRawEdges.left.push(entry.key);
+          if (entry.center) {
+            exactAnnotations.left.push({
+              point: entry.center,
+              tone: "exact",
+              lines: [`${bodyLabel} edge ${entry.edgeIndex} (${entry.kind.toLowerCase()}) removed`],
+            });
+          }
+        });
+        unmatchedRightEdgeEntries.slice(0, 6).forEach((entry) => {
+          highlightRawEdges.right.push(entry.key);
+          exactHighlightRawEdges.right.push(entry.key);
+          if (entry.center) {
+            exactAnnotations.right.push({
+              point: entry.center,
+              tone: "exact",
+              lines: [`${bodyLabel} edge ${entry.edgeIndex} (${entry.kind.toLowerCase()}) added`],
+            });
+          }
+        });
+        if (unmatchedLeftEdgeEntries.length || unmatchedRightEdgeEntries.length) {
+          summary.push(
+            `${bodyLabel}: source edges changed (${unmatchedLeftEdgeEntries.length} removed, ${unmatchedRightEdgeEntries.length} added).`
+          );
         }
 
         const circularDiameterSummary = summarizeMetricSetDiff(
@@ -3539,25 +4027,52 @@ HTML = """<!doctype html>
         circularEntryDiff.changes.forEach((change) => {
           if (change.left?.key) exactHighlightRawEdges.left.push(change.left.key);
           if (change.right?.key) exactHighlightRawEdges.right.push(change.right.key);
-          if (change.left?.center) {
+          const circularLabel = `${bodyLabel} circular diameter`;
+          if (change.left?.start && change.left?.end) {
+            exactAnnotations.left.push({
+              start: change.left.start,
+              end: change.left.end,
+              tone: "exact",
+              lines: [
+                change.kind === "changed"
+                  ? `${circularLabel}: ${formatInches(change.left.value)} -> ${formatInches(change.right.value)}`
+                  : `${circularLabel} removed: ${formatInches(change.left.value)}`
+              ],
+            });
+          } else if (change.left?.center) {
             exactAnnotations.left.push({
               point: change.left.center,
               tone: "exact",
               lines: [
                 change.kind === "changed"
-                  ? `${bodyLabel} circular diameter: ${formatInches(change.left.value)} -> ${formatInches(change.right.value)}`
-                  : `${bodyLabel} circular diameter removed: ${formatInches(change.left.value)}`
+                  ? `${circularLabel}: ${formatInches(change.left.value)} -> ${formatInches(change.right.value)}`
+                  : `${circularLabel} removed: ${formatInches(change.left.value)}`
               ],
             });
           }
-          if (change.right?.center) {
+          if (change.right?.start && change.right?.end) {
+            exactAnnotations.right.push({
+              start: change.right.start,
+              end: change.right.end,
+              tone: "exact",
+              lines: [
+                change.kind === "changed"
+                  ? `${circularLabel}: ${formatInches(change.right.value)} (${formatSignedInches(change.delta)})`
+                  : `${circularLabel} added: ${formatInches(change.right.value)}`
+              ],
+              focusSegments: change.kind === "changed"
+                ? [{ start: change.right.start, end: change.right.end }]
+                : [],
+              deltaLabel: change.kind === "changed" ? formatSignedInches(change.delta) : null,
+            });
+          } else if (change.right?.center) {
             exactAnnotations.right.push({
               point: change.right.center,
               tone: "exact",
               lines: [
                 change.kind === "changed"
-                  ? `${bodyLabel} circular diameter: ${formatInches(change.right.value)} (${formatSignedInches(change.delta)})`
-                  : `${bodyLabel} circular diameter added: ${formatInches(change.right.value)}`
+                  ? `${circularLabel}: ${formatInches(change.right.value)} (${formatSignedInches(change.delta)})`
+                  : `${circularLabel} added: ${formatInches(change.right.value)}`
               ],
             });
           }
@@ -3614,8 +4129,6 @@ HTML = """<!doctype html>
         );
         if (areaSummary) {
           summary.push(areaSummary);
-          exactHighlightBodyKeys.left.push(leftPreviewBodyKey);
-          exactHighlightBodyKeys.right.push(rightPreviewBodyKey);
         }
 
         const volumeSummary = summarizeScalarChange(
@@ -3627,8 +4140,6 @@ HTML = """<!doctype html>
         );
         if (volumeSummary) {
           summary.push(volumeSummary);
-          exactHighlightBodyKeys.left.push(leftPreviewBodyKey);
-          exactHighlightBodyKeys.right.push(rightPreviewBodyKey);
         }
       });
 
@@ -3636,7 +4147,7 @@ HTML = """<!doctype html>
         .map((body, index) => ({ body, index }))
         .filter(({ body, index }) => !usedRightBodyIds.has(structuredBodyIdentity(body, index).id));
       unmatchedRightBodies.slice(0, 2).forEach(({ body, index }) => {
-        summary.push(`Added raw NX body: ${structuredBodyName(body, index)}.`);
+        summary.push(`Added source body: ${structuredBodyName(body, index)}.`);
         highlightBodyKeys.right.push(previewBodyRawKey(body, index));
       });
 
@@ -3937,6 +4448,28 @@ HTML = """<!doctype html>
         info.exactAnnotations.right.push(...structuredDiff.exactAnnotations.right);
       }
 
+      const hasStructuredExactGeometry = Boolean(
+        (structuredDiff.exactHighlightRawFaces.left || []).length
+        || (structuredDiff.exactHighlightRawFaces.right || []).length
+        || (structuredDiff.exactHighlightRawEdges.left || []).length
+        || (structuredDiff.exactHighlightRawEdges.right || []).length
+      );
+      if (hasStructuredExactGeometry) {
+        info.highlightComponents = { left: [], right: [] };
+        info.highlightBodyKeys = {
+          left: [...(structuredDiff.highlightBodyKeys.left || [])],
+          right: [...(structuredDiff.highlightBodyKeys.right || [])],
+        };
+        info.exactHighlightBodyKeys = {
+          left: [...(structuredDiff.exactHighlightBodyKeys.left || [])],
+          right: [...(structuredDiff.exactHighlightBodyKeys.right || [])],
+        };
+        info.annotations = {
+          left: [...(structuredDiff.annotations.left || [])],
+          right: [...(structuredDiff.annotations.right || [])],
+        };
+      }
+
       info.summary = dedupeList(info.summary).slice(0, 18);
       info.highlightComponents = {
         left: dedupeList(info.highlightComponents.left),
@@ -4039,6 +4572,11 @@ HTML = """<!doctype html>
         }
       }
       return null;
+    }
+
+    function normalFromTriangle(a, b, c, fallback = null) {
+      const normal = normalFromVertices([a, b, c]);
+      return normal || fallback;
     }
 
     function faceMatchesHighlight(face, highlightFaces, highlightComponents, highlightBodyKeys, highlightRawFaces) {
@@ -5392,6 +5930,9 @@ HTML = """<!doctype html>
             compareAnnotation: {
               annotations: diff.annotations.left,
               exactAnnotations: diff.exactAnnotations.left,
+              exactHighlightBodyKeys: diff.exactHighlightBodyKeys.left,
+              exactHighlightRawFaces: diff.exactHighlightRawFaces.left,
+              exactHighlightRawEdges: diff.exactHighlightRawEdges.left,
             },
             highlightComponents: diff.highlightComponents.left,
             highlightBodyKeys: diff.highlightBodyKeys.left,
@@ -5407,6 +5948,9 @@ HTML = """<!doctype html>
             compareAnnotation: {
               annotations: diff.annotations.right,
               exactAnnotations: diff.exactAnnotations.right,
+              exactHighlightBodyKeys: diff.exactHighlightBodyKeys.right,
+              exactHighlightRawFaces: diff.exactHighlightRawFaces.right,
+              exactHighlightRawEdges: diff.exactHighlightRawEdges.right,
             },
             highlightComponents: diff.highlightComponents.right,
             highlightBodyKeys: diff.highlightBodyKeys.right,
@@ -5696,6 +6240,8 @@ HTML = """<!doctype html>
 
     function applyPreviewViewportMode(viewport, mode) {
       if (!viewport?.previewObjects) return;
+      const previewStrategy = String(viewport?.currentPreview?.strategy || "");
+      const reconstructedSolidPreview = previewStrategy === "json_reconstruction_preview" || previewStrategy === "fused_json_step_preview";
       const {
         compareStyle,
         solidMesh,
@@ -5737,8 +6283,8 @@ HTML = """<!doctype html>
         wireframe.material.opacity = showWireframe ? 1 : 0;
       }
       if (edgeLines) {
-        edgeLines.visible = showWireframe;
-        edgeLines.material.opacity = showWireframe ? 0.78 : 0.32;
+        edgeLines.visible = showWireframe || (showSolid && reconstructedSolidPreview);
+        edgeLines.material.opacity = showWireframe ? 0.78 : (showSolid && reconstructedSolidPreview ? 0.2 : 0.32);
       }
       if (fallbackEdgeLines) {
         fallbackEdgeLines.visible = showWireframe || showSolid;
@@ -5809,7 +6355,7 @@ HTML = """<!doctype html>
         if (vertices.length < 3) continue;
         const faceBodyKey = face?.bodyRawKey || face?.componentId || null;
         if (faceBodyKey) surfaceBodyKeys.add(faceBodyKey);
-        const normal = (face.normal || normalFromVertices(vertices) || [0, 0, 1]).map(Number);
+        const faceNormal = (face.normal || normalFromVertices(vertices) || [0, 0, 1]).map(Number);
         const highlightTone = faceHighlightTone(face, {
           highlightComponents,
           highlightBodyKeys,
@@ -5823,6 +6369,7 @@ HTML = """<!doctype html>
         vertices.forEach(pushPoint);
         for (let index = 1; index < vertices.length - 1; index++) {
           const triangle = [vertices[0], vertices[index], vertices[index + 1]];
+          const triangleNormal = (normalFromTriangle(triangle[0], triangle[1], triangle[2], faceNormal) || faceNormal).map(Number);
           const highlightSurfaceTarget = highlightTone === "exact"
             ? exactHighlightSurfacePositions
             : (highlightTone === "changed" ? highlightSurfacePositions : null);
@@ -5833,7 +6380,7 @@ HTML = """<!doctype html>
               Number(vertex[2]) - preview.center[2],
             ];
             solidPositions.push(...centeredVertex);
-            solidNormals.push(normal[0], normal[1], normal[2]);
+            solidNormals.push(triangleNormal[0], triangleNormal[1], triangleNormal[2]);
             solidColors.push(baseColor[0], baseColor[1], baseColor[2]);
             if (highlightSurfaceTarget) {
               highlightSurfaceTarget.push(...centeredVertex);
@@ -5970,14 +6517,16 @@ HTML = """<!doctype html>
         exactHighlightSurfaceMesh = new THREE.Mesh(
           exactHighlightSurfaceGeometry,
           new THREE.MeshBasicMaterial({
-            color: new THREE.Color("#1e88e5"),
+            color: new THREE.Color("#ffbe66"),
             transparent: true,
-            opacity: 0.34,
-            side: THREE.FrontSide,
+            opacity: 0.62,
+            side: THREE.DoubleSide,
             depthTest: true,
             depthWrite: false,
             toneMapped: false,
-            polygonOffset: false,
+            polygonOffset: true,
+            polygonOffsetFactor: -1,
+            polygonOffsetUnits: -1,
           })
         );
         exactHighlightSurfaceMesh.renderOrder = 4;
@@ -5987,7 +6536,7 @@ HTML = """<!doctype html>
           new THREE.LineBasicMaterial({
             color: new THREE.Color("#1e88e5"),
             transparent: true,
-            opacity: 0.78,
+            opacity: 0.9,
             depthTest: true,
             depthWrite: false,
           })
@@ -7048,6 +7597,7 @@ HTML = """<!doctype html>
         kernelBody,
         kernelGeometry: simplifiedKernelGeometry,
         renderStats: simplifiedKernelGeometry.renderStats,
+        strategy: previewMetadata(report).strategy,
         center,
         span
       };
@@ -7085,11 +7635,19 @@ HTML = """<!doctype html>
       if (!face?.projectedVertices || face.projectedVertices.length < 3) return [];
       const triangles = [];
       for (let index = 1; index < face.projectedVertices.length - 1; index++) {
-        triangles.push([
-          face.projectedVertices[0],
-          face.projectedVertices[index],
-          face.projectedVertices[index + 1],
-        ]);
+        triangles.push({
+          projected: [
+            face.projectedVertices[0],
+            face.projectedVertices[index],
+            face.projectedVertices[index + 1],
+          ],
+          rotatedNormal: normalFromTriangle(
+            face.rotatedVertices?.[0],
+            face.rotatedVertices?.[index],
+            face.rotatedVertices?.[index + 1],
+            face.rotatedNormal || [0, 0, -1]
+          ) || face.rotatedNormal || [0, 0, -1],
+        });
       }
       return triangles;
     }
@@ -7104,15 +7662,13 @@ HTML = """<!doctype html>
       depthBuffer.fill(-Infinity);
 
       for (const face of faces) {
-        const fillRgb = face.exactHighlighted
-          ? [120, 186, 255]
-          : (face.highlighted
-            ? [255, 191, 102]
-            : shadeRgbForNormal(face.rotatedNormal || [0, 0, -1], theme, face.baseColor));
         const fillAlpha = Math.max(0.18, Math.min(1, Number(face.opacity ?? 1)));
 
-        for (const triangle of triangulateProjectedFace(face)) {
-          const [a, b, c] = triangle;
+        for (const triangleInfo of triangulateProjectedFace(face)) {
+          const [a, b, c] = triangleInfo.projected;
+          const fillRgb = (face.exactHighlighted || face.highlighted)
+            ? [255, 191, 102]
+            : shadeRgbForNormal(triangleInfo.rotatedNormal || face.rotatedNormal || [0, 0, -1], theme, face.baseColor);
           const area = edgeFunction(a[0], a[1], b[0], b[1], c[0], c[1]);
           if (Math.abs(area) <= 1e-5) continue;
 
@@ -7159,11 +7715,9 @@ HTML = """<!doctype html>
     function paintSolidFacesNative(ctx2d, faces, theme) {
       for (const face of faces) {
         if (!face.projectedVertices?.length) continue;
-        const fillRgb = face.exactHighlighted
-          ? [120, 186, 255]
-          : (face.highlighted
-            ? [255, 191, 102]
-            : shadeRgbForNormal(face.rotatedNormal || [0, 0, -1], theme, face.baseColor));
+        const fillRgb = (face.exactHighlighted || face.highlighted)
+          ? [255, 191, 102]
+          : shadeRgbForNormal(face.rotatedNormal || [0, 0, -1], theme, face.baseColor);
         ctx2d.fillStyle = rgbCss(fillRgb);
         ctx2d.globalAlpha = Math.max(0.2, Math.min(1, Number(face.opacity ?? 1)));
         ctx2d.beginPath();
@@ -7251,6 +7805,7 @@ HTML = """<!doctype html>
           ...face,
           axis: inferredAxis,
           side: face.side || inferFaceSide(face),
+          rotatedVertices,
           rotatedNormal,
           averageDepth,
           minDepth,
@@ -7281,7 +7836,11 @@ HTML = """<!doctype html>
       });
 
       if (forceMode === "solid" && projectedFaces.length) {
-        const useNativeFill = projectedFaces.length > 1400;
+        const useNativeFill = (
+          projectedFaces.length > 1400
+          && preview.strategy !== "json_reconstruction_preview"
+          && preview.strategy !== "fused_json_step_preview"
+        );
         if (useNativeFill) {
           paintSolidFacesNative(ctx2d, projectedFaces, theme);
         } else {

@@ -1604,6 +1604,21 @@ def compute_arc_point(center, radius, angle, matrix):
     }
 
 
+def compute_ellipse_point(center, radius_u, radius_v, angle, matrix):
+    center_xyz = serialize_xyz(center)
+    if center_xyz is None or radius_u is None or radius_v is None or angle is None:
+        return None
+    x_axis = ((matrix or {}).get("x_axis")) or {"x": 1.0, "y": 0.0, "z": 0.0}
+    y_axis = ((matrix or {}).get("y_axis")) or {"x": 0.0, "y": 1.0, "z": 0.0}
+    cos_a = math.cos(angle)
+    sin_a = math.sin(angle)
+    return {
+        "x": center_xyz["x"] + radius_u * cos_a * x_axis["x"] + radius_v * sin_a * y_axis["x"],
+        "y": center_xyz["y"] + radius_u * cos_a * x_axis["y"] + radius_v * sin_a * y_axis["y"],
+        "z": center_xyz["z"] + radius_u * cos_a * x_axis["z"] + radius_v * sin_a * y_axis["z"],
+    }
+
+
 def transform_point_by_matrix(point, matrix):
     point_xyz = serialize_xyz(point)
     if point_xyz is None or matrix is None:
@@ -1752,6 +1767,45 @@ def build_edge_preview_points(edge_type_name, exact_geometry, curve_measurement,
             if end_xyz is not None:
                 sample_points[-1] = end_xyz
             return dedupe_point_sequence(sample_points)
+
+    if edge_type_name == "Elliptical" and analytic_curve.get("type") == "Conic":
+        center = serialize_xyz(analytic_curve.get("center"))
+        radius_u = analytic_curve.get("k1")
+        radius_v = analytic_curve.get("k2")
+        start_angle = analytic_curve.get("start_param")
+        end_angle = analytic_curve.get("end_param")
+        matrix = analytic_curve.get("matrix")
+        if center is not None and radius_u is not None and radius_v is not None and start_angle is not None and end_angle is not None:
+            try:
+                start_angle = float(start_angle)
+                end_angle = float(end_angle)
+                radius_u = abs(float(radius_u))
+                radius_v = abs(float(radius_v))
+                sweep = end_angle - start_angle
+                is_closed = (
+                    start_xyz is not None
+                    and end_xyz is not None
+                    and point_key(start_xyz) == point_key(end_xyz)
+                )
+                if sweep <= 1e-9 and is_closed:
+                    sweep = 2.0 * math.pi
+                elif sweep < 0.0:
+                    sweep += 2.0 * math.pi
+                if sweep > 1e-6:
+                    segment_count = max(16, min(96, int(math.ceil(abs(sweep) / (math.pi / 24.0)))))
+                    preview = [
+                        compute_ellipse_point(center, radius_u, radius_v, start_angle + (sweep * index / segment_count), matrix)
+                        for index in range(segment_count + 1)
+                    ]
+                    preview = dedupe_point_sequence(preview)
+                    if preview:
+                        if start_xyz is not None:
+                            preview[0] = start_xyz
+                        if end_xyz is not None:
+                            preview[-1] = end_xyz
+                        return preview
+            except Exception:
+                pass
 
     return dedupe_point_sequence([start_xyz, end_xyz])
 
@@ -2798,10 +2852,16 @@ def summarize_edges(session, work_part, uf_session, body):
             curve_measurement = infer_linear_curve_measurement(length, start_point, end_point)
         exact_geometry = reconcile_arc_exact_geometry(exact_geometry, curve_measurement, start_point, end_point)
         preview_points = build_edge_preview_points(edge_type_name, exact_geometry, curve_measurement, start_point, end_point)
-        if (preview_points is None or len(preview_points) < 3) and edge_type_name in ("Spline", "SpCurve", "TrimmedCurve", "Intersection"):
+        if (preview_points is None or len(preview_points) < 3) and edge_type_name not in ("Linear", "Circular"):
             sampled_points = get_curve_sample_points_uf(uf_session, edge_tag)
             if sampled_points:
-                preview_points = sampled_points
+                start_xyz = serialize_xyz(start_point)
+                end_xyz = serialize_xyz(end_point)
+                if start_xyz is not None:
+                    sampled_points[0] = start_xyz
+                if end_xyz is not None and len(sampled_points) >= 2:
+                    sampled_points[-1] = end_xyz
+                preview_points = dedupe_point_sequence(sampled_points)
         connected_face_tags = [get_nx_tag(face) for face in connected_faces]
 
         details.append(
@@ -2861,7 +2921,13 @@ def summarize_faces(session, uf_session, body):
         local_properties = get_face_local_properties(uf_session, face_tag, uv_bounds)
         trimmed_bsurface = get_face_trimmed_bsurface(uf_session, face_tag, len(edges))
         facet_mesh = None
-        if facet_count and facet_count > 0:
+        should_tessellate_face = (
+            (facet_count and facet_count > 0)
+            or face_type_name != "Planar"
+            or len(edges) > 4
+            or int((trimmed_bsurface or {}).get("loop_count") or 0) > 1
+        )
+        if should_tessellate_face:
             facet_mesh = get_face_facet_mesh(uf_session, face_tag, facet_count)
         blend_radius = None
         is_blend = None
