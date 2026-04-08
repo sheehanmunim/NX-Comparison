@@ -13,6 +13,17 @@ NUMBER_PATTERN = r"[+-]?(?:\d+\.\d*|\.\d+|\d+)(?:e[+-]?\d+)?"
 NUMBER_RE = re.compile(NUMBER_PATTERN, flags=re.IGNORECASE)
 
 
+class _StepParseCache:
+    __slots__ = ("point_refs", "direction_refs", "vector_refs", "placement_refs", "surface_refs")
+
+    def __init__(self) -> None:
+        self.point_refs: dict[int, list[float] | None] = {}
+        self.direction_refs: dict[int, list[float] | None] = {}
+        self.vector_refs: dict[int, list[float] | None] = {}
+        self.placement_refs: dict[int, dict[str, list[float]] | None] = {}
+        self.surface_refs: dict[int, tuple[str, dict[str, Any]]] = {}
+
+
 def _skip_ws(text: str, index: int) -> int:
     while index < len(text) and text[index].isspace():
         index += 1
@@ -251,35 +262,76 @@ def _point_from_cartesian(entity: dict[str, Any] | None) -> list[float] | None:
     return [float(args[0][0]), float(args[0][1]), float(args[0][2])]
 
 
-def _point_from_ref(entities: dict[int, dict[str, Any]], value: Any) -> list[float] | None:
-    return _point_from_cartesian(_resolve_entity(entities, value))
+def _point_from_ref(
+    entities: dict[int, dict[str, Any]],
+    value: Any,
+    *,
+    cache: _StepParseCache | None = None,
+) -> list[float] | None:
+    ref = _ref_id(value)
+    if cache is not None and ref is not None and ref in cache.point_refs:
+        return cache.point_refs[ref]
+    point = _point_from_cartesian(_resolve_entity(entities, value))
+    if cache is not None and ref is not None:
+        cache.point_refs[ref] = point
+    return point
 
 
-def _direction_from_ref(entities: dict[int, dict[str, Any]], value: Any) -> list[float] | None:
+def _direction_from_ref(
+    entities: dict[int, dict[str, Any]],
+    value: Any,
+    *,
+    cache: _StepParseCache | None = None,
+) -> list[float] | None:
+    ref = _ref_id(value)
+    if cache is not None and ref is not None and ref in cache.direction_refs:
+        return cache.direction_refs[ref]
     entity = _resolve_entity(entities, value)
     if not _entity_has_type(entity, "DIRECTION"):
         return None
     args = _args_without_name(_entity_args(entity, "DIRECTION"))
     if not args or not isinstance(args[0], list) or len(args[0]) < 3:
         return None
-    return _normalize([float(args[0][0]), float(args[0][1]), float(args[0][2])])
+    direction = _normalize([float(args[0][0]), float(args[0][1]), float(args[0][2])])
+    if cache is not None and ref is not None:
+        cache.direction_refs[ref] = direction
+    return direction
 
 
-def _vector_from_ref(entities: dict[int, dict[str, Any]], value: Any) -> list[float] | None:
+def _vector_from_ref(
+    entities: dict[int, dict[str, Any]],
+    value: Any,
+    *,
+    cache: _StepParseCache | None = None,
+) -> list[float] | None:
+    ref = _ref_id(value)
+    if cache is not None and ref is not None and ref in cache.vector_refs:
+        return cache.vector_refs[ref]
     entity = _resolve_entity(entities, value)
     if not _entity_has_type(entity, "VECTOR"):
         return None
     args = _args_without_name(_entity_args(entity, "VECTOR"))
     if len(args) < 2:
         return None
-    direction = _direction_from_ref(entities, args[0])
+    direction = _direction_from_ref(entities, args[0], cache=cache)
     magnitude = float(args[1]) if args[1] is not None else 1.0
     if direction is None:
         return None
-    return [component * magnitude for component in direction]
+    vector = [component * magnitude for component in direction]
+    if cache is not None and ref is not None:
+        cache.vector_refs[ref] = vector
+    return vector
 
 
-def _placement_from_ref(entities: dict[int, dict[str, Any]], value: Any) -> dict[str, list[float]] | None:
+def _placement_from_ref(
+    entities: dict[int, dict[str, Any]],
+    value: Any,
+    *,
+    cache: _StepParseCache | None = None,
+) -> dict[str, list[float]] | None:
+    ref = _ref_id(value)
+    if cache is not None and ref is not None and ref in cache.placement_refs:
+        return cache.placement_refs[ref]
     entity = _resolve_entity(entities, value)
     if not _entity_has_type(entity, "AXIS2_PLACEMENT_3D"):
         return None
@@ -287,15 +339,15 @@ def _placement_from_ref(entities: dict[int, dict[str, Any]], value: Any) -> dict
     if not args:
         return None
 
-    origin = _point_from_ref(entities, args[0])
+    origin = _point_from_ref(entities, args[0], cache=cache)
     if origin is None:
         return None
 
-    z_axis = _direction_from_ref(entities, args[1]) if len(args) > 1 else None
+    z_axis = _direction_from_ref(entities, args[1], cache=cache) if len(args) > 1 else None
     if z_axis is None:
         z_axis = [0.0, 0.0, 1.0]
 
-    x_axis = _direction_from_ref(entities, args[2]) if len(args) > 2 else None
+    x_axis = _direction_from_ref(entities, args[2], cache=cache) if len(args) > 2 else None
     if x_axis is None:
         x_axis = [1.0, 0.0, 0.0] if abs(z_axis[0]) < 0.9 else [0.0, 1.0, 0.0]
 
@@ -304,7 +356,10 @@ def _placement_from_ref(entities: dict[int, dict[str, Any]], value: Any) -> dict
     x_axis = _normalize(x_axis) or ([1.0, 0.0, 0.0] if abs(z_axis[0]) < 0.9 else [0.0, 1.0, 0.0])
     y_axis = _normalize(_cross(z_axis, x_axis)) or [0.0, 1.0, 0.0]
 
-    return {"origin": origin, "x_axis": x_axis, "y_axis": y_axis, "z_axis": z_axis}
+    placement = {"origin": origin, "x_axis": x_axis, "y_axis": y_axis, "z_axis": z_axis}
+    if cache is not None and ref is not None:
+        cache.placement_refs[ref] = placement
+    return placement
 
 
 def _sample_circle_like(
@@ -357,7 +412,12 @@ def _sample_circle_like(
     return points, start_angle, start_angle + sweep
 
 
-def _curve_control_points(entity: dict[str, Any], entities: dict[int, dict[str, Any]]) -> list[list[float]]:
+def _curve_control_points(
+    entity: dict[str, Any],
+    entities: dict[int, dict[str, Any]],
+    *,
+    cache: _StepParseCache | None = None,
+) -> list[list[float]]:
     candidate_lists: list[list[Any]] = []
     if _entity_has_type(entity, "POLYLINE"):
         args = _args_without_name(_entity_args(entity, "POLYLINE"))
@@ -389,7 +449,7 @@ def _curve_control_points(entity: dict[str, Any], entities: dict[int, dict[str, 
         return []
     points: list[list[float]] = []
     for point_ref in candidate_lists[0]:
-        point = _point_from_ref(entities, point_ref)
+        point = _point_from_ref(entities, point_ref, cache=cache)
         if point is not None:
             points.append(point)
     return points
@@ -419,6 +479,7 @@ def _sample_curve(
     end_point: list[float] | None,
     closed: bool,
     depth: int = 0,
+    cache: _StepParseCache | None = None,
 ) -> tuple[str, list[list[float]], dict[str, Any] | None]:
     if depth > 8:
         points = [point for point in (start_point, end_point) if point is not None]
@@ -439,6 +500,7 @@ def _sample_curve(
             end_point=end_point,
             closed=closed,
             depth=depth + 1,
+            cache=cache,
         )
 
     if _entity_has_type(entity, "SURFACE_CURVE") or _entity_has_type(entity, "SEAM_CURVE") or _entity_has_type(entity, "INTERSECTION_CURVE"):
@@ -452,6 +514,7 @@ def _sample_curve(
             end_point=end_point,
             closed=closed,
             depth=depth + 1,
+            cache=cache,
         )
         override = "Intersection" if type_name == "INTERSECTION_CURVE" else "SpCurve"
         if kind in {"Linear", "Circular", "Elliptical"}:
@@ -462,8 +525,8 @@ def _sample_curve(
         points = [point for point in (start_point, end_point) if point is not None]
         if len(points) < 2:
             args = _args_without_name(_entity_args(entity, "LINE"))
-            base_point = _point_from_ref(entities, args[0]) if args else None
-            direction = _vector_from_ref(entities, args[1]) if len(args) > 1 else None
+            base_point = _point_from_ref(entities, args[0], cache=cache) if args else None
+            direction = _vector_from_ref(entities, args[1], cache=cache) if len(args) > 1 else None
             if base_point and direction:
                 points = [base_point, [base_point[index] + direction[index] for index in range(3)]]
         exact = None
@@ -479,7 +542,7 @@ def _sample_curve(
 
     if _entity_has_type(entity, "CIRCLE"):
         args = _args_without_name(_entity_args(entity, "CIRCLE"))
-        placement = _placement_from_ref(entities, args[0]) if args else None
+        placement = _placement_from_ref(entities, args[0], cache=cache) if args else None
         radius = float(args[1]) if len(args) > 1 and args[1] is not None else None
         if placement and radius is not None:
             points, start_angle, end_angle = _sample_circle_like(
@@ -510,7 +573,7 @@ def _sample_curve(
 
     if _entity_has_type(entity, "ELLIPSE"):
         args = _args_without_name(_entity_args(entity, "ELLIPSE"))
-        placement = _placement_from_ref(entities, args[0]) if args else None
+        placement = _placement_from_ref(entities, args[0], cache=cache) if args else None
         radius_x = float(args[1]) if len(args) > 1 and args[1] is not None else None
         radius_y = float(args[2]) if len(args) > 2 and args[2] is not None else None
         if placement and radius_x is not None and radius_y is not None:
@@ -526,7 +589,7 @@ def _sample_curve(
             )
             return "Elliptical", points, None
 
-    control_points = _curve_control_points(entity, entities)
+    control_points = _curve_control_points(entity, entities, cache=cache)
     if control_points:
         points = control_points
         if start_point is not None and _distance(points[0], start_point) > 1e-8:
@@ -539,28 +602,39 @@ def _sample_curve(
     return _curve_kind_label(entity), points, None
 
 
-def _surface_kind_and_definition(surface_ref: Any, entities: dict[int, dict[str, Any]]) -> tuple[str, dict[str, Any]]:
+def _surface_kind_and_definition(
+    surface_ref: Any,
+    entities: dict[int, dict[str, Any]],
+    *,
+    cache: _StepParseCache | None = None,
+) -> tuple[str, dict[str, Any]]:
+    ref = _ref_id(surface_ref)
+    if cache is not None and ref is not None and ref in cache.surface_refs:
+        return cache.surface_refs[ref]
     entity = _resolve_entity(entities, surface_ref)
     if not entity:
         return "Parametric", {"type": "Parametric", "source": "STEP"}
 
     if _entity_has_type(entity, "PLANE"):
         args = _args_without_name(_entity_args(entity, "PLANE"))
-        placement = _placement_from_ref(entities, args[0]) if args else None
+        placement = _placement_from_ref(entities, args[0], cache=cache) if args else None
         if placement:
-            return "Planar", {
+            result = ("Planar", {
                 "type": "Planar",
                 "reference_point": _point_payload(placement["origin"]),
                 "direction": _point_payload(placement["z_axis"]),
                 "source": "STEP",
-            }
+            })
+            if cache is not None and ref is not None:
+                cache.surface_refs[ref] = result
+            return result
 
     if _entity_has_type(entity, "CYLINDRICAL_SURFACE"):
         args = _args_without_name(_entity_args(entity, "CYLINDRICAL_SURFACE"))
-        placement = _placement_from_ref(entities, args[0]) if args else None
+        placement = _placement_from_ref(entities, args[0], cache=cache) if args else None
         radius = float(args[1]) if len(args) > 1 and args[1] is not None else None
         if placement:
-            return "Cylindrical", {
+            result = ("Cylindrical", {
                 "type": "Cylindrical",
                 "reference_point": _point_payload(placement["origin"]),
                 "direction": _point_payload(placement["z_axis"]),
@@ -568,15 +642,18 @@ def _surface_kind_and_definition(surface_ref: Any, entities: dict[int, dict[str,
                 "axis_direction": _point_payload(placement["z_axis"]),
                 "radius": radius or 0.0,
                 "source": "STEP",
-            }
+            })
+            if cache is not None and ref is not None:
+                cache.surface_refs[ref] = result
+            return result
 
     if _entity_has_type(entity, "CONICAL_SURFACE"):
         args = _args_without_name(_entity_args(entity, "CONICAL_SURFACE"))
-        placement = _placement_from_ref(entities, args[0]) if args else None
+        placement = _placement_from_ref(entities, args[0], cache=cache) if args else None
         radius = float(args[1]) if len(args) > 1 and args[1] is not None else None
         semi_angle = float(args[2]) if len(args) > 2 and args[2] is not None else None
         if placement:
-            return "Conical", {
+            result = ("Conical", {
                 "type": "Conical",
                 "reference_point": _point_payload(placement["origin"]),
                 "direction": _point_payload(placement["z_axis"]),
@@ -585,43 +662,61 @@ def _surface_kind_and_definition(surface_ref: Any, entities: dict[int, dict[str,
                 "radius": radius or 0.0,
                 "radius_data": semi_angle or 0.0,
                 "source": "STEP",
-            }
+            })
+            if cache is not None and ref is not None:
+                cache.surface_refs[ref] = result
+            return result
 
     if _entity_has_type(entity, "SPHERICAL_SURFACE"):
         args = _args_without_name(_entity_args(entity, "SPHERICAL_SURFACE"))
-        placement = _placement_from_ref(entities, args[0]) if args else None
+        placement = _placement_from_ref(entities, args[0], cache=cache) if args else None
         radius = float(args[1]) if len(args) > 1 and args[1] is not None else None
         if placement:
-            return "Spherical", {
+            result = ("Spherical", {
                 "type": "Spherical",
                 "reference_point": _point_payload(placement["origin"]),
                 "radius": radius or 0.0,
                 "source": "STEP",
-            }
+            })
+            if cache is not None and ref is not None:
+                cache.surface_refs[ref] = result
+            return result
 
     if _entity_has_type(entity, "SURFACE_OF_REVOLUTION"):
         args = _args_without_name(_entity_args(entity, "SURFACE_OF_REVOLUTION"))
-        placement = _placement_from_ref(entities, args[1]) if len(args) > 1 else None
+        placement = _placement_from_ref(entities, args[1], cache=cache) if len(args) > 1 else None
         payload = {"type": "SurfaceOfRevolution", "source": "STEP"}
         if placement:
             payload["reference_point"] = _point_payload(placement["origin"])
             payload["direction"] = _point_payload(placement["z_axis"])
             payload["axis_point"] = _point_payload(placement["origin"])
             payload["axis_direction"] = _point_payload(placement["z_axis"])
-        return "SurfaceOfRevolution", payload
+        result = ("SurfaceOfRevolution", payload)
+        if cache is not None and ref is not None:
+            cache.surface_refs[ref] = result
+        return result
 
     if _entity_has_type(entity, "SURFACE_OF_LINEAR_EXTRUSION"):
         args = _args_without_name(_entity_args(entity, "SURFACE_OF_LINEAR_EXTRUSION"))
-        direction = _vector_from_ref(entities, args[1]) if len(args) > 1 else None
+        direction = _vector_from_ref(entities, args[1], cache=cache) if len(args) > 1 else None
         payload = {"type": "Parametric", "source": "STEP"}
         if direction:
             payload["direction"] = _point_payload(_normalize(direction) or direction)
-        return "Parametric", payload
+        result = ("Parametric", payload)
+        if cache is not None and ref is not None:
+            cache.surface_refs[ref] = result
+        return result
 
     if any(_entity_has_type(entity, name) for name in ("TOROIDAL_SURFACE", "B_SPLINE_SURFACE", "B_SPLINE_SURFACE_WITH_KNOTS", "RATIONAL_B_SPLINE_SURFACE", "BEZIER_SURFACE")):
-        return "Parametric", {"type": "Parametric", "source": "STEP"}
+        result = ("Parametric", {"type": "Parametric", "source": "STEP"})
+        if cache is not None and ref is not None:
+            cache.surface_refs[ref] = result
+        return result
 
-    return "Parametric", {"type": "Parametric", "source": "STEP"}
+    result = ("Parametric", {"type": "Parametric", "source": "STEP"})
+    if cache is not None and ref is not None:
+        cache.surface_refs[ref] = result
+    return result
 
 
 def _bounding_box(points: list[list[float]]) -> dict[str, float] | None:
@@ -729,13 +824,47 @@ def _build_body_payload(
     entities: dict[int, dict[str, Any]],
     body_index: int,
     is_solid: bool,
+    cache: _StepParseCache | None = None,
 ) -> dict[str, Any] | None:
     edge_map: dict[str, int] = {}
     vertex_map: dict[str, int] = {}
+    vertex_points: dict[str, list[float] | None] = {}
     edges: list[dict[str, Any]] = []
     faces: list[dict[str, Any]] = []
     topology_vertices: list[dict[str, Any]] = []
-    all_points: list[list[float]] = []
+    bounds_min: list[float] | None = None
+    bounds_max: list[float] | None = None
+
+    def remember_point(point: list[float] | None) -> None:
+        nonlocal bounds_min, bounds_max
+        if point is None:
+            return
+        if bounds_min is None or bounds_max is None:
+            bounds_min = [float(point[0]), float(point[1]), float(point[2])]
+            bounds_max = bounds_min[:]
+            return
+        for index in range(3):
+            value = float(point[index])
+            if value < bounds_min[index]:
+                bounds_min[index] = value
+            if value > bounds_max[index]:
+                bounds_max[index] = value
+
+    def vertex_point_for(vertex_ref: Any) -> list[float] | None:
+        ref = _ref_id(vertex_ref)
+        if ref is None:
+            return None
+        key = f"#{ref}"
+        if key in vertex_points:
+            return vertex_points[key]
+        entity = entities.get(ref)
+        if not _entity_has_type(entity, "VERTEX_POINT"):
+            vertex_points[key] = None
+            return None
+        args = _args_without_name(_entity_args(entity, "VERTEX_POINT"))
+        point = _point_from_ref(entities, args[0], cache=cache) if args else None
+        vertex_points[key] = point
+        return point
 
     def vertex_index_for(vertex_ref: Any) -> int | None:
         ref = _ref_id(vertex_ref)
@@ -747,14 +876,13 @@ def _build_body_payload(
         entity = entities.get(ref)
         if not _entity_has_type(entity, "VERTEX_POINT"):
             return None
-        args = _args_without_name(_entity_args(entity, "VERTEX_POINT"))
-        point = _point_from_ref(entities, args[0]) if args else None
+        point = vertex_point_for(vertex_ref)
         if point is None:
             return None
         index = len(vertex_map) + 1
         vertex_map[key] = index
         topology_vertices.append({"index": index, "point": _point_payload(point)})
-        all_points.append(point)
+        remember_point(point)
         return index
 
     def edge_index_for(edge_ref: Any) -> int | None:
@@ -773,14 +901,15 @@ def _build_body_payload(
         start_vertex_ref, end_vertex_ref, curve_ref, same_sense = args[:4]
         start_vertex_index = vertex_index_for(start_vertex_ref)
         end_vertex_index = vertex_index_for(end_vertex_ref)
-        start_point = _point_from_ref(entities, _args_without_name(_entity_args(_resolve_entity(entities, start_vertex_ref), "VERTEX_POINT"))[0]) if start_vertex_index is not None else None
-        end_point = _point_from_ref(entities, _args_without_name(_entity_args(_resolve_entity(entities, end_vertex_ref), "VERTEX_POINT"))[0]) if end_vertex_index is not None else None
+        start_point = vertex_point_for(start_vertex_ref) if start_vertex_index is not None else None
+        end_point = vertex_point_for(end_vertex_ref) if end_vertex_index is not None else None
         kind, preview_points, exact_geometry = _sample_curve(
             curve_ref,
             entities,
             start_point=start_point,
             end_point=end_point,
             closed=bool(same_sense == ".T." and start_vertex_index is not None and start_vertex_index == end_vertex_index),
+            cache=cache,
         )
         if start_point is not None and not preview_points:
             preview_points = [start_point]
@@ -792,7 +921,8 @@ def _build_body_payload(
         length = 0.0
         for index in range(1, len(preview_points)):
             length += _distance(preview_points[index - 1], preview_points[index])
-        all_points.extend(preview_points)
+        for point in preview_points:
+            remember_point(point)
 
         edge_index = len(edges) + 1
         edge_map[key] = edge_index
@@ -831,7 +961,7 @@ def _build_body_payload(
             continue
         bounds = args[0]
         surface_ref = args[1]
-        face_type, surface_definition = _surface_kind_and_definition(surface_ref, entities)
+        face_type, surface_definition = _surface_kind_and_definition(surface_ref, entities, cache=cache)
         loops: list[dict[str, Any]] = []
         for bound_ref in bounds:
             bound_entity = _resolve_entity(entities, bound_ref)
@@ -896,7 +1026,18 @@ def _build_body_payload(
     if not edges and not faces:
         return None
 
-    bounding_box = _bounding_box(all_points)
+    bounding_box = (
+        {
+            "x_min": bounds_min[0],
+            "y_min": bounds_min[1],
+            "z_min": bounds_min[2],
+            "x_max": bounds_max[0],
+            "y_max": bounds_max[1],
+            "z_max": bounds_max[2],
+        }
+        if bounds_min is not None and bounds_max is not None
+        else None
+    )
     edge_breakdown = Counter(edge.get("type", "Unknown") for edge in edges)
     face_breakdown = Counter(face.get("type", "Unknown") for face in faces)
     shape_summary = "STEP B-rep preview reconstructed from explicit topology and curve definitions."
@@ -941,6 +1082,7 @@ def parse_step_payload(raw_text: str, *, display_name: str) -> dict[str, Any] | 
     units = _detect_units(entities)
     part_name = _product_name(entities) or _file_name_from_header(raw_text) or display_name
     body_refs = _body_face_refs(entities)
+    cache = _StepParseCache()
     bodies: list[dict[str, Any]] = []
     for body_index, (entity_key, face_refs, is_solid) in enumerate(body_refs, start=1):
         body_name = f"Body {body_index}"
@@ -949,7 +1091,14 @@ def parse_step_payload(raw_text: str, *, display_name: str) -> dict[str, Any] | 
             source_args = _entity_args(source_entity)
             if source_args and isinstance(source_args[0], str) and source_args[0]:
                 body_name = source_args[0]
-        built = _build_body_payload(body_name, face_refs, entities=entities, body_index=body_index, is_solid=is_solid)
+        built = _build_body_payload(
+            body_name,
+            face_refs,
+            entities=entities,
+            body_index=body_index,
+            is_solid=is_solid,
+            cache=cache,
+        )
         if built:
             bodies.append(built)
 

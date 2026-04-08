@@ -2176,6 +2176,30 @@ HTML = """<!doctype html>
       return `${(Number(value || 0) * 39.37007874015748).toFixed(3)} in`;
     }
 
+    function reportUnitLabel(report) {
+      return (
+        report?.source_part_summary?.units
+        || report?.transmit_info?.original_units
+        || report?.header?.PART1?.UNITS
+        || ""
+      );
+    }
+
+    function reportLengthScale(report) {
+      const normalized = String(reportUnitLabel(report) || "").trim().toLowerCase();
+      if (["inch", "inches", "in"].includes(normalized)) return 0.0254;
+      if (["millimeter", "millimeters", "mm"].includes(normalized)) return 0.001;
+      if (["centimeter", "centimeters", "cm"].includes(normalized)) return 0.01;
+      if (["meter", "meters", "metre", "metres", "m"].includes(normalized)) return 1.0;
+      return 1.0;
+    }
+
+    function scalePoint(point, scale = 1) {
+      const normalized = pointArray(point);
+      if (!normalized) return null;
+      return normalized.map((value) => value * scale);
+    }
+
     function changeVerb(delta) {
       return delta >= 0 ? "increased" : "decreased";
     }
@@ -3267,7 +3291,7 @@ HTML = """<!doctype html>
       return { changes, truncated: leftIndex < left.length || rightIndex < right.length };
     }
 
-    function circularEdgeDiameters(body) {
+    function circularEdgeDiameters(body, lengthScale = 1) {
       return (body?.edges || [])
         .filter((edge) => edge?.type === "Circular")
         .map((edge) =>
@@ -3281,12 +3305,13 @@ HTML = """<!doctype html>
             finiteNumber(edge?.exact_geometry?.analytic_curve?.radius) !== null
               ? finiteNumber(edge?.exact_geometry?.analytic_curve?.radius) * 2
               : null
-          )
+            )
         )
+        .map((value) => (value === null ? null : value * lengthScale))
         .filter((value) => value !== null);
     }
 
-    function circularEdgeEntries(body, bodyIndex = 0) {
+    function circularEdgeEntries(body, bodyIndex = 0, lengthScale = 1) {
       return (body?.edges || [])
         .filter((edge) => edge?.type === "Circular")
         .map((edge, edgeIndex) => {
@@ -3305,11 +3330,12 @@ HTML = """<!doctype html>
           if (diameter === null) return null;
           return {
             key: structuredEdgeIdentity(body, edge, bodyIndex, edgeIndex),
-            value: diameter,
-            center: pointArray(
+            value: diameter * lengthScale,
+            center: scalePoint(
               edge?.curve_measurement?.center
               || edge?.start_point
-              || (Array.isArray(edge?.preview_points) && edge.preview_points.length ? edge.preview_points[0] : null)
+              || (Array.isArray(edge?.preview_points) && edge.preview_points.length ? edge.preview_points[0] : null),
+              lengthScale
             ),
             label: structuredBodyName(body, bodyIndex),
           };
@@ -3317,17 +3343,18 @@ HTML = """<!doctype html>
         .filter(Boolean);
     }
 
-    function faceRadiusValues(body) {
+    function faceRadiusValues(body, lengthScale = 1) {
       return (body?.faces || [])
         .map((face) =>
           finiteNumber(face?.measurement?.radius_or_diameter)
           ?? finiteNumber(face?.analytic_data?.radius)
           ?? finiteNumber(face?.blend_radius)
         )
+        .map((value) => (value === null ? null : value * lengthScale))
         .filter((value) => value !== null && value > 0);
     }
 
-    function faceRadiusEntries(body, bodyIndex = 0) {
+    function faceRadiusEntries(body, bodyIndex = 0, lengthScale = 1) {
       return (body?.faces || [])
         .map((face, faceIndex) => {
           const radius =
@@ -3337,11 +3364,12 @@ HTML = """<!doctype html>
           if (radius === null || radius <= 0) return null;
           return {
             key: structuredFaceIdentity(body, face, bodyIndex, faceIndex),
-            value: radius,
-            center: pointArray(
+            value: radius * lengthScale,
+            center: scalePoint(
               face?.measurement?.center
               || face?.analytic_data?.reference_point
-              || null
+              || null,
+              lengthScale
             ),
             label: structuredBodyName(body, bodyIndex),
           };
@@ -3420,6 +3448,12 @@ HTML = """<!doctype html>
       const annotations = { left: [], right: [] };
       const exactAnnotations = { left: [], right: [] };
       const usedRightBodyIds = new Set();
+      const leftLengthScale = reportLengthScale(left);
+      const rightLengthScale = reportLengthScale(right);
+      const leftAreaScale = leftLengthScale * leftLengthScale;
+      const rightAreaScale = rightLengthScale * rightLengthScale;
+      const leftVolumeScale = leftAreaScale * leftLengthScale;
+      const rightVolumeScale = rightAreaScale * rightLengthScale;
 
       const leftCounts = structuredTopologyCounts(left);
       const rightCounts = structuredTopologyCounts(right);
@@ -3485,15 +3519,15 @@ HTML = """<!doctype html>
         const circularDiameterSummary = summarizeMetricSetDiff(
           bodyLabel,
           "circular diameters",
-          circularEdgeDiameters(leftBody),
-          circularEdgeDiameters(rightBody),
+          circularEdgeDiameters(leftBody, leftLengthScale),
+          circularEdgeDiameters(rightBody, rightLengthScale),
           formatLength
         );
         if (circularDiameterSummary) summary.push(circularDiameterSummary);
 
         const circularEntryDiff = compareValueEntries(
-          circularEdgeEntries(leftBody, leftIndex),
-          circularEdgeEntries(rightBody, rightIndex)
+          circularEdgeEntries(leftBody, leftIndex, leftLengthScale),
+          circularEdgeEntries(rightBody, rightIndex, rightLengthScale)
         );
         circularEntryDiff.changes.forEach((change) => {
           if (change.left?.key) exactHighlightRawEdges.left.push(change.left.key);
@@ -3525,15 +3559,15 @@ HTML = """<!doctype html>
         const faceRadiusSummary = summarizeMetricSetDiff(
           bodyLabel,
           "face radii",
-          faceRadiusValues(leftBody),
-          faceRadiusValues(rightBody),
+          faceRadiusValues(leftBody, leftLengthScale),
+          faceRadiusValues(rightBody, rightLengthScale),
           formatLength
         );
         if (faceRadiusSummary) summary.push(faceRadiusSummary);
 
         const faceEntryDiff = compareValueEntries(
-          faceRadiusEntries(leftBody, leftIndex),
-          faceRadiusEntries(rightBody, rightIndex)
+          faceRadiusEntries(leftBody, leftIndex, leftLengthScale),
+          faceRadiusEntries(rightBody, rightIndex, rightLengthScale)
         );
         faceEntryDiff.changes.forEach((change) => {
           if (change.left?.key) exactHighlightRawFaces.left.push(change.left.key);
@@ -3565,8 +3599,8 @@ HTML = """<!doctype html>
         const areaSummary = summarizeScalarChange(
           bodyLabel,
           "surface area",
-          leftBody?.measurement?.surface_area,
-          rightBody?.measurement?.surface_area,
+          finiteNumber(leftBody?.measurement?.surface_area) !== null ? Number(leftBody.measurement.surface_area) * leftAreaScale : null,
+          finiteNumber(rightBody?.measurement?.surface_area) !== null ? Number(rightBody.measurement.surface_area) * rightAreaScale : null,
           formatArea
         );
         if (areaSummary) {
@@ -3578,8 +3612,8 @@ HTML = """<!doctype html>
         const volumeSummary = summarizeScalarChange(
           bodyLabel,
           "volume",
-          leftBody?.measurement?.volume,
-          rightBody?.measurement?.volume,
+          finiteNumber(leftBody?.measurement?.volume) !== null ? Number(leftBody.measurement.volume) * leftVolumeScale : null,
+          finiteNumber(rightBody?.measurement?.volume) !== null ? Number(rightBody.measurement.volume) * rightVolumeScale : null,
           formatVolume
         );
         if (volumeSummary) {
