@@ -2109,6 +2109,8 @@ HTML = """<!doctype html>
       activeTab: "overview",
       viewer: defaultViewerState(),
       compareMode: "solid",
+      compareHighlightsVisible: true,
+      compareCalloutsVisible: true,
       viewportBackground: "gray",
       compareSync: false,
       compareMlCache: {},
@@ -2122,6 +2124,7 @@ HTML = """<!doctype html>
         backgroundStep: {},
       },
       importProgressJobs: [],
+      previewViewportSnapshots: {},
       compareViewers: {
         left: defaultViewerState(),
         right: defaultViewerState()
@@ -7453,6 +7456,7 @@ self.onmessage = async (event) => {
       const ctx2d = canvasEl.getContext("2d");
       if (!ctx2d) return;
       ctx2d.clearRect(0, 0, canvasEl.width, canvasEl.height);
+      if (viewport?.showCallouts === false) return;
       if (!viewport?.currentPreview || !viewport?.currentCompareAnnotation) return;
 
       const annotationList = dedupeCompareAnnotations([
@@ -7713,6 +7717,9 @@ self.onmessage = async (event) => {
     }
 
     function handleSelectionClick(key, event) {
+      if (previewViewport?.currentReportKey) {
+        storePreviewViewportSnapshot(previewViewport);
+      }
       if (event.metaKey || event.ctrlKey || event.shiftKey) {
         addComparisonSelection(key);
       } else {
@@ -7772,6 +7779,24 @@ self.onmessage = async (event) => {
       viewport.controls.update();
       viewport.currentPreset = snapshot.preset || viewport.currentPreset || "iso";
       return true;
+    }
+
+    function previewViewportSnapshot(reportKeyValue) {
+      if (!reportKeyValue) return null;
+      return state.previewViewportSnapshots?.[reportKeyValue] || null;
+    }
+
+    function storePreviewViewportSnapshot(viewport, reportKeyOverride = null) {
+      const snapshot = captureViewportCameraState(viewport);
+      const key = reportKeyOverride || snapshot?.reportKey || viewport?.currentReportKey || null;
+      if (!snapshot || !key) return;
+      state.previewViewportSnapshots = {
+        ...(state.previewViewportSnapshots || {}),
+        [key]: {
+          ...snapshot,
+          reportKey: key,
+        },
+      };
     }
 
     function compareViewportSnapshots() {
@@ -8408,6 +8433,22 @@ self.onmessage = async (event) => {
       const rightExactCallouts = compareAnnotationLines(diff.exactAnnotations.right, 4, "exact");
       const leftCallouts = compareAnnotationLines(diff.annotations.left);
       const rightCallouts = compareAnnotationLines(diff.annotations.right);
+      const showHighlights = state.compareHighlightsVisible !== false;
+      const showCallouts = state.compareCalloutsVisible !== false;
+      const leftHighlightComponents = showHighlights ? diff.highlightComponents.left : [];
+      const rightHighlightComponents = showHighlights ? diff.highlightComponents.right : [];
+      const leftHighlightBodyKeys = showHighlights ? diff.highlightBodyKeys.left : [];
+      const rightHighlightBodyKeys = showHighlights ? diff.highlightBodyKeys.right : [];
+      const leftHighlightRawFaces = showHighlights ? diff.highlightRawFaces.left : [];
+      const rightHighlightRawFaces = showHighlights ? diff.highlightRawFaces.right : [];
+      const leftHighlightRawEdges = showHighlights ? diff.highlightRawEdges.left : [];
+      const rightHighlightRawEdges = showHighlights ? diff.highlightRawEdges.right : [];
+      const leftExactHighlightBodyKeys = showHighlights ? diff.exactHighlightBodyKeys.left : [];
+      const rightExactHighlightBodyKeys = showHighlights ? diff.exactHighlightBodyKeys.right : [];
+      const leftExactHighlightRawFaces = showHighlights ? diff.exactHighlightRawFaces.left : [];
+      const rightExactHighlightRawFaces = showHighlights ? diff.exactHighlightRawFaces.right : [];
+      const leftExactHighlightRawEdges = showHighlights ? diff.exactHighlightRawEdges.left : [];
+      const rightExactHighlightRawEdges = showHighlights ? diff.exactHighlightRawEdges.right : [];
       const rows = [
         ["Decoded Names", left.decoded_names?.join(", ") || "None", right.decoded_names?.join(", ") || "None"],
         ["Inferred Shape", topologyLabel(left), topologyLabel(right)],
@@ -8447,6 +8488,14 @@ self.onmessage = async (event) => {
               <input type="checkbox" id="compare-sync-toggle" ${state.compareSync ? "checked" : ""}>
               Move both models together
             </label>
+            <label>
+              <input type="checkbox" id="compare-highlights-toggle" ${showHighlights ? "checked" : ""}>
+              Show highlights
+            </label>
+            <label>
+              <input type="checkbox" id="compare-callouts-toggle" ${showCallouts ? "checked" : ""}>
+              Show callouts
+            </label>
             <div class="toolbar-cluster" id="compare-display-modes"></div>
             <div class="toolbar-cluster" id="compare-view-presets"></div>
             <div class="toolbar-cluster" id="compare-background-presets"></div>
@@ -8461,11 +8510,11 @@ self.onmessage = async (event) => {
               </div>
               <div class="compare-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. This view now renders directly in WebGL.</div>
               <div class="compare-note">${escapeHtml(`${left.file_name} is currently using ${reportCompareDataBasis(left)}.`)}</div>
-              <div class="compare-note">Orange marks changed regions. Blue marks exact measured differences.</div>
+              <div class="compare-note">${showHighlights ? "Orange marks changed regions. Blue marks exact measured differences." : "Highlight accents are hidden, so this pane is rendering the normal part appearance."}</div>
               <div class="compare-note">${escapeHtml(stageLines.join(" | "))}</div>
               <div class="compare-note">${compareMl ? escapeHtml(`Comparison ML: ${compareMlStatusLabel(compareMl)}`) : "Comparison ML is loading in the background."}</div>
-              <div class="compare-note">${leftExactCallouts.length ? leftExactCallouts.map((line) => escapeHtml(line)).join("<br>") : "Exact size, radius, and diameter differences will show in blue when detected."}</div>
-              <div class="compare-note">${leftCallouts.length ? leftCallouts.map((line) => escapeHtml(line)).join("<br>") : "Changed regions will highlight in orange on this side."}</div>
+              ${showCallouts ? `<div class="compare-note">${leftExactCallouts.length ? leftExactCallouts.map((line) => escapeHtml(line)).join("<br>") : "Exact size, radius, and diameter differences will show in blue when detected."}</div>` : ""}
+              ${showCallouts ? `<div class="compare-note">${leftCallouts.length ? leftCallouts.map((line) => escapeHtml(line)).join("<br>") : "Changed regions will highlight in orange on this side."}</div>` : ""}
             </div>
             <div class="compare-preview-card">
               <h3>${escapeHtml(right.file_name)}</h3>
@@ -8476,11 +8525,11 @@ self.onmessage = async (event) => {
               </div>
               <div class="compare-note">This comparison pane uses the same WebGL mesh pipeline as the main preview.</div>
               <div class="compare-note">${escapeHtml(`${right.file_name} is currently using ${reportCompareDataBasis(right)}.`)}</div>
-              <div class="compare-note">Orange marks changed regions. Blue marks exact measured differences.</div>
+              <div class="compare-note">${showHighlights ? "Orange marks changed regions. Blue marks exact measured differences." : "Highlight accents are hidden, so this pane is rendering the normal part appearance."}</div>
               <div class="compare-note">${escapeHtml(stageLines.join(" | "))}</div>
               <div class="compare-note">${compareMl?.model?.type ? escapeHtml(`ML model: ${compareMl.model.type}`) : "Learning-based compare will refine matches when available."}</div>
-              <div class="compare-note">${rightExactCallouts.length ? rightExactCallouts.map((line) => escapeHtml(line)).join("<br>") : "Exact size, radius, and diameter differences will show in blue when detected."}</div>
-              <div class="compare-note">${rightCallouts.length ? rightCallouts.map((line) => escapeHtml(line)).join("<br>") : "Changed regions will highlight in orange on this side."}</div>
+              ${showCallouts ? `<div class="compare-note">${rightExactCallouts.length ? rightExactCallouts.map((line) => escapeHtml(line)).join("<br>") : "Exact size, radius, and diameter differences will show in blue when detected."}</div>` : ""}
+              ${showCallouts ? `<div class="compare-note">${rightCallouts.length ? rightCallouts.map((line) => escapeHtml(line)).join("<br>") : "Changed regions will highlight in orange on this side."}</div>` : ""}
             </div>
           </div>
           <table>
@@ -8556,6 +8605,20 @@ self.onmessage = async (event) => {
           setStatus("Comparison sync disabled. Each model moves independently.");
         }
       });
+      byId("compare-highlights-toggle").addEventListener("change", (event) => {
+        state.compareHighlightsVisible = event.target.checked;
+        renderCompare();
+        setStatus(state.compareHighlightsVisible
+          ? "Comparison highlights are visible."
+          : "Comparison highlights are hidden.");
+      });
+      byId("compare-callouts-toggle").addEventListener("change", (event) => {
+        state.compareCalloutsVisible = event.target.checked;
+        renderCompare();
+        setStatus(state.compareCalloutsVisible
+          ? "Comparison callouts are visible."
+          : "Comparison callouts are hidden.");
+      });
 
       drawComparePreviews(viewportSnapshots);
     }
@@ -8602,20 +8665,22 @@ self.onmessage = async (event) => {
           rebuildPreviewViewport(leftViewport, left, {
             fitView: (!leftPreserveView) && (leftViewport.currentReportKey !== reportKey(left) || !leftViewport.previewObjects),
             mode: state.compareMode,
-            compareAnnotation: {
+            compareAnnotation: showCallouts ? {
               annotations: diff.annotations.left,
               exactAnnotations: diff.exactAnnotations.left,
-              exactHighlightBodyKeys: diff.exactHighlightBodyKeys.left,
-              exactHighlightRawFaces: diff.exactHighlightRawFaces.left,
-              exactHighlightRawEdges: diff.exactHighlightRawEdges.left,
-            },
-            highlightComponents: diff.highlightComponents.left,
-            highlightBodyKeys: diff.highlightBodyKeys.left,
-            highlightRawFaces: diff.highlightRawFaces.left,
-            highlightRawEdges: diff.highlightRawEdges.left,
-            exactHighlightBodyKeys: diff.exactHighlightBodyKeys.left,
-            exactHighlightRawFaces: diff.exactHighlightRawFaces.left,
-            exactHighlightRawEdges: diff.exactHighlightRawEdges.left,
+              exactHighlightBodyKeys: leftExactHighlightBodyKeys,
+              exactHighlightRawFaces: leftExactHighlightRawFaces,
+              exactHighlightRawEdges: leftExactHighlightRawEdges,
+            } : null,
+            showCallouts,
+            compareStyle: showHighlights,
+            highlightComponents: leftHighlightComponents,
+            highlightBodyKeys: leftHighlightBodyKeys,
+            highlightRawFaces: leftHighlightRawFaces,
+            highlightRawEdges: leftHighlightRawEdges,
+            exactHighlightBodyKeys: leftExactHighlightBodyKeys,
+            exactHighlightRawFaces: leftExactHighlightRawFaces,
+            exactHighlightRawEdges: leftExactHighlightRawEdges,
           });
           if (leftPreserveView) {
             applyViewportCameraState(leftViewport, leftSnapshot);
@@ -8624,20 +8689,22 @@ self.onmessage = async (event) => {
           rebuildPreviewViewport(rightViewport, right, {
             fitView: (!rightPreserveView) && (rightViewport.currentReportKey !== reportKey(right) || !rightViewport.previewObjects),
             mode: state.compareMode,
-            compareAnnotation: {
+            compareAnnotation: showCallouts ? {
               annotations: diff.annotations.right,
               exactAnnotations: diff.exactAnnotations.right,
-              exactHighlightBodyKeys: diff.exactHighlightBodyKeys.right,
-              exactHighlightRawFaces: diff.exactHighlightRawFaces.right,
-              exactHighlightRawEdges: diff.exactHighlightRawEdges.right,
-            },
-            highlightComponents: diff.highlightComponents.right,
-            highlightBodyKeys: diff.highlightBodyKeys.right,
-            highlightRawFaces: diff.highlightRawFaces.right,
-            highlightRawEdges: diff.highlightRawEdges.right,
-            exactHighlightBodyKeys: diff.exactHighlightBodyKeys.right,
-            exactHighlightRawFaces: diff.exactHighlightRawFaces.right,
-            exactHighlightRawEdges: diff.exactHighlightRawEdges.right,
+              exactHighlightBodyKeys: rightExactHighlightBodyKeys,
+              exactHighlightRawFaces: rightExactHighlightRawFaces,
+              exactHighlightRawEdges: rightExactHighlightRawEdges,
+            } : null,
+            showCallouts,
+            compareStyle: showHighlights,
+            highlightComponents: rightHighlightComponents,
+            highlightBodyKeys: rightHighlightBodyKeys,
+            highlightRawFaces: rightHighlightRawFaces,
+            highlightRawEdges: rightHighlightRawEdges,
+            exactHighlightBodyKeys: rightExactHighlightBodyKeys,
+            exactHighlightRawFaces: rightExactHighlightRawFaces,
+            exactHighlightRawEdges: rightExactHighlightRawEdges,
           });
           if (rightPreserveView) {
             applyViewportCameraState(rightViewport, rightSnapshot);
@@ -9619,6 +9686,7 @@ self.onmessage = async (event) => {
         currentReportKey: null,
         currentHiddenKey: "",
         currentCompareAnnotation: null,
+        showCallouts: true,
         syncingFromPeer: false,
       };
 
@@ -9628,6 +9696,9 @@ self.onmessage = async (event) => {
           if (peer?.currentPreview) {
             syncViewportCamera(viewport, peer);
           }
+        }
+        if (!viewport.side && viewport.currentReportKey) {
+          storePreviewViewportSnapshot(viewport);
         }
         renderPreviewViewport(viewport);
       });
@@ -9642,6 +9713,9 @@ self.onmessage = async (event) => {
       });
       canvasEl.addEventListener("dblclick", () => {
         fitPreviewViewport(viewport, "fit");
+        if (!viewport.side && viewport.currentReportKey) {
+          storePreviewViewportSnapshot(viewport);
+        }
         if (viewport.side && state.compareSync) {
           const peer = compareViewports[viewport.side === "left" ? "right" : "left"];
           if (peer?.currentPreview) {
@@ -9705,7 +9779,7 @@ self.onmessage = async (event) => {
       }
 
       const objects = buildPreviewViewportObjects(viewport, preview, {
-        compareStyle: Boolean(options.compareAnnotation),
+        compareStyle: options.compareStyle ?? Boolean(options.compareAnnotation),
         highlightComponents: options.highlightComponents || [],
         highlightBodyKeys: options.highlightBodyKeys || [],
         highlightRawFaces: options.highlightRawFaces || [],
@@ -9721,10 +9795,18 @@ self.onmessage = async (event) => {
       viewport.currentReportKey = reportKey(resolvedReport);
       viewport.currentHiddenKey = JSON.stringify(hiddenPreviewBodiesForReport(resolvedReport));
       viewport.currentCompareAnnotation = options.compareAnnotation || null;
+      viewport.showCallouts = options.showCallouts !== false;
       setViewportOverlay(viewport, "");
       applyPreviewViewportMode(viewport, options.mode || state.viewer.mode);
+      if (options.cameraSnapshot && applyViewportCameraState(viewport, options.cameraSnapshot)) {
+        renderPreviewViewport(viewport);
+        return;
+      }
       if (options.fitView) {
         fitPreviewViewport(viewport, viewport.currentPreset || "iso");
+        if (!viewport.side && viewport.currentReportKey) {
+          storePreviewViewportSnapshot(viewport);
+        }
       }
       renderPreviewViewport(viewport);
     }
@@ -9735,10 +9817,16 @@ self.onmessage = async (event) => {
           const report = activeReport();
           const nextReportKey = report ? reportKey(report) : null;
           const nextHiddenKey = report ? JSON.stringify(hiddenPreviewBodiesForReport(report)) : "";
-          const fitView = nextReportKey !== viewport.currentReportKey;
+          const savedSnapshot = nextReportKey ? previewViewportSnapshot(nextReportKey) : null;
+          const reportChanged = nextReportKey !== viewport.currentReportKey;
+          const fitView = reportChanged && !savedSnapshot;
           setPreviewViewportBackground(viewport);
-          if (fitView || nextHiddenKey !== viewport.currentHiddenKey || !viewport.previewObjects) {
-            rebuildPreviewViewport(viewport, report, { fitView, mode: state.viewer.mode });
+          if (reportChanged || nextHiddenKey !== viewport.currentHiddenKey || !viewport.previewObjects) {
+            rebuildPreviewViewport(viewport, report, {
+              fitView,
+              mode: state.viewer.mode,
+              cameraSnapshot: savedSnapshot,
+            });
             return;
           }
           applyPreviewViewportMode(viewport, state.viewer.mode);
