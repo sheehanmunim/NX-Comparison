@@ -4746,7 +4746,7 @@ HTML = """<!doctype html>
 
       const ux = dx / length;
       const uy = dy / length;
-      const head = Math.max(8, Math.min(14, length * 0.12));
+      const head = Math.max(4, Math.min(14, length * 0.18));
       const wing = head * 0.55;
 
       ctx2d.strokeStyle = color;
@@ -4824,13 +4824,13 @@ HTML = """<!doctype html>
         const dx = end[0] - start[0];
         const dy = end[1] - start[1];
         const length = Math.hypot(dx, dy);
-        if (length < 18) {
+        if (length < 1e-6) {
           continue;
         }
 
         const nx = -dy / length;
         const ny = dx / length;
-        const offset = 18;
+        const offset = Math.max(8, Math.min(18, length * 0.3));
         const arrowStart = [start[0] + nx * offset, start[1] + ny * offset];
         const arrowEnd = [end[0] + nx * offset, end[1] + ny * offset];
         drawArrow(ctx2d, arrowStart, arrowEnd, color);
@@ -4851,7 +4851,7 @@ HTML = """<!doctype html>
             const highlightedStart = [segmentStart[0] + nx * offset, segmentStart[1] + ny * offset];
             const highlightedEnd = [segmentEnd[0] + nx * offset, segmentEnd[1] + ny * offset];
             const highlightedLength = Math.hypot(highlightedEnd[0] - highlightedStart[0], highlightedEnd[1] - highlightedStart[1]);
-            if (highlightedLength < 8) continue;
+            if (highlightedLength < 1.5) continue;
 
             ctx2d.strokeStyle = exactTone ? "rgba(30,136,229,0.26)" : "rgba(30,136,229,0.18)";
             ctx2d.lineWidth = 10;
@@ -5006,11 +5006,11 @@ HTML = """<!doctype html>
         const dx = end[0] - start[0];
         const dy = end[1] - start[1];
         const length = Math.hypot(dx, dy);
-        if (length < 18) continue;
+        if (length < 1e-6) continue;
 
         const nx = -dy / length;
         const ny = dx / length;
-        const offset = 18;
+        const offset = Math.max(8, Math.min(18, length * 0.3));
         const arrowStart = [start[0] + nx * offset, start[1] + ny * offset];
         const arrowEnd = [end[0] + nx * offset, end[1] + ny * offset];
         drawArrow(ctx2d, arrowStart, arrowEnd, color);
@@ -5032,7 +5032,7 @@ HTML = """<!doctype html>
             const highlightedStart = [segmentStart[0] + nx * offset, segmentStart[1] + ny * offset];
             const highlightedEnd = [segmentEnd[0] + nx * offset, segmentEnd[1] + ny * offset];
             const highlightedLength = Math.hypot(highlightedEnd[0] - highlightedStart[0], highlightedEnd[1] - highlightedStart[1]);
-            if (highlightedLength < 8) continue;
+            if (highlightedLength < 1.5) continue;
 
             ctx2d.strokeStyle = exactTone ? "rgba(30,136,229,0.26)" : "rgba(30,136,229,0.18)";
             ctx2d.lineWidth = 10;
