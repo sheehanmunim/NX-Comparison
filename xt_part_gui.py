@@ -5251,10 +5251,103 @@ HTML = """<!doctype html>
       return null;
     }
 
+    function annotationPrimaryLine(annotation) {
+      for (const line of annotation?.lines || []) {
+        const text = String(line || "").trim();
+        if (text) return text;
+      }
+      return "";
+    }
+
+    function annotationAnchorPoint(annotation) {
+      if (annotation?.focusSegments?.length) {
+        const segment = annotation.focusSegments[0];
+        if (segment?.start && segment?.end) {
+          return midpointBetweenPoints(segment.start, segment.end);
+        }
+      }
+      if (annotation?.point) return annotation.point;
+      if (annotation?.start && annotation?.end) {
+        return midpointBetweenPoints(annotation.start, annotation.end);
+      }
+      return null;
+    }
+
+    function roundedPointKey(point, precision = 4) {
+      if (!Array.isArray(point) || point.length < 3) return "none";
+      return point
+        .slice(0, 3)
+        .map((value) => Number(value || 0).toFixed(precision))
+        .join(",");
+    }
+
+    function annotationSemanticKind(annotation) {
+      const line = annotationPrimaryLine(annotation).toLowerCase();
+      if (!line) return "generic";
+      if (line.includes("extrude offset")) return "extrude_offset";
+      if (line.includes("face radius shifted")) return "radius_shift";
+      if (line.includes("circular diameter shifted")) return "diameter_shift";
+      if (line.includes(" shifted")) return "face_shift";
+      return "generic";
+    }
+
+    function annotationPriority(annotation) {
+      return {
+        extrude_offset: 5,
+        face_shift: 4,
+        generic: 3,
+        diameter_shift: 2,
+        radius_shift: 1,
+      }[annotationSemanticKind(annotation)] || 0;
+    }
+
+    function annotationSemanticGroupKey(annotation) {
+      const semanticKind = annotationSemanticKind(annotation);
+      if (!["extrude_offset", "face_shift", "diameter_shift", "radius_shift"].includes(semanticKind)) {
+        return null;
+      }
+      const anchor = roundedPointKey(annotationAnchorPoint(annotation));
+      const delta = String(annotation?.deltaLabel || "").replace(/\s+total$/i, "").trim() || "none";
+      const tone = annotation?.tone || "changed";
+      return `${tone}:shift:${anchor}:${delta}`;
+    }
+
+    function dedupeCompareAnnotations(annotations) {
+      const result = [];
+      const groupedIndexes = new Map();
+      for (const annotation of annotations || []) {
+        if (!annotation) continue;
+        const normalized = {
+          ...annotation,
+          lines: dedupeList((annotation.lines || []).map((line) => String(line || "").trim()).filter(Boolean)),
+        };
+        if (!normalized.lines.length) continue;
+
+        const groupKey = annotationSemanticGroupKey(normalized);
+        if (!groupKey) {
+          result.push(normalized);
+          continue;
+        }
+
+        if (!groupedIndexes.has(groupKey)) {
+          groupedIndexes.set(groupKey, result.length);
+          result.push(normalized);
+          continue;
+        }
+
+        const existingIndex = groupedIndexes.get(groupKey);
+        const existing = result[existingIndex];
+        if (annotationPriority(normalized) > annotationPriority(existing)) {
+          result[existingIndex] = normalized;
+        }
+      }
+      return result;
+    }
+
     function compareAnnotationLines(annotations, limit = 6, tone = null) {
       const seen = new Set();
       const lines = [];
-      for (const annotation of annotations || []) {
+      for (const annotation of dedupeCompareAnnotations(annotations)) {
         if (tone && (annotation?.tone || "changed") !== tone) continue;
         for (const line of annotation?.lines || []) {
           const text = String(line || "").trim();
@@ -5300,10 +5393,10 @@ HTML = """<!doctype html>
     }
 
     function drawCompareAnnotations(ctx2d, canvasEl, preview, viewer, scale, compareAnnotation) {
-      const annotationList = [
+      const annotationList = dedupeCompareAnnotations([
         ...(compareAnnotation?.annotations || []),
         ...(compareAnnotation?.exactAnnotations || []),
-      ];
+      ]);
       if (!annotationList.length || !preview) return;
       const hasExactGeometryHighlight = Boolean(
         (compareAnnotation?.exactHighlightRawFaces || []).length
@@ -5479,10 +5572,10 @@ HTML = """<!doctype html>
       ctx2d.clearRect(0, 0, canvasEl.width, canvasEl.height);
       if (!viewport?.currentPreview || !viewport?.currentCompareAnnotation) return;
 
-      const annotationList = [
+      const annotationList = dedupeCompareAnnotations([
         ...(viewport.currentCompareAnnotation.annotations || []),
         ...(viewport.currentCompareAnnotation.exactAnnotations || []),
-      ];
+      ]);
       if (!annotationList.length) return;
 
       const hasExactGeometryHighlight = Boolean(
