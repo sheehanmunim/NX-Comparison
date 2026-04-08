@@ -26,12 +26,14 @@ from xt_part_report import (
     analyze_xt_text,
     analyze_input_bytes,
     analyze_input_text,
+    convert_step_report,
     metric_and_imperial,
     parse_imported_json_text,
     parse_imported_report_text,
     parse_stl_input_bytes,
     parse_step_input_text,
 )
+from xt_step import parse_step_payload
 
 
 HOST = "127.0.0.1"
@@ -300,6 +302,36 @@ def _upload_file_suffix(display_name: str, source_path: str | None = None) -> st
     return ""
 
 
+def _structured_payload_counts(payload: dict[str, Any] | None) -> tuple[int, int, int]:
+    bodies = list((payload or {}).get("bodies") or [])
+    body_count = int((payload or {}).get("body_count") or len(bodies))
+    face_count = 0
+    edge_count = 0
+    for body in bodies:
+        face_count += len(body.get("faces") or [])
+        edge_count += len(body.get("edges") or [])
+    return body_count, face_count, edge_count
+
+
+def _upload_phase_label(phase: str) -> str:
+    labels = {
+        "queued": "Queued",
+        "starting": "Starting",
+        "detect_format": "Detecting format",
+        "parse_stl": "Parsing STL mesh",
+        "decode_text": "Decoding text",
+        "parse_json": "Parsing JSON",
+        "parse_report": "Checking report format",
+        "parse_step_entities": "Reading STEP entities",
+        "build_step_report": "Building STEP report",
+        "parse_xt": "Parsing Parasolid text",
+        "finalize_report": "Finalizing report",
+        "done": "Done",
+        "failed": "Failed",
+    }
+    return labels.get(str(phase or ""), str(phase or "").replace("_", " ").title() or "Working")
+
+
 def _analyze_upload_bytes_with_progress(
     raw_bytes: bytes,
     *,
@@ -366,16 +398,31 @@ def _analyze_upload_bytes_with_progress(
         return imported_reports
 
     if suffix_hint in {".stp", ".step"} or suffix_hint == "":
-        emit("parse_step", "Parsing STEP structure.")
-        imported_reports = parse_step_input_text(
-            raw_text,
-            display_name=display_name,
-            source_path=source_path,
-            file_size_bytes=normalized_size,
-        )
-        if imported_reports is not None:
-            emit("finalize_report", "Building STEP preview report.")
-            return imported_reports
+        emit("parse_step_entities", "Reading STEP entities.")
+        step_payload = parse_step_payload(raw_text, display_name=display_name)
+        if step_payload is not None:
+            body_count, face_count, edge_count = _structured_payload_counts(step_payload)
+            emit(
+                "build_step_report",
+                f"Building structured STEP report ({body_count} bodies, {face_count} faces, {edge_count} edges).",
+            )
+            imported_report = convert_step_report(
+                step_payload,
+                display_name=display_name,
+                source_path=source_path,
+                file_size_bytes=normalized_size,
+                raw_text=raw_text,
+                prefer_occ_preview=False,
+            )
+            step_import = imported_report.get("step_import") or {}
+            backend_label = str(step_import.get("backend") or "native_step_parser")
+            refinement_pending = bool(step_import.get("refinement_pending"))
+            emit(
+                "finalize_report",
+                "Finalizing STEP preview report"
+                + (f" ({backend_label}{', refinement pending' if refinement_pending else ''})."),
+            )
+            return [imported_report]
 
     emit("parse_xt", "Parsing Parasolid text geometry.")
     report = analyze_xt_text(
@@ -1296,6 +1343,10 @@ HTML = """<!doctype html>
       margin-top: 10px;
       border-top: 1px solid #d5d5d5;
       padding-top: 10px;
+      max-height: min(56vh, 560px);
+      overflow: auto;
+      scrollbar-gutter: stable;
+      align-content: start;
     }
     .status-detail-panel[hidden] {
       display: none;
@@ -1331,10 +1382,11 @@ HTML = """<!doctype html>
     .status-detail-list {
       display: grid;
       gap: 4px;
-      max-height: 220px;
+      max-height: min(24vh, 220px);
       overflow: auto;
       border: 1px solid #d8d8d8;
       background: #fafafa;
+      scrollbar-gutter: stable;
     }
     .status-detail-jobs {
       display: grid;
@@ -1346,6 +1398,7 @@ HTML = """<!doctype html>
       border: 1px solid #d7d7d7;
       background: #fcfcfc;
       padding: 8px;
+      min-height: 0;
     }
     .status-detail-job-title {
       font-size: 13px;
@@ -1385,7 +1438,35 @@ HTML = """<!doctype html>
     }
     .status-detail-note {
       color: var(--text-muted);
-      word-break: break-word;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }
+    .status-detail-more {
+      border: 1px solid #d8d8d8;
+      background: #f7f7f7;
+    }
+    .status-detail-more summary {
+      cursor: pointer;
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-main);
+      user-select: none;
+      list-style: none;
+    }
+    .status-detail-more summary::-webkit-details-marker {
+      display: none;
+    }
+    .status-detail-more-list {
+      display: grid;
+      gap: 4px;
+      max-height: min(20vh, 180px);
+      overflow: auto;
+      border-top: 1px solid #e2e2e2;
+      background: #fafafa;
+      scrollbar-gutter: stable;
     }
     @keyframes status-progress-slide {
       from { transform: translateX(-120%); }
@@ -2748,6 +2829,51 @@ self.onmessage = async (event) => {
       return "";
     }
 
+    function truncateMiddleText(value, maxLength = 88) {
+      const text = String(value || "").trim();
+      if (!text || text.length <= maxLength) return text;
+      const head = Math.max(18, Math.floor((maxLength - 3) * 0.62));
+      const tail = Math.max(12, maxLength - head - 3);
+      return `${text.slice(0, head)}...${text.slice(-tail)}`;
+    }
+
+    function compactProgressNote(item) {
+      const stage = String(item?.stage || "");
+      const phase = String(item?.phase || "");
+      const phaseLabel = String(item?.phase_label || "");
+      let note = String(item?.note || "").trim();
+      if (!note) return "";
+
+      note = note.replace(/\s+/g, " ").trim();
+      if (phaseLabel && note.toLowerCase().startsWith(`${phaseLabel.toLowerCase()}:`)) {
+        note = note.slice(phaseLabel.length + 1).trim();
+      }
+
+      const rewrites = [
+        [/^detecting format for .+\.?$/i, "Checking file type"],
+        [/^decoding text payload\.?$/i, "Reading text content"],
+        [/^checking for analysis report format\.?$/i, "Checking report format"],
+        [/^parsing imported json report\.?$/i, "Reading JSON structure"],
+        [/^building json preview report\.?$/i, "Building JSON preview"],
+        [/^building analysis report preview\.?$/i, "Building report preview"],
+        [/^parsing parasolid text geometry\.?$/i, "Reading Parasolid geometry"],
+        [/^reading step entities\.?$/i, "Scanning STEP entities"],
+        [/^building structured step report \((.+)\)\.?$/i, "$1"],
+        [/^finalizing step preview report \((.+)\)\.?$/i, "$1"],
+        [/^server analysis complete in (.+)\.?$/i, "Completed in $1"],
+        [/^server analysis running\.?$/i, "Running"],
+      ];
+      rewrites.forEach(([pattern, replacement]) => {
+        note = note.replace(pattern, replacement);
+      });
+
+      if (stage === "previewing" && phase && phase.startsWith("parse_step")) {
+        note = "STEP preview in browser";
+      }
+
+      return truncateMiddleText(note, 84);
+    }
+
     function importServerCounts(progress) {
       const items = progress?.items || [];
       return {
@@ -2756,6 +2882,44 @@ self.onmessage = async (event) => {
         queued: items.filter((item) => String(item?.status || "") === "queued").length,
         failed: items.filter((item) => String(item?.status || "") === "failed").length,
       };
+    }
+
+    function importServerPhaseSummary(progress) {
+      const runningItems = (progress?.items || []).filter((item) => String(item?.status || "") === "running");
+      if (!runningItems.length) return progress?.serverNote || "";
+      const groups = new Map();
+      runningItems.forEach((item) => {
+        const label = String(item?.phase_label || "Working");
+        if (!groups.has(label)) groups.set(label, []);
+        groups.get(label).push(String(item?.name || "File"));
+      });
+      return [...groups.entries()].slice(0, 3).map(([label, names]) => {
+        const shownNames = names.slice(0, 2).join(", ");
+        const remainder = names.length > 2 ? ` +${names.length - 2} more` : "";
+        return `${label}: ${shownNames}${remainder}`;
+      }).join(" | ");
+    }
+
+    function importItemPriority(item) {
+      const stage = String(item?.stage || "");
+      const status = String(item?.status || "");
+      if (status === "failed" || stage === "failed") return 0;
+      if (["previewing", "analyzing", "uploading"].includes(stage) || status === "running") return 1;
+      if (stage === "preview_ready") return 2;
+      if (status === "queued" || stage === "queued") return 3;
+      if (stage === "ready" || status === "done") return 4;
+      return 5;
+    }
+
+    function sortImportProgressItems(items) {
+      return [...(items || [])]
+        .map((item, index) => ({ item, index }))
+        .sort((left, right) => {
+          const priorityDelta = importItemPriority(left.item) - importItemPriority(right.item);
+          if (priorityDelta) return priorityDelta;
+          return left.index - right.index;
+        })
+        .map((entry) => entry.item);
     }
 
     function importProgressPercent(progress) {
@@ -2809,18 +2973,38 @@ self.onmessage = async (event) => {
           ? (progress.activePreviewName ? `Now importing ${progress.activePreviewName}` : "Previews are imported one at a time so the main-thread STEP importer stays responsive.")
           : "No STEP files in this batch.";
         const serverCounts = importServerCounts(progress);
+        const serverSummary = importServerPhaseSummary(progress);
         const serverValue = progress.serverAnalysisDone
           ? "Done"
           : (progress.serverAnalysisStarted
             ? `${progress.serverCompleted || 0}/${progress.serverTotal || progress.totalFiles || 0}`
             : "Waiting");
-        const rows = (progress.items || []).map((item) => `
+        const sortedItems = sortImportProgressItems(progress.items || []);
+        const visibleLimit = Math.min(
+          progress.serverAnalysisDone && progress.uploadDone ? 6 : 8,
+          Math.max(sortedItems.length, 1)
+        );
+        const visibleItems = sortedItems.slice(0, visibleLimit);
+        const hiddenItems = sortedItems.slice(visibleLimit);
+        const renderRows = (items) => items.map((item) => `
           <div class="status-detail-row" data-stage="${escapeHtml(item.stage || "queued")}">
             <div class="status-detail-name">${escapeHtml(item.name || "File")}</div>
             <div class="status-detail-stage">${escapeHtml(progressItemPhaseLabel(item))}${progressItemElapsedLabel(item) ? ` • ${escapeHtml(progressItemElapsedLabel(item))}` : ""}</div>
-            <div class="status-detail-note">${escapeHtml(item.note || "")}</div>
+            <div class="status-detail-note" title="${escapeHtml(item.note || "")}">${escapeHtml(compactProgressNote(item))}</div>
           </div>
         `).join("");
+        const hiddenSummary = hiddenItems.length
+          ? `${hiddenItems.length} more file${hiddenItems.length === 1 ? "" : "s"}`
+          : "";
+        const rows = `
+          <div class="status-detail-list">${renderRows(visibleItems)}</div>
+          ${hiddenItems.length ? `
+            <details class="status-detail-more">
+              <summary>${escapeHtml(`${hiddenSummary}. Active files stay pinned to the top.`)}</summary>
+              <div class="status-detail-more-list">${renderRows(hiddenItems)}</div>
+            </details>
+          ` : ""}
+        `;
         const title = progress.totalFiles === 1
           ? (progress.items?.[0]?.name || `Upload ${index + 1}`)
           : `${progress.totalFiles} files`;
@@ -2846,10 +3030,10 @@ self.onmessage = async (event) => {
               <div class="status-detail-chip">
                 <div class="status-detail-chip-label">Server Analysis</div>
                 <div class="status-detail-chip-value">${escapeHtml(serverValue)}</div>
-                <div class="status-detail-chip-note">${escapeHtml(`Done ${serverCounts.done}, running ${serverCounts.running}, queued ${serverCounts.queued}, failed ${serverCounts.failed}. ${progress.serverNote || "Upload request analysis"}`)}</div>
+                <div class="status-detail-chip-note">${escapeHtml(`Done ${serverCounts.done}, running ${serverCounts.running}, queued ${serverCounts.queued}, failed ${serverCounts.failed}. ${serverSummary || progress.serverNote || "Upload request analysis"}`)}</div>
               </div>
             </div>
-            <div class="status-detail-list">${rows}</div>
+            ${rows}
           </div>
         `;
       }).join("");
@@ -2945,7 +3129,7 @@ self.onmessage = async (event) => {
         const durationMs = Number(serverItem.duration_ms);
         const durationText = Number.isFinite(durationMs) && durationMs > 0 ? formatDuration(durationMs) : "";
         if (serverStatus === "running") {
-          const serverPhaseNote = `${serverItem.phase_label || "Server analysis"}: ${serverItem.note || "Running."}`;
+          const serverPhaseNote = String(serverItem.note || "Running.");
           if (item.stage === "preview_ready") {
             return {
               ...item,
@@ -11715,7 +11899,7 @@ class XTPartRequestHandler(BaseHTTPRequestHandler):
                                     {
                                         "status": "running",
                                         "phase": phase,
-                                        "phase_label": phase.replace("_", " ").title(),
+                                        "phase_label": _upload_phase_label(phase),
                                         "note": note,
                                     },
                                 ))
