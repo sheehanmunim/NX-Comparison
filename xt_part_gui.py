@@ -3315,6 +3315,7 @@ HTML = """<!doctype html>
       return (body?.edges || [])
         .filter((edge) => edge?.type === "Circular")
         .map((edge, edgeIndex) => {
+          const analyticCurve = edge?.exact_geometry?.analytic_curve || {};
           const diameter =
             finiteNumber(edge?.curve_measurement?.diameter)
             ?? (
@@ -3333,6 +3334,7 @@ HTML = """<!doctype html>
             value: diameter * lengthScale,
             center: scalePoint(
               edge?.curve_measurement?.center
+              || analyticCurve?.center
               || edge?.start_point
               || (Array.isArray(edge?.preview_points) && edge.preview_points.length ? edge.preview_points[0] : null),
               lengthScale
@@ -3348,6 +3350,7 @@ HTML = """<!doctype html>
         .map((face) =>
           finiteNumber(face?.measurement?.radius_or_diameter)
           ?? finiteNumber(face?.analytic_data?.radius)
+          ?? finiteNumber(face?.surface_definition?.radius)
           ?? finiteNumber(face?.blend_radius)
         )
         .map((value) => (value === null ? null : value * lengthScale))
@@ -3357,9 +3360,11 @@ HTML = """<!doctype html>
     function faceRadiusEntries(body, bodyIndex = 0, lengthScale = 1) {
       return (body?.faces || [])
         .map((face, faceIndex) => {
+          const surfaceDefinition = face?.surface_definition || {};
           const radius =
             finiteNumber(face?.measurement?.radius_or_diameter)
             ?? finiteNumber(face?.analytic_data?.radius)
+            ?? finiteNumber(surfaceDefinition?.radius)
             ?? finiteNumber(face?.blend_radius);
           if (radius === null || radius <= 0) return null;
           return {
@@ -3368,6 +3373,8 @@ HTML = """<!doctype html>
             center: scalePoint(
               face?.measurement?.center
               || face?.analytic_data?.reference_point
+              || surfaceDefinition?.reference_point
+              || surfaceDefinition?.axis_point
               || null,
               lengthScale
             ),
@@ -3572,6 +3579,8 @@ HTML = """<!doctype html>
         faceEntryDiff.changes.forEach((change) => {
           if (change.left?.key) exactHighlightRawFaces.left.push(change.left.key);
           if (change.right?.key) exactHighlightRawFaces.right.push(change.right.key);
+          if (change.left?.key) highlightRawFaces.left.push(change.left.key);
+          if (change.right?.key) highlightRawFaces.right.push(change.right.key);
           if (change.left?.center) {
             exactAnnotations.left.push({
               point: change.left.center,
@@ -4153,8 +4162,14 @@ HTML = """<!doctype html>
         ...(compareAnnotation?.exactAnnotations || []),
       ];
       if (!annotationList.length || !preview) return;
+      const hasExactGeometryHighlight = Boolean(
+        (compareAnnotation?.exactHighlightRawFaces || []).length
+        || (compareAnnotation?.exactHighlightRawEdges || []).length
+        || (compareAnnotation?.exactHighlightBodyKeys || []).length
+      );
       const shadow = "rgba(255,255,255,0.94)";
       const labelStack = [];
+      const seenLabels = new Set();
 
       for (const annotation of annotationList) {
         const exactTone = (annotation?.tone || "changed") === "exact";
@@ -4162,6 +4177,15 @@ HTML = """<!doctype html>
         const fillColor = exactTone ? "rgba(30,136,229,0.18)" : "rgba(255,190,102,0.22)";
         const focusColor = "#1e88e5";
         if (annotation?.point) {
+          if (exactTone && hasExactGeometryHighlight) {
+            for (const line of annotation.lines || []) {
+              const key = String(line || "").trim();
+              if (!key || seenLabels.has(key)) continue;
+              seenLabels.add(key);
+              labelStack.push(key);
+            }
+            continue;
+          }
           const point = projectModelPoint(annotation.point, preview, viewer, scale, canvasEl);
           ctx2d.save();
           ctx2d.fillStyle = fillColor;
@@ -4172,7 +4196,12 @@ HTML = """<!doctype html>
           ctx2d.fill();
           ctx2d.stroke();
           ctx2d.restore();
-          labelStack.push(...(annotation.lines || []));
+          for (const line of annotation.lines || []) {
+            const key = String(line || "").trim();
+            if (!key || seenLabels.has(key)) continue;
+            seenLabels.add(key);
+            labelStack.push(key);
+          }
           continue;
         }
         if (!annotation?.start || !annotation?.end) continue;
@@ -4254,7 +4283,12 @@ HTML = """<!doctype html>
           ctx2d.lineCap = "butt";
         }
 
-        labelStack.push(...(annotation.lines || []));
+        for (const line of annotation.lines || []) {
+          const key = String(line || "").trim();
+          if (!key || seenLabels.has(key)) continue;
+          seenLabels.add(key);
+          labelStack.push(key);
+        }
       }
 
       if (!labelStack.length) return;
@@ -4308,8 +4342,14 @@ HTML = """<!doctype html>
       ];
       if (!annotationList.length) return;
 
+      const hasExactGeometryHighlight = Boolean(
+        (viewport.currentCompareAnnotation.exactHighlightRawFaces || []).length
+        || (viewport.currentCompareAnnotation.exactHighlightRawEdges || []).length
+        || (viewport.currentCompareAnnotation.exactHighlightBodyKeys || []).length
+      );
       const shadow = "rgba(255,255,255,0.94)";
       const labelStack = [];
+      const seenLabels = new Set();
 
       for (const annotation of annotationList) {
         const exactTone = (annotation?.tone || "changed") === "exact";
@@ -4317,6 +4357,15 @@ HTML = """<!doctype html>
         const fillColor = exactTone ? "rgba(30,136,229,0.18)" : "rgba(255,190,102,0.22)";
         const focusColor = "#1e88e5";
         if (annotation?.point) {
+          if (exactTone && hasExactGeometryHighlight) {
+            for (const line of annotation.lines || []) {
+              const key = String(line || "").trim();
+              if (!key || seenLabels.has(key)) continue;
+              seenLabels.add(key);
+              labelStack.push(key);
+            }
+            continue;
+          }
           const point = projectModelPointToViewport(annotation.point, viewport.currentPreview, viewport, canvasEl);
           if (!point) continue;
           ctx2d.save();
@@ -4328,7 +4377,12 @@ HTML = """<!doctype html>
           ctx2d.fill();
           ctx2d.stroke();
           ctx2d.restore();
-          labelStack.push(...(annotation.lines || []));
+          for (const line of annotation.lines || []) {
+            const key = String(line || "").trim();
+            if (!key || seenLabels.has(key)) continue;
+            seenLabels.add(key);
+            labelStack.push(key);
+          }
           continue;
         }
         if (!annotation?.start || !annotation?.end) continue;
@@ -4410,7 +4464,12 @@ HTML = """<!doctype html>
           ctx2d.lineCap = "butt";
         }
 
-        labelStack.push(...(annotation.lines || []));
+        for (const line of annotation.lines || []) {
+          const key = String(line || "").trim();
+          if (!key || seenLabels.has(key)) continue;
+          seenLabels.add(key);
+          labelStack.push(key);
+        }
       }
 
       if (!labelStack.length) return;
@@ -5671,7 +5730,7 @@ HTML = """<!doctype html>
         solidMesh.material.opacity = 0.98;
       }
       if (highlightSurfaceMesh) highlightSurfaceMesh.visible = showSolid;
-      if (exactHighlightSurfaceMesh) exactHighlightSurfaceMesh.visible = showSolid && !compareStyle;
+      if (exactHighlightSurfaceMesh) exactHighlightSurfaceMesh.visible = showSolid;
       if (pointCloud) pointCloud.visible = showPoints || !hasSurfaceGeometry;
       if (wireframe) {
         wireframe.visible = showWireframe;
@@ -5690,7 +5749,7 @@ HTML = """<!doctype html>
         highlightSurfaceWireframe.material.opacity = showWireframe ? 1 : 0.98;
       }
       if (exactHighlightSurfaceWireframe) {
-        exactHighlightSurfaceWireframe.visible = (showWireframe || showSolid) && !compareStyle;
+        exactHighlightSurfaceWireframe.visible = (showWireframe || showSolid);
         exactHighlightSurfaceWireframe.material.opacity = showWireframe ? 1 : 0.98;
       }
       if (highlightEdgeLines) {
@@ -5698,7 +5757,7 @@ HTML = """<!doctype html>
         highlightEdgeLines.material.opacity = showWireframe ? 0.98 : 0.92;
       }
       if (exactHighlightEdgeLines) {
-        exactHighlightEdgeLines.visible = (showWireframe || showSolid) && !compareStyle;
+        exactHighlightEdgeLines.visible = (showWireframe || showSolid);
         exactHighlightEdgeLines.material.opacity = showWireframe ? 0.99 : 0.96;
       }
     }
@@ -5715,10 +5774,10 @@ HTML = """<!doctype html>
       const exactHighlightBodyKeys = options.exactHighlightBodyKeys || [];
       const exactHighlightRawFaces = options.exactHighlightRawFaces || [];
       const exactHighlightRawEdges = options.exactHighlightRawEdges || [];
-      const surfaceExactHighlightComponents = comparisonStyle ? [] : exactHighlightComponents;
-      const surfaceExactHighlightBodyKeys = comparisonStyle ? [] : exactHighlightBodyKeys;
-      const surfaceExactHighlightRawFaces = comparisonStyle ? [] : exactHighlightRawFaces;
-      const surfaceExactHighlightRawEdges = comparisonStyle ? [] : exactHighlightRawEdges;
+      const surfaceExactHighlightComponents = exactHighlightComponents;
+      const surfaceExactHighlightBodyKeys = exactHighlightBodyKeys;
+      const surfaceExactHighlightRawFaces = exactHighlightRawFaces;
+      const surfaceExactHighlightRawEdges = exactHighlightRawEdges;
       const group = new THREE.Group();
       const solidPositions = [];
       const solidNormals = [];
@@ -5765,7 +5824,7 @@ HTML = """<!doctype html>
         for (let index = 1; index < vertices.length - 1; index++) {
           const triangle = [vertices[0], vertices[index], vertices[index + 1]];
           const highlightSurfaceTarget = highlightTone === "exact"
-            ? (comparisonStyle ? null : exactHighlightSurfacePositions)
+            ? exactHighlightSurfacePositions
             : (highlightTone === "changed" ? highlightSurfacePositions : null);
           for (const vertex of triangle) {
             const centeredVertex = [
@@ -5813,7 +5872,7 @@ HTML = """<!doctype html>
           );
           if (highlightTone === "changed") {
             highlightEdgePositions.push(...centered);
-          } else if (highlightTone === "exact" && !comparisonStyle) {
+          } else if (highlightTone === "exact") {
             exactHighlightEdgePositions.push(...centered);
           }
           pushPoint(start);
@@ -7479,21 +7538,31 @@ HTML = """<!doctype html>
 
     function mergeCompareResults(baseDiff, compareMl) {
       if (!compareMl) return baseDiff;
+      const hasExactStructuredGeometry = Boolean(
+        (baseDiff.exactHighlightRawFaces?.left || []).length
+        || (baseDiff.exactHighlightRawFaces?.right || []).length
+        || (baseDiff.exactHighlightRawEdges?.left || []).length
+        || (baseDiff.exactHighlightRawEdges?.right || []).length
+      );
+      const mlHighlightBodyKeys = hasExactStructuredGeometry ? { left: [], right: [] } : (compareMl.highlightBodyKeys || {});
+      const mlHighlightRawFaces = hasExactStructuredGeometry ? { left: [], right: [] } : (compareMl.highlightRawFaces || {});
+      const mlHighlightRawEdges = hasExactStructuredGeometry ? { left: [], right: [] } : (compareMl.highlightRawEdges || {});
+      const mlAnnotations = hasExactStructuredGeometry ? { left: [], right: [] } : (compareMl.annotations || {});
       return {
         ...baseDiff,
         summary: dedupeList([...(compareMl.summary || []), ...(baseDiff.summary || [])]).slice(0, 18),
         highlightComponents: baseDiff.highlightComponents,
         highlightBodyKeys: {
-          left: dedupeList([...(baseDiff.highlightBodyKeys?.left || []), ...((compareMl.highlightBodyKeys || {}).left || [])]),
-          right: dedupeList([...(baseDiff.highlightBodyKeys?.right || []), ...((compareMl.highlightBodyKeys || {}).right || [])]),
+          left: dedupeList([...(baseDiff.highlightBodyKeys?.left || []), ...(mlHighlightBodyKeys.left || [])]),
+          right: dedupeList([...(baseDiff.highlightBodyKeys?.right || []), ...(mlHighlightBodyKeys.right || [])]),
         },
         highlightRawFaces: {
-          left: dedupeList([...(baseDiff.highlightRawFaces?.left || []), ...((compareMl.highlightRawFaces || {}).left || [])]),
-          right: dedupeList([...(baseDiff.highlightRawFaces?.right || []), ...((compareMl.highlightRawFaces || {}).right || [])]),
+          left: dedupeList([...(baseDiff.highlightRawFaces?.left || []), ...(mlHighlightRawFaces.left || [])]),
+          right: dedupeList([...(baseDiff.highlightRawFaces?.right || []), ...(mlHighlightRawFaces.right || [])]),
         },
         highlightRawEdges: {
-          left: dedupeList([...(baseDiff.highlightRawEdges?.left || []), ...((compareMl.highlightRawEdges || {}).left || [])]),
-          right: dedupeList([...(baseDiff.highlightRawEdges?.right || []), ...((compareMl.highlightRawEdges || {}).right || [])]),
+          left: dedupeList([...(baseDiff.highlightRawEdges?.left || []), ...(mlHighlightRawEdges.left || [])]),
+          right: dedupeList([...(baseDiff.highlightRawEdges?.right || []), ...(mlHighlightRawEdges.right || [])]),
         },
         exactHighlightBodyKeys: {
           left: dedupeList([...(baseDiff.exactHighlightBodyKeys?.left || []), ...((compareMl.exactHighlightBodyKeys || {}).left || [])]),
@@ -7508,8 +7577,8 @@ HTML = """<!doctype html>
           right: dedupeList([...(baseDiff.exactHighlightRawEdges?.right || []), ...((compareMl.exactHighlightRawEdges || {}).right || [])]),
         },
         annotations: {
-          left: [...(compareMl.annotations?.left || []), ...(baseDiff.annotations?.left || [])].slice(0, 10),
-          right: [...(compareMl.annotations?.right || []), ...(baseDiff.annotations?.right || [])].slice(0, 10),
+          left: [...(mlAnnotations.left || []), ...(baseDiff.annotations?.left || [])].slice(0, 10),
+          right: [...(mlAnnotations.right || []), ...(baseDiff.annotations?.right || [])].slice(0, 10),
         },
         exactAnnotations: {
           left: [...(compareMl.exactAnnotations?.left || []), ...(baseDiff.exactAnnotations?.left || [])].slice(0, 10),

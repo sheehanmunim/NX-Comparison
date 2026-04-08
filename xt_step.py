@@ -738,7 +738,7 @@ def _bounding_box(points: list[list[float]]) -> dict[str, float] | None:
 def _detect_units(entities: dict[int, dict[str, Any]]) -> str:
     for entity in entities.values():
         if _entity_has_type(entity, "CONVERSION_BASED_UNIT"):
-            args = _args_without_name(_entity_args(entity, "CONVERSION_BASED_UNIT"))
+            args = _entity_args(entity, "CONVERSION_BASED_UNIT") or []
             if args and isinstance(args[0], str):
                 name = args[0].strip().lower()
                 if "inch" in name or name == "in":
