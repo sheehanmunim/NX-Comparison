@@ -1673,6 +1673,8 @@ HTML = """<!doctype html>
       compareSync: false,
       compareMlCache: {},
       compareMlPending: {},
+      compareStageCache: {},
+      compareStagePending: {},
       hiddenPreviewBodies: {},
       timing: {
         import: null,
@@ -1893,6 +1895,15 @@ HTML = """<!doctype html>
         ...timing,
         completedAt: Date.now(),
       };
+      renderTimingPanel();
+    }
+
+    function invalidateCompareCaches() {
+      state.compareMlCache = {};
+      state.compareMlPending = {};
+      state.compareStageCache = {};
+      state.compareStagePending = {};
+      state.timing.compare = null;
       renderTimingPanel();
     }
 
@@ -4264,6 +4275,388 @@ HTML = """<!doctype html>
       };
     }
 
+    function createEmptyCompareInfo() {
+      return {
+        changedAxes: [],
+        changedShape: false,
+        summary: [],
+        dimensions: [],
+        highlightComponents: { left: [], right: [] },
+        highlightBodyKeys: { left: [], right: [] },
+        highlightRawFaces: { left: [], right: [] },
+        highlightRawEdges: { left: [], right: [] },
+        annotations: { left: [], right: [] },
+        exactHighlightBodyKeys: { left: [], right: [] },
+        exactHighlightRawFaces: { left: [], right: [] },
+        exactHighlightRawEdges: { left: [], right: [] },
+        exactAnnotations: { left: [], right: [] },
+        stats: {
+          matchedComponents: 0,
+          changedComponents: 0,
+          addedComponents: 0,
+          removedComponents: 0,
+          matchQuality: "Unknown",
+        },
+      };
+    }
+
+    function finalizeCompareInfo(info, summaryLimit = 18) {
+      info.summary = dedupeList(info.summary).slice(0, summaryLimit);
+      info.highlightComponents = {
+        left: dedupeList(info.highlightComponents.left),
+        right: dedupeList(info.highlightComponents.right),
+      };
+      info.highlightBodyKeys = {
+        left: dedupeList(info.highlightBodyKeys.left),
+        right: dedupeList(info.highlightBodyKeys.right),
+      };
+      info.highlightRawFaces = {
+        left: dedupeList(info.highlightRawFaces.left),
+        right: dedupeList(info.highlightRawFaces.right),
+      };
+      info.highlightRawEdges = {
+        left: dedupeList(info.highlightRawEdges.left),
+        right: dedupeList(info.highlightRawEdges.right),
+      };
+      info.exactHighlightBodyKeys = {
+        left: dedupeList(info.exactHighlightBodyKeys.left),
+        right: dedupeList(info.exactHighlightBodyKeys.right),
+      };
+      info.exactHighlightRawFaces = {
+        left: dedupeList(info.exactHighlightRawFaces.left),
+        right: dedupeList(info.exactHighlightRawFaces.right),
+      };
+      info.exactHighlightRawEdges = {
+        left: dedupeList(info.exactHighlightRawEdges.left),
+        right: dedupeList(info.exactHighlightRawEdges.right),
+      };
+      info.annotations = {
+        left: (info.annotations.left || []).slice(0, 10),
+        right: (info.annotations.right || []).slice(0, 10),
+      };
+      info.exactAnnotations = {
+        left: (info.exactAnnotations.left || []).slice(0, 10),
+        right: (info.exactAnnotations.right || []).slice(0, 10),
+      };
+      return info;
+    }
+
+    function compareFastPassInfo(left, right) {
+      const info = createEmptyCompareInfo();
+      if (!left || !right) return info;
+
+      info.dimensions = compareAxisDimensions(left, right);
+      info.changedAxes = info.dimensions.filter((item) => item.changed).map((item) => item.axis);
+
+      const leftBounds = left?.geometry_hints?.bounds;
+      const rightBounds = right?.geometry_hints?.bounds;
+      const leftBodies = previewBodies(left);
+      const rightBodies = previewBodies(right);
+      const leftBodyKeys = leftBodies.map((body, index) => previewBodyRawKey(body, index));
+      const rightBodyKeys = rightBodies.map((body, index) => previewBodyRawKey(body, index));
+      const leftKeySet = new Set(leftBodyKeys);
+      const rightKeySet = new Set(rightBodyKeys);
+      const removedBodyKeys = leftBodyKeys.filter((key) => !rightKeySet.has(key));
+      const addedBodyKeys = rightBodyKeys.filter((key) => !leftKeySet.has(key));
+      const matchedBodyCount = leftBodyKeys.filter((key) => rightKeySet.has(key)).length;
+
+      info.stats = {
+        matchedComponents: matchedBodyCount,
+        changedComponents: info.changedAxes.length ? Math.max(1, matchedBodyCount || Math.min(leftBodies.length, rightBodies.length)) : 0,
+        addedComponents: addedBodyKeys.length,
+        removedComponents: removedBodyKeys.length,
+        matchQuality: "Fast",
+      };
+
+      if (info.changedAxes.length) {
+        info.summary.push(`Fast pass detected preview-bounds changes on ${info.changedAxes.map((axis) => axis.toUpperCase()).join(", ")}.`);
+        info.dimensions.filter((item) => item.changed).forEach((item) => {
+          info.summary.push(
+            `${item.axis.toUpperCase()} span changed from ${formatLength(item.leftValue)} to ${formatLength(item.rightValue)} (${formatSignedInches(item.delta)}).`
+          );
+          const focusSegments = leftBounds && rightBounds
+            ? focusSegmentsForProperty(
+                { bounds: leftBounds },
+                { bounds: rightBounds },
+                { kind: "size", axis: item.axis }
+              )
+            : { left: [], right: [] };
+          if (leftBounds) {
+            const leftEndpoints = axisDimensionEndpoints(leftBounds, item.axis);
+            info.annotations.left.push({
+              start: leftEndpoints[0],
+              end: leftEndpoints[1],
+              lines: [`Fast ${item.axis.toUpperCase()} span: ${formatInches(item.leftValue)}`],
+              focusSegments: focusSegments.left,
+              deltaLabel: focusSegments.left.length ? formatSignedInches(item.delta) : null,
+            });
+          }
+          if (rightBounds) {
+            const rightEndpoints = axisDimensionEndpoints(rightBounds, item.axis);
+            info.annotations.right.push({
+              start: rightEndpoints[0],
+              end: rightEndpoints[1],
+              lines: [`Fast ${item.axis.toUpperCase()} span: ${formatInches(item.rightValue)} (${formatSignedInches(item.delta)})`],
+              focusSegments: focusSegments.right,
+              deltaLabel: focusSegments.right.length ? formatSignedInches(item.delta) : null,
+            });
+          }
+        });
+        if (leftBodies.length === 1 && rightBodies.length === 1) {
+          info.highlightBodyKeys.left.push(leftBodyKeys[0]);
+          info.highlightBodyKeys.right.push(rightBodyKeys[0]);
+        }
+      }
+
+      const leftPointCount = Number(left?.geometry_hints?.point_count || 0);
+      const rightPointCount = Number(right?.geometry_hints?.point_count || 0);
+      if (relativeDelta(leftPointCount, rightPointCount) >= 0.04) {
+        info.summary.push(`Fast pass found preview point-count drift: ${leftPointCount} -> ${rightPointCount}.`);
+      }
+
+      const leftTopology = topologyCounts(left);
+      const rightTopology = topologyCounts(right);
+      if (leftTopology !== rightTopology) {
+        info.summary.push(`Fast pass found preview topology drift: ${leftTopology} -> ${rightTopology}.`);
+      }
+
+      removedBodyKeys.slice(0, 4).forEach((key, index) => {
+        info.summary.push(`Fast pass flagged removed preview body ${index + 1}.`);
+        info.highlightBodyKeys.left.push(key);
+      });
+      addedBodyKeys.slice(0, 4).forEach((key, index) => {
+        info.summary.push(`Fast pass flagged added preview body ${index + 1}.`);
+        info.highlightBodyKeys.right.push(key);
+      });
+
+      if (!info.summary.length) {
+        info.summary.push("Fast pass did not detect a large preview-level size change.");
+      }
+
+      return finalizeCompareInfo(info, 12);
+    }
+
+    function comparePreviewDiffInfo(left, right) {
+      const info = createEmptyCompareInfo();
+      info.dimensions = compareAxisDimensions(left, right);
+
+      if (!left || !right) {
+        return info;
+      }
+
+      const leftComponents = reportComponents(left);
+      const rightComponents = reportComponents(right);
+      const usedRightComponents = new Set();
+      const componentChanges = [];
+      const removedComponents = [];
+      const addedComponents = [];
+      const matchQualities = [];
+
+      for (const leftComponent of leftComponents) {
+        const matched = matchRightComponent(leftComponent, rightComponents, usedRightComponents);
+        if (!matched?.component) {
+          removedComponents.push(leftComponent);
+          continue;
+        }
+        const rightComponent = matched.component;
+        usedRightComponents.add(rightComponent.id);
+        const properties = componentPropertyChanges(leftComponent, rightComponent);
+        const matchQuality = matchQualityFromCost(matched.cost);
+        matchQualities.push(matchQuality.value);
+        if (!properties.length) {
+          componentChanges.push({
+            primitive: leftComponent.primitive,
+            label: leftComponent.label,
+            left: leftComponent,
+            right: rightComponent,
+            properties: [],
+            changed: false,
+            matchQuality,
+          });
+          continue;
+        }
+
+        componentChanges.push({
+          primitive: leftComponent.primitive,
+          label: leftComponent.label,
+          left: leftComponent,
+          right: rightComponent,
+          properties,
+          changed: true,
+          matchQuality,
+        });
+      }
+
+      rightComponents
+        .filter((candidate) => !usedRightComponents.has(candidate.id))
+        .forEach((candidate) => addedComponents.push(candidate));
+
+      const leftShape = topologyLabel(left);
+      const rightShape = topologyLabel(right);
+      info.changedShape = leftShape !== rightShape;
+
+      const changedComponents = componentChanges
+        .filter((change) => change.changed)
+        .sort((a, b) => changeSeverity(b) - changeSeverity(a));
+      info.stats = {
+        matchedComponents: componentChanges.length,
+        changedComponents: changedComponents.length,
+        addedComponents: addedComponents.length,
+        removedComponents: removedComponents.length,
+        matchQuality: matchQualities.length
+          ? matchQualityFromCost((1 - (matchQualities.reduce((sum, value) => sum + value, 0) / matchQualities.length)) * 5).label
+          : "Unknown",
+      };
+      if (componentChanges.length || addedComponents.length || removedComponents.length) {
+        info.summary.push(
+          `Medium pass matched ${componentChanges.length} component(s); ${changedComponents.length} changed, ${addedComponents.length} added, ${removedComponents.length} removed.`
+        );
+      }
+      if (changedComponents.length) {
+        info.changedAxes = [...new Set(changedComponents.flatMap((change) => change.properties.map((property) => property.axis).filter(Boolean)))];
+        changedComponents.forEach((change) => {
+          info.summary.push(summarizeComponentChange(change));
+          info.highlightComponents.left.push(change.left.id);
+          info.highlightComponents.right.push(change.right.id);
+          if (change.left.bodyRawKey) info.highlightBodyKeys.left.push(change.left.bodyRawKey);
+          if (change.right.bodyRawKey) info.highlightBodyKeys.right.push(change.right.bodyRawKey);
+          if (change.properties.some((property) => property.kind === "shape_profile")) {
+            const regionHighlights = componentRegionHighlights(change.left, change.right);
+            info.highlightRawFaces.left.push(...regionHighlights.highlightRawFaces.left);
+            info.highlightRawFaces.right.push(...regionHighlights.highlightRawFaces.right);
+            info.highlightRawEdges.left.push(...regionHighlights.highlightRawEdges.left);
+            info.highlightRawEdges.right.push(...regionHighlights.highlightRawEdges.right);
+            info.annotations.left.push(...regionHighlights.annotations.left);
+            info.annotations.right.push(...regionHighlights.annotations.right);
+          }
+          change.properties.forEach((property) => {
+            const leftEndpoints = annotationEndpointsForProperty(change.left, property);
+            const rightEndpoints = annotationEndpointsForProperty(change.right, property);
+            const focusSegments = focusSegmentsForProperty(change.left, change.right, property);
+            const exactProperty = !["shape_profile", "color", "facet_count", "edge_count"].includes(property.kind);
+            if (property.kind === "shape_profile" || property.kind === "color") {
+              info.annotations.left.push({
+                point: change.left.center,
+                lines: [property.kind === "color" ? `${change.label} color changed` : `${change.label} shape changed`],
+              });
+              info.annotations.right.push({
+                point: change.right.center,
+                lines: [property.kind === "color" ? `${change.label} color changed` : `${change.label} shape changed`],
+              });
+              return;
+            }
+            if (leftEndpoints) {
+              const exactLeftAnnotation = {
+                start: leftEndpoints[0],
+                end: leftEndpoints[1],
+                tone: exactProperty ? "exact" : "changed",
+                lines: [
+                  (property.kind === "facet_count" || property.kind === "edge_count")
+                    ? `${change.label} ${property.label}: ${Math.round(property.leftValue)}`
+                    : `${change.label} ${property.label}: ${formatInches(property.leftValue)}`
+                ],
+                focusSegments: focusSegments.left,
+                deltaLabel: property.kind === "facet_count"
+                  ? null
+                  : (focusSegments.left.length ? formatSignedInches(property.delta) : null),
+              };
+              if (exactProperty) {
+                info.exactAnnotations.left.push(exactLeftAnnotation);
+              } else {
+                info.annotations.left.push(exactLeftAnnotation);
+              }
+            }
+            if (rightEndpoints) {
+              const exactRightAnnotation = {
+                start: rightEndpoints[0],
+                end: rightEndpoints[1],
+                tone: exactProperty ? "exact" : "changed",
+                lines: [
+                  (property.kind === "facet_count" || property.kind === "edge_count")
+                    ? `${change.label} ${property.label}: ${Math.round(property.rightValue)}`
+                    : `${change.label} ${property.label}: ${formatInches(property.rightValue)} (${formatSignedInches(property.delta)})`
+                ],
+                focusSegments: focusSegments.right,
+                deltaLabel: property.kind === "facet_count"
+                  ? null
+                  : (focusSegments.right.length ? formatSignedInches(property.delta) : null),
+              };
+              if (exactProperty) {
+                info.exactAnnotations.right.push(exactRightAnnotation);
+              } else {
+                info.annotations.right.push(exactRightAnnotation);
+              }
+            }
+            if (exactProperty) {
+              if (change.left.bodyRawKey) info.exactHighlightBodyKeys.left.push(change.left.bodyRawKey);
+              if (change.right.bodyRawKey) info.exactHighlightBodyKeys.right.push(change.right.bodyRawKey);
+            }
+          });
+        });
+
+        const unchangedComponents = componentChanges.filter((change) => !change.changed).slice(0, 2);
+        unchangedComponents.forEach((change) => {
+          info.summary.push(`${change.label} stayed unchanged.`);
+        });
+      } else if (info.dimensions.some((item) => item.changed)) {
+        info.changedAxes = info.dimensions.filter((item) => item.changed).map((item) => item.axis);
+        info.summary.push(`Changed axes: ${info.changedAxes.map((axis) => axis.toUpperCase()).join(", ")}`);
+        info.dimensions.filter((dimension) => dimension.changed).forEach((item) => {
+          info.summary.push(
+            `${item.axis.toUpperCase()} span changed from ${formatLength(item.leftValue)} to ${formatLength(item.rightValue)} (${formatSignedInches(item.delta)})`
+          );
+          const leftBounds = left?.geometry_hints?.bounds;
+          const rightBounds = right?.geometry_hints?.bounds;
+          const focusSegments = leftBounds && rightBounds
+            ? focusSegmentsForProperty(
+                { bounds: leftBounds },
+                { bounds: rightBounds },
+                { kind: "size", axis: item.axis }
+              )
+            : { left: [], right: [] };
+          if (leftBounds) {
+            const leftEndpoints = axisDimensionEndpoints(leftBounds, item.axis);
+            info.annotations.left.push({
+              start: leftEndpoints[0],
+              end: leftEndpoints[1],
+              lines: [`${item.axis.toUpperCase()} span: ${formatInches(item.leftValue)}`],
+              focusSegments: focusSegments.left,
+              deltaLabel: focusSegments.left.length ? formatSignedInches(item.delta) : null,
+            });
+          }
+          if (rightBounds) {
+            const rightEndpoints = axisDimensionEndpoints(rightBounds, item.axis);
+            info.annotations.right.push({
+              start: rightEndpoints[0],
+              end: rightEndpoints[1],
+              lines: [`${item.axis.toUpperCase()} span: ${formatInches(item.rightValue)} (${formatSignedInches(item.delta)})`],
+              focusSegments: focusSegments.right,
+              deltaLabel: focusSegments.right.length ? formatSignedInches(item.delta) : null,
+            });
+          }
+        });
+      } else {
+        info.summary.push("Medium pass did not detect a preview-component change.");
+      }
+
+      if (info.changedShape) {
+        info.summary.push(`Shape changed: ${leftShape || "unknown"} -> ${rightShape || "unknown"}`);
+      }
+
+      removedComponents.slice(0, 3).forEach((component) => {
+        info.summary.push(`Removed preview component: ${component.label}.`);
+        info.highlightComponents.left.push(component.id);
+        if (component.bodyRawKey) info.highlightBodyKeys.left.push(component.bodyRawKey);
+      });
+      addedComponents.slice(0, 3).forEach((component) => {
+        info.summary.push(`Added preview component: ${component.label}.`);
+        info.highlightComponents.right.push(component.id);
+        if (component.bodyRawKey) info.highlightBodyKeys.right.push(component.bodyRawKey);
+      });
+
+      return finalizeCompareInfo(info);
+    }
+
     function compareDiffInfo(left, right) {
       const info = {
         changedAxes: [],
@@ -5304,6 +5697,7 @@ HTML = """<!doctype html>
         reportMap.set(reportKey(report), report);
       }
       state.reports = [...reportMap.values()];
+      invalidateCompareCaches();
       if (incoming.length && !preserveSelection) {
         setPrimarySelection(bestReportKey(incoming));
       }
@@ -5843,9 +6237,11 @@ HTML = """<!doctype html>
       }
 
       const [left, right] = reports;
+      scheduleCompareStages(left, right).catch((error) => setStatus(error.message));
       requestCompareMl(left, right).catch((error) => setStatus(error.message));
+      const stageLines = compareStageProgressLines(left, right);
       const compareMl = compareMlResult(left, right);
-      const diff = mergeCompareResults(compareDiffInfo(left, right), compareMl);
+      const diff = mergeCompareResults(currentCompareBaseDiff(left, right), compareMl);
       const changeLines = diff.summary.length
         ? diff.summary
         : ["No geometric size change was inferred from the current preview data."];
@@ -5882,6 +6278,7 @@ HTML = """<!doctype html>
           <div class="compare-summary">
             <h3>What Changed</h3>
             <div class="compare-summary-list">
+              ${stageLines.map((line) => `<div class="compare-summary-item">${escapeHtml(line)}</div>`).join("")}
               ${changeLines.map((line) => `<div class="compare-summary-item">${escapeHtml(line)}</div>`).join("")}
             </div>
           </div>
@@ -5903,6 +6300,7 @@ HTML = """<!doctype html>
               </div>
               <div class="compare-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. This view now renders directly in WebGL.</div>
               <div class="compare-note">Orange marks changed regions. Blue marks exact measured differences.</div>
+              <div class="compare-note">${escapeHtml(stageLines.join(" | "))}</div>
               <div class="compare-note">${compareMl ? escapeHtml(`Comparison ML: ${compareMlStatusLabel(compareMl)}`) : "Comparison ML is loading in the background."}</div>
               <div class="compare-note">${leftExactCallouts.length ? leftExactCallouts.map((line) => escapeHtml(line)).join("<br>") : "Exact size, radius, and diameter differences will show in blue when detected."}</div>
               <div class="compare-note">${leftCallouts.length ? leftCallouts.map((line) => escapeHtml(line)).join("<br>") : "Changed regions will highlight in orange on this side."}</div>
@@ -5916,6 +6314,7 @@ HTML = """<!doctype html>
               </div>
               <div class="compare-note">This comparison pane uses the same WebGL mesh pipeline as the main preview.</div>
               <div class="compare-note">Orange marks changed regions. Blue marks exact measured differences.</div>
+              <div class="compare-note">${escapeHtml(stageLines.join(" | "))}</div>
               <div class="compare-note">${compareMl?.model?.type ? escapeHtml(`ML model: ${compareMl.model.type}`) : "Learning-based compare will refine matches when available."}</div>
               <div class="compare-note">${rightExactCallouts.length ? rightExactCallouts.map((line) => escapeHtml(line)).join("<br>") : "Exact size, radius, and diameter differences will show in blue when detected."}</div>
               <div class="compare-note">${rightCallouts.length ? rightCallouts.map((line) => escapeHtml(line)).join("<br>") : "Changed regions will highlight in orange on this side."}</div>
@@ -5991,7 +6390,7 @@ HTML = """<!doctype html>
       }
 
       const [left, right] = reports;
-      const diff = mergeCompareResults(compareDiffInfo(left, right), compareMlResult(left, right));
+      const diff = mergeCompareResults(currentCompareBaseDiff(left, right), compareMlResult(left, right));
       Promise.all([
         ensureCompareViewport("left"),
         ensureCompareViewport("right"),
@@ -8145,6 +8544,158 @@ HTML = """<!doctype html>
 
     function comparePairKey(left, right) {
       return `${reportKey(left)}||${reportKey(right)}`;
+    }
+
+    function compareStageState(left, right) {
+      return state.compareStageCache[comparePairKey(left, right)] || null;
+    }
+
+    function ensureCompareStageState(left, right) {
+      const key = comparePairKey(left, right);
+      if (!state.compareStageCache[key]) {
+        state.compareStageCache[key] = {
+          results: { fast: null, medium: null, exact: null },
+          status: { fast: "idle", medium: "idle", exact: "idle" },
+          timings: { fastMs: null, mediumMs: null, exactMs: null },
+          errors: {},
+        };
+      }
+      return state.compareStageCache[key];
+    }
+
+    function compareStageLabel(status) {
+      if (status === "running") return "Running";
+      if (status === "done") return "Ready";
+      if (status === "error") return "Failed";
+      return "Waiting";
+    }
+
+    function compareStageProgressLines(left, right) {
+      const stageState = compareStageState(left, right);
+      if (!stageState) {
+        return [
+          "Fast pass: waiting",
+          "Medium pass: waiting",
+          "Exact pass: waiting",
+        ];
+      }
+
+      return [
+        `Fast pass: ${compareStageLabel(stageState.status.fast)}${stageState.timings.fastMs ? ` (${formatDuration(stageState.timings.fastMs)})` : ""}`,
+        `Medium pass: ${compareStageLabel(stageState.status.medium)}${stageState.timings.mediumMs ? ` (${formatDuration(stageState.timings.mediumMs)})` : ""}`,
+        `Exact pass: ${compareStageLabel(stageState.status.exact)}${stageState.timings.exactMs ? ` (${formatDuration(stageState.timings.exactMs)})` : ""}`,
+      ];
+    }
+
+    function currentCompareBaseDiff(left, right) {
+      const stageState = compareStageState(left, right);
+      return stageState?.results?.exact
+        || stageState?.results?.medium
+        || stageState?.results?.fast
+        || createEmptyCompareInfo();
+    }
+
+    function renderCompareIfCurrentPair(pairKey) {
+      const reports = comparisonReports();
+      if (reports.length === 2 && comparePairKey(reports[0], reports[1]) === pairKey) {
+        renderCompare();
+      }
+    }
+
+    function nextCompareStageTick() {
+      return new Promise((resolve) => window.setTimeout(resolve, 0));
+    }
+
+    async function scheduleCompareStages(left, right) {
+      const key = comparePairKey(left, right);
+      if (!left || !right || state.compareStagePending[key]) return;
+
+      const stageState = ensureCompareStageState(left, right);
+      state.compareStagePending[key] = true;
+      let activeStage = "fast";
+
+      try {
+        if (!stageState.results.fast && stageState.status.fast !== "error") {
+          stageState.status.fast = "running";
+          renderCompareIfCurrentPair(key);
+          await nextCompareStageTick();
+          const startedAt = nowMs();
+          stageState.results.fast = compareFastPassInfo(left, right);
+          stageState.timings.fastMs = nowMs() - startedAt;
+          stageState.status.fast = "done";
+          updateCompareTiming({
+            label: `${left.file_name} vs ${right.file_name}`,
+            requestMs: stageState.timings.fastMs,
+            status: "Fast pass ready",
+            changedComponents: stageState.results.fast?.stats?.changedComponents ?? 0,
+            removedComponents: stageState.results.fast?.stats?.removedComponents ?? 0,
+            addedComponents: stageState.results.fast?.stats?.addedComponents ?? 0,
+            mode: "Fast",
+            modelType: "Bounds + preview points",
+          });
+          renderCompareIfCurrentPair(key);
+        }
+
+        if (!stageState.results.medium && stageState.status.medium !== "error") {
+          activeStage = "medium";
+          stageState.status.medium = "running";
+          renderCompareIfCurrentPair(key);
+          await nextCompareStageTick();
+          const startedAt = nowMs();
+          stageState.results.medium = comparePreviewDiffInfo(left, right);
+          stageState.timings.mediumMs = nowMs() - startedAt;
+          stageState.status.medium = "done";
+          updateCompareTiming({
+            label: `${left.file_name} vs ${right.file_name}`,
+            requestMs: stageState.timings.mediumMs,
+            status: "Medium pass ready",
+            changedComponents: stageState.results.medium?.stats?.changedComponents ?? 0,
+            removedComponents: stageState.results.medium?.stats?.removedComponents ?? 0,
+            addedComponents: stageState.results.medium?.stats?.addedComponents ?? 0,
+            mode: "Medium",
+            modelType: "Preview components + wireframe bins",
+          });
+          renderCompareIfCurrentPair(key);
+        }
+
+        if (!stageState.results.exact && stageState.status.exact !== "error") {
+          activeStage = "exact";
+          stageState.status.exact = "running";
+          renderCompareIfCurrentPair(key);
+          await nextCompareStageTick();
+          const startedAt = nowMs();
+          stageState.results.exact = compareDiffInfo(left, right);
+          stageState.timings.exactMs = nowMs() - startedAt;
+          stageState.status.exact = "done";
+          updateCompareTiming({
+            label: `${left.file_name} vs ${right.file_name}`,
+            requestMs: stageState.timings.exactMs,
+            status: "Exact pass ready",
+            changedComponents: stageState.results.exact?.stats?.changedComponents ?? 0,
+            removedComponents: stageState.results.exact?.stats?.removedComponents ?? 0,
+            addedComponents: stageState.results.exact?.stats?.addedComponents ?? 0,
+            mode: "Exact",
+            modelType: "Structured faces + edges",
+          });
+          renderCompareIfCurrentPair(key);
+        }
+      } catch (error) {
+        stageState.status[activeStage] = "error";
+        stageState.errors[activeStage] = error.message;
+        updateCompareTiming({
+          label: `${left.file_name} vs ${right.file_name}`,
+          requestMs: null,
+          status: `${activeStage} pass failed`,
+          changedComponents: "—",
+          removedComponents: "—",
+          addedComponents: "—",
+          mode: activeStage,
+          modelType: error.message,
+        });
+        renderCompareIfCurrentPair(key);
+      } finally {
+        delete state.compareStagePending[key];
+      }
     }
 
     function compareMlPayload(report) {
