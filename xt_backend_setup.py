@@ -25,6 +25,40 @@ def _venv_python_path(venv_root: Path) -> Path:
     return venv_root / scripts_dir / executable
 
 
+def _ensure_stable_venv_alias(repo_root: Path, target_venv: Path, alias_name: str = ".venv-stepocc") -> None:
+    alias_path = repo_root / alias_name
+    try:
+        if alias_path.resolve() == target_venv.resolve():
+            return
+    except OSError:
+        pass
+
+    if alias_path.exists() or alias_path.is_symlink():
+        if alias_path.is_symlink():
+            try:
+                alias_path.unlink()
+            except OSError:
+                return
+        else:
+            return
+
+    try:
+        relative_target = Path(os.path.relpath(target_venv, start=repo_root))
+        alias_path.symlink_to(relative_target, target_is_directory=True)
+    except OSError:
+        return
+
+
+def _apply_backend_runtime_env(repo_root: Path, runtime_root: Path, *, overwrite: bool) -> None:
+    _ensure_stable_venv_alias(repo_root, runtime_root)
+    if overwrite:
+        os.environ["XT_STEP_OCC_VENV"] = str(runtime_root)
+        os.environ["XT_FUSION_ML_VENV"] = str(runtime_root)
+    else:
+        os.environ.setdefault("XT_STEP_OCC_VENV", str(runtime_root))
+        os.environ.setdefault("XT_FUSION_ML_VENV", str(runtime_root))
+
+
 def _run_capture(command: list[str], *, cwd: Path | None = None) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         command,
@@ -175,8 +209,7 @@ def ensure_backend_runtimes(*, verbose=print) -> dict[str, Any]:
 
     ready_venv = _existing_ready_venv(repo_root)
     if ready_venv is not None:
-        os.environ.setdefault("XT_STEP_OCC_VENV", str(ready_venv))
-        os.environ.setdefault("XT_FUSION_ML_VENV", str(ready_venv))
+        _apply_backend_runtime_env(repo_root, ready_venv, overwrite=False)
         return {
             "ready": True,
             "auto_install_attempted": False,
@@ -187,8 +220,7 @@ def ensure_backend_runtimes(*, verbose=print) -> dict[str, Any]:
 
     current_venv = _current_ready_venv()
     if current_venv is not None:
-        os.environ.setdefault("XT_STEP_OCC_VENV", str(current_venv))
-        os.environ.setdefault("XT_FUSION_ML_VENV", str(current_venv))
+        _apply_backend_runtime_env(repo_root, current_venv, overwrite=False)
         return {
             "ready": True,
             "auto_install_attempted": False,
@@ -216,8 +248,7 @@ def ensure_backend_runtimes(*, verbose=print) -> dict[str, Any]:
     ok, message = _install_backend_packages(python_command, target_venv, verbose=verbose)
     verbose(message)
     if ok:
-        os.environ["XT_STEP_OCC_VENV"] = str(target_venv)
-        os.environ["XT_FUSION_ML_VENV"] = str(target_venv)
+        _apply_backend_runtime_env(repo_root, target_venv, overwrite=True)
     return {
         "ready": ok,
         "auto_install_attempted": True,

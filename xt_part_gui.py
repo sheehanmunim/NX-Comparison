@@ -1235,6 +1235,16 @@ HTML = """<!doctype html>
       background: transparent;
       display: block;
     }
+    .annotation-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      background: transparent;
+      pointer-events: none;
+      z-index: 2;
+    }
     .viewport-overlay {
       position: absolute;
       inset: 0;
@@ -1248,6 +1258,7 @@ HTML = """<!doctype html>
       color: #343434;
       white-space: pre-wrap;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0));
+      z-index: 3;
     }
     .viewport-overlay.visible {
       display: flex;
@@ -2395,6 +2406,23 @@ HTML = """<!doctype html>
       return { mismatchRatio, centroidDelta, radialDelta, densityDelta, extentDelta };
     }
 
+    function meshProfileLikelyScaleOnly(leftComponent, rightComponent, profileDelta, properties = []) {
+      if (!leftComponent || !rightComponent || !profileDelta) return false;
+      const sizeProperties = (properties || []).filter((property) => property?.kind === "size");
+      if (!sizeProperties.length || sizeProperties.length > 2) return false;
+      const meshLike = leftComponent.primitive === "occ_mesh" || rightComponent.primitive === "occ_mesh";
+      if (!meshLike) return false;
+
+      const relativeSizeDeltas = sizeProperties
+        .map((property) => relativeDelta(property.leftValue, property.rightValue))
+        .filter((value) => Number.isFinite(value));
+      const maxRelativeSizeDelta = Math.max(...relativeSizeDeltas, 0);
+      const boundedCrossSectionShift = profileDelta.centroidDelta < 0.08 && profileDelta.radialDelta < 0.12;
+      const extentTracksSize = profileDelta.extentDelta <= Math.max(0.12, maxRelativeSizeDelta * 1.35);
+      const mismatchWithinScaleBand = profileDelta.mismatchRatio <= 0.7;
+      return boundedCrossSectionShift && extentTracksSize && mismatchWithinScaleBand;
+    }
+
     function averagePoint(points) {
       if (!Array.isArray(points) || !points.length) return null;
       const totals = [0, 0, 0];
@@ -2433,6 +2461,7 @@ HTML = """<!doctype html>
     }
 
     function componentFaceEntries(component, bounds, identity) {
+      const bodyIndex = previewBodyIndex(component, identity.bodyIndex || 0);
       return (component?.faces || [])
         .map((face, faceIndex) => {
           const vertices = Array.isArray(face?.vertices) ? face.vertices : [];
@@ -2441,7 +2470,7 @@ HTML = """<!doctype html>
           return {
             rawFaceKey: rawIdentityKey(
               face?.metadata?.object_identity,
-              `body:${Number(face?.metadata?.source_body_index || component?.metadata?.nx_body_index || identity.bodyIndex || 0)}:face:${Number(face?.metadata?.source_face_index || faceIndex + 1)}`
+              `body:${Number(face?.metadata?.source_body_index || bodyIndex)}:face:${Number(face?.metadata?.source_face_index || faceIndex + 1)}`
             ),
             centroid,
             binKey: meshBinKey(centroid, bounds),
@@ -2451,6 +2480,7 @@ HTML = """<!doctype html>
     }
 
     function componentEdgeEntries(component, bounds, identity) {
+      const bodyIndex = previewBodyIndex(component, identity.bodyIndex || 0);
       return (component?.edges || [])
         .map((edge, edgeIndex) => {
           const points = Array.isArray(edge?.points) ? edge.points : [];
@@ -2459,7 +2489,7 @@ HTML = """<!doctype html>
           return {
             rawEdgeKey: rawIdentityKey(
               edge?.object_identity,
-              `body:${Number(component?.metadata?.nx_body_index || identity.bodyIndex || 0)}:edge:${Number(edge?.source_edge_index || edgeIndex + 1)}`
+              `body:${bodyIndex}:edge:${Number(edge?.source_edge_index || edgeIndex + 1)}`
             ),
             centroid,
             binKey: meshBinKey(centroid, bounds),
@@ -2565,10 +2595,7 @@ HTML = """<!doctype html>
       const metadata = component?.metadata || {};
       const primitive = identity.primitive;
       const label = componentLabel(component, identity, siblingCount);
-      const bodyRawKey = rawIdentityKey(
-        component?.metadata?.object_identity,
-        `body:${Number(component?.metadata?.nx_body_index || identity.bodyIndex || 0)}`
-      );
+      const bodyRawKey = previewBodyRawKey(component, identity.bodyIndex || 0);
       const displayColor = displayColorFromProperties(
         component?.metadata?.display_properties,
         displayColorFromProperties(component?.metadata?.component_context?.display_properties, null)
@@ -2770,8 +2797,10 @@ HTML = """<!doctype html>
       const leftMesh = leftComponent.meshProfile;
       const rightMesh = rightComponent.meshProfile;
       if (leftMesh && rightMesh) {
+        const profileDelta = meshProfileDelta(leftMesh, rightMesh);
+        const scaleOnlyProfile = meshProfileLikelyScaleOnly(leftComponent, rightComponent, profileDelta, properties);
         const faceDelta = Number(rightMesh.faceCount || 0) - Number(leftMesh.faceCount || 0);
-        if (Math.abs(faceDelta) >= 1) {
+        if (!scaleOnlyProfile && Math.abs(faceDelta) >= 1) {
           properties.push({
             kind: "facet_count",
             axis: longestBoundsAxis(leftComponent.bounds || rightComponent.bounds),
@@ -2783,7 +2812,7 @@ HTML = """<!doctype html>
         }
 
         const edgeDelta = Number(rightMesh.edgeCount || 0) - Number(leftMesh.edgeCount || 0);
-        if (Math.abs(edgeDelta) >= 1) {
+        if (!scaleOnlyProfile && Math.abs(edgeDelta) >= 1) {
           properties.push({
             kind: "edge_count",
             axis: longestBoundsAxis(leftComponent.bounds || rightComponent.bounds),
@@ -2794,8 +2823,7 @@ HTML = """<!doctype html>
           });
         }
 
-        const profileDelta = meshProfileDelta(leftMesh, rightMesh);
-        if (profileDelta && (
+        if (!scaleOnlyProfile && profileDelta && (
           profileDelta.mismatchRatio >= 0.08
           || profileDelta.centroidDelta >= 0.03
           || profileDelta.radialDelta >= 0.045
@@ -2986,6 +3014,7 @@ HTML = """<!doctype html>
       if (primitive === "cylinder") return "cylinder";
       if (primitive === "sphere") return "sphere";
       if (primitive === "arc_or_circle") return "arc / circle";
+      if (primitive === "occ_mesh") return "mesh solid";
 
       return primaryBody?.name || "Not inferred";
     }
@@ -3032,6 +3061,16 @@ HTML = """<!doctype html>
       if (objectIdentity?.journal_identifier) return `jid:${objectIdentity.journal_identifier}`;
       if (Number.isFinite(Number(objectIdentity?.tag))) return `tag:${Number(objectIdentity.tag)}`;
       return fallback;
+    }
+
+    function previewBodyIndex(body, fallbackIndex = 0) {
+      const numeric = Number(body?.metadata?.nx_body_index);
+      return Number.isFinite(numeric) ? numeric : Number(fallbackIndex || 0);
+    }
+
+    function previewBodyRawKey(body, fallbackIndex = 0) {
+      const objectIdentity = body?.metadata?.object_identity || body?.object_identity || {};
+      return rawIdentityKey(objectIdentity, `body:${previewBodyIndex(body, fallbackIndex)}`);
     }
 
     function structuredBodies(report) {
@@ -3398,13 +3437,14 @@ HTML = """<!doctype html>
         const rightBody = matchStructuredBody(leftBody, rightBodies, usedRightBodyIds);
         if (!rightBody) {
           summary.push(`Removed raw NX body: ${structuredBodyName(leftBody, leftIndex)}.`);
-          highlightBodyKeys.left.push(structuredBodyIdentity(leftBody, leftIndex).id);
+          highlightBodyKeys.left.push(previewBodyRawKey(leftBody, leftIndex));
           return;
         }
 
         const rightIndex = rightBodies.indexOf(rightBody);
-        const leftIdentity = structuredBodyIdentity(leftBody, leftIndex);
         const rightIdentity = structuredBodyIdentity(rightBody, rightIndex);
+        const leftPreviewBodyKey = previewBodyRawKey(leftBody, leftIndex);
+        const rightPreviewBodyKey = previewBodyRawKey(rightBody, rightIndex);
         usedRightBodyIds.add(rightIdentity.id);
 
         const bodyLabel = structuredBodyName(leftBody, leftIndex);
@@ -3416,8 +3456,8 @@ HTML = """<!doctype html>
           summary.push(
             `${bodyLabel}: raw topology changed from ${leftFaceCount} faces / ${leftEdgeCount} edges to ${rightFaceCount} faces / ${rightEdgeCount} edges.`
           );
-          highlightBodyKeys.left.push(leftIdentity.id);
-          highlightBodyKeys.right.push(rightIdentity.id);
+          highlightBodyKeys.left.push(leftPreviewBodyKey);
+          highlightBodyKeys.right.push(rightPreviewBodyKey);
         }
 
         const faceBreakdownSummary = summarizeBreakdownDiff(
@@ -3427,8 +3467,8 @@ HTML = """<!doctype html>
         );
         if (faceBreakdownSummary) {
           summary.push(`${bodyLabel}: ${faceBreakdownSummary}`);
-          highlightBodyKeys.left.push(leftIdentity.id);
-          highlightBodyKeys.right.push(rightIdentity.id);
+          highlightBodyKeys.left.push(leftPreviewBodyKey);
+          highlightBodyKeys.right.push(rightPreviewBodyKey);
         }
 
         const edgeBreakdownSummary = summarizeBreakdownDiff(
@@ -3438,8 +3478,8 @@ HTML = """<!doctype html>
         );
         if (edgeBreakdownSummary) {
           summary.push(`${bodyLabel}: ${edgeBreakdownSummary}`);
-          highlightBodyKeys.left.push(leftIdentity.id);
-          highlightBodyKeys.right.push(rightIdentity.id);
+          highlightBodyKeys.left.push(leftPreviewBodyKey);
+          highlightBodyKeys.right.push(rightPreviewBodyKey);
         }
 
         const circularDiameterSummary = summarizeMetricSetDiff(
@@ -3531,8 +3571,8 @@ HTML = """<!doctype html>
         );
         if (areaSummary) {
           summary.push(areaSummary);
-          exactHighlightBodyKeys.left.push(leftIdentity.id);
-          exactHighlightBodyKeys.right.push(rightIdentity.id);
+          exactHighlightBodyKeys.left.push(leftPreviewBodyKey);
+          exactHighlightBodyKeys.right.push(rightPreviewBodyKey);
         }
 
         const volumeSummary = summarizeScalarChange(
@@ -3544,15 +3584,17 @@ HTML = """<!doctype html>
         );
         if (volumeSummary) {
           summary.push(volumeSummary);
-          exactHighlightBodyKeys.left.push(leftIdentity.id);
-          exactHighlightBodyKeys.right.push(rightIdentity.id);
+          exactHighlightBodyKeys.left.push(leftPreviewBodyKey);
+          exactHighlightBodyKeys.right.push(rightPreviewBodyKey);
         }
       });
 
-      const unmatchedRightBodies = rightBodies.filter((body, index) => !usedRightBodyIds.has(structuredBodyIdentity(body, index).id));
-      unmatchedRightBodies.slice(0, 2).forEach((body, index) => {
+      const unmatchedRightBodies = rightBodies
+        .map((body, index) => ({ body, index }))
+        .filter(({ body, index }) => !usedRightBodyIds.has(structuredBodyIdentity(body, index).id));
+      unmatchedRightBodies.slice(0, 2).forEach(({ body, index }) => {
         summary.push(`Added raw NX body: ${structuredBodyName(body, index)}.`);
-        highlightBodyKeys.right.push(structuredBodyIdentity(body, index).id);
+        highlightBodyKeys.right.push(previewBodyRawKey(body, index));
       });
 
       return {
@@ -3834,8 +3876,6 @@ HTML = """<!doctype html>
 
       if (structuredDiff.summary.length) {
         info.summary = [...structuredDiff.summary, ...info.summary];
-        info.highlightComponents.left.push(...structuredDiff.highlightBodyKeys.left);
-        info.highlightComponents.right.push(...structuredDiff.highlightBodyKeys.right);
         info.highlightBodyKeys.left.push(...structuredDiff.highlightBodyKeys.left);
         info.highlightBodyKeys.right.push(...structuredDiff.highlightBodyKeys.right);
         info.highlightRawFaces.left.push(...(structuredDiff.highlightRawFaces.left || []));
@@ -4085,7 +4125,7 @@ HTML = """<!doctype html>
       for (const annotation of annotationList) {
         const exactTone = (annotation?.tone || "changed") === "exact";
         const color = exactTone ? "#1e88e5" : "#ef6c00";
-        const fillColor = exactTone ? "rgba(30,136,229,0.18)" : "rgba(239,108,0,0.18)";
+        const fillColor = exactTone ? "rgba(30,136,229,0.18)" : "rgba(255,190,102,0.22)";
         const focusColor = "#1e88e5";
         if (annotation?.point) {
           const point = projectModelPoint(annotation.point, preview, viewer, scale, canvasEl);
@@ -4199,6 +4239,162 @@ HTML = """<!doctype html>
       ctx2d.strokeRect(x, y, width, height);
 
       ctx2d.fillStyle = color;
+      labelStack.forEach((line, index) => {
+        ctx2d.fillText(line, x + 9, y + 7 + index * 16);
+      });
+    }
+
+    function projectModelPointToViewport(point, preview, viewport, canvasEl) {
+      if (!viewport?.camera || !viewport?.THREE || !preview) return null;
+      const vector = new viewport.THREE.Vector3(
+        Number(point[0]) - preview.center[0],
+        Number(point[1]) - preview.center[1],
+        Number(point[2]) - preview.center[2]
+      );
+      vector.project(viewport.camera);
+      return [
+        ((vector.x + 1) * 0.5) * canvasEl.width,
+        ((1 - vector.y) * 0.5) * canvasEl.height,
+        vector.z,
+      ];
+    }
+
+    function renderViewportAnnotations(viewport) {
+      const canvasEl = viewport?.annotationCanvas;
+      if (!canvasEl) return;
+      resizeCanvasElement(canvasEl);
+      const ctx2d = canvasEl.getContext("2d");
+      if (!ctx2d) return;
+      ctx2d.clearRect(0, 0, canvasEl.width, canvasEl.height);
+      if (!viewport?.currentPreview || !viewport?.currentCompareAnnotation) return;
+
+      const annotationList = [
+        ...(viewport.currentCompareAnnotation.annotations || []),
+        ...(viewport.currentCompareAnnotation.exactAnnotations || []),
+      ];
+      if (!annotationList.length) return;
+
+      const shadow = "rgba(255,255,255,0.94)";
+      const labelStack = [];
+
+      for (const annotation of annotationList) {
+        const exactTone = (annotation?.tone || "changed") === "exact";
+        const color = exactTone ? "#1e88e5" : "#ef6c00";
+        const fillColor = exactTone ? "rgba(30,136,229,0.18)" : "rgba(255,190,102,0.22)";
+        const focusColor = "#1e88e5";
+        if (annotation?.point) {
+          const point = projectModelPointToViewport(annotation.point, viewport.currentPreview, viewport, canvasEl);
+          if (!point) continue;
+          ctx2d.save();
+          ctx2d.fillStyle = fillColor;
+          ctx2d.strokeStyle = color;
+          ctx2d.lineWidth = 2;
+          ctx2d.beginPath();
+          ctx2d.arc(point[0], point[1], 9, 0, Math.PI * 2);
+          ctx2d.fill();
+          ctx2d.stroke();
+          ctx2d.restore();
+          labelStack.push(...(annotation.lines || []));
+          continue;
+        }
+        if (!annotation?.start || !annotation?.end) continue;
+        const start = projectModelPointToViewport(annotation.start, viewport.currentPreview, viewport, canvasEl);
+        const end = projectModelPointToViewport(annotation.end, viewport.currentPreview, viewport, canvasEl);
+        if (!start || !end) continue;
+        const dx = end[0] - start[0];
+        const dy = end[1] - start[1];
+        const length = Math.hypot(dx, dy);
+        if (length < 18) continue;
+
+        const nx = -dy / length;
+        const ny = dx / length;
+        const offset = 18;
+        const arrowStart = [start[0] + nx * offset, start[1] + ny * offset];
+        const arrowEnd = [end[0] + nx * offset, end[1] + ny * offset];
+        drawArrow(ctx2d, arrowStart, arrowEnd, color);
+
+        ctx2d.strokeStyle = color;
+        ctx2d.lineWidth = 1.5;
+        ctx2d.beginPath();
+        ctx2d.moveTo(start[0], start[1]);
+        ctx2d.lineTo(arrowStart[0], arrowStart[1]);
+        ctx2d.moveTo(end[0], end[1]);
+        ctx2d.lineTo(arrowEnd[0], arrowEnd[1]);
+        ctx2d.stroke();
+
+        if (annotation.focusSegments?.length) {
+          for (const segment of annotation.focusSegments) {
+            const segmentStart = projectModelPointToViewport(segment.start, viewport.currentPreview, viewport, canvasEl);
+            const segmentEnd = projectModelPointToViewport(segment.end, viewport.currentPreview, viewport, canvasEl);
+            if (!segmentStart || !segmentEnd) continue;
+            const highlightedStart = [segmentStart[0] + nx * offset, segmentStart[1] + ny * offset];
+            const highlightedEnd = [segmentEnd[0] + nx * offset, segmentEnd[1] + ny * offset];
+            const highlightedLength = Math.hypot(highlightedEnd[0] - highlightedStart[0], highlightedEnd[1] - highlightedStart[1]);
+            if (highlightedLength < 8) continue;
+
+            ctx2d.strokeStyle = exactTone ? "rgba(30,136,229,0.26)" : "rgba(30,136,229,0.18)";
+            ctx2d.lineWidth = 10;
+            ctx2d.lineCap = "round";
+            ctx2d.beginPath();
+            ctx2d.moveTo(highlightedStart[0], highlightedStart[1]);
+            ctx2d.lineTo(highlightedEnd[0], highlightedEnd[1]);
+            ctx2d.stroke();
+
+            ctx2d.strokeStyle = focusColor;
+            ctx2d.lineWidth = 4;
+            ctx2d.beginPath();
+            ctx2d.moveTo(highlightedStart[0], highlightedStart[1]);
+            ctx2d.lineTo(highlightedEnd[0], highlightedEnd[1]);
+            ctx2d.stroke();
+          }
+
+          if (annotation.deltaLabel) {
+            const labelX = (arrowStart[0] + arrowEnd[0]) / 2;
+            const labelY = (arrowStart[1] + arrowEnd[1]) / 2 - 22;
+            ctx2d.save();
+            ctx2d.font = "bold 11px 'Segoe UI'";
+            ctx2d.textAlign = "center";
+            ctx2d.textBaseline = "middle";
+            const deltaText = annotation.focusSegments.length > 1
+              ? `${annotation.deltaLabel} total`
+              : annotation.deltaLabel;
+            const horizontalPadding = 8;
+            const verticalPadding = 6;
+            const deltaWidth = ctx2d.measureText(deltaText).width + horizontalPadding * 2;
+            const deltaHeight = 11 + verticalPadding * 2;
+
+            ctx2d.fillStyle = "rgba(255,255,255,0.96)";
+            ctx2d.fillRect(labelX - deltaWidth / 2, labelY, deltaWidth, deltaHeight);
+            ctx2d.strokeStyle = focusColor;
+            ctx2d.lineWidth = 1;
+            ctx2d.strokeRect(labelX - deltaWidth / 2, labelY, deltaWidth, deltaHeight);
+            ctx2d.fillStyle = focusColor;
+            ctx2d.fillText(deltaText, labelX, labelY + deltaHeight / 2);
+            ctx2d.restore();
+          }
+
+          ctx2d.lineCap = "butt";
+        }
+
+        labelStack.push(...(annotation.lines || []));
+      }
+
+      if (!labelStack.length) return;
+
+      ctx2d.font = "bold 12px 'Segoe UI'";
+      ctx2d.textBaseline = "top";
+      const width = Math.max(...labelStack.map((line) => ctx2d.measureText(line).width)) + 18;
+      const height = labelStack.length * 16 + 14;
+      const x = canvasEl.width - width - 14;
+      const y = 14;
+
+      ctx2d.fillStyle = shadow;
+      ctx2d.fillRect(x, y, width, height);
+      ctx2d.strokeStyle = "#1e88e5";
+      ctx2d.lineWidth = 1;
+      ctx2d.strokeRect(x, y, width, height);
+
+      ctx2d.fillStyle = "#1e88e5";
       labelStack.forEach((line, index) => {
         ctx2d.fillText(line, x + 9, y + 7 + index * 16);
       });
@@ -4995,7 +5191,8 @@ HTML = """<!doctype html>
               <h3>${escapeHtml(left.file_name)}</h3>
               <div class="canvas-frame">
                 <canvas id="compare-left-canvas" class="compare-canvas"></canvas>
-              <div id="compare-left-overlay" class="viewport-overlay"></div>
+                <canvas id="compare-left-annotation-canvas" class="annotation-canvas"></canvas>
+                <div id="compare-left-overlay" class="viewport-overlay"></div>
               </div>
               <div class="compare-note">Orbit with drag. Pan with Shift + drag or right-drag. Mouse wheel zooms. This view now renders directly in WebGL.</div>
               <div class="compare-note">Orange marks changed regions. Blue marks exact measured differences.</div>
@@ -5007,6 +5204,7 @@ HTML = """<!doctype html>
               <h3>${escapeHtml(right.file_name)}</h3>
               <div class="canvas-frame">
                 <canvas id="compare-right-canvas" class="compare-canvas"></canvas>
+                <canvas id="compare-right-annotation-canvas" class="annotation-canvas"></canvas>
                 <div id="compare-right-overlay" class="viewport-overlay"></div>
               </div>
               <div class="compare-note">This comparison pane uses the same WebGL mesh pipeline as the main preview.</div>
@@ -5098,6 +5296,10 @@ HTML = """<!doctype html>
           rebuildPreviewViewport(leftViewport, left, {
             fitView: leftViewport.currentReportKey !== reportKey(left) || !leftViewport.previewObjects,
             mode: "solid",
+            compareAnnotation: {
+              annotations: diff.annotations.left,
+              exactAnnotations: diff.exactAnnotations.left,
+            },
             highlightComponents: diff.highlightComponents.left,
             highlightBodyKeys: diff.highlightBodyKeys.left,
             highlightRawFaces: diff.highlightRawFaces.left,
@@ -5109,6 +5311,10 @@ HTML = """<!doctype html>
           rebuildPreviewViewport(rightViewport, right, {
             fitView: rightViewport.currentReportKey !== reportKey(right) || !rightViewport.previewObjects,
             mode: "solid",
+            compareAnnotation: {
+              annotations: diff.annotations.right,
+              exactAnnotations: diff.exactAnnotations.right,
+            },
             highlightComponents: diff.highlightComponents.right,
             highlightBodyKeys: diff.highlightBodyKeys.right,
             highlightRawFaces: diff.highlightRawFaces.right,
@@ -5339,6 +5545,11 @@ HTML = """<!doctype html>
       viewport.currentPreview = null;
       viewport.currentReportKey = null;
       viewport.currentHiddenKey = "";
+      viewport.currentCompareAnnotation = null;
+      if (viewport.annotationCanvas) {
+        resizeCanvasElement(viewport.annotationCanvas);
+        viewport.annotationCanvas.getContext("2d")?.clearRect(0, 0, viewport.annotationCanvas.width, viewport.annotationCanvas.height);
+      }
     }
 
     function resizePreviewViewport(viewport) {
@@ -5361,6 +5572,7 @@ HTML = """<!doctype html>
       if (!viewport?.renderer || !viewport?.scene || !viewport?.camera) return;
       resizePreviewViewport(viewport);
       viewport.renderer.render(viewport.scene, viewport.camera);
+      renderViewportAnnotations(viewport);
     }
 
     function fitPreviewViewport(viewport, preset = "iso") {
@@ -5392,19 +5604,40 @@ HTML = """<!doctype html>
     function applyPreviewViewportMode(viewport, mode) {
       if (!viewport?.previewObjects) return;
       const {
+        compareStyle,
         solidMesh,
         wireframe,
         pointCloud,
         edgeLines,
         fallbackEdgeLines,
+        highlightSurfaceMesh,
+        exactHighlightSurfaceMesh,
+        highlightSurfaceWireframe,
+        exactHighlightSurfaceWireframe,
         highlightEdgeLines,
         exactHighlightEdgeLines,
       } = viewport.previewObjects;
-      const hasSurfaceGeometry = Boolean(solidMesh || wireframe || edgeLines || fallbackEdgeLines || highlightEdgeLines || exactHighlightEdgeLines);
+      const hasSurfaceGeometry = Boolean(
+        solidMesh
+        || wireframe
+        || edgeLines
+        || fallbackEdgeLines
+        || highlightSurfaceMesh
+        || exactHighlightSurfaceMesh
+        || highlightSurfaceWireframe
+        || exactHighlightSurfaceWireframe
+        || highlightEdgeLines
+        || exactHighlightEdgeLines
+      );
       const showSolid = mode === "solid";
       const showWireframe = mode === "wireframe";
       const showPoints = mode === "points";
       if (solidMesh) solidMesh.visible = mode === "solid";
+      if (solidMesh?.material) {
+        solidMesh.material.opacity = 0.98;
+      }
+      if (highlightSurfaceMesh) highlightSurfaceMesh.visible = showSolid;
+      if (exactHighlightSurfaceMesh) exactHighlightSurfaceMesh.visible = showSolid && !compareStyle;
       if (pointCloud) pointCloud.visible = showPoints || !hasSurfaceGeometry;
       if (wireframe) {
         wireframe.visible = showWireframe;
@@ -5418,12 +5651,20 @@ HTML = """<!doctype html>
         fallbackEdgeLines.visible = showWireframe || showSolid;
         fallbackEdgeLines.material.opacity = showWireframe ? 0.78 : 0.4;
       }
+      if (highlightSurfaceWireframe) {
+        highlightSurfaceWireframe.visible = showWireframe || showSolid;
+        highlightSurfaceWireframe.material.opacity = showWireframe ? 1 : 0.98;
+      }
+      if (exactHighlightSurfaceWireframe) {
+        exactHighlightSurfaceWireframe.visible = (showWireframe || showSolid) && !compareStyle;
+        exactHighlightSurfaceWireframe.material.opacity = showWireframe ? 1 : 0.98;
+      }
       if (highlightEdgeLines) {
         highlightEdgeLines.visible = showWireframe || showSolid;
         highlightEdgeLines.material.opacity = showWireframe ? 0.98 : 0.92;
       }
       if (exactHighlightEdgeLines) {
-        exactHighlightEdgeLines.visible = showWireframe || showSolid;
+        exactHighlightEdgeLines.visible = (showWireframe || showSolid) && !compareStyle;
         exactHighlightEdgeLines.material.opacity = showWireframe ? 0.99 : 0.96;
       }
     }
@@ -5431,6 +5672,7 @@ HTML = """<!doctype html>
     function buildPreviewViewportObjects(viewport, preview, options = {}) {
       const { THREE } = viewport;
       const palette = previewEdgePalette();
+      const comparisonStyle = Boolean(options.compareStyle);
       const highlightComponents = options.highlightComponents || [];
       const highlightBodyKeys = options.highlightBodyKeys || [];
       const highlightRawFaces = options.highlightRawFaces || [];
@@ -5439,12 +5681,18 @@ HTML = """<!doctype html>
       const exactHighlightBodyKeys = options.exactHighlightBodyKeys || [];
       const exactHighlightRawFaces = options.exactHighlightRawFaces || [];
       const exactHighlightRawEdges = options.exactHighlightRawEdges || [];
+      const surfaceExactHighlightComponents = comparisonStyle ? [] : exactHighlightComponents;
+      const surfaceExactHighlightBodyKeys = comparisonStyle ? [] : exactHighlightBodyKeys;
+      const surfaceExactHighlightRawFaces = comparisonStyle ? [] : exactHighlightRawFaces;
+      const surfaceExactHighlightRawEdges = comparisonStyle ? [] : exactHighlightRawEdges;
       const group = new THREE.Group();
       const solidPositions = [];
       const solidNormals = [];
       const solidColors = [];
       const edgePositions = [];
       const fallbackEdgePositions = [];
+      const highlightSurfacePositions = [];
+      const exactHighlightSurfacePositions = [];
       const highlightEdgePositions = [];
       const exactHighlightEdgePositions = [];
       const pointPositions = [];
@@ -5473,27 +5721,30 @@ HTML = """<!doctype html>
           highlightComponents,
           highlightBodyKeys,
           highlightRawFaces,
-          exactHighlightComponents,
-          exactHighlightBodyKeys,
-          exactHighlightRawFaces,
+          exactHighlightComponents: surfaceExactHighlightComponents,
+          exactHighlightBodyKeys: surfaceExactHighlightBodyKeys,
+          exactHighlightRawFaces: surfaceExactHighlightRawFaces,
         });
-        const baseColor = (
-          highlightTone === "exact"
-            ? [30, 136, 229]
-            : (highlightTone === "changed" ? [255, 159, 28] : (face.baseColor || [196, 199, 205]))
-        ).map((value) => Number(value) / 255);
+        const baseColor = (face.baseColor || [196, 199, 205]).map((value) => Number(value) / 255);
 
         vertices.forEach(pushPoint);
         for (let index = 1; index < vertices.length - 1; index++) {
           const triangle = [vertices[0], vertices[index], vertices[index + 1]];
+          const highlightSurfaceTarget = highlightTone === "exact"
+            ? (comparisonStyle ? null : exactHighlightSurfacePositions)
+            : (highlightTone === "changed" ? highlightSurfacePositions : null);
           for (const vertex of triangle) {
-            solidPositions.push(
+            const centeredVertex = [
               Number(vertex[0]) - preview.center[0],
               Number(vertex[1]) - preview.center[1],
-              Number(vertex[2]) - preview.center[2]
-            );
+              Number(vertex[2]) - preview.center[2],
+            ];
+            solidPositions.push(...centeredVertex);
             solidNormals.push(normal[0], normal[1], normal[2]);
             solidColors.push(baseColor[0], baseColor[1], baseColor[2]);
+            if (highlightSurfaceTarget) {
+              highlightSurfaceTarget.push(...centeredVertex);
+            }
           }
         }
       }
@@ -5505,9 +5756,9 @@ HTML = """<!doctype html>
           highlightComponents,
           highlightBodyKeys,
           highlightRawEdges,
-          exactHighlightComponents,
-          exactHighlightBodyKeys,
-          exactHighlightRawEdges,
+          exactHighlightComponents: surfaceExactHighlightComponents,
+          exactHighlightBodyKeys: surfaceExactHighlightBodyKeys,
+          exactHighlightRawEdges: surfaceExactHighlightRawEdges,
         });
         const targetPositions = edgeBodyKey && !surfaceBodyKeys.has(edgeBodyKey)
           ? fallbackEdgePositions
@@ -5528,7 +5779,7 @@ HTML = """<!doctype html>
           );
           if (highlightTone === "changed") {
             highlightEdgePositions.push(...centered);
-          } else if (highlightTone === "exact") {
+          } else if (highlightTone === "exact" && !comparisonStyle) {
             exactHighlightEdgePositions.push(...centered);
           }
           pushPoint(start);
@@ -5544,6 +5795,10 @@ HTML = """<!doctype html>
       let wireframe = null;
       let edgeLines = null;
       let fallbackEdgeLines = null;
+      let highlightSurfaceMesh = null;
+      let exactHighlightSurfaceMesh = null;
+      let highlightSurfaceWireframe = null;
+      let exactHighlightSurfaceWireframe = null;
       let highlightEdgeLines = null;
       let exactHighlightEdgeLines = null;
       let pointCloud = null;
@@ -5553,20 +5808,22 @@ HTML = """<!doctype html>
         solidGeometry.setAttribute("position", new THREE.Float32BufferAttribute(solidPositions, 3));
         solidGeometry.setAttribute("normal", new THREE.Float32BufferAttribute(solidNormals, 3));
         solidGeometry.setAttribute("color", new THREE.Float32BufferAttribute(solidColors, 3));
+        const solidMaterial = new THREE.MeshStandardMaterial({
+          vertexColors: true,
+          side: THREE.DoubleSide,
+          roughness: 0.58,
+          metalness: 0.08,
+          transparent: !comparisonStyle,
+          opacity: comparisonStyle ? 1 : 0.98,
+          polygonOffset: true,
+          polygonOffsetFactor: 1,
+          polygonOffsetUnits: 1,
+        });
         solidMesh = new THREE.Mesh(
           solidGeometry,
-          new THREE.MeshStandardMaterial({
-            vertexColors: true,
-            side: THREE.DoubleSide,
-            roughness: 0.58,
-            metalness: 0.08,
-            transparent: true,
-            opacity: 0.98,
-            polygonOffset: true,
-            polygonOffsetFactor: 1,
-            polygonOffsetUnits: 1,
-          })
+          solidMaterial
         );
+        solidMesh.renderOrder = 0;
         group.add(solidMesh);
 
         wireframe = new THREE.LineSegments(
@@ -5577,7 +5834,73 @@ HTML = """<!doctype html>
             opacity: 0.22,
           })
         );
+        wireframe.renderOrder = 1;
         group.add(wireframe);
+      }
+
+      if (highlightSurfacePositions.length) {
+        const highlightSurfaceGeometry = new THREE.BufferGeometry();
+        highlightSurfaceGeometry.setAttribute("position", new THREE.Float32BufferAttribute(highlightSurfacePositions, 3));
+        highlightSurfaceMesh = new THREE.Mesh(
+          highlightSurfaceGeometry,
+          new THREE.MeshBasicMaterial({
+            color: new THREE.Color("#ffbe66"),
+            transparent: false,
+            side: THREE.DoubleSide,
+            depthTest: true,
+            depthWrite: false,
+            toneMapped: false,
+            polygonOffset: true,
+            polygonOffsetFactor: -1,
+            polygonOffsetUnits: -1,
+          })
+        );
+        highlightSurfaceMesh.renderOrder = 3;
+        group.add(highlightSurfaceMesh);
+        highlightSurfaceWireframe = new THREE.LineSegments(
+          new THREE.WireframeGeometry(highlightSurfaceGeometry),
+          new THREE.LineBasicMaterial({
+            color: new THREE.Color("#ef6c00"),
+            transparent: true,
+            opacity: 0.96,
+            depthTest: true,
+            depthWrite: false,
+          })
+        );
+        highlightSurfaceWireframe.renderOrder = 5;
+        group.add(highlightSurfaceWireframe);
+      }
+
+      if (exactHighlightSurfacePositions.length) {
+        const exactHighlightSurfaceGeometry = new THREE.BufferGeometry();
+        exactHighlightSurfaceGeometry.setAttribute("position", new THREE.Float32BufferAttribute(exactHighlightSurfacePositions, 3));
+        exactHighlightSurfaceMesh = new THREE.Mesh(
+          exactHighlightSurfaceGeometry,
+          new THREE.MeshBasicMaterial({
+            color: new THREE.Color("#1e88e5"),
+            transparent: true,
+            opacity: 0.34,
+            side: THREE.FrontSide,
+            depthTest: true,
+            depthWrite: false,
+            toneMapped: false,
+            polygonOffset: false,
+          })
+        );
+        exactHighlightSurfaceMesh.renderOrder = 4;
+        group.add(exactHighlightSurfaceMesh);
+        exactHighlightSurfaceWireframe = new THREE.LineSegments(
+          new THREE.WireframeGeometry(exactHighlightSurfaceGeometry),
+          new THREE.LineBasicMaterial({
+            color: new THREE.Color("#1e88e5"),
+            transparent: true,
+            opacity: 0.78,
+            depthTest: true,
+            depthWrite: false,
+          })
+        );
+        exactHighlightSurfaceWireframe.renderOrder = 6;
+        group.add(exactHighlightSurfaceWireframe);
       }
 
       if (edgePositions.length) {
@@ -5591,6 +5914,7 @@ HTML = """<!doctype html>
             opacity: 0.26,
           })
         );
+        edgeLines.renderOrder = 1;
         group.add(edgeLines);
       }
 
@@ -5605,6 +5929,7 @@ HTML = """<!doctype html>
             opacity: 0.4,
           })
         );
+        fallbackEdgeLines.renderOrder = 1;
         group.add(fallbackEdgeLines);
       }
 
@@ -5616,9 +5941,12 @@ HTML = """<!doctype html>
           new THREE.LineBasicMaterial({
             color: new THREE.Color("#ef6c00"),
             transparent: true,
-            opacity: 0.96,
+            opacity: 0.98,
+            depthTest: true,
+            depthWrite: false,
           })
         );
+        highlightEdgeLines.renderOrder = 5;
         group.add(highlightEdgeLines);
       }
 
@@ -5631,8 +5959,11 @@ HTML = """<!doctype html>
             color: new THREE.Color("#1e88e5"),
             transparent: true,
             opacity: 0.98,
+            depthTest: true,
+            depthWrite: false,
           })
         );
+        exactHighlightEdgeLines.renderOrder = 6;
         group.add(exactHighlightEdgeLines);
       }
 
@@ -5650,7 +5981,21 @@ HTML = """<!doctype html>
         group.add(pointCloud);
       }
 
-      return { group, solidMesh, wireframe, edgeLines, fallbackEdgeLines, highlightEdgeLines, exactHighlightEdgeLines, pointCloud };
+      return {
+        compareStyle: comparisonStyle,
+        group,
+        solidMesh,
+        wireframe,
+        edgeLines,
+        fallbackEdgeLines,
+        highlightSurfaceMesh,
+        exactHighlightSurfaceMesh,
+        highlightSurfaceWireframe,
+        exactHighlightSurfaceWireframe,
+        highlightEdgeLines,
+        exactHighlightEdgeLines,
+        pointCloud,
+      };
     }
 
     function destroyViewport(viewport) {
@@ -5881,6 +6226,7 @@ HTML = """<!doctype html>
 
       const viewport = {
         canvas: canvasEl,
+        annotationCanvas: options.annotationCanvas || null,
         overlay: overlayEl,
         label: options.label || "Preview",
         side: options.side || null,
@@ -5895,6 +6241,7 @@ HTML = """<!doctype html>
         currentPreset: "iso",
         currentReportKey: null,
         currentHiddenKey: "",
+        currentCompareAnnotation: null,
         syncingFromPeer: false,
       };
 
@@ -5945,12 +6292,14 @@ HTML = """<!doctype html>
     async function ensureCompareViewport(side) {
       const canvasEl = byId(`compare-${side}-canvas`);
       if (!canvasEl) return null;
+      const annotationCanvasEl = byId(`compare-${side}-annotation-canvas`);
       const overlayEl = byId(`compare-${side}-overlay`);
       const existing = compareViewports[side];
-      if (existing?.canvas === canvasEl) return existing;
+      if (existing?.canvas === canvasEl && existing?.annotationCanvas === annotationCanvasEl) return existing;
       destroyViewport(existing);
       const modules = await ensureWebGlModules();
       const viewport = createWebGlViewport(modules, canvasEl, overlayEl, {
+        annotationCanvas: annotationCanvasEl,
         label: `${capitalizeLabel(side)} comparison preview`,
         side,
       });
@@ -5979,6 +6328,7 @@ HTML = """<!doctype html>
       }
 
       const objects = buildPreviewViewportObjects(viewport, preview, {
+        compareStyle: Boolean(options.compareAnnotation),
         highlightComponents: options.highlightComponents || [],
         highlightBodyKeys: options.highlightBodyKeys || [],
         highlightRawFaces: options.highlightRawFaces || [],
@@ -5993,6 +6343,7 @@ HTML = """<!doctype html>
       viewport.currentPreview = preview;
       viewport.currentReportKey = reportKey(resolvedReport);
       viewport.currentHiddenKey = JSON.stringify(hiddenPreviewBodiesForReport(resolvedReport));
+      viewport.currentCompareAnnotation = options.compareAnnotation || null;
       setViewportOverlay(viewport, "");
       applyPreviewViewportMode(viewport, options.mode || state.viewer.mode);
       if (options.fitView) {
@@ -6189,10 +6540,8 @@ HTML = """<!doctype html>
         context.componentIndex || 0
       );
       const componentId = identity.id;
-      const bodyRawKey = rawIdentityKey(
-        body?.metadata?.object_identity,
-        `body:${Number(body?.metadata?.nx_body_index || context.bodyIndex || 0)}`
-      );
+      const bodyRawKey = previewBodyRawKey(body, context.bodyIndex || 0);
+      const previewBodyId = previewBodyIndex(body, context.bodyIndex || 0);
       const componentName = componentLabel(body, identity, 1);
       const baseColor = displayColorFromProperties(
         bodyDisplay,
@@ -6209,7 +6558,7 @@ HTML = """<!doctype html>
       if (body.faces?.some((face) => face.vertices?.length)) {
         const faces = body.faces
           .filter((face) => face.vertices?.length && !isBlankedFromDisplay(face.metadata?.display_properties))
-          .map((face) => ({
+          .map((face, faceIndex) => ({
             name: face.name,
             axis: face.metadata?.axis || null,
             side: inferFaceSide(face),
@@ -6219,7 +6568,7 @@ HTML = """<!doctype html>
             bodyRawKey,
             rawFaceKey: rawIdentityKey(
               face.metadata?.object_identity,
-              `body:${Number(face.metadata?.source_body_index || body?.metadata?.nx_body_index || context.bodyIndex || 0)}:face:${Number(face.metadata?.source_face_index || 0)}`
+              `body:${Number(face.metadata?.source_body_index || previewBodyId)}:face:${Number(face.metadata?.source_face_index || faceIndex + 1)}`
             ),
             componentName,
             // Face-level NX color indices often vary across analytic/trim patches.
@@ -6229,7 +6578,7 @@ HTML = """<!doctype html>
           }));
         const edges = (body.edges || [])
           .filter((edge) => edge.points?.length >= 2 && !isBlankedFromDisplay(edge.display_properties))
-          .map((edge) => ({
+          .map((edge, edgeIndex) => ({
             kind: edge.kind || "edge",
             axis: edge.axis || null,
             points: edge.points.map((point) => point.map(Number)),
@@ -6237,7 +6586,7 @@ HTML = """<!doctype html>
             bodyRawKey,
             rawEdgeKey: rawIdentityKey(
               edge.object_identity,
-              `body:${Number(body?.metadata?.nx_body_index || context.bodyIndex || 0)}:edge:${Number(edge.source_edge_index || 0)}`
+              `body:${previewBodyId}:edge:${Number(edge.source_edge_index || edgeIndex + 1)}`
             ),
             componentName,
             strokeColor: displayColorFromProperties(edge.display_properties, baseColor),
@@ -6383,7 +6732,7 @@ HTML = """<!doctype html>
       if (body.metadata?.primitive === "wireframe" || body.edges?.some((edge) => edge.points?.length >= 2)) {
         const edges = (body.edges || [])
           .filter((edge) => edge.points?.length >= 2 && !isBlankedFromDisplay(edge.display_properties))
-          .map((edge) => ({
+          .map((edge, edgeIndex) => ({
             kind: edge.kind || "edge",
             axis: edge.axis || null,
             points: edge.points.map((point) => point.map(Number)),
@@ -6391,7 +6740,7 @@ HTML = """<!doctype html>
             bodyRawKey,
             rawEdgeKey: rawIdentityKey(
               edge.object_identity,
-              `body:${Number(body?.metadata?.nx_body_index || context.bodyIndex || 0)}:edge:${Number(edge.source_edge_index || 0)}`
+              `body:${previewBodyId}:edge:${Number(edge.source_edge_index || edgeIndex + 1)}`
             ),
             componentName,
             strokeColor: displayColorFromProperties(edge.display_properties, baseColor),
@@ -7145,7 +7494,7 @@ HTML = """<!doctype html>
     }
 
     function stepUploadCount(files) {
-      return [...(files || [])].filter((file) => /\.(step|stp)$/i.test(file?.name || "")).length;
+      return [...(files || [])].filter((file) => /\\.(step|stp)$/i.test(file?.name || "")).length;
     }
 
     function previewImportMessage(files) {
@@ -7192,6 +7541,14 @@ HTML = """<!doctype html>
       return average.map((value) => value / length);
     }
 
+    function scaleBrowserStepPoint(point) {
+      return [
+        Number(point[0] || 0) * 0.001,
+        Number(point[1] || 0) * 0.001,
+        Number(point[2] || 0) * 0.001,
+      ];
+    }
+
     function browserStepMeshToKernelBody(mesh, bodyIndex) {
       const positions = mesh?.attributes?.position?.array || [];
       const normals = mesh?.attributes?.normal?.array || [];
@@ -7204,7 +7561,7 @@ HTML = """<!doctype html>
         const triangle = [indices[triangleOffset], indices[triangleOffset + 1], indices[triangleOffset + 2]]
           .map((index) => Number(index));
         if (!triangle.every((index) => Number.isInteger(index) && index >= 0)) continue;
-        const vertices = triangle.map((index) => ([
+        const vertices = triangle.map((index) => scaleBrowserStepPoint([
           Number(positions[index * 3] || 0),
           Number(positions[(index * 3) + 1] || 0),
           Number(positions[(index * 3) + 2] || 0),
@@ -7248,7 +7605,7 @@ HTML = """<!doctype html>
         .filter((body) => (body.faces || []).length);
       const previewPoints = previewBodies.flatMap((body) => body.faces.flatMap((face) => face.vertices || []));
       const bounds = boundsFromPoints(previewPoints);
-      const partName = file.name.replace(/\.(step|stp)$/i, "") || file.name;
+      const partName = file.name.replace(/\\.(step|stp)$/i, "") || file.name;
 
       return {
         file: `uploaded:${file.name}`,
@@ -7267,7 +7624,7 @@ HTML = """<!doctype html>
         },
         transmit_info: {
           source_format: "step_file",
-          original_units: "Unknown",
+          original_units: "Millimeter",
         },
         decoded_names: [partName],
         density: null,
@@ -7288,7 +7645,7 @@ HTML = """<!doctype html>
         source_part_summary: {
           part_name: partName,
           leaf: file.name,
-          units: "Unknown",
+          units: "Millimeter",
         },
         source_bodies: [],
         source_body_count: previewBodies.length,
@@ -7302,7 +7659,7 @@ HTML = """<!doctype html>
           preview_points: previewPoints.slice(0, 1200),
           bounds,
           notable_scalar_values: [],
-          unit_inference: "STEP preview mesh was imported directly in the browser. Detailed topology and units may be refined after background analysis finishes.",
+          unit_inference: "STEP preview mesh was imported in millimeters and normalized to the app's meter-based comparison units. Detailed topology and units may be refined after background analysis finishes.",
         },
         preview_geometry_hints: {
           point_count: previewPoints.length,
@@ -7344,7 +7701,7 @@ HTML = """<!doctype html>
     }
 
     async function importBrowserStepPreviews(files) {
-      const stepFiles = [...(files || [])].filter((file) => /\.(step|stp)$/i.test(file?.name || ""));
+      const stepFiles = [...(files || [])].filter((file) => /\\.(step|stp)$/i.test(file?.name || ""));
       if (!stepFiles.length) return { reports: [], timing: { totalMs: 0, perFile: [] } };
 
       const importedReports = [];
@@ -7459,7 +7816,7 @@ HTML = """<!doctype html>
 
     function analyzeStepFilesInBackground(files) {
       [...files]
-        .filter((file) => /\.(step|stp)$/i.test(file.name))
+        .filter((file) => /\\.(step|stp)$/i.test(file.name))
         .forEach((file) => {
           const refinementKey = `uploaded:${file.name}::${file.name}`;
           if (pendingStepRefinements.has(refinementKey)) return;
@@ -7523,7 +7880,7 @@ HTML = """<!doctype html>
     async function loadUploads(files) {
       if (!files.length) return;
       const uploadFiles = [...files];
-      const stepFiles = uploadFiles.filter((file) => /\.(step|stp)$/i.test(file.name));
+      const stepFiles = uploadFiles.filter((file) => /\\.(step|stp)$/i.test(file.name));
       const browserPreviewPromise = stepFiles.length ? importBrowserStepPreviews(uploadFiles) : Promise.resolve([]);
       const uploadPromise = uploadFilesWithProgress(uploadFiles);
       const importStartedAt = nowMs();
