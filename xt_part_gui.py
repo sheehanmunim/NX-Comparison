@@ -8650,6 +8650,22 @@ self.onmessage = async (event) => {
 
       const [left, right] = reports;
       const diff = mergeCompareResults(currentCompareBaseDiff(left, right), compareMlResult(left, right));
+      const showHighlights = state.compareHighlightsVisible !== false;
+      const showCallouts = state.compareCalloutsVisible !== false;
+      const leftHighlightComponents = showHighlights ? diff.highlightComponents.left : [];
+      const rightHighlightComponents = showHighlights ? diff.highlightComponents.right : [];
+      const leftHighlightBodyKeys = showHighlights ? diff.highlightBodyKeys.left : [];
+      const rightHighlightBodyKeys = showHighlights ? diff.highlightBodyKeys.right : [];
+      const leftHighlightRawFaces = showHighlights ? diff.highlightRawFaces.left : [];
+      const rightHighlightRawFaces = showHighlights ? diff.highlightRawFaces.right : [];
+      const leftHighlightRawEdges = showHighlights ? diff.highlightRawEdges.left : [];
+      const rightHighlightRawEdges = showHighlights ? diff.highlightRawEdges.right : [];
+      const leftExactHighlightBodyKeys = showHighlights ? diff.exactHighlightBodyKeys.left : [];
+      const rightExactHighlightBodyKeys = showHighlights ? diff.exactHighlightBodyKeys.right : [];
+      const leftExactHighlightRawFaces = showHighlights ? diff.exactHighlightRawFaces.left : [];
+      const rightExactHighlightRawFaces = showHighlights ? diff.exactHighlightRawFaces.right : [];
+      const leftExactHighlightRawEdges = showHighlights ? diff.exactHighlightRawEdges.left : [];
+      const rightExactHighlightRawEdges = showHighlights ? diff.exactHighlightRawEdges.right : [];
       Promise.all([
         ensureCompareViewport("left"),
         ensureCompareViewport("right"),
