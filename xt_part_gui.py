@@ -2289,6 +2289,8 @@ HTML = """<!doctype html>
       "compareNumericLists",
       "compareValueEntries",
       "positionedEntryShiftDelta",
+      "positionedValuePairScore",
+      "matchSameValuePositionedEntries",
       "comparePositionedValueEntries",
       "circularEdgeDiameters",
       "circularEdgeEntries",
@@ -5402,6 +5404,55 @@ self.onmessage = async (event) => {
       return null;
     }
 
+    function positionedValuePairScore(leftEntry, rightEntry) {
+      if (!leftEntry || !rightEntry) return Infinity;
+      const positionDelta = positionedEntryShiftDelta(leftEntry, rightEntry);
+      let score = positionDelta !== null ? positionDelta : 0;
+      if (leftEntry.key && rightEntry.key && leftEntry.key === rightEntry.key) {
+        score -= Math.max(DIMENSION_TOLERANCE * 4, 1e-6);
+      }
+      if (leftEntry.label && rightEntry.label && leftEntry.label === rightEntry.label) {
+        score -= Math.max(DIMENSION_TOLERANCE, 1e-6);
+      }
+      return score;
+    }
+
+    function matchSameValuePositionedEntries(leftEntries, rightEntries, valueTolerance = DIMENSION_TOLERANCE) {
+      const pairCandidates = [];
+      leftEntries.forEach((leftEntry, leftIndex) => {
+        rightEntries.forEach((rightEntry, rightIndex) => {
+          if (!rightEntry) return;
+          if (Math.abs(rightEntry.value - leftEntry.value) > valueTolerance) return;
+          pairCandidates.push({
+            leftIndex,
+            rightIndex,
+            score: positionedValuePairScore(leftEntry, rightEntry),
+          });
+        });
+      });
+
+      pairCandidates.sort((a, b) => a.score - b.score);
+      const pairs = [];
+      const matchedLeftIndexes = new Set();
+      const matchedRightIndexes = new Set();
+      pairCandidates.forEach((pair) => {
+        if (matchedLeftIndexes.has(pair.leftIndex) || matchedRightIndexes.has(pair.rightIndex)) return;
+        matchedLeftIndexes.add(pair.leftIndex);
+        matchedRightIndexes.add(pair.rightIndex);
+        pairs.push({
+          left: leftEntries[pair.leftIndex],
+          right: rightEntries[pair.rightIndex],
+          score: pair.score,
+        });
+      });
+
+      return {
+        pairs,
+        matchedLeftIndexes,
+        matchedRightIndexes,
+      };
+    }
+
     function comparePositionedValueEntries(
       leftEntries,
       rightEntries,
@@ -5417,12 +5468,30 @@ self.onmessage = async (event) => {
         .sort((a, b) => a.value - b.value);
 
       const changes = [];
+      const sameValueMatches = matchSameValuePositionedEntries(left, right, valueTolerance);
+      const sameValueShiftPairs = sameValueMatches.pairs
+        .map(({ left: leftEntry, right: rightEntry }) => {
+          const positionDelta = positionedEntryShiftDelta(leftEntry, rightEntry);
+          if (positionDelta === null || positionDelta <= positionTolerance) return null;
+          return {
+            kind: "shifted",
+            left: leftEntry,
+            right: rightEntry,
+            delta: positionDelta,
+            valueDelta: rightEntry.value - leftEntry.value,
+            positionDelta,
+          };
+        })
+        .filter(Boolean);
+      sameValueShiftPairs.slice(0, maxChanges).forEach((change) => changes.push(change));
+      const remainingLeft = left.filter((entry, index) => !sameValueMatches.matchedLeftIndexes.has(index));
+      const remainingRight = right.filter((entry, index) => !sameValueMatches.matchedRightIndexes.has(index));
       let leftIndex = 0;
       let rightIndex = 0;
 
-      while (leftIndex < left.length || rightIndex < right.length) {
-        const leftEntry = leftIndex < left.length ? left[leftIndex] : null;
-        const rightEntry = rightIndex < right.length ? right[rightIndex] : null;
+      while ((leftIndex < remainingLeft.length || rightIndex < remainingRight.length) && changes.length < maxChanges) {
+        const leftEntry = leftIndex < remainingLeft.length ? remainingLeft[leftIndex] : null;
+        const rightEntry = rightIndex < remainingRight.length ? remainingRight[rightIndex] : null;
 
         if (leftEntry && rightEntry && Math.abs(rightEntry.value - leftEntry.value) <= valueTolerance) {
           const positionDelta = positionedEntryShiftDelta(leftEntry, rightEntry);
@@ -5453,10 +5522,15 @@ self.onmessage = async (event) => {
           rightIndex += 1;
         }
 
-        if (changes.length >= maxChanges) break;
       }
 
-      return { changes, truncated: leftIndex < left.length || rightIndex < right.length };
+      return {
+        changes,
+        truncated:
+          sameValueShiftPairs.length > maxChanges
+          || (changes.length >= maxChanges && (leftIndex < remainingLeft.length || rightIndex < remainingRight.length))
+          || false,
+      };
     }
 
     function circularEdgeDiameters(body, lengthScale = 1) {
